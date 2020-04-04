@@ -17,7 +17,7 @@ let Name = styled.div`
 `
 
 let Title = styled.h1`
-  font-size: 4em;
+  font-size: 4rem;
 `
 
 const Landing = () => (
