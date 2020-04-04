@@ -2,6 +2,8 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from "gatsby"
 
+import { Example } from './logo'
+
 let View = styled.div`
   height: 80vh;
   background-color: #FFE7F0;
@@ -21,13 +23,16 @@ let Title = styled.h1`
 `
 
 const Landing = () => (
-  <View>
-    <Link to='/'>
-      <Name>
-        <Title>Jacob</Title><Title>Lapworth</Title>
-      </Name>
-    </Link>
-  </View>
+  <>
+    <View>
+      <Link to='/'>
+        <Name>
+          <Title>Jacob</Title><Title>Lapworth</Title>
+        </Name>
+      </Link>
+    </View>
+    {/* <Example></Example> */}
+  </>
 
 );
 
