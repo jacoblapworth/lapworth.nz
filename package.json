@@ -1,9 +1,9 @@
 {
-  "name": "typescript-nextjs-starter",
-  "description": "A TypeScript starter for Next.js that includes all you need to build amazing projects",
+  "name": "lapworth-nz",
+  "description": "Kopaki – personal website for J Lapworth",
   "version": "1.0.0",
   "private": true,
-  "author": "João Pedro Schmitz <oi@joaopedro.cc> (joaopedro.cc)",
+  "author": "Jacob Lapworth <jacob@lapworth.nz> (lapworth.nz)",
   "license": "MIT",
   "keywords": [
     "nextjs",
