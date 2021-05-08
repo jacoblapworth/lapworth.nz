@@ -5,18 +5,27 @@ export default function Home() {
   return (
     <Page>
       <div className="h-screen">
-        <div className="flex flex-col justify-between h-3/6 p-6">
+        <div>Jacob Lapworth</div>
+        <div>
+          <div>@jacoblapworth</div>
+          <div>jacob@lapworth.nz</div>
+          <div>0277271661</div>
+        </div>
+        <div>
+          <span>Auckland,</span>
+          <span>New Zealand</span>
+        </div>
+        <div>-36.862600º, 174.741270º</div>
+        <div>
+          <span>Product</span>
+          <span>Designer</span>
+        </div>
+        <div>
+          <div>Design Systems</div>
           <div>
-            <div>Product designer</div>
-            <div>Akl, NZ</div>
-          </div>
-
-          <div className="font-serif font-thin text-8xl md:text-9xl flex flex-wrap justify-between">
-            <div>Jacob</div>
-            <div>Lapworth</div>
+            <a href="">@Xero</a>{' '}
           </div>
         </div>
-        <div className="bg-pink-50 h-1/2 -mt-8"></div>
       </div>
     </Page>
   )
