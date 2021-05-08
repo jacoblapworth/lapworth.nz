@@ -18,4 +18,10 @@
     font-weight: 500;
     src: url(/fonts/proxima-nova/medium.woff) format('woff');
   }
+
+  @font-face {
+    font-family: 'Sectra';
+    font-weight: 700;
+    src: url(/fonts/sectra/Bold.woff) format('woff');
+  }
 }

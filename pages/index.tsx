@@ -1,31 +1,46 @@
-import Button from 'components/Button'
-import Page from 'components/Page'
+import Button from '@/components/Button'
+import Header from '@/components/Header'
+import Page from '@/components/Page'
+import Text from '@/components/Text'
+import Link from '@/components/Link'
 
 export default function Home() {
   return (
-    <Page>
-      <div className="h-screen">
-        <div>Jacob Lapworth</div>
-        <div>
-          <div>@jacoblapworth</div>
-          <div>jacob@lapworth.nz</div>
-          <div>0277271661</div>
-        </div>
-        <div>
-          <span>Auckland,</span>
-          <span>New Zealand</span>
-        </div>
-        <div>-36.862600º, 174.741270º</div>
-        <div>
-          <span>Product</span>
-          <span>Designer</span>
-        </div>
-        <div>
+    <Page className="min-h-screen flex flex-col">
+      <div className="flex flex-col flex-grow justify-center text-center uppercase font-serif">
+        <Text variant="large">Jacob Lapworth</Text>
+        <Text variant="small">
+          <div>
+            <Link href="https://instagram.com/jacoblapworth">
+              @jacoblapworth
+            </Link>
+          </div>
+          <div>
+            <Link sameTab href="mailto:jacob@lapworth.nz">
+              jacob@lapworth.nz
+            </Link>
+          </div>
+          <div>
+            <Link sameTab href="tel:+64277271661">
+              0277271661
+            </Link>
+          </div>
+        </Text>
+        <Text variant="large">
+          Auckland, <br />
+          New Zealand
+        </Text>
+        <Text variant="small">-36.862600º, 174.741270º</Text>
+        <Text variant="large">
+          Product <br />
+          Designer
+        </Text>
+        <Text variant="small">
           <div>Design Systems</div>
           <div>
-            <a href="">@Xero</a>{' '}
+            <Link href="https://xero.com">@Xero</Link>
           </div>
-        </div>
+        </Text>
       </div>
     </Page>
   )
