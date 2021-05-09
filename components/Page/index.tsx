@@ -1,3 +1,5 @@
+import CN from 'classnames'
+
 import Header from '@/components/Header'
 
 interface Props {
@@ -7,13 +9,16 @@ interface Props {
 
 const Page = ({
   hideNav,
+  className,
   children,
   ...rest
 }: Props & React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <>
       {!hideNav && <Header />}
-      <main {...rest}>{children}</main>
+      <main className={CN('pt-12', className)} {...rest}>
+        {children}
+      </main>
     </>
   )
 }
