@@ -1,0 +1,17 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create Pull Request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: 'main'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
