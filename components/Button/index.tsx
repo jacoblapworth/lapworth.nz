@@ -7,7 +7,7 @@ interface Props {
 
 const Button: React.FC<Props> = ({ children, href, ...rest }) => {
   return (
-    <Link href={href}>
+    <Link href={href} passHref>
       <button {...rest}>{children}</button>
     </Link>
   )
