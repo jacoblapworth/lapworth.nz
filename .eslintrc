@@ -5,5 +5,20 @@
   ],
   "plugins": [
     "prettier"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "pages/api/**/*"
+      ],
+      "rules": {
+        "import/no-anonymous-default-export": [
+          0,
+          {
+            "allowAnonymousFunction": true
+          }
+        ]
+      }
+    }
   ]
 }
