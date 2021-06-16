@@ -1,8 +1,6 @@
-import Button from '@/components/Button'
-import Header from '@/components/Header'
-import Page from '@/components/Page'
-import Text from '@/components/Text'
-import Link from '@/components/Link'
+import Link from '@components/Link'
+import Page from '@components/Page'
+import Text from '@components/Text'
 
 export default function Home() {
   return (
