@@ -1,4 +1,5 @@
 import SEO from './SEO'
+import { ThemeProvider } from './ThemeColor'
 
 interface Props {
   children?: React.ReactNode
@@ -7,8 +8,10 @@ interface Props {
 export default function Providers({ children }: Props) {
   return (
     <>
-      <SEO />
-      {children}
+      <ThemeProvider>
+        <SEO />
+        {children}
+      </ThemeProvider>
     </>
   )
 }
