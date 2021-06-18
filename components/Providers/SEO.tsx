@@ -2,9 +2,11 @@ import { defaultSEO } from '@config/seo'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { useTheme } from './ThemeColor'
 
 export default function SEO() {
   const router = useRouter()
+  const { color } = useTheme()
 
   let emoji = '🌈'
   if (router.route.indexOf('/about') === 0) emoji = '👋'
@@ -24,14 +26,10 @@ export default function SEO() {
         <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
         <meta
           name="theme-color"
-          content="#fff"
+          content={color}
+          // TODO: wait for <meta media> type support
           // media="(prefers-color-scheme: light)"
         />
-        {/* <meta
-          name="theme-color"
-          content="#0b3e05"
-          media="(prefers-color-scheme: dark)"
-        /> */}
       </Head>
     </>
   )

@@ -1,35 +1,25 @@
 import Page from '@components/Page'
-import { NextSeo } from 'next-seo'
-import { ChangeEventHandler, useState } from 'react'
+import { useTheme } from '@components/Providers/ThemeColor'
+import cn from 'classnames'
+import { ChangeEventHandler } from 'react'
 
 export default function Home() {
-  const [state, setstate] = useState('#fff')
+  const { color, setColor } = useTheme()
 
   const handleColor: ChangeEventHandler<HTMLInputElement> = (e) => {
-    console.log(e.currentTarget.value)
-    setstate(e.currentTarget.value)
+    setColor(e.currentTarget.value)
   }
 
-  // #dabdc0
   return (
-    <>
-      <NextSeo
-        description="A short description goes here."
-        additionalMetaTags={[
-          {
-            property: 'theme-color',
-            content: state,
-          },
-        ]}
-      />
-      <Page
-        className="min-h-screen flex flex-col"
-        style={{ backgroundColor: state }}
-      >
-        <div className="flex flex-col flex-grow justify-center text-center uppercase font-serif">
-          <input type="color" value={state} onChange={handleColor} />
-        </div>
-      </Page>
-    </>
+    <Page className="min-h-screen flex flex-col">
+      <div className="m-4 flex flex-col flex-grow text-center uppercase font-serif">
+        <input
+          className={cn('w-12', 'h-12', 'rounded-full', 'border-2')}
+          type="color"
+          value={color}
+          onChange={handleColor}
+        />
+      </div>
+    </Page>
   )
 }
