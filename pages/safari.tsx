@@ -1,14 +1,18 @@
 import Page from '@components/Page'
 import { useTheme } from '@components/Providers/ThemeColor'
 import cn from 'classnames'
-import { ChangeEventHandler } from 'react'
+import { ChangeEventHandler, useEffect } from 'react'
 
 export default function Home() {
-  const { color, setColor } = useTheme()
+  const { color, setColor, randomColor } = useTheme()
 
   const handleColor: ChangeEventHandler<HTMLInputElement> = (e) => {
     setColor(e.currentTarget.value)
   }
+
+  useEffect(() => {
+    randomColor()
+  }, [])
 
   return (
     <Page className="min-h-screen flex flex-col">
