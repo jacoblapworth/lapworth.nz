@@ -12,7 +12,7 @@ export default function Home() {
 
   useEffect(() => {
     randomColor()
-  }, [])
+  }, [randomColor])
 
   return (
     <Page className="min-h-screen flex flex-col">
