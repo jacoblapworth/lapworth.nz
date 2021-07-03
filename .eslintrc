@@ -1,11 +1,16 @@
 {
   "extends": [
     "prettier",
-    "next"
+    "next",
+    "plugin:cypress/recommended"
   ],
   "plugins": [
-    "prettier"
+    "prettier",
+    "cypress"
   ],
+  "env": {
+    "cypress/globals": true
+  },
   "overrides": [
     {
       "files": [
