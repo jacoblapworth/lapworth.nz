@@ -5,15 +5,21 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import fragmentShader from './shader.glsl'
 
 function Mesh() {
-  const ref = useRef<THREE.ShaderMaterial>(null)
+  const meshRef =
+    useRef<THREE.Mesh<THREE.PlaneBufferGeometry, THREE.ShaderMaterial>>(null)
+  const materialRef = useRef<THREE.ShaderMaterial>(null)
   const darkColor = chroma('#f79c99')
   const lightColor = chroma('#f1f4dc')
   var latestDark = darkColor.gl()
   var latestLight = lightColor.gl()
 
   const uniforms = {
-    // u_time: { value: 0 },
-    // u_resolution: { value: new THREE.Vector3() },
+    u_time: {
+      value: 1,
+    },
+    // u_resolution: {
+    //   value: new THREE.Vector3(2000),
+    // },
     u_extcolor1: {
       value: new THREE.Vector3(latestDark[0], latestDark[1], latestDark[2]),
     },
@@ -22,15 +28,17 @@ function Mesh() {
     },
   }
 
-  // useFrame(({ clock }) => {
-  //   console.log(ref)
-  //   ref.current.uniforms.u_time.value = clock.getElapsedTime()
-  // })
+  useFrame(({ clock }) => {
+    if (!meshRef.current || !materialRef.current) return
+    // meshRef.current.material.uniforms.u_time.value =
+    //   clock.getElapsedTime()
+    // materialRef.current.uniforms.u_time.value = clock.getElapsedTime() + 1.0
+  })
 
   return (
-    <mesh>
+    <mesh ref={meshRef}>
       <shaderMaterial
-        ref={ref}
+        ref={materialRef}
         uniforms={uniforms}
         fragmentShader={fragmentShader}
       />
