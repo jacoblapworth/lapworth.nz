@@ -14,12 +14,14 @@ function Mesh() {
   var latestDark = darkColor.gl().slice(0, 3)
   var latestLight = lightColor.gl().slice(0, 3)
 
+  const { width, height } = useWindowSize()
+
   const uniforms = {
     u_time: {
       value: 0,
     },
     u_resolution: {
-      value: new Vector2(200),
+      value: new Vector2(width, height),
     },
     u_extcolor1: {
       value: new Vector3(...latestDark),
