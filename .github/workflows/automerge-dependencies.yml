@@ -1,0 +1,24 @@
+name: Auto Merge Dependency Updates
+
+# **What it does**: Automatically merge pull requests from dependabot.
+# **Why we have it**: To keep our dependencies up-to-date, to avoid security issues.
+# **Who does it impact**: It helps me focus on higher value work.
+
+on:
+  pull_request:
+    paths:
+      - 'package*.json'
+      - '.github/workflows/**'
+  pull_request_review:
+    types:
+      - edited
+      - submitted
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tjenkinson/gh-action-auto-merge-dependency-updates@1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          allowed-actors: dependabot[bot]
