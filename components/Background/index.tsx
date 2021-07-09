@@ -1,58 +1,63 @@
-import { useRef } from 'react'
-import * as THREE from 'three'
-import chroma from 'chroma-js'
+import { useEffect, useRef } from 'react'
+import { ShaderMaterial, Vector3, Vector2 } from 'three'
 import { Canvas, useFrame } from '@react-three/fiber'
+import chroma from 'chroma-js'
 import fragmentShader from './shader.glsl'
+import { useWindowSize } from '../Hooks/useWindowSize'
+import { useTheme } from '@components/Providers/ThemeColor'
+import Page from '@components/Page'
 
 function Mesh() {
-  const meshRef =
-    useRef<THREE.Mesh<THREE.PlaneBufferGeometry, THREE.ShaderMaterial>>(null)
-  const materialRef = useRef<THREE.ShaderMaterial>(null)
+  const materialRef = useRef<ShaderMaterial>(null)
   const darkColor = chroma('#f79c99')
   const lightColor = chroma('#f1f4dc')
-  var latestDark = darkColor.gl()
-  var latestLight = lightColor.gl()
+  var latestDark = darkColor.gl().slice(0, 3)
+  var latestLight = lightColor.gl().slice(0, 3)
 
   const uniforms = {
     u_time: {
-      value: 1,
+      value: 0,
     },
-    // u_resolution: {
-    //   value: new THREE.Vector3(2000),
-    // },
+    u_resolution: {
+      value: new Vector2(200),
+    },
     u_extcolor1: {
-      value: new THREE.Vector3(latestDark[0], latestDark[1], latestDark[2]),
+      value: new Vector3(...latestDark),
     },
     u_extcolor2: {
-      value: new THREE.Vector3(latestLight[0], latestLight[1], latestLight[2]),
+      value: new Vector3(...latestLight),
     },
   }
 
   useFrame(({ clock }) => {
-    if (!meshRef.current || !materialRef.current) return
-    // meshRef.current.material.uniforms.u_time.value =
-    //   clock.getElapsedTime()
-    // materialRef.current.uniforms.u_time.value = clock.getElapsedTime() + 1.0
+    if (!materialRef.current) return
+    materialRef.current.uniforms.u_time.value = clock.getElapsedTime()
   })
 
   return (
-    <mesh ref={meshRef}>
+    <mesh>
       <shaderMaterial
         ref={materialRef}
         uniforms={uniforms}
         fragmentShader={fragmentShader}
       />
-      <planeGeometry args={[10, 10]} />
+      <planeGeometry args={[100, 10]} />
     </mesh>
   )
 }
 
 export default function WebGL() {
+  const { setColor } = useTheme()
+
+  useEffect(() => {
+    setColor('#f1f4dc')
+  }, [])
+
   return (
-    <div id="canvas-container" className="h-screen">
+    <Page id="canvas-container" className="h-screen">
       <Canvas>
         <Mesh />
       </Canvas>
-    </div>
+    </Page>
   )
 }
