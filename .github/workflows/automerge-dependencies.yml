@@ -1,4 +1,4 @@
-name: Auto Merge Dependency Updates
+name: Auto merge
 
 # **What it does**: Automatically merge pull requests from dependabot.
 # **Why we have it**: To keep our dependencies up-to-date, to avoid security issues.
@@ -16,10 +16,10 @@ on:
 
 jobs:
   run:
+    name: Dependabot
     runs-on: ubuntu-latest
     steps:
       - name: Auto Merge Dependency Updates
-        uses: tjenkinson/gh-action-auto-merge-dependency-updates@v1.1.1
+        uses: fastify/github-action-merge-dependabot@v2.1.1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          allowed-actors: dependabot[bot]
+          github-token: ${{ secrets.GITHUB_TOKEN }}
