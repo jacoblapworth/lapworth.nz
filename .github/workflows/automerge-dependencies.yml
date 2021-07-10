@@ -5,14 +5,10 @@ name: Auto merge
 # **Who does it impact**: It helps me focus on higher value work.
 
 on:
-  pull_request:
+  pull_request_target:
     paths:
       - 'package*.json'
       - '.github/workflows/**'
-  pull_request_review:
-    types:
-      - edited
-      - submitted
 
 jobs:
   run:
@@ -20,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Auto Merge Dependency Updates
-        uses: fastify/github-action-merge-dependabot@v2.1.1
+        uses: tjenkinson/gh-action-auto-merge-dependency-updates@v1.1.1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          allowed-actors: dependabot[bot]
