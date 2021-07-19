@@ -5,7 +5,7 @@ name: Auto merge
 # **Who does it impact**: It helps me focus on higher value work.
 
 on:
-  pull_request_target:
+  pull_request:
     paths:
       - 'package*.json'
       - '.github/workflows/**'
@@ -18,6 +18,7 @@ jobs:
       - name: Auto Merge Dependency Updates
         uses: tjenkinson/gh-action-auto-merge-dependency-updates@v1.1.1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GH_MERGE_PAT }}
           allowed-actors: dependabot[bot], jacoblapworth
-          merge-method: rebase
+          approve: false
+          merge-method: merge
