@@ -42,8 +42,8 @@ jobs:
       - name: Lint
         run: npm run lint
 
-  cypress:
-    name: Cypress
+  test:
+    name: Test
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -52,7 +52,12 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
-      - name: Cypress run
+      - name: Cypress
         uses: cypress-io/github-action@v2
         with:
           start: npm run start
+        env:
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
