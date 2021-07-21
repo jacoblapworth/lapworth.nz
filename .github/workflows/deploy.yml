@@ -6,8 +6,8 @@ on:
       - development
 
 jobs:
-  create-pull-request:
-    name: Create Pull Request
+  pull-request:
+    name: PR
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
