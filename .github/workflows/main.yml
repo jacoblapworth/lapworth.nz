@@ -15,8 +15,6 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-        env:
-          CYPRESS_CACHE_FOLDER: ${{ github.workspace }}/.cache/Cypress
       - name: Next build cache
         uses: actions/cache@v2
         with:
@@ -27,7 +25,7 @@ jobs:
       - name: Project cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/*
+          path: ~/*
           key: ${{ github.sha }}
 
   Lint:
@@ -37,7 +35,7 @@ jobs:
       - name: Project cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/*
+          path: ~/*
           key: ${{ github.sha }}
       - name: Lint
         run: npm run lint
@@ -49,7 +47,7 @@ jobs:
       - name: Project cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/*
+          path: ~/*
           key: ${{ github.sha }}
       - name: Cypress
         uses: cypress-io/github-action@v2
