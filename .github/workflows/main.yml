@@ -1,6 +1,6 @@
 name: CI
 on:
-  push:
+  pull_request_target:
   workflow_dispatch:
 jobs:
   Build:
@@ -13,8 +13,8 @@ jobs:
         with:
           node-version: '14'
           cache: 'npm'
-      - name: npm install (with cache)
-        uses: bahmutov/npm-install@v1
+      - name: Install dependencies
+        run: npm install
       - name: Next build cache
         uses: actions/cache@v2
         with:
@@ -25,9 +25,7 @@ jobs:
       - name: Project cache
         uses: actions/cache@v2
         with:
-          path: |
-            ./*
-            ~/.cache/*
+          path: ${{ github.workspace }}/*
           key: ${{ github.sha }}
 
   Lint:
@@ -37,9 +35,7 @@ jobs:
       - name: Project cache
         uses: actions/cache@v2
         with:
-          path: |
-            ./*
-            ~/.cache/*
+          path: ${{ github.workspace }}/*
           key: ${{ github.sha }}
       - name: Lint
         run: npm run lint
@@ -51,9 +47,7 @@ jobs:
       - name: Project cache
         uses: actions/cache@v2
         with:
-          path: |
-            ./*
-            ~/.cache/*
+          path: ${{ github.workspace }}/*
           key: ${{ github.sha }}
       - name: Cypress
         uses: cypress-io/github-action@v2
