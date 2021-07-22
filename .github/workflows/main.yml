@@ -25,7 +25,7 @@ jobs:
       - name: Project cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}
+          path: ${{ github.workspace }}/*
           key: ${{ github.sha }}
 
   Lint:
@@ -35,7 +35,7 @@ jobs:
       - name: Project cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}
+          path: ${{ github.workspace }}/*
           key: ${{ github.sha }}
       - name: Lint
         run: npm run lint
@@ -47,7 +47,7 @@ jobs:
       - name: Project cache
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}
+          path: ${{ github.workspace }}/*
           key: ${{ github.sha }}
       - name: Cypress
         uses: cypress-io/github-action@v2
