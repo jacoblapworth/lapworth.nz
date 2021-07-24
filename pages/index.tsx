@@ -18,11 +18,6 @@ export default function Home() {
               jacob@lapworth.nz
             </Link>
           </div>
-          <div>
-            <Link sameTab href="tel:+64277271661">
-              0277271661
-            </Link>
-          </div>
         </Text>
         <Text variant="large">
           Auckland, <br />
