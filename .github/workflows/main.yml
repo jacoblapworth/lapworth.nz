@@ -8,6 +8,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Use Node
         uses: actions/setup-node@v2.3.0
         with:
