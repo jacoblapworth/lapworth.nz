@@ -1,0 +1,128 @@
+import * as THREE from 'three'
+import { Canvas, extend } from '@react-three/fiber'
+import { shaderMaterial } from '@react-three/drei'
+import glsl from 'glslify'
+
+const ColorShiftMaterial = shaderMaterial(
+  { time: 0, color: new THREE.Color(0.2, 0.0, 0.1) },
+  // vertex shader
+  glsl`
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  // fragment shader
+  glsl`
+    uniform float time;
+    uniform vec3 color;
+    varying vec2 vUv;
+    void main() {
+      gl_FragColor.rgba = vec4(0.5 + 0.3 * sin(vUv.yxx + time) + color, 1.0);
+    }
+  `,
+)
+
+extend({ ColorShiftMaterial })
+const fragmentShader = glsl`
+  #include <common>
+
+  uniform vec3 iResolution;
+  uniform float iTime;
+  uniform vec3 extcolor1;
+  uniform vec3 extcolor2;
+
+  // By iq: https://www.shadertoy.com/user/iq  
+  // license: Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+  mat2 rotate2d(float angle){
+    return mat2(cos(angle),-sin(angle),
+                sin(angle),cos(angle));
+}
+float gradientNoise(in vec2 uv)
+{
+    const vec3 magic = vec3(0.06711056, 0.00583715, 52.9829189);
+    return fract(magic.z * fract(dot(uv, magic.xy)));
+}
+float variation(vec2 v1, vec2 v2, float strength, float speed) {
+	return sin(
+        dot(normalize(v1), normalize(v2)) * strength + iTime * speed
+    ) / 100.0;
+}
+
+vec3 paintCircle (vec2 uv, vec2 center, float rad, float width) {
+    
+    vec2 diff = center-uv;
+    float len = length(diff);
+
+    len += variation(diff, vec2(0.0, 1.0), 5.0, 1.0);
+    len -= variation(diff, vec2(1.0, 0.0), 5.0, 1.0);
+    
+    float circle = smoothstep(rad-width, rad, len) - smoothstep(rad, rad+width, len);
+    return vec3(circle);
+}
+
+
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
+{
+	vec2 uv = fragCoord.xy / iResolution.xy;
+    uv.x *= 1.5;
+    uv.x -= 0.25;
+    
+    vec3 color;
+    vec3 color2;
+    float radius = 0.5;
+    vec2 center = vec2(0.5);
+    vec2 v = rotate2d(iTime * 0.1) * uv;
+    vec2 v3 = rotate2d(iTime * 0.3) * uv;
+    vec2 v5 = rotate2d(iTime * 0.5) * uv;
+     
+    color = paintCircle(uv * v5, center * v3, 1.0 * v.x, 1.5);
+    color2 = paintCircle(uv * v3, vec2(0.2) * v, 1.0 * v3.x, 1.3);
+        
+    color *= vec3(v5.x, v5.x, v5.x);
+    v = rotate2d(iTime * -0.3) * uv;
+    color2 *= vec3(v.y, v.y, v.y);
+    vec3 finalColor = color + color2;
+
+    float grayscaleValue = clamp(dot(finalColor.rgb, vec3(0.299, 0.587, 0.114)), 0.0, 0.95);
+    vec3 preComp = mix(extcolor2, extcolor1, grayscaleValue);
+    preComp += (1.0/255.0) * gradientNoise(fragCoord) - (0.5/255.0);
+
+    float strength = 8.0;
+    
+    float x = (uv.x + 0.5) * (uv.y + 0.5) * (iTime * 1.0);
+    vec4 grain = vec4(mod((mod(x, 13.0) + 1.0) * (mod(x, 123.0) + 1.0), 0.01)-0.005) * strength;
+    
+
+    
+    if(uv.x > 0.5)
+    {
+    	grain = 1.0 - grain;
+		  fragColor = vec4(preComp, 1.0) * grain;
+    }
+    else
+    {
+		fragColor = vec4(preComp, 1.0) + grain;
+    }
+
+}
+
+
+
+  void main() {
+    mainImage(gl_FragColor, gl_FragCoord.xy);
+  }
+  `
+
+export default function Me(props) {
+  return (
+    <div id="canvas-container" className="h-screen">
+      <Canvas>
+        <mesh>
+          <planeGeometry args={[10, 10]} />
+        </mesh>
+      </Canvas>
+    </div>
+  )
+}
