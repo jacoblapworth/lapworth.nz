@@ -2,17 +2,17 @@ export const baseUrl = 'https://lapworth.nz'
 export const baseEmail = 'jacob@lapworth.nz'
 
 export const defaultSEO = {
-  title: 'Jacob Lapworth',
+  title: 'Jacob Lapworth — Product designer',
   description:
-    'Product designer, living in Auckland, NZ. Currently scaling the design system at Xero.',
+    'Jacob is a product designer, living in Auckland, New Zealand. Currently scaling the design system at Xero.',
   openGraph: {
     type: 'website',
     locale: 'en_NZ',
     url: baseUrl,
-    site_name: 'Jacob Lapworth',
+    site_name: 'Jacob Lapworth — Product designer',
     images: [
       {
-        url: `${baseUrl}/meta/og-image.png`,
+        url: `${baseUrl}/static/og-image.png`,
         alt: 'Jacob Lapworth',
       },
     ],
