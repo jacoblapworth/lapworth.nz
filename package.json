@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
-    "@commitlint/config-conventional": "13.1.0",
+    "@commitlint/config-conventional": "13.2.0",
     "@testing-library/cypress": "8.0.1",
     "@types/node": "16.10.2",
     "@types/react": "17.0.26",
