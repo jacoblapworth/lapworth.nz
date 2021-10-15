@@ -1,17 +1,18 @@
-import Header from '@components/Header'
-import { useTheme } from '@components/Providers/ThemeColor'
-import CN from 'classnames'
+import Header from '@/components/Header'
+import { useTheme } from '@/components/Providers/ThemeColor'
+import { styled } from '@/styles'
 import { NextSeo } from 'next-seo'
-import { CSSProperties } from 'react'
 
 interface Props {
   hideNav?: boolean
   children?: React.ReactNode
 }
 
-const pageStyle: CSSProperties = {
+const Main = styled('main', {
+  paddingBlockStart: 56,
   marginBottom: 'env(safe-area-inset-bottom)',
-}
+  marginInline: 16,
+})
 
 const Page = ({
   hideNav,
@@ -33,9 +34,7 @@ const Page = ({
 
       {!hideNav && <Header />}
 
-      <main className={CN('pt-12', className)} style={pageStyle} {...rest}>
-        {children}
-      </main>
+      <Main {...rest}>{children}</Main>
 
       <style jsx global>{`
         body {

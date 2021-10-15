@@ -1,3 +1,4 @@
+import { styled } from '@/styles'
 import CN from 'classnames'
 import Link from 'next/link'
 import { CSSProperties } from 'react'
@@ -10,12 +11,17 @@ interface Props {
   className?: string
 }
 
+const Heading = styled('header', {
+  position: 'fixed',
+  padding: '$md',
+})
+
 const Header = ({
   className,
   ...rest
 }: Props & React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <header
+    <Heading
       className={CN('fixed w-screen p-4', className)}
       style={headerStyle}
       {...rest}
@@ -25,7 +31,7 @@ const Header = ({
           Lapworth, <span className="italic">Jacob</span>
         </a>
       </Link>
-    </header>
+    </Heading>
   )
 }
 

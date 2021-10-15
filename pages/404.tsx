@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import Button from '@components/Button'
-import Page from '@components/Page'
+import Button from '@/components/Button'
+import Page from '@/components/Page'
 
 export default function Home() {
   return (
@@ -10,7 +10,9 @@ export default function Home() {
         This page doesn’t exist. Try heading back home to start from the
         beginning.
       </p>
-      <Button className={cn('underlines')} href={'/'}>← Back to home.</Button>
+      <Button className={cn('underlines')} href={'/'}>
+        ← Back to home.
+      </Button>
     </Page>
   )
 }
