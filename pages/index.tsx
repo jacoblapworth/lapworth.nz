@@ -1,5 +1,6 @@
-import { styled } from '@/styles'
 import { GetStaticProps } from 'next'
+
+import { styled } from '@/styles'
 
 const Container = styled('div', {})
 

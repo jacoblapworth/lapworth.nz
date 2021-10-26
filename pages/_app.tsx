@@ -4,8 +4,6 @@ import type { AppProps } from 'next/app'
 
 import '@/styles/globals.css'
 
-import NextApp from 'next/app'
-
 import Page from '@/components/Page'
 import { defaultSEO, useRouteEmoji } from '@/lib/seo'
 import { darkTheme, lightTheme } from '@/styles'
@@ -57,3 +55,5 @@ export const App = ({
     </ThemeProvider>
   )
 }
+
+export default App
