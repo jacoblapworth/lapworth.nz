@@ -8,7 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -19,17 +19,8 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@utils/*": [
-        "utils/*"
-      ],
-      "@config/*": [
-        "config/*"
-      ],
-      "@assets/*": [
-        "assets/*"
-      ],
-      "@components/*": [
-        "components/*"
+      "@/*": [
+        "./*"
       ],
     }
   },
