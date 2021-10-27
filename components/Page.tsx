@@ -1,7 +1,8 @@
-import Header from '@/components/Header'
-import { useTheme } from '@/components/Providers/ThemeColor'
-import { styled } from '@/styles'
 import { NextSeo } from 'next-seo'
+
+import Header from '@/components/Header'
+import { useTheme } from '@/components/Providers/BgColor'
+import { styled, theme } from '@/styles'
 
 interface Props {
   hideNav?: boolean
@@ -17,6 +18,7 @@ const Main = styled('main', {
 const Page = ({
   hideNav,
   className,
+  title,
   children,
   ...rest
 }: Props & React.HTMLAttributes<HTMLDivElement>) => {
@@ -24,6 +26,7 @@ const Page = ({
   return (
     <>
       <NextSeo
+        title={title}
         additionalMetaTags={[
           {
             name: 'theme-color',
@@ -38,7 +41,7 @@ const Page = ({
 
       <style jsx global>{`
         body {
-          background: ${color};
+          background: ${theme.colors.background};
         }
       `}</style>
     </>

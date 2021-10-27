@@ -1,6 +1,8 @@
-import { useTheme } from '@/components/Providers/ThemeColor'
-import cn from 'classnames'
 import { ChangeEventHandler, useEffect } from 'react'
+
+import cn from 'classnames'
+
+import { useTheme } from '@/components/Providers/BgColor'
 
 export default function Home() {
   const { color, setColor, randomColor } = useTheme()

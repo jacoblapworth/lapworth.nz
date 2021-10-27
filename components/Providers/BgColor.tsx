@@ -21,7 +21,7 @@ interface ThemeProviderProps {
 
 const colors = ['#917373', '#dabdc0', '#daf1e4', '#427658']
 
-const ThemeProvider = ({ children }: ThemeProviderProps) => {
+const BgProvider = ({ children }: ThemeProviderProps) => {
   const [color, setColor] = useState('#ffffff')
 
   const randomColor = () => {
@@ -35,4 +35,4 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
 const useTheme = () => useContext(ThemeContext)
 
-export { ThemeProvider, useTheme }
+export { BgProvider, useTheme }

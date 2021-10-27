@@ -1,8 +1,8 @@
+import got from 'got'
 import { SignJWT } from 'jose/jwt/sign'
 import { importPKCS8 } from 'jose/key/import'
-import got from 'got'
 
-import { config } from '@/config/constants'
+import { config } from '@/lib/constants'
 
 const { APPLE_MUSIC_PRIVATE_KEY, APPLE_TEAM_ID, APPLE_MUSIC_KEY_ID } = config
 

@@ -1,49 +1,84 @@
 import { createStitches } from '@stitches/react'
 
-export const { styled, getCssText, globalCss, createTheme, css, keyframes } =
-  createStitches({
-    prefix: 'j',
-    media: {
-      sm: '(min-width: 640px)',
-      md: '(min-width: 768px)',
-      lg: '(min-width: 1024px)',
+export const {
+  styled,
+  getCssText,
+  globalCss,
+  createTheme,
+  css,
+  keyframes,
+  theme,
+} = createStitches({
+  prefix: 'j',
+  media: {
+    sm: '(min-width: 640px)',
+    md: '(min-width: 768px)',
+    lg: '(min-width: 1024px)',
+  },
+  theme: {
+    fonts: {
+      display: 'canela',
+      text: 'sectra',
+      system: 'system-ui',
     },
-    theme: {
-      fonts: {
-        display: 'canela',
-        text: 'sectra',
-        system: 'system-ui',
-      },
-      colors: {
-        hiContrast: 'hsl(206,10%,5%)',
-        loContrast: 'white',
-        black: 'rgba(31, 41, 55,1)',
-      },
-      sizes: {
-        sm: '8px',
-        md: '16px',
-        lg: '32px',
-      },
-      space: {
-        sm: '8px',
-        md: '16px',
-        lg: '32px',
-      },
-      fontSizes: {
-        1: '13px',
-        2: '15px',
-        3: '17px',
-      },
+    colors: {
+      text: '#202223',
+      primary: '$black',
+      secondary: '#111213',
+      interactive: '$text',
+      background: '#f6f6f7',
+      surface: '#111213',
+      onSurface: '#111213',
+      critical: '#D82C0D',
+      warning: '#FFC453',
+      success: '#008060',
+      decorative: '#FFC96B',
+      black: 'rgba(31, 41, 55,1)',
     },
-  })
+    sizes: {
+      sm: '8px',
+      md: '16px',
+      lg: '32px',
+    },
+    space: {
+      sm: '8px',
+      md: '16px',
+      lg: '32px',
+    },
+    fontSizes: {
+      sm: '0.875rem',
+      md: '1rem',
+      lg: '1.5rem',
+    },
+  },
+})
+
+export const darkTheme = createTheme({
+  colors: {
+    text: '#e3e5e7',
+    primary: 'white',
+    secondary: '#111213',
+    interactive: '$text',
+    background: '#0b0c0d',
+    surface: '#202123',
+    onSurface: '#111213',
+    critical: '#D82C0D',
+    warning: '#FFC453',
+    success: '#008060',
+    decorative: '#FFC96B',
+    black: 'rgba(31, 41, 55,1)',
+  },
+})
 
 export const globalStyles = globalCss({
   '*': {
+    color: '$text',
     fontFamily: '$system',
+    fontSize: '100%',
   },
 
   ':link': {
-    color: '$black',
+    color: '$interactive',
     textDecoration: 'unset',
     '&:hover': {
       textDecoration: 'underline',
@@ -51,7 +86,7 @@ export const globalStyles = globalCss({
   },
 
   ':visited': {
-    color: '$black',
+    color: '$interactive',
   },
 
   '@font-face': [

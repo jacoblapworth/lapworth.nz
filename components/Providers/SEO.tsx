@@ -1,8 +1,10 @@
-import { defaultSEO } from '@/config/seo'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useTheme } from './ThemeColor'
+
+import { defaultSEO } from '@/lib/seo'
+
+import { useTheme } from './BgColor'
 
 export default function SEO() {
   const router = useRouter()

@@ -11,23 +11,41 @@
   "env": {
     "cypress/globals": true
   },
-  "overrides": [
-    {
-      "files": [
-        "pages/api/**/*"
-      ],
-      "rules": {
-        // React 17 transform no longer requires React to be in scope https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
-        "react/jsx-uses-react": "off",
-        "react/react-in-jsx-scope": "off",
-        // Allow anonymous default exports for NextJS pages
-        "import/no-anonymous-default-export": [
-          0,
-          {
-            "allowAnonymousFunction": true
-          }
-        ]
+  "rules": {
+    // React 17 transform no longer requires React to be in scope https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    // Allow anonymous default exports for NextJS pages
+    "import/no-anonymous-default-export": [
+      0,
+      {
+        "allowAnonymousFunction": true
       }
-    }
-  ]
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
 }

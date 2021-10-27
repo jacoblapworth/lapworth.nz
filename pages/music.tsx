@@ -1,10 +1,11 @@
+import { FC } from 'react'
+
+import { GetStaticProps } from 'next'
+import Image from 'next/image'
 import Script from 'next/script'
 
 import { createAppleJWT, getMusic, MusicKitResource } from '@/components/Music'
-import { GetStaticProps } from 'next'
-import Image from 'next/image'
 import { useAppleMusic } from '@/components/Music/musicHook'
-import { FC } from 'react'
 
 interface PageProps {
   developerToken: string

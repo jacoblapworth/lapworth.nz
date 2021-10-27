@@ -1,5 +1,9 @@
+import { ThemeProvider } from 'next-themes'
+
+import { darkTheme, theme } from '@/styles'
+
+import { BgProvider } from './BgColor'
 import SEO from './SEO'
-import { ThemeProvider } from './ThemeColor'
 
 interface Props {
   children?: React.ReactNode
@@ -7,11 +11,15 @@ interface Props {
 
 export default function Providers({ children }: Props) {
   return (
-    <>
-      <ThemeProvider>
+    <ThemeProvider
+      attribute="class"
+      enableSystem={true}
+      value={{ light: theme.className, dark: darkTheme.className }}
+    >
+      <BgProvider>
         <SEO />
         {children}
-      </ThemeProvider>
-    </>
+      </BgProvider>
+    </ThemeProvider>
   )
 }

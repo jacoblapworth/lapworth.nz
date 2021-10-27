@@ -1,20 +1,22 @@
-import Providers from '@/components/Providers'
 import type { AppProps } from 'next/app'
 
 import '@/styles/globals.css'
-import { useWelcomeLog } from '../components/Hooks/useWelcomeLog'
-import Page from '@/components/Page'
+
 import Nav from '@/components/Nav'
+import Page from '@/components/Page'
+import Providers from '@/components/Providers'
+
+import { useWelcomeLog } from '../components/Hooks/useWelcomeLog'
 
 export default function App({
   Component,
-  pageProps: { hideNav, ...pageProps },
+  pageProps: { hideNav, title, ...pageProps },
 }: AppProps) {
   useWelcomeLog()
 
   return (
     <Providers>
-      <Page>
+      <Page title={title}>
         {!hideNav && <Nav />}
         <Component {...pageProps} />
       </Page>

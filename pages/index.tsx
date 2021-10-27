@@ -3,7 +3,7 @@ import Text from '@/components/Text'
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-grow justify-center text-center uppercase font-serif">
+    <div>
       <Text variant="large">Jacob Lapworth</Text>
       <Text variant="small">
         <div>
