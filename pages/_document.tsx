@@ -55,6 +55,13 @@ class Document extends NextDocument {
             type="font/woff"
             crossOrigin="anonymous"
           /> */}
+          <link
+            rel="preload"
+            href="/fonts/sectra/Regular.woff"
+            as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
+          />
           <script async src={gtagUrl} />
           <script dangerouslySetInnerHTML={{ __html: renderSnippet() }} />
         </Head>

@@ -1,46 +1,27 @@
 import { GetStaticProps } from 'next'
+import NextImage from 'next/image'
 
-import Link from '@/components/Link'
-import Text from '@/components/Text'
+import { css } from '@/styles'
+
+const Profile = css('div', {
+  borderRadius: '60px',
+})
 
 export default function Home() {
   return (
-    <div>
-      <div>Kia ora 👋 Ko Jacob tōku ingoa</div>
-      <Text variant="large">Jacob Lapworth</Text>
-      <Text variant="small">
-        <div>
-          <Link href="https://instagram.com/jacoblapworth">@jacoblapworth</Link>
-        </div>
-        <div>
-          <Link sameTab href="mailto:jacob@lapworth.nz">
-            jacob@lapworth.nz
-          </Link>
-        </div>
-      </Text>
-      <Text variant="large">
-        Auckland, <br />
-        New Zealand
-      </Text>
-      <Text variant="small">-36.862600º, 174.741270º</Text>
-      <Text variant="large">
-        Product <br />
-        Designer
-      </Text>
-      <Text variant="small">
-        <div>Design Systems</div>
-        <div>
-          <Link href="https://xero.com">@Xero</Link>
-        </div>
-      </Text>
-    </div>
+    <>
+      <NextImage
+        src="/static/j-photo-mono.png"
+        height={128}
+        width={128}
+        className={Profile()}
+      />
+    </>
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = () => {
   return {
-    props: {
-      title: 'About',
-    },
+    props: {},
   }
 }

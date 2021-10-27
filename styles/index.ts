@@ -18,7 +18,7 @@ export const {
   theme: {
     fonts: {
       display: 'canela',
-      text: 'sectra',
+      serif: 'sectra',
       system: 'system-ui',
     },
     colors: {
@@ -99,10 +99,11 @@ export const darkTheme = createTheme({
 })
 
 export const globalStyles = globalCss({
-  '*': {
+  html: {
     color: '$text',
     fontFamily: '$system',
     fontSize: '100%',
+    lineHeight: '1.2rem',
   },
 
   ':link': {
@@ -137,8 +138,14 @@ export const globalStyles = globalCss({
     },
     {
       fontFamily: 'sectra',
+      fontWeight: 400,
+      src: "url(/fonts/sectra/Regular.woff) format('woff')",
+      fontDisplay: 'swap',
+    },
+    {
+      fontFamily: 'sectra',
       fontWeight: 700,
-      src: "url(/fonts/sectra/Bold.woff2) format('woff2'), url(/fonts/sectra/Bold.woff) format('woff')",
+      src: "url(/fonts/sectra/Bold.woff) format('woff')",
       fontDisplay: 'swap',
     },
   ],

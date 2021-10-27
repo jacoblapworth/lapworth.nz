@@ -5,7 +5,7 @@ import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 
 import { styled } from '@/styles'
 
-import Link from '../Link'
+import Link from './Link'
 
 const A = styled('a', {
   paddingBlock: 8,
@@ -89,32 +89,39 @@ const Row = styled('div', {
   fontSize: 13,
   paddingBlock: 8,
   borderBottom: '1px solid $divider',
-  '&:first-child': {
+  gridColumn: '1 / span 2',
+  '@md': {
     borderTop: '1px solid $divider',
   },
+  '@sm': {
+    gridColumn: 'span 1',
+  },
+  justifySelf: 'start',
+  alignSelf: 'start',
 })
 
 const Description: FC = () => {
   return (
-    <div>
-      <Row>
-        <Link href="https://twitter.com/jacoblapworth">Twitter</Link> ∙{' '}
-        <Link href="https://instagram.com/jacoblapworth">Instagram</Link> ∙{' '}
-        <Link href="https://linkedin.com/in/jacoblapworth">LinkedIn</Link> ∙{' '}
-        <Link href="https://github.com/jacoblapworth">Github</Link> ∙{' '}
-        <Link href="https://music.apple.com/profile/jacoblapworth">
-          Apple Music
-        </Link>
-      </Row>
-    </div>
+    <Row>
+      <Link href="https://twitter.com/jacoblapworth">Twitter</Link> ∙{' '}
+      <Link href="https://instagram.com/jacoblapworth">Instagram</Link> ∙{' '}
+      <Link href="https://linkedin.com/in/jacoblapworth">LinkedIn</Link> ∙{' '}
+      <Link href="https://github.com/jacoblapworth">Github</Link> ∙{' '}
+      <Link href="https://music.apple.com/profile/jacoblapworth">
+        Apple Music
+      </Link>{' '}
+      ∙ <Link href="mailto:jacob@lapworth.nz">Email</Link>
+    </Row>
   )
 }
 
 const Nav = styled('nav', {
+  gridArea: 'nav',
   display: 'grid',
-  gap: 16,
+  gap: 0,
   gridTemplateColumns: 'repeat(2, 1fr)',
   '@md': {
+    gap: 16,
     gridTemplateColumns: 'repeat(4, 1fr)',
   },
   marginInline: 16,

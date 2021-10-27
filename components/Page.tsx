@@ -10,17 +10,21 @@ import Nav from './Nav'
 
 const Container = styled('div', {
   display: 'grid',
+  gridTemplateAreas: '"header" "nav" "content" "footer"',
   gridTemplateRows: 'auto auto 1fr auto',
   gridTemplateColumns: 'auto',
-
-  minHeight: '100vh',
-  // maxWidth: '100vw',
+  minHeight: 'calc(100vh - env(safe-area-inset-bottom))',
+  // minHeight: '-webkit-fill-available',
+  marginLeft: 'env(safe-area-inset-left)',
+  marginRight: 'env(safe-area-inset-right)',
+  maxWidth: '100%',
+  overflowX: 'hidden',
 })
 
 const Main = styled('main', {
-  marginBottom: 'env(safe-area-inset-bottom)',
+  gridArea: 'content',
   marginInline: 16,
-  overflowX: 'auto',
+  maxWidth: 'calc(100vw - 32px)',
 })
 
 interface Props {

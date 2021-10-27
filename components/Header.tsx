@@ -2,12 +2,12 @@ import Link from 'next/link'
 
 import { styled } from '@/styles'
 
-import ThemeToggle from '../ThemeToggle'
+import ThemeToggle from './ThemeToggle'
 
 const Heading = styled('header', {
+  gridArea: 'header',
   display: 'flex',
   justifyContent: 'space-between',
-  marginLeft: 'env(safe-area-inset-left)',
   padding: '$md',
 })
 
