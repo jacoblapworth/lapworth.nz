@@ -1,27 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  @font-face {
-    font-family: Canela;
-    font-weight: 100;
-    src: url(/fonts/canela/thin.woff) format('woff');
-  }
-  @font-face {
-    font-family: Canela;
-    font-weight: 400;
-    src: url(/fonts/canela/regular.woff) format('woff');
-  }
-  @font-face {
-    font-family: Canela;
-    font-weight: 500;
-    src: url(/fonts/proxima-nova/medium.woff) format('woff');
-  }
-
-  @font-face {
-    font-family: 'Sectra';
-    font-weight: 700;
-    src: url(/fonts/sectra/Bold.woff) format('woff');
-  }
-}
+@import '~sanitize.css';
+@import '~sanitize.css/forms.css';
+@import '~sanitize.css/typography.css';

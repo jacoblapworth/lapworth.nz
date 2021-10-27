@@ -1,10 +1,13 @@
-export const baseUrl = 'https://lapworth.nz'
-export const baseEmail = 'jacob@lapworth.nz'
+import { NextSeoProps } from 'next-seo'
+import { useRouter } from 'next/router'
 
-export const defaultSEO = {
-  title: 'Jacob Lapworth — Product designer',
+export const baseUrl = 'https://lapworth.nz'
+export const email = 'jacob@lapworth.nz'
+
+export const defaultSEO: NextSeoProps = {
+  titleTemplate: '%s — Jacob Lapworth — Product designer',
   description:
-    'Jacob is a product designer, living in Auckland, New Zealand. Currently scaling the design system at Xero.',
+    'A digital product designer, living in Tāmaki Makaurau, Aotearoa — Auckland, New Zealand. Currently scaling the design system at Xero.',
   openGraph: {
     type: 'website',
     locale: 'en_NZ',
@@ -34,7 +37,7 @@ interface SEOProps {
 export function extendSEO(options: SEOProps) {
   const images = options.image
     ? [{ url: `${baseUrl}/static/${options.image}` }]
-    : defaultSEO.openGraph.images
+    : defaultSEO.openGraph?.images
 
   return {
     ...defaultSEO,
@@ -46,4 +49,16 @@ export function extendSEO(options: SEOProps) {
       url: `${baseUrl}/${options.url}`,
     },
   }
+}
+
+export const useRouteEmoji = () => {
+  const router = useRouter()
+
+  let emoji = '🌈'
+  if (router.route.indexOf('/about') === 0) emoji = '👋'
+  if (router.route.indexOf('/writing') === 0) emoji = '💭'
+  if (router.route.indexOf('/bookmarks') === 0) emoji = '📖'
+  if (router.route.indexOf('/listening') === 0) emoji = '🎧'
+
+  return emoji
 }
