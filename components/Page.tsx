@@ -1,19 +1,32 @@
+import React from 'react'
+
 import { NextSeo } from 'next-seo'
 
 import Header from '@/components/Header'
-import { useTheme } from '@/components/Providers/BgColor'
 import { styled, theme } from '@/styles'
+
+import Footer from './Footer'
+import Nav from './Nav'
+
+const Container = styled('div', {
+  display: 'grid',
+  gridTemplateRows: 'auto auto 1fr auto',
+  gridTemplateColumns: 'auto',
+
+  minHeight: '100vh',
+  // maxWidth: '100vw',
+})
+
+const Main = styled('main', {
+  marginBottom: 'env(safe-area-inset-bottom)',
+  marginInline: 16,
+  overflowX: 'auto',
+})
 
 interface Props {
   hideNav?: boolean
   children?: React.ReactNode
 }
-
-const Main = styled('main', {
-  paddingBlockStart: 56,
-  marginBottom: 'env(safe-area-inset-bottom)',
-  marginInline: 16,
-})
 
 const Page = ({
   hideNav,
@@ -22,29 +35,16 @@ const Page = ({
   children,
   ...rest
 }: Props & React.HTMLAttributes<HTMLDivElement>) => {
-  const { color } = useTheme()
   return (
-    <>
-      <NextSeo
-        title={title}
-        additionalMetaTags={[
-          {
-            name: 'theme-color',
-            content: color,
-          },
-        ]}
-      />
+    <Container>
+      <NextSeo title={title} />
 
-      {!hideNav && <Header />}
+      <Header />
+      {!hideNav && <Nav />}
 
       <Main {...rest}>{children}</Main>
-
-      <style jsx global>{`
-        body {
-          background: ${theme.colors.background};
-        }
-      `}</style>
-    </>
+      <Footer />
+    </Container>
   )
 }
 

@@ -1,4 +1,5 @@
 import { NextSeoProps } from 'next-seo'
+import { useRouter } from 'next/router'
 
 export const baseUrl = 'https://lapworth.nz'
 export const email = 'jacob@lapworth.nz'
@@ -48,4 +49,16 @@ export function extendSEO(options: SEOProps) {
       url: `${baseUrl}/${options.url}`,
     },
   }
+}
+
+export const useRouteEmoji = () => {
+  const router = useRouter()
+
+  let emoji = '🌈'
+  if (router.route.indexOf('/about') === 0) emoji = '👋'
+  if (router.route.indexOf('/writing') === 0) emoji = '💭'
+  if (router.route.indexOf('/bookmarks') === 0) emoji = '📖'
+  if (router.route.indexOf('/listening') === 0) emoji = '🎧'
+
+  return emoji
 }

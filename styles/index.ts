@@ -1,5 +1,5 @@
 import { createStitches } from '@stitches/react'
-
+// ;['#917373', '#dabdc0', '#daf1e4', '#427658']
 export const {
   styled,
   getCssText,
@@ -22,18 +22,27 @@ export const {
       system: 'system-ui',
     },
     colors: {
-      text: '#202223',
-      primary: '$black',
-      secondary: '#111213',
-      interactive: '$text',
-      background: '#f6f6f7',
-      surface: '#111213',
-      onSurface: '#111213',
-      critical: '#D82C0D',
-      warning: '#FFC453',
-      success: '#008060',
-      decorative: '#FFC96B',
-      black: 'rgba(31, 41, 55,1)',
+      white: '#ffffff',
+      white10: '#f6f6f7',
+      white20: '#ececec',
+      white30: '#e3e5e7',
+      black70: '#717171',
+      black80: '#202223',
+      black90: '#111213',
+      black100: '#0b0c0d',
+      green50: '#008060',
+      yellow50: '#FFC453',
+      red50: '#D82C0D',
+      grey5: '#F0F2F4',
+      grey10: '#D6DBE0',
+      grey20: '#BCC3CD',
+      grey30: '#A2ACB9',
+      grey40: '#8894A5',
+      grey50: '#6D7D92',
+      grey60: '#576475',
+      grey70: '#424B57',
+      grey80: '#2C323A',
+      grey90: '#16191D',
     },
     sizes: {
       sm: '8px',
@@ -53,20 +62,39 @@ export const {
   },
 })
 
+export const lightTheme = createTheme({
+  colors: {
+    text: '$black80',
+    primary: '$black100',
+    secondary: '$black90',
+    tertiary: '$black70',
+    interactive: '$text',
+    background: '$white10',
+    surface: '$white',
+    surfaceHovered: '$white10',
+    onSurface: '$black90',
+    divider: '$black100',
+    critical: '$red',
+    warning: '$yellow',
+    success: '$green',
+  },
+})
+
 export const darkTheme = createTheme({
   colors: {
-    text: '#e3e5e7',
-    primary: 'white',
-    secondary: '#111213',
+    text: '$white30',
+    primary: '$white',
+    secondary: '$black90',
+    tertiary: '$black70',
     interactive: '$text',
-    background: '#0b0c0d',
+    background: '$black100',
     surface: '#202123',
-    onSurface: '#111213',
-    critical: '#D82C0D',
-    warning: '#FFC453',
-    success: '#008060',
-    decorative: '#FFC96B',
-    black: 'rgba(31, 41, 55,1)',
+    surfaceHovered: '#2f3133',
+    onSurface: '$black90',
+    divider: '$white',
+    critical: '$red',
+    warning: '$yellow',
+    success: '$green',
   },
 })
 
@@ -87,6 +115,11 @@ export const globalStyles = globalCss({
 
   ':visited': {
     color: '$interactive',
+  },
+
+  '::selection': {
+    backgroundColor: '$primary',
+    color: '$background',
   },
 
   '@font-face': [

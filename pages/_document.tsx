@@ -13,7 +13,7 @@ class Document extends NextDocument {
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
-          <link
+          {/* <link
             rel="preload"
             href="/fonts/canela/thin.woff"
             as="font"
@@ -54,12 +54,14 @@ class Document extends NextDocument {
             as="font"
             type="font/woff"
             crossOrigin="anonymous"
-          />
+          /> */}
           <script async src={gtagUrl} />
           <script dangerouslySetInnerHTML={{ __html: renderSnippet() }} />
         </Head>
-        <Main />
-        <NextScript />
+        <body style={{ backgroundColor: 'var(--j-colors-background)' }}>
+          <Main />
+          <NextScript />
+        </body>
       </Html>
     )
   }

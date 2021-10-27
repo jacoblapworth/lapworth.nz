@@ -1,36 +1,33 @@
-import { styled } from '@/styles'
-import CN from 'classnames'
 import Link from 'next/link'
-import { CSSProperties } from 'react'
 
-const headerStyle: CSSProperties = {
-  marginLeft: 'env(safe-area-inset-left)',
-}
+import { styled } from '@/styles'
 
-interface Props {
-  className?: string
-}
+import ThemeToggle from '../ThemeToggle'
 
 const Heading = styled('header', {
-  position: 'fixed',
+  display: 'flex',
+  justifyContent: 'space-between',
+  marginLeft: 'env(safe-area-inset-left)',
   padding: '$md',
 })
 
-const Header = ({
-  className,
-  ...rest
-}: Props & React.HTMLAttributes<HTMLDivElement>) => {
+const Text = styled('div', {
+  fontWeight: 500,
+})
+
+const Header = () => {
   return (
-    <Heading
-      className={CN('fixed w-screen p-4', className)}
-      style={headerStyle}
-      {...rest}
-    >
+    <Heading>
       <Link href="/">
-        <a className="font-medium">
-          Lapworth, <span className="italic">Jacob</span>
+        <a>
+          <Text>
+            Lapworth,
+            <em> Jacob</em>
+          </Text>
         </a>
       </Link>
+
+      <ThemeToggle />
     </Heading>
   )
 }

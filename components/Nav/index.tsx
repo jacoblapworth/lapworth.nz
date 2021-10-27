@@ -1,43 +1,41 @@
 import { FC, useState } from 'react'
 
-import { ArrowRightIcon } from '@radix-ui/react-icons'
 import { motion } from 'framer-motion'
-import NextImage from 'next/image'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 
 import { styled } from '@/styles'
 
 import Link from '../Link'
-import ThemeToggle from '../ThemeToggle'
 
 const A = styled('a', {
   paddingBlock: 8,
-  // paddingInline: 8,
-  // borderInline: '1px solid $black',
-  borderBottom: '1px solid $black',
+  borderBottom: '1px solid $divider',
   display: 'flex',
   justifyContent: 'space-between',
 
   '&:first-child': {
-    borderTop: '1px solid $black',
+    borderTop: '1px solid $divider',
   },
 
   '&:hover': {
-    backgroundColor: 'rgba(0,0,0,0.05)',
+    backgroundColor: '$surfaceHovered',
   },
 })
 
 const NavLink: FC<NextLinkProps> = ({ children, href }) => {
-  // const [rotation, setRotation] = useState(-90)
+  const [animate, setAnimate] = useState('hidden')
 
-  const [animate, setAnimate] = useState({ rotate: -90, opacity: 0 })
+  const variants = {
+    visible: { rotate: 0, opacity: 1 },
+    hidden: { rotate: -90, opacity: 0 },
+  }
 
   const onPointerOver = () => {
-    setAnimate({ rotate: 0, opacity: 1 })
+    setAnimate('visible')
   }
 
   const onPointerLeave = () => {
-    setAnimate({ rotate: -90, opacity: 0 })
+    setAnimate('hidden')
   }
 
   return (
@@ -45,8 +43,9 @@ const NavLink: FC<NextLinkProps> = ({ children, href }) => {
       <A onPointerOver={onPointerOver} onPointerLeave={onPointerLeave}>
         {children}
         <motion.div
+          variants={variants}
           animate={animate}
-          initial={false}
+          initial="hidden"
           style={{ marginInlineEnd: 8 }}
         >
           <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -65,8 +64,6 @@ const NavLink: FC<NextLinkProps> = ({ children, href }) => {
               d="M19 12H4.75"
             ></path>
           </svg>
-
-          {/* <ArrowRightIcon /> */}
         </motion.div>
       </A>
     </NextLink>
@@ -74,7 +71,8 @@ const NavLink: FC<NextLinkProps> = ({ children, href }) => {
 }
 
 const Stack = styled('div', {
-  display: 'grid',
+  display: 'flex',
+  flexDirection: 'column',
   gridColumn: '1 / span 2',
 })
 
@@ -83,7 +81,6 @@ const NavLinks: FC = () => {
     <Stack>
       <NavLink href="/work">Work</NavLink>
       <NavLink href="/about">About</NavLink>
-      <NavLink href="/contact">Contact</NavLink>
     </Stack>
   )
 }
@@ -91,9 +88,9 @@ const NavLinks: FC = () => {
 const Row = styled('div', {
   fontSize: 13,
   paddingBlock: 8,
-  borderBottom: '1px solid $black',
+  borderBottom: '1px solid $divider',
   '&:first-child': {
-    borderTop: '1px solid $black',
+    borderTop: '1px solid $divider',
   },
 })
 
@@ -109,29 +106,28 @@ const Description: FC = () => {
           Apple Music
         </Link>
       </Row>
-      <ThemeToggle />
     </div>
   )
 }
 
-const Grid = styled('div', {
+const Nav = styled('nav', {
   display: 'grid',
   gap: 16,
   gridTemplateColumns: 'repeat(2, 1fr)',
   '@md': {
     gridTemplateColumns: 'repeat(4, 1fr)',
   },
-  // marginInline: 16,
+  marginInline: 16,
   marginBlockEnd: 16,
 })
 
-const Nav: FC = () => {
+const Navigation: FC = () => {
   return (
-    <Grid>
+    <Nav>
       <NavLinks />
       <Description />
-    </Grid>
+    </Nav>
   )
 }
 
-export default Nav
+export default Navigation
