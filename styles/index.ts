@@ -21,29 +21,6 @@ export const {
       serif: 'sectra',
       system: 'system-ui',
     },
-    colors: {
-      white: '#ffffff',
-      white10: '#f6f6f7',
-      white20: '#ececec',
-      white30: '#e3e5e7',
-      black70: '#717171',
-      black80: '#202223',
-      black90: '#111213',
-      black100: '#0b0c0d',
-      green50: '#008060',
-      yellow50: '#FFC453',
-      red50: '#D82C0D',
-      grey5: '#F0F2F4',
-      grey10: '#D6DBE0',
-      grey20: '#BCC3CD',
-      grey30: '#A2ACB9',
-      grey40: '#8894A5',
-      grey50: '#6D7D92',
-      grey60: '#576475',
-      grey70: '#424B57',
-      grey80: '#2C323A',
-      grey90: '#16191D',
-    },
     sizes: {
       sm: '8px',
       md: '16px',
@@ -62,41 +39,83 @@ export const {
   },
 })
 
-export const lightTheme = createTheme({
+const colors = {
+  white: {
+    0: '#ffffff',
+    10: '#f6f6f7',
+    20: '#ececec',
+    30: '#e3e5e7',
+  },
+  black80: '#202223',
+  black: {
+    70: '#717171',
+    80: '#202223',
+    90: '#111213',
+    100: '#0b0c0d',
+  },
+  green: {
+    50: '#008060',
+  },
+  yellow: {
+    50: '#FFC453',
+  },
+  red: {
+    50: '#D82C0D',
+  },
+  grey: {
+    5: '#F0F2F4',
+    10: '#D6DBE0',
+    20: '#BCC3CD',
+    30: '#A2ACB9',
+    40: '#8894A5',
+    50: '#6D7D92',
+    60: '#576475',
+    70: '#424B57',
+    80: '#2C323A',
+    90: '#16191D',
+  },
+}
+
+export const lightTheme = createTheme('light', {
   colors: {
-    text: '$black80',
-    primary: '$black100',
-    secondary: '$black90',
-    tertiary: '$black70',
-    interactive: '$text',
-    background: '$white10',
-    surface: '$white',
-    surfaceHovered: '$white10',
-    onSurface: '$black90',
-    divider: '$black100',
-    critical: '$red',
-    warning: '$yellow',
-    success: '$green',
+    text: colors.black[80],
+    primary: colors.black[100],
+    secondary: colors.black[90],
+    tertiary: colors.black[70],
+    interactive: colors.black[80],
+    background: colors.white[10],
+    surface: colors.white[0],
+    surfaceHovered: colors.white[10],
+    onSurface: colors.black[90],
+    divider: colors.black[100],
+    critical: colors.red[50],
+    warning: colors.yellow[50],
+    success: colors.green[50],
   },
 })
 
-export const darkTheme = createTheme({
+export const darkTheme = createTheme('dark', {
   colors: {
-    text: '$white30',
-    primary: '$white',
-    secondary: '$black90',
-    tertiary: '$black70',
-    interactive: '$text',
-    background: '$black100',
+    text: colors.white[30],
+    primary: colors.white[0],
+    secondary: colors.black[90],
+    tertiary: colors.black[70],
+    interactive: colors.white[30],
+    background: colors.black[100],
     surface: '#202123',
     surfaceHovered: '#2f3133',
-    onSurface: '$black90',
-    divider: '$white',
-    critical: '$red',
-    warning: '$yellow',
-    success: '$green',
+    onSurface: colors.black[90],
+    divider: colors.white[0],
+    critical: colors.red[50],
+    warning: colors.yellow[50],
+    success: colors.green[50],
   },
 })
+
+export const themes = {
+  light: lightTheme,
+  dark: darkTheme,
+}
 
 export const globalStyles = globalCss({
   html: {

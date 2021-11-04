@@ -5,9 +5,9 @@ import { useTheme } from 'next-themes'
 import { styled } from '@/styles'
 
 const useThemeValue = (lightValue: string, darkValue: string) => {
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
 
-  return theme === 'light' ? lightValue : darkValue
+  return resolvedTheme === 'light' ? lightValue : darkValue
 }
 
 interface ThemeToggleProps {}
