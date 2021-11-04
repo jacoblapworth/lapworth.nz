@@ -76,7 +76,7 @@ const colors = {
   },
 }
 
-export const lightTheme = createTheme({
+export const lightTheme = createTheme('light', {
   colors: {
     text: colors.black[80],
     primary: colors.black[100],
@@ -94,7 +94,7 @@ export const lightTheme = createTheme({
   },
 })
 
-export const darkTheme = createTheme({
+export const darkTheme = createTheme('dark', {
   colors: {
     text: colors.white[30],
     primary: colors.white[0],
