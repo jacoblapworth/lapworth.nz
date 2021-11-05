@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { useTheme } from 'next-themes'
 
@@ -28,6 +28,7 @@ const Button = styled('button', {
 })
 
 const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
+  const [mounted, setMounted] = useState(false)
   const { setTheme } = useTheme()
   const themeToSet = useThemeValue('dark', 'light')
   const label = useThemeValue('🌚', '😎')
@@ -35,6 +36,9 @@ const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
   const toggleTheme = () => {
     setTheme(themeToSet)
   }
+
+  useEffect(() => setMounted(true), [])
+  if (!mounted) return null
 
   return <Button onClick={toggleTheme}>{label}</Button>
 }
