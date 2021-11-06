@@ -1,14 +1,12 @@
-import { CSSProperties, FC } from 'react'
+import { FC } from 'react'
 
 import NextImage from 'next/image'
 
-import { css, styled } from '../../styles'
-import style from './Glass.module.css'
+import { styled } from '../../styles'
 
 const Container = styled('div', {
   width: 298,
   height: 602,
-  // display: 'grid',
   position: 'relative',
 })
 
@@ -18,8 +16,6 @@ const Screen = styled('div', {
   position: 'absolute',
   top: 0,
   left: 0,
-  // margin: 10,
-  // gridArea: '1 / 1',
   marginTop: 10,
   marginLeft: 10,
   width: 278,
@@ -58,28 +54,25 @@ const Glass: FC<GlassProps> = ({}) => {
       <Screen>
         <NextImage
           layout="fill"
-          alt=""
-          width="298px"
-          height="602"
+          objectFit="contain"
           src="/static/glass/share_screen__esashqzqkwa6_medium_2x.jpg"
+          alt="Screenshot"
         />
       </Screen>
       <Device>
         <NextImage
           layout="fill"
-          alt=""
-          width="298"
-          height="602"
+          objectFit="contain"
           src="/static/glass/iphone_hardware_zoomed__flki3nqhzhqq_medium_2x.png"
+          alt=""
         />
       </Device>
       <Shadow>
         <NextImage
           layout="fill"
-          alt=""
-          width="696"
-          height="776"
+          objectFit="contain"
           src="/static/glass/iphone_shadow_zoomed__cb8yk1kh8qly_medium_2x.png"
+          alt=""
         />
       </Shadow>
     </Container>
