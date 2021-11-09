@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next'
+import { GetStaticProps } from './_app'
 
 export default function Home() {
   return 'Coming soon'
@@ -7,7 +7,7 @@ export default function Home() {
 export const getStaticProps: GetStaticProps = () => {
   return {
     props: {
-      // hideNav: true,
+      title: 'Work',
     },
   }
 }

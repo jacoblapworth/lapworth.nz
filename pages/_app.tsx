@@ -1,3 +1,4 @@
+import type { GetStaticProps as NextGetStaticProps } from 'next'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 
@@ -15,6 +16,8 @@ interface PageProps {
   title?: string
 }
 
+export type GetStaticProps = NextGetStaticProps<PageProps>
+
 export const App = ({
   Component,
   pageProps: { hideNav, title, ...pageProps },
@@ -22,20 +25,21 @@ export const App = ({
   useWelcomeLog()
 
   return (
-    <ThemeProvider
-      enableSystem={true}
-      enableColorScheme={true}
-      defaultTheme="system"
-      themes={['light', 'dark']}
-      attribute="class"
-      value={{ light: lightTheme.className, dark: darkTheme.className }}
-    >
+    <>
       <Head />
-
-      <Page title={title} hideNav={hideNav}>
-        <Component {...pageProps} />
-      </Page>
-    </ThemeProvider>
+      <ThemeProvider
+        enableSystem={true}
+        enableColorScheme={true}
+        defaultTheme="system"
+        themes={['light', 'dark']}
+        attribute="class"
+        value={{ light: lightTheme.className, dark: darkTheme.className }}
+      >
+        <Page title={title} hideNav={hideNav}>
+          <Component {...pageProps} />
+        </Page>
+      </ThemeProvider>
+    </>
   )
 }
 

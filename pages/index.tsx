@@ -1,8 +1,8 @@
-import { GetStaticProps } from 'next'
-
 import Link from '@/components/Link'
 import Text from '@/components/Text'
 import { styled } from '@/styles'
+
+import { GetStaticProps } from './_app'
 
 const Page = styled('div', {
   maxWidth: '100vw',
@@ -40,8 +40,6 @@ export default function Home() {
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
-    props: {
-      title: 'About',
-    },
+    props: {},
   }
 }
