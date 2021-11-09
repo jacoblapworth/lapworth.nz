@@ -1,7 +1,8 @@
-import { GetStaticProps } from 'next'
 import NextImage from 'next/image'
 
 import { css } from '@/styles'
+
+import { GetStaticProps } from './_app'
 
 const Profile = css('div', {
   borderRadius: '60px',
@@ -22,6 +23,8 @@ export default function Home() {
 
 export const getStaticProps: GetStaticProps = () => {
   return {
-    props: {},
+    props: {
+      title: 'About',
+    },
   }
 }

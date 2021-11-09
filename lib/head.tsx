@@ -1,4 +1,6 @@
-import { NextSeo, NextSeoProps } from 'next-seo'
+import { FC } from 'react'
+
+import { DefaultSeo, NextSeo, NextSeoProps } from 'next-seo'
 import { MetaTag } from 'next-seo/lib/types'
 import { useTheme } from 'next-themes'
 import NextHead from 'next/head'
@@ -10,6 +12,7 @@ export const baseUrl = 'https://lapworth.nz'
 export const email = 'jacob@lapworth.nz'
 
 export const defaultSEO: NextSeoProps = {
+  defaultTitle: 'Jacob Lapworth — Product designer',
   titleTemplate: '%s — Jacob Lapworth — Product designer',
   description:
     'A digital product designer, living in Tāmaki Makaurau, Aotearoa — Auckland, New Zealand. Currently scaling the design system at Xero.',
@@ -45,7 +48,7 @@ export const useRouteEmoji = () => {
   return emoji
 }
 
-export const Head = () => {
+export const Head: FC = () => {
   const emoji = useRouteEmoji()
   const { resolvedTheme = 'light' } = useTheme()
 
@@ -57,7 +60,7 @@ export const Head = () => {
 
   return (
     <>
-      <NextSeo {...defaultSEO} />
+      <DefaultSeo {...defaultSEO} />
       <NextHead>
         <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content={themeColor} />

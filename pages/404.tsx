@@ -2,6 +2,8 @@ import cn from 'classnames'
 
 import Button from '@/components/Button'
 
+import { GetStaticProps } from './_app'
+
 export default function Home() {
   return (
     <>
@@ -15,4 +17,12 @@ export default function Home() {
       </Button>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      title: '404',
+    },
+  }
 }
