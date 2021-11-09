@@ -4,7 +4,7 @@ import { styled } from '@/styles'
 
 import ThemeToggle from './ThemeToggle'
 
-const Heading = styled('header', {
+const StyledHeader = styled('header', {
   gridArea: 'header',
   display: 'flex',
   justifyContent: 'space-between',
@@ -17,7 +17,7 @@ const Text = styled('div', {
 
 const Header = () => {
   return (
-    <Heading>
+    <StyledHeader>
       <Link href="/">
         <a>
           <Text>
@@ -26,9 +26,8 @@ const Header = () => {
           </Text>
         </a>
       </Link>
-
       <ThemeToggle />
-    </Heading>
+    </StyledHeader>
   )
 }
 

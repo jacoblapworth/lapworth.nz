@@ -98,19 +98,62 @@ const Row = styled('div', {
   },
   justifySelf: 'start',
   alignSelf: 'start',
+
+  [`& ul`]: {
+    margin: 0,
+  },
+
+  [`& li`]: {
+    display: 'inline-block',
+    whiteSpace: 'pre',
+    '&::after': {
+      content: ' \u2022 ',
+    },
+    '&:last-child': {
+      '&::after': {
+        content: 'none',
+      },
+    },
+  },
 })
+
+const socialLinks = [
+  {
+    name: 'Twitter',
+    href: 'https://twitter.com/jacoblapworth',
+  },
+  {
+    name: 'Instagram',
+    href: 'https://instagram.com/jacoblapworth',
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://linkedin.com/in/jacoblapworth',
+  },
+  {
+    name: 'Github',
+    href: 'https://github.com/jacoblapworth',
+  },
+  {
+    name: 'Apple Music',
+    href: 'https://music.apple.com/profile/jacoblapworth',
+  },
+  {
+    name: 'Email',
+    href: 'mailto:jacob@lapworth.nz',
+  },
+]
 
 const Description: FC = () => {
   return (
     <Row>
-      <Link href="https://twitter.com/jacoblapworth">Twitter</Link> ∙{' '}
-      <Link href="https://instagram.com/jacoblapworth">Instagram</Link> ∙{' '}
-      <Link href="https://linkedin.com/in/jacoblapworth">LinkedIn</Link> ∙{' '}
-      <Link href="https://github.com/jacoblapworth">Github</Link> ∙{' '}
-      <Link href="https://music.apple.com/profile/jacoblapworth">
-        Apple Music
-      </Link>{' '}
-      ∙ <Link href="mailto:jacob@lapworth.nz">Email</Link>
+      <ul>
+        {socialLinks.map(({ name, href }) => (
+          <li key={href}>
+            <Link href={href}>{name}</Link>
+          </li>
+        ))}
+      </ul>
     </Row>
   )
 }
