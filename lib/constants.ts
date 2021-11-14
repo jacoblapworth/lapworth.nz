@@ -3,6 +3,7 @@ const APPLE_TEAM_ID = process.env.APPLE_TEAM_ID
 const APPLE_MUSIC_KEY_ID = process.env.APPLE_MUSIC_KEY_ID
 const APPLE_MUSIC_USER_TOKEN = process.env.APPLE_MUSIC_USER_TOKEN
 const GOOGLE_MEASUREMENT_ID = process.env.GOOGLE_MEASUREMENT_ID
+const VERCEL_URL = process.env.VERCEL_URL
 
 if (!APPLE_TEAM_ID) {
   throw new Error('Provide an Apple team ID')
@@ -30,4 +31,5 @@ export const config = {
   APPLE_MUSIC_KEY_ID,
   APPLE_MUSIC_USER_TOKEN,
   GOOGLE_MEASUREMENT_ID,
+  VERCEL_URL,
 }
