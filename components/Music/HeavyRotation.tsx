@@ -3,6 +3,7 @@ import { FC } from 'react'
 import NextImage from 'next/image'
 
 import { MusicKitResource } from '@/components/Music'
+import Text from '@/components/Text'
 import { styled } from '@/styles'
 
 interface Props {
@@ -22,6 +23,9 @@ const buildImageUrl = (_url: string, size: number): string => {
 const AlbumArt = styled(NextImage, {
   borderRadius: 8,
   backgroundColor: '$surface',
+  '&:hover': {
+    opacity: 0.8,
+  },
 })
 
 const AppleMusicResource: FC<{ resource: MusicKitResource }> = ({
@@ -90,7 +94,16 @@ export const HeavyRotation: FC<Props> = ({ music }) => {
 
   return (
     <div>
-      <h2>Heavy rotation</h2>
+      <Text
+        size="large"
+        display
+        css={{
+          marginBlockEnd: 16,
+        }}
+      >
+        My heavy rotation
+      </Text>
+
       <Grid>{Music}</Grid>
     </div>
   )

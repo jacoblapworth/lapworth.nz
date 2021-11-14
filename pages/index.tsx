@@ -14,7 +14,7 @@ const Page = styled('div', {
 export default function Home() {
   return (
     <Page>
-      <Text size="large" display>
+      <Text size="xlarge" display>
         Kia ora 👋 Ko Jacob tōku ingoa
       </Text>
       <Text>
@@ -27,11 +27,11 @@ export default function Home() {
           </Link>
         </div>
       </Text>
-      <Text size="large" display>
+      <Text size="xlarge" display>
         Tāmaki Makaurau, Aotearoa —&nbsp;Auckland, New Zealand
       </Text>
       <Text>-36.862600º, 174.741270º</Text>
-      <Text size="large" display serif>
+      <Text size="xlarge" display serif>
         Scaling design systems at <Link href="https://xero.com">@Xero</Link>
       </Text>
     </Page>
