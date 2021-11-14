@@ -12,15 +12,29 @@ const Text = styled('div', {
       },
       large: {
         fontSize: '2rem',
-        lineHeight: '1rem',
+        lineHeight: '2rem',
       },
       xlarge: {
         fontSize: '3rem',
-        lineHeight: '1rem',
+        lineHeight: '3rem',
       },
     },
     display: {
+      true: {},
+    },
+
+    serif: {
       true: {
+        fontFamily: '$serif',
+        fontWeight: '400',
+      },
+    },
+  },
+  compoundVariants: [
+    {
+      display: 'true',
+      size: 'xlarge',
+      css: {
         fontSize: '4rem',
         lineHeight: '4rem',
         marginBlock: '4rem',
@@ -31,13 +45,21 @@ const Text = styled('div', {
         },
       },
     },
-    serif: {
-      true: {
-        fontFamily: '$serif',
-        fontWeight: '400',
+    {
+      display: 'true',
+      size: 'large',
+      css: {
+        fontSize: '2rem',
+        lineHeight: '2rem',
+        marginBlock: '3rem',
+        '@sm': {
+          fontSize: '3rem',
+          lineHeight: '3rem',
+          marginBlock: '5rem',
+        },
       },
     },
-  },
+  ],
   defaultVariants: {
     size: 'medium',
   },
