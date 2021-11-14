@@ -1,14 +1,10 @@
 import got from 'got'
 import { SignJWT, importPKCS8 } from 'jose'
 
-import { config } from '@/lib/constants'
-
-const {
-  APPLE_MUSIC_PRIVATE_KEY,
-  APPLE_TEAM_ID,
-  APPLE_MUSIC_KEY_ID,
-  APPLE_MUSIC_USER_TOKEN,
-} = config
+const APPLE_MUSIC_PRIVATE_KEY = process.env.APPLE_MUSIC_PRIVATE_KEY || ''
+const APPLE_TEAM_ID = process.env.APPLE_TEAM_ID || ''
+const APPLE_MUSIC_KEY_ID = process.env.APPLE_MUSIC_KEY_ID
+const APPLE_MUSIC_USER_TOKEN = process.env.APPLE_MUSIC_USER_TOKEN
 
 export const createAppleJWT = async () => {
   const ALGORITHM = 'ES256'

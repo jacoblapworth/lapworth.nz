@@ -2,9 +2,7 @@ import React from 'react'
 
 import { Router } from 'next/router'
 
-import { config } from './constants'
-
-const { GOOGLE_MEASUREMENT_ID } = config
+const GOOGLE_MEASUREMENT_ID = process.env.GOOGLE_MEASUREMENT_ID
 
 type WindowWithAnalytics = Window &
   typeof globalThis & {
