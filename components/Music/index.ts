@@ -12,8 +12,6 @@ const {
 
 export const createAppleJWT = async () => {
   const ALGORITHM = 'ES256'
-  console.log({ APPLE_MUSIC_PRIVATE_KEY })
-
   const ecPrivateKey = await importPKCS8(APPLE_MUSIC_PRIVATE_KEY, ALGORITHM)
 
   return new SignJWT({})
@@ -33,16 +31,8 @@ export const appleMusicClient = got.extend({
   hooks: {
     beforeRequest: [
       async (options) => {
-        try {
-          const token = await createAppleJWT()
-          console.log({ token })
-
-          options.headers['Authorization'] = `Bearer ${token}`
-          options.headers['Music-User-Token'] = APPLE_MUSIC_USER_TOKEN
-          console.log(options.headers)
-        } catch (error) {
-          console.log(error)
-        }
+        options.headers['Authorization'] = `Bearer ${await createAppleJWT()}`
+        options.headers['Music-User-Token'] = APPLE_MUSIC_USER_TOKEN
       },
     ],
   },
