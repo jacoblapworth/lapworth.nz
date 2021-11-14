@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { NextSeo } from 'next-seo'
 import NextScript from 'next/script'
 
@@ -27,7 +27,7 @@ export default function Authorise({ developerToken }: PageProps) {
   )
 }
 
-export const getStaticProps: GetStaticProps<PageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
   const developerToken = await createAppleJWT()
   return {
     props: {
