@@ -20,16 +20,7 @@ const Text = styled('div', {
       },
     },
     display: {
-      true: {
-        // fontSize: '4rem',
-        // lineHeight: '4rem',
-        // marginBlock: '4rem',
-        // '@sm': {
-        //   fontSize: '6rem',
-        //   lineHeight: '6rem',
-        //   marginBlock: '5rem',
-        // },
-      },
+      true: {},
     },
 
     serif: {
