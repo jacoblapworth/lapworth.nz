@@ -1,7 +1,13 @@
+import Text from '@/components/Text'
+
 import { GetStaticProps } from './_app'
 
 export default function Home() {
-  return 'Coming soon 👀'
+  return (
+    <Text size="xlarge" display>
+      Coming soon 👀
+    </Text>
+  )
 }
 
 export const getStaticProps: GetStaticProps = () => {
