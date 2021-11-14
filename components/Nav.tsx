@@ -12,6 +12,7 @@ const A = styled('a', {
   borderBottom: '1px solid $divider',
   display: 'flex',
   justifyContent: 'space-between',
+  alignItems: 'center',
 
   '&:first-child': {
     borderTop: '1px solid $divider',
