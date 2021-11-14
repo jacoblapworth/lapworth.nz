@@ -38,9 +38,8 @@ const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
   }
 
   useEffect(() => setMounted(true), [])
-  if (!mounted) return null
 
-  return <Button onClick={toggleTheme}>{label}</Button>
+  return <Button onClick={toggleTheme}>{mounted ? label : ''}</Button>
 }
 
 export default ThemeToggle
