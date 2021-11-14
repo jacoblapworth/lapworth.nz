@@ -16,7 +16,7 @@ interface PageProps {
   title?: string
 }
 
-export type GetStaticProps = NextGetStaticProps<PageProps>
+export type GetStaticProps<T> = NextGetStaticProps<PageProps & T>
 
 export const App = ({
   Component,
