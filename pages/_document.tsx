@@ -13,48 +13,6 @@ class Document extends NextDocument {
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
-          {/* <link
-            rel="preload"
-            href="/fonts/canela/thin.woff"
-            as="font"
-            type="font/woff"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/canela/thin.woff2"
-            as="font"
-            type="font/woff"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/canela/regular.woff"
-            as="font"
-            type="font/woff"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/canela/regular.woff2"
-            as="font"
-            type="font/woff"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/canela/bold.woff"
-            as="font"
-            type="font/woff"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/canela/bold.woff2"
-            as="font"
-            type="font/woff"
-            crossOrigin="anonymous"
-          /> */}
           <link
             rel="preload"
             href="/fonts/sectra/Regular.woff"

@@ -1,6 +1,6 @@
 import { styled } from '@/styles'
 
-const Text = styled('div', {
+export const Text = styled('div', {
   color: '$text',
   variants: {
     size: {
