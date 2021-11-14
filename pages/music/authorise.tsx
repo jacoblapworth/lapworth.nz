@@ -1,5 +1,3 @@
-import { FC, useEffect, useState } from 'react'
-
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import NextScript from 'next/script'
@@ -11,14 +9,8 @@ interface PageProps {
   developerToken: string
 }
 
-export default function Home({ developerToken }: PageProps) {
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
-
+export default function Authorise({ developerToken }: PageProps) {
   const appleMusic = useAppleMusic(developerToken)
-
-  if (!mounted) return null
-
   const musicUserToken = appleMusic?.musicUserToken
 
   if (!musicUserToken) {
