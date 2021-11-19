@@ -5,6 +5,7 @@ import { styled } from '@/styles'
 import ThemeToggle from './ThemeToggle'
 
 const StyledHeader = styled('header', {
+  zIndex: 20,
   gridArea: 'header',
   display: 'flex',
   justifyContent: 'space-between',

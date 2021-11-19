@@ -160,6 +160,7 @@ const Description: FC = () => {
 }
 
 const Nav = styled('nav', {
+  zIndex: 10,
   gridArea: 'nav',
   display: 'grid',
   gap: 0,
