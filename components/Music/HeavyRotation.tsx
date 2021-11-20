@@ -1,10 +1,12 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 
 import NextImage from 'next/image'
 
 import { MusicKitResource } from '@/components/Music'
 import Text from '@/components/Text'
 import { styled } from '@/styles'
+
+import Link from '../Link'
 
 interface Props {
   music: MusicKitResource[]
@@ -59,7 +61,7 @@ const AppleMusicResource: FC<{ resource: MusicKitResource }> = ({
   })
 
   return (
-    <a href={resource.attributes.url}>
+    <Link href={resource.attributes.url}>
       <Stack>
         <AlbumArt
           alt={`Album artwork for "${name}"`}
@@ -71,7 +73,7 @@ const AppleMusicResource: FC<{ resource: MusicKitResource }> = ({
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>
       </Stack>
-    </a>
+    </Link>
   )
 }
 
