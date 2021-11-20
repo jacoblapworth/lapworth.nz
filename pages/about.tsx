@@ -4,6 +4,7 @@ import { getPlaiceholder } from 'plaiceholder'
 import { getMusic, MusicEndpoint, MusicKitResource } from '@/components/Music'
 import { buildImageUrl, HeavyRotation } from '@/components/Music/HeavyRotation'
 import Text from '@/components/Text'
+import ProfileImage from '@/public/static/j-photo-mono.png'
 import { styled } from '@/styles'
 
 import { GetStaticProps } from './_app'
@@ -23,10 +24,11 @@ export default function About({ music }: PageProps) {
       <Text size="xlarge" display>
         Hey there! I&apos;m J{' '}
         <Profile
-          src="/static/j-photo-mono.png"
+          src={ProfileImage}
           height={size}
           width={size}
           quality={100}
+          placeholder="blur"
           priority
         />
       </Text>
