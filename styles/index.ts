@@ -99,7 +99,7 @@ export const darkTheme = createTheme('dark', {
     text: colors.white[30],
     primary: colors.white[0],
     secondary: colors.black[90],
-    tertiary: colors.black[70],
+    tertiary: colors.grey[40],
     interactive: colors.white[30],
     background: colors.black[100],
     surface: '#202123',
