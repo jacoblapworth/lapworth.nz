@@ -59,7 +59,7 @@ export const Experience: FC<ExperienceProps> = ({}) => {
         workplace="Xero"
         href="https://www.xero.com/nz/"
         from="2020"
-        to="Now"
+        to="Present"
       />
       <ExperienceRow
         workplace="Vend"
