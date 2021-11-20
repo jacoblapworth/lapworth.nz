@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo'
 import NextImage from 'next/image'
 import { getPlaiceholder } from 'plaiceholder'
 
@@ -17,10 +18,13 @@ interface PageProps {
   music: MusicKitResource[]
 }
 
+const seoDescription = `Hey there! I'm J. I'm a product designer and software engineer focussed on community driven design systems.`
+
 export default function About({ music }: PageProps) {
   const size = 72
   return (
     <>
+      <NextSeo description={seoDescription} />
       <Text size="xlarge" display>
         Hey there! I&apos;m J{' '}
         <Profile
