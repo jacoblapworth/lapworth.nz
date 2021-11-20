@@ -12,7 +12,7 @@ interface Props {
   music: MusicKitResource[]
 }
 
-const buildImageUrl = (_url: string, size: number): string => {
+export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
   const src = url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
   const proxiedSrc = `https://image-proxy.lapworth.workers.dev/?url=${encodeURIComponent(
@@ -69,6 +69,8 @@ const AppleMusicResource: FC<{ resource: MusicKitResource }> = ({
           width={size}
           height={size}
           quality={100}
+          placeholder="blur"
+          blurDataURL={resource.attributes.placeholder}
         />
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>

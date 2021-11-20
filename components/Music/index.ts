@@ -47,6 +47,7 @@ export interface MusicKitResource {
 
 interface MusicKitAttributes {
   artwork: MusicKitArtwork
+  placeholder: string
   canEdit: boolean
   dateAdded: string
   hasCatalog: boolean

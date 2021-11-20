@@ -1,7 +1,8 @@
 import NextImage from 'next/image'
+import { getPlaiceholder } from 'plaiceholder'
 
 import { getMusic, MusicEndpoint, MusicKitResource } from '@/components/Music'
-import { HeavyRotation } from '@/components/Music/HeavyRotation'
+import { buildImageUrl, HeavyRotation } from '@/components/Music/HeavyRotation'
 import Text from '@/components/Text'
 import { styled } from '@/styles'
 
@@ -21,7 +22,13 @@ export default function About({ music }: PageProps) {
     <>
       <Text size="xlarge" display>
         Hey there! I&apos;m J{' '}
-        <Profile src="/static/j-photo-mono.png" height={size} width={size} />
+        <Profile
+          src="/static/j-photo-mono.png"
+          height={size}
+          width={size}
+          quality={100}
+          priority
+        />
       </Text>
 
       <Text size="large" display>
@@ -35,7 +42,23 @@ export default function About({ music }: PageProps) {
 }
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
-  const music = await getMusic(MusicEndpoint.RECENT)
+  const result = await getMusic(MusicEndpoint.RECENT)
+  const music = await Promise.all(
+    result.map(async (item) => {
+      const src = buildImageUrl(item.attributes.artwork.url, 24)
+      const image = await getPlaiceholder(src)
+
+      return {
+        ...item,
+        attributes: {
+          ...item.attributes,
+          placeholder: image.base64,
+        },
+      }
+    }),
+  )
+
+  console.log(music)
 
   return {
     props: {
