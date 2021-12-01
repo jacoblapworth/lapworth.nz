@@ -22,7 +22,8 @@ export const buildImageUrl = (_url: string, size: number): string => {
   return proxiedSrc
 }
 
-const AlbumArt = styled(NextImage, {
+const AlbumArt = styled('div', {
+  overflow: 'hidden',
   borderRadius: 8,
   backgroundColor: '$surface',
   '&:hover': {
@@ -63,15 +64,18 @@ const AppleMusicResource: FC<{ resource: MusicKitResource }> = ({
   return (
     <Link href={resource.attributes.url}>
       <Stack>
-        <AlbumArt
-          alt={`Album artwork for "${name}"`}
-          src={src}
-          width={size}
-          height={size}
-          quality={100}
-          placeholder="blur"
-          blurDataURL={resource.attributes.placeholder}
-        />
+        <AlbumArt>
+          <NextImage
+            alt={`Album artwork for "${name}"`}
+            src={src}
+            width={size}
+            height={size}
+            quality={100}
+            layout="responsive"
+            placeholder="blur"
+            blurDataURL={resource.attributes.placeholder}
+          />
+        </AlbumArt>
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>
       </Stack>

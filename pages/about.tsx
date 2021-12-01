@@ -10,8 +10,13 @@ import { styled } from '@/styles'
 
 import { GetStaticProps } from './_app'
 
-const Profile = styled(NextImage, {
+const Profile = styled('div', {
+  display: 'inline-flex',
   borderRadius: '50%',
+  overflow: 'hidden',
+  marginInlineStart: '0.2em',
+  height: '0.75em',
+  width: '0.75em',
 })
 
 interface PageProps {
@@ -21,20 +26,20 @@ interface PageProps {
 const seoDescription = `Hey there! I'm J. I'm a product designer and software engineer focussed on community driven design systems.`
 
 export default function About({ music }: PageProps) {
-  const size = 72
   return (
     <>
       <NextSeo description={seoDescription} />
       <Text size="xlarge" display>
-        Hey there! I&apos;m J{' '}
-        <Profile
-          src={ProfileImage}
-          height={size}
-          width={size}
-          quality={100}
-          placeholder="blur"
-          priority
-        />
+        Hey there! I&apos;m J
+        <Profile>
+          <NextImage
+            src={ProfileImage}
+            quality={100}
+            layout="intrinsic"
+            placeholder="blur"
+            priority
+          />
+        </Profile>
       </Text>
 
       <Text size="large" display>
