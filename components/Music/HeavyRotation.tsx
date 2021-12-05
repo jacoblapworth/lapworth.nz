@@ -26,8 +26,37 @@ const AlbumArt = styled('div', {
   overflow: 'hidden',
   borderRadius: 8,
   backgroundColor: '$surface',
+  marginBlockEnd: 4,
+  willChange: 'transform',
+})
+
+const Label = styled('div', {
+  display: 'inline',
+  wordWrap: 'break-word',
+  variants: {
+    variant: {
+      primary: {
+        fontSize: '$md',
+        color: '$primary',
+      },
+      secondary: {
+        fontSize: '$sm',
+        color: '$tertiary',
+      },
+    },
+  },
+})
+
+const Stack = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+})
+
+const AlbumLink = styled(Link, {
   '&:hover': {
-    opacity: 0.8,
+    [`& ${AlbumArt}`]: {
+      opacity: 0.8,
+    },
   },
 })
 
@@ -39,30 +68,8 @@ const AppleMusicResource: FC<{ resource: MusicKitResource }> = ({
   const size = 128
   const src = buildImageUrl(resource.attributes.artwork.url, size)
 
-  const Label = styled('div', {
-    display: 'inline',
-    wordWrap: 'break-word',
-    variants: {
-      variant: {
-        primary: {
-          fontSize: '$md',
-          color: '$primary',
-        },
-        secondary: {
-          fontSize: '$sm',
-          color: '$tertiary',
-        },
-      },
-    },
-  })
-
-  const Stack = styled('div', {
-    display: 'flex',
-    flexDirection: 'column',
-  })
-
   return (
-    <Link href={resource.attributes.url}>
+    <AlbumLink href={resource.attributes.url}>
       <Stack>
         <AlbumArt>
           <NextImage
@@ -79,26 +86,26 @@ const AppleMusicResource: FC<{ resource: MusicKitResource }> = ({
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>
       </Stack>
-    </Link>
+    </AlbumLink>
   )
 }
+
+const Grid = styled('div', {
+  display: 'grid',
+  gridAutoColumns: 128,
+  gridAutoRows: 'auto',
+  gridAutoFlow: 'column',
+  gap: 16,
+  overflowX: 'scroll',
+  marginInline: -16,
+  paddingBlockEnd: 16,
+  paddingInline: 16,
+})
 
 export const HeavyRotation: FC<Props> = ({ music }) => {
   const Music = music.map((item) => (
     <AppleMusicResource key={item.id} resource={item} />
   ))
-
-  const Grid = styled('div', {
-    display: 'grid',
-    gridAutoColumns: 128,
-    gridAutoRows: 'auto',
-    gridAutoFlow: 'column',
-    gap: 16,
-    overflowX: 'scroll',
-    marginInline: -16,
-    paddingBlockEnd: 16,
-    paddingInline: 16,
-  })
 
   return (
     <div>

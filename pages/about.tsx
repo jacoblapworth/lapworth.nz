@@ -17,6 +17,14 @@ const Profile = styled('div', {
   marginInlineStart: '0.2em',
   height: '0.75em',
   width: '0.75em',
+  border: '1px solid transparent',
+  '&:hover': {
+    border: '1px dashed $divider',
+  },
+})
+
+const NoWrap = styled('span', {
+  whiteSpace: 'nowrap',
 })
 
 interface PageProps {
@@ -30,16 +38,19 @@ export default function About({ music }: PageProps) {
     <>
       <NextSeo description={seoDescription} />
       <Text size="xlarge" display>
-        Hey there! I&apos;m J
-        <Profile>
-          <NextImage
-            src={ProfileImage}
-            quality={100}
-            layout="intrinsic"
-            placeholder="blur"
-            priority
-          />
-        </Profile>
+        Hey there!{' '}
+        <NoWrap>
+          I&apos;m J
+          <Profile>
+            <NextImage
+              src={ProfileImage}
+              quality={100}
+              layout="intrinsic"
+              placeholder="blur"
+              priority
+            />
+          </Profile>
+        </NoWrap>
       </Text>
 
       <Text size="large" display>
