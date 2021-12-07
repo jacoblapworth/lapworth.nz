@@ -25,21 +25,19 @@ export const App = ({
   useWelcomeLog()
 
   return (
-    <>
+    <ThemeProvider
+      enableSystem={true}
+      enableColorScheme={true}
+      defaultTheme="system"
+      themes={['light', 'dark']}
+      attribute="class"
+      value={{ light: lightTheme.className, dark: darkTheme.className }}
+    >
       <Head />
-      <ThemeProvider
-        enableSystem={true}
-        enableColorScheme={true}
-        defaultTheme="system"
-        themes={['light', 'dark']}
-        attribute="class"
-        value={{ light: lightTheme.className, dark: darkTheme.className }}
-      >
-        <Page title={title} hideNav={hideNav}>
-          <Component {...pageProps} />
-        </Page>
-      </ThemeProvider>
-    </>
+      <Page title={title} hideNav={hideNav}>
+        <Component {...pageProps} />
+      </Page>
+    </ThemeProvider>
   )
 }
 
