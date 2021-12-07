@@ -30,9 +30,9 @@ export default function Vend() {
       </Text>
       <p>Point of sale</p>
       <Grid>
-        <NextImage src={Img1} />
-        <NextImage src={Img2} />
-        <NextImage src={Img3} />
+        <NextImage src={Img1} placeholder="blur" />
+        <NextImage src={Img2} placeholder="blur" />
+        <NextImage src={Img3} placeholder="blur" />
       </Grid>
     </>
   )

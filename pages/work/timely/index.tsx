@@ -31,10 +31,10 @@ export default function Timely() {
       </Text>
       <p>Consultations</p>
       <Grid>
-        <NextImage src={Img1} />
-        <NextImage src={Img2} />
-        <NextImage src={Img3} />
-        <NextImage src={Img4} />
+        <NextImage src={Img1} placeholder="blur" />
+        <NextImage src={Img2} placeholder="blur" />
+        <NextImage src={Img3} placeholder="blur" />
+        <NextImage src={Img4} placeholder="blur" />
       </Grid>
     </>
   )
