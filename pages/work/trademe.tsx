@@ -1,11 +1,12 @@
 import { GetStaticProps } from 'next'
 
 import Discover from '@/components/Work/TradeMe/Discover'
-import { createTheme } from '@/styles'
+import { createTheme, lightTheme } from '@/styles'
 
-const tradeMeTheme = createTheme({
+const tradeMeTheme = createTheme('trademe', {
   colors: {
-    background: '$hokeyPokey',
+    // ...lightTheme.colors,
+    // background: '$hokeyPokey',
     hokeyPokey: '#FFC041',
     marketplace: '#E95958',
     jobs: '#FC723E',
@@ -27,6 +28,7 @@ export const getStaticProps: GetStaticProps = () => {
   return {
     props: {
       // hideNav: true,
+      // theme: 'trademe',
     },
   }
 }

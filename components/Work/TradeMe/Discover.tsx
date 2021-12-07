@@ -6,6 +6,8 @@ import Spotlights from './Spotlight'
 
 const Header = styled('div', {
   padding: 16,
+  marginTop: -200,
+  paddingTop: 200,
   backgroundColor: '$hokeyPokey',
 })
 

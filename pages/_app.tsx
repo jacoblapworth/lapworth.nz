@@ -4,23 +4,23 @@ import type { AppProps } from 'next/app'
 
 import '@/styles/globals.css'
 
+import { useWelcomeLog } from '../components/Hooks/useWelcomeLog'
 import Page from '@/components/Page'
 import { Head } from '@/lib/head'
 import { darkTheme, lightTheme } from '@/styles'
-
-import { useWelcomeLog } from '../components/Hooks/useWelcomeLog'
 
 interface PageProps {
   hideNav?: boolean
   hideHeader?: boolean
   title?: string
+  theme?: string
 }
 
 export type GetStaticProps<T = {}> = NextGetStaticProps<PageProps & T>
 
 export const App = ({
   Component,
-  pageProps: { hideNav, title, ...pageProps },
+  pageProps: { hideNav, title, theme, ...pageProps },
 }: AppProps<PageProps>) => {
   useWelcomeLog()
 
@@ -30,6 +30,7 @@ export const App = ({
       enableColorScheme={true}
       defaultTheme="system"
       themes={['light', 'dark']}
+      forcedTheme={theme || null}
       attribute="class"
       value={{ light: lightTheme.className, dark: darkTheme.className }}
     >
