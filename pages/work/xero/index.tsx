@@ -1,0 +1,31 @@
+import { NextSeo } from 'next-seo'
+
+import Text from '@/components/Text'
+import { GetStaticProps } from '@/pages/_app'
+import { styled } from '@/styles'
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      title: 'Xero',
+    },
+  }
+}
+
+const Grid = styled('div', {
+  display: 'grid',
+  marginBlock: '$md',
+})
+
+export default function Xero() {
+  return (
+    <>
+      <NextSeo noindex={true} />
+      <Text display size="xlarge">
+        Xero
+      </Text>
+      <p>Design system for beautiful business</p>
+      <Grid></Grid>
+    </>
+  )
+}
