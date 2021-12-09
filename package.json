@@ -35,7 +35,7 @@
   "dependencies": {
     "@radix-ui/react-icons": "1.0.3",
     "@stitches/react": "1.2.6",
-    "framer-motion": "5.4.4",
+    "framer-motion": "5.4.5",
     "got": "11.8.3",
     "jose": "4.3.7",
     "next": "12.0.7",
