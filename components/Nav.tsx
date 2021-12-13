@@ -169,7 +169,6 @@ const Nav = styled('nav', {
     gridTemplateColumns: 'repeat(4, 1fr)',
   },
   marginInline: 16,
-  marginBlockEnd: 16,
 })
 
 const Navigation: FC = () => {
