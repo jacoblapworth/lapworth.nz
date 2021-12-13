@@ -23,7 +23,7 @@ const Container = styled('div', {
 
 const Main = styled('main', {
   gridArea: 'content',
-  marginInline: 16,
+  margin: 16,
   maxWidth: 'calc(100vw - 32px)',
 })
 

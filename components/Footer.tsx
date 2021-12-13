@@ -4,7 +4,8 @@ import { styled } from '@/styles'
 
 const Tagline = styled('footer', {
   gridArea: 'footer',
-  paddingBlock: '8px',
+  paddingBlockStart: 8,
+  paddingBlockEnd: 12,
   borderTop: '1px solid $divider',
   fontSize: '$sm',
   color: '$tertiary',
