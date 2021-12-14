@@ -65,22 +65,28 @@ export default function About({ music }: PageProps) {
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const result = await getMusic(MusicEndpoint.RECENT)
-  const music = await Promise.all(
-    result.map(async (item) => {
-      const src = buildImageUrl(item.attributes.artwork.url, 24)
-      const image = await getPlaiceholder(src)
+  const music = (
+    await Promise.all(
+      result.map(async (item) => {
+        try {
+          const src = buildImageUrl(item.attributes.artwork.url, 24)
+          const image = await getPlaiceholder(src)
 
-      return {
-        ...item,
-        attributes: {
-          ...item.attributes,
-          placeholder: image.base64,
-        },
-      }
-    }),
-  )
-
-  console.log(music)
+          return {
+            ...item,
+            attributes: {
+              ...item.attributes,
+              placeholder: image.base64,
+            },
+          }
+        } catch (error) {
+          console.error(error)
+          console.log(item)
+          return null
+        }
+      }),
+    )
+  ).filter(Boolean) as MusicKitResource[]
 
   return {
     props: {
