@@ -58,7 +58,10 @@ export const Head: FC = () => {
     <>
       <DefaultSeo {...defaultSEO} />
       <NextHead>
-        <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
+        <meta
+          name="viewport"
+          content="initial-scale=1, viewport-fit=cover width=device-width"
+        />
         <meta name="theme-color" content={themeColor} />
         <link
           rel="icon"
