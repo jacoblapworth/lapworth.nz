@@ -1,7 +1,7 @@
-import { GetStaticProps } from '../_app'
 import Text from '@/components/Text'
 import { Experience } from '@/components/Work/Experience'
 import Glass from '@/components/Work/Glass'
+import { GetStaticProps } from '@/pages/_app'
 
 export default function Home() {
   return (

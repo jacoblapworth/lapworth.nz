@@ -5,16 +5,16 @@ import { styled } from '@/styles'
 import { GetStaticProps } from './_app'
 
 const Page = styled('div', {
-  maxWidth: '100vw',
-  '@sm': {
-    maxWidth: '75vw',
-  },
+  // maxWidth: '100vw',
+  // '@sm': {
+  //   maxWidth: '75vw',
+  // },
 })
 
 export default function Home() {
   return (
     <Page>
-      <Text size="xlarge" display>
+      <Text size="xlarge" display lang="mi">
         Kia ora 👋 Ko Jacob tōku ingoa
       </Text>
       <Text>

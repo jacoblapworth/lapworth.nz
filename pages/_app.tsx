@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app'
 
 import '@/styles/globals.css'
 
-import { useWelcomeLog } from '../components/Hooks/useWelcomeLog'
+import { useWelcomeLog } from '@/components/Hooks/useWelcomeLog'
 import Page from '@/components/Page'
 import { Head } from '@/lib/head'
 import { darkTheme, lightTheme } from '@/styles'

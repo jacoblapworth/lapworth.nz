@@ -20,9 +20,10 @@ export const Text = styled('div', {
       },
     },
     display: {
-      true: {},
+      true: {
+        maxWidth: '25ch',
+      },
     },
-
     serif: {
       true: {
         fontFamily: '$serif',
