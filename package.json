@@ -36,7 +36,7 @@
     "@radix-ui/react-icons": "1.0.3",
     "@stitches/react": "1.2.6",
     "framer-motion": "5.5.6",
-    "got": "12.0.0",
+    "got": "12.0.1",
     "jose": "4.3.7",
     "next": "12.0.7",
     "next-seo": "4.28.1",
