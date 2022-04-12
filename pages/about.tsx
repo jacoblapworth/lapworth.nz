@@ -4,7 +4,7 @@ import { getPlaiceholder } from 'plaiceholder'
 
 import { getMusic, MusicEndpoint, MusicKitResource } from '@/components/Music'
 import { buildImageUrl, HeavyRotation } from '@/components/Music/HeavyRotation'
-import Text from '@/components/Text'
+import Text from '@/components/Typography/Text'
 import ProfileImage from '@/public/static/j-photo-mono.png'
 import { styled } from '@/styles'
 
@@ -19,7 +19,8 @@ const Profile = styled('div', {
   width: '0.75em',
   border: '1px solid transparent',
   '&:hover': {
-    border: '1px dashed $divider',
+    borderColor: '$divider',
+    borderStyle: 'dashed',
   },
 })
 

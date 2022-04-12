@@ -34,7 +34,7 @@ const StyledSearchBar = styled('div', {
   position: 'relative',
 
   borderColor: 'transparent',
-  borderRadius: 8,
+  borderRadius: '$sm',
 
   backgroundColor: '#fff',
   boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
@@ -55,7 +55,7 @@ const StyledSearchInput = styled('input', {
   width: '100%',
   border: 'none',
   position: 'relative',
-  borderRadius: 8,
+  borderRadius: '$sm',
   padding: 8,
   paddingInlineStart: 40,
   appearance: 'none',

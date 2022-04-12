@@ -26,6 +26,13 @@ export const {
       md: '16px',
       lg: '32px',
     },
+    radii: {
+      sm: '8px',
+      md: '16px',
+      lg: '30px',
+      max: '9999px',
+      circle: '50%',
+    },
     space: {
       sm: '8px',
       md: '16px',
@@ -74,7 +81,7 @@ export const lightTheme = createTheme('light', {
     interactive: colors.black[800],
     background: colors.black[50],
     surface: colors.white,
-    surfaceHovered: colors.black[100],
+    surfaceHovered: 'rgba(0,0,0, 0.05)',
     onSurface: colors.black[900],
     divider: colors.black[900],
     critical: colors.red[500],
@@ -92,7 +99,7 @@ export const darkTheme = createTheme('dark', {
     interactive: colors.black[200],
     background: colors.black[900],
     surface: colors.black[800],
-    surfaceHovered: colors.black[800],
+    surfaceHovered: 'rgba(255,255,255, 0.05)',
     onSurface: colors.black[900],
     divider: colors.white,
     critical: colors.red[500],
@@ -129,6 +136,10 @@ export const globalStyles = globalCss({
   '::selection': {
     backgroundColor: '$text',
     color: '$background',
+  },
+
+  'h1, h2, h3, h4, h5, h6': {
+    fontWeight: 'normal',
   },
 
   '@font-face': [

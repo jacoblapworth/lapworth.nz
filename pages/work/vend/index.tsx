@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo'
 import NextImage from 'next/image'
 
-import Text from '@/components/Text'
+import Text from '@/components/Typography/Text'
 import { GetStaticProps } from '@/pages/_app'
 import Img1 from '@/public/static/work/vend/1.png'
 import Img2 from '@/public/static/work/vend/2.png'

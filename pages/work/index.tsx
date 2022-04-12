@@ -1,17 +1,22 @@
-import Text from '@/components/Text'
 import { Experience } from '@/components/Work/Experience'
-import Glass from '@/components/Work/Glass'
+import { XeroSplash } from '@/components/Work/Xero'
 import { GetStaticProps } from '@/pages/_app'
+import { styled } from '@/styles'
+
+const Layout = styled('div', {
+  marginBlock: '$lg',
+  display: 'grid',
+  columnGap: '$md',
+  rowGap: '$lg',
+  gridTemplateColumns: 'repeat(4, 1fr)',
+})
 
 export default function Home() {
   return (
-    <>
-      <Text size="xlarge" display>
-        Coming soon 👀
-      </Text>
+    <Layout>
+      <XeroSplash />
       <Experience />
-      <Glass />
-    </>
+    </Layout>
   )
 }
 

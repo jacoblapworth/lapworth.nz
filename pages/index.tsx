@@ -1,5 +1,5 @@
 import Link from '@/components/Link'
-import Text from '@/components/Text'
+import Text from '@/components/Typography/Text'
 import { styled } from '@/styles'
 
 import { GetStaticProps } from './_app'

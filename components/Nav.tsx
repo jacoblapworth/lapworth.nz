@@ -5,6 +5,7 @@ import NextLink, { LinkProps as NextLinkProps } from 'next/link'
 
 import { styled } from '@/styles'
 
+import { ArrowIcon } from './Icons'
 import Link from './Link'
 
 const A = styled('a', {
@@ -49,22 +50,7 @@ const NavLink: FC<NextLinkProps> = ({ children, href }) => {
           initial="hidden"
           style={{ marginInlineEnd: 8 }}
         >
-          <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-              d="M13.75 6.75L19.25 12L13.75 17.25"
-            ></path>
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-              d="M19 12H4.75"
-            ></path>
-          </svg>
+          <ArrowIcon />
         </motion.div>
       </A>
     </NextLink>
@@ -77,7 +63,7 @@ const Stack = styled('div', {
   gridColumn: '1 / span 2',
 })
 
-const NavLinks: FC = () => {
+const Primary: FC = () => {
   return (
     <Stack>
       <NavLink href="/work">Work</NavLink>
@@ -97,7 +83,7 @@ const Row = styled('div', {
   '@sm': {
     gridColumn: 'span 1',
   },
-  justifySelf: 'start',
+  justifySelf: 'stretch',
   alignSelf: 'start',
 
   [`& ul`]: {
@@ -107,14 +93,6 @@ const Row = styled('div', {
   [`& li`]: {
     display: 'inline-block',
     whiteSpace: 'pre',
-    '&::after': {
-      content: ' \u2022 ',
-    },
-    '&:last-child': {
-      '&::after': {
-        content: 'none',
-      },
-    },
   },
 })
 
@@ -145,12 +123,13 @@ const socialLinks = [
   },
 ]
 
-const Description: FC = () => {
+const Secondary: FC = () => {
   return (
     <Row>
-      <ul>
-        {socialLinks.map(({ name, href }) => (
+      <ul aria-label="Social media links">
+        {socialLinks.map(({ name, href }, i, arr) => (
           <li key={href}>
+            {i !== 0 && <span role="presentation"> • </span>}
             <Link href={href}>{name}</Link>
           </li>
         ))}
@@ -175,8 +154,8 @@ const Nav = styled('nav', {
 const Navigation: FC = () => {
   return (
     <Nav>
-      <NavLinks />
-      <Description />
+      <Primary />
+      <Secondary />
     </Nav>
   )
 }

@@ -152,7 +152,7 @@ const Spot: FC<SpotProps> = ({
 
 const Grid = styled(motion.div, {
   padding: 16,
-  borderRadius: 8,
+  borderRadius: '$sm',
   backgroundColor: '#fff',
   display: 'grid',
   gap: 16,

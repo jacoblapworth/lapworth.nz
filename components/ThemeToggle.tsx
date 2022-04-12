@@ -29,7 +29,7 @@ const Icon = () => (
 
 interface ThemeToggleProps {}
 
-const Button = styled('button', {
+const Button = styled(motion.button, {
   fontSize: '$lg',
   border: '1px solid transparent',
   borderRadius: 9999,
@@ -39,7 +39,7 @@ const Button = styled('button', {
   padding: '$sm',
 
   '&:hover': {
-    border: '1px solid $divider',
+    borderColor: '$divider',
   },
 })
 
@@ -54,7 +54,7 @@ const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
   }
 
   return (
-    <motion.div
+    <Button
       animate={{
         rotate: rotation,
         transition: {
@@ -67,11 +67,11 @@ const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
           duration: 0.1,
         },
       }}
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
     >
-      <Button onClick={toggleTheme}>
-        <Icon />
-      </Button>
-    </motion.div>
+      <Icon />
+    </Button>
   )
 }
 

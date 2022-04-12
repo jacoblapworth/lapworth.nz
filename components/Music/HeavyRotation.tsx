@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import NextImage from 'next/image'
 
 import { MusicKitResource } from '@/components/Music'
-import Text from '@/components/Text'
+import Text from '@/components/Typography/Text'
 import { styled } from '@/styles'
 
 import Link from '../Link'
@@ -24,7 +24,7 @@ export const buildImageUrl = (_url: string, size: number): string => {
 
 const AlbumArt = styled('div', {
   overflow: 'hidden',
-  borderRadius: 8,
+  borderRadius: '$sm',
   backgroundColor: '$surface',
   marginBlockEnd: 4,
   willChange: 'transform',
