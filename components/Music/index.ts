@@ -1,4 +1,4 @@
-import got from 'got'
+import got, { HTTPError } from 'got'
 import { SignJWT, importPKCS8 } from 'jose'
 
 const APPLE_MUSIC_PRIVATE_KEY = process.env.APPLE_MUSIC_PRIVATE_KEY || ''
@@ -45,6 +45,18 @@ export interface MusicKitResource {
   type: 'stations' | 'library-playlists' | 'playlists'
 }
 
+interface MusicKitError {
+  code: string
+  detail: string
+  id: string
+  status: string
+  title: string
+}
+
+interface MusicKitErrorResponse {
+  errors: MusicKitError[]
+}
+
 interface MusicKitAttributes {
   artwork: MusicKitArtwork
   placeholder: string
@@ -68,6 +80,24 @@ interface MusicKitArtwork {
   url: string
 }
 
+export class MKError extends Error {
+  id: string
+  code: number
+  status: number
+
+  constructor(
+    { title, detail, code, status, id }: MusicKitError,
+    options?: ErrorOptions,
+  ) {
+    super('MusicKitError', options)
+    this.name = 'MusicKitError'
+    this.message = `${title} [${code}] ${detail}`
+    this.id = id
+    this.code = parseInt(code)
+    this.status = parseInt(status)
+  }
+}
+
 export enum MusicEndpoint {
   RECENT = 'v1/me/recent/played',
   RECENT_TRACKS = 'v1/me/recent/played/tracks',
@@ -79,7 +109,13 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
     const music = await appleMusicClient.get(endpoint).json<RMusicKitHistory>()
     return music.data
   } catch (error) {
-    console.error(error)
-    return []
+    if (error instanceof HTTPError) {
+      const response = error.response.body as MusicKitErrorResponse
+      const mkError = response.errors[0]
+
+      throw new MKError(mkError, { cause: error })
+    } else {
+      throw error
+    }
   }
 }

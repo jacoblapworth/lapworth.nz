@@ -105,6 +105,10 @@ const Grid = styled('div', {
 export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
   music,
 }) => {
+  if (music.length === 0) {
+    return null
+  }
+
   const Music = music.map((item) => (
     <AppleMusicResource key={item.id} resource={item} />
   ))
