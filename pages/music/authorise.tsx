@@ -26,7 +26,7 @@ export default function Authorise({ developerToken }: PageProps) {
   return (
     <>
       <NextSeo noindex={true} />
-      <NextScript src="https://js-cdn.music.apple.com/musickit/v1/musickit.js" />
+      <NextScript src="https://js-cdn.music.apple.com/musickit/v3/musickit.js" />
     </>
   )
 }

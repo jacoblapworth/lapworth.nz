@@ -17,8 +17,8 @@ export const useAppleMusic = (developerToken: string) => {
   const [client, setClient] = useState<MusicKit.MusicKitInstance>()
 
   useEffect(() => {
-    const handleMusicKitLoaded = () => {
-      const instance = MusicKit.configure({
+    const handleMusicKitLoaded = async () => {
+      const instance = await MusicKit.configure({
         developerToken,
         app: {
           name: 'Lapworth.nz',
