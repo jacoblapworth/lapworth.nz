@@ -46,10 +46,15 @@ export interface MusicKitResource {
 }
 
 interface MusicKitError {
+  /** The code for this error. For possible values, see HTTP Status Codes. */
   code: string
-  detail: string
+  /** A long, possibly localized, description of the problem. */
+  detail?: string
+  /** A unique identifier for this occurrence of the error. */
   id: string
+  /** The HTTP status code for this problem. */
   status: string
+  /** A short, possibly localized, description of the problem. */
   title: string
 }
 
