@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState, PropsWithChildren } from 'react'
 
 import { motion, useCycle } from 'framer-motion'
 import { useTheme } from 'next-themes'
@@ -43,7 +43,7 @@ const Button = styled('button', {
   },
 })
 
-const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
+const ThemeToggle: FC<PropsWithChildren<ThemeToggleProps>> = ({}) => {
   const { setTheme } = useTheme()
   const themeToSet = useThemeValue('dark', 'light')
   const [rotation, cycleRotation] = useCycle(0, 180)

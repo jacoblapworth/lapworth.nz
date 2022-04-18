@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, PropsWithChildren } from 'react'
 
 import { styled } from '@/styles'
 
@@ -15,7 +15,7 @@ const Tagline = styled('footer', {
 
 interface FooterProps {}
 
-export const Footer: FC<FooterProps> = ({}) => {
+export const Footer: FC<PropsWithChildren<FooterProps>> = ({}) => {
   return <Tagline>Designed and built by J — Product Designer — 2021</Tagline>
 }
 

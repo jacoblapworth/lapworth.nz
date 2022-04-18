@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, PropsWithChildren } from 'react'
 
 import { motion } from 'framer-motion'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
@@ -51,7 +51,7 @@ const A = styled('a', {
   },
 })
 
-const NavLink: FC<NextLinkProps> = ({ children, href }) => {
+const NavLink: FC<PropsWithChildren<NextLinkProps>> = ({ children, href }) => {
   const [animate, setAnimate] = useState('hidden')
   const router = useRouter()
 
@@ -112,7 +112,7 @@ const Stack = styled('div', {
   gridColumn: '1 / span 2',
 })
 
-const NavLinks: FC = () => {
+const NavLinks: FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Stack>
       <NavLink href="/work">Work</NavLink>
@@ -180,7 +180,7 @@ const socialLinks = [
   },
 ]
 
-const Description: FC = () => {
+const Description: FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Row>
       <ul>
@@ -206,7 +206,7 @@ const Nav = styled('nav', {
   marginInline: 16,
 })
 
-const Navigation: FC = () => {
+const Navigation: FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Nav>
       <NavLinks />
