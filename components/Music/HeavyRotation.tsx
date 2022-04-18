@@ -15,7 +15,7 @@ interface Props {
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
   const src = url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
-  const proxiedSrc = `https://image-proxy.lapworth.workers.dev/?url=${encodeURIComponent(
+  const proxiedSrc = `https://lapworth.nz/api/images?url=${encodeURIComponent(
     src,
   )}`
 
@@ -105,6 +105,10 @@ const Grid = styled('div', {
 export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
   music,
 }) => {
+  if (music.length === 0) {
+    return null
+  }
+
   const Music = music.map((item) => (
     <AppleMusicResource key={item.id} resource={item} />
   ))
@@ -118,7 +122,7 @@ export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
           marginBlockEnd: 16,
         }}
       >
-        My heavy rotation
+        Currently vibing to
       </Text>
 
       <Grid>{Music}</Grid>
