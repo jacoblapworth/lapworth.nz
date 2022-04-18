@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 
 import NextImage from 'next/image'
 
@@ -60,9 +60,9 @@ const AlbumLink = styled(Link, {
   },
 })
 
-const AppleMusicResource: FC<{ resource: MusicKitResource }> = ({
-  resource,
-}) => {
+const AppleMusicResource: FC<
+  PropsWithChildren<{ resource: MusicKitResource }>
+> = ({ resource }) => {
   const { name, artistName } = resource.attributes
 
   const size = 128
@@ -102,7 +102,9 @@ const Grid = styled('div', {
   paddingInline: 16,
 })
 
-export const HeavyRotation: FC<Props> = ({ music }) => {
+export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
+  music,
+}) => {
   const Music = music.map((item) => (
     <AppleMusicResource key={item.id} resource={item} />
   ))
