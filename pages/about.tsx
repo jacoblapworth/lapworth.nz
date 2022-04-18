@@ -2,7 +2,12 @@ import { NextSeo } from 'next-seo'
 import NextImage from 'next/image'
 import { getPlaiceholder } from 'plaiceholder'
 
-import { getMusic, MusicEndpoint, MusicKitResource } from '@/components/Music'
+import {
+  getMusic,
+  MKError,
+  MusicEndpoint,
+  MusicKitResource,
+} from '@/components/Music'
 import { buildImageUrl, HeavyRotation } from '@/components/Music/HeavyRotation'
 import Text from '@/components/Text'
 import ProfileImage from '@/public/static/j-photo-mono.png'
@@ -98,6 +103,11 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
     }
   } catch (error) {
     console.error(error)
+    if (error instanceof MKError) {
+      if (error.status === 403) {
+        console.info('Visit /music/authorise to refresh Apple Music token')
+      }
+    }
 
     return {
       props: {

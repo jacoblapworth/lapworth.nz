@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { GetServerSideProps } from 'next'
 import { NextSeo } from 'next-seo'
 import NextScript from 'next/script'
@@ -11,13 +13,15 @@ interface PageProps {
 
 export default function Authorise({ developerToken }: PageProps) {
   const appleMusic = useAppleMusic(developerToken)
-  const musicUserToken = appleMusic?.musicUserToken
 
-  if (!musicUserToken) {
-    appleMusic?.authorize()
-  } else {
-    console.log({ musicUserToken })
-  }
+  useEffect(() => {
+    const authorize = async () => {
+      const userToken = await appleMusic?.authorize()
+      userToken && console.log('Apple Music user token:', userToken)
+    }
+
+    authorize()
+  }, [appleMusic])
 
   return (
     <>
