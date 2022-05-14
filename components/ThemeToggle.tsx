@@ -69,7 +69,11 @@ const ThemeToggle: FC<PropsWithChildren<ThemeToggleProps>> = ({}) => {
         },
       }}
     >
-      <Button onClick={toggleTheme} aria-label="Toggle theme">
+      <Button
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+        data-testid="theme-toggle"
+      >
         <Icon />
       </Button>
     </motion.div>

@@ -69,7 +69,7 @@ const Page = ({
         <Header />
         {!hideNav && <Nav />}
 
-        <Main id="main" {...rest}>
+        <Main id="main" data-testid="main" {...rest}>
           {children}
         </Main>
         <Footer />
