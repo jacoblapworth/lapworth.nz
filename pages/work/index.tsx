@@ -1,3 +1,5 @@
+import { NextPage } from 'next'
+
 import { Experience } from '@/components/Work/Experience'
 import { XeroSplash } from '@/components/Work/Xero'
 import { GetStaticProps } from '@/pages/_app'
@@ -11,14 +13,16 @@ const Layout = styled('div', {
   gridTemplateColumns: 'repeat(4, 1fr)',
 })
 
-export default function Home() {
+export const Work: NextPage = () => {
   return (
     <Layout>
-      <XeroSplash />
       <Experience />
+      <XeroSplash />
     </Layout>
   )
 }
+
+export default Work
 
 export const getStaticProps: GetStaticProps = () => {
   return {

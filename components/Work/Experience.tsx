@@ -46,7 +46,6 @@ const Stack = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   gap: '16px',
-  gridRow: '2',
   gridColumn: '1 / -1',
   justifyContent: 'space-between',
   maxWidth: '12rem',
