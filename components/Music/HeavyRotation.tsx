@@ -8,10 +8,6 @@ import { styled } from '@/styles'
 
 import Link from '../Link'
 
-interface Props {
-  music: MusicKitResource[]
-}
-
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
   const src = url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
@@ -20,6 +16,10 @@ export const buildImageUrl = (_url: string, size: number): string => {
   )}`
 
   return proxiedSrc
+}
+
+interface Props {
+  music: MusicKitResource[]
 }
 
 const AlbumArt = styled('div', {

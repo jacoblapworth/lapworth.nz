@@ -1,5 +1,6 @@
 import got, { HTTPError } from 'got'
 import { SignJWT, importPKCS8 } from 'jose'
+import { getPlaiceholder } from 'plaiceholder'
 
 const APPLE_MUSIC_PRIVATE_KEY = process.env.APPLE_MUSIC_PRIVATE_KEY || ''
 const APPLE_TEAM_ID = process.env.APPLE_TEAM_ID || ''
@@ -104,6 +105,16 @@ export enum MusicEndpoint {
   HEAVY_ROTATION = 'v1/me/history/heavy-rotation',
 }
 
+export const buildImageUrl = (_url: string, size: number): string => {
+  const url = decodeURI(_url)
+  const src = url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
+  const proxiedSrc = `https://lapworth.nz/api/images?url=${encodeURIComponent(
+    src,
+  )}`
+
+  return proxiedSrc
+}
+
 export const getMusic = async (endpoint: MusicEndpoint) => {
   try {
     const music = await appleMusicClient.get(endpoint).json<RMusicKitHistory>()
@@ -116,6 +127,42 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
       throw new MKError(mkError, { cause: error })
     } else {
       throw error
+    }
+  }
+}
+
+export const getMusicWithThumbnails = async () => {
+  try {
+    const response = await getMusic(MusicEndpoint.RECENT)
+    const music = (
+      await Promise.all(
+        response.map(async (item) => {
+          try {
+            const src = buildImageUrl(item.attributes.artwork.url, 24)
+            const image = await getPlaiceholder(src)
+            return {
+              ...item,
+              attributes: {
+                ...item.attributes,
+                placeholder: image.base64,
+              },
+            }
+          } catch (error) {
+            console.error(error)
+            console.log(item)
+            return undefined
+          }
+        }),
+      )
+    ).filter(Boolean) as MusicKitResource[]
+
+    return music
+  } catch (error) {
+    console.error(error)
+    if (error instanceof MKError) {
+      if (error.status === 403) {
+        console.info('Visit /music/authorise to refresh Apple Music token')
+      }
     }
   }
 }
