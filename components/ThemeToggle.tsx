@@ -18,6 +18,7 @@ const Icon = () => (
     viewBox="0 0 24 24"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
+    role="presentation"
   >
     <path
       fillRule="evenodd"
@@ -68,7 +69,7 @@ const ThemeToggle: FC<PropsWithChildren<ThemeToggleProps>> = ({}) => {
         },
       }}
     >
-      <Button onClick={toggleTheme}>
+      <Button onClick={toggleTheme} aria-label="Toggle theme">
         <Icon />
       </Button>
     </motion.div>

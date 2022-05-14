@@ -183,7 +183,7 @@ const socialLinks = [
 const Description: FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Row>
-      <ul>
+      <ul aria-label="Social media links">
         {socialLinks.map(({ name, href }) => (
           <li key={href}>
             <Link href={href}>{name}</Link>
