@@ -1,3 +1,4 @@
+import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import NextImage from 'next/image'
 import { getPlaiceholder } from 'plaiceholder'
@@ -38,7 +39,7 @@ interface PageProps {
 
 const seoDescription = `Hey there! I'm J. I'm a product designer and software engineer focussed on community driven design systems.`
 
-export default function About({ music }: PageProps) {
+export const About: NextPage<PageProps> = ({ music }) => {
   return (
     <>
       <NextSeo description={seoDescription} />
@@ -67,6 +68,8 @@ export default function About({ music }: PageProps) {
     </>
   )
 }
+
+export default About
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   try {

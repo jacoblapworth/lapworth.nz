@@ -1,8 +1,12 @@
+import { NextPage } from 'next'
+
 import { GetStaticProps } from './_app'
 
-export default function Home() {
-  return 'Contact'
+export const ContactPage: NextPage = () => {
+  return <>Contact</>
 }
+
+export default ContactPage
 
 export const getStaticProps: GetStaticProps = async () => {
   return {

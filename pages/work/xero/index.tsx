@@ -1,3 +1,4 @@
+import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
 import Text from '@/components/Text'
@@ -17,7 +18,7 @@ const Grid = styled('div', {
   marginBlock: '$md',
 })
 
-export default function Xero() {
+export const Xero: NextPage = () => {
   return (
     <>
       <NextSeo noindex={true} />
@@ -29,3 +30,5 @@ export default function Xero() {
     </>
   )
 }
+
+export default Xero
