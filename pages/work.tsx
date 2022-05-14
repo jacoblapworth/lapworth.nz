@@ -1,9 +1,11 @@
+import { NextPage } from 'next'
+
 import Text from '@/components/Text'
 import { Experience } from '@/components/Work/Experience'
 
 import { GetStaticProps } from './_app'
 
-export default function Home() {
+export const Work: NextPage = () => {
   return (
     <>
       <Text size="xlarge" display>
@@ -13,6 +15,8 @@ export default function Home() {
     </>
   )
 }
+
+export default Work
 
 export const getStaticProps: GetStaticProps = () => {
   return {

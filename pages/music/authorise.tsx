@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import NextScript from 'next/script'
 
@@ -11,7 +11,7 @@ interface PageProps {
   developerToken: string
 }
 
-export default function Authorise({ developerToken }: PageProps) {
+export const Authorise: NextPage<PageProps> = ({ developerToken }) => {
   const appleMusic = useAppleMusic(developerToken)
 
   useEffect(() => {
@@ -30,6 +30,8 @@ export default function Authorise({ developerToken }: PageProps) {
     </>
   )
 }
+
+export default Authorise
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
   const developerToken = await createAppleJWT()

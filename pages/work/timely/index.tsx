@@ -1,3 +1,4 @@
+import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import NextImage from 'next/image'
 
@@ -22,7 +23,7 @@ const Grid = styled('div', {
   marginBlock: '$md',
 })
 
-export default function Timely() {
+export const Timely: NextPage = () => {
   return (
     <>
       <NextSeo noindex={true} />
@@ -39,3 +40,5 @@ export default function Timely() {
     </>
   )
 }
+
+export default Timely

@@ -1,3 +1,5 @@
+import { NextPage } from 'next'
+
 import Link from '@/components/Link'
 import Text from '@/components/Text'
 import { styled } from '@/styles'
@@ -11,7 +13,7 @@ const Page = styled('div', {
   },
 })
 
-export default function Home() {
+export const Home: NextPage = () => {
   return (
     <Page>
       <Text size="xlarge" display>
@@ -37,6 +39,8 @@ export default function Home() {
     </Page>
   )
 }
+
+export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   return {

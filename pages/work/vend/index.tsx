@@ -1,3 +1,4 @@
+import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import NextImage from 'next/image'
 
@@ -21,7 +22,7 @@ const Grid = styled('div', {
   marginBlock: '$md',
 })
 
-export default function Vend() {
+export const Vend: NextPage = () => {
   return (
     <>
       <NextSeo noindex={true} />
@@ -37,3 +38,5 @@ export default function Vend() {
     </>
   )
 }
+
+export default Vend

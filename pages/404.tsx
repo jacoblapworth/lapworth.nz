@@ -1,8 +1,10 @@
+import { NextPage } from 'next'
+
 import Button from '@/components/Button'
 
 import { GetStaticProps } from './_app'
 
-export default function Home() {
+export const FourZeroFour: NextPage = () => {
   return (
     <>
       <h1>404</h1>
@@ -14,6 +16,8 @@ export default function Home() {
     </>
   )
 }
+
+export default FourZeroFour
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
