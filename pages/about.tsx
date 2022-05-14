@@ -1,8 +1,14 @@
+import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import NextImage from 'next/image'
 import { getPlaiceholder } from 'plaiceholder'
 
-import { getMusic, MusicEndpoint, MusicKitResource } from '@/components/Music'
+import {
+  getMusic,
+  MKError,
+  MusicEndpoint,
+  MusicKitResource,
+} from '@/components/Music'
 import { buildImageUrl, HeavyRotation } from '@/components/Music/HeavyRotation'
 import Text from '@/components/Typography/Text'
 import ProfileImage from '@/public/static/j-photo-mono.png'
@@ -20,7 +26,6 @@ const Profile = styled('div', {
   border: '1px solid transparent',
   '&:hover': {
     borderColor: '$divider',
-    borderStyle: 'dashed',
   },
 })
 
@@ -29,12 +34,12 @@ const NoWrap = styled('span', {
 })
 
 interface PageProps {
-  music: MusicKitResource[]
+  music?: MusicKitResource[]
 }
 
 const seoDescription = `Hey there! I'm J. I'm a product designer and software engineer focussed on community driven design systems.`
 
-export default function About({ music }: PageProps) {
+export const About: NextPage<PageProps> = ({ music }) => {
   return (
     <>
       <NextSeo description={seoDescription} />
@@ -59,41 +64,58 @@ export default function About({ music }: PageProps) {
         driven design systems.
       </Text>
 
-      <HeavyRotation music={music} />
+      {music && music.length > 0 && <HeavyRotation music={music} />}
     </>
   )
 }
 
+export default About
+
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
-  const result = await getMusic(MusicEndpoint.RECENT)
-  const music = (
-    await Promise.all(
-      result.map(async (item) => {
-        try {
-          const src = buildImageUrl(item.attributes.artwork.url, 24)
-          const image = await getPlaiceholder(src)
-
-          return {
-            ...item,
-            attributes: {
-              ...item.attributes,
-              placeholder: image.base64,
-            },
+  try {
+    const response = await getMusic(MusicEndpoint.RECENT)
+    const music = (
+      await Promise.all(
+        response.map(async (item) => {
+          try {
+            const src = buildImageUrl(item.attributes.artwork.url, 24)
+            const image = await getPlaiceholder(src)
+            return {
+              ...item,
+              attributes: {
+                ...item.attributes,
+                placeholder: image.base64,
+              },
+            }
+          } catch (error) {
+            console.error(error)
+            console.log(item)
+            return undefined
           }
-        } catch (error) {
-          console.error(error)
-          console.log(item)
-          return null
-        }
-      }),
-    )
-  ).filter(Boolean) as MusicKitResource[]
+        }),
+      )
+    ).filter(Boolean) as MusicKitResource[]
 
-  return {
-    props: {
-      title: 'About',
-      music,
-    },
-    revalidate: 60 * 60 * 24, // 1 day ,
+    return {
+      props: {
+        title: 'About',
+        music,
+      },
+      revalidate: 60 * 60 * 24, // 1 day ,
+    }
+  } catch (error) {
+    console.error(error)
+    if (error instanceof MKError) {
+      if (error.status === 403) {
+        console.info('Visit /music/authorise to refresh Apple Music token')
+      }
+    }
+
+    return {
+      props: {
+        title: 'About',
+      },
+      revalidate: 60 * 60, // 1 hour ,
+    }
   }
 }

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 
 import { styled } from '@/styles'
 
@@ -25,7 +25,7 @@ const Row = styled('div', {
   gap: '1rem',
 })
 
-const ExperienceRow: FC<ExperienceRowProps> = ({
+const ExperienceRow: FC<PropsWithChildren<ExperienceRowProps>> = ({
   workplace,
   from,
   to,
@@ -54,7 +54,9 @@ const Stack = styled('div', {
 
 interface ExperienceProps {}
 
-export const Experience: FC<ExperienceProps> = ({}) => {
+export const Experience: FC<
+  React.PropsWithChildren<ExperienceProps>
+> = ({}) => {
   return (
     <Stack>
       <h2>Experience</h2>

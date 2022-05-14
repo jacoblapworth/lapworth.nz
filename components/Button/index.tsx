@@ -1,6 +1,5 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, PropsWithChildren } from 'react'
 
-import cn from 'classnames'
 import Link from 'next/link'
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
@@ -8,10 +7,15 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
   href: string
 }
 
-const Button: React.FC<Props> = ({ children, href, className, ...rest }) => {
+const Button: React.FC<PropsWithChildren<Props>> = ({
+  children,
+  href,
+  className,
+  ...rest
+}) => {
   return (
     <Link href={href} passHref>
-      <button className={cn('hover:opacity-60', className)} {...rest}>
+      <button className={className} {...rest}>
         {children}
       </button>
     </Link>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 
 import NextImage from 'next/image'
 
@@ -15,7 +15,7 @@ interface Props {
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
   const src = url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
-  const proxiedSrc = `https://image-proxy.lapworth.workers.dev/?url=${encodeURIComponent(
+  const proxiedSrc = `https://lapworth.nz/api/images?url=${encodeURIComponent(
     src,
   )}`
 
@@ -60,9 +60,9 @@ const AlbumLink = styled(Link, {
   },
 })
 
-const AppleMusicResource: FC<{ resource: MusicKitResource }> = ({
-  resource,
-}) => {
+const AppleMusicResource: FC<
+  PropsWithChildren<{ resource: MusicKitResource }>
+> = ({ resource }) => {
   const { name, artistName } = resource.attributes
 
   const size = 128
@@ -102,7 +102,13 @@ const Grid = styled('div', {
   paddingInline: 16,
 })
 
-export const HeavyRotation: FC<Props> = ({ music }) => {
+export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
+  music,
+}) => {
+  if (music.length === 0) {
+    return null
+  }
+
   const Music = music.map((item) => (
     <AppleMusicResource key={item.id} resource={item} />
   ))
@@ -116,7 +122,7 @@ export const HeavyRotation: FC<Props> = ({ music }) => {
           marginBlockEnd: 16,
         }}
       >
-        My heavy rotation
+        Currently vibing to
       </Text>
 
       <Grid>{Music}</Grid>

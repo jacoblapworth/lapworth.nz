@@ -1,3 +1,5 @@
+import { NextPage } from 'next'
+
 import Link from '@/components/Link'
 import Text from '@/components/Typography/Text'
 import { styled } from '@/styles'
@@ -11,7 +13,7 @@ const Page = styled('div', {
   // },
 })
 
-export default function Home() {
+export const Home: NextPage = () => {
   return (
     <Page>
       <Text size="xlarge" display lang="mi">
@@ -19,10 +21,19 @@ export default function Home() {
       </Text>
       <Text>
         <div>
-          <Link href="https://instagram.com/jacoblapworth">@jacoblapworth</Link>
+          <Link
+            href="https://instagram.com/jacoblapworth"
+            aria-label="Instagram @jacoblapworth"
+          >
+            @jacoblapworth
+          </Link>
         </div>
         <div>
-          <Link sameTab href="mailto:jacob@lapworth.nz">
+          <Link
+            sameTab
+            href="mailto:jacob@lapworth.nz"
+            aria-label="Email jacob@lapworth.nz"
+          >
             jacob@lapworth.nz
           </Link>
         </div>
@@ -30,13 +41,15 @@ export default function Home() {
       <Text size="xlarge" display>
         Tāmaki Makaurau, Aotearoa —&nbsp;Auckland, New Zealand
       </Text>
-      <Text>-36.862600º, 174.741270º</Text>
+      <Text aria-label="GPS coordinates">-36.862600º, 174.741270º</Text>
       <Text size="xlarge" display serif>
-        Scaling design systems at <Link href="https://xero.com">@Xero</Link>
+        Scaling design systems at <Link href="https://xero.com">Xero</Link>
       </Text>
     </Page>
   )
 }
+
+export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
   return {

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState, PropsWithChildren } from 'react'
 
 import { motion, useCycle } from 'framer-motion'
 import { useTheme } from 'next-themes'
@@ -18,6 +18,7 @@ const Icon = () => (
     viewBox="0 0 24 24"
     fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
+    role="presentation"
   >
     <path
       fillRule="evenodd"
@@ -29,7 +30,7 @@ const Icon = () => (
 
 interface ThemeToggleProps {}
 
-const Button = styled(motion.button, {
+const Button = styled('button', {
   fontSize: '$lg',
   border: '1px solid transparent',
   borderRadius: 9999,
@@ -39,11 +40,11 @@ const Button = styled(motion.button, {
   padding: '$sm',
 
   '&:hover': {
-    borderColor: '$divider',
+    border: '1px solid $divider',
   },
 })
 
-const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
+const ThemeToggle: FC<PropsWithChildren<ThemeToggleProps>> = ({}) => {
   const { setTheme } = useTheme()
   const themeToSet = useThemeValue('dark', 'light')
   const [rotation, cycleRotation] = useCycle(0, 180)
@@ -54,7 +55,7 @@ const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
   }
 
   return (
-    <Button
+    <motion.div
       animate={{
         rotate: rotation,
         transition: {
@@ -67,11 +68,15 @@ const ThemeToggle: FC<ThemeToggleProps> = ({}) => {
           duration: 0.1,
         },
       }}
-      onClick={toggleTheme}
-      aria-label="Toggle theme"
     >
-      <Icon />
-    </Button>
+      <Button
+        onClick={toggleTheme}
+        aria-label="Toggle theme"
+        data-testid="theme-toggle"
+      >
+        <Icon />
+      </Button>
+    </motion.div>
   )
 }
 

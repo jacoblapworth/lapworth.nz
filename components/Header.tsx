@@ -18,9 +18,9 @@ const Text = styled('div', {
 
 const Header = () => {
   return (
-    <StyledHeader>
+    <StyledHeader aria-label="Header">
       <Link href="/">
-        <a>
+        <a aria-label="Home">
           <Text>
             Lapworth,
             <em> Jacob</em>

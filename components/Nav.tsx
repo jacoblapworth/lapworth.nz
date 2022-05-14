@@ -1,19 +1,32 @@
-import { FC, useState } from 'react'
+import { FC, useState, PropsWithChildren } from 'react'
 
 import { motion } from 'framer-motion'
 import NextLink, { LinkProps as NextLinkProps } from 'next/link'
+import { useRouter } from 'next/router'
 
 import { styled } from '@/styles'
 
-import { ArrowIcon } from './Icons'
 import Link from './Link'
 
 const A = styled('a', {
+  $$highlightWidth: '20px',
   paddingBlock: 8,
   borderBottom: '1px solid $divider',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  position: 'relative',
+
+  '&::after': {
+    content: '',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    height: '2px',
+    width: '0px',
+    backgroundColor: '$divider',
+    transition: 'width 0.1s ease-in-out',
+  },
 
   '&:first-child': {
     borderTop: '1px solid $divider',
@@ -21,11 +34,26 @@ const A = styled('a', {
 
   '&:hover': {
     backgroundColor: '$surfaceHovered',
+
+    '&::after': {
+      width: '$$highlightWidth',
+    },
+  },
+
+  variants: {
+    isActive: {
+      true: {
+        '&::after': {
+          width: '$$highlightWidth',
+        },
+      },
+    },
   },
 })
 
-const NavLink: FC<NextLinkProps> = ({ children, href }) => {
+const NavLink: FC<PropsWithChildren<NextLinkProps>> = ({ children, href }) => {
   const [animate, setAnimate] = useState('hidden')
+  const router = useRouter()
 
   const variants = {
     visible: { rotate: 0, opacity: 1 },
@@ -40,9 +68,15 @@ const NavLink: FC<NextLinkProps> = ({ children, href }) => {
     setAnimate('hidden')
   }
 
+  const isActive = router.pathname === href
+
   return (
     <NextLink href={href} passHref>
-      <A onPointerOver={onPointerOver} onPointerLeave={onPointerLeave}>
+      <A
+        onPointerOver={onPointerOver}
+        onPointerLeave={onPointerLeave}
+        isActive={isActive}
+      >
         {children}
         <motion.div
           variants={variants}
@@ -50,7 +84,22 @@ const NavLink: FC<NextLinkProps> = ({ children, href }) => {
           initial="hidden"
           style={{ marginInlineEnd: 8 }}
         >
-          <ArrowIcon />
+          <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.5"
+              d="M13.75 6.75L19.25 12L13.75 17.25"
+            ></path>
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.5"
+              d="M19 12H4.75"
+            ></path>
+          </svg>
         </motion.div>
       </A>
     </NextLink>
@@ -63,7 +112,7 @@ const Stack = styled('div', {
   gridColumn: '1 / span 2',
 })
 
-const Primary: FC = () => {
+const NavLinks: FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Stack>
       <NavLink href="/work">Work</NavLink>
@@ -83,7 +132,7 @@ const Row = styled('div', {
   '@sm': {
     gridColumn: 'span 1',
   },
-  justifySelf: 'stretch',
+  justifySelf: 'start',
   alignSelf: 'start',
 
   [`& ul`]: {
@@ -93,6 +142,14 @@ const Row = styled('div', {
   [`& li`]: {
     display: 'inline-block',
     whiteSpace: 'pre',
+    '&::after': {
+      content: ' \u2022 ',
+    },
+    '&:last-child': {
+      '&::after': {
+        content: 'none',
+      },
+    },
   },
 })
 
@@ -123,13 +180,12 @@ const socialLinks = [
   },
 ]
 
-const Secondary: FC = () => {
+const Description: FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Row>
       <ul aria-label="Social media links">
-        {socialLinks.map(({ name, href }, i, arr) => (
+        {socialLinks.map(({ name, href }) => (
           <li key={href}>
-            {i !== 0 && <span role="presentation"> • </span>}
             <Link href={href}>{name}</Link>
           </li>
         ))}
@@ -139,7 +195,6 @@ const Secondary: FC = () => {
 }
 
 const Nav = styled('nav', {
-  zIndex: 10,
   gridArea: 'nav',
   display: 'grid',
   gap: 0,
@@ -151,11 +206,11 @@ const Nav = styled('nav', {
   marginInline: 16,
 })
 
-const Navigation: FC = () => {
+const Navigation: FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Nav>
-      <Primary />
-      <Secondary />
+      <NavLinks />
+      <Description />
     </Nav>
   )
 }
