@@ -15,8 +15,10 @@ describe('Darkmode', () => {
   })
 
   it('should toggle dark mode', () => {
+    cy.get('html').should('have.class', 'light')
     cy.get('body').should('have.css', 'background-color', 'rgb(246, 246, 247)')
     cy.findByTestId('theme-toggle').click()
+    cy.get('html').should('have.class', 'dark')
     cy.get('body').should('have.css', 'background-color', 'rgb(11, 12, 13)')
   })
 })
