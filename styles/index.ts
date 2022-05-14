@@ -36,6 +36,25 @@ export const {
       md: '1rem',
       lg: '1.5rem',
     },
+    radii: {
+      sm: '3px',
+      md: '6px',
+      lg: '12px',
+    },
+    shadows: {
+      md: '0 4px 8px $colors$secondary',
+    },
+    zIndices: {
+      1: '0',
+      2: '100',
+      3: '200',
+      4: '1000',
+    },
+    transitions: {
+      sm: 'transform .1s',
+      md: 'transform .3s',
+      lg: 'transform .5s',
+    },
   },
 })
 

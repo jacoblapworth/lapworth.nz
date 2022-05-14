@@ -16,7 +16,7 @@ const Tagline = styled('footer', {
 interface FooterProps {}
 
 export const Footer: FC<PropsWithChildren<FooterProps>> = ({}) => {
-  return <Tagline>Designed and built by J — Product Designer — 2021</Tagline>
+  return <Tagline>Designed and built by J — Product Designer — 2022</Tagline>
 }
 
 export default Footer
