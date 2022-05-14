@@ -62,14 +62,14 @@ const Page = ({
   return (
     <>
       <Link href="#main" passHref>
-        <Skiplink>Skip to main content</Skiplink>
+        <Skiplink tabIndex={0}>Skip to main content</Skiplink>
       </Link>
       <Container>
         <NextSeo title={title} />
         <Header />
         {!hideNav && <Nav />}
 
-        <Main id="main" {...rest}>
+        <Main id="main" data-testid="main" {...rest}>
           {children}
         </Main>
         <Footer />
