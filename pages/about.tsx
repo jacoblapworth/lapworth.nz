@@ -51,6 +51,7 @@ export const About: NextPage<PageProps> = ({ music }) => {
             <NextImage
               src={ProfileImage}
               quality={100}
+              aria-label="Photo of Jacob"
               layout="intrinsic"
               placeholder="blur"
               priority

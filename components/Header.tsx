@@ -7,6 +7,7 @@ import ThemeToggle from './ThemeToggle'
 const StyledHeader = styled('header', {
   gridArea: 'header',
   display: 'flex',
+  alignItems: 'flex-start',
   justifyContent: 'space-between',
   padding: '$md',
 })

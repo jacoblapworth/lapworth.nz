@@ -1,12 +1,14 @@
-import { FC, useState, PropsWithChildren } from 'react'
+import { FC, useState, ComponentProps, PropsWithChildren } from 'react'
 
 import { motion } from 'framer-motion'
-import NextLink, { LinkProps as NextLinkProps } from 'next/link'
+import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
 import { styled } from '@/styles'
 
 import Link from './Link'
+
+type NextLinkProps = ComponentProps<typeof NextLink>
 
 const A = styled('a', {
   $$highlightWidth: '20px',
@@ -142,14 +144,11 @@ const Row = styled('div', {
   [`& li`]: {
     display: 'inline-block',
     whiteSpace: 'pre',
-    '&::after': {
-      content: ' \u2022 ',
-    },
-    '&:last-child': {
-      '&::after': {
-        content: 'none',
-      },
-    },
+  },
+
+  [`& a`]: {
+    padding: '$sm',
+    margin: '-$sm',
   },
 })
 
@@ -184,9 +183,12 @@ const Description: FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <Row>
       <ul aria-label="Social media links">
-        {socialLinks.map(({ name, href }) => (
+        {socialLinks.map(({ name, href }, i) => (
           <li key={href}>
             <Link href={href}>{name}</Link>
+            {i !== socialLinks.length - 1 && (
+              <span aria-hidden="true">{` \u2022 `}</span>
+            )}
           </li>
         ))}
       </ul>
