@@ -2,6 +2,11 @@ import got, { HTTPError } from 'got'
 import { SignJWT, importPKCS8 } from 'jose'
 import { getPlaiceholder } from 'plaiceholder'
 
+const DEBUG = process.env.NODE_ENV !== 'production'
+const BASE_URL = DEBUG
+  ? 'http://localhost:3030'
+  : 'https://lapworth.nz/api/images'
+
 const APPLE_MUSIC_PRIVATE_KEY = process.env.APPLE_MUSIC_PRIVATE_KEY || ''
 const APPLE_TEAM_ID = process.env.APPLE_TEAM_ID || ''
 const APPLE_MUSIC_KEY_ID = process.env.APPLE_MUSIC_KEY_ID
@@ -108,9 +113,7 @@ export enum MusicEndpoint {
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
   const src = url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
-  const proxiedSrc = `https://lapworth.nz/api/images?url=${encodeURIComponent(
-    src,
-  )}`
+  const proxiedSrc = `${BASE_URL}?url=${encodeURIComponent(src)}`
 
   return proxiedSrc
 }

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/skymethod/denoflare/v0.4.5/common/config.schema.json",
+  "scripts": {
+    "image-proxy": {
+      "path": "workers/image-proxy.ts",
+      "localPort": 3030
+    }
+  },
+  "profiles": {
+    "lapworth": {
+      "accountId": "f7f3f1e3bb0413044bda39b883a69de2",
+      "apiToken": "-I1JbzOCOMYPrlpzTJc3k9ZR82k5pR7-rR063bM0",
+      "default": true
+    }
+  }
+}

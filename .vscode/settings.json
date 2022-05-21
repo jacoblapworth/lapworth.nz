@@ -1,4 +1,7 @@
 {
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "debug.terminal.clearBeforeReusing": true
+  "debug.terminal.clearBeforeReusing": true,
+  "deno.enablePaths": [
+    "./workers"
+  ]
 }
