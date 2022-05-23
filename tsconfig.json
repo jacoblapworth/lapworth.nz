@@ -17,6 +17,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "types": [
+      "jest",
+      "@testing-library/jest-dom",
+      "@testing-library/react"
+    ],
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -26,6 +31,7 @@
     "incremental": true
   },
   "exclude": [
+    "cypress",
     "node_modules"
   ],
   "include": [

@@ -1,4 +1,4 @@
-import got, { HTTPError } from 'got'
+import { got, HTTPError } from 'got'
 import { SignJWT, importPKCS8 } from 'jose'
 import { getPlaiceholder } from 'plaiceholder'
 
