@@ -35,7 +35,8 @@
     "plaiceholder": "2.3.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "sanitize.css": "13.0.0"
+    "sanitize.css": "13.0.0",
+    "sharp": "0.30.6"
   },
   "devDependencies": {
     "@testing-library/cypress": "8.0.3",
