@@ -6,4 +6,15 @@ module.exports = {
   images: {
     domains: ['lapworth.nz'],
   },
+  experimental: {
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: '*.mzstatic.com',
+          pathname: '/image/**',
+        },
+      ],
+    },
+  },
 }

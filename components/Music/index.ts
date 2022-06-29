@@ -108,11 +108,8 @@ export enum MusicEndpoint {
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
   const src = url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
-  const proxiedSrc = `https://lapworth.nz/api/images?url=${encodeURIComponent(
-    src,
-  )}`
 
-  return proxiedSrc
+  return src
 }
 
 export const getMusic = async (endpoint: MusicEndpoint) => {
