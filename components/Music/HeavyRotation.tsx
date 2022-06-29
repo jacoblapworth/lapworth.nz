@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react'
 
-import NextImage from 'next/image'
+import NextImage from 'next/future/image'
 
 import { MusicKitResource } from '@/components/Music'
 import Text from '@/components/Text'
@@ -19,7 +19,7 @@ interface Props {
   music: MusicKitResource[]
 }
 
-const AlbumArt = styled('div', {
+const AlbumArt = styled(NextImage, {
   overflow: 'hidden',
   borderRadius: 8,
   backgroundColor: '$surface',
@@ -68,18 +68,15 @@ const AppleMusicResource: FC<
   return (
     <AlbumLink href={resource.attributes.url}>
       <Stack>
-        <AlbumArt>
-          <NextImage
-            alt={`Album artwork for "${name}"`}
-            src={src}
-            width={size}
-            height={size}
-            quality={100}
-            layout="responsive"
-            placeholder="blur"
-            blurDataURL={resource.attributes.placeholder}
-          />
-        </AlbumArt>
+        <AlbumArt
+          alt={`Album artwork for "${name}"`}
+          src={src}
+          width={size}
+          height={size}
+          quality={100}
+          placeholder="blur"
+          blurDataURL={resource.attributes.placeholder}
+        />
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>
       </Stack>

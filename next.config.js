@@ -8,6 +8,7 @@ module.exports = {
   },
   experimental: {
     images: {
+      allowFutureImage: true,
       remotePatterns: [
         {
           protocol: 'https',

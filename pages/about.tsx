@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import NextImage from 'next/image'
+import NextImage from 'next/future/image'
 
 import { getMusicWithThumbnails, MusicKitResource } from '@/components/Music'
 import { HeavyRotation } from '@/components/Music/HeavyRotation'
@@ -10,8 +10,7 @@ import { styled } from '@/styles'
 
 import { GetStaticProps } from './_app'
 
-const Profile = styled('div', {
-  display: 'inline-flex',
+const Profile = styled(NextImage, {
   borderRadius: '50%',
   overflow: 'hidden',
   marginInlineStart: '0.2em',
@@ -25,6 +24,8 @@ const Profile = styled('div', {
 
 const NoWrap = styled('span', {
   whiteSpace: 'nowrap',
+  display: 'inline-flex',
+  alignItems: 'baseline',
 })
 
 interface PageProps {
@@ -41,16 +42,13 @@ export const About: NextPage<PageProps> = ({ music }) => {
         Hey there!{' '}
         <NoWrap>
           I&apos;m J
-          <Profile>
-            <NextImage
-              src={ProfileImage}
-              quality={100}
-              aria-label="Photo of Jacob"
-              layout="intrinsic"
-              placeholder="blur"
-              priority
-            />
-          </Profile>
+          <Profile
+            src={ProfileImage}
+            quality={100}
+            aria-label="Photo of Jacob"
+            placeholder="blur"
+            priority
+          />
         </NoWrap>
       </Text>
 
