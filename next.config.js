@@ -12,7 +12,6 @@ module.exports = {
         {
           protocol: 'https',
           hostname: '*.mzstatic.com',
-          port: '',
           pathname: '/image/**',
         },
       ],
