@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 
 import Text from '@/components/Text'
 import { Experience } from '@/components/Work/Experience'
@@ -8,6 +9,7 @@ import { GetStaticProps } from './_app'
 export const Work: NextPage = () => {
   return (
     <>
+      <NextSeo description="Xero, Vend, Timely, Trade Me" />
       <Text size="xlarge" display>
         Coming soon 👀
       </Text>
