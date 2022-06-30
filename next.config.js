@@ -1,4 +1,7 @@
-module.exports = {
+/**
+ * @type {import('next').NextConfig}
+ */
+const config = {
   i18n: {
     locales: ['en-NZ'],
     defaultLocale: 'en-NZ',
@@ -7,6 +10,7 @@ module.exports = {
     domains: ['lapworth.nz'],
   },
   experimental: {
+    newNextLinkBehavior: true,
     images: {
       remotePatterns: [
         {
@@ -18,3 +22,5 @@ module.exports = {
     },
   },
 }
+
+module.exports = config
