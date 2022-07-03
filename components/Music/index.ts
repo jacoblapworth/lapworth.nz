@@ -28,7 +28,10 @@ export const appleMusicClient = got.extend({
   hooks: {
     beforeRequest: [
       async (options) => {
-        options.headers['Authorization'] = `Bearer ${await createAppleJWT()}`
+        const jwt = await createAppleJWT()
+        console.log({ jwt })
+
+        options.headers['Authorization'] = `Bearer ${jwt}`
         options.headers['Music-User-Token'] = APPLE_MUSIC_USER_TOKEN
       },
     ],
@@ -113,8 +116,6 @@ export const buildImageUrl = (_url: string, size: number): string => {
 }
 
 export const getMusic = async (endpoint: MusicEndpoint) => {
-  console.log({ appleMusicClient })
-
   try {
     const music = await appleMusicClient.get(endpoint).json<RMusicKitHistory>()
     return music.data
@@ -159,7 +160,7 @@ export const getMusicWithThumbnails = async () => {
 
     return music
   } catch (error) {
-    console.error('Apple Music error:', error)
+    console.error('Apple Music error:\n', error)
     if (error instanceof MKError) {
       if (error.status === 403) {
         console.info('Visit /music/authorise to refresh Apple Music token')
