@@ -14,12 +14,12 @@ const Button: React.FC<PropsWithChildren<Props>> = ({
   ...rest
 }) => {
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <button className={className} {...rest}>
         {children}
       </button>
     </Link>
-  )
+  );
 }
 
 export default Button

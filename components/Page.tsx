@@ -28,7 +28,7 @@ const Main = styled('main', {
   maxWidth: 'calc(100vw - 32px)',
 })
 
-const Skiplink = styled('a', {
+const Skiplink = styled(Link, {
   position: 'absolute',
   top: 0,
   left: 0,
@@ -61,9 +61,10 @@ const Page = ({
 }: Props & React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <>
-      <Link href="#main" passHref>
-        <Skiplink tabIndex={0}>Skip to main content</Skiplink>
-      </Link>
+      <Skiplink href="#main" tabIndex={0}>
+        Skip to main content
+      </Skiplink>
+
       <Container>
         <NextSeo title={title} />
         <Header />
