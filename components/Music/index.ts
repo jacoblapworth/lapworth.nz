@@ -163,5 +163,7 @@ export const getMusicWithThumbnails = async () => {
         console.info('Visit /music/authorise to refresh Apple Music token')
       }
     }
+
+    return null
   }
 }

@@ -28,7 +28,7 @@ const NoWrap = styled('span', {
 })
 
 interface PageProps {
-  music?: MusicKitResource[]
+  music: MusicKitResource[] | null
 }
 
 const seoDescription = `Hey there! I'm J. I'm a product designer and software engineer focussed on community driven design systems.`
@@ -68,7 +68,6 @@ export default About
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const music = await getMusicWithThumbnails()
-  console.log({ music })
 
   return {
     props: {
