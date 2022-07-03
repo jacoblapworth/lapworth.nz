@@ -29,7 +29,7 @@ const NoWrap = styled('span', {
 })
 
 interface PageProps {
-  music?: MusicKitResource[]
+  music: MusicKitResource[] | null
 }
 
 const seoDescription = `Hey there! I'm J. I'm a product designer and software engineer focussed on community driven design systems.`

@@ -19,17 +19,17 @@ const Text = styled('div', {
 const Header = () => {
   return (
     <StyledHeader aria-label="Header">
-      <Link href="/">
-        <a aria-label="Home">
-          <Text>
-            Lapworth,
-            <em> Jacob</em>
-          </Text>
-        </a>
+      <Link href="/" aria-label="Home">
+
+        <Text>
+          Lapworth,
+          <em> Jacob</em>
+        </Text>
+
       </Link>
       <ThemeToggle />
     </StyledHeader>
-  )
+  );
 }
 
 export default Header

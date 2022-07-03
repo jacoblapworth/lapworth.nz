@@ -10,7 +10,7 @@ import Link from './Link'
 
 type NextLinkProps = ComponentProps<typeof NextLink>
 
-const A = styled('a', {
+const A = styled(NextLink, {
   $$highlightWidth: '20px',
   paddingBlock: 8,
   borderBottom: '1px solid $divider',
@@ -73,38 +73,37 @@ const NavLink: FC<PropsWithChildren<NextLinkProps>> = ({ children, href }) => {
   const isActive = router.pathname === href
 
   return (
-    <NextLink href={href} passHref>
-      <A
-        onPointerOver={onPointerOver}
-        onPointerLeave={onPointerLeave}
-        isActive={isActive}
+    <A
+      href={href}
+      onPointerOver={onPointerOver}
+      onPointerLeave={onPointerLeave}
+      isActive={isActive}
+    >
+      {children}
+      <motion.div
+        variants={variants}
+        animate={animate}
+        initial="hidden"
+        style={{ marginInlineEnd: 8 }}
       >
-        {children}
-        <motion.div
-          variants={variants}
-          animate={animate}
-          initial="hidden"
-          style={{ marginInlineEnd: 8 }}
-        >
-          <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-              d="M13.75 6.75L19.25 12L13.75 17.25"
-            ></path>
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-              d="M19 12H4.75"
-            ></path>
-          </svg>
-        </motion.div>
-      </A>
-    </NextLink>
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+            d="M13.75 6.75L19.25 12L13.75 17.25"
+          ></path>
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+            d="M19 12H4.75"
+          ></path>
+        </svg>
+      </motion.div>
+    </A>
   )
 }
 
