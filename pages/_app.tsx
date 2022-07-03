@@ -6,7 +6,7 @@ import '@/styles/globals.css'
 
 import Page from '@/components/Page'
 import { Head } from '@/lib/head'
-import { darkTheme, lightTheme } from '@/styles'
+import { darkTheme, lightTheme } from '@/styles/stitches.config'
 
 import { useWelcomeLog } from '../components/Hooks/useWelcomeLog'
 

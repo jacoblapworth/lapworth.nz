@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react'
 
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 interface Props {
   children?: React.ReactNode

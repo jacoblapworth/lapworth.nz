@@ -3,7 +3,7 @@ import { FC, useEffect, useState, PropsWithChildren } from 'react'
 import { motion, useCycle } from 'framer-motion'
 import { useTheme } from 'next-themes'
 
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 const useThemeValue = (lightValue: string, darkValue: string) => {
   const { resolvedTheme } = useTheme()

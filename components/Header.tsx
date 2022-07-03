@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 import ThemeToggle from './ThemeToggle'
 
@@ -20,16 +20,14 @@ const Header = () => {
   return (
     <StyledHeader aria-label="Header">
       <Link href="/" aria-label="Home">
-
         <Text>
           Lapworth,
           <em> Jacob</em>
         </Text>
-
       </Link>
       <ThemeToggle />
     </StyledHeader>
-  );
+  )
 }
 
 export default Header

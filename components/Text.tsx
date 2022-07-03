@@ -1,4 +1,4 @@
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 export const Text = styled('div', {
   color: '$text',

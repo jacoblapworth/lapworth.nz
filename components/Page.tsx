@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 
 import Header from '@/components/Header'
-import { styled, theme } from '@/styles'
+import { styled, theme } from '@/styles/stitches.config'
 
 import Footer from './Footer'
 import Nav from './Nav'

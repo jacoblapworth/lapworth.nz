@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes'
 import NextHead from 'next/head'
 import { useRouter } from 'next/router'
 
-import { themes } from '@/styles'
+import { themes } from '@/styles/stitches.config'
 
 export const baseUrl = 'https://lapworth.nz'
 export const email = 'jacob@lapworth.nz'

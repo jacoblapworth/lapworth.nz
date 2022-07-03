@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react'
 
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 const Tagline = styled('footer', {
   gridArea: 'footer',

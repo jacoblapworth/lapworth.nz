@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 
 import Link from '@/components/Link'
 import Text from '@/components/Text'
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 import { GetStaticProps } from './_app'
 

@@ -7,7 +7,7 @@ import { GetStaticProps } from '@/pages/_app'
 import Img1 from '@/public/static/work/trade-me/1.png'
 import Img2 from '@/public/static/work/trade-me/2.png'
 import Img3 from '@/public/static/work/trade-me/3.gif'
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 export const getStaticProps: GetStaticProps = async () => {
   return {

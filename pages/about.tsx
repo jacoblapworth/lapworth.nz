@@ -6,7 +6,7 @@ import { getMusicWithThumbnails, MusicKitResource } from '@/components/Music'
 import { HeavyRotation } from '@/components/Music/HeavyRotation'
 import Text from '@/components/Text'
 import ProfileImage from '@/public/static/j-photo-mono.png'
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 import { GetStaticProps } from './_app'
 

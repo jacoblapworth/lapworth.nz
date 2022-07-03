@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 import Link from './Link'
 

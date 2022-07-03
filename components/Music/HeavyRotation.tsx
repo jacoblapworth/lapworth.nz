@@ -4,7 +4,7 @@ import NextImage from 'next/future/image'
 
 import { MusicKitResource } from '@/components/Music'
 import Text from '@/components/Text'
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 import Link from '../Link'
 
@@ -50,6 +50,7 @@ const Stack = styled('div', {
 })
 
 const AlbumLink = styled(Link, {
+  borderRadius: 8,
   '&:hover': {
     [`& ${AlbumArt}`]: {
       opacity: 0.8,
@@ -91,9 +92,11 @@ const Grid = styled('div', {
   gridAutoFlow: 'column',
   gap: 16,
   overflowX: 'scroll',
+  overflowY: 'visible',
   marginInline: -16,
-  paddingBlockEnd: 16,
+  paddingBlock: 16,
   paddingInline: 16,
+  alignItems: 'start',
 })
 
 export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
@@ -113,12 +116,11 @@ export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
         size="large"
         display
         css={{
-          marginBlockEnd: 16,
+          marginBlockEnd: 8,
         }}
       >
         Currently vibing to
       </Text>
-
       <Grid>{Music}</Grid>
     </div>
   )

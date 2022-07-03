@@ -1,7 +1,7 @@
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 
 import { gtagUrl, renderSnippet } from '@/lib/analytics'
-import { getCssText, globalStyles } from '@/styles'
+import { getCssText, globalStyles } from '@/styles/stitches.config'
 
 class Document extends NextDocument {
   render() {

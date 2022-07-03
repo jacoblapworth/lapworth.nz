@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react'
 
-import { styled } from '@/styles'
+import { styled } from '@/styles/stitches.config'
 
 import Link from '../Link'
 
