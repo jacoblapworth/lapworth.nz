@@ -12,6 +12,7 @@ const config = {
   experimental: {
     newNextLinkBehavior: true,
     images: {
+      allowFutureImage: true,
       remotePatterns: [
         {
           protocol: 'https',

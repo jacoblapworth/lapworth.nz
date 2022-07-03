@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import NextImage from 'next/image'
+import NextImage from 'next/future/image'
 
 import Text from '@/components/Text'
 import { GetStaticProps } from '@/pages/_app'
