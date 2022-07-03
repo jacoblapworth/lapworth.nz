@@ -113,6 +113,8 @@ export const buildImageUrl = (_url: string, size: number): string => {
 }
 
 export const getMusic = async (endpoint: MusicEndpoint) => {
+  console.log({ appleMusicClient })
+
   try {
     const music = await appleMusicClient.get(endpoint).json<RMusicKitHistory>()
     return music.data
