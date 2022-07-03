@@ -157,7 +157,7 @@ export const getMusicWithThumbnails = async () => {
 
     return music
   } catch (error) {
-    console.error(error)
+    console.error('Apple Music error:', error)
     if (error instanceof MKError) {
       if (error.status === 403) {
         console.info('Visit /music/authorise to refresh Apple Music token')

@@ -68,6 +68,7 @@ export default About
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const music = await getMusicWithThumbnails()
+  console.log({ music })
 
   return {
     props: {
