@@ -4,9 +4,9 @@ import NextImage from 'next/future/image'
 
 import { getMusicWithThumbnails, MusicKitResource } from '@/components/Music'
 import { HeavyRotation } from '@/components/Music/HeavyRotation'
-import Text from '@/components/Text'
+import { Text } from '@/components/Typography'
 import ProfileImage from '@/public/static/j-photo-mono.png'
-import { styled } from '@/styles/stitches.config'
+import { styled } from '@/styles'
 
 import { GetStaticProps } from './_app'
 

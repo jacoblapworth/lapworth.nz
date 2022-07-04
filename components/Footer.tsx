@@ -1,6 +1,4 @@
-import { FC, PropsWithChildren } from 'react'
-
-import { styled } from '@/styles/stitches.config'
+import { styled } from '@/styles'
 
 const Tagline = styled('footer', {
   gridArea: 'footer',
@@ -15,8 +13,6 @@ const Tagline = styled('footer', {
 
 interface FooterProps {}
 
-export const Footer: FC<PropsWithChildren<FooterProps>> = ({}) => {
+export const Footer = ({}: FooterProps) => {
   return <Tagline>Designed and built by J — Product Designer — 2022</Tagline>
 }
-
-export default Footer

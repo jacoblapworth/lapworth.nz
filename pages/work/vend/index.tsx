@@ -2,12 +2,12 @@ import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import NextImage from 'next/future/image'
 
-import Text from '@/components/Text'
+import { Text } from '@/components/Typography'
 import { GetStaticProps } from '@/pages/_app'
 import Img1 from '@/public/static/work/vend/1.png'
 import Img2 from '@/public/static/work/vend/2.png'
 import Img3 from '@/public/static/work/vend/3.png'
-import { styled } from '@/styles/stitches.config'
+import { styled } from '@/styles'
 
 export const getStaticProps: GetStaticProps = async () => {
   return {

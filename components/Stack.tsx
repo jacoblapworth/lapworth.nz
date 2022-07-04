@@ -1,6 +1,6 @@
-import { styled } from '@stitches/react'
+import { styled } from '@/styles'
 
-const Stack = styled('div', {
+export const Stack = styled('div', {
   display: 'flex',
 
   variants: {
@@ -44,5 +44,3 @@ const Stack = styled('div', {
     { dir: 'row', y: 'bottom', css: { alignItems: 'flex-end' } },
   ],
 })
-
-export default Stack

@@ -1,22 +1,15 @@
-import React, { FC, PropsWithChildren } from 'react'
-
 import NextImage from 'next/future/image'
 
+import { Link } from '@/components/Link'
 import { MusicKitResource } from '@/components/Music'
-import Text from '@/components/Text'
-import { styled } from '@/styles/stitches.config'
-
-import Link from '../Link'
+import { Text } from '@/components/Typography'
+import { styled } from '@/styles'
 
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
   const src = url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
 
   return src
-}
-
-interface Props {
-  music: MusicKitResource[]
 }
 
 const AlbumArt = styled(NextImage, {
@@ -58,9 +51,11 @@ const AlbumLink = styled(Link, {
   },
 })
 
-const AppleMusicResource: FC<
-  PropsWithChildren<{ resource: MusicKitResource }>
-> = ({ resource }) => {
+interface AppleMusicResourceProps {
+  resource: MusicKitResource
+}
+
+const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
   const { name, artistName } = resource.attributes
 
   const size = 128
@@ -99,9 +94,11 @@ const Grid = styled('div', {
   alignItems: 'start',
 })
 
-export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
-  music,
-}) => {
+interface HeavyRotationProps {
+  music: MusicKitResource[]
+}
+
+export const HeavyRotation = ({ music }: HeavyRotationProps) => {
   if (music.length === 0) {
     return null
   }
@@ -125,5 +122,3 @@ export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
     </div>
   )
 }
-
-export default HeavyRotation

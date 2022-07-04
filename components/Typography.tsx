@@ -1,4 +1,4 @@
-import { styled } from '@/styles/stitches.config'
+import { styled } from '@/styles'
 
 export const Text = styled('div', {
   color: '$text',
@@ -64,5 +64,3 @@ export const Text = styled('div', {
     size: 'medium',
   },
 })
-
-export default Text

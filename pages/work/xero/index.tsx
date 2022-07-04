@@ -1,9 +1,9 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
-import Text from '@/components/Text'
+import { Text } from '@/components/Typography'
 import { GetStaticProps } from '@/pages/_app'
-import { styled } from '@/styles/stitches.config'
+import { styled } from '@/styles'
 
 export const getStaticProps: GetStaticProps = async () => {
   return {

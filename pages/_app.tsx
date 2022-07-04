@@ -4,9 +4,9 @@ import type { AppProps } from 'next/app'
 
 import '@/styles/globals.css'
 
-import Page from '@/components/Page'
+import { Page } from '@/components/Page'
 import { Head } from '@/lib/head'
-import { darkTheme, lightTheme } from '@/styles/stitches.config'
+import { darkTheme, lightTheme } from '@/styles'
 
 import { useWelcomeLog } from '../components/Hooks/useWelcomeLog'
 

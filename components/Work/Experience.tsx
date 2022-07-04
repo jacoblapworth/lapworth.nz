@@ -1,8 +1,5 @@
-import React, { FC, PropsWithChildren } from 'react'
-
-import { styled } from '@/styles/stitches.config'
-
-import Link from '../Link'
+import { Link } from '@/components/Link'
+import { styled } from '@/styles'
 
 interface ExperienceRowProps {
   title?: string
@@ -25,12 +22,7 @@ const Row = styled('div', {
   gap: '1rem',
 })
 
-const ExperienceRow: FC<PropsWithChildren<ExperienceRowProps>> = ({
-  workplace,
-  from,
-  to,
-  href,
-}) => {
+const ExperienceRow = ({ workplace, from, to, href }: ExperienceRowProps) => {
   return (
     <Row>
       <Link href={href}>{workplace}</Link>
@@ -52,9 +44,7 @@ const Stack = styled('div', {
 
 interface ExperienceProps {}
 
-export const Experience: FC<
-  React.PropsWithChildren<ExperienceProps>
-> = ({}) => {
+export const Experience = ({}: ExperienceProps) => {
   return (
     <Stack>
       <ExperienceRow
@@ -84,5 +74,3 @@ export const Experience: FC<
     </Stack>
   )
 }
-
-export default Experience
