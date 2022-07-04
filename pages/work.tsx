@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
-import Text from '@/components/Text'
+import { Text } from '@/components/Typography'
 import { Experience } from '@/components/Work/Experience'
 
 import { GetStaticProps } from './_app'

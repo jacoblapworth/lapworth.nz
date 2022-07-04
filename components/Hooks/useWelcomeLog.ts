@@ -16,5 +16,3 @@ j's kōpaki — portfolio
     }
   }, [])
 }
-
-export default useWelcomeLog

@@ -64,5 +64,3 @@ export const Text = styled('div', {
     size: 'medium',
   },
 })
-
-export default Text

@@ -1,13 +1,10 @@
-import React from 'react'
-
 import { NextSeo } from 'next-seo'
-import Link from 'next/link'
+import NextLink from 'next/link'
 
-import Header from '@/components/Header'
-import { styled, theme } from '@/styles'
-
-import Footer from './Footer'
-import Nav from './Nav'
+import { Footer } from '@/components/Footer'
+import { Header } from '@/components/Header'
+import { Navigation } from '@/components/Nav'
+import { styled } from '@/styles'
 
 const Container = styled('div', {
   display: 'grid',
@@ -28,7 +25,7 @@ const Main = styled('main', {
   maxWidth: 'calc(100vw - 32px)',
 })
 
-const Skiplink = styled(Link, {
+const Skiplink = styled(NextLink, {
   position: 'absolute',
   top: 0,
   left: 0,
@@ -47,18 +44,18 @@ const Skiplink = styled(Link, {
   },
 })
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
   hideNav?: boolean
   children?: React.ReactNode
 }
 
-const Page = ({
+export const Page = ({
   hideNav,
   className,
   title,
   children,
   ...rest
-}: Props & React.HTMLAttributes<HTMLDivElement>) => {
+}: Props) => {
   return (
     <>
       <Skiplink href="#main" tabIndex={0}>
@@ -68,7 +65,7 @@ const Page = ({
       <Container>
         <NextSeo title={title} />
         <Header />
-        {!hideNav && <Nav />}
+        {!hideNav && <Navigation />}
 
         <Main id="main" data-testid="main" {...rest}>
           {children}
@@ -78,5 +75,3 @@ const Page = ({
     </>
   )
 }
-
-export default Page

@@ -1,25 +1,23 @@
 import { HTMLAttributes, PropsWithChildren } from 'react'
 
-import Link from 'next/link'
+import NextLink from 'next/link'
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
   href: string
 }
 
-const Button: React.FC<PropsWithChildren<Props>> = ({
+export const Button: React.FC<PropsWithChildren<Props>> = ({
   children,
   href,
   className,
   ...rest
 }) => {
   return (
-    <Link href={href} passHref legacyBehavior>
+    <NextLink href={href} passHref legacyBehavior>
       <button className={className} {...rest}>
         {children}
       </button>
-    </Link>
-  );
+    </NextLink>
+  )
 }
-
-export default Button

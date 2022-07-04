@@ -1,5 +1,3 @@
-import { FC, useEffect, useState, PropsWithChildren } from 'react'
-
 import { motion, useCycle } from 'framer-motion'
 import { useTheme } from 'next-themes'
 
@@ -28,8 +26,6 @@ const Icon = () => (
   </svg>
 )
 
-interface ThemeToggleProps {}
-
 const Button = styled('button', {
   fontSize: '$lg',
   border: '1px solid transparent',
@@ -44,7 +40,7 @@ const Button = styled('button', {
   },
 })
 
-const ThemeToggle: FC<PropsWithChildren<ThemeToggleProps>> = ({}) => {
+export const ThemeToggle = () => {
   const { setTheme } = useTheme()
   const themeToSet = useThemeValue('dark', 'light')
   const [rotation, cycleRotation] = useCycle(0, 180)
@@ -79,5 +75,3 @@ const ThemeToggle: FC<PropsWithChildren<ThemeToggleProps>> = ({}) => {
     </motion.div>
   )
 }
-
-export default ThemeToggle

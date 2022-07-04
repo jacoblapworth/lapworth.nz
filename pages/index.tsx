@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 
-import Link from '@/components/Link'
-import Text from '@/components/Text'
+import { Link } from '@/components/Link'
+import { Text } from '@/components/Typography'
 import { styled } from '@/styles'
 
 import { GetStaticProps } from './_app'

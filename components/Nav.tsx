@@ -1,12 +1,11 @@
-import { FC, useState, ComponentProps, PropsWithChildren } from 'react'
+import { useState, ComponentProps } from 'react'
 
 import { motion } from 'framer-motion'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
+import { Link } from '@/components/Link'
 import { styled } from '@/styles'
-
-import Link from './Link'
 
 type NextLinkProps = ComponentProps<typeof NextLink>
 
@@ -53,7 +52,7 @@ const A = styled(NextLink, {
   },
 })
 
-const NavLink: FC<PropsWithChildren<NextLinkProps>> = ({ children, href }) => {
+const NavLink = ({ children, href }: NextLinkProps) => {
   const [animate, setAnimate] = useState('hidden')
   const router = useRouter()
 
@@ -113,7 +112,7 @@ const Stack = styled('div', {
   gridColumn: '1 / span 2',
 })
 
-const NavLinks: FC<React.PropsWithChildren<unknown>> = () => {
+const NavLinks = () => {
   return (
     <Stack>
       <NavLink href="/work">Work</NavLink>
@@ -178,7 +177,7 @@ const socialLinks = [
   },
 ]
 
-const Description: FC<React.PropsWithChildren<unknown>> = () => {
+const Description = () => {
   return (
     <Row>
       <ul aria-label="Social media links">
@@ -207,7 +206,7 @@ const Nav = styled('nav', {
   marginInline: 16,
 })
 
-const Navigation: FC<React.PropsWithChildren<unknown>> = () => {
+export const Navigation = () => {
   return (
     <Nav>
       <NavLinks />
@@ -215,5 +214,3 @@ const Navigation: FC<React.PropsWithChildren<unknown>> = () => {
     </Nav>
   )
 }
-
-export default Navigation
