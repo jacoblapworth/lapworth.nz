@@ -41,7 +41,7 @@
   "devDependencies": {
     "@testing-library/cypress": "8.0.3",
     "@types/musickit-js": "1.0.3",
-    "@types/node": "18.6.2",
+    "@types/node": "18.6.3",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
     "cypress": "10.3.1",
