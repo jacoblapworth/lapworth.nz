@@ -8,19 +8,16 @@ const config = {
   },
   images: {
     domains: ['lapworth.nz'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.mzstatic.com',
+        pathname: '/image/**',
+      },
+    ],
   },
   experimental: {
     newNextLinkBehavior: true,
-    images: {
-      allowFutureImage: true,
-      remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: '*.mzstatic.com',
-          pathname: '/image/**',
-        },
-      ],
-    },
   },
 }
 
