@@ -16,7 +16,7 @@ interface PageProps {
   title?: string
 }
 
-export type GetStaticProps<T = Record<string, never>> = NextGetStaticProps<
+export type GetStaticProps<T = Record<string, string>> = NextGetStaticProps<
   PageProps & T
 >
 
