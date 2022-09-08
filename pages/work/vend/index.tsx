@@ -31,9 +31,9 @@ export const Vend: NextPage = () => {
       </Text>
       <p>Point of sale</p>
       <Grid>
-        <NextImage src={Img1} placeholder="blur" />
-        <NextImage src={Img2} placeholder="blur" />
-        <NextImage src={Img3} placeholder="blur" />
+        <NextImage alt="" src={Img1} placeholder="blur" />
+        <NextImage alt="" src={Img2} placeholder="blur" />
+        <NextImage alt="" src={Img3} placeholder="blur" />
       </Grid>
     </>
   )
