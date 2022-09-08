@@ -42,9 +42,7 @@ const Stack = styled('div', {
   maxWidth: '12rem',
 })
 
-interface ExperienceProps {}
-
-export const Experience = ({}: ExperienceProps) => {
+export const Experience = () => {
   return (
     <Stack>
       <ExperienceRow
