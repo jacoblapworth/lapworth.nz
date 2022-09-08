@@ -32,10 +32,10 @@ export const Timely: NextPage = () => {
       </Text>
       <p>Consultations</p>
       <Grid>
-        <NextImage src={Img1} placeholder="blur" />
-        <NextImage src={Img2} placeholder="blur" />
-        <NextImage src={Img3} placeholder="blur" />
-        <NextImage src={Img4} placeholder="blur" />
+        <NextImage alt="" src={Img1} placeholder="blur" />
+        <NextImage alt="" src={Img2} placeholder="blur" />
+        <NextImage alt="" src={Img3} placeholder="blur" />
+        <NextImage alt="" src={Img4} placeholder="blur" />
       </Grid>
     </>
   )

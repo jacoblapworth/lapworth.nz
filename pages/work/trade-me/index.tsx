@@ -31,9 +31,9 @@ export const TradeMe: NextPage = () => {
       </Text>
       <p>Online marketplace</p>
       <Grid>
-        <NextImage src={Img1} placeholder="blur" />
-        <NextImage src={Img2} placeholder="blur" />
-        <NextImage src={Img3} placeholder="blur" />
+        <NextImage alt="" src={Img1} placeholder="blur" />
+        <NextImage alt="" src={Img2} placeholder="blur" />
+        <NextImage alt="" src={Img3} placeholder="blur" />
       </Grid>
     </>
   )
