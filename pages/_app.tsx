@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import type { GetStaticProps as NextGetStaticProps } from 'next'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
@@ -36,6 +37,7 @@ export const App = ({
       value={{ light: lightTheme.className, dark: darkTheme.className }}
     >
       <Head />
+      <Analytics />
       <Page title={title} hideNav={hideNav}>
         <Component {...pageProps} />
       </Page>
