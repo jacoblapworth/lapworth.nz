@@ -40,7 +40,7 @@
     "sharp": "0.31.2"
   },
   "devDependencies": {
-    "@testing-library/cypress": "8.0.3",
+    "@testing-library/cypress": "8.0.5",
     "@types/musickit-js": "1.0.4",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
