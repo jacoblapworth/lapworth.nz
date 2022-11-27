@@ -51,6 +51,7 @@ jobs:
         with:
           path: ${{ github.workspace }}/*
           key: ${{ github.sha }}
+      - uses: pnpm/action-setup@v2
       - name: Lint
         run: pnpm run lint
 
@@ -63,6 +64,7 @@ jobs:
         with:
           path: ${{ github.workspace }}/*
           key: ${{ github.sha }}
+      - uses: pnpm/action-setup@v2
       - name: Cypress
         uses: cypress-io/github-action@v4
         with:
