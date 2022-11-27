@@ -13,6 +13,10 @@ const Page = styled('div', {
   },
 })
 
+const HiddenLink = styled('a', {
+  display: 'none',
+})
+
 export const Home: NextPage = () => {
   return (
     <Page>
@@ -45,6 +49,9 @@ export const Home: NextPage = () => {
       <Text size="xlarge" display serif>
         Scaling design systems at <Link href="https://xero.com">Xero</Link>
       </Text>
+      <HiddenLink rel="me" href="https://mastodon.social/@jacoblapworth">
+        Mastodon
+      </HiddenLink>
     </Page>
   )
 }
