@@ -28,7 +28,7 @@
     "@radix-ui/react-icons": "1.1.1",
     "@stitches/react": "1.2.8",
     "@vercel/analytics": "0.1.5",
-    "framer-motion": "7.6.12",
+    "framer-motion": "7.6.18",
     "got": "12.5.3",
     "jose": "4.11.1",
     "next": "13.0.5",
