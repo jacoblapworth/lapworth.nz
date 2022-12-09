@@ -43,7 +43,7 @@
   "devDependencies": {
     "@testing-library/cypress": "8.0.7",
     "@types/musickit-js": "1.0.4",
-    "@types/node": "18.11.9",
+    "@types/node": "18.11.12",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "@typescript-eslint/eslint-plugin": "5.44.0",
