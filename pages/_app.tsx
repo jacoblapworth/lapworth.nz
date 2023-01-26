@@ -1,7 +1,7 @@
 import { Analytics } from '@vercel/analytics/react'
 import type { GetStaticProps as NextGetStaticProps } from 'next'
-import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
+import { ThemeProvider } from 'next-themes'
 
 import '@/styles/globals.css'
 

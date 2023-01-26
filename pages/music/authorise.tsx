@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 
 import { GetServerSideProps, NextPage } from 'next'
-import { NextSeo } from 'next-seo'
 import NextScript from 'next/script'
+import { NextSeo } from 'next-seo'
 
 import { createAppleJWT } from '@/components/Music'
 import { useAppleMusic } from '@/components/Music/musicHook'

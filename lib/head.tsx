@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
-import { DefaultSeo, NextSeoProps } from 'next-seo'
-import { useTheme } from 'next-themes'
 import NextHead from 'next/head'
 import { useRouter } from 'next/router'
+import { DefaultSeo, NextSeoProps } from 'next-seo'
+import { useTheme } from 'next-themes'
 
 import { themes } from '@/styles'
 

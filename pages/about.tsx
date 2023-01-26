@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
-import { NextSeo } from 'next-seo'
 import NextImage from 'next/image'
+import { NextSeo } from 'next-seo'
 
 import { getMusicWithThumbnails, MusicKitResource } from '@/components/Music'
 import { HeavyRotation } from '@/components/Music/HeavyRotation'

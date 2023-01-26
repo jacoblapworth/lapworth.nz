@@ -1,5 +1,5 @@
-import { NextSeo } from 'next-seo'
 import NextLink from 'next/link'
+import { NextSeo } from 'next-seo'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
