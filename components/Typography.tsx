@@ -2,6 +2,7 @@ import { styled } from '@/styles'
 
 export const Text = styled('div', {
   color: '$text',
+  cursor: 'auto',
   variants: {
     size: {
       small: {

@@ -65,8 +65,8 @@ const colors = {
     20: '#ececec',
     30: '#e3e5e7',
   },
-  black80: '#202223',
   black: {
+    50: '#727272',
     70: '#717171',
     80: '#202223',
     90: '#111213',
@@ -101,6 +101,7 @@ export const lightTheme = createTheme('light', {
     primary: colors.black[100],
     secondary: colors.black[90],
     tertiary: colors.black[70],
+    quaternary: colors.grey[10],
     interactive: colors.black[80],
     background: colors.white[10],
     surface: colors.white[0],
@@ -119,6 +120,7 @@ export const darkTheme = createTheme('dark', {
     primary: colors.white[0],
     secondary: colors.black[90],
     tertiary: colors.grey[40],
+    quaternary: colors.grey[70],
     interactive: colors.white[30],
     background: colors.black[100],
     surface: '#202123',
@@ -144,16 +146,19 @@ export const globalStyles = globalCss({
     lineHeight: '1.2rem',
   },
 
-  ':link': {
-    color: '$interactive',
-    textDecoration: 'unset',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
+  ':visited': {
+    color: 'inherit',
+    textDecorationColor: 'transparent',
   },
 
-  ':visited': {
+  ':link': {
     color: '$interactive',
+    textDecoration: 'underline',
+    textDecorationColor: '$quaternary',
+    '&:hover': {
+      textDecoration: 'underline',
+      textDecorationColor: '$interactive',
+    },
   },
 
   '::selection': {

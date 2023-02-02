@@ -17,6 +17,7 @@ const A = styled(NextLink, {
   justifyContent: 'space-between',
   alignItems: 'center',
   position: 'relative',
+  textDecoration: 'none',
 
   '&::after': {
     content: '',
@@ -35,6 +36,7 @@ const A = styled(NextLink, {
 
   '&:hover': {
     backgroundColor: '$surfaceHovered',
+    textDecoration: 'none',
 
     '&::after': {
       width: '$$highlightWidth',
