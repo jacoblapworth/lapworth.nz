@@ -24,6 +24,7 @@
         "allowAnonymousFunction": true
       }
     ],
+    "@typescript-eslint/no-empty-interface": "warn",
     "import/order": [
       "error",
       {
