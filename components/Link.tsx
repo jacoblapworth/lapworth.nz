@@ -6,7 +6,14 @@ interface Props {
   sameTab?: boolean
 }
 
-const A = styled('a', {})
+const A = styled('a', {
+  textDecoration: 'underline',
+  textDecorationColor: '$quaternary',
+  '&:hover': {
+    textDecoration: 'underline',
+    textDecorationColor: '$interactive',
+  },
+})
 
 export const Link = ({ children, href, sameTab, ...rest }: Props) => {
   const target = sameTab ? '' : '_blank'

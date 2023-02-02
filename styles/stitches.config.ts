@@ -146,19 +146,9 @@ export const globalStyles = globalCss({
     lineHeight: '1.2rem',
   },
 
-  ':visited': {
-    color: 'inherit',
-    textDecorationColor: 'transparent',
-  },
-
-  ':link': {
+  a: {
     color: '$interactive',
-    textDecoration: 'underline',
-    textDecorationColor: '$quaternary',
-    '&:hover': {
-      textDecoration: 'underline',
-      textDecorationColor: '$interactive',
-    },
+    textDecoration: 'none',
   },
 
   '::selection': {
