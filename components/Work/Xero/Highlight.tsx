@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { ReactNode } from 'react'
 
 import { styled } from '@/styles'
 
@@ -31,7 +31,11 @@ const Text = styled('span', {
   zIndex: 1,
 })
 
-export const Highlight: FC = ({ children }) => {
+interface Props {
+  children: ReactNode
+}
+
+export const Highlight = ({ children }: Props) => {
   return (
     <Em>
       <Span>
