@@ -1,8 +1,6 @@
-import { FC } from 'react'
-
 import { styled } from '@/styles'
 
-const StyledTile = styled('div', {
+export const Tile = styled('div', {
   backgroundColor: '$surface',
   borderRadius: '$lg',
   display: 'grid',
@@ -12,9 +10,3 @@ const StyledTile = styled('div', {
   // },
   padding: '1rem',
 })
-
-interface TileProps {}
-
-export const Tile: FC<TileProps> = ({ children }) => {
-  return <StyledTile>{children}</StyledTile>
-}
