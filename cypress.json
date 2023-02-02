@@ -1,5 +1,0 @@
-{
-  "$schema": "https://on.cypress.io/cypress.schema.json",
-  "projectId": "vkazho",
-  "baseUrl": "http://localhost:3000"
-}

@@ -28,7 +28,8 @@ export const appleMusicClient = got.extend({
   hooks: {
     beforeRequest: [
       async (options) => {
-        options.headers['Authorization'] = `Bearer ${await createAppleJWT()}`
+        const jwt = await createAppleJWT()
+        options.headers['Authorization'] = `Bearer ${jwt}`
         options.headers['Music-User-Token'] = APPLE_MUSIC_USER_TOKEN
       },
     ],
@@ -131,38 +132,42 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
   }
 }
 
+const getMusicWithThumnail = async (
+  item: MusicKitResource,
+): Promise<MusicKitResource | undefined> => {
+  try {
+    const src = buildImageUrl(item.attributes.artwork.url, 24)
+    const image = await getPlaiceholder(src)
+    return {
+      ...item,
+      attributes: {
+        ...item.attributes,
+        placeholder: image.base64,
+      },
+    }
+  } catch (error) {
+    console.error(error)
+    console.log(item)
+    return undefined
+  }
+}
+
 export const getMusicWithThumbnails = async () => {
   try {
     const response = await getMusic(MusicEndpoint.RECENT)
     const music = (
-      await Promise.all(
-        response.map(async (item) => {
-          try {
-            const src = buildImageUrl(item.attributes.artwork.url, 24)
-            const image = await getPlaiceholder(src)
-            return {
-              ...item,
-              attributes: {
-                ...item.attributes,
-                placeholder: image.base64,
-              },
-            }
-          } catch (error) {
-            console.error(error)
-            console.log(item)
-            return undefined
-          }
-        }),
-      )
+      await Promise.all(response.map((item) => getMusicWithThumnail(item)))
     ).filter(Boolean) as MusicKitResource[]
 
     return music
   } catch (error) {
-    console.error(error)
+    console.error('Apple Music error:\n', error)
     if (error instanceof MKError) {
       if (error.status === 403) {
         console.info('Visit /music/authorise to refresh Apple Music token')
       }
     }
+
+    return null
   }
 }

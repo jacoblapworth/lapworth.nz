@@ -1,22 +1,26 @@
 import { NextPage } from 'next'
 
-import Link from '@/components/Link'
-import Text from '@/components/Typography/Text'
+import { Link } from '@/components/Link'
+import { Text } from '@/components/Typography'
 import { styled } from '@/styles'
 
 import { GetStaticProps } from './_app'
 
 const Page = styled('div', {
-  // maxWidth: '100vw',
-  // '@sm': {
-  //   maxWidth: '75vw',
-  // },
+  maxWidth: '100vw',
+  '@sm': {
+    maxWidth: '75vw',
+  },
+})
+
+const HiddenLink = styled('a', {
+  display: 'none',
 })
 
 export const Home: NextPage = () => {
   return (
     <Page>
-      <Text size="xlarge" display lang="mi">
+      <Text size="xlarge" display>
         Kia ora 👋 Ko Jacob tōku ingoa
       </Text>
       <Text>
@@ -45,6 +49,9 @@ export const Home: NextPage = () => {
       <Text size="xlarge" display serif>
         Scaling design systems at <Link href="https://xero.com">Xero</Link>
       </Text>
+      <HiddenLink rel="me" href="https://mastodon.social/@jacoblapworth">
+        Mastodon
+      </HiddenLink>
     </Page>
   )
 }

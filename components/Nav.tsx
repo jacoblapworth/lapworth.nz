@@ -1,14 +1,15 @@
-import { FC, useState, PropsWithChildren } from 'react'
+import { useState, ComponentProps } from 'react'
 
 import { motion } from 'framer-motion'
-import NextLink, { LinkProps as NextLinkProps } from 'next/link'
+import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
+import { Link } from '@/components/Link'
 import { styled } from '@/styles'
 
-import Link from './Link'
+type NextLinkProps = ComponentProps<typeof NextLink>
 
-const A = styled('a', {
+const A = styled(NextLink, {
   $$highlightWidth: '20px',
   paddingBlock: 8,
   borderBottom: '1px solid $divider',
@@ -16,6 +17,7 @@ const A = styled('a', {
   justifyContent: 'space-between',
   alignItems: 'center',
   position: 'relative',
+  textDecoration: 'none',
 
   '&::after': {
     content: '',
@@ -34,6 +36,7 @@ const A = styled('a', {
 
   '&:hover': {
     backgroundColor: '$surfaceHovered',
+    textDecoration: 'none',
 
     '&::after': {
       width: '$$highlightWidth',
@@ -51,7 +54,7 @@ const A = styled('a', {
   },
 })
 
-const NavLink: FC<PropsWithChildren<NextLinkProps>> = ({ children, href }) => {
+const NavLink = ({ children, href }: NextLinkProps) => {
   const [animate, setAnimate] = useState('hidden')
   const router = useRouter()
 
@@ -71,38 +74,37 @@ const NavLink: FC<PropsWithChildren<NextLinkProps>> = ({ children, href }) => {
   const isActive = router.pathname === href
 
   return (
-    <NextLink href={href} passHref>
-      <A
-        onPointerOver={onPointerOver}
-        onPointerLeave={onPointerLeave}
-        isActive={isActive}
+    <A
+      href={href}
+      onPointerOver={onPointerOver}
+      onPointerLeave={onPointerLeave}
+      isActive={isActive}
+    >
+      {children}
+      <motion.div
+        variants={variants}
+        animate={animate}
+        initial="hidden"
+        style={{ marginInlineEnd: 8 }}
       >
-        {children}
-        <motion.div
-          variants={variants}
-          animate={animate}
-          initial="hidden"
-          style={{ marginInlineEnd: 8 }}
-        >
-          <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-              d="M13.75 6.75L19.25 12L13.75 17.25"
-            ></path>
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-              d="M19 12H4.75"
-            ></path>
-          </svg>
-        </motion.div>
-      </A>
-    </NextLink>
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+            d="M13.75 6.75L19.25 12L13.75 17.25"
+          ></path>
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+            d="M19 12H4.75"
+          ></path>
+        </svg>
+      </motion.div>
+    </A>
   )
 }
 
@@ -112,7 +114,7 @@ const Stack = styled('div', {
   gridColumn: '1 / span 2',
 })
 
-const NavLinks: FC<React.PropsWithChildren<unknown>> = () => {
+const NavLinks = () => {
   return (
     <Stack>
       <NavLink href="/work">Work</NavLink>
@@ -142,14 +144,11 @@ const Row = styled('div', {
   [`& li`]: {
     display: 'inline-block',
     whiteSpace: 'pre',
-    '&::after': {
-      content: ' \u2022 ',
-    },
-    '&:last-child': {
-      '&::after': {
-        content: 'none',
-      },
-    },
+  },
+
+  [`& a`]: {
+    padding: '$sm',
+    margin: '-$sm',
   },
 })
 
@@ -180,13 +179,16 @@ const socialLinks = [
   },
 ]
 
-const Description: FC<React.PropsWithChildren<unknown>> = () => {
+const Description = () => {
   return (
     <Row>
       <ul aria-label="Social media links">
-        {socialLinks.map(({ name, href }) => (
+        {socialLinks.map(({ name, href }, i) => (
           <li key={href}>
             <Link href={href}>{name}</Link>
+            {i !== socialLinks.length - 1 && (
+              <span aria-hidden="true">{` \u2022 `}</span>
+            )}
           </li>
         ))}
       </ul>
@@ -206,7 +208,7 @@ const Nav = styled('nav', {
   marginInline: 16,
 })
 
-const Navigation: FC<React.PropsWithChildren<unknown>> = () => {
+export const Navigation = () => {
   return (
     <Nav>
       <NavLinks />
@@ -214,5 +216,3 @@ const Navigation: FC<React.PropsWithChildren<unknown>> = () => {
     </Nav>
   )
 }
-
-export default Navigation

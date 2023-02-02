@@ -1,17 +1,16 @@
 import { NextPage } from 'next'
-import { NextSeo } from 'next-seo'
 import NextImage from 'next/image'
+import { NextSeo } from 'next-seo'
 
 import { getMusicWithThumbnails, MusicKitResource } from '@/components/Music'
 import { HeavyRotation } from '@/components/Music/HeavyRotation'
-import Text from '@/components/Typography/Text'
+import { Text } from '@/components/Typography'
 import ProfileImage from '@/public/static/j-photo-mono.png'
 import { styled } from '@/styles'
 
 import { GetStaticProps } from './_app'
 
-const Profile = styled('div', {
-  display: 'inline-flex',
+const Profile = styled(NextImage, {
   borderRadius: '50%',
   overflow: 'hidden',
   marginInlineStart: '0.2em',
@@ -19,16 +18,18 @@ const Profile = styled('div', {
   width: '0.75em',
   border: '1px solid transparent',
   '&:hover': {
-    borderColor: '$divider',
+    border: '1px dashed $divider',
   },
 })
 
 const NoWrap = styled('span', {
   whiteSpace: 'nowrap',
+  display: 'inline-flex',
+  alignItems: 'baseline',
 })
 
 interface PageProps {
-  music?: MusicKitResource[]
+  music: MusicKitResource[] | null
 }
 
 const seoDescription = `Hey there! I'm J. I'm a product designer and software engineer focussed on community driven design systems.`
@@ -41,15 +42,13 @@ export const About: NextPage<PageProps> = ({ music }) => {
         Hey there!{' '}
         <NoWrap>
           I&apos;m J
-          <Profile>
-            <NextImage
-              src={ProfileImage}
-              quality={100}
-              layout="intrinsic"
-              placeholder="blur"
-              priority
-            />
-          </Profile>
+          <Profile
+            src={ProfileImage}
+            quality={100}
+            alt="Portrait photo of Jacob"
+            placeholder="blur"
+            priority
+          />
         </NoWrap>
       </Text>
 

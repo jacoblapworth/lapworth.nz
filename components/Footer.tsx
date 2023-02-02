@@ -1,5 +1,3 @@
-import { FC, PropsWithChildren } from 'react'
-
 import { styled } from '@/styles'
 
 const Tagline = styled('footer', {
@@ -13,10 +11,6 @@ const Tagline = styled('footer', {
   marginBottom: 'env(safe-area-inset-bottom)',
 })
 
-interface FooterProps {}
-
-export const Footer: FC<PropsWithChildren<FooterProps>> = ({}) => {
+export const Footer = () => {
   return <Tagline>Designed and built by J — Product Designer — 2022</Tagline>
 }
-
-export default Footer

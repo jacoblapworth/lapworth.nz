@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
-import { NextSeo } from 'next-seo'
 import NextImage from 'next/image'
+import { NextSeo } from 'next-seo'
 
-import Text from '@/components/Typography/Text'
+import { Text } from '@/components/Typography'
 import { GetStaticProps } from '@/pages/_app'
 import Img1 from '@/public/static/work/timely/1.png'
 import Img2 from '@/public/static/work/timely/2.png'
@@ -32,10 +32,10 @@ export const Timely: NextPage = () => {
       </Text>
       <p>Consultations</p>
       <Grid>
-        <NextImage src={Img1} placeholder="blur" />
-        <NextImage src={Img2} placeholder="blur" />
-        <NextImage src={Img3} placeholder="blur" />
-        <NextImage src={Img4} placeholder="blur" />
+        <NextImage alt="" src={Img1} placeholder="blur" />
+        <NextImage alt="" src={Img2} placeholder="blur" />
+        <NextImage alt="" src={Img3} placeholder="blur" />
+        <NextImage alt="" src={Img4} placeholder="blur" />
       </Grid>
     </>
   )

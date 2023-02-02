@@ -2,6 +2,7 @@ import { styled } from '@/styles'
 
 export const Text = styled('div', {
   color: '$text',
+  cursor: 'auto',
   variants: {
     size: {
       small: {
@@ -65,5 +66,3 @@ export const Text = styled('div', {
     size: 'medium',
   },
 })
-
-export default Text

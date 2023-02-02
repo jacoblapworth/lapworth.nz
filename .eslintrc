@@ -1,10 +1,12 @@
 {
   "extends": [
     "prettier",
-    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
     "plugin:cypress/recommended"
   ],
   "plugins": [
+    "@typescript-eslint",
     "prettier",
     "cypress"
   ],

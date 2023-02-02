@@ -1,8 +1,5 @@
-import React, { FC, PropsWithChildren } from 'react'
-
+import { Link } from '@/components/Link'
 import { styled } from '@/styles'
-
-import Link from '../Link'
 
 interface ExperienceRowProps {
   title?: string
@@ -25,12 +22,7 @@ const Row = styled('div', {
   gap: '1rem',
 })
 
-const ExperienceRow: FC<PropsWithChildren<ExperienceRowProps>> = ({
-  workplace,
-  from,
-  to,
-  href,
-}) => {
+const ExperienceRow = ({ workplace, from, to, href }: ExperienceRowProps) => {
   return (
     <Row>
       <Link href={href}>{workplace}</Link>
@@ -51,11 +43,7 @@ const Stack = styled('div', {
   maxWidth: '12rem',
 })
 
-interface ExperienceProps {}
-
-export const Experience: FC<
-  React.PropsWithChildren<ExperienceProps>
-> = ({}) => {
+export const Experience = () => {
   return (
     <Stack>
       <h2>Experience</h2>
@@ -86,5 +74,3 @@ export const Experience: FC<
     </Stack>
   )
 }
-
-export default Experience

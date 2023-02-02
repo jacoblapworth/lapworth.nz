@@ -1,13 +1,13 @@
-import Link from 'next/link'
+import NextLink from 'next/link'
 
+import { ThemeToggle } from '@/components/ThemeToggle'
 import { styled } from '@/styles'
-
-import ThemeToggle from './ThemeToggle'
 
 const StyledHeader = styled('header', {
   zIndex: 20,
   gridArea: 'header',
   display: 'flex',
+  alignItems: 'flex-start',
   justifyContent: 'space-between',
   padding: '$md',
 })
@@ -16,20 +16,16 @@ const Text = styled('div', {
   fontWeight: 500,
 })
 
-const Header = () => {
+export const Header = () => {
   return (
     <StyledHeader aria-label="Header">
-      <Link href="/">
-        <a aria-label="Home">
-          <Text>
-            Lapworth,
-            <em> Jacob</em>
-          </Text>
-        </a>
-      </Link>
+      <NextLink href="/" aria-label="Home">
+        <Text>
+          Lapworth,
+          <em> Jacob</em>
+        </Text>
+      </NextLink>
       <ThemeToggle />
     </StyledHeader>
   )
 }
-
-export default Header

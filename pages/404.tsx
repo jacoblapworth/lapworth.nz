@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 
-import Button from '@/components/Button'
+import { Button } from '@/components/Button'
 
 import { GetStaticProps } from './_app'
 

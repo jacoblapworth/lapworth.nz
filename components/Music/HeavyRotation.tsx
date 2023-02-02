@@ -1,28 +1,22 @@
-import React, { FC, PropsWithChildren } from 'react'
-
 import NextImage from 'next/image'
 
+import { Link } from '@/components/Link'
 import { MusicKitResource } from '@/components/Music'
-import Text from '@/components/Typography/Text'
+import { Text } from '@/components/Typography'
 import { styled } from '@/styles'
-
-import Link from '../Link'
 
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
   const src = url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
-  const proxiedSrc = `https://lapworth.nz/api/images?url=${encodeURIComponent(
-    src,
-  )}`
 
-  return proxiedSrc
+  return src
 }
 
 interface Props {
   music: MusicKitResource[]
 }
 
-const AlbumArt = styled('div', {
+const AlbumArt = styled(NextImage, {
   overflow: 'hidden',
   borderRadius: '$sm',
   backgroundColor: '$surface',
@@ -53,6 +47,7 @@ const Stack = styled('div', {
 })
 
 const AlbumLink = styled(Link, {
+  borderRadius: 8,
   '&:hover': {
     [`& ${AlbumArt}`]: {
       opacity: 0.8,
@@ -60,9 +55,11 @@ const AlbumLink = styled(Link, {
   },
 })
 
-const AppleMusicResource: FC<
-  PropsWithChildren<{ resource: MusicKitResource }>
-> = ({ resource }) => {
+interface AppleMusicResourceProps {
+  resource: MusicKitResource
+}
+
+const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
   const { name, artistName } = resource.attributes
 
   const size = 128
@@ -71,18 +68,15 @@ const AppleMusicResource: FC<
   return (
     <AlbumLink href={resource.attributes.url}>
       <Stack>
-        <AlbumArt>
-          <NextImage
-            alt={`Album artwork for "${name}"`}
-            src={src}
-            width={size}
-            height={size}
-            quality={100}
-            layout="responsive"
-            placeholder="blur"
-            blurDataURL={resource.attributes.placeholder}
-          />
-        </AlbumArt>
+        <AlbumArt
+          alt={`Album artwork for "${name}"`}
+          src={src}
+          width={size}
+          height={size}
+          quality={100}
+          placeholder="blur"
+          blurDataURL={resource.attributes.placeholder}
+        />
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>
       </Stack>
@@ -97,14 +91,18 @@ const Grid = styled('div', {
   gridAutoFlow: 'column',
   gap: 16,
   overflowX: 'scroll',
+  overflowY: 'visible',
   marginInline: -16,
-  paddingBlockEnd: 16,
+  paddingBlock: 16,
   paddingInline: 16,
+  alignItems: 'start',
 })
 
-export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
-  music,
-}) => {
+interface HeavyRotationProps {
+  music: MusicKitResource[]
+}
+
+export const HeavyRotation = ({ music }: HeavyRotationProps) => {
   if (music.length === 0) {
     return null
   }
@@ -119,15 +117,12 @@ export const HeavyRotation: FC<React.PropsWithChildren<Props>> = ({
         size="large"
         display
         css={{
-          marginBlockEnd: 16,
+          marginBlockEnd: 8,
         }}
       >
         Currently vibing to
       </Text>
-
       <Grid>{Music}</Grid>
     </div>
   )
 }
-
-export default HeavyRotation

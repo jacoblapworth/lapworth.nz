@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
-import Text from '@/components/Typography/Text'
+import { Text } from '@/components/Typography'
 import { FigmaAccessibility } from '@/components/Work/Xero/FigmaAccessibility'
 import { Highlight } from '@/components/Work/Xero/Highlight'
 import { GetStaticProps } from '@/pages/_app'
