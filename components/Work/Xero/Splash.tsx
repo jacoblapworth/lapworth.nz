@@ -71,13 +71,7 @@ export const XeroSplash: FC<XeroSplashProps> = ({}) => {
           </Text>
         </Layout>
         <Footer>
-          <NextImage
-            alt="Xero logo"
-            height={48}
-            width={48}
-            layout="intrinsic"
-            src={logo}
-          />
+          <NextImage alt="Xero logo" height={48} width={48} src={logo} />
           <IconButton>
             View
             <ArrowIcon />

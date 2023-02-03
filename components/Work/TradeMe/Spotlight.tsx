@@ -88,14 +88,22 @@ const Button = styled(motion.button, {
   },
 })
 
-type Vertical = 'marketplace' | 'jobs' | 'property' | 'motors' | 'services'
+const verticals = [
+  'marketplace',
+  'jobs',
+  'property',
+  'motors',
+  'services',
+] as const
+
+type Vertical = typeof verticals[number]
 
 interface VerticalIconProps {
-  icon: Vertical
+  vertical: Vertical
   isActive?: boolean
 }
 
-const Icon: FC<VerticalIconProps> = ({ icon, isActive }) => {
+const Icon: FC<VerticalIconProps> = ({ vertical, isActive }) => {
   if (isActive) {
     return (
       <AnimatePresence>
@@ -104,7 +112,7 @@ const Icon: FC<VerticalIconProps> = ({ icon, isActive }) => {
     )
   }
 
-  switch (icon) {
+  switch (vertical) {
     case 'marketplace':
       return <BagIcon />
     case 'jobs':
@@ -122,7 +130,7 @@ const Icon: FC<VerticalIconProps> = ({ icon, isActive }) => {
 
 interface SpotProps {
   label: string
-  activeVertical?: Vertical
+  isActive?: boolean
   onClick: (vertical?: Vertical) => void
   vertical: Vertical
 }
@@ -130,12 +138,10 @@ interface SpotProps {
 const Spot: FC<SpotProps> = ({
   label,
   vertical,
-  activeVertical,
+  isActive,
   onClick: _onClick,
   ...rest
 }) => {
-  const isActive = activeVertical === vertical
-
   const onClick = () => {
     _onClick(isActive ? undefined : vertical)
   }
@@ -143,7 +149,7 @@ const Spot: FC<SpotProps> = ({
   return (
     <Button onClick={onClick} animate {...rest}>
       <Circle vertical={vertical} isActive={isActive}>
-        <Icon icon={vertical} isActive={isActive} />
+        <Icon vertical={vertical} isActive={isActive} />
       </Circle>
       <Label>{label}</Label>
     </Button>
@@ -176,21 +182,6 @@ const Spotlights: FC = () => {
     setActiveVertical(vertical)
   }
 
-  const verticals: Vertical[] = [
-    'marketplace',
-    'jobs',
-    'property',
-    'motors',
-    'services',
-  ]
-
-  // const spots = [
-  //   {
-  //     vertical: 'marketplace',
-  //     label: ''
-  //   }
-  // ]
-
   const marketplaceSpots = ['Deals', 'Stores', 'Local']
 
   return (
@@ -200,7 +191,7 @@ const Spotlights: FC = () => {
           key={vertical}
           label={vertical}
           vertical={vertical}
-          activeVertical={activeVertical}
+          isActive={activeVertical === vertical}
           onClick={onClick}
         />
       ))}
