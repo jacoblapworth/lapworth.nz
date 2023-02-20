@@ -24,7 +24,7 @@
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
   },
   "dependencies": {
-    "@radix-ui/react-icons": "1.1.1",
+    "@radix-ui/react-icons": "1.2.0",
     "@stitches/react": "1.2.8",
     "@vercel/analytics": "0.1.10",
     "framer-motion": "9.0.4",
