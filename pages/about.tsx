@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import NextImage from 'next/image'
 import { NextSeo } from 'next-seo'
 
@@ -53,7 +53,7 @@ export const About: NextPage<PageProps> = ({ music }) => {
       </Text>
 
       <Text size="large" display>
-        I&apos;m a product designer and software engineer focussed on community
+        I&apos;m a product designer and software engineer focused on community
         driven design systems.
       </Text>
 
