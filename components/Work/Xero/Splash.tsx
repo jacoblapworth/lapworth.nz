@@ -43,7 +43,9 @@ const IconButton = styled('div', {
   },
 })
 
-const Tile = styled('a', {
+const Tile = styled(NextLink, {
+  display: 'flex',
+  flexDirection: 'column',
   borderRadius: '$lg',
   gridColumn: '1/ -1',
   [`.${lightTheme} &`]: {
@@ -63,21 +65,19 @@ const Tile = styled('a', {
 
 export const XeroSplash: FC<XeroSplashProps> = ({}) => {
   return (
-    <NextLink href="/work/xero" passHref>
-      <Tile>
-        <Layout>
-          <Text display size="xlarge">
-            <Highlight>Scaling</Highlight> the design system at Xero
-          </Text>
-        </Layout>
-        <Footer>
-          <NextImage alt="Xero logo" height={48} width={48} src={logo} />
-          <IconButton>
-            View
-            <ArrowIcon />
-          </IconButton>
-        </Footer>
-      </Tile>
-    </NextLink>
+    <Tile href="/work/xero">
+      <Layout>
+        <Text display size="xlarge">
+          <Highlight>Scaling</Highlight> the design system at Xero
+        </Text>
+      </Layout>
+      <Footer>
+        <NextImage alt="Xero logo" height={48} width={48} src={logo} />
+        <IconButton>
+          View
+          <ArrowIcon />
+        </IconButton>
+      </Footer>
+    </Tile>
   )
 }

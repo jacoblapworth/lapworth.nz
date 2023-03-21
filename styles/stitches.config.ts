@@ -40,6 +40,7 @@ export const {
       sm: '3px',
       md: '6px',
       lg: '12px',
+      max: '20%/50%;',
     },
     shadows: {
       md: '0 4px 8px $colors$secondary',
