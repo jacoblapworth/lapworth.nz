@@ -54,8 +54,8 @@ export const About: NextPage<PageProps> = ({ music }) => {
       </Text>
 
       <Text size="large" display>
-        I&apos;m a product designer and software engineer focused on community
-        driven design systems.
+        I&apos;m a senior product designer and software engineer focused on
+        community driven design systems.
       </Text>
 
       <Experience />
