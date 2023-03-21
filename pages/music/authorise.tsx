@@ -20,6 +20,11 @@ export const Authorise: NextPage<PageProps> = ({ developerToken }) => {
       userToken && console.log('Apple Music user token:', userToken)
     }
 
+    const revoke = async () => {
+      appleMusic?.unauthorize()
+    }
+
+    // revoke()
     authorize()
   }, [appleMusic])
 

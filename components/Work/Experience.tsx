@@ -1,6 +1,8 @@
 import { Link } from '@/components/Link'
 import { styled } from '@/styles'
 
+import { Text } from '../Typography'
+
 interface ExperienceRowProps {
   title?: string
   workplace: string
@@ -45,32 +47,36 @@ const Stack = styled('div', {
 
 export const Experience = () => {
   return (
-    <Stack>
-      <h2>Experience</h2>
-      <ExperienceRow
-        workplace="Xero"
-        href="https://www.xero.com/nz/"
-        from="2020"
-        to="Present"
-      />
-      <ExperienceRow
-        workplace="Vend"
-        href="https://www.vendhq.com/nz/"
-        from="2019"
-        to="2020"
-      />
-      <ExperienceRow
-        workplace="Timely"
-        href="https://www.gettimely.com/"
-        from="2018"
-        to="2019"
-      />
-      <ExperienceRow
-        workplace="Trade Me"
-        href="https://www.trademe.co.nz/a/"
-        from="2016"
-        to="2018"
-      />
-    </Stack>
+    <div>
+      <Text as="h2" size="large" display>
+        Experience
+      </Text>
+      <Stack>
+        <ExperienceRow
+          workplace="Xero"
+          href="https://www.xero.com/nz/"
+          from="2020"
+          to="Present"
+        />
+        <ExperienceRow
+          workplace="Vend"
+          href="https://www.vendhq.com/nz/"
+          from="2019"
+          to="2020"
+        />
+        <ExperienceRow
+          workplace="Timely"
+          href="https://www.gettimely.com/"
+          from="2018"
+          to="2019"
+        />
+        <ExperienceRow
+          workplace="Trade Me"
+          href="https://www.trademe.co.nz/a/"
+          from="2016"
+          to="2018"
+        />
+      </Stack>
+    </div>
   )
 }

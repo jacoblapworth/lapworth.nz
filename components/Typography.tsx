@@ -3,6 +3,7 @@ import { styled } from '@/styles'
 export const Text = styled('div', {
   color: '$text',
   cursor: 'auto',
+  fontWeight: '400',
   variants: {
     size: {
       small: {

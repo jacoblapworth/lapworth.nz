@@ -7,7 +7,6 @@ const config = {
     defaultLocale: 'en-NZ',
   },
   images: {
-    domains: ['lapworth.nz'],
     remotePatterns: [
       {
         protocol: 'https',
