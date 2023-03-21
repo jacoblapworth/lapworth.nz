@@ -1,13 +1,16 @@
 import { NextPage } from 'next'
 
 import { Button } from '@/components/Button'
+import { Text } from '@/components/Typography'
 
 import { GetStaticProps } from './_app'
 
 export const FourZeroFour: NextPage = () => {
   return (
     <>
-      <h1>404</h1>
+      <Text as="h1" display size="xlarge">
+        404
+      </Text>
       <p>
         This page doesn’t exist. Try heading back home to start from the
         beginning.
