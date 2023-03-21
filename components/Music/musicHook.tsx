@@ -6,7 +6,9 @@ const isDebug = process.env.NODE_ENV != 'production'
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_VERCEL_ENV == 'production'
-    ? process.env.NEXT_PUBLIC_PRODUCTION_URL
+    ? `https://${process.env.NEXT_PUBLIC_PRODUCTION_URL}`
+    : process.env.NEXT_PUBLIC_VERCEL_ENV == 'preview'
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
     : process.env.NEXT_PUBLIC_VERCEL_URL
 
 export const useAppleMusic = (developerToken: string) => {
