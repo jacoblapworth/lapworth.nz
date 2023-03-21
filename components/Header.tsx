@@ -4,6 +4,7 @@ import { ThemeToggle } from '@/components/ThemeToggle'
 import { styled } from '@/styles'
 
 const StyledHeader = styled('header', {
+  zIndex: 20,
   gridArea: 'header',
   display: 'flex',
   alignItems: 'flex-start',

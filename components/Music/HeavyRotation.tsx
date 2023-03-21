@@ -12,9 +12,13 @@ export const buildImageUrl = (_url: string, size: number): string => {
   return src
 }
 
+interface Props {
+  music: MusicKitResource[]
+}
+
 const AlbumArt = styled(NextImage, {
   overflow: 'hidden',
-  borderRadius: 8,
+  borderRadius: '$sm',
   backgroundColor: '$surface',
   marginBlockEnd: 4,
   willChange: 'transform',
