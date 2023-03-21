@@ -4,6 +4,11 @@ import packageJson from 'package.json'
 
 const isDebug = process.env.NODE_ENV != 'production'
 
+const BASE_URL =
+  process.env.NEXT_PUBLIC_VERCEL_ENV == 'production'
+    ? process.env.NEXT_PUBLIC_PRODUCTION_URL
+    : process.env.NEXT_PUBLIC_VERCEL_URL
+
 export const useAppleMusic = (developerToken: string) => {
   const [client, setClient] = useState<MusicKit.MusicKitInstance>()
 
@@ -16,7 +21,7 @@ export const useAppleMusic = (developerToken: string) => {
           version: packageJson.version,
           suppressErrorDialog: !isDebug,
           debug: isDebug,
-          icon: `${process.env.NEXT_PUBLIC_VERCEL_URL}/static/jacob-icon.png`,
+          icon: `${BASE_URL}/static/jacob-icon.png`,
         },
       })
 
