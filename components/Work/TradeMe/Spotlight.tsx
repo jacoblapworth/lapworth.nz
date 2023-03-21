@@ -59,9 +59,12 @@ const Circle = styled('div', {
         borderStyle: 'solid',
       },
       false: {
-        color: '#fff',
+        color: '#fff !important',
       },
     },
+  },
+  defaultVariants: {
+    isActive: false,
   },
 })
 
@@ -96,7 +99,7 @@ const verticals = [
   'services',
 ] as const
 
-type Vertical = typeof verticals[number]
+type Vertical = (typeof verticals)[number]
 
 interface VerticalIconProps {
   vertical: Vertical
@@ -106,9 +109,14 @@ interface VerticalIconProps {
 const Icon: FC<VerticalIconProps> = ({ vertical, isActive }) => {
   if (isActive) {
     return (
-      <AnimatePresence>
+      <motion.div
+        // transition
+        initial={{ opacity: 0, rotateZ: -90 }}
+        animate={{ opacity: 1, rotateZ: 0 }}
+        exit={{ opacity: 0, rotateZ: 90 }}
+      >
         <CrossIcon />
-      </AnimatePresence>
+      </motion.div>
     )
   }
 
@@ -149,7 +157,9 @@ const Spot: FC<SpotProps> = ({
   return (
     <Button onClick={onClick} animate {...rest}>
       <Circle vertical={vertical} isActive={isActive}>
-        <Icon vertical={vertical} isActive={isActive} />
+        <AnimatePresence>
+          <Icon vertical={vertical} isActive={isActive} />
+        </AnimatePresence>
       </Circle>
       <Label>{label}</Label>
     </Button>
@@ -159,7 +169,7 @@ const Spot: FC<SpotProps> = ({
 const Grid = styled(motion.div, {
   padding: 16,
   borderRadius: '$sm',
-  backgroundColor: '#fff',
+  backgroundColor: '$background',
   display: 'grid',
   gap: 16,
   gridTemplateColumns: 'repeat(5, 54px)',
@@ -173,7 +183,7 @@ interface Spot {
   position: number
 }
 
-const Spotlights: FC = () => {
+export const Spotlights: FC = () => {
   const [activeVertical, setActiveVertical] = useState<Vertical | undefined>(
     undefined,
   )
@@ -199,4 +209,39 @@ const Spotlights: FC = () => {
   )
 }
 
-export default Spotlights
+export const SpotlightsPreview = ({ isHover }: { isHover: boolean }) => {
+  const Layout = styled('div', {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'end',
+  })
+
+  const variants = {
+    initial: {
+      marginLeft: -24,
+    },
+    hover: {
+      marginLeft: -16,
+    },
+  }
+
+  return (
+    <Layout>
+      {verticals.map((vertical, i) => (
+        <motion.div
+          key={vertical}
+          style={{ zIndex: 10 - i }}
+          variants={variants}
+          initial="initial"
+          // whileHover="hover"
+          animate={isHover ? 'hover' : 'initial'}
+          exit="initial"
+        >
+          <Circle vertical={vertical}>
+            <Icon vertical={vertical} />
+          </Circle>
+        </motion.div>
+      ))}
+    </Layout>
+  )
+}

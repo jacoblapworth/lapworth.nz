@@ -1,10 +1,10 @@
 import { NextPage } from 'next'
+import NextImage from 'next/image'
 import { NextSeo } from 'next-seo'
 
 import { Text } from '@/components/Typography'
-import { FigmaAccessibility } from '@/components/Work/Xero/FigmaAccessibility'
-import { Highlight } from '@/components/Work/Xero/Highlight'
 import { GetStaticProps } from '@/pages/_app'
+import worldMap from '@/public/static/work/xero/principles-world-map.svg'
 import { styled } from '@/styles'
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -29,6 +29,12 @@ export const Xero: NextPage = () => {
         Xero Experience Design Principles
       </Text>
       <p>Design system for beautiful business</p>
+
+      <NextImage src={worldMap} alt="Map of world highlighting 7 locations" />
+      <div>8 workshops</div>
+      <div>7 regions</div>
+      <div>4 time zones</div>
+      <div>68 participants</div>
     </>
   )
 }

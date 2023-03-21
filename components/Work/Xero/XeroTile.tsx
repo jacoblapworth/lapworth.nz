@@ -10,7 +10,7 @@ import { styled, darkTheme, lightTheme } from '@/styles'
 
 import { Highlight } from './Highlight'
 
-interface XeroSplashProps {}
+interface XeroTileProps {}
 
 const Layout = styled('div', {
   display: 'flex',
@@ -63,7 +63,7 @@ const Tile = styled(NextLink, {
   },
 })
 
-export const XeroSplash: FC<XeroSplashProps> = ({}) => {
+export const XeroTile: FC<XeroTileProps> = ({}) => {
   return (
     <Tile href="/work/xero">
       <Layout>

@@ -1,1 +1,1 @@
-export { XeroSplash } from './Splash'
+export { XeroTile } from './XeroTile'

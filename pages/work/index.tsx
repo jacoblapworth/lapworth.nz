@@ -1,16 +1,26 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
-import { XeroSplash } from '@/components/Work/Xero'
+import DiscoverTile from '@/components/Work/TradeMe/DiscoverTile'
+import { XeroTile } from '@/components/Work/Xero'
+import { styled } from '@/styles'
 
 import { GetStaticProps } from '../_app'
+
+const Layout = styled('div', {
+  display: 'grid',
+  gap: '$md',
+  gridTemplateColumns: 'repeat(8, 1fr)',
+})
 
 export const Work: NextPage = () => {
   return (
     <>
       <NextSeo description="Xero, Vend, Timely, Trade Me" />
-
-      <XeroSplash />
+      <Layout>
+        <XeroTile />
+        <DiscoverTile />
+      </Layout>
     </>
   )
 }
