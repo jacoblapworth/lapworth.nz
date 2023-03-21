@@ -5,6 +5,7 @@ import { NextSeo } from 'next-seo'
 import { getMusicWithThumbnails, MusicKitResource } from '@/components/Music'
 import { HeavyRotation } from '@/components/Music/HeavyRotation'
 import { Text } from '@/components/Typography'
+import { Experience } from '@/components/Work/Experience'
 import ProfileImage from '@/public/static/j-photo-mono.png'
 import { styled } from '@/styles'
 
@@ -56,6 +57,8 @@ export const About: NextPage<PageProps> = ({ music }) => {
         I&apos;m a product designer and software engineer focused on community
         driven design systems.
       </Text>
+
+      <Experience />
 
       {music && music.length > 0 && <HeavyRotation music={music} />}
     </>

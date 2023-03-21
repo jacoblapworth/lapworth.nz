@@ -21,8 +21,8 @@ const Container = styled('div', {
 
 const Main = styled('main', {
   gridArea: 'content',
-  margin: 16,
-  maxWidth: 'calc(100vw - 32px)',
+  margin: '$md',
+  maxWidth: 'calc(100vw - $md * 2)',
 })
 
 const Skiplink = styled(NextLink, {

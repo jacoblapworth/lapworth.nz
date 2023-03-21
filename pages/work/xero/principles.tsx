@@ -10,7 +10,7 @@ import { styled } from '@/styles'
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      title: 'Xero',
+      title: 'Xero Experience Design Principles',
     },
   }
 }
@@ -25,13 +25,10 @@ export const Xero: NextPage = () => {
   return (
     <>
       <NextSeo noindex={true} />
-      <Text as="h2" display size="xlarge">
-        Xero User Interface
+      <Text as="h2" display size="large">
+        Xero Experience Design Principles
       </Text>
       <p>Design system for beautiful business</p>
-      <Grid>
-        <FigmaAccessibility />
-      </Grid>
     </>
   )
 }

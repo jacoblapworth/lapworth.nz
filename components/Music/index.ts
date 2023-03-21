@@ -2,8 +2,8 @@ import got, { HTTPError } from 'got'
 import { SignJWT, importPKCS8 } from 'jose'
 import { getPlaiceholder } from 'plaiceholder'
 
-const APPLE_MUSIC_PRIVATE_KEY = process.env.APPLE_MUSIC_PRIVATE_KEY || ''
-const APPLE_TEAM_ID = process.env.APPLE_TEAM_ID || ''
+const APPLE_MUSIC_PRIVATE_KEY = process.env.APPLE_MUSIC_PRIVATE_KEY
+const APPLE_TEAM_ID = process.env.APPLE_TEAM_ID
 const APPLE_MUSIC_KEY_ID = process.env.APPLE_MUSIC_KEY_ID
 const APPLE_MUSIC_USER_TOKEN = process.env.APPLE_MUSIC_USER_TOKEN
 
@@ -87,11 +87,8 @@ export class MKError extends Error {
   code: number
   status: number
 
-  constructor(
-    { title, detail, code, status, id }: MusicKitError,
-    options?: ErrorOptions,
-  ) {
-    super('MusicKitError', options)
+  constructor({ title, detail, code, status, id }: MusicKitError) {
+    super('MusicKitError')
     this.name = 'MusicKitError'
     this.message = `${title} [${code}] ${detail}`
     this.id = id
@@ -106,11 +103,17 @@ export enum MusicEndpoint {
   HEAVY_ROTATION = 'v1/me/history/heavy-rotation',
 }
 
-export const buildImageUrl = (_url: string, size: number): string => {
-  const url = decodeURI(_url)
-  const src = url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
-
-  return src
+export function formatArtworkUrl(
+  artwork: MusicKitArtwork,
+  size: number,
+): string {
+  const url = decodeURI(artwork.url)
+  const h = size || artwork.height || 100
+  const w = size || artwork.width || 100
+  return url
+    .replace('{h}', '' + h)
+    .replace('{w}', '' + w)
+    .replace('{f}', 'jpeg')
 }
 
 export const getMusic = async (endpoint: MusicEndpoint) => {
@@ -122,7 +125,7 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
       const response = error.response.body as MusicKitErrorResponse
       const mkError = response.errors[0]
 
-      throw new MKError(mkError, { cause: error })
+      throw new MKError(mkError)
     } else {
       throw error
     }
@@ -133,7 +136,7 @@ const getMusicWithThumnail = async (
   item: MusicKitResource,
 ): Promise<MusicKitResource | undefined> => {
   try {
-    const src = buildImageUrl(item.attributes.artwork.url, 24)
+    const src = formatArtworkUrl(item.attributes.artwork, 24)
     const image = await getPlaiceholder(src)
     return {
       ...item,
@@ -152,9 +155,11 @@ const getMusicWithThumnail = async (
 export const getMusicWithThumbnails = async () => {
   try {
     const response = await getMusic(MusicEndpoint.RECENT)
-    const music = (
-      await Promise.all(response.map((item) => getMusicWithThumnail(item)))
-    ).filter(Boolean) as MusicKitResource[]
+    const promises = response.map(getMusicWithThumnail)
+    const thumbnails = await Promise.allSettled(promises)
+    const music = thumbnails
+      .map((v) => v.status == 'fulfilled' && v.value)
+      .filter(Boolean) as MusicKitResource[]
 
     return music
   } catch (error) {

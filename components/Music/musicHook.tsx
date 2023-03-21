@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react'
 
-export const mapAuthorizationStatus = (status: number) => {
-  switch (status) {
-    case 1:
-      return 'DENIED'
-    case 2:
-      return 'RESTRICTED'
-    case 3:
-      return 'AUTHORIZED'
-    default:
-      return 'NOT_DETERMINED'
-  }
-}
+import packageJson from 'package.json'
+
+const isDebug = process.env.NODE_ENV != 'production'
+
+const BASE_URL =
+  process.env.NEXT_PUBLIC_VERCEL_ENV == 'production'
+    ? `https://${process.env.NEXT_PUBLIC_PRODUCTION_URL}`
+    : process.env.NEXT_PUBLIC_VERCEL_ENV == 'preview'
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : process.env.NEXT_PUBLIC_VERCEL_URL
 
 export const useAppleMusic = (developerToken: string) => {
   const [client, setClient] = useState<MusicKit.MusicKitInstance>()
@@ -22,7 +20,10 @@ export const useAppleMusic = (developerToken: string) => {
         developerToken,
         app: {
           name: 'Lapworth.nz',
-          icon: `${process.env.NEXT_PUBLIC_VERCEL_URL}/static/jacob-icon.png`,
+          version: packageJson.version,
+          suppressErrorDialog: !isDebug,
+          debug: isDebug,
+          icon: `${BASE_URL}/static/jacob-icon.png`,
         },
       })
 
