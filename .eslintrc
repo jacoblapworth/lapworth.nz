@@ -14,17 +14,14 @@
     "cypress/globals": true
   },
   "rules": {
-    // React 17 transform no longer requires React to be in scope https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    // Allow anonymous default exports for NextJS pages
-    "import/no-anonymous-default-export": [
-      0,
+    "@typescript-eslint/no-namespace": [
+      "error",
       {
-        "allowAnonymousFunction": true
+        "allowDeclarations": true,
+        "allowDefinitionFiles": true
       }
     ],
-    "@typescript-eslint/no-empty-interface": "warn",
+    "@typescript-eslint/no-empty-interface": "off",
     "import/order": [
       "error",
       {
