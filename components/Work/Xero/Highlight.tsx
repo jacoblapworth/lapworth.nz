@@ -1,11 +1,12 @@
 import { ReactNode } from 'react'
 
-import { styled } from '@/styles'
+import { darkTheme, styled } from '@/styles'
 
 const Em = styled('em', {
-  display: 'inline-block',
+  display: 'inline-grid',
   position: 'relative',
   fontStyle: 'inherit',
+  alignItems: 'baseline',
 })
 
 const Span = styled('span', {
@@ -13,14 +14,19 @@ const Span = styled('span', {
   maxHeight: '1rem',
   width: '100%',
   zIndex: 0,
-  position: 'absolute',
-  bottom: 26,
-  '@sm': {
-    bottom: 48,
-  },
+  // position: 'absolute',
+  // bottom: 26,
+  // '@sm': {
+  //   bottom: 48,
+  // },
+  alignSelf: 'center',
   display: 'block',
   mixBlendMode: 'darken',
+  [`.${darkTheme} &`]: {
+    mixBlendMode: 'lighten',
+  },
   overflow: 'visible',
+  gridArea: '1/-1',
 })
 
 const Text = styled('span', {
@@ -29,6 +35,7 @@ const Text = styled('span', {
   position: 'relative',
   whiteSpace: 'nowrap',
   zIndex: 1,
+  gridArea: '1/-1',
 })
 
 interface Props {

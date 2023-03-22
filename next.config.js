@@ -2,6 +2,7 @@
  * @type {import('next').NextConfig}
  */
 const config = {
+  reactStrictMode: true,
   i18n: {
     locales: ['en-NZ'],
     defaultLocale: 'en-NZ',

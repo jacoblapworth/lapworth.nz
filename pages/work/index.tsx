@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo'
 
 import DiscoverTile from '@/components/Work/TradeMe/DiscoverTile'
 import { XeroTile } from '@/components/Work/Xero'
+import { XeroTile1 } from '@/components/Work/Xero/XeroTile'
 import { styled } from '@/styles'
 
 import { GetStaticProps } from '../_app'
@@ -18,7 +19,7 @@ export const Work: NextPage = () => {
     <>
       <NextSeo description="Xero, Vend, Timely, Trade Me" />
       <Layout>
-        <XeroTile />
+        <XeroTile1 />
         <DiscoverTile />
       </Layout>
     </>

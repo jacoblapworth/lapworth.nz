@@ -4,6 +4,7 @@ import NextImage from 'next/image'
 import NextLink from 'next/link'
 
 import { ArrowIcon } from '@/components/Icons'
+import { SkewTile } from '@/components/Tile'
 import { Text } from '@/components/Typography'
 import logo from '@/public/static/work/xero/logo.svg'
 import { styled, darkTheme, lightTheme } from '@/styles'
@@ -43,7 +44,7 @@ const IconButton = styled('div', {
   },
 })
 
-const Tile = styled(NextLink, {
+const Link = styled(NextLink, {
   display: 'flex',
   flexDirection: 'column',
   borderRadius: '$lg',
@@ -65,7 +66,7 @@ const Tile = styled(NextLink, {
 
 export const XeroTile: FC<XeroTileProps> = ({}) => {
   return (
-    <Tile href="/work/xero">
+    <Link href="/work/xero">
       <Layout>
         <Text display size="xlarge">
           <Highlight>Scaling</Highlight> the design system at Xero
@@ -78,6 +79,57 @@ export const XeroTile: FC<XeroTileProps> = ({}) => {
           <ArrowIcon />
         </IconButton>
       </Footer>
-    </Tile>
+    </Link>
+  )
+}
+
+const PillLink = styled(NextLink, {
+  display: 'grid',
+  gridTemplateColumns: '1fr 24px',
+  gap: '4px',
+  alignItems: 'center',
+  color: '$tertiary',
+  paddingBlock: 4,
+  paddingInline: 8,
+  borderRadius: '$max',
+
+  '&:hover': {
+    backgroundColor: '$surface',
+  },
+})
+
+export const XeroTile1 = () => {
+  return (
+    <SkewTile
+      css={{
+        gridColumn: '1/ -1',
+        backgroundColor: '#fff',
+        borderColor: '#d8eeee',
+        [`.${darkTheme} &`]: {
+          backgroundColor: '#111e2b',
+          borderColor: '#414a66',
+        },
+      }}
+      shineCss={{
+        mixBlendMode: 'multiply',
+        backgroundColor: '#BBF3FD',
+        [`.${darkTheme} &`]: {
+          mixBlendMode: 'soft-light',
+        },
+      }}
+    >
+      <Layout>
+        <Text display size="xlarge">
+          <Highlight>Scaling</Highlight> the design system at Xero
+        </Text>
+      </Layout>
+      <Footer>
+        <NextImage alt="Xero logo" height={48} width={48} src={logo} />
+        <PillLink href="/work/xero">
+          View
+          <ArrowIcon />
+        </PillLink>
+      </Footer>
+    </SkewTile>
   )
 }
