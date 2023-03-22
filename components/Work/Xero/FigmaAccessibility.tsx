@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import { styled } from '@stitches/react'
-import NextImage from "next/legacy/image"
+import NextImage from "next/image"
 
 import { SkewTile } from '@/components/Tile'
 import image from '@/public/static/work/xero/figma-plugin.png'

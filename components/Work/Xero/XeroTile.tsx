@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import NextImage from "next/legacy/image"
+import NextImage from "next/image"
 import NextLink from 'next/link'
 
 import { ArrowIcon } from '@/components/Icons'
@@ -73,14 +73,22 @@ export const XeroTile: FC<XeroTileProps> = ({}) => {
         </Text>
       </Layout>
       <Footer>
-        <NextImage alt="Xero logo" height={48} width={48} src={logo} />
+        <NextImage
+          alt="Xero logo"
+          height={48}
+          width={48}
+          src={logo}
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
         <IconButton>
           View
           <ArrowIcon />
         </IconButton>
       </Footer>
     </Link>
-  )
+  );
 }
 
 const PillLink = styled(NextLink, {
@@ -128,12 +136,20 @@ export const XeroTile1 = () => {
         </Text>
       </Layout>
       <Footer>
-        <NextImage alt="Xero logo" height={48} width={48} src={logo} />
+        <NextImage
+          alt="Xero logo"
+          height={48}
+          width={48}
+          src={logo}
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
         <PillLink href="/work/xero">
           View
           <ArrowIcon />
         </PillLink>
       </Footer>
     </SkewTile>
-  )
+  );
 }

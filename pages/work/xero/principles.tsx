@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import NextImage from "next/legacy/image"
+import NextImage from "next/image"
 import { NextSeo } from 'next-seo'
 
 import { Text } from '@/components/Typography'
@@ -22,21 +22,25 @@ const Grid = styled('div', {
 })
 
 export const Xero: NextPage = () => {
-  return (
-    <>
-      <NextSeo noindex={true} />
-      <Text as="h2" display size="large">
-        Xero Experience Design Principles
-      </Text>
-      <p>Design system for beautiful business</p>
+  return <>
+    <NextSeo noindex={true} />
+    <Text as="h2" display size="large">
+      Xero Experience Design Principles
+    </Text>
+    <p>Design system for beautiful business</p>
 
-      <NextImage src={worldMap} alt="Map of world highlighting 7 locations" />
-      <div>8 workshops</div>
-      <div>7 regions</div>
-      <div>4 time zones</div>
-      <div>68 participants</div>
-    </>
-  )
+    <NextImage
+      src={worldMap}
+      alt="Map of world highlighting 7 locations"
+      style={{
+        maxWidth: "100%",
+        height: "auto"
+      }} />
+    <div>8 workshops</div>
+    <div>7 regions</div>
+    <div>4 time zones</div>
+    <div>68 participants</div>
+  </>;
 }
 
 export default Xero

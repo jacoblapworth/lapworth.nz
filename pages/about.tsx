@@ -1,5 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next'
-import NextImage from "next/legacy/image"
+import NextImage from "next/image"
 import { NextSeo } from 'next-seo'
 
 import { getMusicWithThumbnails, MusicKitResource } from '@/components/Music'
