@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import NextImage from 'next/image'
+import NextImage from "next/legacy/image"
 import { NextSeo } from 'next-seo'
 
 import { Text } from '@/components/Typography'

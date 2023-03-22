@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import NextImage from 'next/image'
+import NextImage from "next/legacy/image"
 import NextLink from 'next/link'
 
 import { ArrowIcon } from '@/components/Icons'
