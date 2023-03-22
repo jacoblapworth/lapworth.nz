@@ -30,11 +30,8 @@ const Shine = styled(motion.div, {
 })
 
 const Card = styled(motion.div, {
-  // backgroundColor: '$surface',
-  // backgroundColor: 'rgba(56,139,253,0.4)',
   backgroundColor: 'rgb(22, 27, 34)',
   borderRadius: '$lg',
-  // borderColor: '$quaternary',
   borderColor: 'rgb(48, 54, 61)',
   borderWidth: '1px',
   borderStyle: 'solid',
@@ -51,21 +48,16 @@ const Card = styled(motion.div, {
       opacity: 0.85,
     },
   },
-
-  // display: 'grid',
-  // gridTemplateColumns: 'repeat(12, 1fr)',
-  // '@md': {
-  //   gridTemplateColumns: 'repeat(12, 1fr)',
-  // },
 })
 
-interface Props {
+type CardProps = ComponentProps<typeof Card>
+
+interface Props extends CardProps {
   children: ReactNode
-  css?: ComponentProps<typeof Card>['css']
   shineCss?: ComponentProps<typeof Shine>['css']
 }
 
-export const SkewTile = ({ children, css, shineCss }: Props) => {
+export const SkewTile = ({ children, shineCss, ...rest }: Props) => {
   const ref = useRef(null)
   const {
     x: elX,
@@ -110,7 +102,7 @@ export const SkewTile = ({ children, css, shineCss }: Props) => {
         damping: 10,
         stiffness: 100,
       }}
-      css={css}
+      {...rest}
     >
       {children}
       <Shine

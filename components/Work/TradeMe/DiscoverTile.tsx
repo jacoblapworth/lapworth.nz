@@ -3,17 +3,18 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import NextLink from 'next/link'
 
+import { SkewTile } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
 import { tradeMeTheme } from '@/pages/work/trademe'
 import { styled, darkTheme, lightTheme } from '@/styles'
 
 import { SpotlightsPreview } from './Spotlight'
 
-const Tile = styled(NextLink, {
+const Tile = styled(motion.div, {
   paddingBlock: '$lg',
   paddingInline: '$md',
   borderRadius: '$lg',
-  gridColumn: '1/ span 4',
+
   border: '3px solid transparent',
   '&:hover': {
     borderColor: '#FFC041',
@@ -27,22 +28,41 @@ const Tile = styled(NextLink, {
   display: 'flex',
 })
 
-interface DiscoverTileProps {}
+const Layout = styled('div', {})
 
-export function DiscoverTile({}: DiscoverTileProps) {
-  const [isHover, setIsHover] = useState(false)
+export function DiscoverTile() {
   return (
-    <Tile
-      href="/work/trademe"
-      className={tradeMeTheme}
-      onPointerEnter={() => setIsHover(true)}
-      onPointerLeave={() => setIsHover(false)}
+    <SkewTile
+      css={{
+        gridColumn: '1/-1',
+        '@sm': {
+          gridColumn: '1/span 4',
+        },
+        backgroundColor: '#fff',
+        borderColor: '#d8eeee',
+        [`.${darkTheme} &`]: {
+          backgroundColor: '#111e2b',
+          borderColor: '#414a66',
+        },
+      }}
+      shineCss={{
+        mixBlendMode: 'multiply',
+        backgroundColor: '#FFE18D',
+        [`.${darkTheme} &`]: {
+          mixBlendMode: 'soft-light',
+        },
+      }}
+      initial="initial"
+      whileHover="hover"
     >
-      <Text display size="medium">
-        Discover for Trade Me mobile
-      </Text>
-      <SpotlightsPreview isHover={isHover} />
-    </Tile>
+      <Layout>
+        <Text display size="medium">
+          Discover for Trade Me mobile
+        </Text>
+        <NextLink href="/work/trademe">Discover Trade Me</NextLink>
+        <SpotlightsPreview />
+      </Layout>
+    </SkewTile>
   )
 }
 

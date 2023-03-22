@@ -2,6 +2,7 @@ import { FC, useState } from 'react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 
+import { tradeMeTheme } from '@/pages/work/trademe'
 import { styled } from '@/styles'
 
 import {
@@ -209,7 +210,7 @@ export const Spotlights: FC = () => {
   )
 }
 
-export const SpotlightsPreview = ({ isHover }: { isHover: boolean }) => {
+export const SpotlightsPreview = () => {
   const Layout = styled('div', {
     width: '100%',
     display: 'flex',
@@ -226,16 +227,16 @@ export const SpotlightsPreview = ({ isHover }: { isHover: boolean }) => {
   }
 
   return (
-    <Layout>
+    <Layout className={tradeMeTheme}>
       {verticals.map((vertical, i) => (
         <motion.div
           key={vertical}
           style={{ zIndex: 10 - i }}
           variants={variants}
-          initial="initial"
+          // initial="initial"
           // whileHover="hover"
-          animate={isHover ? 'hover' : 'initial'}
-          exit="initial"
+          // animate={isHover ? 'hover' : 'initial'}
+          // exit="initial"
         >
           <Circle vertical={vertical}>
             <Icon vertical={vertical} />

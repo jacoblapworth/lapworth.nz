@@ -10,7 +10,8 @@ import { GetStaticProps } from '../_app'
 
 const Layout = styled('div', {
   display: 'grid',
-  gap: '$md',
+  gap: '$lg',
+  columnGap: '$md',
   gridTemplateColumns: 'repeat(8, 1fr)',
 })
 

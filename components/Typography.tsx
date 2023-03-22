@@ -62,6 +62,16 @@ export const Text = styled('div', {
         },
       },
     },
+    {
+      display: 'true',
+      size: 'medium',
+      css: {
+        fontSize: '1.25rem',
+        '@sm': {
+          fontSize: '1.5rem',
+        },
+      },
+    },
   ],
   defaultVariants: {
     size: 'medium',

@@ -102,7 +102,11 @@ export const XeroTile1 = () => {
   return (
     <SkewTile
       css={{
-        gridColumn: '1/ -1',
+        gridColumn: '1/-1',
+        '@sm': {
+          gridColumn: '1/7',
+        },
+
         backgroundColor: '#fff',
         borderColor: '#d8eeee',
         [`.${darkTheme} &`]: {
@@ -119,7 +123,7 @@ export const XeroTile1 = () => {
       }}
     >
       <Layout>
-        <Text display size="xlarge">
+        <Text display size="large">
           <Highlight>Scaling</Highlight> the design system at Xero
         </Text>
       </Layout>
