@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import NextLink from 'next/link'
 
+import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
 import { tradeMeTheme } from '@/pages/work/trademe'
@@ -28,11 +29,14 @@ const Tile = styled(motion.div, {
   display: 'flex',
 })
 
-const Layout = styled('div', {})
+const Layout = styled('div', {
+  padding: '$md',
+})
 
 export function DiscoverTile() {
   return (
     <SkewTile
+      shine={false}
       css={{
         gridColumn: '1/-1',
         '@sm': {
@@ -57,9 +61,10 @@ export function DiscoverTile() {
     >
       <Layout>
         <Text display size="medium">
-          Discover for Trade Me mobile
+          Increasing traffic to business verticals on mobile
         </Text>
-        <NextLink href="/work/trademe">Discover Trade Me</NextLink>
+        <PillLink href="/work/trademe">Discover Trade Me</PillLink>
+        {/* <NextLink href="/work/trademe">Discover Trade Me</NextLink> */}
         <SpotlightsPreview />
       </Layout>
     </SkewTile>

@@ -54,10 +54,16 @@ type CardProps = ComponentProps<typeof Card>
 
 interface Props extends CardProps {
   children: ReactNode
+  shine?: boolean
   shineCss?: ComponentProps<typeof Shine>['css']
 }
 
-export const SkewTile = ({ children, shineCss, ...rest }: Props) => {
+export const SkewTile = ({
+  children,
+  shine = true,
+  shineCss,
+  ...rest
+}: Props) => {
   const ref = useRef(null)
   const {
     x: elX,
@@ -68,11 +74,15 @@ export const SkewTile = ({ children, shineCss, ...rest }: Props) => {
 
   const x = useMotionValue(0)
   const y = useMotionValue(0)
+  const x1 = useMotionValue(0)
+  const y1 = useMotionValue(0)
 
   useEffect(() => {
-    x.set(elX ?? 0.5)
-    y.set(elY ?? 0.5)
-  }, [x, y, elX, elY])
+    elX && x.set(elX)
+    elY && y.set(elY)
+    x1.set(elX ?? 0.5)
+    y1.set(elY ?? 0.5)
+  }, [x, y, x1, y1, elX, elY])
 
   const config: SpringOptions = {
     stiffness: 200,
@@ -80,8 +90,11 @@ export const SkewTile = ({ children, shineCss, ...rest }: Props) => {
   }
 
   const shineTransform = (v: number) => v - SHINE_SIZE / 2
-  const rotateX = useSpring(useTransform(y, [0, elH ?? 1], [-1, 1]), config)
-  const rotateY = useSpring(useTransform(x, [0, elW ?? 1], [1.5, -1.5]), config)
+  const rotateX = useSpring(useTransform(y1, [0, elH ?? 1], [-1, 1]), config)
+  const rotateY = useSpring(
+    useTransform(x1, [0, elW ?? 1], [1.5, -1.5]),
+    config,
+  )
   const shineX = useTransform(x, shineTransform)
   const shineY = useTransform(y, shineTransform)
 
@@ -105,13 +118,16 @@ export const SkewTile = ({ children, shineCss, ...rest }: Props) => {
       {...rest}
     >
       {children}
-      <Shine
-        css={shineCss}
-        style={{
-          x: shineX,
-          y: shineY,
-        }}
-      />
+
+      {shine && (
+        <Shine
+          css={shineCss}
+          style={{
+            x: shineX,
+            y: shineY,
+          }}
+        />
+      )}
     </Card>
   )
 }

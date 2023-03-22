@@ -1,8 +1,9 @@
 import { FC } from 'react'
 
-import NextImage from "next/image"
+import NextImage from 'next/image'
 import NextLink from 'next/link'
 
+import { PillLink } from '@/components/Button'
 import { ArrowIcon } from '@/components/Icons'
 import { SkewTile } from '@/components/Tile'
 import { Text } from '@/components/Typography'
@@ -79,32 +80,18 @@ export const XeroTile: FC<XeroTileProps> = ({}) => {
           width={48}
           src={logo}
           style={{
-            maxWidth: "100%",
-            height: "auto"
-          }} />
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
         <IconButton>
           View
           <ArrowIcon />
         </IconButton>
       </Footer>
     </Link>
-  );
+  )
 }
-
-const PillLink = styled(NextLink, {
-  display: 'grid',
-  gridTemplateColumns: '1fr 24px',
-  gap: '4px',
-  alignItems: 'center',
-  color: '$tertiary',
-  paddingBlock: 4,
-  paddingInline: 8,
-  borderRadius: '$max',
-
-  '&:hover': {
-    backgroundColor: '$surface',
-  },
-})
 
 export const XeroTile1 = () => {
   return (
@@ -113,6 +100,10 @@ export const XeroTile1 = () => {
         gridColumn: '1/-1',
         '@sm': {
           gridColumn: '1/7',
+        },
+
+        '@lg': {
+          gridColumn: '1/5',
         },
 
         backgroundColor: '#fff',
@@ -131,8 +122,9 @@ export const XeroTile1 = () => {
       }}
     >
       <Layout>
-        <Text display size="large">
-          <Highlight>Scaling</Highlight> the design system at Xero
+        <Text display size="large" role="text">
+          <Highlight>Scaling</Highlight> the design system
+          <wbr /> at&nbsp;Xero
         </Text>
       </Layout>
       <Footer>
@@ -142,14 +134,12 @@ export const XeroTile1 = () => {
           width={48}
           src={logo}
           style={{
-            maxWidth: "100%",
-            height: "auto"
-          }} />
-        <PillLink href="/work/xero">
-          View
-          <ArrowIcon />
-        </PillLink>
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
+        <PillLink href="/work/xero">View</PillLink>
       </Footer>
     </SkewTile>
-  );
+  )
 }

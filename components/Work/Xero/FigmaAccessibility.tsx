@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import { styled } from '@stitches/react'
-import NextImage from "next/image"
+import NextImage from 'next/image'
 
 import { SkewTile } from '@/components/Tile'
 import image from '@/public/static/work/xero/figma-plugin.png'
@@ -17,6 +17,7 @@ const Picture = styled('div', {
 
 const Image = styled(NextImage, {
   display: 'flex',
+  objectFit: 'contain',
 })
 
 interface FigmaAccessibilityProps {}
@@ -33,7 +34,7 @@ export const FigmaAccessibility: FC<FigmaAccessibilityProps> = ({}) => {
         <Image
           src={image}
           alt="Screenshot of Accessibility checklist Figma plugin"
-          layout="responsive"
+          fill
         />
       </Picture>
     </SkewTile>
