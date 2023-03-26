@@ -53,15 +53,23 @@ const Handle = styled('span', {
 type ResizeProps = Pick<ResizableBoxProps, 'width'>
 
 interface PreviewProps extends ResizeProps {
+  minWidth?: number
+  maxWidth?: number
   children: ReactNode
 }
 
-export function Preview({ children, width = 300 }: PreviewProps) {
+export function ResponsivePreview({
+  children,
+  width = 300,
+  minWidth = 300,
+  maxWidth = 1200,
+}: PreviewProps) {
   return (
     <Container
       axis="x"
       width={width}
-      minConstraints={[300, 200]}
+      minConstraints={[minWidth, 0]}
+      maxConstraints={[maxWidth, 99999]}
       resizeHandles={['e']}
       handle={(handle, ref) => <Handle ref={ref} direction={handle} />}
     >
@@ -70,4 +78,4 @@ export function Preview({ children, width = 300 }: PreviewProps) {
   )
 }
 
-export default Preview
+export default ResponsivePreview

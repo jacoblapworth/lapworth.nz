@@ -305,7 +305,7 @@ export function TabsExample() {
   }
 
   return (
-    <Preview>
+    <ResponsivePreview>
       <TabsRoot
         value={tabValue}
         onValueChange={onChange}
@@ -313,13 +313,15 @@ export function TabsExample() {
       >
         <TabsContainer css={{ marginBlockEnd: '$lg' }}>
           <OverflowIndicator direction="start" opacity={overflowStartOpacity} />
-          <TabsList ref={ref}>
-            {tabs.map(({ value, label }) => (
-              <Tab key={value} value={value} isActive={value == tabValue}>
-                {label}
-              </Tab>
-            ))}
-          </TabsList>
+          <ScrollContainer ref={scrollRef}>
+            <TabsList ref={tabsRef}>
+              {tabs.map(({ value, label }) => (
+                <Tab key={value} value={value} isActive={value == tabValue}>
+                  {label}
+                </Tab>
+              ))}
+            </TabsList>
+          </ScrollContainer>
           <OverflowIndicator direction="end" opacity={overflowEndOpacity} />
           <TabOverflowDropdownMenu
             tabs={tabs}
@@ -330,6 +332,6 @@ export function TabsExample() {
 
         <SkeletonContent />
       </TabsRoot>
-    </Preview>
+    </ResponsivePreview>
   )
 }
