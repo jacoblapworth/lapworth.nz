@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import NextImage from "next/image"
+import NextImage from 'next/image'
 import { NextSeo } from 'next-seo'
 
 import { Text } from '@/components/Typography'
@@ -23,39 +23,44 @@ const Grid = styled('div', {
 })
 
 export const Vend: NextPage = () => {
-  return <>
-    <NextSeo noindex={true} />
-    <Text display size="xlarge">
-      Vend
-    </Text>
-    <p>Point of sale</p>
-    <Grid>
-      <NextImage
-        alt=""
-        src={Img1}
-        placeholder="blur"
-        style={{
-          maxWidth: "100%",
-          height: "auto"
-        }} />
-      <NextImage
-        alt=""
-        src={Img2}
-        placeholder="blur"
-        style={{
-          maxWidth: "100%",
-          height: "auto"
-        }} />
-      <NextImage
-        alt=""
-        src={Img3}
-        placeholder="blur"
-        style={{
-          maxWidth: "100%",
-          height: "auto"
-        }} />
-    </Grid>
-  </>;
+  return (
+    <>
+      <NextSeo noindex={true} />
+      <Text display size="xlarge">
+        Vend
+      </Text>
+      <p>Point of sale</p>
+      <Grid>
+        <NextImage
+          alt=""
+          src={Img1}
+          placeholder="blur"
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
+        <NextImage
+          alt=""
+          src={Img2}
+          placeholder="blur"
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
+        <NextImage
+          alt=""
+          src={Img3}
+          placeholder="blur"
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
+      </Grid>
+    </>
+  )
 }
 
 export default Vend

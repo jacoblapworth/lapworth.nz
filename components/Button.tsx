@@ -33,14 +33,15 @@ export const Button: React.FC<PropsWithChildren<Props>> = ({
 }
 
 const Pill = styled(NextLink, {
-  display: 'grid',
+  display: 'inline-grid',
   gridTemplateColumns: '1fr 24px',
   gridTemplateRows: '1fr',
   gap: '4px',
   alignItems: 'center',
   color: '$tertiary',
   paddingBlock: 4,
-  paddingInline: 8,
+  paddingInline: '$sm',
+  marginInline: '-$sm',
   borderRadius: '$max',
 
   '&:hover': {

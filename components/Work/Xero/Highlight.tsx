@@ -7,6 +7,7 @@ const Em = styled('em', {
   position: 'relative',
   fontStyle: 'inherit',
   alignItems: 'baseline',
+  width: 'min-content',
 })
 
 const Span = styled('span', {
@@ -31,7 +32,7 @@ const Span = styled('span', {
 
 const Text = styled('span', {
   inset: '0px',
-  display: 'block',
+  display: 'inline-block',
   position: 'relative',
   whiteSpace: 'nowrap',
   zIndex: 1,

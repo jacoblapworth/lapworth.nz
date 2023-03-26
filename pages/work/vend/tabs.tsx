@@ -27,6 +27,10 @@ const Image = styled(NextImage, {
   height: 'auto',
 })
 
+Image.defaultProps = {
+  placeholder: 'blur',
+}
+
 export const Tabs: NextPage = () => {
   return (
     <>

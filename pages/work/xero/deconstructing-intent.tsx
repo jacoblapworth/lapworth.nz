@@ -26,6 +26,10 @@ const Image = styled(NextImage, {
   height: 'auto',
 })
 
+Image.defaultProps = {
+  placeholder: 'blur',
+}
+
 export default function Page() {
   return (
     <>
