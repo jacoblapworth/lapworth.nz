@@ -71,7 +71,7 @@ const NavLink = ({ children, href }: NextLinkProps) => {
     setAnimate('hidden')
   }
 
-  const isActive = router.pathname === href
+  const isActive = router.pathname.startsWith(href.toString())
 
   return (
     <A
