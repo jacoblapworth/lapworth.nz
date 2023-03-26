@@ -1,4 +1,4 @@
-import NextImage from 'next/image'
+import NextImage from "next/image"
 
 import { Link } from '@/components/Link'
 import { MusicKitResource } from '@/components/Music'
@@ -18,7 +18,7 @@ interface Props {
 
 const AlbumArt = styled(NextImage, {
   overflow: 'hidden',
-  borderRadius: '$sm',
+  borderRadius: '$md',
   backgroundColor: '$surface',
   marginBlockEnd: 4,
   willChange: 'transform',
@@ -47,7 +47,6 @@ const Stack = styled('div', {
 })
 
 const AlbumLink = styled(Link, {
-  borderRadius: 8,
   '&:hover': {
     [`& ${AlbumArt}`]: {
       opacity: 0.8,

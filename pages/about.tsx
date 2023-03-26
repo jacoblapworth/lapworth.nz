@@ -72,7 +72,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
 
   return {
     props: {
-      title: 'About',
+      title: 'Senior design systems product designer',
       music,
     },
     revalidate: music

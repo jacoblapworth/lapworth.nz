@@ -134,7 +134,7 @@ const Row = styled('div', {
   '@sm': {
     gridColumn: 'span 1',
   },
-  justifySelf: 'start',
+  justifySelf: 'stretch',
   alignSelf: 'start',
 
   [`& ul`]: {

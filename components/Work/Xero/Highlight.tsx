@@ -1,11 +1,12 @@
 import { ReactNode } from 'react'
 
-import { styled } from '@/styles'
+import { darkTheme, styled } from '@/styles'
 
 const Em = styled('em', {
-  display: 'inline-block',
+  display: 'inline-grid',
   position: 'relative',
   fontStyle: 'inherit',
+  alignItems: 'baseline',
 })
 
 const Span = styled('span', {
@@ -13,14 +14,19 @@ const Span = styled('span', {
   maxHeight: '1rem',
   width: '100%',
   zIndex: 0,
-  position: 'absolute',
-  bottom: 26,
-  '@sm': {
-    bottom: 48,
-  },
+  // position: 'absolute',
+  // bottom: 26,
+  // '@sm': {
+  //   bottom: 48,
+  // },
+  alignSelf: 'center',
   display: 'block',
   mixBlendMode: 'darken',
+  [`.${darkTheme} &`]: {
+    mixBlendMode: 'lighten',
+  },
   overflow: 'visible',
+  gridArea: '1/-1',
 })
 
 const Text = styled('span', {
@@ -29,6 +35,7 @@ const Text = styled('span', {
   position: 'relative',
   whiteSpace: 'nowrap',
   zIndex: 1,
+  gridArea: '1/-1',
 })
 
 interface Props {
@@ -46,6 +53,7 @@ export const Highlight = ({ children }: Props) => {
           viewBox="0 0 130 10"
           fill="none"
           preserveAspectRatio="none"
+          role="presentation"
         >
           <path
             d="M1.41113 8.9715C41.7349 4.29379 81.8227 3.49767 122.469 1.14496C123.47 1.08703 126.542 0.808349 123.789 1.22482C117.023 2.24844 110.456 3.7138 103.633 4.65892C94.3308 5.94738 97.4519 5.47807 88.0592 6.41589C86.937 6.52794 76.6021 7.36701 83.5 7.53397C101.739 7.97546 107.369 7.53397 125.589 7.53397"

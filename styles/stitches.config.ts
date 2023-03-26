@@ -40,9 +40,10 @@ export const {
       sm: '3px',
       md: '6px',
       lg: '12px',
+      max: '99999px;',
     },
     shadows: {
-      md: '0 4px 8px $colors$secondary',
+      md: '0 4px 8px $colors$shadow',
     },
     zIndices: {
       1: '0',
@@ -64,6 +65,7 @@ const colors = {
     10: '#f6f6f7',
     20: '#ececec',
     30: '#e3e5e7',
+    80: 'rgba(255,255,255,0.1)',
   },
   black: {
     50: '#727272',
@@ -107,6 +109,7 @@ export const lightTheme = createTheme('light', {
     surface: colors.white[0],
     surfaceHovered: colors.white[10],
     onSurface: colors.black[90],
+    shadow: colors.grey[10],
     divider: colors.black[100],
     critical: colors.red[50],
     warning: colors.yellow[50],
@@ -126,6 +129,7 @@ export const darkTheme = createTheme('dark', {
     surface: '#202123',
     surfaceHovered: '#2f3133',
     onSurface: colors.black[90],
+    shadow: colors.white[80],
     divider: colors.white[0],
     critical: colors.red[50],
     warning: colors.yellow[50],
@@ -144,11 +148,18 @@ export const globalStyles = globalCss({
     fontFamily: '$system',
     fontSize: '100%',
     lineHeight: '1.2rem',
+    cursor: 'auto',
   },
 
   a: {
     color: '$interactive',
     textDecoration: 'none',
+  },
+
+  p: {
+    maxWidth: '70ch',
+    fontSize: '1.125rem',
+    lineHeight: '2rem',
   },
 
   '::selection': {

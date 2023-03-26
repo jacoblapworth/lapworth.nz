@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import NextImage from 'next/image'
+import NextImage from "next/image"
 
 import { styled, css } from '../../styles'
 
@@ -85,39 +85,45 @@ const Glass: FC<GlassProps> = ({}) => {
     <Container>
       <Screen>
         <NextImage
-          layout="intrinsic"
-          objectFit="contain"
           src="/static/glass/share_screen__esashqzqkwa6_medium_2x.jpg"
           alt="Screenshot"
           width="298"
           height="602"
           className={styles()}
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+            objectFit: "contain"
+          }} />
       </Screen>
       <Device>
         <NextImage
-          layout="intrinsic"
-          objectFit="contain"
           src="/static/glass/iphone_hardware_zoomed__flki3nqhzhqq_medium_2x.png"
           alt=""
           width="298"
           height="602"
           className={styles()}
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+            objectFit: "contain"
+          }} />
       </Device>
       <Shadow>
         <NextImage
-          layout="intrinsic"
-          objectFit="contain"
           src="/static/glass/iphone_shadow_zoomed__cb8yk1kh8qly_medium_2x.png"
           alt=""
           width="696"
           height="776"
           className={styles()}
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+            objectFit: "contain"
+          }} />
       </Shadow>
     </Container>
-  )
+  );
 }
 
 export default Glass

@@ -1,17 +1,29 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
-import { Text } from '@/components/Typography'
+import DiscoverTile from '@/components/Work/TradeMe/DiscoverTile'
+import { VendTabsTile } from '@/components/Work/Vend/Tile'
+import { XeroTile } from '@/components/Work/Xero/XeroTile'
+import { styled } from '@/styles'
 
 import { GetStaticProps } from '../_app'
+
+const Layout = styled('div', {
+  display: 'grid',
+  gap: '$lg',
+  columnGap: '$md',
+  gridTemplateColumns: 'repeat(8, 1fr)',
+})
 
 export const Work: NextPage = () => {
   return (
     <>
       <NextSeo description="Xero, Vend, Timely, Trade Me" />
-      <Text size="xlarge" display>
-        Coming soon 👀
-      </Text>
+      <Layout>
+        <XeroTile />
+        <DiscoverTile />
+        <VendTabsTile />
+      </Layout>
     </>
   )
 }

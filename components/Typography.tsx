@@ -11,6 +11,7 @@ export const Text = styled('div', {
       },
       medium: {
         fontSize: '1rem',
+        lineHeight: '1.5rem',
       },
       large: {
         fontSize: '2rem',
@@ -54,11 +55,21 @@ export const Text = styled('div', {
       css: {
         fontSize: '2rem',
         lineHeight: '2rem',
-        marginBlock: '3rem',
+        marginBlock: '2rem',
         '@sm': {
           fontSize: '3rem',
           lineHeight: '3rem',
-          marginBlock: '5rem',
+          marginBlock: '3rem',
+        },
+      },
+    },
+    {
+      display: 'true',
+      size: 'medium',
+      css: {
+        fontSize: '1.25rem',
+        '@sm': {
+          fontSize: '1.5rem',
         },
       },
     },
