@@ -5,7 +5,7 @@ import { CaretDownIcon } from '@radix-ui/react-icons'
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
 
-import { Preview } from '@/components/Preview'
+import { ResponsivePreview } from '@/components/Preview'
 import { styled } from '@/styles'
 
 const VEND_GREEN = '#41AF4B'
@@ -35,6 +35,8 @@ const DropdownContent = styled(DropdownMenu.Content, {
   borderRadius: 5,
   zIndex: '$4',
   overflow: 'hidden',
+  paddingBlock: '$md',
+  minWidth: 200,
 })
 
 const DropdownItem = styled(DropdownMenu.Item, {
@@ -222,8 +224,6 @@ const TabsList = styled(RadixTabs.List, {
   padding: 0,
   gap: '16px 32px',
   paddingInlineEnd: '$md',
-  overflowX: 'scroll',
-  marginBlockEnd: '-$md',
   scrollbarColor: '$colors$quaternary',
 })
 
@@ -270,6 +270,11 @@ function SkeletonContent() {
   )
 }
 
+const ScrollContainer = styled('div', {
+  overflowX: 'scroll',
+  marginBlockEnd: '-$md',
+})
+
 export function TabsExample() {
   const tabs: Array<TabItem> = [
     { value: '1', label: 'Inventory' },
@@ -279,18 +284,23 @@ export function TabsExample() {
     { value: '5', label: 'RACS' },
   ]
 
-  const ref = useRef(null)
-  const { scrollXProgress } = useScroll({ container: ref })
   const [tabValue, setTabValue] = useState<string>(tabs[0].value)
-  const overflowStartOpacity = useTransform(scrollXProgress, (v) =>
-    v > 0 ? 1 : 0,
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const tabsRef = useRef(null)
+  const { scrollX, scrollXProgress } = useScroll({ container: scrollRef })
+
+  const startTransformer = ([x, progress]: number[]) =>
+    x > 0 && progress > 0 ? 1 : 0
+
+  const overflowStartOpacity = useTransform(
+    [scrollX, scrollXProgress],
+    startTransformer,
   )
   const overflowEndOpacity = useTransform(scrollXProgress, (v) =>
     v < 1 ? 1 : 0,
   )
 
   const onChange = (value: string) => {
-    scrollXProgress.set(0)
     setTabValue(value)
   }
 
