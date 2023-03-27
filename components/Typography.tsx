@@ -23,9 +23,7 @@ export const Text = styled('div', {
       },
     },
     display: {
-      true: {
-        maxWidth: '25ch',
-      },
+      true: {},
     },
     serif: {
       true: {
@@ -39,6 +37,7 @@ export const Text = styled('div', {
       display: 'true',
       size: 'xlarge',
       css: {
+        maxWidth: '25ch',
         fontSize: '4rem',
         lineHeight: '4rem',
         marginBlock: '4rem',
@@ -67,9 +66,20 @@ export const Text = styled('div', {
       display: 'true',
       size: 'medium',
       css: {
-        fontSize: '1.25rem',
+        fontSize: '1.4rem',
         '@sm': {
           fontSize: '1.5rem',
+        },
+      },
+    },
+    {
+      display: 'true',
+      size: 'small',
+      css: {
+        fontWeight: 500,
+        fontSize: '1.2rem',
+        '@sm': {
+          fontSize: '1.2rem',
         },
       },
     },

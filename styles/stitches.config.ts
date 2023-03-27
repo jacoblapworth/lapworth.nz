@@ -160,6 +160,11 @@ export const globalStyles = globalCss({
     maxWidth: '70ch',
     fontSize: '1.125rem',
     lineHeight: '2rem',
+
+    '& li': {
+      fontSize: '1.125rem',
+      lineHeight: '1.5rem',
+    },
   },
 
   '::selection': {

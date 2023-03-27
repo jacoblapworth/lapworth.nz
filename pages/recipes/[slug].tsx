@@ -11,7 +11,7 @@ interface RecipeParams extends ParsedUrlQuery {
 }
 
 export const getStaticPaths: GetStaticPaths<RecipeParams> = async () => {
-  const postsDirectory = path.join(process.cwd(), 'posts/recipes')
+  const postsDirectory = path.join(process.cwd(), 'content/recipes')
   const fileNames = await fs.readdir(postsDirectory)
 
   const files = await Promise.all(
@@ -42,7 +42,7 @@ export const getStaticPaths: GetStaticPaths<RecipeParams> = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug
-  const postsDirectory = path.join(process.cwd(), 'posts/recipes')
+  const postsDirectory = path.join(process.cwd(), 'content/recipes')
   const filePath = path.join(postsDirectory, slug as string)
   const content = await fs.readFile(`${filePath}.mdx`, 'utf8')
   const source = await serialize(content, { parseFrontmatter: true })

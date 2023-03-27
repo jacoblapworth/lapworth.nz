@@ -4,11 +4,17 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
+import { Lato } from 'next/font/google'
 
 import { ResponsivePreview } from '@/components/Preview'
 import { styled } from '@/styles'
 
 const VEND_GREEN = '#41AF4B'
+
+const lato = Lato({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
 
 const DropdownTrigger = styled('button', {
   all: 'unset',
@@ -25,7 +31,6 @@ const DropdownPortal = styled(DropdownMenu.Portal, {
 
 const DropdownMenuArrow = styled(DropdownMenu.Arrow, {
   fill: '$surface',
-  // fill: 'magenta',
 })
 
 const DropdownContent = styled(DropdownMenu.Content, {
@@ -37,6 +42,7 @@ const DropdownContent = styled(DropdownMenu.Content, {
   overflow: 'hidden',
   paddingBlock: '$md',
   minWidth: 200,
+  fontFamily: lato.style.fontFamily,
 })
 
 const DropdownItem = styled(DropdownMenu.Item, {
@@ -76,7 +82,7 @@ function TabOverflowDropdownMenu({
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
-        <DropdownTrigger>
+        <DropdownTrigger className={lato.className}>
           <CaretDownIcon /> All
         </DropdownTrigger>
       </DropdownMenu.Trigger>
@@ -311,7 +317,10 @@ export function TabsExample() {
         onValueChange={onChange}
         css={{ margin: '$md' }}
       >
-        <TabsContainer css={{ marginBlockEnd: '$lg' }}>
+        <TabsContainer
+          css={{ marginBlockEnd: '$lg' }}
+          className={lato.className}
+        >
           <OverflowIndicator direction="start" opacity={overflowStartOpacity} />
           <ScrollContainer ref={scrollRef}>
             <TabsList ref={tabsRef}>
