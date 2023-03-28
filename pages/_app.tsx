@@ -8,7 +8,7 @@ import '@/styles/globals.css'
 import { useWelcomeLog } from '@/components/Hooks/useWelcomeLog'
 import { MarkdownProvider } from '@/components/Markdown'
 import { Page } from '@/components/Page'
-import { Head } from '@/lib/head'
+// import { Head } from '@/lib/head'
 import { darkTheme, lightTheme } from '@/styles'
 
 interface PageProps {
@@ -39,7 +39,7 @@ export const App = ({
       value={{ light: lightTheme.className, dark: darkTheme.className }}
     >
       <MarkdownProvider>
-        <Head />
+        {/* <Head /> */}
         <Analytics />
         <Page title={pageProps.title} hideNav={hideNav}>
           <Component {...pageProps} />

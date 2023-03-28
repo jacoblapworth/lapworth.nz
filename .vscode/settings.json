@@ -1,4 +1,5 @@
 {
-  "typescript.tsdk": "./node_modules/typescript/lib",
-  "debug.terminal.clearBeforeReusing": true
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "debug.terminal.clearBeforeReusing": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

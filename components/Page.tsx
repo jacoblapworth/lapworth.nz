@@ -1,10 +1,14 @@
+'use client'
 import NextLink from 'next/link'
 import { NextSeo } from 'next-seo'
+import { ThemeProvider } from 'next-themes'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Navigation } from '@/components/Nav'
 import { styled } from '@/styles'
+
+import { themeConfig } from './Theme'
 
 const Container = styled('div', {
   display: 'grid',
@@ -52,20 +56,22 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 export const Page = ({ hideNav, title, children, ...rest }: Props) => {
   return (
     <>
-      <Skiplink href="#main" tabIndex={0}>
-        Skip to main content
-      </Skiplink>
+      <ThemeProvider {...themeConfig}>
+        <Skiplink href="#main" tabIndex={0}>
+          Skip to main content
+        </Skiplink>
 
-      <Container>
-        <NextSeo title={title} />
-        <Header />
-        {!hideNav && <Navigation />}
+        <Container>
+          <NextSeo title={title} />
+          <Header />
+          {!hideNav && <Navigation />}
 
-        <Main id="main" data-testid="main" {...rest}>
-          {children}
-        </Main>
-        <Footer />
-      </Container>
+          <Main id="main" data-testid="main" {...rest}>
+            {children}
+          </Main>
+          <Footer />
+        </Container>
+      </ThemeProvider>
     </>
   )
 }
