@@ -57,7 +57,7 @@
     "@types/node": "18.15.10",
     "@types/react": "18.0.30",
     "@types/react-dom": "18.0.11",
-    "@types/react-resizable": "3.0.3",
+    "@types/react-resizable": "3.0.4",
     "@typescript-eslint/eslint-plugin": "5.57.0",
     "cypress": "12.9.0",
     "eslint": "8.36.0",
