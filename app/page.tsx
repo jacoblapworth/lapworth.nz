@@ -1,26 +1,28 @@
-import { NextPage } from 'next'
+import { Metadata } from 'next'
 
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
 import { styled } from '@/styles'
 
-import { GetStaticProps } from './_app'
-
-const Page = styled('div', {
+const Container = styled('div', {
   maxWidth: '100vw',
   '@sm': {
     maxWidth: '75vw',
   },
 })
 
-const HiddenLink = styled('a', {
+const HiddenLink = styled(Link, {
   display: 'none',
 })
 
-export const Home: NextPage = () => {
+export const metadata: Metadata = {
+  title: 'Jacob Lapworth',
+}
+
+export default function Page() {
   return (
-    <Page>
-      <Text size="xlarge" display>
+    <Container>
+      <Text size="xlarge" display css={{ color: 'red' }}>
         Kia ora 👋 Ko Jacob tōku ingoa
       </Text>
       <Text>
@@ -52,14 +54,6 @@ export const Home: NextPage = () => {
       <HiddenLink rel="me" href="https://mastodon.social/@jacoblapworth">
         Mastodon
       </HiddenLink>
-    </Page>
+    </Container>
   )
-}
-
-export default Home
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: {},
-  }
 }
