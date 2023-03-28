@@ -1,15 +1,19 @@
 import { FC } from 'react'
 
-import { styled } from '@/styles'
+import { Text } from '@/components/Typography'
+import { styled, darkTheme } from '@/styles'
 
 import { SearchIcon } from './Icons'
-import Spotlights from './Spotlight'
+import { Spotlights } from './Spotlight'
 
 const Header = styled('div', {
   padding: 16,
-  marginTop: -200,
-  paddingTop: 200,
+  // marginTop: -200,
+  // paddingTop: 200,
   backgroundColor: '$hokeyPokey',
+  [`.${darkTheme} &`]: {
+    backgroundColor: '$hokey-pokey-900',
+  },
 })
 
 const StyledSearchBar = styled('div', {
@@ -56,15 +60,11 @@ const SearchBar = () => {
   )
 }
 
-const H1 = styled('h1', {
-  color: '#fff',
-})
-
 const Container = styled('div', {
   marginInline: -16,
 })
 
-const TextContainer = styled('div', {
+const TextContainer = styled('p', {
   marginInline: 16,
   cursor: 'auto',
 })
@@ -75,7 +75,9 @@ const Discover: FC<DiscoverProps> = ({}) => {
   return (
     <Container>
       <Header>
-        <H1>Trade Me</H1>
+        <Text as="h1" display size="large">
+          Discover for Trade Me mobile
+        </Text>
         <SearchBar />
       </Header>
       <Spotlights />
@@ -88,8 +90,10 @@ const Discover: FC<DiscoverProps> = ({}) => {
         <br />
         As these verticals have expanded, Trade Me has struggled to This legacy
         of
-        <h3>Opportunity</h3>
       </TextContainer>
+      <Text as="h2" display size="large">
+        Opportunity
+      </Text>
     </Container>
   )
 }

@@ -3,7 +3,6 @@ import { FC } from 'react'
 import { styled } from '@stitches/react'
 import NextImage from 'next/image'
 
-import { Tile } from '@/components/Tile'
 import image from '@/public/static/work/xero/figma-plugin.png'
 
 const Copy = styled('div', {
@@ -17,13 +16,14 @@ const Picture = styled('div', {
 
 const Image = styled(NextImage, {
   display: 'flex',
+  objectFit: 'contain',
 })
 
 interface FigmaAccessibilityProps {}
 
 export const FigmaAccessibility: FC<FigmaAccessibilityProps> = ({}) => {
   return (
-    <Tile>
+    <div>
       <Copy>
         <h2>Figma plugin for accessibility</h2>
         <p>Meet designers where they work, and amplify the tools they use.</p>
@@ -33,9 +33,9 @@ export const FigmaAccessibility: FC<FigmaAccessibilityProps> = ({}) => {
         <Image
           src={image}
           alt="Screenshot of Accessibility checklist Figma plugin"
-          layout="responsive"
+          fill
         />
       </Picture>
-    </Tile>
+    </div>
   )
 }

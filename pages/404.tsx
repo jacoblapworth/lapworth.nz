@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 
-import { Button } from '@/components/Button'
+import { PillLink } from '@/components/Button'
 import { Text } from '@/components/Typography'
 
 import { GetStaticProps } from './_app'
@@ -15,7 +15,7 @@ export const FourZeroFour: NextPage = () => {
         This page doesn’t exist. Try heading back home to start from the
         beginning.
       </p>
-      <Button href={'/'}>← Back to home.</Button>
+      <PillLink href="/">Back to home</PillLink>
     </>
   )
 }

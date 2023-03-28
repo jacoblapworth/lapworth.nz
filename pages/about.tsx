@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next'
+import { NextPage } from 'next'
 import NextImage from 'next/image'
 import { NextSeo } from 'next-seo'
 
@@ -72,7 +72,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
 
   return {
     props: {
-      title: 'About',
+      title: 'Senior design systems product designer',
       music,
     },
     revalidate: music
