@@ -1,8 +1,9 @@
+'use client'
 import { useState, ComponentProps } from 'react'
 
 import { motion } from 'framer-motion'
 import NextLink from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 
 import { Link } from '@/components/Link'
 import { styled } from '@/styles'
@@ -56,7 +57,7 @@ const A = styled(NextLink, {
 
 const NavLink = ({ children, href }: NextLinkProps) => {
   const [animate, setAnimate] = useState('hidden')
-  const router = useRouter()
+  const pathname = usePathname()
 
   const variants = {
     visible: { rotate: 0, opacity: 1 },
@@ -71,7 +72,7 @@ const NavLink = ({ children, href }: NextLinkProps) => {
     setAnimate('hidden')
   }
 
-  const isActive = router.pathname.startsWith(href.toString())
+  const isActive = pathname?.startsWith(href.toString())
 
   return (
     <A

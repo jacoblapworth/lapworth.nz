@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { tradeMeTheme } from '@/pages/work/trademe'
+import { tradeMeTheme } from '@/app/work/trademe/theme'
 import { styled } from '@/styles'
 
 import {

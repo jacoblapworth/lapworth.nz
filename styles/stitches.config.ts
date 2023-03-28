@@ -8,6 +8,8 @@ export const {
   css,
   keyframes,
   theme,
+  prefix,
+  config,
 } = createStitches({
   prefix: 'j',
   media: {
@@ -172,31 +174,4 @@ export const globalStyles = globalCss({
     backgroundColor: '$primary',
     color: '$background',
   },
-
-  '@font-face': [
-    {
-      fontFamily: 'canela',
-      fontWeight: 100,
-      src: "url(/fonts/canela/thin.woff2) format('woff2'), url(/fonts/canela/thin.woff) format('woff')",
-      fontDisplay: 'swap',
-    },
-    {
-      fontFamily: 'canela',
-      fontWeight: 400,
-      src: "url(/fonts/canela/regular.woff2) format('woff2'), url(/fonts/canela/regular.woff) format('woff')",
-      fontDisplay: 'swap',
-    },
-    {
-      fontFamily: 'sectra',
-      fontWeight: 400,
-      src: "url(/fonts/sectra/Regular.woff) format('woff')",
-      fontDisplay: 'swap',
-    },
-    {
-      fontFamily: 'sectra',
-      fontWeight: 700,
-      src: "url(/fonts/sectra/Bold.woff) format('woff')",
-      fontDisplay: 'swap',
-    },
-  ],
 })
