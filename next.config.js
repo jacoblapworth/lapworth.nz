@@ -20,6 +20,7 @@ const config = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
     newNextLinkBehavior: true,
+    appDir: true,
   },
 }
 
