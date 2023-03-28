@@ -1,12 +1,10 @@
+import { ComponentProps } from 'react'
+
+import NextLink from 'next/link'
+
 import { styled } from '@/styles'
 
-interface Props {
-  children?: React.ReactNode
-  href?: string
-  sameTab?: boolean
-}
-
-const A = styled('a', {
+const A = styled(NextLink, {
   textDecoration: 'underline',
   textDecorationColor: '$quaternary',
   '&:hover': {
@@ -15,10 +13,18 @@ const A = styled('a', {
   },
 })
 
+type AProps = ComponentProps<typeof A>
+
+interface Props extends AProps {
+  sameTab?: boolean
+}
+
 export const Link = ({ children, href, sameTab, ...rest }: Props) => {
-  const target = sameTab ? '' : '_blank'
+  const target = sameTab ? undefined : '_blank'
+  const rel = sameTab ? undefined : 'noopener noreferrer'
+
   return (
-    <A target={target} rel="noopener noreferrer" href={href} {...rest}>
+    <A target={target} rel={rel} href={href} {...rest}>
       {children}
     </A>
   )

@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * @type {import('next').NextConfig}
  */
 const config = {
+  reactStrictMode: true,
   i18n: {
     locales: ['en-NZ'],
     defaultLocale: 'en-NZ',
@@ -15,9 +17,19 @@ const config = {
       },
     ],
   },
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
     newNextLinkBehavior: true,
   },
 }
 
-module.exports = config
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+    providerImportSource: '@mdx-js/react',
+  },
+})
+
+module.exports = withMDX(config)

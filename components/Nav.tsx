@@ -71,7 +71,7 @@ const NavLink = ({ children, href }: NextLinkProps) => {
     setAnimate('hidden')
   }
 
-  const isActive = router.pathname === href
+  const isActive = router.pathname.startsWith(href.toString())
 
   return (
     <A
@@ -134,7 +134,7 @@ const Row = styled('div', {
   '@sm': {
     gridColumn: 'span 1',
   },
-  justifySelf: 'start',
+  justifySelf: 'stretch',
   alignSelf: 'start',
 
   [`& ul`]: {

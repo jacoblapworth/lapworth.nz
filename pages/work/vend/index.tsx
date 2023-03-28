@@ -31,9 +31,33 @@ export const Vend: NextPage = () => {
       </Text>
       <p>Point of sale</p>
       <Grid>
-        <NextImage alt="" src={Img1} placeholder="blur" />
-        <NextImage alt="" src={Img2} placeholder="blur" />
-        <NextImage alt="" src={Img3} placeholder="blur" />
+        <NextImage
+          alt=""
+          src={Img1}
+          placeholder="blur"
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
+        <NextImage
+          alt=""
+          src={Img2}
+          placeholder="blur"
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
+        <NextImage
+          alt=""
+          src={Img3}
+          placeholder="blur"
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
       </Grid>
     </>
   )
