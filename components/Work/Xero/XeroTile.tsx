@@ -38,10 +38,9 @@ export const XeroTile = () => {
         },
 
         backgroundColor: '#fff',
-        borderColor: '#d8eeee',
+        // borderColor: '#d8eeee',
         [`.${darkTheme} &`]: {
           backgroundColor: '#111e2b',
-          borderColor: '#414a66',
         },
       }}
       shineCss={{
@@ -52,23 +51,27 @@ export const XeroTile = () => {
         },
       }}
     >
+      <NextImage
+        alt="Xero logo"
+        height={48}
+        width={48}
+        src={logo}
+        style={{
+          maxWidth: '100%',
+          height: 'auto',
+        }}
+      />
       <Layout>
         <Text display size="large" role="text">
           <Highlight>Scaling</Highlight> the design system
           <wbr /> at&nbsp;Xero
         </Text>
+        <Text size="medium">
+          Understanding teams’ needs and building tools and processes to support
+          them.
+        </Text>
       </Layout>
       <Footer>
-        <NextImage
-          alt="Xero logo"
-          height={48}
-          width={48}
-          src={logo}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-          }}
-        />
         <PillLink href="/work/xero">View</PillLink>
       </Footer>
     </SkewTile>

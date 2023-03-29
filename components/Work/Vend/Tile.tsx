@@ -23,19 +23,6 @@ export function VendTabsTile() {
         '@sm': {
           gridColumn: '1/span 4',
         },
-        backgroundColor: '#fff',
-        borderColor: '#d8eeee',
-        [`.${darkTheme} &`]: {
-          backgroundColor: '#111e2b',
-          borderColor: '#414a66',
-        },
-      }}
-      shineCss={{
-        mixBlendMode: 'multiply',
-        backgroundColor: '#FFE18D',
-        [`.${darkTheme} &`]: {
-          mixBlendMode: 'soft-light',
-        },
       }}
       initial="initial"
       whileHover="hover"
@@ -45,11 +32,7 @@ export function VendTabsTile() {
           <Text display size="medium">
             The influence of customer fit on a design system
           </Text>
-          <PillLink
-            href="/work/vend/tabs"
-            css={{ marginInlineStart: '-$sm' }}
-            inverted
-          >
+          <PillLink href="/work/vend/tabs" inverted>
             Vend tabs case study
           </PillLink>
         </VStack>

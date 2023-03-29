@@ -9,7 +9,7 @@ import {
   useTransform,
 } from 'framer-motion'
 
-import { styled } from '@/styles'
+import { darkTheme, styled } from '@/styles'
 
 const SHINE_SIZE = 650
 
@@ -30,9 +30,9 @@ const Shine = styled(motion.div, {
 })
 
 const Card = styled(motion.div, {
-  backgroundColor: 'rgb(22, 27, 34)',
-  // borderRadius: '$lg',
-  borderColor: 'rgb(48, 54, 61)',
+  backgroundColor: '$surface',
+  borderRadius: '$lg',
+  borderColor: 'rgba(0, 0, 0, 0.1)',
   borderWidth: '1px',
   borderStyle: 'solid',
   padding: '1rem',
@@ -42,6 +42,11 @@ const Card = styled(motion.div, {
   position: 'relative',
   willChange: 'transform',
   boxSizing: 'border-box',
+
+  [`.${darkTheme} &`]: {
+    // backgroundColor: '',
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+  },
 
   '&:hover': {
     [`& ${Shine}`]: {

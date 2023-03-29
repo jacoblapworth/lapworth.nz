@@ -40,11 +40,11 @@ const Pill = styled(NextLink, {
   gridTemplateRows: '1fr',
   gap: '4px',
   alignItems: 'center',
-  color: '$tertiary',
+  color: '$interactive',
   paddingBlock: 4,
   paddingInline: '$sm',
-  marginInline: '-$sm',
-  borderRadius: '$max',
+  border: '1px solid $primary',
+  // borderRadius: '$max',
 
   '&:hover': {
     backgroundColor: '$surface',

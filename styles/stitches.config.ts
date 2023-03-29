@@ -103,6 +103,7 @@ export const lightTheme = createTheme('light', {
   colors: {
     text: colors.black[80],
     primary: colors.black[100],
+    primaryOnDark: colors.white[0],
     secondary: colors.black[90],
     tertiary: colors.black[70],
     quaternary: colors.grey[10],
