@@ -88,7 +88,7 @@ export const components: MDXComponents = {
     //   return <Image {...props} alt={props.alt ?? ''} placeholder="blur" />
   },
   Image: (props: ImageProps) => (
-    <Image {...props} alt={props.alt} placeholder="blur" />
+    <Image placeholder="blur" quality={100} {...props} alt={props.alt} />
   ),
   blockquote: ({ ref, children, ...props }) => (
     <Blockquote {...props}>
