@@ -109,6 +109,8 @@ export default function Page() {
         <Link href="xero/figma-plugin">
           Bringing documentation and tools to Figma
         </Link>
+
+        <Link href="xero/forms">Ethical form design</Link>
       </Grid>
     </>
   )
