@@ -1,6 +1,6 @@
 'use client'
 
-import React, { FC, ReactElement } from 'react'
+import { FC, ReactElement, ReactNode, useState } from 'react'
 
 import { useServerInsertedHTML } from 'next/navigation'
 
@@ -19,4 +19,25 @@ export const ServerStylesheet: FC<Props> = ({ children }) => {
   })
 
   return children
+}
+
+interface StitchesRegistryProps {
+  children: ReactNode
+}
+
+export function StitchesRegistry({ children }: StitchesRegistryProps) {
+  const [isRendered, setIsRendered] = useState(false)
+  console.log({ isRendered, children })
+  useServerInsertedHTML(() => {
+    if (!isRendered) {
+      globalStyles()
+      setIsRendered(true)
+
+      const css = getCssText()
+      console.log({ isRendered, css, children })
+      return <style id="stitches" dangerouslySetInnerHTML={{ __html: css }} />
+    }
+  })
+
+  return <>{children}</>
 }

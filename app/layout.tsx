@@ -9,9 +9,9 @@ import { ServerThemeProvider } from 'next-themes'
 import { Page } from '@/components/Page'
 import { themeConfig } from '@/components/Theme'
 import { gtagUrl, renderSnippet } from '@/lib/analytics'
-import { lightTheme, darkTheme } from '@/styles'
+import { lightTheme, darkTheme, globalStyles } from '@/styles'
 
-import { ServerStylesheet } from './style'
+import { StitchesRegistry } from './style'
 
 const sectraFont = localFont({
   src: '../public/fonts/sectra/regular.woff',
@@ -54,9 +54,9 @@ export default function RootLayout({
             backgroundColor: lightTheme.colors.background.computedValue,
           }}
         >
-          <ServerStylesheet>
+          <StitchesRegistry>
             <Page>{children}</Page>
-          </ServerStylesheet>
+          </StitchesRegistry>
         </body>
       </html>
     </ServerThemeProvider>
