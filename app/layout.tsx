@@ -14,7 +14,7 @@ import { lightTheme, darkTheme, globalStyles } from '@/styles'
 import { StitchesRegistry } from './style'
 
 const sectraFont = localFont({
-  src: '../public/fonts/sectra/regular.woff',
+  src: './sectra-regular.woff',
   variable: '--j-fonts-serif',
   preload: true,
   weight: '400',
