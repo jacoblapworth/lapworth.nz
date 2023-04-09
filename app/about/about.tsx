@@ -1,15 +1,13 @@
-import { NextPage } from 'next'
-import NextImage from 'next/image'
-import { NextSeo } from 'next-seo'
+'use client'
 
-import { getMusicWithThumbnails, MusicKitResource } from '@/components/Music'
+import NextImage from 'next/image'
+
+import { MusicKitResource } from '@/app/about/music'
 import { HeavyRotation } from '@/components/Music/HeavyRotation'
 import { Text } from '@/components/Typography'
 import { Experience } from '@/components/Work/Experience'
 import ProfileImage from '@/public/static/j-photo-mono.png'
 import { styled } from '@/styles'
-
-import { GetStaticProps } from './_app'
 
 const Profile = styled(NextImage, {
   borderRadius: '50%',
@@ -29,16 +27,13 @@ const NoWrap = styled('span', {
   alignItems: 'baseline',
 })
 
-interface PageProps {
+interface Props {
   music: MusicKitResource[] | null
 }
 
-const seoDescription = `Hey there! I'm J. I'm a product designer and software engineer focussed on community driven design systems.`
-
-export const About: NextPage<PageProps> = ({ music }) => {
+export default function Page({ music }: Props) {
   return (
     <>
-      <NextSeo description={seoDescription} />
       <Text size="xlarge" display>
         Hey there!{' '}
         <NoWrap>
@@ -63,20 +58,4 @@ export const About: NextPage<PageProps> = ({ music }) => {
       {music && music.length > 0 && <HeavyRotation music={music} />}
     </>
   )
-}
-
-export default About
-
-export const getStaticProps: GetStaticProps<PageProps> = async () => {
-  const music = await getMusicWithThumbnails()
-
-  return {
-    props: {
-      title: 'Senior design systems product designer',
-      music,
-    },
-    revalidate: music
-      ? 60 * 60 * 24 // 1 day
-      : 60 * 60, // 1 hour
-  }
 }

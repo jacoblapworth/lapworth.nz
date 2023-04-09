@@ -1,6 +1,6 @@
-import got, { HTTPError } from 'got'
 import { SignJWT, importPKCS8 } from 'jose'
 import { getPlaiceholder } from 'plaiceholder'
+import { z } from 'zod'
 
 const APPLE_MUSIC_PRIVATE_KEY = process.env.APPLE_MUSIC_PRIVATE_KEY
 const APPLE_TEAM_ID = process.env.APPLE_TEAM_ID
@@ -22,41 +22,29 @@ export const createAppleJWT = async () => {
     .sign(ecPrivateKey)
 }
 
-export const appleMusicClient = got.extend({
-  prefixUrl: 'https://api.music.apple.com',
-  responseType: 'json',
-  hooks: {
-    beforeRequest: [
-      async (options) => {
-        const jwt = await createAppleJWT()
-        options.headers['Authorization'] = `Bearer ${jwt}`
-        options.headers['Music-User-Token'] = APPLE_MUSIC_USER_TOKEN
-      },
-    ],
-  },
+const MusicKitResource: z.ZodType<MusicKitResource> = z.any()
+
+const RMusicKitHistory = z.object({
+  data: z.array(MusicKitResource),
 })
 
-interface RMusicKitHistory {
-  data: MusicKitResource[]
-}
+const MusicKitError = z.object({
+  code: z.string(),
+  detail: z.string(),
+  id: z.string(),
+  status: z.string(),
+  title: z.string(),
+})
+
+const MusicKitErrorResponse = z.object({
+  errors: z.array(MusicKitError),
+})
 
 export interface MusicKitResource {
   attributes: MusicKitAttributes
   href: string
   id: string
   type: 'stations' | 'library-playlists' | 'playlists'
-}
-
-interface MusicKitError {
-  code: string
-  detail: string
-  id: string
-  status: string
-  title: string
-}
-
-interface MusicKitErrorResponse {
-  errors: MusicKitError[]
 }
 
 interface MusicKitAttributes {
@@ -87,7 +75,13 @@ export class MKError extends Error {
   code: number
   status: number
 
-  constructor({ title, detail, code, status, id }: MusicKitError) {
+  constructor({
+    title,
+    detail,
+    code,
+    status,
+    id,
+  }: z.infer<typeof MusicKitError>) {
     super('MusicKitError')
     this.name = 'MusicKitError'
     this.message = `${title} [${code}] ${detail}`
@@ -117,18 +111,21 @@ export function formatArtworkUrl(
 }
 
 export const getMusic = async (endpoint: MusicEndpoint) => {
-  try {
-    const music = await appleMusicClient.get(endpoint).json<RMusicKitHistory>()
-    return music.data
-  } catch (error) {
-    if (error instanceof HTTPError) {
-      const response = error.response.body as MusicKitErrorResponse
-      const mkError = response.errors[0]
+  const response = await fetch(`https://api.music.apple.com/${endpoint}`, {
+    headers: {
+      Authorization: `Bearer ${await createAppleJWT()}`,
+      'Music-User-Token': APPLE_MUSIC_USER_TOKEN,
+    },
+    next: { revalidate: 60 * 60 * 24 },
+  }).then((res) => res.json())
 
-      throw new MKError(mkError)
-    } else {
-      throw error
-    }
+  const music = RMusicKitHistory.safeParse(response)
+
+  if (music.success) {
+    return music.data.data
+  } else {
+    const errors = MusicKitErrorResponse.parse(response)
+    throw new MKError(errors.errors[0])
   }
 }
 
@@ -163,7 +160,7 @@ export const getMusicWithThumbnails = async () => {
 
     return music
   } catch (error) {
-    console.error('Apple Music error:\n', error)
+    console.error(error)
     if (error instanceof MKError) {
       if (error.status === 403) {
         console.info('Visit /music/authorise to refresh Apple Music token')

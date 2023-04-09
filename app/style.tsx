@@ -13,9 +13,9 @@ interface StitchesRegistryProps {
 export function StitchesRegistry({ children }: StitchesRegistryProps) {
   const [isRendered, setIsRendered] = useState(false)
   useServerInsertedHTML(() => {
-    if (isRendered) return
+    // if (isRendered) return
     globalStyles()
-    setIsRendered(true)
+    // setIsRendered(true)
     const css = getCssText()
     return <style id="stitches" dangerouslySetInnerHTML={{ __html: css }} />
   })
