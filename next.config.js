@@ -22,6 +22,14 @@ const config = {
     newNextLinkBehavior: true,
     appDir: true,
   },
+
+  redirects: async () => [
+    {
+      source: '/work',
+      destination: '/work/coming-soon',
+      permanent: false,
+    },
+  ],
 }
 
 const withMDX = require('@next/mdx')({

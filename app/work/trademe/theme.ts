@@ -1,4 +1,4 @@
-import { createTheme, darkTheme, styled } from '@/styles'
+import { createTheme } from '@/styles'
 
 export const tradeMeTheme = createTheme('trademe', {
   colors: {

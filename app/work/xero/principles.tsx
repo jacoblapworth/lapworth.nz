@@ -73,19 +73,6 @@ function WorldMap() {
   )
 }
 
-export const getStaticProps: GetStaticProps<MDXPageProps> = async () => {
-  const source = await prepareMDX({
-    fileName: 'xero-experience-design-principles',
-  })
-
-  return {
-    props: {
-      source,
-      title: source.frontmatter?.title,
-    },
-  }
-}
-
 const Grid = styled('div', {
   display: 'grid',
   maxWidth: 1200,

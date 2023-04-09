@@ -1,12 +1,10 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-import { MDXRemote } from 'next-mdx-remote'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import { serialize } from 'next-mdx-remote/serialize'
 
 export async function generateStaticParams() {
-  console.log('test')
-
   const postsDirectory = path.join(process.cwd(), 'content/recipes')
   const fileNames = await fs.readdir(postsDirectory)
 
@@ -24,8 +22,6 @@ export async function generateStaticParams() {
     }
   })
 
-  console.log({ paths })
-
   return paths
 }
 
@@ -34,7 +30,7 @@ const getRecipe = async (slug: string) => {
   const filePath = path.join(postsDirectory, slug as string)
   const content = await fs.readFile(`${filePath}.mdx`, 'utf8')
   const source = await serialize(content, { parseFrontmatter: true })
-  return source
+  return content
 }
 
 type Props = {
@@ -42,9 +38,7 @@ type Props = {
 }
 
 export default async function Page({ params: { slug } }: Props) {
-  console.log({ slug })
-
   const source = await getRecipe(slug)
-
-  return <MDXRemote {...source} />
+  // @ts-expect-error Async Server Component Workaround
+  return <MDXRemote source={source} />
 }
