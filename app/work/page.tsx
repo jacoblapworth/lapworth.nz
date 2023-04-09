@@ -1,12 +1,9 @@
-import { NextPage } from 'next'
-import { NextSeo } from 'next-seo'
+'use client'
 
 import DiscoverTile from '@/components/Work/TradeMe/DiscoverTile'
 import { VendTabsTile } from '@/components/Work/Vend/Tile'
 import { XeroTile } from '@/components/Work/Xero/XeroTile'
 import { styled } from '@/styles'
-
-import { GetStaticProps } from '../_app'
 
 const Layout = styled('div', {
   display: 'grid',
@@ -15,10 +12,9 @@ const Layout = styled('div', {
   gridTemplateColumns: 'repeat(8, 1fr)',
 })
 
-export const Work: NextPage = () => {
+export default function Page() {
   return (
     <>
-      <NextSeo noindex description="Xero, Vend, Timely, Trade Me" />
       <Layout>
         <XeroTile />
         <DiscoverTile />
@@ -26,14 +22,4 @@ export const Work: NextPage = () => {
       </Layout>
     </>
   )
-}
-
-export default Work
-
-export const getStaticProps: GetStaticProps = () => {
-  return {
-    props: {
-      title: 'Work',
-    },
-  }
 }

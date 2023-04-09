@@ -1,7 +1,7 @@
 import NextImage from 'next/image'
 
-import { Link } from '@/components/Link'
 import { MusicKitResource } from '@/app/about/music'
+import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
 import { styled } from '@/styles'
 

@@ -1,7 +1,3 @@
-import { GetStaticProps } from 'next'
-import { NextSeo } from 'next-seo'
-
-import Discover from '@/components/Work/TradeMe/Discover'
 import { createTheme, darkTheme, styled } from '@/styles'
 
 export const tradeMeTheme = createTheme('trademe', {
@@ -56,30 +52,3 @@ export const tradeMeTheme = createTheme('trademe', {
     'hokey-pokey-900': '#943900',
   },
 })
-
-const Theme = styled('div', {
-  [darkTheme]: {
-    [darkTheme.colors.background.variable]: 'magenta',
-  },
-})
-
-export default function TradeMe() {
-  return (
-    <>
-      <NextSeo noindex={true} />
-      <div className={tradeMeTheme}>
-        <Theme />
-        <Discover />
-      </div>
-    </>
-  )
-}
-
-export const getStaticProps: GetStaticProps = () => {
-  return {
-    props: {
-      // hideNav: true,
-      // theme: 'trademe',
-    },
-  }
-}

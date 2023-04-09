@@ -1,18 +1,9 @@
-import { NextPage } from 'next'
+'use client'
+
 import NextLink from 'next/link'
-import { NextSeo } from 'next-seo'
 
 import { Text } from '@/components/Typography'
-import { GetStaticProps } from '@/pages/_app'
 import { styled } from '@/styles'
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: {
-      title: 'Xero',
-    },
-  }
-}
 
 const Grid = styled('div', {
   display: 'grid',
@@ -30,10 +21,9 @@ const Link = styled(NextLink, {
   },
 })
 
-export const Xero: NextPage = () => {
+export default function Page() {
   return (
     <>
-      <NextSeo noindex={true} />
       <Text as="h1" display size="xlarge">
         Xero User Interface
       </Text>
@@ -55,5 +45,3 @@ export const Xero: NextPage = () => {
     </>
   )
 }
-
-export default Xero

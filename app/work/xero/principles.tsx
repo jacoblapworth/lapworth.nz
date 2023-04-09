@@ -2,12 +2,10 @@ import { MDXProvider } from '@mdx-js/react'
 import { NextPage } from 'next'
 import NextImage from 'next/image'
 import { MDXRemote } from 'next-mdx-remote'
-import { NextSeo } from 'next-seo'
 
 import { Text } from '@/components/Typography'
 import { images } from '@/components/Work/Xero'
 import { MDXPageProps, prepareMDX } from '@/lib/markdown'
-import { GetStaticProps } from '@/pages/_app'
 import disciplines from '@/public/static/work/xero/principles-disciplines.webp'
 import worldMapDark from '@/public/static/work/xero/principles-world-map-dark.svg'
 import worldMap from '@/public/static/work/xero/principles-world-map.svg'
@@ -98,7 +96,6 @@ const Grid = styled('div', {
 export const Page: NextPage<MDXPageProps> = ({ source }) => {
   return (
     <MDXProvider>
-      <NextSeo noindex={true} />
       <Grid>
         <Text as="h1" display size="large">
           {source.frontmatter?.title}

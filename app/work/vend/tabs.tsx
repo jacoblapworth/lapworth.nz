@@ -1,6 +1,5 @@
 import { GetStaticProps, NextPage } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
-import { NextSeo } from 'next-seo'
 
 import { Text } from '@/components/Typography'
 import { images } from '@/components/Work/Vend'
@@ -28,7 +27,6 @@ const Grid = styled('div', {
 export const Tabs: NextPage<MDXPageProps> = ({ source }) => {
   return (
     <>
-      <NextSeo noindex={true} />
       <Text as="h1" display size="large">
         {source.frontmatter?.title}
       </Text>

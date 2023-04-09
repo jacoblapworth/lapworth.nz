@@ -1,11 +1,13 @@
-import { NextPage } from 'next'
+import { Metadata } from 'next'
 
 import { PillLink } from '@/components/Button'
 import { Text } from '@/components/Typography'
 
-import { GetStaticProps } from './_app'
+export const metadata: Metadata = {
+  title: '404',
+}
 
-export const FourZeroFour: NextPage = () => {
+export default function Page() {
   return (
     <>
       <Text as="h1" display size="xlarge">
@@ -18,14 +20,4 @@ export const FourZeroFour: NextPage = () => {
       <PillLink href="/">Back to home</PillLink>
     </>
   )
-}
-
-export default FourZeroFour
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: {
-      title: '404',
-    },
-  }
 }

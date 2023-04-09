@@ -21,16 +21,31 @@ const sectraFont = localFont({
   display: 'swap',
 })
 
-// export async function generateMetadata(): Promise<Metadata> {
-//   return {
-//     title: '...',
-//   }
-// }
+const baseUrl = 'https://lapworth.nz'
+const email = 'jacob@lapworth.nz'
 
 export const metadata: Metadata = {
   title: {
     default: 'Jacob Lapworth',
     template: '%s — Jacob Lapworth',
+  },
+  description:
+    'A digital product designer, living in Tāmaki Makaurau, Aotearoa — Auckland, New Zealand. Currently scaling the design system at Xero.',
+  openGraph: {
+    type: 'website',
+    locale: 'en_NZ',
+    url: baseUrl,
+    siteName: 'Jacob Lapworth — Product designer',
+    images: [
+      {
+        url: `${baseUrl}/static/og-image.png`,
+        alt: 'Jacob Lapworth',
+      },
+    ],
+  },
+  twitter: {
+    site: '@jacoblapworth',
+    card: 'summary_large_image',
   },
 }
 

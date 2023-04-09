@@ -1,35 +1,24 @@
 import { NextPage } from 'next'
 import NextImage from 'next/image'
-import { NextSeo } from 'next-seo'
 
 import { Text } from '@/components/Typography'
-import { GetStaticProps } from '@/pages/_app'
-import Img1 from '@/public/static/work/vend/1.png'
-import Img2 from '@/public/static/work/vend/2.png'
-import Img3 from '@/public/static/work/vend/3.png'
+import Img1 from '@/public/static/work/trademe/1.png'
+import Img2 from '@/public/static/work/trademe/2.png'
+import Img3 from '@/public/static/work/trademe/3.gif'
 import { styled } from '@/styles'
-
-export const getStaticProps: GetStaticProps = async () => {
-  return {
-    props: {
-      title: 'Vend',
-    },
-  }
-}
 
 const Grid = styled('div', {
   display: 'grid',
   marginBlock: '$md',
 })
 
-export const Vend: NextPage = () => {
+export const TradeMe: NextPage = () => {
   return (
     <>
-      <NextSeo noindex={true} />
       <Text display size="xlarge">
-        Vend
+        Trade Me
       </Text>
-      <p>Point of sale</p>
+      <p>Online marketplace</p>
       <Grid>
         <NextImage
           alt=""
@@ -63,4 +52,4 @@ export const Vend: NextPage = () => {
   )
 }
 
-export default Vend
+export default TradeMe
