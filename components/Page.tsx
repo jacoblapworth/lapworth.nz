@@ -1,4 +1,5 @@
 'use client'
+
 import NextLink from 'next/link'
 import { NextSeo } from 'next-seo'
 import { ThemeProvider } from 'next-themes'
@@ -55,23 +56,21 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Page = ({ hideNav, title, children, ...rest }: Props) => {
   return (
-    <>
-      <ThemeProvider {...themeConfig}>
-        <Skiplink href="#main" tabIndex={0}>
-          Skip to main content
-        </Skiplink>
+    <ThemeProvider {...themeConfig}>
+      <Skiplink href="#main" tabIndex={0}>
+        Skip to main content
+      </Skiplink>
 
-        <Container>
-          <NextSeo title={title} />
-          <Header />
-          {!hideNav && <Navigation />}
+      <Container>
+        <NextSeo title={title} />
+        <Header />
+        {!hideNav && <Navigation />}
 
-          <Main id="main" data-testid="main" {...rest}>
-            {children}
-          </Main>
-          <Footer />
-        </Container>
-      </ThemeProvider>
-    </>
+        <Main id="main" data-testid="main" {...rest}>
+          {children}
+        </Main>
+        <Footer />
+      </Container>
+    </ThemeProvider>
   )
 }

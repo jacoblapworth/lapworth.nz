@@ -1,8 +1,8 @@
-import '@/styles/globals.css'
-// import 'sanitize.css'
-// import 'sanitize.css/typography.css'
-// import 'sanitize.css/forms.css'
+import 'sanitize.css'
+import 'sanitize.css/typography.css'
+import 'sanitize.css/forms.css'
 
+import { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { ServerThemeProvider } from 'next-themes'
 
@@ -20,6 +20,19 @@ const sectraFont = localFont({
   weight: '400',
   display: 'swap',
 })
+
+// export async function generateMetadata(): Promise<Metadata> {
+//   return {
+//     title: '...',
+//   }
+// }
+
+export const metadata: Metadata = {
+  title: {
+    default: 'Jacob Lapworth',
+    template: '%s — Jacob Lapworth',
+  },
+}
 
 export default function RootLayout({
   children,

@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+'use client'
 
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
@@ -15,14 +15,10 @@ const HiddenLink = styled(Link, {
   display: 'none',
 })
 
-export const metadata: Metadata = {
-  title: 'Jacob Lapworth',
-}
-
 export default function Page() {
   return (
     <Container>
-      <Text size="xlarge" display css={{ color: 'red' }}>
+      <Text size="xlarge" display>
         Kia ora 👋 Ko Jacob tōku ingoa
       </Text>
       <Text>
