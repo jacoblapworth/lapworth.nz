@@ -5,8 +5,8 @@ describe('Accessibility', () => {
 
   it('should skip to main content', () => {
     cy.contains('Skip to main content').focus()
-    cy.focused().should('be.visible').should('have.attr', 'href', '/#main')
-    cy.focused().click()
+    cy.focused().should('be.visible').click()
+    cy.focused().should('have.id', 'main')
     cy.findByTestId('main').should('be.visible')
   })
 })
