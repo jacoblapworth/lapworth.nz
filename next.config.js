@@ -4,10 +4,6 @@
  */
 const config = {
   reactStrictMode: true,
-  i18n: {
-    locales: ['en-NZ'],
-    defaultLocale: 'en-NZ',
-  },
   images: {
     remotePatterns: [
       {
@@ -20,7 +16,16 @@ const config = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
     newNextLinkBehavior: true,
+    appDir: true,
   },
+
+  redirects: async () => [
+    {
+      source: '/work',
+      destination: '/work/coming-soon',
+      permanent: false,
+    },
+  ],
 }
 
 const withMDX = require('@next/mdx')({

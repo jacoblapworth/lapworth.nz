@@ -1,3 +1,5 @@
+'use client'
+
 import { motion, useCycle } from 'framer-motion'
 import { useTheme } from 'next-themes'
 
@@ -26,7 +28,7 @@ const Icon = () => (
   </svg>
 )
 
-const Button = styled('button', {
+const Button = styled(motion.button, {
   fontSize: '$lg',
   border: '1px solid transparent',
   borderRadius: 9999,
@@ -51,7 +53,10 @@ export const ThemeToggle = () => {
   }
 
   return (
-    <motion.div
+    <Button
+      onClick={toggleTheme}
+      aria-label={`Change to ${themeToSet} theme`}
+      data-testid="theme-toggle"
       animate={{
         rotate: rotation,
         transition: {
@@ -65,13 +70,7 @@ export const ThemeToggle = () => {
         },
       }}
     >
-      <Button
-        onClick={toggleTheme}
-        aria-label="Toggle theme"
-        data-testid="theme-toggle"
-      >
-        <Icon />
-      </Button>
-    </motion.div>
+      <Icon />
+    </Button>
   )
 }
