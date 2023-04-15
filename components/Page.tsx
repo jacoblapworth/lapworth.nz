@@ -52,7 +52,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 export const Page = ({ hideNav, title, children, ...rest }: Props) => {
   return (
     <>
-      <Skiplink href="#main" tabIndex={0}>
+      <Skiplink href="#main" tabIndex={0} data-testid="skip-link">
         Skip to main content
       </Skiplink>
 

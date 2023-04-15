@@ -5,7 +5,8 @@
     "allowJs": true,
     "types": [
       "cypress",
-      "@testing-library/cypress"
+      "@testing-library/cypress",
+      "cypress-real-events"
     ]
   },
   "include": [
