@@ -1,7 +1,7 @@
 import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile'
 import { Text } from '@/components/Typography'
-import { darkTheme, styled } from '@/styles'
+import { styled } from '@/styles'
 
 const Layout = styled('div', {
   padding: '$md',

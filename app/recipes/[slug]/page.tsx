@@ -3,12 +3,15 @@ import path from 'path'
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
+const postsDirectory = path.join(process.cwd(), 'app/recipes/[slug]')
+
+const mdxFilenamePredicate = (filename: string) => filename.endsWith('.mdx')
+
 export async function generateStaticParams() {
-  const postsDirectory = path.join(process.cwd(), 'content/recipes')
   const fileNames = await fs.readdir(postsDirectory)
 
   const files = await Promise.all(
-    fileNames.map(async (fileName) => {
+    fileNames.filter(mdxFilenamePredicate).map(async (fileName) => {
       return {
         fileName: fileName.replace('.mdx', ''),
       }
@@ -25,7 +28,6 @@ export async function generateStaticParams() {
 }
 
 const getRecipe = async (slug: string) => {
-  const postsDirectory = path.join(process.cwd(), 'content/recipes')
   const filePath = path.join(postsDirectory, slug as string)
   const content = await fs.readFile(`${filePath}.mdx`, 'utf8')
   return content
