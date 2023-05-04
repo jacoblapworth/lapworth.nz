@@ -1,7 +1,7 @@
 import { Link } from '@/components/Link'
 import { styled } from '@/styles'
 
-import { Text } from '../Typography'
+import { Text } from '../../components/Typography'
 
 interface ExperienceRowProps {
   title?: string

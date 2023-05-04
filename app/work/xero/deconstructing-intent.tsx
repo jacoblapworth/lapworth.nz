@@ -2,8 +2,8 @@ import { MDXProvider } from '@mdx-js/react'
 import { NextPage } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
 
+import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
-import { images } from '@/components/Work/Xero'
 import { MDXPageProps } from '@/lib/markdown'
 import { styled } from '@/styles'
 

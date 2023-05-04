@@ -50,5 +50,3 @@ export function DiscoverTile() {
     </SkewTile>
   )
 }
-
-export default DiscoverTile

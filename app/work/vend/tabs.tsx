@@ -1,9 +1,9 @@
 import { GetStaticProps, NextPage } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
 
+import { images } from '@/app/work/vend/images'
+import { TabsExample } from '@/app/work/vend/VendTabs'
 import { Text } from '@/components/Typography'
-import { images } from '@/components/Work/Vend'
-import { TabsExample } from '@/components/Work/Vend/Tabs'
 import { MDXPageProps, prepareMDX } from '@/lib/markdown'
 import { styled } from '@/styles'
 

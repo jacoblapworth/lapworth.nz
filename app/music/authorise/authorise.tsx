@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 
 import NextScript from 'next/script'
 
-import { useAppleMusic } from '@/components/Music/musicHook'
+import { useAppleMusic } from '@/components/Hooks/useAppleMusic'
 
 interface Props {
   developerToken: string
