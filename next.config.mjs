@@ -63,23 +63,6 @@ const config = {
   experimental: {
     newNextLinkBehavior: true,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/work/:path*',
-        destination: '/work/coming-soon',
-      },
-    ]
-  },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: '/work',
-  //       destination: '/work/coming-soon',
-  //       permanent: false,
-  //     },
-  //   ]
-  // },
 }
 
 const withMDX = createMDX({
