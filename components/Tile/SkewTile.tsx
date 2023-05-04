@@ -3,17 +3,18 @@ import { ComponentProps, ReactNode, useEffect, useRef } from 'react'
 import useMouse from '@react-hook/mouse-position'
 import {
   motion,
+  MotionValue,
   SpringOptions,
   useMotionValue,
   useSpring,
   useTransform,
 } from 'framer-motion'
 
-import { styled } from '@/styles'
+import { darkTheme, styled } from '@/styles'
 
 const SHINE_SIZE = 650
 
-const Shine = styled(motion.div, {
+const ShineElement = styled(motion.div, {
   position: 'absolute',
   width: SHINE_SIZE,
   height: SHINE_SIZE,
@@ -27,12 +28,14 @@ const Shine = styled(motion.div, {
   zIndex: -1,
   top: 0,
   left: 0,
+  userSelect: 'none',
+  pointerEvents: 'none',
 })
 
 const Card = styled(motion.div, {
-  backgroundColor: 'rgb(22, 27, 34)',
-  // borderRadius: '$lg',
-  borderColor: 'rgb(48, 54, 61)',
+  backgroundColor: '$surface',
+  borderRadius: '$lg',
+  borderColor: 'rgba(0, 0, 0, 0.1)',
   borderWidth: '1px',
   borderStyle: 'solid',
   padding: '1rem',
@@ -43,8 +46,13 @@ const Card = styled(motion.div, {
   willChange: 'transform',
   boxSizing: 'border-box',
 
+  [`.${darkTheme} &`]: {
+    // backgroundColor: '',
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+  },
+
   '&:hover': {
-    [`& ${Shine}`]: {
+    [`& ${ShineElement}`]: {
       opacity: 0.85,
     },
   },
@@ -52,10 +60,41 @@ const Card = styled(motion.div, {
 
 type CardProps = ComponentProps<typeof Card>
 
+interface ShineProps extends ComponentProps<typeof ShineElement> {
+  size?: number
+  x: MotionValue<number>
+  y: MotionValue<number>
+  color?: string
+}
+
+export const Shine = ({
+  css,
+  size = 650,
+  x,
+  y,
+  color,
+  ...props
+}: ShineProps) => {
+  const shineTransform = (v: number) => v - size / 2
+  const shineX = useTransform(x, shineTransform)
+  const shineY = useTransform(y, shineTransform)
+
+  return (
+    <ShineElement
+      css={{ backgroundColor: color, ...css }}
+      style={{
+        x: shineX,
+        y: shineY,
+      }}
+      {...props}
+    />
+  )
+}
+
 interface Props extends CardProps {
   children: ReactNode
   shine?: boolean
-  shineCss?: ComponentProps<typeof Shine>['css']
+  shineCss?: ComponentProps<typeof ShineElement>['css']
 }
 
 export const SkewTile = ({
@@ -89,14 +128,11 @@ export const SkewTile = ({
     damping: 30,
   }
 
-  const shineTransform = (v: number) => v - SHINE_SIZE / 2
   const rotateX = useSpring(useTransform(y1, [0, elH ?? 1], [-1, 1]), config)
   const rotateY = useSpring(
     useTransform(x1, [0, elW ?? 1], [1.5, -1.5]),
     config,
   )
-  const shineX = useTransform(x, shineTransform)
-  const shineY = useTransform(y, shineTransform)
 
   return (
     <Card
@@ -119,15 +155,7 @@ export const SkewTile = ({
     >
       {children}
 
-      {shine && (
-        <Shine
-          css={shineCss}
-          style={{
-            x: shineX,
-            y: shineY,
-          }}
-        />
-      )}
+      {shine && <Shine css={shineCss} x={x} y={y} />}
     </Card>
   )
 }

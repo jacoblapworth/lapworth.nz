@@ -1,7 +1,7 @@
 import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
-import { styled, darkTheme } from '@/styles'
+import { styled } from '@/styles'
 
 import { SpotlightsPreview } from './Spotlight'
 
@@ -25,20 +25,14 @@ export function DiscoverTile() {
         '@sm': {
           gridColumn: '1/span 4',
         },
-        backgroundColor: '#fff',
-        borderColor: '#d8eeee',
-        [`.${darkTheme} &`]: {
-          backgroundColor: '#111e2b',
-          borderColor: '#414a66',
-        },
       }}
-      shineCss={{
-        mixBlendMode: 'multiply',
-        backgroundColor: '#FFE18D',
-        [`.${darkTheme} &`]: {
-          mixBlendMode: 'soft-light',
-        },
-      }}
+      // shineCss={{
+      //   mixBlendMode: 'multiply',
+      //   backgroundColor: '#FFE18D',
+      //   [`.${darkTheme} &`]: {
+      //     mixBlendMode: 'soft-light',
+      //   },
+      // }}
       initial="initial"
       whileHover="hover"
     >
@@ -47,11 +41,7 @@ export function DiscoverTile() {
           <Text display size="medium">
             Increasing traffic to business verticals on mobile
           </Text>
-          <PillLink
-            href="/work/trademe"
-            css={{ marginInlineStart: '-$sm' }}
-            inverted
-          >
+          <PillLink href="/work/trademe" inverted>
             Discover Trade Me
           </PillLink>
         </VStack>

@@ -29,6 +29,7 @@ const Blockquote = styled('blockquote', {
   paddingBlock: '$md',
   display: 'inline',
   lineHeight: '2.5rem',
+  hangingPunctuation: 'first last',
 
   [`& ${Text}`]: {
     maxWidth: '35ch',
@@ -60,13 +61,34 @@ const TextAnchor = ({ id, children, ...props }: TextProps) => {
   )
 }
 
+const Wrapper = styled('div', {
+  display: 'grid',
+  gridAutoColumns: 'auto',
+  gridAutoFlow: 'row',
+  maxWidth: 1000,
+  position: 'relative',
+  marginBlockEnd: '$lg',
+})
+
 export const components: MDXComponents = {
-  h1: ({ ref, ...props }) => <TextAnchor as="h1" size="large" {...props} />,
-  h2: ({ ref, ...props }) => <TextAnchor as="h2" size="medium" {...props} />,
-  h3: ({ ref, ...props }) => <TextAnchor as="h3" size="small" {...props} />,
+  wrapper: Wrapper,
+  h1: ({ ref, ...props }) => (
+    <TextAnchor as="h1" size="large" css={{ marginBlock: '$lg' }} {...props} />
+  ),
+  h2: ({ ref, ...props }) => (
+    <TextAnchor as="h2" size="medium" css={{ marginBlock: '$lg' }} {...props} />
+  ),
+  h3: ({ ref, ...props }) => (
+    <TextAnchor as="h3" size="small" css={{ marginBlock: '$lg' }} {...props} />
+  ),
   a: ({ ref, href, ...props }) => <Link href={href ?? ''} {...props} />,
+  img: (props) => {
+    console.log({ props })
+    return <>image</>
+    //   return <Image {...props} alt={props.alt ?? ''} placeholder="blur" />
+  },
   Image: (props: ImageProps) => (
-    <Image {...props} alt={props.alt} placeholder="blur" />
+    <Image placeholder="blur" quality={100} {...props} alt={props.alt} />
   ),
   blockquote: ({ ref, children, ...props }) => (
     <Blockquote {...props}>

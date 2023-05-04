@@ -3,6 +3,7 @@
 import NextImage from 'next/image'
 
 import { MusicKitResource } from '@/app/about/music'
+import { Link } from '@/components/Link'
 import { HeavyRotation } from '@/components/Music/HeavyRotation'
 import { Text } from '@/components/Typography'
 import { Experience } from '@/components/Work/Experience'
@@ -31,28 +32,39 @@ interface Props {
   music: MusicKitResource[] | null
 }
 
+const Container = styled('div', {
+  maxWidth: 1000,
+})
+
 export default function Page({ music }: Props) {
   return (
     <>
-      <Text size="xlarge" display>
-        Hey there!{' '}
-        <NoWrap>
-          I&apos;m J
-          <Profile
-            src={ProfileImage}
-            quality={100}
-            alt="Portrait photo of Jacob"
-            placeholder="blur"
-            priority
-          />
-        </NoWrap>
-      </Text>
+      <Container>
+        <Text size="xlarge" display>
+          Hey there!{' '}
+          <NoWrap>
+            I&apos;m J
+            <Profile
+              src={ProfileImage}
+              quality={100}
+              alt="Portrait photo of Jacob"
+              placeholder="blur"
+              priority
+            />
+          </NoWrap>
+        </Text>
 
-      <Text size="large" display>
-        I&apos;m a senior product designer and software engineer focused on
-        community driven design systems.
-      </Text>
+        <Text size="large" display>
+          I&apos;m a senior product designer and software engineer focused on
+          community-driven design systems.
+        </Text>
 
+        <Text size="medium" display>
+          Find me in the{' '}
+          <Link href="https://instagram.com/platesbyjacob">kitchen</Link> when
+          I&apos;m not working.
+        </Text>
+      </Container>
       <Experience />
 
       {music && music.length > 0 && <HeavyRotation music={music} />}
