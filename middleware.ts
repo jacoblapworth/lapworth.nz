@@ -10,7 +10,9 @@ export function middleware(request: NextRequest) {
     return
   }
 
-  const isPreview = request.cookies.get('preview')?.value === 'true'
+  const isPreview =
+    request.cookies.get('preview')?.value === 'true' ||
+    request.nextUrl.searchParams.get('preview') === 'true'
 
   if (isPreview) {
     return
