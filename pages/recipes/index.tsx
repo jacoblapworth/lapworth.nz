@@ -2,8 +2,6 @@ import fs from 'fs/promises'
 import path from 'path'
 
 import { GetStaticProps, NextPage } from 'next'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
 
 type Recipe = {
   title: string

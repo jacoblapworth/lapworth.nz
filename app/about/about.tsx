@@ -2,8 +2,8 @@
 
 import NextImage from 'next/image'
 
-import { Link } from '@/components/Link'
 import { MusicKitResource } from '@/app/about/music'
+import { Link } from '@/components/Link'
 import { HeavyRotation } from '@/components/Music/HeavyRotation'
 import { Text } from '@/components/Typography'
 import { Experience } from '@/components/Work/Experience'

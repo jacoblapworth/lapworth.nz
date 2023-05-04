@@ -3,13 +3,11 @@ import { useEffect, useRef } from 'react'
 
 import useMouse from '@react-hook/mouse-position'
 import { motion, useMotionValue } from 'framer-motion'
-import { NextPage } from 'next'
 import NextImage from 'next/image'
 import NextLink from 'next/link'
 
 import { Shine } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
-import { GetStaticProps } from '@/pages/_app'
 import figmaPlugin from '@/public/static/work/xero/plugin/xui-plugin-cover.png'
 import xuiLogo from '@/public/static/work/xero/xui-logo.svg'
 import { styled } from '@/styles'
@@ -75,7 +73,6 @@ const Background = () => {
 export default function Page() {
   return (
     <>
-      <Text as="h1" display size="xlarge">
       <Background />
       <Text
         as="h1"

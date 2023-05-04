@@ -1,7 +1,7 @@
 import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
-import { styled, darkTheme } from '@/styles'
+import { styled } from '@/styles'
 
 import { SpotlightsPreview } from './Spotlight'
 
