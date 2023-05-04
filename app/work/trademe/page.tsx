@@ -1,8 +1,8 @@
 'use client'
 
-import Discover from '@/components/Work/TradeMe/Discover'
 import { darkTheme, styled } from '@/styles'
 
+import Discover from './Discover'
 import { tradeMeTheme } from './theme'
 
 const Theme = styled('div', {

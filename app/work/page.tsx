@@ -1,8 +1,8 @@
 'use client'
 
-import DiscoverTile from '@/components/Work/TradeMe/DiscoverTile'
-import { VendTabsTile } from '@/components/Work/Vend/Tile'
-import { XeroTile } from '@/components/Work/Xero/XeroTile'
+import { DiscoverTile } from '@/app/work/trademe/DiscoverTile'
+import { VendTabsTile } from '@/app/work/vend/Tile'
+import { XeroTile } from '@/app/work/xero/XeroTile'
 import { styled } from '@/styles'
 
 const Layout = styled('div', {

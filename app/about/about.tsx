@@ -2,13 +2,14 @@
 
 import NextImage from 'next/image'
 
+import { HeavyRotation } from '@/app/about/HeavyRotation'
 import { MusicKitResource } from '@/app/about/music'
 import { Link } from '@/components/Link'
-import { HeavyRotation } from '@/components/Music/HeavyRotation'
 import { Text } from '@/components/Typography'
-import { Experience } from '@/components/Work/Experience'
 import ProfileImage from '@/public/static/j-photo-mono.png'
 import { styled } from '@/styles'
+
+import { Experience } from './experience'
 
 const Profile = styled(NextImage, {
   borderRadius: '50%',
