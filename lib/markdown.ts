@@ -1,8 +1,9 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemoteProps, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { SerializeOptions } from 'next-mdx-remote/dist/types'
+import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { z } from 'zod'
@@ -22,36 +23,31 @@ export interface MDXPageProps {
 type PrepareMDXOptions = {
   fileName: string
   directory?: string
-}
+  options?: SerializeOptions
+} & Partial<MDXRemoteProps>
 
-type MDXResult = Omit<MDXRemoteSerializeResult, 'frontmatter'> &
-  Required<
-    Pick<
-      MDXRemoteSerializeResult<Record<string, unknown>, Frontmatter>,
-      'frontmatter'
-    >
-  >
-
-type PrepareMDX = ({
-  fileName,
-  directory,
-}: PrepareMDXOptions) => Promise<MDXResult>
-
-export const prepareMDX: PrepareMDX = async ({
+export const prepareMDX = async ({
   fileName,
   directory = 'content/work',
-}) => {
+  options,
+  components,
+  ...rest
+}: PrepareMDXOptions) => {
   const _directory = path.join(process.cwd(), directory)
   const filePath = path.join(_directory, fileName)
-  const content = await fs.readFile(`${filePath}.mdx`, 'utf8')
-  const source = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [rehypeSlug],
-    },
-    parseFrontmatter: true,
-  })
-  const frontmatter = Frontmatter.parse(source.frontmatter)
+  const source = await fs.readFile(`${filePath}.mdx`, 'utf8')
 
-  return { ...source, frontmatter }
+  return compileMDX<Frontmatter>({
+    source,
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [rehypeSlug],
+      },
+      ...options,
+    },
+    components,
+    ...rest,
+  })
 }
