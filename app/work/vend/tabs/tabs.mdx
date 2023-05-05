@@ -4,9 +4,6 @@ export const meta = {
   tags: ['vend', 'tabs'],
 }
 
-import { images } from '@/components/Work/Vend'
-import { TabsExample } from '@/components/Work/Vend/Tabs'
-
 # The influence of customer fit on a design system
 
 Houston is the name of the design system at Vend — “Houston we have a problem”. We’ve been working on Houston for a few years now, and it’s been a really interesting journey. We’ve had to deal with a lot of challenges, and I think we’ve come out the other side with a really solid foundation. I’m going to walk you through some of the challenges we’ve faced, and how we’ve dealt with them.
@@ -25,8 +22,9 @@ We also curate in-context designs. These help future designers understand how to
 
 When our tabs were initially designed and developed, we hadn’t anticipated them being used with so much content. The component essentially visually breaks, the pattern no longer “makes sense”. New uses push designs forward. The reason I chose to walk you through a case study of a component that already exists, is that this feels like a much more common scenario, especially within a mature design system. A lot of the time we’re not working from scratch, we’re building on top of what’s there, leveraging existing patterns, and questioning design decisions.
 
-<Image src={images.registerOverflowExample} alt="Example of tabs overflowing" /> Establishing
-a case for a new/changed component
+<Image src={images.registerOverflowExample} alt="Example of tabs overflowing" />{' '}
+
+## Establishing a case for a new/changed component
 
 - Are we just using tabs “wrong”?
 - Are there other patterns for dealing with this kind of content?
@@ -74,7 +72,10 @@ This is where we can start to see how this new overflow component can scale, wit
 
 During this time, we’re road-testing the components in-situ across the product. We realised that when the tabs serve a navigation role as opposed to filters, “All” might not be the best name for the collection of tabs – considering what a user is looking for.
 
-<Image src={images.roadtest} alt="" /> Documenting the changes
+<Image src={images.roadtest} alt="" />{' '}
+
+## Documenting the changes
+
 <Image src={images.documentation} alt="" />
 
 ## Preview
