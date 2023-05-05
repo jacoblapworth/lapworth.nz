@@ -1,6 +1,5 @@
 'use client'
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type {
   ReactNode,
   HTMLAttributes,
@@ -12,6 +11,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { ComponentProps } from '@stitches/react'
 import { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
+import { usePathname } from 'next/navigation'
 
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
@@ -27,9 +27,7 @@ export const Image = styled(NextImage, {
   },
 })
 
-type ImageProps = ComponentProps<typeof Image>
-
-const Blockquote = styled('blockquote', {
+export const Blockquote = styled('blockquote', {
   borderTop: '1px solid $quaternary',
   marginInline: 0,
   marginBlock: '$md',
@@ -55,10 +53,11 @@ interface TextProps extends ComponentProps<typeof Text> {
 }
 
 export const HeadingAnchor = ({ id, children, ...props }: TextProps) => {
+  const pathname = usePathname()
   return (
-    <Text display css={{ marginBlock: '$lg' }} {...props}>
+    <Text display css={{ marginBlock: '$lg' }} id={id} {...props}>
       <Link
-        href={`#${id}`}
+        href={`${pathname}#${id}`}
         sameTab
         css={{ display: 'inline-flex', gap: '$sm', alignItems: 'center' }}
       >
