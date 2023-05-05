@@ -1,6 +1,5 @@
 import { images } from '@/app/work/vend/images'
 import { TabsExample } from '@/app/work/vend/VendTabs'
-import { ContentGrid } from '@/components/ContentGrid'
 import { Text } from '@/components/Typography'
 import { prepareMDX } from '@/lib/markdown'
 
@@ -19,7 +18,7 @@ export default async function Page() {
       <Text as="h1" display size="large">
         {frontmatter.title}
       </Text>
-      <ContentGrid>{content}</ContentGrid>
+      {content}
     </>
   )
 }
