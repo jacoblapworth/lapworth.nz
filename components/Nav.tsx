@@ -116,9 +116,13 @@ const Stack = styled('div', {
 })
 
 const NavLinks = () => {
+  const pathname = usePathname()
+  const isRecipes = pathname?.startsWith('/recipes')
+
   return (
     <Stack>
       <NavLink href="/work">Work</NavLink>
+      {isRecipes ? <NavLink href="/recipes">Recipes</NavLink> : null}
       <NavLink href="/about">About</NavLink>
     </Stack>
   )
