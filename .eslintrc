@@ -57,6 +57,11 @@
             "pattern": "@/**",
             "group": "internal",
             "position": "before"
+          },
+          {
+            "pattern": "contentlayer/generated",
+            "group": "internal",
+            "position": "before"
           }
         ],
         "pathGroupsExcludedImportTypes": [

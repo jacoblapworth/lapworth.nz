@@ -24,6 +24,9 @@
       ],
       "@/*": [
         "./*"
+      ],
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
       ]
     },
     "incremental": true,
@@ -42,7 +45,8 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    "next.config.mjs",
-    ".next/types/**/*.ts"
+    "next.config.js",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated"
   ]
 }

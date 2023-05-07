@@ -3,6 +3,7 @@ import path from 'path'
 
 import withBundleAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
+import { withContentlayer } from 'next-contentlayer'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'

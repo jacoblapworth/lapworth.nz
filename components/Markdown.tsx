@@ -12,6 +12,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
 import { usePathname } from 'next/navigation'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import { styled } from 'styled/jsx'
 
@@ -71,7 +72,7 @@ export const HeadingAnchor = ({ children, ...props }: TextProps) => {
   )
 }
 
-export const Wrapper = styled('div', {
+export const wrapper = styled('div', {
   base: {
     display: 'grid',
     gridAutoColumns: 'auto',
@@ -113,7 +114,7 @@ export const blockquote = ({ children, ...props }: BlockquoteProps) => (
 )
 
 export const components: MDXComponents = {
-  wrapper: Wrapper,
+  wrapper,
   h1,
   h2,
   h3,
@@ -128,4 +129,15 @@ interface Props {
 
 export function MarkdownProvider({ children }: Props) {
   return <MDXProvider components={components}>{children}</MDXProvider>
+}
+
+interface MdxProps {
+  code: string
+  globals?: Record<string, unknown>
+}
+
+export function Mdx({ code, globals }: MdxProps) {
+  const Component = useMDXComponent(code, globals)
+
+  return <Component components={components} />
 }

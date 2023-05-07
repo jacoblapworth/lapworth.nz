@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { MDXProvider } from '@mdx-js/react'
 import { NextPage } from 'next'
 import NextImage, { StaticImageData } from 'next/image'
