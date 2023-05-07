@@ -20,10 +20,10 @@ const sectraFont = localFont({
   display: 'swap',
 })
 
-const baseUrl = 'https://lapworth.nz'
+const baseUrl = new URL('https://lapworth.nz')
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: baseUrl,
   title: {
     default: 'Jacob Lapworth',
     template: '%s — Jacob Lapworth',
