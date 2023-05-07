@@ -93,21 +93,21 @@ export default function Page() {
         predictable and modern experiences for all 3.5 million Xero users.
       </p>
       <Grid>
-        <Link href="xero/flexibility">
+        <Link href="/work/xero/flexibility">
           Navigating flexibility in the design system
         </Link>
-        <Link href="xero/deconstructing-intent">
+        <Link href="/work/xero/deconstructing-intent">
           Deconstructing the intent of your design
         </Link>
-        <Link href="xero/principles">
+        <Link href="/work/xero/principles">
           Experience design principles for cohesive decision making
         </Link>
         <Thumbnail src={figmaPlugin} alt="" />
-        <Link href="xero/figma-plugin">
+        <Link href="/work/xero/figma-plugin">
           Bringing documentation and tools to Figma
         </Link>
 
-        <Link href="xero/forms">Ethical form design</Link>
+        <Link href="/work/xero/forms">Ethical form design</Link>
       </Grid>
     </>
   )
