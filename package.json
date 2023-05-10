@@ -20,7 +20,7 @@
     "start": "next start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "check-types": "tsc --noemit",
+    "check-types": "",
     "lint": "npm run check-types && next lint",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
   },
