@@ -1,16 +1,23 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { ReactNode } from 'react'
+'use client'
+
+import type {
+  ReactNode,
+  HTMLAttributes,
+  AnchorHTMLAttributes,
+  BlockquoteHTMLAttributes,
+} from 'react'
 
 import { MDXProvider } from '@mdx-js/react'
 import { ComponentProps } from '@stitches/react'
 import { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
+import { usePathname } from 'next/navigation'
 
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
 import { styled } from '@/styles'
 
-const Image = styled(NextImage, {
+export const Image = styled(NextImage, {
   maxWidth: '100%',
   height: 'auto',
   border: '1px solid $quaternary',
@@ -20,15 +27,14 @@ const Image = styled(NextImage, {
   },
 })
 
-type ImageProps = ComponentProps<typeof Image>
-
-const Blockquote = styled('blockquote', {
+export const Blockquote = styled('blockquote', {
   borderTop: '1px solid $quaternary',
   marginInline: 0,
   marginBlock: '$md',
   paddingBlock: '$md',
   display: 'inline',
   lineHeight: '2.5rem',
+  hangingPunctuation: 'first last',
 
   [`& ${Text}`]: {
     maxWidth: '35ch',
@@ -46,11 +52,12 @@ interface TextProps extends ComponentProps<typeof Text> {
   as?: React.ElementType
 }
 
-const TextAnchor = ({ id, children, ...props }: TextProps) => {
+export const HeadingAnchor = ({ id, children, ...props }: TextProps) => {
+  const pathname = usePathname()
   return (
-    <Text display {...props}>
+    <Text display css={{ marginBlock: '$lg' }} id={id} {...props}>
       <Link
-        href={`#${id}`}
+        href={`${pathname}#${id}`}
         sameTab
         css={{ display: 'inline-flex', gap: '$sm', alignItems: 'center' }}
       >
@@ -60,21 +67,53 @@ const TextAnchor = ({ id, children, ...props }: TextProps) => {
   )
 }
 
+export const Wrapper = styled('div', {
+  display: 'grid',
+  gridAutoColumns: 'auto',
+  gridAutoFlow: 'row',
+  maxWidth: 1000,
+  position: 'relative',
+  marginBlockEnd: '$lg',
+})
+
+type HeadingProps = HTMLAttributes<HTMLHeadingElement>
+
+export const h1 = (props: HeadingProps) => (
+  <HeadingAnchor as="h1" size="large" {...props} />
+)
+
+export const h2 = (props: HeadingProps) => (
+  <HeadingAnchor as="h2" size="medium" {...props} />
+)
+
+export const h3 = (props: HeadingProps) => (
+  <HeadingAnchor as="h3" size="small" {...props} />
+)
+
+type AProps = AnchorHTMLAttributes<HTMLAnchorElement>
+
+export const a = ({ href, ...props }: AProps) => (
+  <Link href={href ?? ''} {...props} />
+)
+
+type BlockquoteProps = BlockquoteHTMLAttributes<HTMLQuoteElement>
+
+export const blockquote = ({ children, ...props }: BlockquoteProps) => (
+  <Blockquote {...props}>
+    <Text serif size="medium">
+      &ldquo;{children}&rdquo;
+    </Text>
+  </Blockquote>
+)
+
 export const components: MDXComponents = {
-  h1: ({ ref, ...props }) => <TextAnchor as="h1" size="large" {...props} />,
-  h2: ({ ref, ...props }) => <TextAnchor as="h2" size="medium" {...props} />,
-  h3: ({ ref, ...props }) => <TextAnchor as="h3" size="small" {...props} />,
-  a: ({ ref, href, ...props }) => <Link href={href ?? ''} {...props} />,
-  Image: (props: ImageProps) => (
-    <Image {...props} alt={props.alt} placeholder="blur" />
-  ),
-  blockquote: ({ ref, children, ...props }) => (
-    <Blockquote {...props}>
-      <Text serif size="medium">
-        &ldquo;{children}&rdquo;
-      </Text>
-    </Blockquote>
-  ),
+  wrapper: Wrapper,
+  h1,
+  h2,
+  h3,
+  a,
+  Image,
+  blockquote,
 }
 
 interface Props {
