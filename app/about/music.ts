@@ -134,12 +134,15 @@ const getMusicWithThumnail = async (
 ): Promise<MusicKitResource | undefined> => {
   try {
     const src = formatArtworkUrl(item.attributes.artwork, 24)
-    const image = await getPlaiceholder(src)
+    const image = await fetch(src).then(async (res) =>
+      Buffer.from(await res.arrayBuffer()),
+    )
+    const placeholder = await getPlaiceholder(image)
     return {
       ...item,
       attributes: {
         ...item.attributes,
-        placeholder: image.base64,
+        placeholder: placeholder.base64,
       },
     }
   } catch (error) {
