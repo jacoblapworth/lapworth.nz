@@ -40,3 +40,6 @@ cypress/reports/*
 cypress/screenshots/*
 cypress/videos/*
 .vscode
+
+# Contentlayer
+.contentlayer
