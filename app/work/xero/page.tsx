@@ -52,8 +52,6 @@ const Container = styled(motion.div, {
 
 const Background = () => {
   const ref = useRef<HTMLDivElement>(null)
-  console.log(ref)
-
   const { screenX, screenY } = useMouse(ref)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
