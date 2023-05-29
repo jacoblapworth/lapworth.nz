@@ -35,7 +35,7 @@
     "@stitches/react": "1.2.8",
     "@vercel/analytics": "1.0.1",
     "framer-motion": "10.12.16",
-    "got": "12.6.0",
+    "got": "13.0.0",
     "gray-matter": "4.0.3",
     "jose": "4.14.4",
     "next": "13.4.3",
