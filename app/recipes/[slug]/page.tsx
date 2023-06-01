@@ -39,6 +39,5 @@ type Props = {
 
 export default async function Page({ params: { slug } }: Props) {
   const source = await getRecipe(slug)
-  // @ts-expect-error Async Server Component Workaround
   return <MDXRemote source={source} />
 }

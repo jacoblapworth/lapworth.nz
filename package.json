@@ -70,6 +70,6 @@
     "eslint-plugin-cypress": "2.13.3",
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.8.8",
-    "typescript": "5.0.4"
+    "typescript": "5.1.3"
   }
 }
