@@ -12,7 +12,8 @@
     "typescript"
   ],
   "engines": {
-    "node": "18.x"
+    "node": "18.x",
+    "pnpm": ">=3"
   },
   "scripts": {
     "prepare": "npm run tokens:generate -- --clean",
