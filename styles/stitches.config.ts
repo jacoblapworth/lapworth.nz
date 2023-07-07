@@ -3,7 +3,7 @@ import { createStitches } from '@stitches/react'
 export const {
   styled,
   getCssText,
-  globalCss,
+  globalCss: stitchesGlobalCss,
   createTheme,
   css,
   keyframes,
@@ -145,7 +145,7 @@ export const themes = {
   dark: darkTheme,
 }
 
-export const globalStyles = globalCss({
+export const globalStyles = stitchesGlobalCss({
   html: {
     color: '$text',
     fontFamily: '$system',

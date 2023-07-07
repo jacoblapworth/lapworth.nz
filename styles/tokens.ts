@@ -1,9 +1,4 @@
-import {
-  defineTokens,
-  defineSemanticTokens,
-  defineTextStyles,
-  defineLayerStyles,
-} from '@pandacss/dev'
+import { defineTokens, defineSemanticTokens } from '@pandacss/dev'
 
 export const tokens = defineTokens({
   sizes: {
@@ -33,7 +28,7 @@ export const tokens = defineTokens({
     max: { value: '99999px;' },
   },
   shadows: {
-    md: { value: '0 4px 8px {shadow}' },
+    md: { value: '0 4px 8px token(colors.shadow)' },
   },
   zIndex: {
     1: { value: 0 },
@@ -135,102 +130,99 @@ export const semanticTokens = defineSemanticTokens({
   colors: {
     text: {
       value: {
-        base: '{black.80}',
-        _dark: '{white.30}',
+        base: '{colors.black.80}',
+        _dark: '{colors.white.30}',
       },
     },
     primary: {
       value: {
-        base: '{black.100}',
-        _dark: '{white.0}',
+        base: '{colors.black.100}',
+        _dark: '{colors.white.0}',
       },
     },
     primaryOnDark: {
       value: {
-        base: '{white.0}',
+        base: '{colors.white.0}',
         _dark: '',
       },
     },
     secondary: {
       value: {
-        base: '{black.90}',
-        _dark: '{black.90}',
+        base: '{colors.black.90}',
+        _dark: '{colors.black.90}',
       },
     },
     tertiary: {
       value: {
-        base: '{black.70}',
-        _dark: '{grey.40}',
+        base: '{colors.black.70}',
+        _dark: '{colors.grey.40}',
       },
     },
     quaternary: {
       value: {
-        base: '{grey.10}',
-        _dark: '{grey.70}',
+        base: '{colors.grey.10}',
+        _dark: '{colors.grey.70}',
       },
     },
     interactive: {
       value: {
-        base: '{black.80}',
-        _dark: '{white.30}',
+        base: '{colors.black.80}',
+        _dark: '{colors.white.30}',
       },
     },
     background: {
       value: {
-        base: '{white.10}',
-        _dark: '{black.100}',
+        base: '{colors.white.10}',
+        _dark: '{colors.black.100}',
       },
     },
     surface: {
       value: {
-        base: '{white.0}',
+        base: '{colors.white.0}',
         _dark: '#202123',
       },
     },
     surfaceHovered: {
       value: {
-        base: '{white.10}',
+        base: '{colors.white.10}',
         _dark: '#2f3133',
       },
     },
     onSurface: {
       value: {
-        base: '{black.90}',
-        _dark: '{black.90}',
+        base: '{colors.black.90}',
+        _dark: '{colors.black.90}',
       },
     },
     shadow: {
       value: {
-        base: '{grey.10}',
-        _dark: '{white.80}',
+        base: '{colors.grey.10}',
+        _dark: '{colors.white.80}',
       },
     },
     divider: {
       value: {
-        base: '{black.100}',
-        _dark: '{white.0}',
+        base: '{colors.black.100}',
+        _dark: '{colors.white.0}',
       },
     },
     critical: {
       value: {
-        base: '{red.50}',
-        _dark: '{red.50}',
+        base: '{colors.red.50}',
+        _dark: '{colors.red.50}',
       },
     },
     warning: {
       value: {
-        base: '{yellow.50}',
-        _dark: '{yellow.50}',
+        base: '{colors.yellow.50}',
+        _dark: '{colors.yellow.50}',
       },
     },
     success: {
       value: {
-        base: '{green.50}',
-        _dark: '{green.50}',
+        base: '{colors.green.50}',
+        _dark: '{colors.green.50}',
       },
     },
   },
 })
-
-export const textStyles = defineTextStyles({})
-export const layerStyles = defineLayerStyles({})

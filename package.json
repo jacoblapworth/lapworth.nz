@@ -15,7 +15,7 @@
     "node": "18.x"
   },
   "scripts": {
-    "prepare": "panda codegen",
+    "prepare": "npm run tokens:generate -- --clean",
     "dev": "next",
     "build": "next build",
     "start": "next start",
