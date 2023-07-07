@@ -15,12 +15,14 @@
     "node": "18.x"
   },
   "scripts": {
+    "prepare": "panda codegen",
     "dev": "next",
     "build": "next build",
     "start": "next start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "check-types": "",
+    "tokens:generate": "panda codegen",
     "lint": "npm run check-types && next lint",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
   },
@@ -55,6 +57,7 @@
     "zod": "3.21.4"
   },
   "devDependencies": {
+    "@pandacss/dev": "0.5.1",
     "@testing-library/cypress": "9.0.0",
     "@types/musickit-js": "1.0.5",
     "@types/node": "20.4.5",

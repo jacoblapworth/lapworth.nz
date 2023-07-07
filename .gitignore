@@ -43,3 +43,6 @@ cypress/videos/*
 
 # Contentlayer
 .contentlayer
+
+# panda-css
+styled-system

@@ -1,6 +1,4 @@
-import 'sanitize.css'
-import 'sanitize.css/typography.css'
-import 'sanitize.css/forms.css'
+import './index.css'
 
 import { Metadata } from 'next'
 import localFont from 'next/font/local'
