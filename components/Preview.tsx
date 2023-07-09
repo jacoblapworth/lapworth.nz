@@ -2,34 +2,38 @@ import { ReactNode } from 'react'
 
 import { ResizableBox, ResizableBoxProps } from 'react-resizable'
 
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const Container = styled(ResizableBox, {
-  // padding: '$md',
-  borderRadius: '$md',
-  backgroundColor: '$surface',
-  boxShadow: '$md',
-  position: 'relative',
-  paddingInlineEnd: '$md',
-  overflow: 'hidden',
+  base: {
+    // padding: 'md',
+    borderRadius: 'md',
+    backgroundColor: 'surface',
+    boxShadow: 'md',
+    position: 'relative',
+    paddingInlineEnd: 'md',
+    overflow: 'hidden',
+  },
 })
 
 const Handle = styled('span', {
-  position: 'absolute',
-  height: '100%',
-  width: 16,
-  display: 'flex',
-  justifyItems: 'center',
-  alignItems: 'center',
-
-  '&::after': {
-    content: '',
+  base: {
+    position: 'absolute',
+    height: '100%',
+    width: 16,
     display: 'flex',
-    backgroundColor: '$quaternary',
-    borderRadius: '$max',
-    width: 4,
-    height: 40,
-    marginLeft: '6px',
+    justifyItems: 'center',
+    alignItems: 'center',
+
+    _after: {
+      content: '',
+      display: 'flex',
+      backgroundColor: 'quaternary',
+      borderRadius: 'max',
+      width: 4,
+      height: 40,
+      marginLeft: '6px',
+    },
   },
 
   variants: {

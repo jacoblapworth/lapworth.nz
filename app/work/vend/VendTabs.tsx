@@ -9,7 +9,7 @@ import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
 import { Lato } from 'next/font/google'
 
 import { ResponsivePreview } from '@/components/Preview'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const VEND_GREEN = '#41AF4B'
 
@@ -19,43 +19,53 @@ const lato = Lato({
 })
 
 const DropdownTrigger = styled('button', {
-  all: 'unset',
-  color: '#7191A6',
-  display: 'flex',
-  cursor: 'pointer',
-  alignItems: 'center',
-  paddingInline: '$md',
+  base: {
+    all: 'unset',
+    color: '#7191A6',
+    display: 'flex',
+    cursor: 'pointer',
+    alignItems: 'center',
+    paddingInline: 'md',
+  },
 })
 
 const DropdownPortal = styled(DropdownMenu.Portal, {
-  zIndex: '$4',
+  base: {
+    zIndex: '4',
+  },
 })
 
 const DropdownMenuArrow = styled(DropdownMenu.Arrow, {
-  fill: '$surface',
+  base: {
+    fill: 'surface',
+  },
 })
 
 const DropdownContent = styled(DropdownMenu.Content, {
-  backgroundColor: '$surface',
-  // filter: 'drop-shadow(0 4px 5px rgba(0,0,0,.35))',
-  boxShadow: '0 4px 5px rgba(0,0,0,.35)',
-  borderRadius: 5,
-  zIndex: '$4',
-  overflow: 'hidden',
-  paddingBlock: '$md',
-  minWidth: 200,
-  fontFamily: lato.style.fontFamily,
+  base: {
+    backgroundColor: 'surface',
+    // filter: 'drop-shadow(0 4px 5px rgba(0,0,0,.35))',
+    boxShadow: '0 4px 5px rgba(0,0,0,.35)',
+    borderRadius: 5,
+    zIndex: '4',
+    overflow: 'hidden',
+    paddingBlock: 'md',
+    minWidth: 200,
+    fontFamily: lato.style.fontFamily,
+  },
 })
 
 const DropdownItem = styled(DropdownMenu.Item, {
-  cursor: 'pointer',
-  padding: '$md',
-  zIndex: '$4',
-  '&[data-highlighted]': {
-    backgroundColor: '$surfaceHovered',
+  base: {
+    cursor: 'pointer',
+    padding: 'md',
+    zIndex: '4',
+    _highlighted: {
+      backgroundColor: 'surfaceHovered',
+    },
+    display: 'flex',
+    position: 'relative',
   },
-  display: 'flex',
-  position: 'relative',
   variants: {
     isActive: {
       true: {
@@ -117,34 +127,36 @@ interface OverflowIndicatorProps {
 
 function OverflowIndicator({ direction, opacity }: OverflowIndicatorProps) {
   const Indicator = styled(motion.div, {
-    height: '100%',
-    overflow: 'hidden',
-    position: 'absolute',
-    zIndex: '$3',
-    width: 30,
-    transition: 'opacity .2s ease 0s',
-    userSelect: 'none',
-    pointerEvents: 'none',
-
-    '&::before': {
-      borderRadius: '100%',
-      boxShadow: '0 0 30px rgba(0, 0, 0, 0.35)',
-      content: '',
+    base: {
       height: '100%',
+      overflow: 'hidden',
       position: 'absolute',
-      width: '100%',
+      zIndex: '3',
+      width: 30,
+      transition: 'opacity .2s ease 0s',
+      userSelect: 'none',
+      pointerEvents: 'none',
+
+      _before: {
+        borderRadius: '100%',
+        boxShadow: '0 0 30px rgba(0, 0, 0, 0.35)',
+        content: '',
+        height: '100%',
+        position: 'absolute',
+        width: '100%',
+      },
     },
 
     variants: {
       direction: {
         end: {
-          '&::before': {
+          _before: {
             transform: 'translateY(0) translateX(100%)',
           },
           right: '50%',
         },
         start: {
-          '&::before': {
+          _before: {
             transform: 'translateY(0) translateX(-100%)',
           },
           left: '50%',
@@ -154,8 +166,10 @@ function OverflowIndicator({ direction, opacity }: OverflowIndicatorProps) {
   })
 
   const Container = styled('div', {
-    maxWidth: 'fit-content',
-    position: 'relative',
+    base: {
+      maxWidth: 'fit-content',
+      position: 'relative',
+    },
   })
 
   return (
@@ -166,7 +180,9 @@ function OverflowIndicator({ direction, opacity }: OverflowIndicatorProps) {
 }
 
 const Highlight = styled(motion.div, {
-  backgroundColor: VEND_GREEN,
+  base: {
+    backgroundColor: VEND_GREEN,
+  },
   variants: {
     vertical: {
       true: {
@@ -190,28 +206,30 @@ const Highlight = styled(motion.div, {
 })
 
 const TabTrigger = styled(RadixTabs.Trigger, {
-  all: 'unset',
-  position: 'relative',
-  cursor: 'pointer',
-  flexShrink: 0,
-  minHeight: 48,
-  marginBlockEnd: '$md',
+  base: {
+    all: 'unset',
+    position: 'relative',
+    cursor: 'pointer',
+    flexShrink: 0,
+    minHeight: 48,
+    marginBlockEnd: 'md',
 
-  '&:hover': {
-    color: VEND_GREEN,
-    '&::before': {
-      content: '',
-      backgroundColor: '$quaternary',
-      height: 4,
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      right: 0,
+    _hover: {
+      color: VEND_GREEN,
+      _before: {
+        content: '',
+        backgroundColor: 'quaternary',
+        height: 4,
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        right: 0,
+      },
     },
-  },
 
-  '&[data-state="active"]': {
-    color: VEND_GREEN,
+    _active: {
+      color: VEND_GREEN,
+    },
   },
 })
 
@@ -232,60 +250,76 @@ const Tab = forwardRef<HTMLButtonElement, TabProps>(function Tab(
 })
 
 const TabsList = styled(RadixTabs.List, {
-  display: 'flex',
-  margin: 0,
-  padding: 0,
-  gap: '16px 32px',
-  paddingInlineEnd: '$md',
-  scrollbarColor: '$colors$quaternary',
+  base: {
+    display: 'flex',
+    margin: 0,
+    padding: 0,
+    gap: '16px 32px',
+    paddingInlineEnd: 'md',
+    scrollbarColor: 'quaternary',
+  },
 })
 
 const TabsRoot = styled(RadixTabs.Root, {
-  display: 'flex',
-  flexDirection: 'column',
-  boxShadow: `0 2px 10px $primary`,
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    boxShadow: `0 2px 10px token(colors.primary)`,
+  },
 })
 
 const TabsContainer = styled('div', {
-  display: 'flex',
-  flexDirection: 'row',
-  boxShadow: 'inset 0 -1px #c9c7ca',
+  base: {
+    display: 'flex',
+    flexDirection: 'row',
+    boxShadow: 'inset 0 -1px #c9c7ca',
+  },
 })
 
 function SkeletonContent() {
-  const Container = styled(motion.div, {
-    display: 'flex',
-    gap: '$sm',
+  const Layout = styled(motion.div, {
+    base: {
+      display: 'flex',
+      gap: 'sm',
+    },
   })
 
-  const VStack = styled(Container, {
-    flexDirection: 'column',
+  const VStack = styled(Layout, {
+    base: {
+      flexDirection: 'column',
+    },
   })
 
   const Block = styled('div', {
-    borderRadius: '$md',
-    backgroundColor: '$quaternary',
+    base: {
+      borderRadius: 'md',
+      backgroundColor: 'quaternary',
+    },
   })
 
   return (
-    <Container
+    <motion.div
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 0.5, y: 0 }}
       exit={{ opacity: 0, y: -100 }}
       transition={{ type: 'spring', stiffness: 165, damping: 18 }}
     >
-      <Block css={{ height: 48, width: 48 }} />
-      <VStack>
-        <Block css={{ height: 12, width: 100 }} />
-        <Block css={{ height: 12, width: 120 }} />
-      </VStack>
-    </Container>
+      <Layout>
+        <Block css={{ height: 48, width: 48 }} />
+        <VStack>
+          <Block css={{ height: 12, width: 100 }} />
+          <Block css={{ height: 12, width: 120 }} />
+        </VStack>
+      </Layout>
+    </motion.div>
   )
 }
 
 const ScrollContainer = styled('div', {
-  overflowX: 'scroll',
-  marginBlockEnd: '-$md',
+  base: {
+    overflowX: 'scroll',
+    marginBlockEnd: '-$md',
+  },
 })
 
 export function TabsExample() {

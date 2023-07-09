@@ -1,38 +1,43 @@
 import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
-import { styled } from '@/styles'
+import { css } from '@/styled-system/css'
+import { styled } from '@/styled-system/jsx'
 
 import { SpotlightsPreview } from './Spotlight'
 
 const Layout = styled('div', {
-  padding: '$md',
+  base: {
+    padding: 'md',
+  },
 })
 
 const VStack = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'start',
-  gap: '$md',
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'start',
+    gap: 'md',
+  },
 })
 
 export function DiscoverTile() {
   return (
     <SkewTile
       shine={false}
-      css={{
+      className={css({
         gridColumn: '1/-1',
-        '@sm': {
+        sm: {
           gridColumn: '1/span 4',
         },
-      }}
-      // shineCss={{
-      //   mixBlendMode: 'multiply',
-      //   backgroundColor: '#FFE18D',
-      //   [`.${darkTheme} &`]: {
-      //     mixBlendMode: 'soft-light',
-      //   },
-      // }}
+      })}
+      shineClassName={css({
+        mixBlendMode: 'multiply',
+        backgroundColor: '#FFE18D',
+        _dark: {
+          mixBlendMode: 'soft-light',
+        },
+      })}
       initial="initial"
       whileHover="hover"
     >

@@ -1,7 +1,9 @@
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 export const Stack = styled('div', {
-  display: 'flex',
+  base: {
+    display: 'flex',
+  },
 
   variants: {
     dir: {

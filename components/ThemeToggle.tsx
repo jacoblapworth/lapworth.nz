@@ -3,7 +3,7 @@
 import { motion, useCycle } from 'framer-motion'
 import { useTheme } from 'next-themes'
 
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const useThemeValue = (lightValue: string, darkValue: string) => {
   const { resolvedTheme } = useTheme()
@@ -29,16 +29,17 @@ const Icon = () => (
 )
 
 const Button = styled(motion.button, {
-  fontSize: '$lg',
-  border: '1px solid transparent',
-  borderRadius: 9999,
-  backgroundColor: '$surface',
-  textAlign: 'center',
-  cursor: 'pointer',
-  padding: '$sm',
-
-  '&:hover': {
-    border: '1px solid $divider',
+  base: {
+    fontSize: 'lg',
+    border: '1px solid transparent',
+    borderRadius: 9999,
+    backgroundColor: 'surface',
+    textAlign: 'center',
+    cursor: 'pointer',
+    padding: 'sm',
+    _hover: {
+      border: 'divider',
+    },
   },
 })
 

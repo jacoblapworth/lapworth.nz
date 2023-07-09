@@ -4,52 +4,57 @@ import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile'
 import { Text } from '@/components/Typography'
 import logo from '@/public/static/work/xero/logo.svg'
-import { styled, darkTheme } from '@/styles'
+import { css } from '@/styled-system/css'
+import { styled } from '@/styled-system/jsx'
 
 import { Highlight } from './Highlight'
 
 const Layout = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  paddingBlock: '$lg',
-  paddingInline: '$md',
-  maxWidth: '75ch',
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    paddingBlock: 'lg',
+    paddingInline: 'md',
+    maxWidth: '75ch',
+  },
 })
 
 const Footer = styled('div', {
-  margin: '$md',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'end',
+  base: {
+    margin: 'md',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'end',
+  },
 })
 
 export const XeroTile = () => {
   return (
     <SkewTile
-      css={{
+      className={css({
         gridColumn: '1/-1',
-        '@sm': {
+        sm: {
           gridColumn: '1/7',
         },
 
-        '@lg': {
+        lg: {
           gridColumn: '1/5',
         },
 
         backgroundColor: '#fff',
-        // borderColor: '#d8eeee',
-        [`.${darkTheme} &`]: {
+        borderColor: '#d8eeee',
+        _dark: {
           backgroundColor: '#111e2b',
         },
-      }}
-      shineCss={{
+      })}
+      shineClassName={css({
         mixBlendMode: 'multiply',
         backgroundColor: '#BBF3FD',
-        [`.${darkTheme} &`]: {
+        _dark: {
           mixBlendMode: 'soft-light',
         },
-      }}
+      })}
     >
       <NextImage
         alt="Xero logo"

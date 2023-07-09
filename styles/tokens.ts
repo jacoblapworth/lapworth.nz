@@ -28,7 +28,7 @@ export const tokens = defineTokens({
     max: { value: '99999px;' },
   },
   shadows: {
-    md: { value: '0 4px 8px token(colors.shadow)' },
+    md: { value: '0 4px 8px {colors.shadow}' },
   },
   zIndex: {
     1: { value: 0 },
@@ -127,6 +127,10 @@ export const tokens = defineTokens({
 })
 
 export const semanticTokens = defineSemanticTokens({
+  borders: {
+    divider: { value: '1px solid {colors.divider}' },
+    muted: { value: '1px solid {colors.quaternary}' },
+  },
   colors: {
     text: {
       value: {
@@ -225,4 +229,66 @@ export const semanticTokens = defineSemanticTokens({
       },
     },
   },
+})
+
+const tradeMeColors = defineTokens.colors({
+  pohutukawa: {
+    DEFAULT: { value: 'pohutukawa.500' },
+    '5': { value: '#FFF8F8' },
+    '10': { value: '#FFF1F2' },
+    '20': { value: '#FFE7E7' },
+    '30': { value: '#FFD5D5' },
+    '50': { value: '#FFBCBD' },
+    '100': { value: '#FA999B' },
+    '200': { value: '#F57F7E' },
+    '300': { value: '#EF6D6B' },
+    '400': { value: '#E95958' },
+    '500': { value: '#E34647' },
+    '600': { value: '#D93A3F' },
+    '700': { value: '#C82630' },
+    '800': { value: '#B21C2A' },
+    '900': { value: '#9F2023' },
+  },
+  jaffa: {
+    DEFAULT: { value: 'jaffa.500' },
+    '5': { value: '#FFF8F5' },
+    '10': { value: '#FFF2ED' },
+    '20': { value: '#FFE9E1' },
+    '30': { value: '#FFD9CA' },
+    '50': { value: '#FFC6B0' },
+    '100': { value: '#FFAF8F' },
+    '200': { value: '#FF976E' },
+    '300': { value: '#FF8455' },
+    '400': { value: '#FC723E' },
+    '500': { value: '#F3632D' },
+    '600': { value: '#E95219' },
+    '700': { value: '#D54209' },
+    '800': { value: '#C23802' },
+    '900': { value: '#A72F00' },
+  },
+  'hokey-pokey': {
+    DEFAULT: { value: 'hokey-pokey.500' },
+    '5': { value: '#FFFCF0' },
+    '10': { value: '#FFFAE5' },
+    '20': { value: '#FFF4D1' },
+    '30': { value: '#FFE8AC' },
+    '50': { value: '#FFE18D' },
+    '100': { value: '#FFD972' },
+    '200': { value: '#FFD35F' },
+    '300': { value: '#FFCB4F' },
+    '400': { value: '#FFC041' },
+    '500': { value: '#F9AF2C' },
+    '600': { value: '#EB9600' },
+    '700': { value: '#D57800' },
+    '800': { value: '#B45600' },
+    '900': { value: '#943900' },
+  },
+})
+
+const tradeMeTokens = defineSemanticTokens.colors({
+  marketplace: { value: 'pohutukawa' },
+  jobs: { value: '#FC723E' },
+  property: { value: '#2FBC7A' },
+  motors: { value: '#6D7E98' },
+  services: { value: '#535353' },
 })

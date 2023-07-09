@@ -1,42 +1,48 @@
 import { ReactNode } from 'react'
 
-import { darkTheme, styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const Em = styled('em', {
-  display: 'inline-grid',
-  position: 'relative',
-  fontStyle: 'inherit',
-  alignItems: 'baseline',
-  width: 'min-content',
+  base: {
+    display: 'inline-grid',
+    position: 'relative',
+    fontStyle: 'inherit',
+    alignItems: 'baseline',
+    width: 'min-content',
+  },
 })
 
 const Span = styled('span', {
-  height: '0.25em',
-  maxHeight: '1rem',
-  width: '100%',
-  zIndex: 0,
-  // position: 'absolute',
-  // bottom: 26,
-  // '@sm': {
-  //   bottom: 48,
-  // },
-  alignSelf: 'center',
-  display: 'block',
-  mixBlendMode: 'darken',
-  [`.${darkTheme} &`]: {
-    mixBlendMode: 'lighten',
+  base: {
+    height: '0.25em',
+    maxHeight: '1rem',
+    width: '100%',
+    zIndex: 0,
+    // position: 'absolute',
+    // bottom: 26,
+    // '@sm': {
+    //   bottom: 48,
+    // },
+    alignSelf: 'center',
+    display: 'block',
+    mixBlendMode: 'darken',
+    _dark: {
+      mixBlendMode: 'lighten',
+    },
+    overflow: 'visible',
+    gridArea: '1/-1',
   },
-  overflow: 'visible',
-  gridArea: '1/-1',
 })
 
 const Text = styled('span', {
-  inset: '0px',
-  display: 'inline-block',
-  position: 'relative',
-  whiteSpace: 'nowrap',
-  zIndex: 1,
-  gridArea: '1/-1',
+  base: {
+    inset: '0px',
+    display: 'inline-block',
+    position: 'relative',
+    whiteSpace: 'nowrap',
+    zIndex: 1,
+    gridArea: '1/-1',
+  },
 })
 
 interface Props {

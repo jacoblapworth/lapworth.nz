@@ -1,5 +1,7 @@
+'use client'
+
 import { Link } from '@/components/Link'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 import { Text } from '../../components/Typography'
 
@@ -14,14 +16,18 @@ interface ExperienceRowProps {
 }
 
 const Column = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
 })
 
 const Row = styled('div', {
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
-  gap: '1rem',
+  base: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '1rem',
+  },
 })
 
 const ExperienceRow = ({ workplace, from, to, href }: ExperienceRowProps) => {
@@ -37,12 +43,14 @@ const ExperienceRow = ({ workplace, from, to, href }: ExperienceRowProps) => {
 }
 
 const Stack = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '16px',
-  gridColumn: '1 / -1',
-  justifyContent: 'space-between',
-  maxWidth: '12rem',
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '16px',
+    gridColumn: '1 / -1',
+    justifyContent: 'space-between',
+    maxWidth: '12rem',
+  },
 })
 
 export const Experience = () => {

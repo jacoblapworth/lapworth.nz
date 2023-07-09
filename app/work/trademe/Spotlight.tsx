@@ -3,7 +3,7 @@ import { FC, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { tradeMeTheme } from '@/app/work/trademe/theme'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 import {
   BagIcon,
@@ -15,14 +15,16 @@ import {
 } from './Icons'
 
 const Circle = styled('div', {
-  height: '54px',
-  width: '54px',
-  border: 'none',
-  borderRadius: '50%',
-  gridArea: 'icon',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  base: {
+    height: '54px',
+    width: '54px',
+    border: 'none',
+    borderRadius: '50%',
+    gridArea: 'icon',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
   variants: {
     vertical: {
@@ -70,25 +72,29 @@ const Circle = styled('div', {
 })
 
 const Label = styled('div', {
-  fontSize: '12px',
-  textAlign: 'center',
-  textTransform: 'capitalize',
-  gridArea: 'label',
+  base: {
+    fontSize: '12px',
+    textAlign: 'center',
+    textTransform: 'capitalize',
+    gridArea: 'label',
+  },
 })
 
 const Button = styled(motion.button, {
-  placeItems: 'center',
-  placeContent: 'center',
-  display: 'grid',
-  gap: 4,
-  gridTemplateAreas: '"icon" "label"',
-  padding: 0,
-  border: 'none',
-  background: 'none',
-  cursor: 'pointer',
+  base: {
+    placeItems: 'center',
+    placeContent: 'center',
+    display: 'grid',
+    gap: 4,
+    gridTemplateAreas: '"icon" "label"',
+    padding: 0,
+    border: 'none',
+    background: 'none',
+    cursor: 'pointer',
 
-  '&:hover': {
-    filter: 'brightness(0.8)',
+    _hover: {
+      filter: 'brightness(0.8)',
+    },
   },
 })
 
@@ -168,13 +174,15 @@ const Spot: FC<SpotProps> = ({
 }
 
 const Grid = styled(motion.div, {
-  padding: 16,
-  borderRadius: '$sm',
-  backgroundColor: '$background',
-  display: 'grid',
-  gap: 16,
-  gridTemplateColumns: 'repeat(5, 54px)',
-  justifyContent: 'center',
+  base: {
+    padding: 16,
+    borderRadius: 'sm',
+    backgroundColor: 'background',
+    display: 'grid',
+    gap: 16,
+    gridTemplateColumns: 'repeat(5, 54px)',
+    justifyContent: 'center',
+  },
 })
 
 interface Spot {
@@ -225,9 +233,11 @@ export const MarketplaceSpotlights = () => {
 
 export const SpotlightsPreview = () => {
   const Layout = styled('div', {
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'end',
+    base: {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'end',
+    },
   })
 
   const variants = {

@@ -1,27 +1,25 @@
+'use client'
+
 import { ReactNode, useState } from 'react'
 
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { motion } from 'framer-motion'
 
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
+
+import { css } from '../styled-system/css'
 
 export const Trigger = styled(RadixTabs.Trigger, {
-  all: 'unset',
-  cursor: 'pointer',
-  paddingBlock: '$sm',
-  color: '$tertiary',
-  '&[data-state="active"]': {
-    color: '$interactive',
+  base: {
+    all: 'unset',
+    cursor: 'pointer',
+    paddingBlock: 'sm',
+    color: 'tertiary',
+    _active: {
+      color: 'interactive',
+    },
+    position: 'relative',
   },
-  position: 'relative',
-})
-
-const Highlight = styled(motion.div, {
-  backgroundColor: '$interactive',
-  height: 1,
-  width: '100%',
-  position: 'absolute',
-  bottom: -1,
 })
 
 interface WrappedTriggerProps extends React.ComponentProps<typeof Trigger> {
@@ -34,12 +32,19 @@ function Tab({ children, isActive, ...props }: WrappedTriggerProps) {
     <Trigger {...props}>
       {children}
       {isActive && (
-        <Highlight
+        <motion.div
           layoutId="highlight"
           transition={{
             ease: [0.4, 0, 0.2, 1],
             duration: 0.15,
           }}
+          className={css({
+            backgroundColor: 'interactive',
+            height: 1,
+            width: '100%',
+            position: 'absolute',
+            bottom: -1,
+          })}
         />
       )}
     </Trigger>
@@ -48,9 +53,11 @@ function Tab({ children, isActive, ...props }: WrappedTriggerProps) {
 // )
 
 export const List = styled(RadixTabs.List, {
-  display: 'flex',
-  gap: '$md',
-  borderBlockEnd: '1px solid $quaternary',
+  base: {
+    display: 'flex',
+    gap: 'md',
+    borderBlockEnd: '1px solid token(colors.quaternary)',
+  },
 })
 
 export function TabsExample() {
@@ -71,7 +78,7 @@ export function TabsExample() {
 
   return (
     <RadixTabs.Root value={currentValue} onValueChange={setValue}>
-      <List css={{ marginBlockEnd: '$md' }}>
+      <List css={{ marginBlockEnd: 'md' }}>
         {values.map(({ value, label }) => (
           <Tab key={value} value={value} isActive={value == currentValue}>
             {label}

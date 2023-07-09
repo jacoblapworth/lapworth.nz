@@ -7,26 +7,30 @@ import { MusicKitResource } from '@/app/about/music'
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
 import ProfileImage from '@/public/static/j-photo-mono.png'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 import { Experience } from './experience'
 
 const Profile = styled(NextImage, {
-  borderRadius: '50%',
-  overflow: 'hidden',
-  marginInlineStart: '0.2em',
-  height: '0.75em',
-  width: '0.75em',
-  border: '1px solid transparent',
-  '&:hover': {
-    border: '1px dashed $divider',
+  base: {
+    borderRadius: '50%',
+    overflow: 'hidden',
+    marginInlineStart: '0.2em',
+    height: '0.75em',
+    width: '0.75em',
+    border: '1px dashed transparent',
+    _hover: {
+      borderColor: 'divider',
+    },
   },
 })
 
 const NoWrap = styled('span', {
-  whiteSpace: 'nowrap',
-  display: 'inline-flex',
-  alignItems: 'baseline',
+  base: {
+    whiteSpace: 'nowrap',
+    display: 'inline-flex',
+    alignItems: 'baseline',
+  },
 })
 
 interface Props {
@@ -34,7 +38,9 @@ interface Props {
 }
 
 const Container = styled('div', {
-  maxWidth: 1000,
+  base: {
+    maxWidth: '1000px',
+  },
 })
 
 export default function Page({ music }: Props) {

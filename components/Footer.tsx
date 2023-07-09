@@ -1,14 +1,16 @@
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const Tagline = styled('footer', {
-  gridArea: 'footer',
-  paddingBlockStart: 8,
-  paddingBlockEnd: 12,
-  borderTop: '1px solid $divider',
-  fontSize: '$sm',
-  color: '$tertiary',
-  marginInline: 16,
-  marginBottom: 'env(safe-area-inset-bottom)',
+  base: {
+    gridArea: 'footer',
+    paddingBlockStart: '8px',
+    paddingBlockEnd: '12px',
+    borderTop: 'divider',
+    fontSize: 'sm',
+    color: 'tertiary',
+    marginInline: '16px',
+    marginBottom: 'env(safe-area-inset-bottom)',
+  },
 })
 
 export const Footer = () => {

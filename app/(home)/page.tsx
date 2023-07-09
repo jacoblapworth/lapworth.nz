@@ -1,18 +1,20 @@
-'use client'
-
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const Container = styled('div', {
-  maxWidth: '100vw',
-  '@sm': {
-    maxWidth: '75vw',
+  base: {
+    maxWidth: '100vw',
+    sm: {
+      maxWidth: '75vw',
+    },
   },
 })
 
 const HiddenLink = styled(Link, {
-  display: 'none',
+  base: {
+    display: 'none',
+  },
 })
 
 export default function Page() {

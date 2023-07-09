@@ -8,11 +8,9 @@ import { Page } from '@/components/Page'
 import { themeConfig } from '@/components/Theme'
 import { darkTheme, lightTheme } from '@/styles'
 
-import { StitchesRegistry } from './style'
-
 const sectraFont = localFont({
   src: './fonts/sectra/regular.woff',
-  variable: '--j-fonts-serif',
+  variable: '--fonts-serif',
   preload: true,
   weight: '400',
   display: 'swap',
@@ -72,14 +70,8 @@ export default function RootLayout({
             href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${emoji}</text></svg>`}
           />
         </head>
-        <body
-          style={{
-            backgroundColor: lightTheme.colors.background.computedValue,
-          }}
-        >
-          <StitchesRegistry>
-            <Page>{children}</Page>
-          </StitchesRegistry>
+        <body style={{ backgroundColor: 'var(--colors-background)' }}>
+          <Page>{children}</Page>
         </body>
       </html>
     </ServerThemeProvider>
