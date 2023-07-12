@@ -1,14 +1,12 @@
 'use client'
-import { useState, ComponentProps } from 'react'
+import { useState, ReactNode } from 'react'
 
 import { motion } from 'framer-motion'
-import NextLink from 'next/link'
+import NextLink, { LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { Link } from '@/components/Link'
 import { styled } from '@/styles'
-
-type NextLinkProps = ComponentProps<typeof NextLink>
 
 const A = styled(NextLink, {
   $$highlightWidth: '20px',
@@ -55,7 +53,12 @@ const A = styled(NextLink, {
   },
 })
 
-const NavLink = ({ children, href }: NextLinkProps) => {
+interface Props extends LinkProps {
+  href: string
+  children: ReactNode
+}
+
+const NavLink = ({ children, href }: Props) => {
   const [animate, setAnimate] = useState('hidden')
   const pathname = usePathname()
 
@@ -72,7 +75,7 @@ const NavLink = ({ children, href }: NextLinkProps) => {
     setAnimate('hidden')
   }
 
-  const isActive = pathname?.startsWith(href.toString())
+  const isActive = pathname?.startsWith(href)
 
   return (
     <A

@@ -1,5 +1,3 @@
-import { FC } from 'react'
-
 import NextImage from 'next/image'
 
 import { styled, css } from '../../styles'
@@ -78,9 +76,7 @@ const styles = css({
   // height: 'unset !important',
 })
 
-interface GlassProps {}
-
-const Glass: FC<GlassProps> = ({}) => {
+const Glass = () => {
   return (
     <Container>
       <Screen>

@@ -1,5 +1,3 @@
-import { FC } from 'react'
-
 import { styled } from '@stitches/react'
 import NextImage from 'next/image'
 
@@ -19,9 +17,7 @@ const Image = styled(NextImage, {
   objectFit: 'contain',
 })
 
-interface FigmaAccessibilityProps {}
-
-export const FigmaAccessibility: FC<FigmaAccessibilityProps> = ({}) => {
+export const FigmaAccessibility = () => {
   return (
     <div>
       <Copy>

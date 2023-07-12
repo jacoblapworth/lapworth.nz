@@ -52,7 +52,7 @@ const Card = styled(motion.div, {
   },
 
   '&:hover': {
-    [`& ${ShineElement}`]: {
+    [`& ${ShineElement.className}`]: {
       opacity: 0.85,
     },
   },

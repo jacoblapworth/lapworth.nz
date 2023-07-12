@@ -102,8 +102,8 @@ export function formatArtworkUrl(
   size: number,
 ): string {
   const url = decodeURI(artwork.url)
-  const h = size || artwork.height || 100
-  const w = size || artwork.width || 100
+  const h = (size || artwork.height) ?? 100
+  const w = (size || artwork.width) ?? 100
   return url
     .replace('{h}', '' + h)
     .replace('{w}', '' + w)
@@ -117,7 +117,7 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
       'Music-User-Token': APPLE_MUSIC_USER_TOKEN,
     },
     next: { revalidate: 60 * 60 * 24 },
-  }).then((res) => res.json())
+  }).then<unknown>((res) => res.json())
 
   const music = RMusicKitHistory.safeParse(response)
 

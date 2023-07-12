@@ -1,7 +1,3 @@
-import { FC } from 'react'
-
-interface VendSplashProps {}
-
-export const VendSplash: FC<VendSplashProps> = ({}) => {
+export const VendSplash = ({}) => {
   return <div></div>
 }

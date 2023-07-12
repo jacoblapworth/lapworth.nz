@@ -1,5 +1,3 @@
-import { FC } from 'react'
-
 import { Text } from '@/components/Typography'
 import { styled, darkTheme } from '@/styles'
 
@@ -69,9 +67,7 @@ const TextContainer = styled('p', {
   cursor: 'auto',
 })
 
-interface DiscoverProps {}
-
-const Discover: FC<DiscoverProps> = ({}) => {
+const Discover = () => {
   return (
     <Container>
       <Header>

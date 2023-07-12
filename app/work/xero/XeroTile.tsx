@@ -1,4 +1,4 @@
-import NextImage from 'next/image'
+import NextImage, { StaticImageData } from 'next/image'
 
 import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile'
@@ -55,7 +55,7 @@ export const XeroTile = () => {
         alt="Xero logo"
         height={48}
         width={48}
-        src={logo}
+        src={logo as StaticImageData}
         style={{
           maxWidth: '100%',
           height: 'auto',

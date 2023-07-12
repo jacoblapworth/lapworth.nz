@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 
 import useMouse from '@react-hook/mouse-position'
 import { motion, useMotionValue } from 'framer-motion'
-import NextImage from 'next/image'
+import NextImage, { StaticImageData } from 'next/image'
 import NextLink from 'next/link'
 
 import { Shine } from '@/components/Tile/SkewTile'
@@ -79,7 +79,7 @@ export default function Page() {
         css={{ display: 'flex', gap: '$md', marginBlockEnd: '$sm' }}
       >
         Xero User Interface
-        <Logo src={xuiLogo} alt="XUI logo" />
+        <Logo src={xuiLogo as StaticImageData} alt="XUI logo" />
       </Text>
       <Text display size="medium">
         Design system for beautiful business

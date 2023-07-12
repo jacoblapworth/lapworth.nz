@@ -1,8 +1,4 @@
-import { FC } from 'react'
-
-interface ArrowProps {}
-
-export const ArrowIcon: FC<ArrowProps> = ({}) => {
+export const ArrowIcon = () => {
   return (
     <svg
       width="24"
