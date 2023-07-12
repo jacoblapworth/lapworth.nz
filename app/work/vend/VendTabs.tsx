@@ -65,14 +65,14 @@ const DropdownItem = styled(DropdownMenu.Item, {
   },
 })
 
-type TabItem = {
+interface TabItem {
   value: string
   label: string
   // ref: RefObject<HTMLButtonElement>
 }
 
 interface DropdownMenuProps {
-  tabs: Array<TabItem>
+  tabs: TabItem[]
   onChange: (value: string) => void
   activeTab?: string
 }
@@ -289,8 +289,8 @@ const ScrollContainer = styled('div', {
 })
 
 export function TabsExample() {
-  const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
-  const tabs: Array<TabItem> = [
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const tabs: TabItem[] = [
     { value: '1', label: 'Inventory' },
     { value: '2', label: 'Tax' },
     { value: '3', label: 'Price & Loyalty' },

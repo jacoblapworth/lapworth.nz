@@ -36,7 +36,7 @@ export const Blockquote = styled('blockquote', {
   lineHeight: '2.5rem',
   hangingPunctuation: 'first last',
 
-  [`& ${Text}`]: {
+  [`& ${Text.className}`]: {
     maxWidth: '35ch',
   },
 

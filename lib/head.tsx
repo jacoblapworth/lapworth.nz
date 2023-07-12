@@ -39,10 +39,10 @@ export const useRouteEmoji = () => {
 
   let emoji = '🌈'
 
-  if (router.route.indexOf('/about') === 0) emoji = '👋'
-  if (router.route.indexOf('/writing') === 0) emoji = '💭'
-  if (router.route.indexOf('/bookmarks') === 0) emoji = '📖'
-  if (router.route.indexOf('/listening') === 0) emoji = '🎧'
+  if (router.route.startsWith('/about')) emoji = '👋'
+  if (router.route.startsWith('/writing')) emoji = '💭'
+  if (router.route.startsWith('/bookmarks')) emoji = '📖'
+  if (router.route.startsWith('/listening')) emoji = '🎧'
 
   return emoji
 }

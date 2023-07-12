@@ -44,7 +44,7 @@ const Stack = styled('div', {
 
 const AlbumLink = styled(Link, {
   '&:hover': {
-    [`& ${AlbumArt}`]: {
+    [`& ${AlbumArt.className}`]: {
       opacity: 0.8,
     },
   },

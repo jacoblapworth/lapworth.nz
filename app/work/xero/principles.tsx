@@ -1,6 +1,6 @@
 import { MDXProvider } from '@mdx-js/react'
 import { NextPage } from 'next'
-import NextImage from 'next/image'
+import NextImage, { StaticImageData } from 'next/image'
 import { MDXRemote } from 'next-mdx-remote'
 
 import { images } from '@/app/work/xero/images'
@@ -120,6 +120,17 @@ export function Principles() {
           <Text size="small" css={{ color: '$background' }}>
             Principle {value}
           </Text>
+          <ul>
+            {means.map((mean) => (
+              <li key={mean}>{mean}</li>
+            ))}
+          </ul>
+          <Text>{outcome}</Text>
+          <ul>
+            {watch.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </Card>
       ))}
     </Container>
@@ -183,11 +194,17 @@ export function WorldMap() {
       </Ul>
       <Picture>
         <source
-          srcSet={worldMapDark.src}
+          srcSet={(worldMapDark as StaticImageData).src}
           media="(prefers-color-scheme: dark)"
         />
-        <source srcSet={worldMap.src} media="(prefers-color-scheme: light)" />
-        <Image src={worldMapDark} alt="Map of world highlighting 7 locations" />
+        <source
+          srcSet={(worldMap as StaticImageData).src}
+          media="(prefers-color-scheme: light)"
+        />
+        <Image
+          src={worldMapDark as StaticImageData}
+          alt="Map of world highlighting 7 locations"
+        />
       </Picture>
     </Grid>
   )

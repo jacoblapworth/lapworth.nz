@@ -9,14 +9,11 @@ const mdxFilenamePredicate = (filename: string) => filename.endsWith('.mdx')
 
 export async function generateStaticParams() {
   const fileNames = await fs.readdir(postsDirectory)
-
-  const files = await Promise.all(
-    fileNames.filter(mdxFilenamePredicate).map(async (fileName) => {
-      return {
-        fileName: fileName.replace('.mdx', ''),
-      }
-    }),
-  )
+  const files = fileNames.filter(mdxFilenamePredicate).map((fileName) => {
+    return {
+      fileName: fileName.replace('.mdx', ''),
+    }
+  })
 
   const paths = files.map((file) => {
     return {
@@ -28,12 +25,12 @@ export async function generateStaticParams() {
 }
 
 const getRecipe = async (slug: string) => {
-  const filePath = path.join(postsDirectory, slug as string)
+  const filePath = path.join(postsDirectory, slug)
   const content = await fs.readFile(`${filePath}.mdx`, 'utf8')
   return content
 }
 
-type Props = {
+interface Props {
   params: { slug: string }
 }
 

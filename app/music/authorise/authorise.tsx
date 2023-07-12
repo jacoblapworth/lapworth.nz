@@ -18,7 +18,7 @@ export default function Authorise({ developerToken }: Props) {
       userToken && console.log('Apple Music user token:', userToken)
     }
 
-    authorize()
+    authorize().catch(console.error)
   }, [appleMusic])
 
   return (

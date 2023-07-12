@@ -53,10 +53,12 @@ export const List = styled(RadixTabs.List, {
   borderBlockEnd: '1px solid $quaternary',
 })
 
-interface TabsProps {}
-
-export function TabsExample({}: TabsProps) {
-  type Value = { value: string; label: string; content?: ReactNode }
+export function TabsExample() {
+  interface Value {
+    value: string
+    label: string
+    content?: ReactNode
+  }
 
   const values: Value[] = [
     { value: '1', label: 'Image generation', content: 'Test' },
