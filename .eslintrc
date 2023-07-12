@@ -1,8 +1,9 @@
 {
   "extends": [
     "prettier",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
     "plugin:cypress/recommended"
   ],
   "plugins": [
@@ -10,6 +11,11 @@
     "prettier",
     "cypress"
   ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": true,
+    "tsconfigRootDir": "__dirname"
+  },
   "env": {
     "cypress/globals": true
   },
@@ -21,7 +27,6 @@
         "allowDefinitionFiles": true
       }
     ],
-    "@typescript-eslint/no-empty-interface": "off",
     "import/order": [
       "error",
       {
