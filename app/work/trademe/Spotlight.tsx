@@ -2,7 +2,6 @@ import { FC, useState } from 'react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { tradeMeTheme } from '@/app/work/trademe/theme'
 import { styled } from '@/styled-system/jsx'
 
 import {
@@ -250,7 +249,7 @@ export const SpotlightsPreview = () => {
   }
 
   return (
-    <Layout className={tradeMeTheme}>
+    <Layout>
       {verticals.map((vertical, i) => (
         <motion.div
           key={vertical}

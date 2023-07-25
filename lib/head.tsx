@@ -3,9 +3,6 @@ import { FC } from 'react'
 import NextHead from 'next/head'
 import { useRouter } from 'next/router'
 import { DefaultSeo, NextSeoProps } from 'next-seo'
-import { useTheme } from 'next-themes'
-
-import { themes } from '@/styles'
 
 export const baseUrl = 'https://lapworth.nz'
 export const email = 'jacob@lapworth.nz'
@@ -49,10 +46,6 @@ export const useRouteEmoji = () => {
 
 export const Head: FC = () => {
   const emoji = useRouteEmoji()
-  const { resolvedTheme = 'light' } = useTheme()
-
-  type Theme = keyof typeof themes
-  const themeColor = themes[resolvedTheme as Theme].colors.background.value
 
   return (
     <>
@@ -62,7 +55,6 @@ export const Head: FC = () => {
           name="viewport"
           content="initial-scale=1, viewport-fit=cover width=device-width"
         />
-        <meta name="theme-color" content={themeColor} />
         <link
           rel="icon"
           type="image/svg+xml"

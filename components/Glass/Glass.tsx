@@ -1,72 +1,84 @@
 import NextImage from 'next/image'
 
-import { styled, css } from '../../styles'
+import { css } from '@/styled-system/css'
+import { styled } from '@/styled-system/jsx'
 
 const Container = styled('div', {
-  // width: '298',
-  // height: '100%',
-  maxWidth: 298,
-  height: 602,
-  position: 'relative',
-  display: 'grid',
-  gridTemplate: '1/1',
-  placeItems: 'center',
-  placeContent: 'center',
-  justifyItems: 'stretch',
-  overflow: 'hidden',
-  // maxHeight: 'clamp(450px, 50vh, 600px)',
+  base: {
+    // width: '298',
+    // height: '100%',
+    maxWidth: 298,
+    height: 602,
+    position: 'relative',
+    display: 'grid',
+    gridTemplate: '1/1',
+    placeItems: 'center',
+    placeContent: 'center',
+    justifyItems: 'stretch',
+    overflow: 'hidden',
+    // maxHeight: 'clamp(450px, 50vh, 600px)',
+  },
 })
 
 const Screen = styled('div', {
-  zIndex: 2,
-  gridArea: 'container',
-  // gridTemplate: 'container',
-  // width: '100%',
-  // height: '100%',
-  // display: 'block',
-  // position: 'absolute',
-  // top: 0,
-  // left: 0,
-  // marginTop: 10,
-  // marginLeft: 10,
-  // padding: 10,
-  // width: '100%',
-  // height: '100%',
-  // width: 278,
-  // height: 582,
-  // padding: 10,
-  margin: 5,
-  borderRadius: '8vmin',
-  backgroundClip: 'border-box',
-  clip: 'auto',
-  overflow: 'hidden',
+  base: {
+    zIndex: 2,
+    gridArea: 'container',
+    // gridTemplate: 'container',
+    // width: '100%',
+    // height: '100%',
+    // display: 'block',
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // marginTop: 10,
+    // marginLeft: 10,
+    // padding: 10,
+    // width: '100%',
+    // height: '100%',
+    // width: 278,
+    // height: 582,
+    // padding: 10,
+    margin: 5,
+    borderRadius: '8vmin',
+    backgroundClip: 'border-box',
+    clip: 'auto',
+    overflow: 'hidden',
+  },
 })
 
 const Device = styled('div', {
-  zIndex: 3,
-  gridArea: 'container',
-  // width: '100%',
-  // height: 'auto',
-  // display: 'block',
-  // position: 'absolute',
-  // top: 0,
-  // left: 0,
-  // width: 298,
-  // height: 602,
+  base: {
+    zIndex: 3,
+    gridArea: 'container',
+    // width: '100%',
+    // height: 'auto',
+    // display: 'block',
+    // position: 'absolute',
+    // top: 0,
+    // left: 0,
+    // width: 298,
+    // height: 602,
+  },
 })
 
 const Shadow = styled('div', {
-  zIndex: 1,
-  gridArea: 'container',
-  // display: 'block',
-  // position: 'absolute',
-  // left: -199,
-  // top: -27,
-  // height: 776,
-  // width: 696,
+  base: {
+    zIndex: 1,
+    gridArea: 'container',
+    // display: 'block',
+    // position: 'absolute',
+    // left: -199,
+    // top: -27,
+    // height: 776,
+    // width: 696,
+  },
 })
 
 const styles = css({
+  maxWidth: '100%',
+  height: 'auto',
+  objectFit: 'contain',
   // gridArea: '1/1',
   // width: '100%',
   // height: 'auto',
@@ -85,12 +97,7 @@ const Glass = () => {
           alt="Screenshot"
           width="298"
           height="602"
-          className={styles()}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-            objectFit: 'contain',
-          }}
+          className={styles}
         />
       </Screen>
       <Device>
@@ -99,12 +106,7 @@ const Glass = () => {
           alt=""
           width="298"
           height="602"
-          className={styles()}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-            objectFit: 'contain',
-          }}
+          className={styles}
         />
       </Device>
       <Shadow>
@@ -113,12 +115,7 @@ const Glass = () => {
           alt=""
           width="696"
           height="776"
-          className={styles()}
-          style={{
-            maxWidth: '100%',
-            height: 'auto',
-            objectFit: 'contain',
-          }}
+          className={styles}
         />
       </Shadow>
     </Container>

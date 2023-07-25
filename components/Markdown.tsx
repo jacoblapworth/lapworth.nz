@@ -5,10 +5,10 @@ import type {
   HTMLAttributes,
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,
+  ComponentProps,
 } from 'react'
 
 import { MDXProvider } from '@mdx-js/react'
-import { ComponentProps } from '@stitches/react'
 import { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
 import { usePathname } from 'next/navigation'
