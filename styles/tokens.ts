@@ -7,6 +7,7 @@ export const tokens = defineTokens({
     lg: { value: '32px' },
   },
   spacing: {
+    xsm: { value: '4px' },
     sm: { value: '8px' },
     md: { value: '16px' },
     lg: { value: '32px' },

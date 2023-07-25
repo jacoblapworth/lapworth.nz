@@ -19,7 +19,7 @@ const AlbumArt = styled(NextImage, {
     overflow: 'hidden',
     borderRadius: 'md',
     backgroundColor: 'surface',
-    marginBlockEnd: 4,
+    marginBlockEnd: 'xsm',
     willChange: 'transform',
     _groupHover: {
       opacity: 0.8,
@@ -56,16 +56,6 @@ const Stack = styled('div', {
   },
 })
 
-const AlbumLink = styled(Link, {
-  base: {
-    _hover: {
-      // [`& ${AlbumArt}`]: {
-      //   opacity: 0.8,
-      // },
-    },
-  },
-})
-
 interface AppleMusicResourceProps {
   resource: MusicKitResource
 }
@@ -77,7 +67,7 @@ const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
   const src = buildImageUrl(resource.attributes.artwork.url, size)
 
   return (
-    <AlbumLink href={resource.attributes.url} className="group">
+    <Link href={resource.attributes.url} className="group">
       <Stack>
         <AlbumArt
           alt={`Album artwork for "${name}"`}
@@ -91,7 +81,7 @@ const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>
       </Stack>
-    </AlbumLink>
+    </Link>
   )
 }
 
@@ -101,12 +91,12 @@ const Grid = styled('div', {
     gridAutoColumns: 128,
     gridAutoRows: 'auto',
     gridAutoFlow: 'column',
-    gap: 16,
+    gap: 'md',
     overflowX: 'scroll',
     overflowY: 'visible',
     marginInline: -16,
-    paddingBlock: 16,
-    paddingInline: 16,
+    paddingBlock: 'md',
+    paddingInline: 'md',
     alignItems: 'start',
   },
 })

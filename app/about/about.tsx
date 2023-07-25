@@ -13,7 +13,7 @@ import { Experience } from './experience'
 
 const Profile = styled(NextImage, {
   base: {
-    borderRadius: '50%',
+    borderRadius: 'max',
     overflow: 'hidden',
     marginInlineStart: '0.2em',
     height: '0.75em',
