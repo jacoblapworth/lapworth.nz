@@ -1,50 +1,56 @@
 import { Text } from '@/components/Typography'
-import { styled, darkTheme } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 import { SearchIcon } from './Icons'
 import { Spotlights } from './Spotlight'
 
 const Header = styled('div', {
-  padding: 16,
-  // marginTop: -200,
-  // paddingTop: 200,
-  backgroundColor: '$hokeyPokey',
-  [`.${darkTheme} &`]: {
-    backgroundColor: '$hokey-pokey-900',
+  base: {
+    padding: 16,
+    // marginTop: -200,
+    // paddingTop: 200,
+    backgroundColor: 'hokey-pokey',
+    _dark: {
+      backgroundColor: 'hokey-pokey.900',
+    },
   },
 })
 
 const StyledSearchBar = styled('div', {
-  display: 'flex',
-  width: '100%',
-  position: 'relative',
-
-  borderColor: 'transparent',
-  borderRadius: '$sm',
-
-  backgroundColor: '#fff',
-  boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+  base: {
+    display: 'flex',
+    width: '100%',
+    position: 'relative',
+    borderColor: 'transparent',
+    borderRadius: 'sm',
+    backgroundColor: '#fff',
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+  },
 })
 
 const StyledInputIcon = styled('div', {
-  left: 0,
-  top: 0,
-  width: 32,
-  height: 32,
-  position: 'absolute',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  base: {
+    left: 0,
+    top: 0,
+    width: 32,
+    height: 32,
+    position: 'absolute',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 })
 
 const StyledSearchInput = styled('input', {
-  width: '100%',
-  border: 'none',
-  position: 'relative',
-  borderRadius: '$sm',
-  padding: 8,
-  paddingInlineStart: 40,
-  appearance: 'none',
+  base: {
+    width: '100%',
+    border: 'none',
+    position: 'relative',
+    borderRadius: 'sm',
+    padding: 8,
+    paddingInlineStart: 40,
+    appearance: 'none',
+  },
 })
 
 const SearchBar = () => {
@@ -59,12 +65,16 @@ const SearchBar = () => {
 }
 
 const Container = styled('div', {
-  marginInline: -16,
+  base: {
+    marginInline: -16,
+  },
 })
 
 const TextContainer = styled('p', {
-  marginInline: 16,
-  cursor: 'auto',
+  base: {
+    marginInline: 16,
+    cursor: 'auto',
+  },
 })
 
 const Discover = () => {

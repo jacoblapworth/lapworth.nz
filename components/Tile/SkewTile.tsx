@@ -10,11 +10,11 @@ import {
   useTransform,
 } from 'framer-motion'
 
-import { darkTheme, styled } from '@/styles'
+import { cx, css } from '@/styled-system/css'
 
 const SHINE_SIZE = 650
 
-const ShineElement = styled(motion.div, {
+const shineStyles = css({
   position: 'absolute',
   width: SHINE_SIZE,
   height: SHINE_SIZE,
@@ -30,11 +30,15 @@ const ShineElement = styled(motion.div, {
   left: 0,
   userSelect: 'none',
   pointerEvents: 'none',
+
+  _groupHover: {
+    opacity: 0.85,
+  },
 })
 
-const Card = styled(motion.div, {
-  backgroundColor: '$surface',
-  borderRadius: '$lg',
+const cardStyles = css({
+  backgroundColor: 'surface',
+  borderRadius: 'lg',
   borderColor: 'rgba(0, 0, 0, 0.1)',
   borderWidth: '1px',
   borderStyle: 'solid',
@@ -46,33 +50,23 @@ const Card = styled(motion.div, {
   willChange: 'transform',
   boxSizing: 'border-box',
 
-  [`.${darkTheme} &`]: {
-    // backgroundColor: '',
+  _dark: {
     borderColor: 'rgba(255, 255, 255, 0.1)',
-  },
-
-  '&:hover': {
-    [`& ${ShineElement.className}`]: {
-      opacity: 0.85,
-    },
   },
 })
 
-type CardProps = ComponentProps<typeof Card>
-
-interface ShineProps extends ComponentProps<typeof ShineElement> {
+interface ShineProps {
   size?: number
   x: MotionValue<number>
   y: MotionValue<number>
-  color?: string
+  className?: string
 }
 
 export const Shine = ({
-  css,
   size = 650,
   x,
   y,
-  color,
+  className,
   ...props
 }: ShineProps) => {
   const shineTransform = (v: number) => v - size / 2
@@ -80,8 +74,8 @@ export const Shine = ({
   const shineY = useTransform(y, shineTransform)
 
   return (
-    <ShineElement
-      css={{ backgroundColor: color, ...css }}
+    <motion.div
+      className={cx(shineStyles, className)}
       style={{
         x: shineX,
         y: shineY,
@@ -91,16 +85,18 @@ export const Shine = ({
   )
 }
 
-interface Props extends CardProps {
+interface Props extends ComponentProps<typeof motion.div> {
   children: ReactNode
   shine?: boolean
-  shineCss?: ComponentProps<typeof ShineElement>['css']
+  className?: string
+  shineClassName?: string
 }
 
 export const SkewTile = ({
   children,
   shine = true,
-  shineCss,
+  className,
+  shineClassName,
   ...rest
 }: Props) => {
   const ref = useRef(null)
@@ -135,7 +131,8 @@ export const SkewTile = ({
   )
 
   return (
-    <Card
+    <motion.div
+      className={cx('group', cardStyles, className)}
       ref={ref}
       style={{
         rotateX,
@@ -155,7 +152,7 @@ export const SkewTile = ({
     >
       {children}
 
-      {shine && <Shine css={shineCss} x={x} y={y} />}
-    </Card>
+      {shine && <Shine className={cx(shineClassName)} x={x} y={y} />}
+    </motion.div>
   )
 }

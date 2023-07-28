@@ -5,11 +5,13 @@ import { Text } from '@/components/Typography'
 import Img1 from '@/public/static/work/trademe/1.png'
 import Img2 from '@/public/static/work/trademe/2.png'
 import Img3 from '@/public/static/work/trademe/3.gif'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const Grid = styled('div', {
-  display: 'grid',
-  marginBlock: '$md',
+  base: {
+    display: 'grid',
+    marginBlock: 'md',
+  },
 })
 
 export const TradeMe: NextPage = () => {

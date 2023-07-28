@@ -1,6 +1,6 @@
-import 'sanitize.css'
-import 'sanitize.css/typography.css'
-import 'sanitize.css/forms.css'
+import './index.css'
+
+import { ReactNode } from 'react'
 
 import { Metadata } from 'next'
 import localFont from 'next/font/local'
@@ -8,13 +8,12 @@ import { ServerThemeProvider } from 'next-themes'
 
 import { Page } from '@/components/Page'
 import { themeConfig } from '@/components/Theme'
-import { darkTheme, lightTheme } from '@/styles'
-
-import { StitchesRegistry } from './style'
+import { css } from '@/styled-system/css'
+import { token } from '@/styled-system/tokens'
 
 const sectraFont = localFont({
   src: './fonts/sectra/regular.woff',
-  variable: '--j-fonts-serif',
+  variable: '--fonts-serif',
   preload: true,
   weight: '400',
   display: 'swap',
@@ -33,11 +32,11 @@ export const metadata: Metadata = {
   themeColor: [
     {
       media: '(prefers-color-scheme: dark)',
-      color: darkTheme.colors.background.value,
+      color: token('colors.black.100'),
     },
     {
       media: '(prefers-color-scheme: light)',
-      color: lightTheme.colors.background.value,
+      color: token('colors.white.10'),
     },
   ],
   openGraph: {
@@ -58,15 +57,11 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   const emoji = '🌈'
   return (
-    <ServerThemeProvider {...themeConfig}>
-      <html className={sectraFont.variable}>
+    <ServerThemeProvider {...themeConfig} >
+      <html className={sectraFont.variable} suppressHydrationWarning={true}>
         <head>
           <link
             rel="icon"
@@ -74,14 +69,8 @@ export default function RootLayout({
             href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${emoji}</text></svg>`}
           />
         </head>
-        <body
-          style={{
-            backgroundColor: lightTheme.colors.background.computedValue,
-          }}
-        >
-          <StitchesRegistry>
-            <Page>{children}</Page>
-          </StitchesRegistry>
+        <body className={css({ bg: 'background' })}>
+          <Page>{children}</Page>
         </body>
       </html>
     </ServerThemeProvider>

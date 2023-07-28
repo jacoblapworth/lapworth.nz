@@ -5,59 +5,62 @@ import type {
   HTMLAttributes,
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,
+  ComponentProps,
 } from 'react'
 
 import { MDXProvider } from '@mdx-js/react'
-import { ComponentProps } from '@stitches/react'
 import { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
 import { usePathname } from 'next/navigation'
 
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 export const Image = styled(NextImage, {
-  maxWidth: '100%',
-  height: 'auto',
-  border: '1px solid $quaternary',
-  boxSizing: 'border-box',
-  '& + img': {
-    marginBlockStart: -1,
+  base: {
+    maxWidth: '100%',
+    height: 'auto',
+    border: 'muted',
+    boxSizing: 'border-box',
+    '& + img': {
+      marginBlockStart: -1,
+    },
   },
 })
 
 export const Blockquote = styled('blockquote', {
-  borderTop: '1px solid $quaternary',
-  marginInline: 0,
-  marginBlock: '$md',
-  paddingBlock: '$md',
-  display: 'inline',
-  lineHeight: '2.5rem',
-  hangingPunctuation: 'first last',
+  base: {
+    borderTop: 'muted',
+    marginInline: 0,
+    marginBlock: 'md',
+    paddingBlock: 'md',
+    display: 'inline',
+    lineHeight: '2.5rem',
+    hangingPunctuation: 'first last',
 
-  [`& ${Text.className}`]: {
-    maxWidth: '35ch',
-  },
+    //TODO: fix
+    // [`& ${Text}`]: {
+    //   maxWidth: '35ch',
+    // },
 
-  '& p': {
-    all: 'unset',
-    display: 'inline-block',
-    position: 'relative',
-    // maxBlockSize: '35ch',
+    '& p': {
+      all: 'unset',
+      display: 'inline-block',
+      position: 'relative',
+      // maxBlockSize: '35ch',
+    },
   },
 })
 
-interface TextProps extends ComponentProps<typeof Text> {
-  as?: React.ElementType
-}
+type TextProps = ComponentProps<typeof Text>
 
-export const HeadingAnchor = ({ id, children, ...props }: TextProps) => {
+export const HeadingAnchor = ({ children, ...props }: TextProps) => {
   const pathname = usePathname()
   return (
-    <Text display css={{ marginBlock: '$lg' }} id={id} {...props}>
+    <Text display css={{ marginBlock: '$lg' }} {...props}>
       <Link
-        href={`${pathname}#${id}`}
+        href={`${pathname}#${props.id}`}
         sameTab
         css={{ display: 'inline-flex', gap: '$sm', alignItems: 'center' }}
       >
@@ -68,12 +71,14 @@ export const HeadingAnchor = ({ id, children, ...props }: TextProps) => {
 }
 
 export const Wrapper = styled('div', {
-  display: 'grid',
-  gridAutoColumns: 'auto',
-  gridAutoFlow: 'row',
-  maxWidth: 1000,
-  position: 'relative',
-  marginBlockEnd: '$lg',
+  base: {
+    display: 'grid',
+    gridAutoColumns: 'auto',
+    gridAutoFlow: 'row',
+    maxWidth: 1000,
+    position: 'relative',
+    marginBlockEnd: 'lg',
+  },
 })
 
 type HeadingProps = HTMLAttributes<HTMLHeadingElement>

@@ -1,18 +1,20 @@
-'use client'
-
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const Container = styled('div', {
-  maxWidth: '100vw',
-  '@sm': {
-    maxWidth: '75vw',
+  base: {
+    maxWidth: '100vw',
+    sm: {
+      maxWidth: '75vw',
+    },
   },
 })
 
 const HiddenLink = styled(Link, {
-  display: 'none',
+  base: {
+    display: 'none',
+  },
 })
 
 export default function Page() {
@@ -22,15 +24,12 @@ export default function Page() {
         Kia ora 👋 Ko Jacob tōku ingoa
       </Text>
       <Text>
-        <div>
           <Link
             href="https://instagram.com/jacoblapworth"
             aria-label="Instagram @jacoblapworth"
           >
             @jacoblapworth
           </Link>
-        </div>
-        <div>
           <Link
             sameTab
             href="mailto:jacob@lapworth.nz"
@@ -38,7 +37,6 @@ export default function Page() {
           >
             jacob@lapworth.nz
           </Link>
-        </div>
       </Text>
       <Text size="xlarge" display>
         Tāmaki Makaurau, Aotearoa —&nbsp;Auckland, New Zealand

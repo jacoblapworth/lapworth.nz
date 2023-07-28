@@ -5,13 +5,15 @@ import { MDXRemote } from 'next-mdx-remote'
 import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
 import { MDXPageProps } from '@/lib/markdown'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const Grid = styled('div', {
-  display: 'grid',
-  maxWidth: 1200,
-  position: 'relative',
-  marginBlockEnd: '$lg',
+  base: {
+    display: 'grid',
+    maxWidth: 1200,
+    position: 'relative',
+    marginBlockEnd: 'lg',
+  },
 })
 
 export const Xero: NextPage<MDXPageProps> = ({ source }) => {

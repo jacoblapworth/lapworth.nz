@@ -1,11 +1,14 @@
-'use client'
+import type { ReactNode, ElementType, ComponentPropsWithoutRef } from 'react'
 
-import { styled } from '@/styles'
+import { RecipeVariantProps, cva } from '@/styled-system/css'
+import { styled } from '@/styled-system/jsx'
 
-export const Text = styled('div', {
-  color: '$text',
-  cursor: 'auto',
-  fontWeight: '400',
+const styles = cva({
+  base: {
+    color: 'text',
+    cursor: 'auto',
+    fontWeight: 400,
+  },
   variants: {
     size: {
       small: {
@@ -29,21 +32,21 @@ export const Text = styled('div', {
     },
     serif: {
       true: {
-        fontFamily: '$serif',
+        fontFamily: 'serif',
         fontWeight: '400',
       },
     },
   },
   compoundVariants: [
     {
-      display: 'true',
+      display: true,
       size: 'xlarge',
       css: {
         maxWidth: '25ch',
         fontSize: '4rem',
         lineHeight: '4rem',
         marginBlock: '4rem',
-        '@sm': {
+        sm: {
           fontSize: '6rem',
           lineHeight: '6rem',
           marginBlock: '5rem',
@@ -51,13 +54,13 @@ export const Text = styled('div', {
       },
     },
     {
-      display: 'true',
+      display: true,
       size: 'large',
       css: {
         fontSize: '2rem',
         lineHeight: '2rem',
         marginBlock: '2rem',
-        '@sm': {
+        sm: {
           fontSize: '3rem',
           lineHeight: '3rem',
           marginBlock: '3rem',
@@ -65,21 +68,21 @@ export const Text = styled('div', {
       },
     },
     {
-      display: 'true',
+      display: true,
       size: 'medium',
       css: {
         fontSize: '1.4rem',
-        '@sm': {
+        sm: {
           fontSize: '1.5rem',
         },
       },
     },
     {
-      display: 'true',
+      display: true,
       size: 'small',
       css: {
         fontSize: '1.2rem',
-        '@sm': {
+        sm: {
           fontSize: '1.2rem',
         },
       },
@@ -89,3 +92,19 @@ export const Text = styled('div', {
     size: 'medium',
   },
 })
+
+type Variants = RecipeVariantProps<typeof styles>
+
+type TextHTMLElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'
+
+export type TextProps<T extends ElementType = TextHTMLElements> = Variants & {
+  children?: ReactNode
+  as?: T
+} & ComponentPropsWithoutRef<T>
+
+export const Text = <T extends ElementType>({ as, ...props }: TextProps<T>) => {
+  const tag: ElementType = as ?? 'p'
+  const Component = styled(tag, styles)
+
+  return <Component {...props} />
+}

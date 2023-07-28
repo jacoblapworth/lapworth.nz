@@ -1,20 +1,20 @@
-import { styled } from '@stitches/react'
 import NextImage from 'next/image'
 
 import image from '@/public/static/work/xero/figma-plugin.png'
+import { css } from '@/styled-system/css'
+import { styled } from '@/styled-system/jsx'
 
 const Copy = styled('div', {
-  gridColumn: '1 / 6',
+  base: {
+    gridColumn: '1 / 6',
+  },
 })
 
 const Picture = styled('div', {
-  gridColumn: '8 / -1',
-  boxShadow: '0px 0px 0.5px 0px #00000033, 0px 2px 14px 0px #00000026',
-})
-
-const Image = styled(NextImage, {
-  display: 'flex',
-  objectFit: 'contain',
+  base: {
+    gridColumn: '8 / -1',
+    boxShadow: '0px 0px 0.5px 0px #00000033, 0px 2px 14px 0px #00000026',
+  },
 })
 
 export const FigmaAccessibility = () => {
@@ -26,7 +26,8 @@ export const FigmaAccessibility = () => {
       </Copy>
 
       <Picture>
-        <Image
+        <NextImage
+          className={css({ display: 'flex', objectFit: 'contain' })}
           src={image}
           alt="Screenshot of Accessibility checklist Figma plugin"
           fill

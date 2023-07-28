@@ -10,44 +10,54 @@ import { Shine } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
 import figmaPlugin from '@/public/static/work/xero/plugin/xui-plugin-cover.png'
 import xuiLogo from '@/public/static/work/xero/xui-logo.svg'
-import { styled } from '@/styles'
+import { css } from '@/styled-system/css'
+import { styled } from '@/styled-system/jsx'
 
 const Grid = styled('div', {
-  display: 'grid',
-  marginBlock: '$md',
-  gap: '$md',
+  base: {
+    display: 'grid',
+    marginBlock: 'md',
+    gap: 'md',
+  },
 })
 
 const Link = styled(NextLink, {
-  textDecoration: 'underline',
-  textDecorationColor: '$quaternary',
+  base: {
+    textDecorationLine: 'underline',
+    textDecorationColor: 'quaternary',
 
-  '&:hover': {
-    textDecoration: 'underline',
-    textDecorationColor: '$interactive',
+    '&:hover': {
+      textDecorationColor: 'interactive',
+    },
   },
 })
 
 const Logo = styled(NextImage, {
-  display: 'inline',
-  borderRadius: 8,
-  height: '1em',
-  width: 'auto',
+  base: {
+    display: 'inline',
+    borderRadius: 8,
+    height: '1em',
+    width: 'auto',
+  },
 })
 
 const Thumbnail = styled(NextImage, {
-  width: '100%',
-  maxWidth: 300,
-  height: 'auto',
+  base: {
+    width: '100%',
+    maxWidth: 300,
+    height: 'auto',
+  },
 })
 
 const Container = styled(motion.div, {
-  position: 'absolute',
-  inset: 0,
-  // backgroundColor: 'gray',
-  zIndex: -1,
-  userSelect: 'none',
-  pointerEvents: 'none',
+  base: {
+    position: 'absolute',
+    inset: 0,
+    // backgroundColor: 'gray',
+    // zIndex: -1,
+    userSelect: 'none',
+    pointerEvents: 'none',
+  },
 })
 
 const Background = () => {
@@ -63,7 +73,14 @@ const Background = () => {
 
   return (
     <Container ref={ref}>
-      <Shine color="#BBF3FD" css={{ opacity: 0.8 }} x={x} y={y} />
+      <Shine
+        className={css({
+          bg: '#BBF3FD',
+          opacity: 0.8,
+        })}
+        x={x}
+        y={y}
+      />
     </Container>
   )
 }
@@ -76,7 +93,7 @@ export default function Page() {
         as="h1"
         display
         size="large"
-        css={{ display: 'flex', gap: '$md', marginBlockEnd: '$sm' }}
+        // css={{ display: 'flex', gap: 'md', marginBlockEnd: 'sm' }}
       >
         Xero User Interface
         <Logo src={xuiLogo as StaticImageData} alt="XUI logo" />

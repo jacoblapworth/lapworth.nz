@@ -9,33 +9,37 @@ import { MDXPageProps } from '@/lib/markdown'
 import disciplines from '@/public/static/work/xero/principles-disciplines.webp'
 import worldMapDark from '@/public/static/work/xero/principles-world-map-dark.svg'
 import worldMap from '@/public/static/work/xero/principles-world-map.svg'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 export function Principles() {
   const Container = styled('div', {
-    display: 'grid',
-    gridAutoFlow: 'column',
-    gridAutoColumns: '1fr',
-    gap: '$lg',
-    justifyItems: 'stretch',
+    base: {
+      display: 'grid',
+      gridAutoFlow: 'column',
+      gridAutoColumns: '1fr',
+      gap: 'lg',
+      justifyItems: 'stretch',
 
-    '::selection': {
-      backgroundColor: '$background',
-      color: '$primary',
+      _selection: {
+        backgroundColor: 'background',
+        color: 'primary',
+      },
     },
   })
 
   const Card = styled('div', {
-    display: 'grid',
-    gridTemplateRows: '1fr min-content',
-    color: '#fff',
-    borderRadius: '$lg',
-    backgroundColor: '#002A46',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '20rem',
-    textAlign: 'center',
-    padding: '$lg',
+    base: {
+      display: 'grid',
+      gridTemplateRows: '1fr min-content',
+      color: '#fff',
+      borderRadius: 'lg',
+      backgroundColor: '#002A46',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '20rem',
+      textAlign: 'center',
+      padding: 'lg',
+    },
   })
 
   const principles = [
@@ -140,40 +144,50 @@ export function Principles() {
 export function Disciplines() {
   // const values = [{name: "Design", value: }]
   const Image = styled(NextImage, {
-    width: '100%',
-    height: 'auto',
+    base: {
+      width: '100%',
+      height: 'auto',
+    },
   })
   return <Image src={disciplines} alt="" />
 }
 
 export function WorldMap() {
   const Grid = styled('div', {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(8, 1fr)',
-    marginBlock: '$md',
-    alignItems: 'center',
-    justifySelf: 'stretch',
+    base: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(8, 1fr)',
+      marginBlock: 'md',
+      alignItems: 'center',
+      justifySelf: 'stretch',
+    },
   })
 
   const Picture = styled('picture', {
-    // display: 'grid',
-    // gridTemplateColumns: 'repeat(8, 1fr)',
-    // marginBlock: '$md',
-    gridColumn: '3/-1',
-    gridRow: '1',
+    base: {
+      // display: 'grid',
+      // gridTemplateColumns: 'repeat(8, 1fr)',
+      // marginBlock: '$md',
+      gridColumn: '3/-1',
+      gridRow: '1',
+    },
   })
 
   const Image = styled(NextImage, {
-    maxWidth: '100%',
-    height: 'auto',
+    base: {
+      maxWidth: '100%',
+      height: 'auto',
+    },
   })
 
   const Ul = styled('ul', {
-    gridColumn: '1/-1',
-    gridRow: '1',
-    listStyleType: 'none',
-    padding: 0,
-    margin: 0,
+    base: {
+      gridColumn: '1/-1',
+      gridRow: '1',
+      listStyleType: 'none',
+      padding: 0,
+      margin: 0,
+    },
   })
 
   return (
@@ -211,10 +225,12 @@ export function WorldMap() {
 }
 
 const Grid = styled('div', {
-  display: 'grid',
-  maxWidth: 1200,
-  position: 'relative',
-  marginBlockEnd: '$lg',
+  base: {
+    display: 'grid',
+    maxWidth: 1200,
+    position: 'relative',
+    marginBlockEnd: 'lg',
+  },
 })
 
 export const Page: NextPage<MDXPageProps> = ({ source }) => {

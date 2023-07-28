@@ -1,29 +1,34 @@
 import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile'
 import { Text } from '@/components/Typography'
-import { styled } from '@/styles'
+import { css } from '@/styled-system/css'
+import { styled } from '@/styled-system/jsx'
 
 const Layout = styled('div', {
-  padding: '$md',
+  base: {
+    padding: 'md',
+  },
 })
 
 const VStack = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'start',
-  gap: '$md',
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'start',
+    gap: 'md',
+  },
 })
 
 export function VendTabsTile() {
   return (
     <SkewTile
       shine={false}
-      css={{
+      className={css({
         gridColumn: '1/-1',
-        '@sm': {
+        sm: {
           gridColumn: '1/span 4',
         },
-      }}
+      })}
       initial="initial"
       whileHover="hover"
     >

@@ -10,7 +10,7 @@ import {
 
 import NextLink from 'next/link'
 
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 import { ArrowIcon } from './Icons'
 
@@ -35,27 +35,29 @@ export const Button: React.FC<PropsWithChildren<Props>> = ({
 }
 
 const Pill = styled(NextLink, {
-  display: 'inline-grid',
-  gridTemplateColumns: '1fr 24px',
-  gridTemplateRows: '1fr',
-  gap: '4px',
-  alignItems: 'center',
-  color: '$interactive',
-  paddingBlock: 4,
-  paddingInline: '$sm',
-  border: '1px solid $primary',
-  // borderRadius: '$max',
+  base: {
+    display: 'inline-grid',
+    gridTemplateColumns: '1fr 24px',
+    gridTemplateRows: '1fr',
+    gap: '4px',
+    alignItems: 'center',
+    color: 'interactive',
+    paddingBlock: 4,
+    paddingInline: 'sm',
+    border: '1px solid token(colors.primary)',
+    // borderRadius: '$max',
 
-  '&:hover': {
-    backgroundColor: '$surface',
+    '&:hover': {
+      backgroundColor: 'surface',
+    },
   },
 
   variants: {
     inverted: {
       true: {
         '&:hover': {
-          color: '$surface',
-          backgroundColor: '$interactive',
+          color: 'surface',
+          backgroundColor: 'interactive',
         },
       },
     },

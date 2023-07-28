@@ -1,17 +1,19 @@
 import type { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
 
-import { styled } from './styles'
+import { styled } from '@/styled-system/jsx'
 
-const Image = styled(NextImage, {})
-
-Image.defaultProps = {
-  placeholder: 'blur',
-  style: {
+const Image = styled(NextImage, {
+  base: {
     maxWidth: '100%',
     height: 'auto',
   },
-}
+})
+
+//TODO: fix
+// Image.defaultProps = {
+//   placeholder: 'blur',
+// }
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

@@ -2,14 +2,15 @@ import { ComponentProps } from 'react'
 
 import NextLink from 'next/link'
 
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const A = styled(NextLink, {
-  textDecoration: 'underline',
-  textDecorationColor: '$quaternary',
-  '&:hover': {
-    textDecoration: 'underline',
-    textDecorationColor: '$interactive',
+  base: {
+    textDecorationLine: 'underline',
+    textDecorationColor: 'quaternary',
+    '&:hover': {
+      textDecorationColor: 'interactive',
+    },
   },
 })
 

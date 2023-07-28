@@ -6,47 +6,48 @@ import NextLink, { LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { Link } from '@/components/Link'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 const A = styled(NextLink, {
-  $$highlightWidth: '20px',
-  paddingBlock: 8,
-  borderBottom: '1px solid $divider',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  position: 'relative',
-  textDecoration: 'none',
-
-  '&::after': {
-    content: '',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    height: '2px',
-    width: '0px',
-    backgroundColor: '$divider',
-    transition: 'width 0.1s ease-in-out',
-  },
-
-  '&:first-child': {
-    borderTop: '1px solid $divider',
-  },
-
-  '&:hover': {
-    backgroundColor: '$surfaceHovered',
+  base: {
+    '--highlight-width': '20px',
+    paddingBlock: 8,
+    borderBottom: 'divider',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    position: 'relative',
     textDecoration: 'none',
 
-    '&::after': {
-      width: '$$highlightWidth',
+    _after: {
+      content: '""',
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      height: '2px',
+      width: '0px',
+      backgroundColor: 'divider',
+      transition: 'width 0.1s ease-in-out',
+    },
+
+    _first: {
+      borderTop: 'divider',
+    },
+
+    _hover: {
+      backgroundColor: 'surfaceHovered',
+      textDecoration: 'none',
+
+      _after: {
+        width: 'var(--highlight-width)',
+      },
     },
   },
-
   variants: {
     isActive: {
       true: {
-        '&::after': {
-          width: '$$highlightWidth',
+        _after: {
+          width: 'var(--highlight-width)',
         },
       },
     },
@@ -113,9 +114,11 @@ const NavLink = ({ children, href }: Props) => {
 }
 
 const Stack = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  gridColumn: '1 / span 2',
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    gridColumn: '1 / span 2',
+  },
 })
 
 const NavLinks = () => {
@@ -132,31 +135,33 @@ const NavLinks = () => {
 }
 
 const Row = styled('div', {
-  fontSize: 13,
-  paddingBlock: 8,
-  borderBottom: '1px solid $divider',
-  gridColumn: '1 / span 2',
-  '@md': {
-    borderTop: '1px solid $divider',
-  },
-  '@sm': {
-    gridColumn: 'span 1',
-  },
-  justifySelf: 'stretch',
-  alignSelf: 'start',
+  base: {
+    fontSize: 13,
+    paddingBlock: 8,
+    borderBottom: '1px solid token(colors.divider)',
+    gridColumn: '1 / span 2',
+    md: {
+      borderTop: '1px solid token(colors.divider)',
+    },
+    sm: {
+      gridColumn: 'span 1',
+    },
+    justifySelf: 'stretch',
+    alignSelf: 'start',
 
-  [`& ul`]: {
-    margin: 0,
-  },
+    [`& ul`]: {
+      margin: 0,
+    },
 
-  [`& li`]: {
-    display: 'inline-block',
-    whiteSpace: 'pre',
-  },
+    [`& li`]: {
+      display: 'inline-block',
+      whiteSpace: 'pre',
+    },
 
-  [`& a`]: {
-    padding: '$sm',
-    margin: '-$sm',
+    [`& a`]: {
+      padding: 'sm',
+      margin: '-sm',
+    },
   },
 })
 
@@ -209,15 +214,17 @@ const Description = () => {
 }
 
 const Nav = styled('nav', {
-  gridArea: 'nav',
-  display: 'grid',
-  gap: 0,
-  gridTemplateColumns: 'repeat(2, 1fr)',
-  '@md': {
-    gap: 16,
-    gridTemplateColumns: 'repeat(4, 1fr)',
+  base: {
+    gridArea: 'nav',
+    display: 'grid',
+    gap: 0,
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    md: {
+      gap: 16,
+      gridTemplateColumns: 'repeat(4, 1fr)',
+    },
+    marginInline: 16,
   },
-  marginInline: 16,
 })
 
 export const Navigation = () => {

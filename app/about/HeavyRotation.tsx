@@ -1,9 +1,11 @@
+'use client'
+
 import NextImage from 'next/image'
 
 import { MusicKitResource } from '@/app/about/music'
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
@@ -13,40 +15,44 @@ export const buildImageUrl = (_url: string, size: number): string => {
 }
 
 const AlbumArt = styled(NextImage, {
-  overflow: 'hidden',
-  borderRadius: '$md',
-  backgroundColor: '$surface',
-  marginBlockEnd: 4,
-  willChange: 'transform',
+  base: {
+    overflow: 'hidden',
+    borderRadius: 'md',
+    backgroundColor: 'surface',
+    marginBlockEnd: 'xsm',
+    willChange: 'transform',
+    _groupHover: {
+      opacity: 0.8,
+    },
+    _hover: {
+      opacity: 0.8,
+    },
+  },
 })
 
 const Label = styled('div', {
-  display: 'inline',
-  wordWrap: 'break-word',
+  base: {
+    display: 'inline',
+    wordWrap: 'break-word',
+  },
   variants: {
     variant: {
       primary: {
-        fontSize: '$md',
-        color: '$primary',
+        fontSize: 'md',
+        color: 'primary',
       },
       secondary: {
-        fontSize: '$sm',
-        color: '$tertiary',
+        fontSize: 'sm',
+        color: 'tertiary',
       },
     },
   },
 })
 
 const Stack = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-})
-
-const AlbumLink = styled(Link, {
-  '&:hover': {
-    [`& ${AlbumArt.className}`]: {
-      opacity: 0.8,
-    },
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
   },
 })
 
@@ -61,13 +67,13 @@ const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
   const src = buildImageUrl(resource.attributes.artwork.url, size)
 
   return (
-    <AlbumLink href={resource.attributes.url}>
+    <Link href={resource.attributes.url} className="group">
       <Stack>
         <AlbumArt
           alt={`Album artwork for "${name}"`}
           src={src}
-          width={size}
-          height={size}
+          htmlWidth={size}
+          htmlHeight={size}
           quality={100}
           placeholder="blur"
           blurDataURL={resource.attributes.placeholder}
@@ -75,22 +81,24 @@ const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>
       </Stack>
-    </AlbumLink>
+    </Link>
   )
 }
 
 const Grid = styled('div', {
-  display: 'grid',
-  gridAutoColumns: 128,
-  gridAutoRows: 'auto',
-  gridAutoFlow: 'column',
-  gap: 16,
-  overflowX: 'scroll',
-  overflowY: 'visible',
-  marginInline: -16,
-  paddingBlock: 16,
-  paddingInline: 16,
-  alignItems: 'start',
+  base: {
+    display: 'grid',
+    gridAutoColumns: 128,
+    gridAutoRows: 'auto',
+    gridAutoFlow: 'column',
+    gap: 'md',
+    overflowX: 'scroll',
+    overflowY: 'visible',
+    marginInline: -16,
+    paddingBlock: 'md',
+    paddingInline: 'md',
+    alignItems: 'start',
+  },
 })
 
 interface HeavyRotationProps {
@@ -108,13 +116,7 @@ export const HeavyRotation = ({ music }: HeavyRotationProps) => {
 
   return (
     <div>
-      <Text
-        size="large"
-        display
-        css={{
-          marginBlockEnd: 8,
-        }}
-      >
+      <Text as="h2" size="large" display>
         Currently vibing to
       </Text>
       <Grid>{Music}</Grid>

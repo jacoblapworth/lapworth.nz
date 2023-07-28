@@ -6,45 +6,51 @@ import { ThemeProvider } from 'next-themes'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Navigation } from '@/components/Nav'
-import { styled } from '@/styles'
+import { styled } from '@/styled-system/jsx'
 
 import { themeConfig } from './Theme'
 
 const Container = styled('div', {
-  display: 'grid',
-  gridTemplateAreas: '"header" "nav" "content" "footer"',
-  gridTemplateRows: 'auto auto 1fr auto',
-  gridTemplateColumns: 'auto',
-  minHeight: 'calc(100vh - env(safe-area-inset-bottom))',
-  // minHeight: '-webkit-fill-available',
-  marginLeft: 'env(safe-area-inset-left)',
-  marginRight: 'env(safe-area-inset-right)',
-  maxWidth: '100%',
-  overflowX: 'hidden',
+  base: {
+    display: 'grid',
+    gridTemplateAreas: '"header" "nav" "content" "footer"',
+    gridTemplateRows: 'auto auto 1fr auto',
+    gridTemplateColumns: 'auto',
+    minHeight: 'calc(100vh - env(safe-area-inset-bottom))',
+    // minHeight: '-webkit-fill-available',
+    marginLeft: 'env(safe-area-inset-left)',
+    marginRight: 'env(safe-area-inset-right)',
+    maxWidth: '100%',
+    overflowX: 'hidden',
+  },
 })
 
 const Main = styled('main', {
-  gridArea: 'content',
-  margin: '$md',
-  maxWidth: 'calc(100vw - $md * 2)',
+  base: {
+    gridArea: 'content',
+    margin: 'md',
+    maxWidth: 'calc(100vw - token(spacing.md) * 2)',
+  },
 })
 
 const Skiplink = styled(NextLink, {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  margin: '$md',
-  padding: '$md',
-  transform: 'translateY(calc(-100% - 32px))',
-  zIndex: '$4',
-  borderRadius: '$md',
-  color: '$surface',
-  backgroundColor: '$interactive',
-  boxShadow: '$md',
-  transition: '$md',
+  base: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    margin: 'md',
+    padding: 'md',
+    transform: 'translateY(calc(-100% - 32px))',
+    zIndex: '4',
+    borderRadius: 'md',
+    color: 'surface',
+    backgroundColor: 'interactive',
+    boxShadow: 'md',
+    transition: 'md',
 
-  '&:focus': {
-    transform: 'translateY(16px)',
+    _focus: {
+      transform: 'translateY(16px)',
+    },
   },
 })
 
