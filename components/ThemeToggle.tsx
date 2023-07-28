@@ -5,9 +5,8 @@ import { useTheme } from 'next-themes'
 
 import { styled } from '@/styled-system/jsx'
 
-const useThemeValue = (lightValue: string, darkValue: string) => {
+const useThemeValue = <T, U>(lightValue: T, darkValue: U): T | U => {
   const { resolvedTheme } = useTheme()
-
   return resolvedTheme === 'light' ? lightValue : darkValue
 }
 

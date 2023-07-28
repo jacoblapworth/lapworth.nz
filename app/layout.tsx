@@ -60,8 +60,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   const emoji = '🌈'
   return (
-    <ServerThemeProvider {...themeConfig}>
-      <html className={sectraFont.variable}>
+    <ServerThemeProvider {...themeConfig} >
+      <html className={sectraFont.variable} suppressHydrationWarning={true}>
         <head>
           <link
             rel="icon"
