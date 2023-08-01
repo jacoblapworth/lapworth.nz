@@ -24,19 +24,20 @@ export default function Page() {
         Kia ora 👋 Ko Jacob tōku ingoa
       </Text>
       <Text>
-          <Link
-            href="https://instagram.com/jacoblapworth"
-            aria-label="Instagram @jacoblapworth"
-          >
-            @jacoblapworth
-          </Link>
-          <Link
-            sameTab
-            href="mailto:jacob@lapworth.nz"
-            aria-label="Email jacob@lapworth.nz"
-          >
-            jacob@lapworth.nz
-          </Link>
+        <Link
+          href="https://instagram.com/jacoblapworth"
+          aria-label="Instagram @jacoblapworth"
+        >
+          @jacoblapworth
+        </Link>
+        <br />
+        <Link
+          sameTab
+          href="mailto:jacob@lapworth.nz"
+          aria-label="Email jacob@lapworth.nz"
+        >
+          jacob@lapworth.nz
+        </Link>
       </Text>
       <Text size="xlarge" display>
         Tāmaki Makaurau, Aotearoa —&nbsp;Auckland, New Zealand
