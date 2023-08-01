@@ -1,11 +1,13 @@
 import { NextPage } from 'next'
 import NextImage from 'next/image'
 
+import { styled } from 'styled/jsx'
+
 import { Text } from '@/components/Typography'
 import Img1 from '@/public/static/work/trademe/1.png'
 import Img2 from '@/public/static/work/trademe/2.png'
 import Img3 from '@/public/static/work/trademe/3.gif'
-import { styled } from '@/styled-system/jsx'
+
 
 const Grid = styled('div', {
   base: {

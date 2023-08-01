@@ -2,12 +2,14 @@
 
 import NextImage from 'next/image'
 
+import { styled } from 'styled/jsx'
+
 import { Text } from '@/components/Typography'
 import Img1 from '@/public/static/work/timely/1.png'
 import Img2 from '@/public/static/work/timely/2.png'
 import Img3 from '@/public/static/work/timely/3.png'
 import Img4 from '@/public/static/work/timely/4.png'
-import { styled } from '@/styled-system/jsx'
+
 
 const Grid = styled('div', {
   base: {

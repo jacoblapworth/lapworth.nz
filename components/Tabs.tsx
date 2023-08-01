@@ -5,9 +5,9 @@ import { ReactNode, useState } from 'react'
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { motion } from 'framer-motion'
 
-import { styled } from '@/styled-system/jsx'
+import { styled } from 'styled/jsx'
 
-import { css } from '../styled-system/css'
+import { css } from '../.styled/css'
 
 export const Trigger = styled(RadixTabs.Trigger, {
   base: {

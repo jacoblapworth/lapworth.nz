@@ -1,7 +1,6 @@
 import type { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
-
-import { styled } from '@/styled-system/jsx'
+import { styled } from 'styled/jsx'
 
 const Image = styled(NextImage, {
   base: {

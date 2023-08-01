@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { styled } from '@/styled-system/jsx'
+import { styled } from 'styled/jsx'
 
 import {
   BagIcon,

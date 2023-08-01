@@ -1,6 +1,8 @@
+import { styled } from 'styled/jsx'
+
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
-import { styled } from '@/styled-system/jsx'
+
 
 const Container = styled('div', {
   base: {
