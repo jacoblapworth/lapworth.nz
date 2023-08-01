@@ -151,6 +151,7 @@ const Row = styled('div', {
 
     [`& ul`]: {
       margin: 0,
+      lineHeight: '1.4rem',
     },
 
     [`& li`]: {
@@ -159,8 +160,8 @@ const Row = styled('div', {
     },
 
     [`& a`]: {
-      padding: 'sm',
-      margin: '-sm',
+      padding: 'xsm',
+      margin: '-xsm',
     },
   },
 })
