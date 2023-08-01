@@ -12,7 +12,7 @@ updates:
     assignees:
       - 'jacoblapworth'
     commit-message:
-      prefix: '⚡'
+      prefix: 'chore(deps):'
 
   - package-ecosystem: 'npm'
     directory: '/'
@@ -21,4 +21,4 @@ updates:
     assignees:
       - 'jacoblapworth'
     commit-message:
-      prefix: '📦'
+      prefix: 'chore(deps):'
