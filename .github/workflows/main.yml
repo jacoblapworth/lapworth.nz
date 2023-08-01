@@ -46,7 +46,7 @@ jobs:
         with:
           path: | 
             ${{ github.workspace }}/*
-            ~/.cache/*
+            .cache/*
           key: ${{ github.sha }}
 
   Lint:
@@ -63,7 +63,7 @@ jobs:
         with:
           path: | 
             ${{ github.workspace }}/*
-            ~/.cache/*
+            .cache/*
           key: ${{ github.sha }}
 
       - name: Lint
@@ -83,7 +83,7 @@ jobs:
         with:
           path: | 
             ${{ github.workspace }}/*
-            ~/.cache/*
+            .cache/*
           key: ${{ github.sha }}
 
       - name: Cypress
