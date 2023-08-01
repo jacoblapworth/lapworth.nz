@@ -1,9 +1,11 @@
 'use client'
 
+import { styled } from 'styled/jsx'
+
 import { DiscoverTile } from '@/app/work/trademe/DiscoverTile'
 import { VendTabsTile } from '@/app/work/vend/Tile'
 import { XeroTile } from '@/app/work/xero/XeroTile'
-import { styled } from '@/styled-system/jsx'
+
 
 const Layout = styled('div', {
   base: {

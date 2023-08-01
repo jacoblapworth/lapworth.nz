@@ -32,8 +32,17 @@ export const globalCss = defineGlobalStyles({
     },
   },
 
-  '::selection': {
-    backgroundColor: 'primary',
-    color: 'background',
+  '*': {
+    _focusVisible: {
+      outlineColor: 'interactive',
+      outlineStyle: 'auto',
+      outlineWidth: 5,
+      outlineOffset: 5,
+    },
+
+    _selection: {
+      backgroundColor: 'primary',
+      color: 'background',
+    },
   },
 })

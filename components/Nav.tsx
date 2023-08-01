@@ -5,8 +5,10 @@ import { motion } from 'framer-motion'
 import NextLink, { LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { styled } from 'styled/jsx'
+
 import { Link } from '@/components/Link'
-import { styled } from '@/styled-system/jsx'
+
 
 const A = styled(NextLink, {
   base: {
@@ -151,6 +153,7 @@ const Row = styled('div', {
 
     [`& ul`]: {
       margin: 0,
+      lineHeight: '1.4rem',
     },
 
     [`& li`]: {
@@ -159,8 +162,8 @@ const Row = styled('div', {
     },
 
     [`& a`]: {
-      padding: 'sm',
-      margin: '-sm',
+      padding: 'xsm',
+      margin: '-xsm',
     },
   },
 })

@@ -10,7 +10,7 @@ import {
 
 import NextLink from 'next/link'
 
-import { styled } from '@/styled-system/jsx'
+import { styled } from 'styled/jsx'
 
 import { ArrowIcon } from './Icons'
 

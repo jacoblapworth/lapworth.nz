@@ -1,11 +1,13 @@
 import NextImage, { StaticImageData } from 'next/image'
 
+import { css } from 'styled/css'
+import { styled } from 'styled/jsx'
+
 import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile'
 import { Text } from '@/components/Typography'
 import logo from '@/public/static/work/xero/logo.svg'
-import { css } from '@/styled-system/css'
-import { styled } from '@/styled-system/jsx'
+
 
 import { Highlight } from './Highlight'
 

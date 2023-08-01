@@ -1,7 +1,7 @@
 import type { ReactNode, ElementType, ComponentPropsWithoutRef } from 'react'
 
-import { RecipeVariantProps, cva } from '@/styled-system/css'
-import { styled } from '@/styled-system/jsx'
+import { RecipeVariantProps, cva } from 'styled/css'
+import { styled } from 'styled/jsx'
 
 const styles = cva({
   base: {

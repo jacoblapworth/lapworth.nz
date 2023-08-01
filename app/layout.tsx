@@ -6,10 +6,12 @@ import { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { ServerThemeProvider } from 'next-themes'
 
+import { css } from 'styled/css'
+import { token } from 'styled/tokens'
+
 import { Page } from '@/components/Page'
 import { themeConfig } from '@/components/Theme'
-import { css } from '@/styled-system/css'
-import { token } from '@/styled-system/tokens'
+
 
 const sectraFont = localFont({
   src: './fonts/sectra/regular.woff',

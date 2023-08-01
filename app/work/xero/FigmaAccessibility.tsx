@@ -1,8 +1,10 @@
 import NextImage from 'next/image'
 
+
+import { css } from 'styled/css'
+import { styled } from 'styled/jsx'
+
 import image from '@/public/static/work/xero/figma-plugin.png'
-import { css } from '@/styled-system/css'
-import { styled } from '@/styled-system/jsx'
 
 const Copy = styled('div', {
   base: {

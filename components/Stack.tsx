@@ -1,4 +1,4 @@
-import { styled } from '@/styled-system/jsx'
+import { styled } from 'styled/jsx'
 
 export const Stack = styled('div', {
   base: {

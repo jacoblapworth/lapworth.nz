@@ -17,7 +17,7 @@ export default defineConfig({
     './pages/**/*.{js,jsx,ts,tsx}',
   ],
   exclude: [],
-  outdir: 'styled-system',
+  outdir: '.styled',
   globalCss,
   theme: {
     tokens,

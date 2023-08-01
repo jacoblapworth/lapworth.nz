@@ -1,4 +1,4 @@
-import { styled } from '@/styled-system/jsx'
+import { styled } from 'styled/jsx'
 
 const Tagline = styled('footer', {
   base: {
