@@ -6,12 +6,14 @@ import { motion, useMotionValue } from 'framer-motion'
 import NextImage, { StaticImageData } from 'next/image'
 import NextLink from 'next/link'
 
+import { css } from 'styled/css'
+import { styled } from 'styled/jsx'
+
 import { Shine } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
 import figmaPlugin from '@/public/static/work/xero/plugin/xui-plugin-cover.png'
 import xuiLogo from '@/public/static/work/xero/xui-logo.svg'
-import { css } from '@/styled-system/css'
-import { styled } from '@/styled-system/jsx'
+
 
 const Grid = styled('div', {
   base: {

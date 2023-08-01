@@ -10,7 +10,7 @@ import {
   useTransform,
 } from 'framer-motion'
 
-import { cx, css } from '@/styled-system/css'
+import { cx, css } from 'styled/css'
 
 const SHINE_SIZE = 650
 

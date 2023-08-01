@@ -5,8 +5,10 @@ import { motion } from 'framer-motion'
 import NextLink, { LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { styled } from 'styled/jsx'
+
 import { Link } from '@/components/Link'
-import { styled } from '@/styled-system/jsx'
+
 
 const A = styled(NextLink, {
   base: {

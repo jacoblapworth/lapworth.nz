@@ -1,8 +1,10 @@
+import { css } from 'styled/css'
+import { styled } from 'styled/jsx'
+
 import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
-import { css } from '@/styled-system/css'
-import { styled } from '@/styled-system/jsx'
+
 
 import { SpotlightsPreview } from './Spotlight'
 

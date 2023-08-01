@@ -1,7 +1,9 @@
 'use client'
 
+import { styled } from 'styled/jsx'
+
 import { Link } from '@/components/Link'
-import { styled } from '@/styled-system/jsx'
+
 
 import { Text } from '../../components/Typography'
 

@@ -43,6 +43,11 @@
             "position": "before"
           },
           {
+            "pattern": "styled/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
             "pattern": "@/**",
             "group": "internal",
             "position": "before"

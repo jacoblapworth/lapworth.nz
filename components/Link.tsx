@@ -2,7 +2,7 @@ import { ComponentProps } from 'react'
 
 import NextLink from 'next/link'
 
-import { styled } from '@/styled-system/jsx'
+import { styled } from 'styled/jsx'
 
 const A = styled(NextLink, {
   base: {

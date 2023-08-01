@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 import { ResizableBox, ResizableBoxProps } from 'react-resizable'
 
-import { styled } from '@/styled-system/jsx'
+import { styled } from 'styled/jsx'
 
 const Container = styled(ResizableBox, {
   base: {

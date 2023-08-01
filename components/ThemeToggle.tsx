@@ -3,7 +3,7 @@
 import { motion, useCycle } from 'framer-motion'
 import { useTheme } from 'next-themes'
 
-import { styled } from '@/styled-system/jsx'
+import { styled } from 'styled/jsx'
 
 const useThemeValue = <T, U>(lightValue: T, darkValue: U): T | U => {
   const { resolvedTheme } = useTheme()

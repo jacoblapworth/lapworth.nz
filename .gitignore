@@ -46,3 +46,4 @@ cypress/videos/*
 
 # panda-css
 styled-system
+.styled
