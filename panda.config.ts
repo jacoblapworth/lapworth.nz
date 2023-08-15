@@ -22,7 +22,7 @@ export default defineConfig({
   theme: {
     tokens,
     semanticTokens,
-    textStyles,
-    layerStyles,
+    // textStyles,
+    // layerStyles,
   },
 })
