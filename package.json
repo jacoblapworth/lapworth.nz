@@ -56,7 +56,7 @@
     "zod": "3.22.1"
   },
   "devDependencies": {
-    "@pandacss/dev": "0.11.0",
+    "@pandacss/dev": "0.11.1",
     "@testing-library/cypress": "9.0.0",
     "@types/mdx": "2.0.6",
     "@types/musickit-js": "1.0.5",
