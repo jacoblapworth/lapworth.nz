@@ -55,7 +55,7 @@ dependencies:
     version: /@wits/next-themes@0.2.16(next@13.4.16)(react-dom@18.2.0)(react@18.2.0)
   plaiceholder:
     specifier: 3.0.0
-    version: 3.0.0(sharp@0.32.4)
+    version: 3.0.0(sharp@0.32.5)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -75,8 +75,8 @@ dependencies:
     specifier: 3.0.1
     version: 3.0.1
   sharp:
-    specifier: 0.32.4
-    version: 0.32.4
+    specifier: 0.32.5
+    version: 0.32.5
   shiki:
     specifier: 0.14.3
     version: 0.14.3
@@ -87,7 +87,7 @@ dependencies:
 devDependencies:
   '@pandacss/dev':
     specifier: 0.11.1
-    version: 0.11.1(@internationalized/date@3.3.0)(@types/node@20.5.0)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sharp@0.32.4)(typescript@5.1.6)
+    version: 0.11.1(@internationalized/date@3.3.0)(@types/node@20.5.0)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sharp@0.32.5)(typescript@5.1.6)
   '@testing-library/cypress':
     specifier: 9.0.0
     version: 9.0.0(cypress@12.17.3)
@@ -238,7 +238,7 @@ packages:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.9.6(@types/node@20.5.0)(sharp@0.32.4)
+      astro: 2.9.6(@types/node@20.5.0)(sharp@0.32.5)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -1486,7 +1486,7 @@ packages:
       ts-pattern: 5.0.4
     dev: true
 
-  /@pandacss/dev@0.11.1(@internationalized/date@3.3.0)(@types/node@20.5.0)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sharp@0.32.4)(typescript@5.1.6):
+  /@pandacss/dev@0.11.1(@internationalized/date@3.3.0)(@types/node@20.5.0)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sharp@0.32.5)(typescript@5.1.6):
     resolution: {integrity: sha512-2MrW9ML1Q1FeCrtP6DqLN6ij1Ccf+14x0Pi2WjwCoi/k6KfuYIYEw8ZIokEd64LNlnqALwpDmrzUxHCJICurYw==}
     hasBin: true
     dependencies:
@@ -1497,7 +1497,7 @@ packages:
       '@pandacss/postcss': 0.11.1(typescript@5.1.6)
       '@pandacss/preset-panda': 0.11.1
       '@pandacss/shared': 0.11.1
-      '@pandacss/studio': 0.11.1(@internationalized/date@3.3.0)(@types/node@20.5.0)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sharp@0.32.4)(typescript@5.1.6)
+      '@pandacss/studio': 0.11.1(@internationalized/date@3.3.0)(@types/node@20.5.0)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sharp@0.32.5)(typescript@5.1.6)
       '@pandacss/token-dictionary': 0.11.1
       '@pandacss/types': 0.11.1
       cac: 6.7.14
@@ -1648,7 +1648,7 @@ packages:
     resolution: {integrity: sha512-g4mnSEXON9xv7SiSdHD2Q71F11NKDXIGhtuFegL9tVxdnuvQEXJh52qQmCA4XhPKdHNovwcsA0+GdryIJir0WA==}
     dev: true
 
-  /@pandacss/studio@0.11.1(@internationalized/date@3.3.0)(@types/node@20.5.0)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sharp@0.32.4)(typescript@5.1.6):
+  /@pandacss/studio@0.11.1(@internationalized/date@3.3.0)(@types/node@20.5.0)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sharp@0.32.5)(typescript@5.1.6):
     resolution: {integrity: sha512-fKHr2YbSTJJS9z1hhfmQ58hhkqcRGkbE95EHbl4vA+O9ABdZqqD/Zw6Aw5ttqCKv/DmlipEN1e9LBTZIUFMPMQ==}
     dependencies:
       '@ark-ui/react': 0.9.0(@internationalized/date@3.3.0)(react-dom@18.2.0)(react@18.2.0)
@@ -1659,7 +1659,7 @@ packages:
       '@pandacss/shared': 0.11.1
       '@pandacss/token-dictionary': 0.11.1
       '@pandacss/types': 0.11.1
-      astro: 2.9.6(@types/node@20.5.0)(sharp@0.32.4)
+      astro: 2.9.6(@types/node@20.5.0)(sharp@0.32.5)
       javascript-stringify: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -3555,7 +3555,7 @@ packages:
     hasBin: true
     dev: false
 
-  /astro@2.9.6(@types/node@20.5.0)(sharp@0.32.4):
+  /astro@2.9.6(@types/node@20.5.0)(sharp@0.32.5):
     resolution: {integrity: sha512-yvbZQ6YOWYLejyQ4nAcgZLDYQ34enQJ5/LWlXKtUzXzpsUHB75vJMj+XmEq5Q2eVlZOlQrp0lU+nhSRGaOsOUQ==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -3611,7 +3611,7 @@ packages:
       rehype: 12.0.1
       semver: 7.5.4
       server-destroy: 1.0.1
-      sharp: 0.32.4
+      sharp: 0.32.5
       shiki: 0.14.3
       string-width: 5.1.2
       strip-ansi: 7.1.0
@@ -3790,7 +3790,6 @@ packages:
       electron-to-chromium: 1.4.492
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.10)
-    dev: true
 
   /browserslist@4.21.9:
     resolution: {integrity: sha512-M0MFoZzbUrRU4KNfCrDLnvyE7gub+peetoTid3TBIqtunaDJyXlwhakT+/VkvSXcfIzFfK/nkCs4nmyTmxdNSg==}
@@ -3902,7 +3901,6 @@ packages:
 
   /caniuse-lite@1.0.30001521:
     resolution: {integrity: sha512-fnx1grfpEOvDGH+V17eccmNjucGUnCbP6KL+l5KqBIerp26WK/+RQ7CIDE37KGJjaPyqWXXlFUyKiWmvdNNKmQ==}
-    dev: true
 
   /caseless@0.12.0:
     resolution: {integrity: sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==}
@@ -4416,7 +4414,6 @@ packages:
 
   /electron-to-chromium@1.4.492:
     resolution: {integrity: sha512-36K9b/6skMVwAIEsC7GiQ8I8N3soCALVSHqWHzNDtGemAcI9Xu8hP02cywWM0A794rTHm0b0zHPeLJHtgFVamQ==}
-    dev: true
 
   /emmet@2.4.6:
     resolution: {integrity: sha512-dJfbdY/hfeTyf/Ef7Y7ubLYzkBvPQ912wPaeVYpAxvFxkEBf/+hJu4H6vhAvFN6HlxqedlfVn2x1S44FfQ97pg==}
@@ -7114,7 +7111,6 @@ packages:
 
   /node-releases@2.0.13:
     resolution: {integrity: sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==}
-    dev: true
 
   /normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
@@ -7461,12 +7457,12 @@ packages:
       pathe: 1.1.1
     dev: true
 
-  /plaiceholder@3.0.0(sharp@0.32.4):
+  /plaiceholder@3.0.0(sharp@0.32.5):
     resolution: {integrity: sha512-jwHxxHPnr1BwRzPCeZgEK2BMsEy2327sWynw3qb6XC/oGgGDUTPtR8pFxFQmNArhMBwhkUbUr5OPhhIJpCa8eQ==}
     peerDependencies:
       sharp: '>= 0.30.6'
     dependencies:
-      sharp: 0.32.4
+      sharp: 0.32.5
     dev: false
 
   /pluralize@8.0.0:
@@ -8149,8 +8145,8 @@ packages:
     resolution: {integrity: sha512-rb+9B5YBIEzYcD6x2VKidaa+cqYBJQKnU4oe4E3ANwRRN56yk/ua1YCJT1n21NTS8w6CcOclAKNP3PhdCXKYtQ==}
     dev: true
 
-  /sharp@0.32.4:
-    resolution: {integrity: sha512-exUnZewqVZC6UXqXuQ8fyJJv0M968feBi04jb9GcUHrWtkRoAKnbJt8IfwT4NJs7FskArbJ14JAFGVuooszoGg==}
+  /sharp@0.32.5:
+    resolution: {integrity: sha512-0dap3iysgDkNaPOaOL4X/0akdu0ma62GcdC2NBQ+93eqpePdDdr2/LM0sFdDSMmN7yS+odyZtPsb7tx/cYBKnQ==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
@@ -8855,7 +8851,6 @@ packages:
       browserslist: 4.21.10
       escalade: 3.1.1
       picocolors: 1.0.0
-    dev: true
 
   /update-browserslist-db@1.0.11(browserslist@4.21.9):
     resolution: {integrity: sha512-dCwEFf0/oT85M1fHBg4F0jtLwJrutGoHSQXCh7u4o2t1drG+c0a9Flnqww6XUKSfQMPpJBRjU8d4RXB09qtvaA==}
@@ -9105,7 +9100,7 @@ packages:
       '@webassemblyjs/wasm-parser': 1.11.6
       acorn: 8.9.0
       acorn-import-assertions: 1.9.0(acorn@8.9.0)
-      browserslist: 4.21.9
+      browserslist: 4.21.10
       chrome-trace-event: 1.0.3
       enhanced-resolve: 5.15.0
       es-module-lexer: 1.3.0
