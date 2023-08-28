@@ -69,7 +69,7 @@
     "cypress": "12.17.4",
     "cypress-real-events": "1.10.1",
     "esbuild": "0.19.2",
-    "eslint": "8.47.0",
+    "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-cypress": "2.14.0",
