@@ -87,7 +87,7 @@ dependencies:
 devDependencies:
   '@pandacss/dev':
     specifier: 0.14.0
-    version: 0.14.0(@internationalized/date@3.3.0)(@types/node@20.5.9)(@types/react-dom@18.2.7)(@types/react@18.2.21)(sharp@0.32.5)(typescript@5.2.2)
+    version: 0.14.0(@internationalized/date@3.3.0)(@types/node@20.6.0)(@types/react-dom@18.2.7)(@types/react@18.2.21)(sharp@0.32.5)(typescript@5.2.2)
   '@testing-library/cypress':
     specifier: 9.0.0
     version: 9.0.0(cypress@12.17.4)
@@ -98,8 +98,8 @@ devDependencies:
     specifier: 1.0.5
     version: 1.0.5
   '@types/node':
-    specifier: 20.5.9
-    version: 20.5.9
+    specifier: 20.6.0
+    version: 20.6.0
   '@types/react':
     specifier: 18.2.21
     version: 18.2.21
@@ -238,7 +238,7 @@ packages:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.9.6(@types/node@20.5.9)(sharp@0.32.5)
+      astro: 2.9.6(@types/node@20.6.0)(sharp@0.32.5)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -1504,7 +1504,7 @@ packages:
       ts-pattern: 5.0.4
     dev: true
 
-  /@pandacss/dev@0.14.0(@internationalized/date@3.3.0)(@types/node@20.5.9)(@types/react-dom@18.2.7)(@types/react@18.2.21)(sharp@0.32.5)(typescript@5.2.2):
+  /@pandacss/dev@0.14.0(@internationalized/date@3.3.0)(@types/node@20.6.0)(@types/react-dom@18.2.7)(@types/react@18.2.21)(sharp@0.32.5)(typescript@5.2.2):
     resolution: {integrity: sha512-WMgZfoqJfMaK+JqCfH4d82sOqxdWDJdMWjpKuGfLcFJlE2vURINpNsasV1zFA9X6H+e35Tu099IW055ftxD8aA==}
     hasBin: true
     dependencies:
@@ -1516,7 +1516,7 @@ packages:
       '@pandacss/postcss': 0.14.0(typescript@5.2.2)
       '@pandacss/preset-panda': 0.14.0
       '@pandacss/shared': 0.14.0
-      '@pandacss/studio': 0.14.0(@internationalized/date@3.3.0)(@types/node@20.5.9)(@types/react-dom@18.2.7)(@types/react@18.2.21)(sharp@0.32.5)(typescript@5.2.2)
+      '@pandacss/studio': 0.14.0(@internationalized/date@3.3.0)(@types/node@20.6.0)(@types/react-dom@18.2.7)(@types/react@18.2.21)(sharp@0.32.5)(typescript@5.2.2)
       '@pandacss/token-dictionary': 0.14.0
       '@pandacss/types': 0.14.0
       cac: 6.7.14
@@ -1667,7 +1667,7 @@ packages:
     resolution: {integrity: sha512-x9vrqC1DzuT3BBC9xvovzmPNhZJyMFvt9s0G2a/tKk12n85TmO+CCgEAk22nz47y2vB98B3AD01yAXazb7jy1g==}
     dev: true
 
-  /@pandacss/studio@0.14.0(@internationalized/date@3.3.0)(@types/node@20.5.9)(@types/react-dom@18.2.7)(@types/react@18.2.21)(sharp@0.32.5)(typescript@5.2.2):
+  /@pandacss/studio@0.14.0(@internationalized/date@3.3.0)(@types/node@20.6.0)(@types/react-dom@18.2.7)(@types/react@18.2.21)(sharp@0.32.5)(typescript@5.2.2):
     resolution: {integrity: sha512-TOMm6yQjwsod8HjnNkdCvXsslJ7Z5de88qNOoY+g7rX6KM++8Xx29BarKzK0n5Yl2yS5U0etFbvT+8oCOY4Zyw==}
     dependencies:
       '@ark-ui/react': 0.9.0(@internationalized/date@3.3.0)(react-dom@18.2.0)(react@18.2.0)
@@ -1678,11 +1678,11 @@ packages:
       '@pandacss/shared': 0.14.0
       '@pandacss/token-dictionary': 0.14.0
       '@pandacss/types': 0.14.0
-      astro: 2.9.6(@types/node@20.5.9)(sharp@0.32.5)
+      astro: 2.9.6(@types/node@20.6.0)(sharp@0.32.5)
       javascript-stringify: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      vite: 4.4.9(@types/node@20.5.9)
+      vite: 4.4.9(@types/node@20.6.0)
     transitivePeerDependencies:
       - '@internationalized/date'
       - '@types/node'
@@ -2450,6 +2450,11 @@ packages:
 
   /@types/node@20.5.9:
     resolution: {integrity: sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==}
+    dev: false
+
+  /@types/node@20.6.0:
+    resolution: {integrity: sha512-najjVq5KN2vsH2U/xyh2opaSEz6cZMR2SetLIlxlj08nOcmPOemJmUK2o4kUzfLqfrWE0PIrNeE16XhYDd3nqg==}
+    dev: true
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -2509,7 +2514,7 @@ packages:
     resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.5.9
+      '@types/node': 20.6.0
     dev: true
     optional: true
 
@@ -3583,7 +3588,7 @@ packages:
     hasBin: true
     dev: false
 
-  /astro@2.9.6(@types/node@20.5.9)(sharp@0.32.5):
+  /astro@2.9.6(@types/node@20.6.0)(sharp@0.32.5):
     resolution: {integrity: sha512-yvbZQ6YOWYLejyQ4nAcgZLDYQ34enQJ5/LWlXKtUzXzpsUHB75vJMj+XmEq5Q2eVlZOlQrp0lU+nhSRGaOsOUQ==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -3647,7 +3652,7 @@ packages:
       typescript: 5.2.2
       unist-util-visit: 4.1.2
       vfile: 5.3.7
-      vite: 4.4.9(@types/node@20.5.9)
+      vite: 4.4.9(@types/node@20.6.0)
       vitefu: 0.2.4(vite@4.4.9)
       which-pm: 2.0.0
       yargs-parser: 21.1.1
@@ -9005,7 +9010,7 @@ packages:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  /vite@4.4.9(@types/node@20.5.9):
+  /vite@4.4.9(@types/node@20.6.0):
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -9033,7 +9038,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.5.9
+      '@types/node': 20.6.0
       esbuild: 0.18.19
       postcss: 8.4.27
       rollup: 3.28.1
@@ -9049,7 +9054,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.4.9(@types/node@20.5.9)
+      vite: 4.4.9(@types/node@20.6.0)
     dev: true
 
   /vscode-css-languageservice@6.2.6:
