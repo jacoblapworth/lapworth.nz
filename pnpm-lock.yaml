@@ -90,7 +90,7 @@ devDependencies:
     version: 0.15.0(@internationalized/date@3.3.0)(@types/node@20.6.0)(@types/react-dom@18.2.7)(@types/react@18.2.21)(sharp@0.32.5)(typescript@5.2.2)
   '@testing-library/cypress':
     specifier: 10.0.1
-    version: 10.0.1(cypress@12.17.4)
+    version: 10.0.1(cypress@13.2.0)
   '@types/mdx':
     specifier: 2.0.7
     version: 2.0.7
@@ -116,11 +116,11 @@ devDependencies:
     specifier: 6.7.0
     version: 6.7.0(eslint@8.49.0)(typescript@5.2.2)
   cypress:
-    specifier: 12.17.4
-    version: 12.17.4
+    specifier: 13.2.0
+    version: 13.2.0
   cypress-real-events:
     specifier: 1.10.3
-    version: 1.10.3(cypress@12.17.4)
+    version: 1.10.3(cypress@13.2.0)
   esbuild:
     specifier: 0.19.2
     version: 0.19.2
@@ -541,8 +541,8 @@ packages:
     dev: true
     optional: true
 
-  /@cypress/request@2.88.12:
-    resolution: {integrity: sha512-tOn+0mDZxASFM+cuAP9szGUGPI1HwWVSvdzm7V4cCsPdFTx6qMj29CwaQmRAMIEhORIUBFBsYROYJcveK4uOjA==}
+  /@cypress/request@3.0.1:
+    resolution: {integrity: sha512-TWivJlJi8ZDx2wGOw1dbLuHJKUYX7bWySw377nlnGOW3hP9/MUKIsEdXT/YngWxVdgNCHRBmFlBipE+5/2ZZlQ==}
     engines: {node: '>= 6'}
     dependencies:
       aws-sign2: 0.7.0
@@ -2283,7 +2283,7 @@ packages:
       defer-to-connect: 2.0.1
     dev: false
 
-  /@testing-library/cypress@10.0.1(cypress@12.17.4):
+  /@testing-library/cypress@10.0.1(cypress@13.2.0):
     resolution: {integrity: sha512-e8uswjTZIBhaIXjzEcrQQ8nHRWHgZH7XBxKuIWxZ/T7FxfWhCR48nFhUX5nfPizjVOKSThEfOSv67jquc1ASkw==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
@@ -2291,7 +2291,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.22.5
       '@testing-library/dom': 9.3.1
-      cypress: 12.17.4
+      cypress: 13.2.0
     dev: true
 
   /@testing-library/dom@9.3.1:
@@ -2440,12 +2440,12 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
-  /@types/node@16.18.39:
-    resolution: {integrity: sha512-8q9ZexmdYYyc5/cfujaXb4YOucpQxAV4RMG0himLyDUOEr8Mr79VrqsFI+cQ2M2h89YIuy95lbxuYjxT4Hk4kQ==}
-    dev: true
-
   /@types/node@17.0.45:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
+    dev: true
+
+  /@types/node@18.17.15:
+    resolution: {integrity: sha512-2yrWpBk32tvV/JAd3HNHWuZn/VDN1P+72hWirHnvsvTGSqbANi+kSeuQR9yAHnbvaBvHDsoTdXV0Fe+iRtHLKA==}
     dev: true
 
   /@types/node@20.6.0:
@@ -4167,23 +4167,23 @@ packages:
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
 
-  /cypress-real-events@1.10.3(cypress@12.17.4):
+  /cypress-real-events@1.10.3(cypress@13.2.0):
     resolution: {integrity: sha512-YN3fn+CJIAM638sE6uMvv2/n3PsWowdd0rOiN6ZoyezNAMyENfuQHvccLKZpN+apGfQZYetCml6QXLYgDid2fg==}
     peerDependencies:
       cypress: ^4.x || ^5.x || ^6.x || ^7.x || ^8.x || ^9.x || ^10.x || ^11.x || ^12.x || ^13.x
     dependencies:
-      cypress: 12.17.4
+      cypress: 13.2.0
     dev: true
 
-  /cypress@12.17.4:
-    resolution: {integrity: sha512-gAN8Pmns9MA5eCDFSDJXWKUpaL3IDd89N9TtIupjYnzLSmlpVr+ZR+vb4U/qaMp+lB6tBvAmt7504c3Z4RU5KQ==}
-    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+  /cypress@13.2.0:
+    resolution: {integrity: sha512-AvDQxBydE771GTq0TR4ZUBvv9m9ffXuB/ueEtpDF/6gOcvFR96amgwSJP16Yhqw6VhmwqspT5nAGzoxxB+D89g==}
+    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@cypress/request': 2.88.12
+      '@cypress/request': 3.0.1
       '@cypress/xvfb': 1.2.4(supports-color@8.1.1)
-      '@types/node': 16.18.39
+      '@types/node': 18.17.15
       '@types/sinonjs__fake-timers': 8.1.1
       '@types/sizzle': 2.3.3
       arch: 2.2.0
