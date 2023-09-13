@@ -89,8 +89,8 @@ devDependencies:
     specifier: 0.15.0
     version: 0.15.0(@internationalized/date@3.3.0)(@types/node@20.6.0)(@types/react-dom@18.2.7)(@types/react@18.2.21)(sharp@0.32.5)(typescript@5.2.2)
   '@testing-library/cypress':
-    specifier: 10.0.0
-    version: 10.0.0(cypress@12.17.4)
+    specifier: 10.0.1
+    version: 10.0.1(cypress@12.17.4)
   '@types/mdx':
     specifier: 2.0.7
     version: 2.0.7
@@ -2283,8 +2283,8 @@ packages:
       defer-to-connect: 2.0.1
     dev: false
 
-  /@testing-library/cypress@10.0.0(cypress@12.17.4):
-    resolution: {integrity: sha512-b7dNzDldZmpwl4MmC3UEEW7/X355w8ScOQfJ7RPFHP0eheRkO7qCNfn7YFyq39w5kx9My8/BJiYCeOn5q9LrDQ==}
+  /@testing-library/cypress@10.0.1(cypress@12.17.4):
+    resolution: {integrity: sha512-e8uswjTZIBhaIXjzEcrQQ8nHRWHgZH7XBxKuIWxZ/T7FxfWhCR48nFhUX5nfPizjVOKSThEfOSv67jquc1ASkw==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       cypress: ^12.0.0 || ^13.0.0
