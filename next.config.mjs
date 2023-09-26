@@ -50,6 +50,17 @@ const config = {
         hostname: '*.mzstatic.com',
         pathname: '/image/**',
       },
+      // https://oku.ams3.cdn.digitaloceanspaces.com/covers/2022/09
+      {
+        protocol: 'https',
+        hostname: 'oku.ams3.cdn.digitaloceanspaces.com',
+        pathname: '/covers/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.gr-assets.com',
+        pathname: '/**',
+      },
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',

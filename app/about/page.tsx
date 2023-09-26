@@ -8,9 +8,10 @@ import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
 import ProfileImage from '@/public/static/j-photo-mono.png'
 
-
+import { getReadingWithThumbnails } from './books/oku'
 import { Experience } from './experience'
 import { HeavyRotation } from './HeavyRotation'
+import { Reading } from './Reading'
 
 export const metadata: Metadata = {
   title: 'Senior design systems product designer',
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const music = await getMusicWithThumbnails()
+  const books = await getReadingWithThumbnails()
+
+  console.log({ books })
+
   return (
     <>
       <div className={css({ maxWidth: '1000px' })}>
@@ -66,6 +71,7 @@ export default async function Page() {
       </div>
       <Experience />
       {music && <HeavyRotation music={music} />}
+      {books && <Reading books={books} />}
     </>
   )
 }
