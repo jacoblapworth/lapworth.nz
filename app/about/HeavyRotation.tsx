@@ -5,9 +5,8 @@ import NextImage from 'next/image'
 import { styled } from 'styled/jsx'
 
 import { MusicKitResource } from '@/app/about/music'
+import { Carousel } from '@/components/Carousel'
 import { Link } from '@/components/Link'
-import { Text } from '@/components/Typography'
-
 
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
@@ -87,41 +86,18 @@ const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
   )
 }
 
-const Grid = styled('div', {
-  base: {
-    display: 'grid',
-    gridAutoColumns: 128,
-    gridAutoRows: 'auto',
-    gridAutoFlow: 'column',
-    gap: 'md',
-    overflowX: 'scroll',
-    overflowY: 'visible',
-    marginInline: -16,
-    paddingBlock: 'md',
-    paddingInline: 'md',
-    alignItems: 'start',
-  },
-})
-
 interface HeavyRotationProps {
   music: MusicKitResource[]
 }
 
 export const HeavyRotation = ({ music }: HeavyRotationProps) => {
-  if (music.length === 0) {
-    return null
-  }
-
-  const Music = music.map((item) => (
-    <AppleMusicResource key={item.id} resource={item} />
-  ))
-
   return (
-    <div>
-      <Text as="h2" size="large" display>
-        Currently vibing to
-      </Text>
-      <Grid>{Music}</Grid>
-    </div>
+    <Carousel
+      title="Currently vibing to"
+      items={music}
+      renderItem={(item) => (
+        <AppleMusicResource key={item.id} resource={item} />
+      )}
+    />
   )
 }

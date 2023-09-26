@@ -65,7 +65,7 @@ export default async function Page() {
         </Text>
       </div>
       <Experience />
-      {music && music.length > 0 && <HeavyRotation music={music} />}
+      {music && <HeavyRotation music={music} />}
     </>
   )
 }
