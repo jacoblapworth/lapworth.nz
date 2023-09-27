@@ -107,8 +107,8 @@ devDependencies:
     specifier: 18.2.7
     version: 18.2.7
   '@types/react-resizable':
-    specifier: 3.0.4
-    version: 3.0.4
+    specifier: 3.0.5
+    version: 3.0.5
   '@typescript-eslint/eslint-plugin':
     specifier: 6.7.3
     version: 6.7.3(@typescript-eslint/parser@6.7.3)(eslint@8.50.0)(typescript@5.2.2)
@@ -2469,8 +2469,8 @@ packages:
     dependencies:
       '@types/react': 18.2.23
 
-  /@types/react-resizable@3.0.4:
-    resolution: {integrity: sha512-+QguN9CDfC1lthq+4noG1fkxh8cqkV2Fv/Mu3mdknCCBiwwNLecnBdk1MmNNN7uJpT23Nx/aVkYsbt5NuWouFw==}
+  /@types/react-resizable@3.0.5:
+    resolution: {integrity: sha512-7E8ySYq89uhJi0KpA8A0czhVzIl0uN2LCfdJjFmvx0bePHV9SdjzVrjCv5QASlFD4tGL/VRqHhff4nwvrPSrHw==}
     dependencies:
       '@types/react': 18.2.23
     dev: true
