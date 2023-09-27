@@ -59,7 +59,7 @@
     "@pandacss/dev": "0.15.1",
     "@testing-library/cypress": "10.0.1",
     "@types/mdx": "2.0.7",
-    "@types/musickit-js": "1.0.5",
+    "@types/musickit-js": "1.0.6",
     "@types/node": "20.7.0",
     "@types/react": "18.2.23",
     "@types/react-dom": "18.2.7",
