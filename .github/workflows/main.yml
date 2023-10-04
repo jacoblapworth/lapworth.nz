@@ -86,7 +86,7 @@ jobs:
           run_install: true
 
       - name: Cypress
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
           start: pnpm run start
           wait-on: 'http://localhost:3000'
