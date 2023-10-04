@@ -65,7 +65,6 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
-          run_install: true
 
       - name: Lint
         run: pnpm run lint
@@ -86,7 +85,6 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
-          run_install: true
 
       - name: Cypress
         uses: cypress-io/github-action@v6
