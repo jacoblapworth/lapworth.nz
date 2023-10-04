@@ -12,6 +12,11 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const token = await createAppleJWT()
-  return <Authorise developerToken={token} />
+  try {
+    const token = await createAppleJWT()
+    return <Authorise developerToken={token} />
+  } catch (error) {
+    console.error(error)
+    return null
+  }
 }
