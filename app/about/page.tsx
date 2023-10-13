@@ -22,8 +22,6 @@ export default async function Page() {
   const music = await getMusicWithThumbnails()
   const books = await getReadingWithThumbnails()
 
-  console.log({ books })
-
   return (
     <>
       <div className={css({ maxWidth: '1000px' })}>
