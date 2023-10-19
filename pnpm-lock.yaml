@@ -12,8 +12,8 @@ dependencies:
     specifier: 2.3.0
     version: 2.3.0(react@18.2.0)
   '@next/mdx':
-    specifier: 13.5.5
-    version: 13.5.5(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0)
+    specifier: 13.5.6
+    version: 13.5.6(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0)
   '@radix-ui/react-dropdown-menu':
     specifier: 2.0.6
     version: 2.0.6(@types/react-dom@18.2.14)(@types/react@18.2.29)(react-dom@18.2.0)(react@18.2.0)
@@ -1371,8 +1371,8 @@ packages:
       glob: 7.1.7
     dev: true
 
-  /@next/mdx@13.5.5(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0):
-    resolution: {integrity: sha512-vIUvyICrCHiCAYU4HY/h0DgeFyEZBdRTPR9TTU79Q2u01M9DxrciE5hBwXKIJkzUTa4Ia5nszLt0o9GxpBIgMQ==}
+  /@next/mdx@13.5.6(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0):
+    resolution: {integrity: sha512-2AMyCrz1SxSWNUpADyLz3RbPbq0GHrchbO7Msvg7IsH8MrTw3VYaZSI1KNa6JzZIoykwtNVSEL+uBmPZi106Jw==}
     peerDependencies:
       '@mdx-js/loader': '>=0.15.0'
       '@mdx-js/react': '>=0.15.0'
