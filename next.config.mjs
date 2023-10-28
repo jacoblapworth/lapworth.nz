@@ -67,7 +67,9 @@ const config = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  experimental: {},
+  experimental: {
+    serverActions: true,
+  },
 }
 
 const withMDX = createMDX({
