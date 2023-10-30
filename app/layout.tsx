@@ -2,7 +2,7 @@ import './index.css'
 
 import { ReactNode } from 'react'
 
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { ServerThemeProvider } from 'next-themes'
 
@@ -11,7 +11,6 @@ import { token } from 'styled/tokens'
 
 import { Page } from '@/components/Page'
 import { themeConfig } from '@/components/Theme'
-
 
 const sectraFont = localFont({
   src: './fonts/sectra/regular.woff',
@@ -31,16 +30,6 @@ export const metadata: Metadata = {
   },
   description:
     'A digital product designer, living in Tāmaki Makaurau, Aotearoa — Auckland, New Zealand. Currently scaling the design system at Xero.',
-  themeColor: [
-    {
-      media: '(prefers-color-scheme: dark)',
-      color: token('colors.black.100'),
-    },
-    {
-      media: '(prefers-color-scheme: light)',
-      color: token('colors.white.10'),
-    },
-  ],
   openGraph: {
     type: 'website',
     locale: 'en_NZ',
@@ -59,10 +48,27 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  userScalable: false,
+  themeColor: [
+    {
+      media: '(prefers-color-scheme: dark)',
+      color: token('colors.black.100'),
+    },
+    {
+      media: '(prefers-color-scheme: light)',
+      color: token('colors.white.10'),
+    },
+  ],
+}
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   const emoji = '🌈'
   return (
-    <ServerThemeProvider {...themeConfig} >
+    <ServerThemeProvider {...themeConfig}>
       <html className={sectraFont.variable} suppressHydrationWarning={true}>
         <head>
           <link

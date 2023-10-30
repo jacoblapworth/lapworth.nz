@@ -12,7 +12,6 @@ import disciplines from '@/public/static/work/xero/principles-disciplines.webp'
 import worldMapDark from '@/public/static/work/xero/principles-world-map-dark.svg'
 import worldMap from '@/public/static/work/xero/principles-world-map.svg'
 
-
 export function Principles() {
   const Container = styled('div', {
     base: {
@@ -120,10 +119,10 @@ export function Principles() {
     <Container>
       {principles.map(({ value, title, means, outcome, watch }) => (
         <Card key={value}>
-          <Text display size="medium" css={{ color: '$background' }}>
+          <Text display size="medium" css={{ color: 'background' }}>
             {title}
           </Text>
-          <Text size="small" css={{ color: '$background' }}>
+          <Text size="small" css={{ color: 'background' }}>
             Principle {value}
           </Text>
           <ul>
@@ -169,7 +168,7 @@ export function WorldMap() {
     base: {
       // display: 'grid',
       // gridTemplateColumns: 'repeat(8, 1fr)',
-      // marginBlock: '$md',
+      // marginBlock: 'md',
       gridColumn: '3/-1',
       gridRow: '1',
     },

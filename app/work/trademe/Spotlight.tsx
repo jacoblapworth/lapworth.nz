@@ -28,29 +28,29 @@ const Circle = styled('div', {
   variants: {
     vertical: {
       marketplace: {
-        background: '$marketplace',
-        borderColor: '$marketplace',
-        color: '$marketplace',
+        background: 'marketplace',
+        borderColor: 'marketplace',
+        color: 'marketplace',
       },
       jobs: {
-        background: '$jobs',
-        borderColor: '$jobs',
-        color: '$jobs',
+        background: 'jobs',
+        borderColor: 'jobs',
+        color: 'jobs',
       },
       property: {
-        background: '$property',
-        borderColor: '$property',
-        color: '$property',
+        background: 'property',
+        borderColor: 'property',
+        color: 'property',
       },
       motors: {
-        background: '$motors',
-        borderColor: '$motors',
-        color: '$motors',
+        background: 'motors',
+        borderColor: 'motors',
+        color: 'motors',
       },
       services: {
-        background: '$services',
-        borderColor: '$services',
-        color: '$services',
+        background: 'services',
+        borderColor: 'services',
+        color: 'services',
       },
     },
 
