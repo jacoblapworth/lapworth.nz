@@ -2,6 +2,7 @@ import './index.css'
 
 import { ReactNode } from 'react'
 
+import { Analytics } from '@vercel/analytics/react'
 import { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { ServerThemeProvider } from 'next-themes'
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </head>
         <body className={css({ bg: 'background' })}>
           <Page>{children}</Page>
+          <Analytics />
         </body>
       </html>
     </ServerThemeProvider>
