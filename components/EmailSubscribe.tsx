@@ -1,9 +1,12 @@
 import {
   ApiKeySession,
-  ProfileCreateQuery,
+  ListEnum,
   ProfileEnum,
+  ProfileSubscriptionBulkCreateJobEnum,
   ProfilesApi,
 } from 'klaviyo-api'
+
+import { AxiosError, isAxiosError } from 'axios'
 
 import { HStack, VStack, styled } from 'styled/jsx'
 
@@ -43,23 +46,41 @@ export function EmailSubscribe() {
         throw new Error('Invalid email')
       }
 
-      await profiles.createProfile({
+      await profiles.subscribeProfiles({
         data: {
-          type: ProfileEnum.Profile,
+          type: ProfileSubscriptionBulkCreateJobEnum.ProfileSubscriptionBulkCreateJob,
           attributes: {
-            email,
+            profiles: {
+              data: [
+                {
+                  type: ProfileEnum.Profile,
+                  attributes: {
+                    email,
+                  },
+                },
+              ],
+            },
+          },
+
+          relationships: {
+            list: {
+              data: {
+                type: ListEnum.List,
+                id: 'W7qqMe',
+              },
+            },
           },
         },
       })
     } catch (error) {
-      // if (error instanceof AxiosError) {
-      //   console.error(error.response.statusText, error.response.status)
-      // } else {
-      //   console.error(error)
-
-      // }
-
-      console.error(error.response.statusText, error.response.status)
+      if (isAxiosError(error)) {
+        console.error(
+          `Klaviyo error: ${error.response?.statusText}`,
+          error.response?.status,
+        )
+      } else {
+        console.error(error)
+      }
     }
   }
 
