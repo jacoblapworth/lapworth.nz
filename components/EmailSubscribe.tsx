@@ -1,9 +1,10 @@
 'use client'
 
+import { useFormState, useFormStatus } from 'react-dom'
+
 import { HStack, VStack, styled } from 'styled/jsx'
 
-import { useFormState, useFormStatus } from 'react-dom'
-import { subscribeEmail } from '@/actions/subscribe'
+import { FormState, subscribeEmail } from '@/actions/subscribe'
 
 const Button = styled('button', {
   base: {
@@ -51,8 +52,12 @@ const Label = styled('label', {
   base: {},
 })
 
+const initialState: FormState = {
+  message: null,
+}
+
 export function EmailSubscribe() {
-  const [state, formAction] = useFormState(subscribeEmail, { message: null })
+  const [state, formAction] = useFormState(subscribeEmail, initialState)
 
   return (
     <form action={formAction}>
@@ -73,7 +78,7 @@ export function EmailSubscribe() {
         <SubmitButton>Subscribe</SubmitButton>
       </HStack>
       <p id="message" aria-live="polite">
-        {state?.message}
+        {state.message}
       </p>
     </form>
   )

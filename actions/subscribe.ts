@@ -13,7 +13,11 @@ import { isAxiosError } from 'axios'
 const session = new ApiKeySession(process.env.KLAVIYO_API_KEY)
 const profiles = new ProfilesApi(session)
 
-export async function subscribeEmail(prevState: any, data: FormData) {
+export interface FormState {
+  message: string | null
+}
+
+export async function subscribeEmail(prevState: FormState, data: FormData) {
   try {
     const email = data.get('email')
     if (typeof email !== 'string') {
