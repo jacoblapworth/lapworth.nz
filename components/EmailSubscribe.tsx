@@ -12,6 +12,10 @@ const Button = styled('button', {
     borderColor: 'interactive',
     borderWidth: '1px',
     borderStyle: 'solid',
+    _hover: {
+      backgroundColor: 'interactive',
+      color: 'background',
+    },
   },
 })
 
@@ -39,6 +43,7 @@ const Input = styled('input', {
     borderColor: 'interactive',
     borderWidth: '1px',
     borderStyle: 'solid',
+    marginInlineEnd: '-1px',
   },
 })
 
