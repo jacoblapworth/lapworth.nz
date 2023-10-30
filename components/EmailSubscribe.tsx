@@ -1,26 +1,9 @@
-import {
-  ApiKeySession,
-  ListEnum,
-  ProfileEnum,
-  ProfileSubscriptionBulkCreateJobEnum,
-  ProfilesApi,
-} from 'klaviyo-api'
-
-import { AxiosError, isAxiosError } from 'axios'
+'use client'
 
 import { HStack, VStack, styled } from 'styled/jsx'
 
-const session = new ApiKeySession(process.env.KLAVIYO_API_KEY)
-const profiles = new ProfilesApi(session)
-
-const Input = styled('input', {
-  base: {
-    padding: 'sm',
-    borderColor: 'interactive',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-  },
-})
+import { useFormState, useFormStatus } from 'react-dom'
+import { subscribeEmail } from '@/actions/subscribe'
 
 const Button = styled('button', {
   base: {
@@ -32,60 +15,42 @@ const Button = styled('button', {
   },
 })
 
+interface Props {
+  children: React.ReactNode
+}
+
+export function SubmitButton({ children }: Props) {
+  const { pending } = useFormStatus()
+
+  return (
+    <Button
+      type="submit"
+      aria-disabled={pending}
+      aria-label={pending ? 'Loading' : undefined}
+    >
+      {children}
+    </Button>
+  )
+}
+
+const Input = styled('input', {
+  base: {
+    padding: 'sm',
+    borderColor: 'interactive',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+  },
+})
+
 const Label = styled('label', {
   base: {},
 })
 
 export function EmailSubscribe() {
-  const onSubmit = async (data: FormData) => {
-    'use server'
-
-    try {
-      const email = data.get('email')
-      if (typeof email !== 'string') {
-        throw new Error('Invalid email')
-      }
-
-      await profiles.subscribeProfiles({
-        data: {
-          type: ProfileSubscriptionBulkCreateJobEnum.ProfileSubscriptionBulkCreateJob,
-          attributes: {
-            profiles: {
-              data: [
-                {
-                  type: ProfileEnum.Profile,
-                  attributes: {
-                    email,
-                  },
-                },
-              ],
-            },
-          },
-
-          relationships: {
-            list: {
-              data: {
-                type: ListEnum.List,
-                id: 'W7qqMe',
-              },
-            },
-          },
-        },
-      })
-    } catch (error) {
-      if (isAxiosError(error)) {
-        console.error(
-          `Klaviyo error: ${error.response?.statusText}`,
-          error.response?.status,
-        )
-      } else {
-        console.error(error)
-      }
-    }
-  }
+  const [state, formAction] = useFormState(subscribeEmail, { message: null })
 
   return (
-    <form action={onSubmit}>
+    <form action={formAction}>
       <HStack alignItems="end" gap={0}>
         <VStack alignItems="start">
           <Label htmlFor="email">Email address</Label>
@@ -96,11 +61,15 @@ export function EmailSubscribe() {
             type="email"
             autoComplete="email"
             required
+            aria-describedby="message"
           />
         </VStack>
 
-        <Button type="submit">Subscribe</Button>
+        <SubmitButton>Subscribe</SubmitButton>
       </HStack>
+      <p id="message" aria-live="polite">
+        {state?.message}
+      </p>
     </form>
   )
 }
