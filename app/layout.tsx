@@ -2,8 +2,8 @@ import './index.css'
 
 import { ReactNode } from 'react'
 
-import { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/react'
+import { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { ServerThemeProvider } from 'next-themes'
 
