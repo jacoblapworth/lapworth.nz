@@ -1,5 +1,8 @@
 import { Metadata } from 'next'
 
+import { Stack } from 'styled/jsx'
+
+import { EmailSubscribe } from '@/components/EmailSubscribe'
 import { Text } from '@/components/Typography'
 
 export const metadata: Metadata = {
@@ -9,8 +12,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Text size="xlarge" display>
-      Coming soon 👀
-    </Text>
+    <Stack>
+      <Text size="xlarge" display>
+        Coming soon 👀
+      </Text>
+      <EmailSubscribe />
+    </Stack>
   )
 }
