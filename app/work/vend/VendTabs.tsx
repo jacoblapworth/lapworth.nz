@@ -12,7 +12,6 @@ import { styled } from 'styled/jsx'
 
 import { ResponsivePreview } from '@/components/Preview'
 
-
 const VEND_GREEN = '#41AF4B'
 
 const lato = Lato({
@@ -320,7 +319,7 @@ function SkeletonContent() {
 const ScrollContainer = styled('div', {
   base: {
     overflowX: 'scroll',
-    marginBlockEnd: '-$md',
+    marginBlockEnd: '-md',
   },
 })
 
@@ -366,10 +365,10 @@ export function TabsExample() {
       <TabsRoot
         value={tabValue}
         onValueChange={onChange}
-        css={{ margin: '$md' }}
+        css={{ margin: 'md' }}
       >
         <TabsContainer
-          css={{ marginBlockEnd: '$lg' }}
+          css={{ marginBlockEnd: 'lg' }}
           className={lato.className}
         >
           <OverflowIndicator direction="start" opacity={overflowStartOpacity} />

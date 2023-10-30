@@ -12,6 +12,7 @@ export default defineConfig({
   jsxFramework: 'react',
   preflight: true,
   strictTokens: false,
+  outExtension: 'js',
   include: [
     './{app,components}/**/*.{js,jsx,ts,tsx}',
     './pages/**/*.{js,jsx,ts,tsx}',

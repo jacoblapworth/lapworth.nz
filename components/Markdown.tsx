@@ -18,7 +18,6 @@ import { styled } from 'styled/jsx'
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
 
-
 export const Image = styled(NextImage, {
   base: {
     maxWidth: '100%',
@@ -60,11 +59,11 @@ type TextProps = ComponentProps<typeof Text>
 export const HeadingAnchor = ({ children, ...props }: TextProps) => {
   const pathname = usePathname()
   return (
-    <Text display css={{ marginBlock: '$lg' }} {...props}>
+    <Text display css={{ marginBlock: 'lg' }} {...props}>
       <Link
         href={`${pathname}#${props.id}`}
         sameTab
-        css={{ display: 'inline-flex', gap: '$sm', alignItems: 'center' }}
+        css={{ display: 'inline-flex', gap: 'sm', alignItems: 'center' }}
       >
         {children}
       </Link>

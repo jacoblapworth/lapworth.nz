@@ -45,7 +45,7 @@ const Pill = styled(NextLink, {
     paddingBlock: 4,
     paddingInline: 'sm',
     border: '1px solid token(colors.primary)',
-    // borderRadius: '$max',
+    // borderRadius: 'max',
 
     '&:hover': {
       backgroundColor: 'surface',

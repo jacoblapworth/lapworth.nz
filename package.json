@@ -17,7 +17,7 @@
   },
   "scripts": {
     "prepare": "npm run tokens:generate -- --clean",
-    "dev": "next",
+    "dev": "next --turbo",
     "build": "next build",
     "start": "next start",
     "cypress:open": "cypress open",
