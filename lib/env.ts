@@ -5,6 +5,7 @@ const envVariables = z.object({
   APPLE_TEAM_ID: z.string(),
   APPLE_MUSIC_KEY_ID: z.string(),
   APPLE_MUSIC_USER_TOKEN: z.string(),
+  KLAVIYO_API_KEY: z.string(),
   NEXT_PUBLIC_VERCEL_URL: z.string(),
   NEXT_PUBLIC_VERCEL_ENV: z.enum([
     'production',
