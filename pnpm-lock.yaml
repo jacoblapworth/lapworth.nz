@@ -48,8 +48,8 @@ dependencies:
     specifier: 5.0.1
     version: 5.0.1
   klaviyo-api:
-    specifier: 7.0.0
-    version: 7.0.0
+    specifier: 7.1.0
+    version: 7.1.0
   next:
     specifier: 14.0.1
     version: 14.0.1(@babel/core@7.22.9)(react-dom@18.2.0)(react@18.2.0)
@@ -6542,8 +6542,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  /klaviyo-api@7.0.0:
-    resolution: {integrity: sha512-S45zL8/WQMWvamyk34mjDmCFK462YRF9xB/qC/NOFhKvsW/uWnwlaETekki1WlZdRtaVNR7hiV89V9bBGQN0Og==}
+  /klaviyo-api@7.1.0:
+    resolution: {integrity: sha512-B0UNVnCG5TX4Kj3M2KoAihaW0/baYLifSi+8CxNVfqLjew/G9UPCAgL26yeYjIt/Q01kF42OHqzko23ox28IVw==}
     dependencies:
       axios: 1.6.0
       exponential-backoff: 3.1.1
