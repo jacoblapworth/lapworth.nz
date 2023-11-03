@@ -128,8 +128,8 @@ devDependencies:
     specifier: 13.4.0
     version: 13.4.0
   cypress-real-events:
-    specifier: 1.10.3
-    version: 1.10.3(cypress@13.4.0)
+    specifier: 1.11.0
+    version: 1.11.0(cypress@13.4.0)
   esbuild:
     specifier: 0.19.5
     version: 0.19.5
@@ -4312,8 +4312,8 @@ packages:
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
 
-  /cypress-real-events@1.10.3(cypress@13.4.0):
-    resolution: {integrity: sha512-YN3fn+CJIAM638sE6uMvv2/n3PsWowdd0rOiN6ZoyezNAMyENfuQHvccLKZpN+apGfQZYetCml6QXLYgDid2fg==}
+  /cypress-real-events@1.11.0(cypress@13.4.0):
+    resolution: {integrity: sha512-4LXVRsyq+xBh5TmlEyO1ojtBXtN7xw720Pwb9rEE9rkJuXmeH3VyoR1GGayMGr+Itqf11eEjfDewtDmcx6PWPQ==}
     peerDependencies:
       cypress: ^4.x || ^5.x || ^6.x || ^7.x || ^8.x || ^9.x || ^10.x || ^11.x || ^12.x || ^13.x
     dependencies:
