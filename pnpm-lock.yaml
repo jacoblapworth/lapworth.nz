@@ -104,8 +104,8 @@ devDependencies:
     specifier: 2.0.9
     version: 2.0.9
   '@types/musickit-js':
-    specifier: 1.0.7
-    version: 1.0.7
+    specifier: 1.0.8
+    version: 1.0.8
   '@types/node':
     specifier: 20.8.10
     version: 20.8.10
@@ -2507,8 +2507,8 @@ packages:
   /@types/ms@0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
 
-  /@types/musickit-js@1.0.7:
-    resolution: {integrity: sha512-mHcSkr/ljTCJ0C0LW7edMDVQZwe1ZdEteJxzR2SOjyA6vLX0ZVVpLcMz/N1ET19k6V5x0CQRx3k4XANWmqASCw==}
+  /@types/musickit-js@1.0.8:
+    resolution: {integrity: sha512-n9Nb9NKBjVB2mKGCch8TXuzJRyWX6il8zKkO1RsvdeqI5uwLL5KteL/Ki1mwmlACZkKA8euAk84onjIqdWcHCQ==}
     dev: true
 
   /@types/nlcst@1.0.1:
