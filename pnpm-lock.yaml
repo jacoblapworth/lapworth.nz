@@ -30,8 +30,8 @@ dependencies:
     specifier: 1.1.1
     version: 1.1.1
   '@vercel/kv':
-    specifier: 0.2.4
-    version: 0.2.4
+    specifier: 1.0.0
+    version: 1.0.0
   axios:
     specifier: 1.6.1
     version: 1.6.1
@@ -2525,17 +2525,10 @@ packages:
     resolution: {integrity: sha512-2yrWpBk32tvV/JAd3HNHWuZn/VDN1P+72hWirHnvsvTGSqbANi+kSeuQR9yAHnbvaBvHDsoTdXV0Fe+iRtHLKA==}
     dev: true
 
-  /@types/node@20.8.10:
-    resolution: {integrity: sha512-TlgT8JntpcbmKUFzjhsyhGfP2fsiz1Mv56im6enJ905xG1DAYesxJaeSbGqQmAw8OWPdhyJGhGSQGKRNJ45u9w==}
-    dependencies:
-      undici-types: 5.26.5
-    dev: false
-
   /@types/node@20.9.0:
     resolution: {integrity: sha512-nekiGu2NDb1BcVofVcEKMIwzlx4NjHlcjhoxxKBNLtz15Y1z7MYf549DFvkHSId02Ax6kGwWntIBPC3l/JZcmw==}
     dependencies:
       undici-types: 5.26.5
-    dev: true
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -2745,8 +2738,8 @@ packages:
       server-only: 0.0.1
     dev: false
 
-  /@vercel/kv@0.2.4:
-    resolution: {integrity: sha512-wbIOOXhg6MzmNMzKFSWbbLAS65hCZcJN33z1coENzI1M0fOX55yE9v9LwVGqkzdItp3eZsv6pYvwcmGtllyLTw==}
+  /@vercel/kv@1.0.0:
+    resolution: {integrity: sha512-StouXunmEqUfKE+1joSYfELWEEnI1MhTnzUdarHtv6H18RAm3cf5u5g9ElvA1DJNHcrMT6g5yVAhZcYRbk6lvg==}
     engines: {node: '>=14.6'}
     dependencies:
       '@upstash/redis': 1.24.3
@@ -6431,7 +6424,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.8.10
+      '@types/node': 20.9.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
