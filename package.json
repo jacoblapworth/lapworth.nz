@@ -41,7 +41,7 @@
     "framer-motion": "10.16.4",
     "got": "13.0.0",
     "gray-matter": "4.0.3",
-    "jose": "5.1.0",
+    "jose": "5.1.1",
     "klaviyo-api": "7.1.0",
     "next": "14.0.2",
     "next-mdx-remote": "4.4.1",
