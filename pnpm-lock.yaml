@@ -45,8 +45,8 @@ dependencies:
     specifier: 4.0.3
     version: 4.0.3
   jose:
-    specifier: 5.1.2
-    version: 5.1.2
+    specifier: 5.1.3
+    version: 5.1.3
   klaviyo-api:
     specifier: 7.1.0
     version: 7.1.0
@@ -5130,8 +5130,8 @@ packages:
     hasBin: true
     dev: true
 
-  /jose@5.1.2:
-    resolution: {integrity: sha512-X7TOC/d8KPvx4wPUuLHVgTSdoWw0UW5TQOUwhvCvj+ZPfsf9vUPhhksYPjNBWVGPQ/6yd/JrL1gQxBnIDwYdFg==}
+  /jose@5.1.3:
+    resolution: {integrity: sha512-GPExOkcMsCLBTi1YetY2LmkoY559fss0+0KVa6kOfb2YFe84nAM7Nm/XzuZozah4iHgmBGrCOHL5/cy670SBRw==}
     dev: false
 
   /js-tokens@4.0.0:
