@@ -38,7 +38,7 @@
     "@vercel/analytics": "1.1.1",
     "@vercel/kv": "1.0.0",
     "axios": "1.6.2",
-    "framer-motion": "10.16.12",
+    "framer-motion": "10.16.14",
     "got": "14.0.0",
     "gray-matter": "4.0.3",
     "jose": "5.1.3",
