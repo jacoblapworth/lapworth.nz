@@ -5,9 +5,6 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,10 +14,10 @@ jobs:
         with:
           version: 8
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v4.0.0
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version-file: package.json
           cache: 'pnpm'
 
       - name: Install dependencies
