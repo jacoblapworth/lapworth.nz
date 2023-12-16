@@ -9,8 +9,6 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
-    assignees:
-      - 'jacoblapworth'
     commit-message:
       prefix: 'chore(deps):'
 
@@ -18,7 +16,5 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
-    assignees:
-      - 'jacoblapworth'
     commit-message:
       prefix: 'chore(deps):'
