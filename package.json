@@ -12,7 +12,7 @@
     "typescript"
   ],
   "engines": {
-    "node": "18.x",
+    "node": ">=20",
     "pnpm": ">=3"
   },
   "scripts": {
