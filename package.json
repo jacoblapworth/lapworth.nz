@@ -54,7 +54,7 @@
     "rehype-pretty-code": "0.12.6",
     "rehype-slug": "6.0.0",
     "remark-gfm": "4.0.0",
-    "sharp": "0.33.0",
+    "sharp": "0.33.2",
     "shiki": "0.14.7",
     "zod": "3.22.4"
   },
