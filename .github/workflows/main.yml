@@ -9,28 +9,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Use Node.js
+      - name: Use Node
         uses: actions/setup-node@v4.0.1
         with:
           node-version-file: package.json
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Next build cache
         uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
 
       - name: Build
-        run: pnpm run build
+        run: npm run build
         env:
           GOOGLE_MEASUREMENT_ID: ${{ secrets.GOOGLE_MEASUREMENT_ID }}
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
@@ -58,13 +53,8 @@ jobs:
             ${{ github.workspace }}/*
           key: ${{ github.sha }}
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - name: Lint
-        run: pnpm run lint
+        run: npm run lint
 
   Test:
     runs-on: ubuntu-latest
@@ -78,15 +68,10 @@ jobs:
             ${{ github.workspace }}/*
           key: ${{ github.sha }}
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - name: Cypress
         uses: cypress-io/github-action@v6
         with:
-          start: pnpm run start
+          start: npm run start
           wait-on: 'http://localhost:3000'
           record: true
           group: 'Site'
