@@ -1,11 +1,11 @@
 import fs from 'fs'
 import path from 'path'
 
+import withBundleAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
-
 /** @type {import('rehype-pretty-code').Options}*/
 const prettyCodeOptions = {
   // Use one of Shiki's packaged themes
@@ -79,4 +79,6 @@ const withMDX = createMDX({
   },
 })
 
-export default withMDX(config)
+export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
+  withMDX(config),
+)
