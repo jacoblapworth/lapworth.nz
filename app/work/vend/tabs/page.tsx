@@ -3,7 +3,7 @@
 import { Text } from '@/components/Typography'
 // import { prepareMDX } from '@/lib/markdown'
 
-export default async function Page() {
+export default function Page() {
   // const { content, frontmatter } = await prepareMDX({
   //   fileName: 'tabs',
   //   directory: 'app/work/vend/tabs',
