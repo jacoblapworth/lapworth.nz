@@ -8,7 +8,7 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { z } from 'zod'
 
-import { Wrapper, Image, h1, h2, h3 } from '@/components/Markdown'
+import { wrapper, Image, h1, h2, h3 } from '@/components/Markdown'
 
 const Frontmatter = z.object({
   title: z.string(),
@@ -51,7 +51,7 @@ export const prepareMDX = async ({
     },
 
     components: {
-      wrapper: Wrapper,
+      wrapper,
       h1,
       h2,
       h3,

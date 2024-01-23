@@ -3,7 +3,11 @@
   "description": "Kopaki – personal website for J Lapworth",
   "version": "1.0.0",
   "private": true,
-  "author": "Jacob Lapworth <jacob@lapworth.nz> (lapworth.nz)",
+  "author": {
+    "email": "jacob@lapworth.nz",
+    "name": "J Lapworth",
+    "url": "https://lapworth.nz"
+  },
   "license": "MIT",
   "keywords": [
     "nextjs",
@@ -16,14 +20,15 @@
     "npm": ">=7"
   },
   "scripts": {
-    "prepare": "npm run tokens:generate -- --clean",
+    "prepare": "npm run tokens && npm run content",
     "dev": "next --turbo",
     "build": "next build",
     "start": "next start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "check-types": "",
-    "tokens:generate": "panda codegen",
+    "tokens": "panda codegen --clean",
+    "content": "contentlayer build --clearCache",
     "lint": "npm run check-types && next lint",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
   },
@@ -38,12 +43,15 @@
     "@vercel/analytics": "1.1.1",
     "@vercel/kv": "1.0.1",
     "axios": "1.6.5",
+    "contentlayer": "0.3.4",
+    "date-fns": "2.30.0",
     "framer-motion": "10.16.16",
     "got": "14.0.0",
     "gray-matter": "4.0.3",
     "jose": "5.2.0",
     "klaviyo-api": "7.2.0",
     "next": "14.0.4",
+    "next-contentlayer": "0.3.4",
     "next-mdx-remote": "4.4.1",
     "next-seo": "6.4.0",
     "next-themes": "npm:@wits/next-themes@0.2.16",
@@ -54,7 +62,7 @@
     "rehype-pretty-code": "0.12.6",
     "rehype-slug": "6.0.0",
     "remark-gfm": "4.0.0",
-    "sharp": "0.33.0",
+    "remark-mdx-images": "2.0.0",
     "shiki": "0.14.7",
     "zod": "3.22.4"
   },
@@ -79,6 +87,7 @@
     "eslint-plugin-cypress": "2.15.1",
     "eslint-plugin-prettier": "5.0.1",
     "prettier": "3.1.1",
+    "sharp": "0.33.0",
     "typescript": "5.3.3"
   }
 }

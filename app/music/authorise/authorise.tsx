@@ -15,6 +15,7 @@ export default function Authorise({ developerToken }: Props) {
   useEffect(() => {
     const authorize = async () => {
       const userToken = await appleMusic?.authorize()
+      // eslint-disable-next-line no-console
       userToken && console.log('Apple Music user token:', userToken)
     }
 
