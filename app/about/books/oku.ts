@@ -98,6 +98,11 @@ export async function getBookWithThumbnail(
   book: OkuBook,
 ): Promise<OkuBookWithThumbnail> {
   const src = book.imageLinks.thumbnail
+
+  if (src.length === 0) {
+    return { ...book, placeholder: '' }
+  }
+
   const image = await getImgBuffer(src)
   const placeholder = await getPlaiceholder(image)
 
@@ -108,5 +113,12 @@ export async function getReadingWithThumbnails(): Promise<
   OkuBookWithThumbnail[]
 > {
   const books = await getReading()
+
+  // books.map((book) => {
+  //   if (book.imageLinks.thumbnail.length === 0) {
+  //     console.log(book)
+  //   }
+  // })
+
   return Promise.all(books.map(getBookWithThumbnail))
 }

@@ -13,7 +13,7 @@
   ],
   "engines": {
     "node": ">=20",
-    "pnpm": ">=3"
+    "npm": ">=7"
   },
   "scripts": {
     "prepare": "npm run tokens:generate -- --clean",
@@ -37,13 +37,13 @@
     "@react-hook/mouse-position": "4.1.3",
     "@vercel/analytics": "1.1.1",
     "@vercel/kv": "1.0.1",
-    "axios": "1.6.2",
+    "axios": "1.6.5",
     "framer-motion": "10.16.16",
     "got": "14.0.0",
     "gray-matter": "4.0.3",
-    "jose": "5.1.3",
+    "jose": "5.2.0",
     "klaviyo-api": "7.2.0",
-    "next": "14.0.4",
+    "next": "14.1.0",
     "next-mdx-remote": "4.4.1",
     "next-seo": "6.4.0",
     "next-themes": "npm:@wits/next-themes@0.2.16",
@@ -51,7 +51,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-resizable": "3.0.5",
-    "rehype-pretty-code": "0.12.1",
+    "rehype-pretty-code": "0.12.6",
     "rehype-slug": "6.0.0",
     "remark-gfm": "4.0.0",
     "sharp": "0.33.0",
@@ -59,15 +59,16 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "14.1.0",
     "@pandacss/dev": "0.22.1",
     "@testing-library/cypress": "10.0.1",
     "@types/mdx": "2.0.10",
     "@types/musickit-js": "1.0.8",
-    "@types/node": "20.10.4",
+    "@types/node": "20.11.5",
     "@types/react": "18.2.45",
     "@types/react-dom": "18.2.17",
     "@types/react-resizable": "3.0.7",
-    "@typescript-eslint/eslint-plugin": "6.15.0",
+    "@typescript-eslint/eslint-plugin": "6.19.1",
     "@typescript-eslint/parser": "6.15.0",
     "cypress": "13.6.1",
     "cypress-real-events": "1.11.0",
