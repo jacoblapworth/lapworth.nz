@@ -22,7 +22,7 @@ export const OkuPurchaseLinkSchema = z.object({
 export type OkuPurchaseLink = z.infer<typeof OkuPurchaseLinkSchema>
 
 export const OkuImageLinksSchema = z.object({
-  thumbnail: z.string(),
+  thumbnail: z.string().url(),
 })
 
 export type OkuImageLinks = z.infer<typeof OkuImageLinksSchema>
@@ -50,7 +50,7 @@ export const OkuBookSchema = z.object({
   purchaseLinks: z.array(OkuPurchaseLinkSchema),
   authors: z.array(OkuAuthorSchema),
   ratings: z.array(RatingSchema),
-  thumbnail: z.string(),
+  thumbnail: z.string().url(),
   slug: z.string(),
   workId: z.string(),
   addedAt: z.string(),
@@ -61,7 +61,7 @@ export type OkuBook = z.infer<typeof OkuBookSchema>
 export const OkuReadingSchema = z.object({
   id: z.string(),
   listId: z.string(),
-  books: z.array(OkuBookSchema),
+  books: z.array(z.unknown()),
   createdAt: z.coerce.date(),
   key: z.string(),
   slug: z.string(),
@@ -85,7 +85,11 @@ export async function getReading(): Promise<OkuBook[]> {
 
   const { books } = OkuReadingSchema.parse(await response.json())
 
-  return books
+  const validBooks = books.filter(
+    (book) => OkuBookSchema.safeParse(book).success,
+  ) as OkuBook[]
+
+  return validBooks
 }
 
 export async function getImgBuffer(src: string): Promise<Buffer> {
@@ -113,12 +117,6 @@ export async function getReadingWithThumbnails(): Promise<
   OkuBookWithThumbnail[]
 > {
   const books = await getReading()
-
-  // books.map((book) => {
-  //   if (book.imageLinks.thumbnail.length === 0) {
-  //     console.log(book)
-  //   }
-  // })
 
   return Promise.all(books.map(getBookWithThumbnail))
 }
