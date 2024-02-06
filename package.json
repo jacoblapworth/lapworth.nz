@@ -39,7 +39,7 @@
     "@vercel/kv": "1.0.1",
     "axios": "1.6.7",
     "framer-motion": "11.0.3",
-    "got": "14.1.0",
+    "got": "14.2.0",
     "gray-matter": "4.0.3",
     "jose": "5.2.1",
     "klaviyo-api": "7.2.0",
