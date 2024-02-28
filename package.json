@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "14.1.0",
-    "@pandacss/dev": "0.32.1",
+    "@pandacss/dev": "0.33.0",
     "@testing-library/cypress": "10.0.1",
     "@types/mdx": "2.0.11",
     "@types/musickit-js": "1.0.9",
