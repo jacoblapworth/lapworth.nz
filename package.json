@@ -69,7 +69,7 @@
     "@types/react-dom": "18.2.19",
     "@types/react-resizable": "3.0.7",
     "@typescript-eslint/eslint-plugin": "7.0.0",
-    "@typescript-eslint/parser": "6.21.0",
+    "@typescript-eslint/parser": "7.1.0",
     "cypress": "13.6.6",
     "cypress-real-events": "1.12.0",
     "esbuild": "0.20.1",
