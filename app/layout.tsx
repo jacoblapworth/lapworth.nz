@@ -3,6 +3,7 @@ import './index.css'
 import { ReactNode } from 'react'
 
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { ServerThemeProvider } from 'next-themes'
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <body className={css({ bg: 'background' })}>
           <Page>{children}</Page>
           <Analytics />
+          <SpeedInsights />
         </body>
       </html>
     </ServerThemeProvider>
