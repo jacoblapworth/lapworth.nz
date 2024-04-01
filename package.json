@@ -65,7 +65,7 @@
     "@testing-library/cypress": "10.0.1",
     "@types/mdx": "2.0.12",
     "@types/musickit-js": "1.0.9",
-    "@types/node": "20.11.30",
+    "@types/node": "20.12.2",
     "@types/react": "18.2.68",
     "@types/react-dom": "18.2.23",
     "@types/react-resizable": "3.0.7",
