@@ -60,7 +60,7 @@
     "zod": "3.23.4"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "14.2.2",
+    "@next/bundle-analyzer": "14.2.3",
     "@pandacss/dev": "0.37.2",
     "@testing-library/cypress": "10.0.1",
     "@types/mdx": "2.0.13",
