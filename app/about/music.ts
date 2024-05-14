@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs'
 import { SignJWT, importPKCS8 } from 'jose'
 import { getPlaiceholder } from 'plaiceholder'
 import { z } from 'zod'
@@ -146,6 +147,7 @@ const getMusicWithThumnail = async (
       },
     }
   } catch (error) {
+    Sentry.captureException(error)
     console.error(error)
     console.log(item)
     return undefined
@@ -163,6 +165,7 @@ export const getMusicWithThumbnails = async () => {
 
     return music
   } catch (error) {
+    Sentry.captureException(error)
     console.error(error)
     if (error instanceof MKError) {
       if (error.status === 403) {
