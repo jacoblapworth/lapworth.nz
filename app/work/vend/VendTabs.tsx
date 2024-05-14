@@ -379,7 +379,9 @@ export function TabsExample() {
                   key={value}
                   value={value}
                   isActive={value == tabValue}
-                  ref={(el) => (tabRefs.current[i] = el)}
+                  ref={(el) => {
+                    tabRefs.current[i] = el
+                  }}
                 >
                   {label}
                 </Tab>
