@@ -63,6 +63,7 @@
     "@next/bundle-analyzer": "14.2.3",
     "@pandacss/dev": "0.39.1",
     "@testing-library/cypress": "10.0.1",
+    "@total-typescript/ts-reset": "0.5.1",
     "@types/mdx": "2.0.13",
     "@types/musickit-js": "1.0.9",
     "@types/node": "20.12.11",
