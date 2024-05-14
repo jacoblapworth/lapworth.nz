@@ -161,7 +161,7 @@ export const getMusicWithThumbnails = async () => {
     const thumbnails = await Promise.allSettled(promises)
     const music = thumbnails
       .map((v) => v.status == 'fulfilled' && v.value)
-      .filter(Boolean) as MusicKitResource[]
+      .filter(Boolean)
 
     return music
   } catch (error) {
