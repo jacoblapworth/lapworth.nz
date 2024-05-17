@@ -9,5 +9,16 @@ export function register() {
     debug: false,
     // uncomment the line below to enable Spotlight (https://spotlightjs.com)
     // spotlight: process.env.NODE_ENV === 'development',
+    // integrations: (integrations) => {
+    //   console.log(integrations)
+
+    //   return [
+    //     Sentry.requestDataIntegration(),
+    //     // Sentry.replayIntegration({
+    //     //   maskAllText: true,
+    //     //   blockAllMedia: true,
+    //     // }),
+    //   ]
+    // },
   })
 }

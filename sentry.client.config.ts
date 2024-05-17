@@ -20,6 +20,7 @@ Sentry.init({
   replaysSessionSampleRate: 0.1,
 
   integrations: [
+    // Sentry.requestDataIntegration(),
     Sentry.replayIntegration({
       maskAllText: true,
       blockAllMedia: true,
