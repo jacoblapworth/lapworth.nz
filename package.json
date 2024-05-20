@@ -41,7 +41,7 @@
     "@vercel/speed-insights": "1.0.10",
     "axios": "1.6.8",
     "framer-motion": "11.2.4",
-    "got": "14.2.1",
+    "got": "14.3.0",
     "gray-matter": "4.0.3",
     "jose": "5.3.0",
     "klaviyo-api": "10.0.0",
