@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs'
 import { Metadata } from 'next'
 
 import { createAppleJWT } from '@/app/about/music'
@@ -16,6 +17,7 @@ export default async function Page() {
     const token = await createAppleJWT()
     return <Authorise developerToken={token} />
   } catch (error) {
+    Sentry.captureException(error)
     console.error(error)
     return null
   }
