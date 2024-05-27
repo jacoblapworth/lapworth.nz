@@ -70,6 +70,7 @@ const config = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
     instrumentationHook: true,
+    reactCompiler: true,
   },
 }
 
