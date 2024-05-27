@@ -118,7 +118,7 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
       'Music-User-Token': APPLE_MUSIC_USER_TOKEN,
     },
     next: { revalidate: 60 * 60 * 24 },
-  }).then<unknown>((res) => res.json())
+  }).then((res) => res.json())
 
   const music = RMusicKitHistory.safeParse(response)
 
