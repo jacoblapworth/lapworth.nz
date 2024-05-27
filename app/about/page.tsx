@@ -13,6 +13,8 @@ import { Experience } from './experience'
 import { HeavyRotation } from './HeavyRotation'
 import { Reading } from './Reading'
 
+export const fetchCache = 'default-cache'
+
 export const metadata: Metadata = {
   title: 'Senior design systems product designer',
   description: `Hey there! I'm J. I'm a product designer and software engineer focused on community driven design systems.`,
