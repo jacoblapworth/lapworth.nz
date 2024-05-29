@@ -17,6 +17,7 @@ const config = {
         hostname: '*.mzstatic.com',
         pathname: '/image/**',
       },
+      // https://oku.ams3.cdn.digitaloceanspaces.com/covers/
       // https://oku.ams3.cdn.digitaloceanspaces.com/covers/2022/09
       {
         protocol: 'https',
@@ -41,7 +42,8 @@ const config = {
 
 export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
   withSentryConfig(
-    withMdxts(config),
+    // withMdxts(config),
+    config,
     {
       // For all available options, see:
       // https://github.com/getsentry/sentry-webpack-plugin#options
