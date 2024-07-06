@@ -14,6 +14,7 @@ const envVariables = z.object({
   ] as const),
   NEXT_PUBLIC_PRODUCTION_URL: z.string(),
   NEXT_PUBLIC_SENTRY_DSN: z.string(),
+  GARMIN_MAPSHARE_FEED_KEY: z.string(),
 })
 
 envVariables.parse(process.env)
