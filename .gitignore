@@ -50,3 +50,6 @@ styled-system
 
 # Sentry Config File
 .sentryclirc
+
+# Sanity CMS
+.sanity
