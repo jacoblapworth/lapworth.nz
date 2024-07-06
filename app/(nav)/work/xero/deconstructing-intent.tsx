@@ -2,10 +2,9 @@ import { MDXProvider } from '@mdx-js/react'
 import { NextPage } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
 
-import { styled } from 'styled/jsx'
-
 import { Text } from '@/components/Typography'
 import { MDXPageProps } from '@/lib/markdown'
+import { styled } from '@/styled/jsx'
 
 import { images } from './images'
 

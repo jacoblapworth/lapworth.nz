@@ -13,7 +13,7 @@ import { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
 import { usePathname } from 'next/navigation'
 
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'

@@ -19,7 +19,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "styled/*": [
+      "@/styled/*": [
         "./.styled/*"
       ],
       "@/app/*": [

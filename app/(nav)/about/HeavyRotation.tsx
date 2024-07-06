@@ -2,10 +2,9 @@
 
 import NextImage from 'next/image'
 
-import { styled } from 'styled/jsx'
-
 import { Carousel } from '@/components/Carousel'
 import { Link } from '@/components/Link'
+import { styled } from '@/styled/jsx'
 
 import { MusicKitResource } from './music'
 

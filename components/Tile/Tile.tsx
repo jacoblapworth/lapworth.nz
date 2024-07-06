@@ -1,4 +1,4 @@
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 export const Tile = styled('div', {
   base: {

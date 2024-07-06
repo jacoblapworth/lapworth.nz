@@ -3,12 +3,11 @@
 import NextLink from 'next/link'
 import { ThemeProvider } from 'next-themes'
 
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Navigation } from '@/components/Nav'
-
 
 import { themeConfig } from './Theme'
 

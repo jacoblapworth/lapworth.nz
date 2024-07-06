@@ -2,7 +2,7 @@
 
 import { useFormState, useFormStatus } from 'react-dom'
 
-import { HStack, VStack, styled } from 'styled/jsx'
+import { HStack, VStack, styled } from '@/styled/jsx'
 
 import { FormState, subscribeEmail } from '@/actions/subscribe'
 

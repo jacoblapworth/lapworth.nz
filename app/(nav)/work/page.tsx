@@ -1,6 +1,6 @@
 'use client'
 
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 import { DiscoverTile } from './trademe/DiscoverTile'
 import { VendTabsTile } from './vend/Tile'

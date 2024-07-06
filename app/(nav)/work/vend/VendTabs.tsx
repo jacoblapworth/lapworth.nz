@@ -8,7 +8,7 @@ import * as RadixTabs from '@radix-ui/react-tabs'
 import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
 import { Lato } from 'next/font/google'
 
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 import { ResponsivePreview } from '@/components/Preview'
 
