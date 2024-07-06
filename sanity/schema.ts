@@ -1,7 +1,11 @@
 import { type SchemaTypeDefinition } from 'sanity'
 
-import { gearType } from './schemaTypes/gearType'
+import {
+  gearType,
+  gearBrandType,
+  gearCategoryType,
+} from './schemaTypes/gearType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [gearType],
+  types: [gearType, gearBrandType, gearCategoryType],
 }
