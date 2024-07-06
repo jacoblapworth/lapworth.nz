@@ -4,10 +4,10 @@ import { MDXRemote } from 'next-mdx-remote'
 
 import { styled } from 'styled/jsx'
 
-import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
 import { MDXPageProps } from '@/lib/markdown'
 
+import { images } from './images'
 
 const Grid = styled('div', {
   base: {

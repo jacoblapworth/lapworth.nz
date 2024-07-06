@@ -3,7 +3,6 @@ import NextImage from 'next/image'
 
 import { css } from 'styled/css'
 
-import { getMusicWithThumbnails } from '@/app/about/music'
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
 import ProfileImage from '@/public/static/j-photo-mono.png'
@@ -11,6 +10,7 @@ import ProfileImage from '@/public/static/j-photo-mono.png'
 import { getReadingWithThumbnails } from './books/oku'
 import { Experience } from './experience'
 import { HeavyRotation } from './HeavyRotation'
+import { getMusicWithThumbnails } from './music'
 import { Reading } from './Reading'
 
 export const metadata: Metadata = {

@@ -4,9 +4,10 @@ import NextImage from 'next/image'
 
 import { styled } from 'styled/jsx'
 
-import { MusicKitResource } from '@/app/about/music'
 import { Carousel } from '@/components/Carousel'
 import { Link } from '@/components/Link'
+
+import { MusicKitResource } from './music'
 
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)

@@ -2,10 +2,9 @@
 
 import { styled } from 'styled/jsx'
 
-import { DiscoverTile } from '@/app/work/trademe/DiscoverTile'
-import { VendTabsTile } from '@/app/work/vend/Tile'
-import { XeroTile } from '@/app/work/xero/XeroTile'
-
+import { DiscoverTile } from './trademe/DiscoverTile'
+import { VendTabsTile } from './vend/Tile'
+import { XeroTile } from './xero/XeroTile'
 
 const Layout = styled('div', {
   base: {

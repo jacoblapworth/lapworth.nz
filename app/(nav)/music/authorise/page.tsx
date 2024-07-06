@@ -1,8 +1,7 @@
 import { Metadata } from 'next'
 
-import { createAppleJWT } from '@/app/about/music'
-
 import Authorise from './authorise'
+import { createAppleJWT } from '../../about/music'
 
 export const metadata: Metadata = {
   robots: {
