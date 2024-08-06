@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "14.2.5",
-    "@pandacss/dev": "0.44.0",
+    "@pandacss/dev": "0.45.0",
     "@testing-library/cypress": "10.0.2",
     "@total-typescript/ts-reset": "0.5.1",
     "@types/mdx": "2.0.13",
