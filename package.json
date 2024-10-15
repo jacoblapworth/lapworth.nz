@@ -40,7 +40,7 @@
     "@vercel/kv": "3.0.0",
     "@vercel/speed-insights": "1.0.12",
     "axios": "1.7.7",
-    "framer-motion": "11.11.8",
+    "framer-motion": "11.11.9",
     "got": "14.4.3",
     "gray-matter": "4.0.3",
     "jose": "5.9.4",
