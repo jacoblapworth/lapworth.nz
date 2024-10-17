@@ -16,14 +16,14 @@
     "npm": ">=7"
   },
   "scripts": {
-    "prepare": "npm run tokens:generate -- --clean",
     "dev": "next --turbo",
+    "prebuild": "npm run tokens -- --clean",
     "build": "next build",
     "start": "next start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "check-types": "",
-    "tokens:generate": "panda codegen",
+    "tokens": "panda codegen",
     "lint": "npm run check-types && next lint",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
   },
