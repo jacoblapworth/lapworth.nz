@@ -1,5 +1,6 @@
 'use client'
 
+import Form from 'next/form'
 import { useFormState, useFormStatus } from 'react-dom'
 
 import { HStack, VStack, styled } from 'styled/jsx'
@@ -60,7 +61,7 @@ export function EmailSubscribe() {
   const [state, formAction] = useFormState(subscribeEmail, initialState)
 
   return (
-    <form action={formAction}>
+    <Form action={formAction}>
       <HStack alignItems="end" gap={0}>
         <VStack alignItems="start">
           <Label htmlFor="email">Email address</Label>
@@ -80,6 +81,6 @@ export function EmailSubscribe() {
       <p id="message" aria-live="polite">
         {state.message}
       </p>
-    </form>
+    </Form>
   )
 }
