@@ -44,7 +44,6 @@ const config: NextConfig = {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  instrumentationHook: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
     reactCompiler: true,
@@ -62,9 +61,13 @@ const withMDX = createMDX({
 
 export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
   withSentryConfig(withMDX(config), {
-    silent: true,
+    // silent: true,
     org: 'jacoblapworth',
     project: 'lapworth',
+    telemetry: false,
+    sourcemaps: {
+      deleteSourcemapsAfterUpload: true,
+    },
   }),
 )
 

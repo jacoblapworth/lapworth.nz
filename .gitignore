@@ -50,3 +50,4 @@ styled-system
 
 # Sentry Config File
 .sentryclirc
+.env*.local
