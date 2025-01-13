@@ -65,6 +65,7 @@
     "@eslint/js": "9.13.0",
     "@next/bundle-analyzer": "15.1.4",
     "@pandacss/dev": "0.51.1",
+    "@sentry/cli": "2.40.0",
     "@testing-library/cypress": "10.0.2",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/eslint__js": "8.42.3",
