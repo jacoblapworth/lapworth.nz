@@ -150,7 +150,8 @@ export function Disciplines() {
       height: 'auto',
     },
   })
-  return <Image src={disciplines} alt="" />
+  
+return <Image src={disciplines} alt="" />
 }
 
 export function WorldMap() {

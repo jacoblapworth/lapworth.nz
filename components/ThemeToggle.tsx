@@ -7,7 +7,8 @@ import { styled } from 'styled/jsx'
 
 const useThemeValue = <T, U>(lightValue: T, darkValue: U): T | U => {
   const { resolvedTheme } = useTheme()
-  return resolvedTheme === 'light' ? lightValue : darkValue
+  
+return resolvedTheme === 'light' ? lightValue : darkValue
 }
 
 const Icon = () => (

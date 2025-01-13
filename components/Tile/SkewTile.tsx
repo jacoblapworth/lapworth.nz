@@ -1,4 +1,10 @@
-import { ComponentProps, ReactNode, useEffect, useRef } from 'react'
+import {
+  ComponentProps,
+  ReactNode,
+  useEffect,
+  useRef,
+  type RefObject,
+} from 'react'
 
 import useMouse from '@react-hook/mouse-position'
 import {
@@ -99,13 +105,13 @@ export const SkewTile = ({
   shineClassName,
   ...rest
 }: Props) => {
-  const ref = useRef(null)
+  const ref = useRef<HTMLElement>(null)
   const {
     x: elX,
     y: elY,
     elementWidth: elW,
     elementHeight: elH,
-  } = useMouse(ref)
+  } = useMouse(ref as RefObject<HTMLElement>)
 
   const x = useMotionValue(0)
   const y = useMotionValue(0)
@@ -113,8 +119,8 @@ export const SkewTile = ({
   const y1 = useMotionValue(0)
 
   useEffect(() => {
-    elX && x.set(elX)
-    elY && y.set(elY)
+    if (elX) x.set(elX)
+    if (elY) y.set(elY)
     x1.set(elX ?? 0.5)
     y1.set(elY ?? 0.5)
   }, [x, y, x1, y1, elX, elY])

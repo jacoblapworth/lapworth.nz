@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react'
+
+import { useEffect } from 'react'
 
 import { Router } from 'next/router'
 
@@ -22,7 +22,7 @@ export const event: AnalyticsEventHandler = ({ action, params }) => {
 }
 
 export const useAnalytics = () => {
-  React.useEffect(() => {
+  useEffect(() => {
     const handleRouteChange = (url: string) => {
       if (process.env.NODE_ENV !== 'production') {
         return
@@ -33,6 +33,7 @@ export const useAnalytics = () => {
       })
     }
     Router.events.on('routeChangeComplete', handleRouteChange)
+
     return () => Router.events.off('routeChangeComplete', handleRouteChange)
   }, [])
 }
@@ -43,6 +44,7 @@ export function renderSnippet() {
   if (process.env.NODE_ENV !== 'production') {
     return ``
   }
+
   return `
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}

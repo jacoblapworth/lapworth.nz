@@ -95,7 +95,8 @@ export async function getReading(): Promise<OkuBook[]> {
 export async function getImgBuffer(src: string): Promise<Buffer> {
   const response = await fetch(src)
   const arrayBuffer = await response.arrayBuffer()
-  return Buffer.from(arrayBuffer)
+  
+return Buffer.from(arrayBuffer)
 }
 
 export async function getBookWithThumbnail(

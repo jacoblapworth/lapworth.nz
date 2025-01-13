@@ -67,7 +67,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const emoji = '🌈'
-  return (
+  
+return (
     <ServerThemeProvider {...themeConfig}>
       <html className={sectraFont.variable} suppressHydrationWarning={true}>
         <head>

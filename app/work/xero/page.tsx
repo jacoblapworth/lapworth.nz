@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type RefObject } from 'react'
 
 import useMouse from '@react-hook/mouse-position'
 import { motion, useMotionValue } from 'framer-motion'
@@ -13,7 +13,6 @@ import { Shine } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
 import figmaPlugin from '@/public/static/work/xero/plugin/xui-plugin-cover.png'
 import xuiLogo from '@/public/static/work/xero/xui-logo.svg'
-
 
 const Grid = styled('div', {
   base: {
@@ -64,13 +63,13 @@ const Container = styled(motion.div, {
 
 const Background = () => {
   const ref = useRef<HTMLDivElement>(null)
-  const { screenX, screenY } = useMouse(ref)
+  const { screenX, screenY } = useMouse(ref as RefObject<HTMLElement>)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
   useEffect(() => {
-    screenX && x.set(screenX)
-    screenY && y.set(screenY)
+    if (screenX) x.set(screenX)
+    if (screenY) y.set(screenY)
   }, [x, y, screenX, screenY])
 
   return (
