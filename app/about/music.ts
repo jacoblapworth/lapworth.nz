@@ -105,7 +105,8 @@ export function formatArtworkUrl(
   const url = decodeURI(artwork.url)
   const h = (size || artwork.height) ?? 100
   const w = (size || artwork.width) ?? 100
-  return url
+  
+return url
     .replace('{h}', '' + h)
     .replace('{w}', '' + w)
     .replace('{f}', 'jpeg')
@@ -118,7 +119,7 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
       'Music-User-Token': APPLE_MUSIC_USER_TOKEN,
     },
     next: { revalidate: 60 * 60 * 24 },
-  }).then<unknown>((res) => res.json())
+  }).then((res) => res.json())
 
   const music = RMusicKitHistory.safeParse(response)
 
@@ -139,7 +140,8 @@ const getMusicWithThumnail = async (
       Buffer.from(await res.arrayBuffer()),
     )
     const placeholder = await getPlaiceholder(image)
-    return {
+    
+return {
       ...item,
       attributes: {
         ...item.attributes,
@@ -150,7 +152,8 @@ const getMusicWithThumnail = async (
     Sentry.captureException(error)
     console.error(error)
     console.log(item)
-    return undefined
+    
+return undefined
   }
 }
 

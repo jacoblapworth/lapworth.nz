@@ -15,5 +15,6 @@ const Tagline = styled('footer', {
 
 export const Footer = () => {
   const year = new Date().getFullYear()
-  return <Tagline>Designed and built by J — Product Designer — {year}</Tagline>
+  
+return <Tagline>Designed and built by J — Product Designer — {year}</Tagline>
 }

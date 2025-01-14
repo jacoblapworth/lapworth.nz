@@ -15,7 +15,9 @@ export default function Authorise({ developerToken }: Props) {
   useEffect(() => {
     const authorize = async () => {
       const userToken = await appleMusic?.authorize()
-      userToken && console.log('Apple Music user token:', userToken)
+      if (userToken) {
+        console.log('Apple Music user token:', userToken)
+      }
     }
 
     authorize().catch(console.error)

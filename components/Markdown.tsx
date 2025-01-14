@@ -9,7 +9,7 @@ import type {
 } from 'react'
 
 import { MDXProvider } from '@mdx-js/react'
-import { MDXComponents } from 'mdx/types'
+import type { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
 import { usePathname } from 'next/navigation'
 
@@ -58,6 +58,7 @@ type TextProps = ComponentProps<typeof Text>
 
 export const HeadingAnchor = ({ children, ...props }: TextProps) => {
   const pathname = usePathname()
+
   return (
     <Text display css={{ marginBlock: 'lg' }} {...props}>
       <Link

@@ -1,3 +1,3 @@
-export const VendSplash = ({}) => {
+export const VendSplash = () => {
   return <div></div>
 }
