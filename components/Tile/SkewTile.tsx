@@ -105,13 +105,13 @@ export const SkewTile = ({
   shineClassName,
   ...rest
 }: Props) => {
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
   const {
     x: elX,
     y: elY,
     elementWidth: elW,
     elementHeight: elH,
-  } = useMouse(ref as RefObject<HTMLElement>)
+  } = useMouse(ref as RefObject<HTMLDivElement>)
 
   const x = useMotionValue(0)
   const y = useMotionValue(0)
