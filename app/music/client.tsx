@@ -8,10 +8,10 @@ const BASE_URL =
   process.env.NEXT_PUBLIC_VERCEL_ENV == 'production'
     ? `https://${process.env.NEXT_PUBLIC_PRODUCTION_URL}`
     : process.env.NEXT_PUBLIC_VERCEL_ENV == 'preview'
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    : process.env.NEXT_PUBLIC_VERCEL_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : process.env.NEXT_PUBLIC_VERCEL_URL
 
-export const useAppleMusic = (developerToken: string) => {
+export function useAppleMusic(developerToken: string) {
   const [client, setClient] = useState<MusicKit.MusicKitInstance>()
 
   useEffect(() => {
