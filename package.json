@@ -68,7 +68,7 @@
     "@next/eslint-plugin-next": "15.1.5",
     "@pandacss/dev": "0.51.1",
     "@sentry/cli": "2.40.0",
-    "@testing-library/cypress": "10.0.2",
+    "@testing-library/cypress": "10.0.3",
     "@total-typescript/ts-reset": "0.6.1",
     "@types/eslint__js": "8.42.3",
     "@types/mdx": "2.0.13",
