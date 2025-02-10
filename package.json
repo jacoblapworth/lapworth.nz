@@ -82,7 +82,7 @@
     "babel-plugin-react-compiler": "19.0.0-beta-714736e-20250131",
     "cypress": "14.0.2",
     "cypress-real-events": "1.14.0",
-    "esbuild": "0.24.2",
+    "esbuild": "0.25.0",
     "eslint": "9.19.0",
     "eslint-config-next": "15.1.6",
     "eslint-config-prettier": "10.0.1",
