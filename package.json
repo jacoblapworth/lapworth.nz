@@ -78,7 +78,7 @@
     "@types/react-dom": "19.0.3",
     "@types/react-resizable": "3.0.8",
     "@typescript-eslint/eslint-plugin": "8.24.0",
-    "@typescript-eslint/parser": "8.23.0",
+    "@typescript-eslint/parser": "8.24.1",
     "babel-plugin-react-compiler": "19.0.0-beta-714736e-20250131",
     "cypress": "14.0.2",
     "cypress-real-events": "1.14.0",
