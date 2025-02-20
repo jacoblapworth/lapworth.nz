@@ -84,7 +84,7 @@
     "cypress-real-events": "1.14.0",
     "esbuild": "0.25.0",
     "eslint": "9.19.0",
-    "eslint-config-next": "15.1.6",
+    "eslint-config-next": "15.1.7",
     "eslint-config-prettier": "10.0.1",
     "eslint-import-resolver-typescript": "3.8.2",
     "eslint-plugin-cypress": "4.1.0",
