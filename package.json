@@ -80,7 +80,7 @@
     "@typescript-eslint/eslint-plugin": "8.24.1",
     "@typescript-eslint/parser": "8.24.1",
     "babel-plugin-react-compiler": "19.0.0-beta-714736e-20250131",
-    "cypress": "14.0.2",
+    "cypress": "14.0.3",
     "cypress-real-events": "1.14.0",
     "esbuild": "0.25.0",
     "eslint": "9.19.0",
