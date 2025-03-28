@@ -1,5 +1,4 @@
 import { ReactNode } from 'react'
-
 import { ResizableBox, ResizableBoxProps } from 'react-resizable'
 
 import { styled } from 'styled/jsx'
