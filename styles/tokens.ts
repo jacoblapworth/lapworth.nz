@@ -78,8 +78,32 @@ export const tokens = defineTokens({
       },
     },
     green: {
+      10: {
+        value: '#E6F6F0',
+      },
+      20: {
+        value: '#C2EAD9',
+      },
+      30: {
+        value: '#9ADFC2',
+      },
+      40: {
+        value: '#72D4AB',
+      },
       50: {
         value: '#008060',
+      },
+      60: {
+        value: '#00664D',
+      },
+      70: {
+        value: '#004C39',
+      },
+      80: {
+        value: '#003326',
+      },
+      90: {
+        value: '#001A13',
       },
     },
     yellow: {
@@ -88,8 +112,32 @@ export const tokens = defineTokens({
       },
     },
     red: {
+      10: {
+        value: '#FBE3E0',
+      },
+      20: {
+        value: '#F6C7C1',
+      },
+      30: {
+        value: '#F0ABA2',
+      },
+      40: {
+        value: '#EB8E83',
+      },
       50: {
         value: '#D82C0D',
+      },
+      60: {
+        value: '#B4240A',
+      },
+      70: {
+        value: '#8A1A07',
+      },
+      80: {
+        value: '#611004',
+      },
+      90: {
+        value: '#380A02',
       },
     },
     grey: {
@@ -131,6 +179,15 @@ export const semanticTokens = defineSemanticTokens({
   borders: {
     divider: { value: '1px solid {colors.divider}' },
     muted: { value: '1px solid {colors.quaternary}' },
+    primary: { value: '1px solid {colors.border}' },
+    positive: {
+      DEFAULT: { value: '1px solid {colors.border.positive}' },
+      secondary: { value: '1px solid {colors.border.positive.secondary}' },
+    },
+    negative: {
+      DEFAULT: { value: '1px solid {colors.border.negative}' },
+      secondary: { value: '1px solid {colors.border.negative.secondary}' },
+    },
   },
   colors: {
     text: {
@@ -176,9 +233,50 @@ export const semanticTokens = defineSemanticTokens({
       },
     },
     background: {
-      value: {
-        base: '{colors.white.10}',
-        _dark: '{colors.black.100}',
+      DEFAULT: {
+        value: {
+          base: '{colors.white.10}',
+          _dark: '{colors.black.100}',
+        },
+      },
+      positive: {
+        value: {
+          base: '{colors.green.10}',
+          _dark: '{colors.green.90}',
+        },
+      },
+      negative: {
+        value: {
+          base: '{colors.red.10}',
+          _dark: '{colors.red.90}',
+        },
+      },
+    },
+    border: {
+      DEFAULT: {
+        value: '{colors.primary}',
+      },
+      positive: {
+        DEFAULT: {
+          value: '{colors.green.50}',
+        },
+        secondary: {
+          value: {
+            base: '{colors.green.20}',
+            _dark: '{colors.green.80}',
+          },
+        },
+      },
+      negative: {
+        DEFAULT: {
+          value: '{colors.red.50}',
+        },
+        secondary: {
+          value: {
+            base: '{colors.red.20}',
+            _dark: '{colors.red.80}',
+          },
+        },
       },
     },
     surface: {
@@ -211,7 +309,7 @@ export const semanticTokens = defineSemanticTokens({
         _dark: '{colors.white.0}',
       },
     },
-    critical: {
+    negative: {
       value: {
         base: '{colors.red.50}',
         _dark: '{colors.red.50}',
@@ -223,7 +321,7 @@ export const semanticTokens = defineSemanticTokens({
         _dark: '{colors.yellow.50}',
       },
     },
-    success: {
+    positive: {
       value: {
         base: '{colors.green.50}',
         _dark: '{colors.green.50}',

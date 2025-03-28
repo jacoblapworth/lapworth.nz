@@ -15,6 +15,7 @@ const session = new ApiKeySession(process.env.KLAVIYO_API_KEY)
 const profiles = new ProfilesApi(session)
 
 export interface FormState {
+  status: 'idle' | 'error' | 'success'
   message: string | null
 }
 
@@ -26,9 +27,10 @@ export async function subscribeEmail(prevState: FormState, formData: FormData) {
       headers: headers(),
       recordResponse: true,
     },
-    async () => {
+    async (): Promise<FormState> => {
       try {
         const email = formData.get('email')
+        console.log('formData', email)
         if (typeof email !== 'string') {
           throw new Error('Invalid email')
         }
@@ -59,7 +61,10 @@ export async function subscribeEmail(prevState: FormState, formData: FormData) {
           },
         })
 
-        return { message: 'Check your emails' }
+        return {
+          status: 'success',
+          message: 'Check your emails',
+        }
       } catch (error) {
         if (isAxiosError(error)) {
           console.error(
@@ -70,7 +75,10 @@ export async function subscribeEmail(prevState: FormState, formData: FormData) {
           console.error(error)
         }
 
-        return { message: 'Unable to subscribe' }
+        return {
+          status: 'error',
+          message: 'Unable to subscribe',
+        }
       }
     },
   )

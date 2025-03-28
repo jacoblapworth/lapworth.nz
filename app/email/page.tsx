@@ -2,12 +2,11 @@
 
 import { useActionState } from 'react'
 
-import Form from 'next/form'
-
 import { HStack } from 'styled/jsx'
 
 import { sendEmail, type State } from '@/actions/sendEmail'
-import { SubmitButton } from '@/components/EmailSubscribe'
+import { Form } from '@/components/Form'
+import { SubmitButton } from '@/components/SubmitButton'
 import { TextInput } from '@/components/TextInput'
 
 const initialState: State = {
@@ -27,8 +26,17 @@ export default function Page() {
           autoComplete="email"
           placeholder="Email"
           required
-        />
-        <SubmitButton>Send</SubmitButton>
+          defaultValue=""
+          rules={{
+            required: 'Email is required',
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: 'Invalid email address',
+            },
+          }}
+        >
+          <SubmitButton>Send</SubmitButton>
+        </TextInput>
       </HStack>
     </Form>
   )

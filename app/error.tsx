@@ -4,6 +4,8 @@ import { useEffect } from 'react'
 
 import * as Sentry from '@sentry/nextjs'
 
+import { Alert } from '@/components/Alert'
+
 export default function ErrorPage({
   error,
 }: {
@@ -13,9 +15,5 @@ export default function ErrorPage({
     Sentry.captureException(error)
   }, [error])
 
-  return (
-    <div>
-      <h2>Something went wrong!</h2>
-    </div>
-  )
+  return <Alert sentiment="negative">Something went wrong!</Alert>
 }

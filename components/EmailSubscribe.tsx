@@ -1,41 +1,36 @@
 'use client'
 
 import { useActionState } from 'react'
-import { useFormStatus } from 'react-dom'
 
-import Form from 'next/form'
+import { CircleAlert } from 'lucide-react'
 
-import { HStack, VStack, styled } from 'styled/jsx'
+import { HStack } from 'styled/jsx'
 
 import { FormState, subscribeEmail } from '@/actions/subscribe'
 
-import { Button } from './Button'
+import { Alert } from './Alert'
+import { Form } from './Form'
+import { SubmitButton } from './SubmitButton'
 import { TextInput } from './TextInput'
 
-interface Props {
-  children: React.ReactNode
-}
-
-export function SubmitButton({ children }: Props) {
-  const { pending } = useFormStatus()
-
-  return (
-    <Button
-      type="submit"
-      aria-disabled={pending}
-      aria-label={pending ? 'Loading' : undefined}
-    >
-      {children}
-    </Button>
-  )
-}
-
 const initialState: FormState = {
+  status: 'idle',
   message: null,
 }
 
 export function EmailSubscribe() {
-  const [state, formAction] = useActionState(subscribeEmail, initialState)
+  const [{ status, message }, formAction] = useActionState(
+    subscribeEmail,
+    initialState,
+  )
+
+  if (status === 'success') {
+    return (
+      <Alert autoFocus sentiment="positive">
+        {message}
+      </Alert>
+    )
+  }
 
   return (
     <Form action={formAction}>
@@ -44,17 +39,29 @@ export function EmailSubscribe() {
           label="Email address"
           id="email"
           name="email"
+          defaultValue=""
           placeholder="jacob@lapworth.nz"
           type="email"
           autoComplete="email"
           required
           aria-describedby="message"
-        />
-        <SubmitButton>Subscribe</SubmitButton>
+          rules={{
+            required: 'Email is required',
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: 'Invalid email address',
+            },
+          }}
+        >
+          <SubmitButton>Subscribe</SubmitButton>
+        </TextInput>
       </HStack>
-      <div id="message" aria-live="polite">
-        {state.message}
-      </div>
+      {message && (
+        <HStack id="message" aria-live="polite" gap="sm" fontSize="sm">
+          {status == 'error' && <CircleAlert size={16} />}
+          {message}
+        </HStack>
+      )}
     </Form>
   )
 }
