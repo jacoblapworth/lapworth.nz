@@ -50,9 +50,9 @@ export function HelloEmail({
         }}
       >
         <Img
-          alt="Steve Jobs"
+          alt="Jacob Lapworth"
           height={48}
-          src="https://react.email/static/steve-jobs.jpg"
+          src="https://lapworth.nz/static/j-photo-mono.png"
           style={{
             borderRadius: '9999px',
             display: 'block',
@@ -83,7 +83,7 @@ export function HelloEmail({
             margin: '0px',
           }}
         >
-          Steve Jobs
+          Jacob Lapworth
         </Heading>
         <Text
           style={{
@@ -94,7 +94,7 @@ export function HelloEmail({
             margin: '0px',
           }}
         >
-          Co-Founder & CEO
+          Design engineer
         </Text>
         <Section
           style={{

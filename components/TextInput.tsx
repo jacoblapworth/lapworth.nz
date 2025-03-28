@@ -12,6 +12,14 @@ const Input = styled('input', {
     borderStyle: 'solid',
     marginInlineEnd: '-1px',
   },
+
+  variants: {
+    isInvalid: {
+      true: {
+        borderColor: 'critical',
+      },
+    },
+  },
 })
 
 const Label = styled('label', {
@@ -21,17 +29,20 @@ const Label = styled('label', {
 type InputProps = StyledVariantProps<typeof Input> & HTMLStyledProps<'input'>
 
 interface LabelProps {
+  hideLabel?: boolean
   label: string
 }
 
 type Props = InputProps & LabelProps
 
-export function TextInput({ label, ...props }: Props) {
+export function TextInput({ label, hideLabel, ...props }: Props) {
   const id = useId()
 
   return (
     <VStack alignItems="start">
-      <Label htmlFor={id}>{label}</Label>
+      <Label srOnly={hideLabel} htmlFor={id}>
+        {label}
+      </Label>
       <Input id={id} {...props} />
     </VStack>
   )
