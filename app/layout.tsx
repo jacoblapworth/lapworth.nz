@@ -11,6 +11,7 @@ import { ServerThemeProvider } from 'next-themes'
 import { css } from 'styled/css'
 import { token } from 'styled/tokens'
 
+import { Body } from '@/components/Body'
 import { Page } from '@/components/Page'
 import { themeConfig } from '@/components/Theme'
 
@@ -67,8 +68,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const emoji = '🌈'
-  
-return (
+
+  return (
     <ServerThemeProvider {...themeConfig}>
       <html className={sectraFont.variable} suppressHydrationWarning={true}>
         <head>
@@ -78,7 +79,7 @@ return (
             href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${emoji}</text></svg>`}
           />
         </head>
-        <body className={css({ bg: 'background' })}>
+        <body className={css({ bg: 'background', color: 'text' })}>
           <Page>{children}</Page>
           <Analytics />
           <SpeedInsights />
