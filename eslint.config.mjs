@@ -14,7 +14,7 @@ import tseslint from 'typescript-eslint'
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
 const compat = new FlatCompat({ baseDirectory: __dirname })
 
-export default [
+const config = [
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
   },
@@ -101,7 +101,7 @@ export default [
           groups: ['builtin', 'external', 'internal'],
           pathGroups: [
             {
-              pattern: 'react',
+              pattern: 'react*',
               group: 'external',
               position: 'before',
             },
@@ -138,3 +138,5 @@ export default [
   //   ignores: ['.next/*'],
   // },
 ]
+
+export default config

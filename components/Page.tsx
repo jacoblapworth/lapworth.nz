@@ -9,7 +9,6 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Navigation } from '@/components/Nav'
 
-
 import { themeConfig } from './Theme'
 
 const Container = styled('div', {
@@ -61,7 +60,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const Page = ({ hideNav, children, ...rest }: Props) => {
+export function Page({ hideNav, children, ...rest }: Props) {
   return (
     <ThemeProvider {...themeConfig}>
       <Skiplink href="#main" tabIndex={0} data-testid="skip-link">
@@ -71,7 +70,6 @@ export const Page = ({ hideNav, children, ...rest }: Props) => {
       <Container>
         <Header />
         {!hideNav && <Navigation />}
-
         <Main id="main" data-testid="main" {...rest}>
           {children}
         </Main>
