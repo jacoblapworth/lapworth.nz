@@ -1,9 +1,8 @@
 import { Metadata } from 'next'
 
-import { Stack } from 'styled/jsx'
-
 import { EmailSubscribe } from '@/components/EmailSubscribe'
 import { Text } from '@/components/Typography'
+import { Stack } from 'styled/jsx'
 
 export const metadata: Metadata = {
   title: 'Work',

@@ -1,8 +1,9 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-import * as Sentry from '@sentry/nextjs'
 import NextScript from 'next/script'
+
+import * as Sentry from '@sentry/nextjs'
 
 import { TextInput } from '@/components/TextInput'
 

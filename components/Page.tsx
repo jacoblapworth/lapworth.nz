@@ -1,14 +1,14 @@
 'use client'
 
 import NextLink from 'next/link'
+
 import { ThemeProvider } from 'next-themes'
 
-import { styled } from 'styled/jsx'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Navigation } from '@/components/Nav'
-
+import { styled } from 'styled/jsx'
 
 import { themeConfig } from './Theme'
 
@@ -61,7 +61,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
 }
 
-export const Page = ({ hideNav, children, ...rest }: Props) => {
+export function Page({ hideNav, children, ...rest }: Props) {
   return (
     <ThemeProvider {...themeConfig}>
       <Skiplink href="#main" tabIndex={0} data-testid="skip-link">
@@ -71,7 +71,6 @@ export const Page = ({ hideNav, children, ...rest }: Props) => {
       <Container>
         <Header />
         {!hideNav && <Navigation />}
-
         <Main id="main" data-testid="main" {...rest}>
           {children}
         </Main>

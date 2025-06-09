@@ -105,8 +105,8 @@ export function formatArtworkUrl(
   const url = decodeURI(artwork.url)
   const h = (size || artwork.height) ?? 100
   const w = (size || artwork.width) ?? 100
-  
-return url
+
+  return url
     .replace('{h}', '' + h)
     .replace('{w}', '' + w)
     .replace('{f}', 'jpeg')
@@ -140,8 +140,8 @@ const getMusicWithThumnail = async (
       Buffer.from(await res.arrayBuffer()),
     )
     const placeholder = await getPlaiceholder(image)
-    
-return {
+
+    return {
       ...item,
       attributes: {
         ...item.attributes,
@@ -152,8 +152,8 @@ return {
     Sentry.captureException(error)
     console.error(error)
     console.log(item)
-    
-return undefined
+
+    return undefined
   }
 }
 

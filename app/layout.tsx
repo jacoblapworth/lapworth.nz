@@ -2,17 +2,18 @@ import './index.css'
 
 import { ReactNode } from 'react'
 
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
-import { ServerThemeProvider } from 'next-themes'
+import Head from 'next/head'
 
-import { css } from 'styled/css'
-import { token } from 'styled/tokens'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { ServerThemeProvider } from 'next-themes'
 
 import { Page } from '@/components/Page'
 import { themeConfig } from '@/components/Theme'
+import { css } from 'styled/css'
+import { token } from 'styled/tokens'
 
 const sectraFont = localFont({
   src: './fonts/sectra/regular.woff',
@@ -67,18 +68,18 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const emoji = '🌈'
-  
-return (
+
+  return (
     <ServerThemeProvider {...themeConfig}>
       <html className={sectraFont.variable} suppressHydrationWarning={true}>
-        <head>
+        <Head>
           <link
             rel="icon"
             type="image/svg+xml"
             href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${emoji}</text></svg>`}
           />
-        </head>
-        <body className={css({ bg: 'background' })}>
+        </Head>
+        <body className={css({ backgroundColor: 'background' })}>
           <Page>{children}</Page>
           <Analytics />
           <SpeedInsights />

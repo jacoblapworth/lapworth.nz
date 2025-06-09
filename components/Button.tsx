@@ -1,38 +1,28 @@
-'use client'
-
-import {
-  ComponentProps,
-  HTMLAttributes,
-  PropsWithChildren,
-  ReactNode,
-  forwardRef,
-} from 'react'
+import { ComponentProps, ReactNode, forwardRef } from 'react'
 
 import NextLink from 'next/link'
 
+import { cva } from 'styled/css'
 import { styled } from 'styled/jsx'
 
 import { ArrowIcon } from './Icons'
 
-interface Props extends HTMLAttributes<HTMLButtonElement> {
-  children?: React.ReactNode
-  href: string
-}
+export const ButtonStyles = cva({
+  base: {
+    padding: 'sm',
+    cursor: 'pointer',
+    borderColor: 'interactive',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    _hover: {
+      backgroundColor: 'interactive',
+      color: 'background',
+    },
+  },
+})
 
-export const Button: React.FC<PropsWithChildren<Props>> = ({
-  children,
-  href,
-  className,
-  ...rest
-}) => {
-  return (
-    <NextLink href={href} passHref legacyBehavior>
-      <button className={className} {...rest}>
-        {children}
-      </button>
-    </NextLink>
-  )
-}
+export const Button = styled('button', ButtonStyles)
+export const LinkButton = styled(NextLink, ButtonStyles)
 
 const Pill = styled(NextLink, {
   base: {
