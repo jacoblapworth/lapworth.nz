@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import NextHead from 'next/head'
 import { useRouter } from 'next/router'
+
 import { DefaultSeo, NextSeoProps } from 'next-seo'
 
 export const baseUrl = 'https://lapworth.nz'

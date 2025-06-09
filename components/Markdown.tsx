@@ -8,15 +8,16 @@ import type {
   ComponentProps,
 } from 'react'
 
-import { MDXProvider } from '@mdx-js/react'
-import type { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
 import { usePathname } from 'next/navigation'
 
-import { styled } from 'styled/jsx'
+import { MDXProvider } from '@mdx-js/react'
+import type { MDXComponents } from 'mdx/types'
+
 
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
+import { styled } from 'styled/jsx'
 
 export const Image = styled(NextImage, {
   base: {

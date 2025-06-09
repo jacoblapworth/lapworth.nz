@@ -1,9 +1,9 @@
-import { MDXProvider } from '@mdx-js/react'
 import { NextPage } from 'next'
 import NextImage, { StaticImageData } from 'next/image'
+
+import { MDXProvider } from '@mdx-js/react'
 import { MDXRemote } from 'next-mdx-remote'
 
-import { styled } from 'styled/jsx'
 
 import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
@@ -11,6 +11,7 @@ import { MDXPageProps } from '@/lib/markdown'
 import disciplines from '@/public/static/work/xero/principles-disciplines.webp'
 import worldMapDark from '@/public/static/work/xero/principles-world-map-dark.svg'
 import worldMap from '@/public/static/work/xero/principles-world-map.svg'
+import { styled } from 'styled/jsx'
 
 export function Principles() {
   const Container = styled('div', {

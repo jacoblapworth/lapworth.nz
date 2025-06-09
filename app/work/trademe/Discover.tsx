@@ -1,6 +1,6 @@
+import { Text } from '@/components/Typography'
 import { styled } from 'styled/jsx'
 
-import { Text } from '@/components/Typography'
 
 import { SearchIcon } from './Icons'
 import { Spotlights } from './Spotlight'

@@ -2,15 +2,16 @@
 
 import { ComponentProps, forwardRef, useRef, useState } from 'react'
 
+import { Lato } from 'next/font/google'
+
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
-import { Lato } from 'next/font/google'
-
-import { styled } from 'styled/jsx'
 
 import { ResponsivePreview } from '@/components/Preview'
+import { styled } from 'styled/jsx'
+
 
 const VEND_GREEN = '#41AF4B'
 

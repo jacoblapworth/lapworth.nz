@@ -1,13 +1,14 @@
 'use client'
 import { useState, ReactNode } from 'react'
 
-import { motion } from 'framer-motion'
 import NextLink, { LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { styled } from 'styled/jsx'
+import { motion } from 'framer-motion'
+
 
 import { Link } from '@/components/Link'
+import { styled } from 'styled/jsx'
 
 const A = styled(NextLink, {
   base: {
