@@ -9,7 +9,6 @@ import { styled } from 'styled/jsx'
 
 import { Link } from '@/components/Link'
 
-
 const A = styled(NextLink, {
   base: {
     '--highlight-width': '20px',

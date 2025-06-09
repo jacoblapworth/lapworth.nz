@@ -4,7 +4,6 @@ import { styled } from 'styled/jsx'
 
 import { ThemeToggle } from '@/components/ThemeToggle'
 
-
 const StyledHeader = styled('header', {
   base: {
     zIndex: 20,

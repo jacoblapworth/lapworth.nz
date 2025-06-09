@@ -27,8 +27,8 @@ export async function generateStaticParams() {
 const getRecipe = async (slug: string) => {
   const filePath = path.join(postsDirectory, slug)
   const content = await fs.readFile(`${filePath}.mdx`, 'utf8')
-  
-return content
+
+  return content
 }
 
 interface Props {
@@ -36,13 +36,11 @@ interface Props {
 }
 
 export default async function Page(props: Props) {
-  const params = await props.params;
+  const params = await props.params
 
-  const {
-    slug
-  } = params;
+  const { slug } = params
 
   const source = await getRecipe(slug)
-  
-return <MDXRemote source={source} />
+
+  return <MDXRemote source={source} />
 }

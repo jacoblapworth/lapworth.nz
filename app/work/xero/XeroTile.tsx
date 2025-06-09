@@ -8,7 +8,6 @@ import { SkewTile } from '@/components/Tile'
 import { Text } from '@/components/Typography'
 import logo from '@/public/static/work/xero/logo.svg'
 
-
 import { Highlight } from './Highlight'
 
 const Layout = styled('div', {

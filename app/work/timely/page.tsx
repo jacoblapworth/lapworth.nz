@@ -10,7 +10,6 @@ import Img2 from '@/public/static/work/timely/2.png'
 import Img3 from '@/public/static/work/timely/3.png'
 import Img4 from '@/public/static/work/timely/4.png'
 
-
 const Grid = styled('div', {
   base: {
     display: 'grid',

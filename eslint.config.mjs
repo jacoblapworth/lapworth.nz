@@ -96,24 +96,27 @@ const config = [
             order: 'asc',
             caseInsensitive: true,
           },
-          pathGroupsExcludedImportTypes: ['react'],
+          pathGroupsExcludedImportTypes: ['next', 'react'],
           'newlines-between': 'always',
           groups: ['builtin', 'external', 'internal'],
           pathGroups: [
             {
-              pattern: 'react*',
+              pattern: '{react,react-dom}',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: '{next,next/**}',
               group: 'external',
               position: 'before',
             },
             {
               pattern: 'styled/**',
               group: 'internal',
-              position: 'before',
             },
             {
               pattern: '@/**',
               group: 'internal',
-              position: 'before',
             },
           ],
         },

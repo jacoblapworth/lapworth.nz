@@ -25,7 +25,7 @@
     "check-types": "",
     "tokens": "panda codegen",
     "lint": "next lint",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
+    "format": "prettier --ignore-path .gitignore \"**/*.+(ts|tsx)\" --write"
   },
   "dependencies": {
     "@mdx-js/loader": "3.1.0",

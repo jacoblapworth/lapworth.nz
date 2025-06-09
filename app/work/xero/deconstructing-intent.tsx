@@ -8,7 +8,6 @@ import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
 import { MDXPageProps } from '@/lib/markdown'
 
-
 const Grid = styled('div', {
   base: {
     display: 'grid',

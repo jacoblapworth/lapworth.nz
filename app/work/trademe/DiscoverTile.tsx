@@ -5,7 +5,6 @@ import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
 
-
 import { SpotlightsPreview } from './Spotlight'
 
 const Layout = styled('div', {
