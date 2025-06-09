@@ -10,9 +10,9 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ServerThemeProvider } from 'next-themes'
 
-import { Body } from '@/components/Body'
 import { Page } from '@/components/Page'
 import { themeConfig } from '@/components/Theme'
+import { css } from 'styled/css'
 import { token } from 'styled/tokens'
 
 const sectraFont = localFont({
@@ -79,11 +79,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${emoji}</text></svg>`}
           />
         </Head>
-        <Body key="body">
+        <body className={css({ backgroundColor: 'background' })}>
           <Page>{children}</Page>
           <Analytics />
           <SpeedInsights />
-        </Body>
+        </body>
       </html>
     </ServerThemeProvider>
   )
