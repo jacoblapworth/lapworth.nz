@@ -10,7 +10,7 @@ import * as RadixTabs from '@radix-ui/react-tabs'
 import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
 
 import { ResponsivePreview } from '@/src/components/Preview'
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 const VEND_GREEN = '#41AF4B'
 

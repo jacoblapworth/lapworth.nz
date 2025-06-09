@@ -11,8 +11,8 @@ import { ServerThemeProvider } from 'next-themes'
 
 import { Page } from '@/src/components/Page'
 import { themeConfig } from '@/src/components/Theme'
-import { css } from 'styled/css'
-import { token } from 'styled/tokens'
+import { css } from '@/styled/css'
+import { token } from '@/styled/tokens'
 
 const sectraFont = localFont({
   src: './fonts/sectra/regular.woff',

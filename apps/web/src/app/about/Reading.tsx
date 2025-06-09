@@ -4,7 +4,7 @@ import NextImage from 'next/image'
 
 import { Carousel } from '@/src/components/Carousel'
 import { Link } from '@/src/components/Link'
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 import { OkuBookWithThumbnail } from './books/oku'
 

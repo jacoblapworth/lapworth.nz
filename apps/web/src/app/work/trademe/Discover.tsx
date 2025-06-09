@@ -1,5 +1,5 @@
 import { Text } from '@/src/components/Typography'
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 import { SearchIcon } from './Icons'
 import { Spotlights } from './Spotlight'

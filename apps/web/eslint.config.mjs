@@ -111,7 +111,7 @@ const config = [
               position: 'before',
             },
             {
-              pattern: 'styled/**',
+              pattern: '@/styled/**',
               group: 'internal',
             },
             {

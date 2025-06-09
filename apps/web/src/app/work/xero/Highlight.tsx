@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 const Em = styled('em', {
   base: {

@@ -11,8 +11,8 @@ import figmaPlugin from '@/public/static/work/xero/plugin/xui-plugin-cover.png'
 import xuiLogo from '@/public/static/work/xero/xui-logo.svg'
 import { Shine } from '@/src/components/Tile/SkewTile'
 import { Text } from '@/src/components/Typography'
-import { css } from 'styled/css'
-import { styled } from 'styled/jsx'
+import { css } from '@/styled/css'
+import { styled } from '@/styled/jsx'
 
 const Grid = styled('div', {
   base: {

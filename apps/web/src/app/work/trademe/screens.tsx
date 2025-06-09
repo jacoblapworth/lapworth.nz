@@ -5,7 +5,7 @@ import Img1 from '@/public/static/work/trademe/1.png'
 import Img2 from '@/public/static/work/trademe/2.png'
 import Img3 from '@/public/static/work/trademe/3.gif'
 import { Text } from '@/src/components/Typography'
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 const Grid = styled('div', {
   base: {

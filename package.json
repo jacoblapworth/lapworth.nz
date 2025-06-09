@@ -6,10 +6,6 @@
   "engines": {
     "node": ">=22"
   },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "dev": "turbo run dev",
     "lint": "turbo run lint",
@@ -18,6 +14,7 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "turbo": "^2.5.4"
+    "turbo": "^2.5.4",
+    "typescript": "5.8.3"
   }
 }

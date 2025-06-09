@@ -1,11 +1,11 @@
 'use client'
 
 import type {
-  AnchorHTMLAttributes,
-  BlockquoteHTMLAttributes,
-  ComponentProps,
-  HTMLAttributes,
-  ReactNode,
+    AnchorHTMLAttributes,
+    BlockquoteHTMLAttributes,
+    ComponentProps,
+    HTMLAttributes,
+    ReactNode,
 } from 'react'
 
 import NextImage from 'next/image'
@@ -16,7 +16,7 @@ import type { MDXComponents } from 'mdx/types'
 
 import { Link } from '@/src/components/Link'
 import { Text } from '@/src/components/Typography'
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 export const Image = styled(NextImage, {
   base: {
