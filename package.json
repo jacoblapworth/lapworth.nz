@@ -2,7 +2,7 @@
   "name": "lapworth.nz",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "npm@11.4.1",
+  "packageManager": "pnpm@10.12.1",
   "engines": {
     "node": ">=22",
     "npm": ">=9"
