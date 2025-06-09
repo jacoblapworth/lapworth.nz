@@ -8,7 +8,6 @@ import Form from 'next/form'
 import { FormState, subscribeEmail } from '@/actions/subscribe'
 import { HStack } from 'styled/jsx'
 
-
 import { Button } from './Button'
 import { TextInput } from './TextInput'
 
