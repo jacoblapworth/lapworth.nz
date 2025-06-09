@@ -1,11 +1,12 @@
+import { NextConfig } from 'next'
+
 import withBundleAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
 import { withSentryConfig } from '@sentry/nextjs'
-import { NextConfig } from 'next'
 import { Options } from 'rehype-pretty-code'
 import remarkGfm from 'remark-gfm'
 
-import theme from './assets/moonlight-ii.json'
+import theme from './src/assets/moonlight-ii.json'
 
 const prettyCodeOptions: Options = {
   theme: theme as unknown as Options['theme'],
