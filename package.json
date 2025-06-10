@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
+    "lint": "turbo run lint",
     "build": "turbo run build",
     "start": "turbo run start",
     "check-types": "turbo run check-types"
