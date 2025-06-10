@@ -1,17 +1,36 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "ui": "tui",
+  "envMode": "loose",
   "globalEnv": [
     "GOOGLE_MEASUREMENT_ID",
     "APPLE_TEAM_ID",
     "APPLE_MUSIC_KEY_ID",
     "APPLE_MUSIC_PRIVATE_KEY",
-    "APPLE_MUSIC_USER_TOKEN"
+    "APPLE_MUSIC_USER_TOKEN",
+    "GOOGLE_CONTAINER_ID",
+    "KV_URL",
+    "KV_REST_API_URL",
+    "KV_REST_API_TOKEN",
+    "KV_REST_API_READ_ONLY_TOKEN",
+    "KLAVIYO_API_KEY",
+    "CYPRESS_INSTALL_BINARY",
+    "SENTRY_AUTH_TOKEN",
+    "GARMIN_MAPSHARE_FEED_KEY",
+    "RESEND_API_KEY",
+    "ENABLE_EXPERIMENTAL_COREPACK"
+  ],
+  "globalDependencies": [
+    ".env"
   ],
   "tasks": {
     "build": {
       "dependsOn": [
         "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
       ],
       "outputs": [
         ".next/**",
@@ -31,7 +50,11 @@
     },
     "dev": {
       "persistent": true,
-      "cache": false
+      "cache": false,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ]
     },
     "start": {
       "dependsOn": [
