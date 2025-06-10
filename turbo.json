@@ -1,0 +1,43 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "tui",
+  "globalEnv": [
+    "GOOGLE_MEASUREMENT_ID",
+    "APPLE_TEAM_ID",
+    "APPLE_MUSIC_KEY_ID",
+    "APPLE_MUSIC_PRIVATE_KEY",
+    "APPLE_MUSIC_USER_TOKEN"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**",
+        ".styled/**",
+        "!.next/cache/**"
+      ]
+    },
+    "check-types": {
+      "dependsOn": [
+        "^check-types"
+      ]
+    },
+    "lint": {
+      "dependsOn": [
+        "^lint"
+      ]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "start": {
+      "dependsOn": [
+        "build"
+      ],
+      "persistent": true
+    }
+  }
+}
