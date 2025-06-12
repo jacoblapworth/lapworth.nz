@@ -2,6 +2,14 @@ name: CI
 on:
   pull_request:
   workflow_dispatch:
+env:
+  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+  APPLE_MUSIC_KEY_ID: ${{ secrets.APPLE_MUSIC_KEY_ID }}
+  APPLE_MUSIC_PRIVATE_KEY: ${{ secrets.APPLE_MUSIC_PRIVATE_KEY }}
+  APPLE_MUSIC_USER_TOKEN: ${{ secrets.APPLE_MUSIC_USER_TOKEN }}
+  GOOGLE_MEASUREMENT_ID: ${{ secrets.GOOGLE_MEASUREMENT_ID }}
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -29,12 +37,6 @@ jobs:
 
       - name: Build
         run: pnpm run build
-        env:
-          GOOGLE_MEASUREMENT_ID: ${{ secrets.GOOGLE_MEASUREMENT_ID }}
-          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-          APPLE_MUSIC_KEY_ID: ${{ secrets.APPLE_MUSIC_KEY_ID }}
-          APPLE_MUSIC_PRIVATE_KEY: ${{ secrets.APPLE_MUSIC_PRIVATE_KEY }}
-          APPLE_MUSIC_USER_TOKEN: ${{ secrets.APPLE_MUSIC_USER_TOKEN }}
 
       - name: Project cache
         uses: actions/cache@v4
@@ -83,23 +85,22 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build
+        run: pnpm run build
+
       - name: Cypress
         uses: cypress-io/github-action@v6
         with:
           start: pnpm run start
           wait-on: 'http://localhost:3000'
           record: true
+          install: false
           group: web
-          project: apps/web
+          working-directory: apps/web
           browser: chrome
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GOOGLE_MEASUREMENT_ID: ${{ secrets.GOOGLE_MEASUREMENT_ID }}
-          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-          APPLE_MUSIC_KEY_ID: ${{ secrets.APPLE_MUSIC_KEY_ID }}
-          APPLE_MUSIC_PRIVATE_KEY: ${{ secrets.APPLE_MUSIC_PRIVATE_KEY }}
-          APPLE_MUSIC_USER_TOKEN: ${{ secrets.APPLE_MUSIC_USER_TOKEN }}
 
   Success:
     runs-on: ubuntu-latest

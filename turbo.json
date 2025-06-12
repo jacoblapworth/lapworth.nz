@@ -36,18 +36,31 @@
         ".env*"
       ],
       "outputs": [
+        "dist/**",
+        ".vercel/**",
         ".next/**",
-        ".styled/**",
         "!.next/cache/**"
       ]
     },
     "check-types": {
       "dependsOn": [
         "^check-types"
+      ],
+      "inputs": [
+        "**/*.{ts,tsx}"
+      ]
+    },
+    "tokens": {
+      "dependsOn": [
+        "^tokens"
+      ],
+      "outputs": [
+        ".styled/**"
       ]
     },
     "lint": {
       "dependsOn": [
+        "tokens",
         "^lint"
       ]
     },
