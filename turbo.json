@@ -17,7 +17,10 @@
     "KV_REST_API_READ_ONLY_TOKEN",
     "KLAVIYO_API_KEY",
     "SENTRY_AUTH_TOKEN",
-    "RESEND_API_KEY",
+    "RESEND_API_KEY"
+  ],
+  "globalPassThroughEnv": [
+    "COREPACK_HOME",
     "ENABLE_EXPERIMENTAL_COREPACK"
   ],
   "globalDependencies": [
@@ -26,6 +29,7 @@
   "tasks": {
     "build": {
       "dependsOn": [
+        "tokens",
         "^build"
       ],
       "passThroughEnv": [
