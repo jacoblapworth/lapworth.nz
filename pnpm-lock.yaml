@@ -9,11 +9,8 @@ importers:
   .:
     devDependencies:
       turbo:
-        specifier: ^2.5.4
+        specifier: latest
         version: 2.5.4
-      typescript:
-        specifier: 5.8.3
-        version: 5.8.3
 
   apps/web:
     dependencies:
