@@ -2,8 +2,8 @@ import { ComponentProps, ReactNode, forwardRef } from 'react'
 
 import NextLink from 'next/link'
 
-import { cva } from 'styled/css'
-import { styled } from 'styled/jsx'
+import { cva } from '@/styled/css'
+import { styled } from '@/styled/jsx'
 
 import { ArrowIcon } from './Icons'
 

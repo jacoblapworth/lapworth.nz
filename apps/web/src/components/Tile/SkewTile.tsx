@@ -1,22 +1,22 @@
 import {
-  ComponentProps,
-  ReactNode,
-  useEffect,
-  useRef,
-  type RefObject,
+    ComponentProps,
+    ReactNode,
+    useEffect,
+    useRef,
+    type RefObject,
 } from 'react'
 
 import useMouse from '@react-hook/mouse-position'
 import {
-  motion,
-  MotionValue,
-  SpringOptions,
-  useMotionValue,
-  useSpring,
-  useTransform,
+    motion,
+    MotionValue,
+    SpringOptions,
+    useMotionValue,
+    useSpring,
+    useTransform,
 } from 'framer-motion'
 
-import { cx, css } from 'styled/css'
+import { css, cx } from '@/styled/css'
 
 const SHINE_SIZE = 650
 

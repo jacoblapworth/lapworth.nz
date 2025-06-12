@@ -1,0 +1,15 @@
+packages:
+  - apps/*
+  - packages/*
+
+onlyBuiltDependencies:
+  - '@sentry/cli'
+  - '@vercel/speed-insights'
+  - cypress
+  - esbuild
+  - sharp
+  - turbo
+  - turbo-darwin-arm64
+  - unrs-resolver
+
+sideEffectsCache: false

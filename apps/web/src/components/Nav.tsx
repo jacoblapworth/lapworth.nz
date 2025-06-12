@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 
 import { Link } from '@/src/components/Link'
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 const A = styled(NextLink, {
   base: {

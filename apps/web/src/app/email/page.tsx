@@ -7,7 +7,7 @@ import Form from 'next/form'
 import { sendEmail, type State } from '@/src/actions/sendEmail'
 import { SubmitButton } from '@/src/components/EmailSubscribe'
 import { TextInput } from '@/src/components/TextInput'
-import { HStack } from 'styled/jsx'
+import { HStack } from '@/styled/jsx'
 
 const initialState: State = {
   status: 'idle',

@@ -1,8 +1,8 @@
 import { PillLink } from '@/src/components/Button'
 import { SkewTile } from '@/src/components/Tile'
 import { Text } from '@/src/components/Typography'
-import { css } from 'styled/css'
-import { styled } from 'styled/jsx'
+import { css } from '@/styled/css'
+import { styled } from '@/styled/jsx'
 
 const Layout = styled('div', {
   base: {

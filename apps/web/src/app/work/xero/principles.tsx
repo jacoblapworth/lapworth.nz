@@ -10,7 +10,7 @@ import worldMap from '@/public/static/work/xero/principles-world-map.svg'
 import { images } from '@/src/app/work/xero/images'
 import { Text } from '@/src/components/Typography'
 import { MDXPageProps } from '@/src/lib/markdown'
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 export function Principles() {
   const Container = styled('div', {

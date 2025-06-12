@@ -7,7 +7,7 @@ import { ThemeProvider } from 'next-themes'
 import { Footer } from '@/src/components/Footer'
 import { Header } from '@/src/components/Header'
 import { Navigation } from '@/src/components/Nav'
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 import { themeConfig } from './Theme'
 

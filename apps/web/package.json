@@ -3,22 +3,13 @@
   "description": "Kopaki – personal website for J Lapworth",
   "version": "0.0.0",
   "private": true,
-  "author": "Jacob Lapworth <jacob@lapworth.nz> (lapworth.nz)",
-  "license": "MIT",
-  "keywords": [
-    "nextjs",
-    "designer",
-    "portfolio",
-    "typescript"
-  ],
   "scripts": {
     "dev": "next --turbo",
-    "prebuild": "npm run tokens -- --clean",
     "build": "next build",
     "start": "next start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "check-types": "",
+    "check-types": "tsc --noEmit",
     "tokens": "panda codegen",
     "lint": "next lint",
     "format": "prettier --ignore-path .gitignore \"**/*.+(ts|tsx)\" --write"
@@ -89,6 +80,7 @@
     "eslint-plugin-import-x": "4.15.1",
     "eslint-plugin-promise": "7.2.1",
     "eslint-plugin-react": "7.37.5",
+    "globals": "16.2.0",
     "eslint-plugin-react-compiler": "19.0.0-beta-714736e-20250131",
     "prettier": "3.5.3",
     "typescript": "5.8.3",

@@ -1,7 +1,7 @@
 'use client'
 
 import { Link } from '@/src/components/Link'
-import { styled } from 'styled/jsx'
+import { styled } from '@/styled/jsx'
 
 import { Text } from '../../components/Typography'
 

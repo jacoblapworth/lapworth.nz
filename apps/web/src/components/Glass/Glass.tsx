@@ -1,7 +1,7 @@
 import NextImage from 'next/image'
 
-import { css } from 'styled/css'
-import { styled } from 'styled/jsx'
+import { css } from '@/styled/css'
+import { styled } from '@/styled/jsx'
 
 const Container = styled('div', {
   base: {

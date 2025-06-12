@@ -5,7 +5,7 @@ import ProfileImage from '@/public/static/j-photo-mono.png'
 import { getMusicWithThumbnails } from '@/src/app/about/music'
 import { Link } from '@/src/components/Link'
 import { Text } from '@/src/components/Typography'
-import { css } from 'styled/css'
+import { css } from '@/styled/css'
 
 import { getReadingWithThumbnails } from './books/oku'
 import { Experience } from './experience'
