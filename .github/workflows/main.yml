@@ -94,7 +94,6 @@ jobs:
           start: pnpm run start
           wait-on: 'http://localhost:3000'
           record: true
-          install: false
           group: web
           working-directory: apps/web
           browser: chrome
