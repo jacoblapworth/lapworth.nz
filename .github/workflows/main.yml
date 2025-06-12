@@ -82,6 +82,12 @@ jobs:
           node-version-file: package.json
           cache: 'pnpm'
 
+      - name: Set up Cypress binary cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('pnpm-lock.yaml') }}
+
       - name: Install dependencies
         run: pnpm install
 
@@ -94,6 +100,7 @@ jobs:
           start: pnpm run start
           wait-on: 'http://localhost:3000'
           record: true
+          install: false
           group: web
           working-directory: apps/web
           browser: chrome
