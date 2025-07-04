@@ -28,7 +28,7 @@
     "@vercel/kv": "3.0.0",
     "@vercel/speed-insights": "1.2.0",
     "axios": "1.10.0",
-    "framer-motion": "12.19.1",
+    "framer-motion": "12.23.0",
     "got": "14.4.7",
     "gray-matter": "4.0.3",
     "jose": "6.0.11",
