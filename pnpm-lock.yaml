@@ -66,8 +66,8 @@ importers:
         specifier: 6.0.12
         version: 6.0.12
       klaviyo-api:
-        specifier: 15.0.0
-        version: 15.0.0
+        specifier: 19.0.0
+        version: 19.0.0
       next:
         specifier: 15.4.5
         version: 15.4.5(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@19.0.0-beta-714736e-20250131)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -3420,10 +3420,6 @@ packages:
     resolution: {integrity: sha512-G6NsmEW15s0Uw9XnCg+33H3ViYRyiM0hMrMhhqQOR8NFc5GhYrI+6I3u7OTw7b91J2g8rtvMBZJDbcGb2YUniw==}
     engines: {node: '>= 18'}
 
-  form-data@4.0.3:
-    resolution: {integrity: sha512-qsITQPfmvMOSAdeyZ+12I1c+CKSstAFAwu+97zrnWAbIr5u8wfsExUzCesVLC8NgHuRUqNN4Zy6UPWUTRGslcA==}
-    engines: {node: '>= 6'}
-
   form-data@4.0.4:
     resolution: {integrity: sha512-KrGhL9Q4zjj0kiUt5OO4Mr/A/jlI2jDYs5eHBpYHPcBEVSiipAvn2Ko2HnPe20rmcuuvMHNdZFp+4IlGTMF0Ow==}
     engines: {node: '>= 6'}
@@ -3971,8 +3967,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  klaviyo-api@15.0.0:
-    resolution: {integrity: sha512-zic2QwuuPNj4U1GJ6mM+gAVivm8lVYmxA3TLLaCPTvAukA0wBQqquCDrTzSGwH4nld7Erx/dSZi3XOj/Thq+fg==}
+  klaviyo-api@19.0.0:
+    resolution: {integrity: sha512-WnCSusYsTf5OULtQpyuxn5QXIg6nZruvjYnaH0y6dOdFIXetsfhcsyIW34977kqaZsz5xyXl2NzyvMhkWp6hAg==}
 
   kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
@@ -9268,14 +9264,6 @@ snapshots:
 
   form-data-encoder@4.1.0: {}
 
-  form-data@4.0.3:
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      es-set-tostringtag: 2.1.0
-      hasown: 2.0.2
-      mime-types: 2.1.35
-
   form-data@4.0.4:
     dependencies:
       asynckit: 0.4.0
@@ -9896,10 +9884,10 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  klaviyo-api@15.0.0:
+  klaviyo-api@19.0.0:
     dependencies:
       axios: 1.11.0
-      form-data: 4.0.3
+      form-data: 4.0.4
     transitivePeerDependencies:
       - debug
 
