@@ -127,8 +127,8 @@ importers:
         specifier: 15.3.5
         version: 15.3.5
       '@next/eslint-plugin-next':
-        specifier: 15.3.5
-        version: 15.3.5
+        specifier: 15.4.4
+        version: 15.4.4
       '@pandacss/dev':
         specifier: 0.54.0
         version: 0.54.0(typescript@5.8.3)
@@ -836,6 +836,9 @@ packages:
 
   '@next/eslint-plugin-next@15.3.5':
     resolution: {integrity: sha512-BZwWPGfp9po/rAnJcwUBaM+yT/+yTWIkWdyDwc74G9jcfTrNrmsHe+hXHljV066YNdVs8cxROxX5IgMQGX190w==}
+
+  '@next/eslint-plugin-next@15.4.4':
+    resolution: {integrity: sha512-1FDsyN//ai3Jd97SEd7scw5h1yLdzDACGOPRofr2GD3sEFsBylEEoL0MHSerd4n2dq9Zm/mFMqi4+NRMOreOKA==}
 
   '@next/mdx@15.4.3':
     resolution: {integrity: sha512-+zWOmNPorKZoadwmnnPzx9GDexQrXEXUL2WwrNLxvWTTIO26wowiMxHNRYJMYw7dhkJnnbcvU/Km5xCHmELU7w==}
@@ -6455,6 +6458,10 @@ snapshots:
   '@next/env@15.3.5': {}
 
   '@next/eslint-plugin-next@15.3.5':
+    dependencies:
+      fast-glob: 3.3.1
+
+  '@next/eslint-plugin-next@15.4.4':
     dependencies:
       fast-glob: 3.3.1
 
