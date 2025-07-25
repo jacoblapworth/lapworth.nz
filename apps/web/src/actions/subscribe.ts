@@ -10,6 +10,7 @@ import {
   ProfileEnum,
   ProfileSubscriptionBulkCreateJobEnum,
   ProfilesApi,
+  SubscriptionParameters,
 } from 'klaviyo-api'
 
 const session = new ApiKeySession(process.env.KLAVIYO_API_KEY)
@@ -44,6 +45,14 @@ export async function subscribeEmail(prevState: FormState, formData: FormData) {
                     type: ProfileEnum.Profile,
                     attributes: {
                       email,
+                      subscriptions: {
+                        email: {
+                          marketing: {
+                            consent:
+                              SubscriptionParameters.ConsentEnum.Subscribed,
+                          },
+                        },
+                      },
                     },
                   },
                 ],
