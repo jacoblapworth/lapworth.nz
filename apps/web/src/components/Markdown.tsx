@@ -1,11 +1,11 @@
 'use client'
 
 import type {
-    AnchorHTMLAttributes,
-    BlockquoteHTMLAttributes,
-    ComponentProps,
-    HTMLAttributes,
-    ReactNode,
+  AnchorHTMLAttributes,
+  BlockquoteHTMLAttributes,
+  ComponentProps,
+  HTMLAttributes,
+  ReactNode,
 } from 'react'
 
 import NextImage from 'next/image'
@@ -14,8 +14,8 @@ import { usePathname } from 'next/navigation'
 import { MDXProvider } from '@mdx-js/react'
 import type { MDXComponents } from 'mdx/types'
 
-import { Link } from '@/src/components/Link'
-import { Text } from '@/src/components/Typography'
+import { Link } from '@/components/Link'
+import { Text } from '@/components/Typography'
 import { styled } from '@/styled/jsx'
 
 export const Image = styled(NextImage, {

@@ -1,6 +1,6 @@
-import { PillLink } from '@/src/components/Button'
-import { SkewTile } from '@/src/components/Tile'
-import { Text } from '@/src/components/Typography'
+import { PillLink } from '@/components/Button'
+import { SkewTile } from '@/components/Tile'
+import { Text } from '@/components/Typography'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 

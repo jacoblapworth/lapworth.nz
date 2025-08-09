@@ -8,7 +8,7 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { z } from 'zod'
 
-import { Image, Wrapper, h1, h2, h3 } from '@/src/components/Markdown'
+import { Image, Wrapper, h1, h2, h3 } from '@/components/Markdown'
 
 const Frontmatter = z.object({
   title: z.string(),

@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 import * as Sentry from '@sentry/nextjs'
 
-import { createAppleJWT } from '@/src/app/about/music'
+import { createAppleJWT } from '@/app/about/music'
 
 import { Authorise } from './authorise'
 

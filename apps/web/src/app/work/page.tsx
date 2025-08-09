@@ -1,8 +1,5 @@
 'use client'
 
-import { DiscoverTile } from '@/src/app/work/trademe/DiscoverTile'
-import { VendTabsTile } from '@/src/app/work/vend/Tile'
-import { XeroTile } from '@/src/app/work/xero/XeroTile'
 import { styled } from '@/styled/jsx'
 
 const Layout = styled('div', {
@@ -18,9 +15,9 @@ export default function Page() {
   return (
     <>
       <Layout>
-        <XeroTile />
+        {/* <XeroTile />
         <DiscoverTile />
-        <VendTabsTile />
+        <VendTabsTile /> */}
       </Layout>
     </>
   )

@@ -5,7 +5,7 @@ import NextScript from 'next/script'
 
 import * as Sentry from '@sentry/nextjs'
 
-import { TextInput } from '@/src/components/TextInput'
+import { TextInput } from '@/components/TextInput'
 
 import { useAppleMusic } from '../client'
 

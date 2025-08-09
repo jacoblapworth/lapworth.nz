@@ -1,6 +1,6 @@
 'use client'
 
-import { ComponentProps, forwardRef, useRef, useState } from 'react'
+import { ComponentProps, useRef, useState } from 'react'
 
 import { Lato } from 'next/font/google'
 
@@ -9,7 +9,7 @@ import { CaretDownIcon } from '@radix-ui/react-icons'
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
 
-import { ResponsivePreview } from '@/src/components/Preview'
+import { ResponsivePreview } from '@/components/Preview'
 import { styled } from '@/styled/jsx'
 
 const VEND_GREEN = '#41AF4B'
@@ -238,17 +238,14 @@ interface TabProps extends ComponentProps<typeof TabTrigger> {
   isActive?: boolean
 }
 
-const Tab = forwardRef<HTMLButtonElement, TabProps>(function Tab(
-  { children, isActive, ...rest },
-  ref,
-) {
+function Tab({ children, isActive, ref, ...rest }: TabProps) {
   return (
     <TabTrigger {...rest} ref={ref}>
       {children}
       {isActive && <Highlight layoutId="highlight" />}
     </TabTrigger>
   )
-})
+}
 
 const TabsList = styled(RadixTabs.List, {
   base: {

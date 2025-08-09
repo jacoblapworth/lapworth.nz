@@ -2,10 +2,10 @@
 
 import NextImage from 'next/image'
 
-import Img1 from '@/public/static/work/vend/1.png'
-import Img2 from '@/public/static/work/vend/2.png'
-import Img3 from '@/public/static/work/vend/3.png'
-import { Text } from '@/src/components/Typography'
+import { Text } from '@/components/Typography'
+import Img1 from '@/public/work/vend/1.png'
+import Img2 from '@/public/work/vend/2.png'
+import Img3 from '@/public/work/vend/3.png'
 import { styled } from '@/styled/jsx'
 
 const Grid = styled('div', {

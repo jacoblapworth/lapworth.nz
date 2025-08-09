@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 
-import { ThemeToggle } from '@/src/components/ThemeToggle'
+import { ThemeToggle } from '@/components/ThemeToggle'
 import { styled } from '@/styled/jsx'
 
 const StyledHeader = styled('header', {

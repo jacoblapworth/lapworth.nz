@@ -22,8 +22,14 @@
       "@/styled/*": [
         "./.styled/*"
       ],
+      "@/content": [
+        "./.velite"
+      ],
+      "@/public/*": [
+        "./public/*"
+      ],
       "@/*": [
-        "./*"
+        "./src/*"
       ]
     },
     "incremental": true,

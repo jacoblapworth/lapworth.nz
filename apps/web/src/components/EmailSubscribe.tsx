@@ -5,7 +5,7 @@ import { useFormStatus } from 'react-dom'
 
 import Form from 'next/form'
 
-import { FormState, subscribeEmail } from '@/src/actions/subscribe'
+import { FormState, subscribeEmail } from '@/actions/subscribe'
 import { HStack } from '@/styled/jsx'
 
 import { Button } from './Button'

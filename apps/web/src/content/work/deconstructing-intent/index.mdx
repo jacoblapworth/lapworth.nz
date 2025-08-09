@@ -1,12 +1,10 @@
-export const meta = {
-  title: 'Deconstructing intent in your design',
-  date: '2021-11-25',
-  tags: ['xero'],
-}
-
-import { images } from '@/components/Work/Xero'
-
-# Deconstructing intent in your design
+---
+title: Deconstructing intent in your design
+slug: deconstructing-intent
+date: 2021-11-25
+tags:
+  - xero
+---
 
 When you bring a problem to the XUI team, one of the questions you might get asked is:
 
@@ -36,7 +34,9 @@ To help understand how to to do this, we’ve put together a case study using a 
 
 At face value, these “cards” might seem like a reasonable usage of XUI. As we deconstruct the intent of these cards, let’s explore if there are any patterns in XUI that we can better align with.
 
-<Image src={images.image1} alt="Example of cards" />
+![Example of cards](1.png)
+
+<Image src="1.png" alt="Example of cards" />
 
 ## Identify the different intents within the design
 
@@ -44,7 +44,7 @@ What does each element need to convey to the user? What do we want the user to u
 
 In the example below, we can start to call out specific elements that mean things to a user, or encourage certain behaviour.
 
-<Image src={images.image2} alt="Card example annotated with specific intents" />
+<Image src="2.png" alt="Card example annotated with specific intents" />
 
 ## Match intents in the design with XUI
 
@@ -55,11 +55,11 @@ Use XUI as precedence for patterns in both visual language and interaction. You 
 Where possible, try to reuse existing patterns to help reinforce concepts with users. The example below is a good example of using existing patterns. XUI has a side highlight that we use on alert components like banners and toasts to indicate negative and positive sentiment.
 
 <Image
-  src={images.image3}
+  src="3.png"
   alt="The example has a negative sentiment highlight across card"
 />
 <Image
-  src={images.image4}
+  src="4.png"
   alt="XUI uses a negative sentiment across the left of toasts and banners"
 />
 
@@ -73,11 +73,11 @@ There’s opportunities to either align, or differentiate ourselves from existin
 These inconsistencies can be quite subtle, but if not intentionally thought about, can lessen the impact of existing patterns. From a user's perspective, they might question (even if subconsciously) the different icon (“does it mean something different?”) and these inconsistencies can break trust.
 
 <Image
-  src={images.image5}
+  src="5.png"
   alt="The example card includes a warning message about being overdue."
 />
 <Image
-  src={images.image6}
+  src="6.png"
   alt="XUI uses an icon with red text on text inputs to highlight error messages."
 />
 
@@ -90,11 +90,11 @@ XUI also uses backgrounds with rounded corners to identify primary buttons. It m
 See [Luke Wroblewski on consistency in design](https://twitter.com/LukeW/status/1002281609100378112).
 
 <Image
-  src={images.image7}
+  src="7.png"
   alt="The example card has a red footer for the primary action"
 />
 <Image
-  src={images.image8}
+  src="8.png"
   alt="XUI uses red to indicate negative, or destructive actions"
 />
 
@@ -104,32 +104,29 @@ Sometimes, we might only identify issues when we place the component in surround
 
 Below, we’ve place the card in the dashboard, and you can see how some of the typography starts to create an imbalance in hierarchy.
 
-<Image src={images.image9} alt="Card in-situ on the dashboard" />
+<Image src="9.png" alt="Card in-situ on the dashboard" />
 
 To make sure your design works well with other parts of Xero, you can look to how we create hierarchy within our existing components. The Overview Block which is commonly used at the top of a page only uses xLarge type, but still manages to stand out.
 
 <Image
-  src={images.image10}
+  src="10.png"
   alt="The example uses 2xlarge type to create hierarchy within the card"
 />
-<Image
-  src={images.image11}
-  alt="XUI uses xlarge type in it’s Overview Block "
-/>
+<Image src="11.png" alt="XUI uses xlarge type in it’s Overview Block " />
 
 ## Reconstructing with XUI
 
 Now that we’ve identified all of the intents and visual language we want to align with, we can reconstruct the card using XUI. You can see that there’s not just one way to use XUI.
 
 <Image
-  src={images.image12}
+  src="12.png"
   alt="Two examples reconstructed using different interpretations of XUI"
 />
-<Image src={images.image13} alt="Other iterations that didn’t make the cut" />
+<Image src="13.png" alt="Other iterations that didn’t make the cut" />
 
 ## Testing again in context
 
-<Image src={images.image14} alt="" />
+<Image src="14.png" alt="" />
 
 ## Identifying persisting problems
 

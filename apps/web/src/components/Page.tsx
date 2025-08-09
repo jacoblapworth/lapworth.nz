@@ -4,9 +4,9 @@ import NextLink from 'next/link'
 
 import { ThemeProvider } from 'next-themes'
 
-import { Footer } from '@/src/components/Footer'
-import { Header } from '@/src/components/Header'
-import { Navigation } from '@/src/components/Nav'
+import { Footer } from '@/components/Footer'
+import { Header } from '@/components/Header'
+import { Navigation } from '@/components/Nav'
 import { styled } from '@/styled/jsx'
 
 import { themeConfig } from './Theme'

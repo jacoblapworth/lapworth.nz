@@ -4,12 +4,12 @@ import NextImage, { StaticImageData } from 'next/image'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRemote } from 'next-mdx-remote'
 
-import disciplines from '@/public/static/work/xero/principles-disciplines.webp'
-import worldMapDark from '@/public/static/work/xero/principles-world-map-dark.svg'
-import worldMap from '@/public/static/work/xero/principles-world-map.svg'
-import { images } from '@/src/app/work/xero/images'
-import { Text } from '@/src/components/Typography'
-import { MDXPageProps } from '@/src/lib/markdown'
+import { images } from '@/app/work/xero/images'
+import { Text } from '@/components/Typography'
+import { MDXPageProps } from '@/lib/markdown'
+import disciplines from '@/public/work/xero/principles-disciplines.webp'
+import worldMapDark from '@/public/work/xero/principles-world-map-dark.svg'
+import worldMap from '@/public/work/xero/principles-world-map.svg'
 import { styled } from '@/styled/jsx'
 
 export function Principles() {
