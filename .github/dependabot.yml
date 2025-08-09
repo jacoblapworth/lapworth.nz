@@ -18,3 +18,8 @@ updates:
       interval: 'daily'
     commit-message:
       prefix: 'chore(deps):'
+    groups:
+      react:
+        patterns:
+          - 'react'
+          - 'react-dom'
