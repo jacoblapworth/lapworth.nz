@@ -81,6 +81,18 @@
         "build"
       ],
       "persistent": true
+    },
+    "content": {
+      "dependsOn": [
+        "^content"
+      ],
+      "inputs": [
+        "content/**",
+        "velite.config.ts"
+      ],
+      "outputs": [
+        ".velite/**"
+      ]
     }
   }
 }
