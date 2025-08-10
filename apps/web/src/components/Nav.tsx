@@ -192,10 +192,6 @@ const socialLinks = [
     name: 'Email',
     href: 'mailto:jacob@lapworth.nz',
   },
-  {
-    name: 'CV',
-    href: 'https://read.cv/jacoblapworth',
-  },
 ]
 
 const Description = () => {
