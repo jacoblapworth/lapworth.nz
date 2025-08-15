@@ -10,6 +10,7 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "check-types": "tsc --noEmit",
+    "content": "velite --clean",
     "tokens": "panda codegen",
     "lint": "next lint",
     "format": "prettier --ignore-path .gitignore \"**/*.+(ts|tsx)\" --write"
@@ -80,10 +81,11 @@
     "eslint-plugin-import-x": "4.16.1",
     "eslint-plugin-promise": "7.2.1",
     "eslint-plugin-react": "7.37.5",
-    "globals": "16.3.0",
     "eslint-plugin-react-compiler": "19.0.0-beta-714736e-20250131",
+    "globals": "16.3.0",
     "prettier": "3.6.2",
     "typescript": "5.8.3",
-    "typescript-eslint": "8.39.0"
+    "typescript-eslint": "8.39.0",
+    "velite": "0.2.4"
   }
 }
