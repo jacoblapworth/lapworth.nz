@@ -102,8 +102,8 @@ importers:
         specifier: 4.0.1
         version: 4.0.1
       resend:
-        specifier: 4.7.0
-        version: 4.7.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: 6.0.1
+        version: 6.0.1(@react-email/render@1.1.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))
       sharp:
         specifier: 0.34.3
         version: 0.34.3
@@ -1574,13 +1574,6 @@ packages:
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^18.0 || ^19.0 || ^19.0.0-rc
-
-  '@react-email/render@1.1.2':
-    resolution: {integrity: sha512-RnRehYN3v9gVlNMehHPHhyp2RQo7+pSkHDtXPvg3s0GbzM9SQMW4Qrf8GRNvtpLC4gsI+Wt0VatNRUFqjvevbw==}
-    engines: {node: '>=18.0.0'}
-    peerDependencies:
-      react: ^18.0 || ^19.0 || ^19.0.0-rc
-      react-dom: ^18.0 || ^19.0 || ^19.0.0-rc
 
   '@react-email/render@1.1.3':
     resolution: {integrity: sha512-TjjF1tdTmOqYEIWWg9wMx5q9JbQRbWmnG7owQbSGEHkNfc/c/vBu7hjfrki907lgQEAkYac9KPTyIjOKhvhJCg==}
@@ -5024,9 +5017,14 @@ packages:
     resolution: {integrity: sha512-gAZ+kLqBdHarXB64XpAe2VCjB7rIRv+mU8tfRWziHRJ5umKsIHN2tLLv6EtMw7WCdP19S0ERVMldNvxYCHnhSQ==}
     engines: {node: '>=8.6.0'}
 
-  resend@4.7.0:
-    resolution: {integrity: sha512-30IbXGBUbmDweQH2IlO53XOXX7ndjYV9xFZ8IEBiWqefqQ/qmTsgrX0Ab6MUnmobJXbpdReVv+iXGRQPubQL5Q==}
+  resend@6.0.1:
+    resolution: {integrity: sha512-xNZ0gKAOqQcH83lXsqNOwBbpKROnsZpQr9mXRdG6hrHTF9G9Il2pkoTRtq7rJzXMvCZX+I79oahsbSeaYOWRFA==}
     engines: {node: '>=18'}
+    peerDependencies:
+      '@react-email/render': ^1.1.0
+    peerDependenciesMeta:
+      '@react-email/render':
+        optional: true
 
   resolve-alpn@1.2.1:
     resolution: {integrity: sha512-0a1F4l73/ZFZOakJnQ3FvkJ2+gSTQWz/r2KE5OdDY0TxPm5h4GkqkWWfM47T7HsbnOtcJVEF4epCVy6u7Q3K+g==}
@@ -7265,14 +7263,6 @@ snapshots:
   '@react-email/preview@0.0.13(react@19.1.1)':
     dependencies:
       react: 19.1.1
-
-  '@react-email/render@1.1.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
-    dependencies:
-      html-to-text: 9.0.5
-      prettier: 3.6.2
-      react: 19.1.1
-      react-dom: 19.1.1(react@19.1.1)
-      react-promise-suspense: 0.3.4
 
   '@react-email/render@1.1.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
@@ -11333,12 +11323,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  resend@4.7.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
-    dependencies:
-      '@react-email/render': 1.1.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-    transitivePeerDependencies:
-      - react
-      - react-dom
+  resend@6.0.1(@react-email/render@1.1.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)):
+    optionalDependencies:
+      '@react-email/render': 1.1.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
 
   resolve-alpn@1.2.1: {}
 
