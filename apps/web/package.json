@@ -33,7 +33,7 @@
     "gray-matter": "4.0.3",
     "jose": "6.0.12",
     "klaviyo-api": "19.0.1",
-    "next": "15.4.6",
+    "next": "15.5.2",
     "next-mdx-remote": "5.0.0",
     "next-seo": "6.8.0",
     "next-themes": "npm:@wits/next-themes@0.2.16",
