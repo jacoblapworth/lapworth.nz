@@ -21,8 +21,8 @@ importers:
         specifier: 3.1.1
         version: 3.1.1(@types/react@19.1.9)(react@19.1.1)
       '@next/mdx':
-        specifier: 15.4.7
-        version: 15.4.7(@mdx-js/loader@3.1.0(acorn@8.15.0)(webpack@5.99.9(esbuild@0.25.9)))(@mdx-js/react@3.1.1(@types/react@19.1.9)(react@19.1.1))
+        specifier: 15.5.2
+        version: 15.5.2(@mdx-js/loader@3.1.0(acorn@8.15.0)(webpack@5.99.9(esbuild@0.25.9)))(@mdx-js/react@3.1.1(@types/react@19.1.9)(react@19.1.1))
       '@radix-ui/react-dropdown-menu':
         specifier: 2.1.16
         version: 2.1.16(@types/react-dom@19.1.7(@types/react@19.1.9))(@types/react@19.1.9)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -845,8 +845,8 @@ packages:
   '@next/eslint-plugin-next@15.5.1':
     resolution: {integrity: sha512-u8chjIoGrGMs5J/yg/xGX83A33qbVS/al2PEqsgJEhLLKihPXOkPoqj65bZ8KASGpDd/j9/nZ1tsCQFau0hITA==}
 
-  '@next/mdx@15.4.7':
-    resolution: {integrity: sha512-exRsufTz9E39zFuEZMFBz4VpBYfF45qKYSUBtD1JjOv1ZF/k3cJ5A09nmQN+RQ25gfO38+7+YBxcRjs2382Lmg==}
+  '@next/mdx@15.5.2':
+    resolution: {integrity: sha512-Lz9mdoKRfSNc7T1cSk3gzryhRcc7ErsiAWba1HBoInCX4ZpGUQXmiZLAAyrIgDl7oS/UHxsgKtk2qp/Df4gKBg==}
     peerDependencies:
       '@mdx-js/loader': '>=0.15.0'
       '@mdx-js/react': '>=0.15.0'
@@ -6338,7 +6338,7 @@ snapshots:
     dependencies:
       fast-glob: 3.3.1
 
-  '@next/mdx@15.4.7(@mdx-js/loader@3.1.0(acorn@8.15.0)(webpack@5.99.9(esbuild@0.25.9)))(@mdx-js/react@3.1.1(@types/react@19.1.9)(react@19.1.1))':
+  '@next/mdx@15.5.2(@mdx-js/loader@3.1.0(acorn@8.15.0)(webpack@5.99.9(esbuild@0.25.9)))(@mdx-js/react@3.1.1(@types/react@19.1.9)(react@19.1.1))':
     dependencies:
       source-map: 0.7.6
     optionalDependencies:
