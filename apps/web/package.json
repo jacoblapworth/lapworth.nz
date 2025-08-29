@@ -9,11 +9,11 @@
     "start": "next start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "typegen": "next typegen && tsc --noEmit",
-    "type-check": "tsc --noEmit",
+    "types:gen": "next typegen",
+    "types:check": "tsc --noEmit",
     "tokens": "panda codegen",
-    "lint": "next lint",
-    "format": "prettier --ignore-path .gitignore \"**/*.+(ts|tsx)\" --write"
+    "lint": "eslint",
+    "format": "eslint --fix"
   },
   "dependencies": {
     "@mdx-js/loader": "3.1.0",
