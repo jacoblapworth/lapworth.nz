@@ -1,5 +1,5 @@
 'use client'
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
 
 import NextLink, { LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -55,12 +55,7 @@ const A = styled(NextLink, {
   },
 })
 
-interface Props extends LinkProps {
-  href: string
-  children: ReactNode
-}
-
-const NavLink = ({ children, href }: Props) => {
+const NavLink = ({ children, href }: LinkProps<'/'>) => {
   const [animate, setAnimate] = useState('hidden')
   const pathname = usePathname()
 
@@ -77,7 +72,7 @@ const NavLink = ({ children, href }: Props) => {
     setAnimate('hidden')
   }
 
-  const isActive = pathname?.startsWith(href)
+  const isActive = pathname?.startsWith(href.toString())
 
   return (
     <A
@@ -192,7 +187,7 @@ const socialLinks = [
     name: 'Email',
     href: 'mailto:jacob@lapworth.nz',
   },
-]
+] as const
 
 const Description = () => {
   return (

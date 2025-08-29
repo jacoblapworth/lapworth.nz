@@ -1,7 +1,5 @@
 import './index.css'
 
-import { ReactNode } from 'react'
-
 import { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 
@@ -65,7 +63,7 @@ export const viewport: Viewport = {
   ],
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: LayoutProps<'/'>) {
   const emoji = '🌈'
 
   return (

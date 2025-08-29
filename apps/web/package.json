@@ -9,7 +9,7 @@
     "start": "next start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "typegen": "next typegen && tsc --noEmit",
+    "typegen": "next typegen",
     "type-check": "tsc --noEmit",
     "tokens": "panda codegen",
     "lint": "next lint",

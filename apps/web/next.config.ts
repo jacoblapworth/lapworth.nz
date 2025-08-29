@@ -13,6 +13,7 @@ const prettyCodeOptions: Options = {
 
 const config: NextConfig = {
   reactStrictMode: true,
+  typedRoutes: true,
   images: {
     remotePatterns: [
       {

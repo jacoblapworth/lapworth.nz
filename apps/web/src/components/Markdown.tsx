@@ -1,11 +1,11 @@
 'use client'
 
 import type {
-    AnchorHTMLAttributes,
-    BlockquoteHTMLAttributes,
-    ComponentProps,
-    HTMLAttributes,
-    ReactNode,
+  AnchorHTMLAttributes,
+  BlockquoteHTMLAttributes,
+  ComponentProps,
+  HTMLAttributes,
+  ReactNode,
 } from 'react'
 
 import NextImage from 'next/image'
@@ -99,9 +99,7 @@ export const h3 = (props: HeadingProps) => (
 
 type AProps = AnchorHTMLAttributes<HTMLAnchorElement>
 
-export const a = ({ href, ...props }: AProps) => (
-  <Link href={href ?? ''} {...props} />
-)
+export const a = ({ href, ...props }: AProps) => <Link href={href} {...props} />
 
 type BlockquoteProps = BlockquoteHTMLAttributes<HTMLQuoteElement>
 

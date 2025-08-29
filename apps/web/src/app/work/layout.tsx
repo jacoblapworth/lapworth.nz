@@ -1,5 +1,3 @@
-import { ReactNode } from 'react'
-
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -10,10 +8,6 @@ export const metadata: Metadata = {
   },
 }
 
-interface Props {
-  children: ReactNode
-}
-
-export default function Layout({ children }: Props) {
+export default function Layout({ children }: LayoutProps<'/work'>) {
   return children
 }
