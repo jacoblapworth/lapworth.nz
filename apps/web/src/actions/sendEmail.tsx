@@ -5,7 +5,7 @@ import { headers } from 'next/headers'
 import * as Sentry from '@sentry/nextjs'
 import { Resend } from 'resend'
 
-import { HelloEmail } from '@/src/emails/hello'
+import { HelloEmail } from '@/emails/hello'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 

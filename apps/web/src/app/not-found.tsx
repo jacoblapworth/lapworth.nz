@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
-import { PillLink } from '@/src/components/Button'
-import { Text } from '@/src/components/Typography'
+import { PillLink } from '@/components/Button'
+import { Text } from '@/components/Typography'
 
 export const metadata: Metadata = {
   title: '404',

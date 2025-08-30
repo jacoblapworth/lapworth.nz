@@ -9,8 +9,8 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ServerThemeProvider } from 'next-themes'
 
-import { Page } from '@/src/components/Page'
-import { themeConfig } from '@/src/components/Theme'
+import { Page } from '@/components/Page'
+import { themeConfig } from '@/components/Theme'
 import { css } from '@/styled/css'
 import { token } from '@/styled/tokens'
 

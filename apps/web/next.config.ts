@@ -1,14 +1,21 @@
 import { NextConfig } from 'next'
 
 import withBundleAnalyzer from '@next/bundle-analyzer'
-import createMDX from '@next/mdx'
 import { withSentryConfig } from '@sentry/nextjs'
 import { Options, rehypePrettyCode } from 'rehype-pretty-code'
-import rehypeSlug from 'rehype-slug'
-import remarkGfm from 'remark-gfm'
 
 const prettyCodeOptions: Options = {
   theme: 'github-dark',
+}
+
+const isDev = process.argv.indexOf('dev') !== -1
+const isBuild = process.argv.indexOf('build') !== -1
+
+if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
+  process.env.VELITE_STARTED = '1'
+  import('velite')
+    .then((m) => m.build({ watch: isDev, clean: !isDev }))
+    .catch((e) => console.error(e))
 }
 
 const config: NextConfig = {
@@ -41,17 +48,17 @@ const config: NextConfig = {
   },
 }
 
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeSlug, [rehypePrettyCode, prettyCodeOptions]],
-    providerImportSource: '@mdx-js/react',
-  },
-})
+// const withMDX = createMDX({
+//   extension: /\.mdx?$/,
+//   options: {
+//     remarkPlugins: [remarkGfm],
+//     rehypePlugins: [rehypeSlug, [rehypePrettyCode, prettyCodeOptions]],
+//     providerImportSource: '@mdx-js/react',
+//   },
+// })
 
 export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
-  withSentryConfig(withMDX(config), {
+  withSentryConfig(config, {
     org: 'jacoblapworth',
     project: 'lapworth',
 
