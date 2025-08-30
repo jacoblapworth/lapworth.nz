@@ -60,7 +60,11 @@ export const Book = ({
   const size = 128
 
   return (
-    <Link href={`https://oku.club/book/${slug}`} className="group">
+    <Link
+      href={`https://oku.club/book/${slug}`}
+      className="group"
+      borderRadius="md"
+    >
       <Stack>
         <BookCover
           alt={`Book cover for "${title}"`}

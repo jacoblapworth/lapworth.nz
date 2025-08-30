@@ -1,7 +1,5 @@
 'use client'
 
-import NextLink from 'next/link'
-
 import { ThemeProvider } from 'next-themes'
 
 import { Footer } from '@/components/Footer'
@@ -9,6 +7,7 @@ import { Header } from '@/components/Header'
 import { Navigation } from '@/components/Nav'
 import { styled } from '@/styled/jsx'
 
+import { Skiplink } from './Skiplink'
 import { themeConfig } from './Theme'
 
 const Container = styled('div', {
@@ -34,32 +33,15 @@ const Main = styled('main', {
   },
 })
 
-const Skiplink = styled(NextLink, {
-  base: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    margin: 'md',
-    padding: 'md',
-    transform: 'translateY(calc(-100% - 32px))',
-    zIndex: '4',
-    borderRadius: 'md',
-    color: 'surface',
-    backgroundColor: 'interactive',
-    boxShadow: 'md',
-    transition: 'md',
-
-    _focus: {
-      transform: 'translateY(16px)',
-    },
-  },
-})
-
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   hideNav?: boolean
   children?: React.ReactNode
 }
 
+/**
+ * Page layout with nav and footer
+ * @deprecated this is now implemented directly in the app layout
+ */
 export function Page({ hideNav, children, ...rest }: Props) {
   return (
     <ThemeProvider {...themeConfig}>
@@ -70,7 +52,7 @@ export function Page({ hideNav, children, ...rest }: Props) {
       <Container>
         <Header />
         {!hideNav && <Navigation />}
-        <Main id="main" data-testid="main" {...rest}>
+        <Main id="main" {...rest}>
           {children}
         </Main>
         <Footer />

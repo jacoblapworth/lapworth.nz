@@ -1,6 +1,12 @@
 'use client'
 
-import { ComponentProps, useEffect, useRef, useState } from 'react'
+import {
+  ComponentProps,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react'
 
 import { Lato } from 'next/font/google'
 
@@ -124,18 +130,19 @@ interface OverflowIndicatorProps {
 function OverflowIndicator({ direction, opacity }: OverflowIndicatorProps) {
   const Indicator = styled(motion.div, {
     base: {
+      '--width': '10px',
       height: '100%',
       overflow: 'hidden',
       position: 'absolute',
       zIndex: '3',
-      width: 30,
+      width: 'var(--width)',
       transition: 'opacity .2s ease 0s',
       userSelect: 'none',
       pointerEvents: 'none',
 
       _before: {
         borderRadius: '100%',
-        boxShadow: '0 0 30px rgba(0, 0, 0, 0.35)',
+        boxShadow: '0 0 var(--width) rgba(0, 0, 0, 0.35)',
         content: '""',
         height: '100%',
         position: 'absolute',
@@ -208,7 +215,6 @@ const TabTrigger = styled(Ariakit.Tab, {
     cursor: 'pointer',
     flexShrink: 0,
     minHeight: 48,
-    marginBlockEnd: 'md',
 
     _hover: {
       color: VEND_GREEN,
@@ -249,6 +255,7 @@ const TabList = styled(Ariakit.TabList, {
     padding: 0,
     gap: '16px 32px',
     paddingInlineEnd: 'md',
+    marginBlockEnd: 'md',
     scrollbarColor: 'quaternary',
   },
 })
@@ -259,15 +266,6 @@ const TabsRoot = styled('div', {
     flexDirection: 'column',
     margin: 'md',
     // boxShadow: `0 2px 10px token(colors.primary)`,
-  },
-})
-
-const TabsContainer = styled('div', {
-  base: {
-    display: 'flex',
-    flexDirection: 'row',
-    boxShadow: 'inset 0 -1px #c9c7ca',
-    marginBlockEnd: 'lg',
   },
 })
 
@@ -310,13 +308,52 @@ function SkeletonContent() {
   )
 }
 
+const TabsContainer = styled('div', {
+  base: {
+    display: 'flex',
+    flexDirection: 'row',
+    boxShadow: 'inset 0 -1px #c9c7ca',
+    marginBlockEnd: 'lg',
+  },
+})
+
 const ScrollContainer = styled('div', {
   base: {
     overflowX: 'scroll',
+    scrollbarWidth: 'thin',
     marginBlockEnd: '-md',
     flexGrow: 1,
   },
 })
+
+function Scroll({
+  children,
+  startElement,
+  endElement,
+}: {
+  children: ReactNode
+  startElement?: ReactNode
+  endElement?: ReactNode
+}) {
+  const container = useRef<HTMLDivElement>(null)
+  const { scrollX, scrollXProgress } = useScroll({ container })
+  const overflowStartOpacity = useTransform(
+    [scrollX, scrollXProgress],
+    ([x, progress]: number[]) => (x > 0 && progress > 0 ? 1 : 0),
+  )
+  const overflowEndOpacity = useTransform(scrollXProgress, (x) =>
+    x < 1 ? 1 : 0,
+  )
+  return (
+    <TabsContainer>
+      {startElement}
+      <OverflowIndicator direction="start" opacity={overflowStartOpacity} />
+      <ScrollContainer ref={container}>{children}</ScrollContainer>
+      <OverflowIndicator direction="end" opacity={overflowEndOpacity} />
+      {endElement}
+    </TabsContainer>
+  )
+}
 
 export function TabsExample() {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
@@ -329,17 +366,7 @@ export function TabsExample() {
   ]
 
   const [tabValue, setTabValue] = useState<string>(tabs[0].value)
-  const scrollRef = useRef<HTMLDivElement>(null)
   const tabsRef = useRef<HTMLDivElement | null>(null)
-  const { scrollX, scrollXProgress } = useScroll({ container: scrollRef })
-
-  const overflowStartOpacity = useTransform(
-    [scrollX, scrollXProgress],
-    ([x, progress]: number[]) => (x > 0 && progress > 0 ? 1 : 0),
-  )
-  const overflowEndOpacity = useTransform(scrollXProgress, (x) =>
-    x < 1 ? 1 : 0,
-  )
 
   const onChange = (value: string) => {
     setTabValue(value)
@@ -366,30 +393,26 @@ export function TabsExample() {
     <ResponsivePreview>
       <TabsRoot className={lato.className}>
         <Ariakit.TabProvider store={tabStore}>
-          <TabsContainer>
-            <OverflowIndicator
-              direction="start"
-              opacity={overflowStartOpacity}
-            />
-            <ScrollContainer ref={scrollRef}>
-              <TabList ref={tabsRef}>
-                {tabs.map(({ value, label }, i) => (
-                  <Tab
-                    key={value}
-                    id={value}
-                    isActive={value === tabValue}
-                    ref={(el: HTMLButtonElement | null) => {
-                      tabRefs.current[i] = el
-                    }}
-                  >
-                    {label}
-                  </Tab>
-                ))}
-              </TabList>
-            </ScrollContainer>
-            <OverflowIndicator direction="end" opacity={overflowEndOpacity} />
-            <TabsMenu tabs={tabs} onChange={onChange} activeTab={tabValue} />
-          </TabsContainer>
+          <Scroll
+            endElement={
+              <TabsMenu tabs={tabs} onChange={onChange} activeTab={tabValue} />
+            }
+          >
+            <TabList ref={tabsRef}>
+              {tabs.map(({ value, label }, i) => (
+                <Tab
+                  key={value}
+                  id={value}
+                  isActive={value === tabValue}
+                  ref={(el) => {
+                    tabRefs.current[i] = el
+                  }}
+                >
+                  {label}
+                </Tab>
+              ))}
+            </TabList>
+          </Scroll>
           <SkeletonContent />
         </Ariakit.TabProvider>
       </TabsRoot>

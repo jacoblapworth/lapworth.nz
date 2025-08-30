@@ -8,6 +8,7 @@ import { motion } from 'framer-motion'
 
 import { Link } from '@/components/Link'
 import { styled } from '@/styled/jsx'
+import { ArrowRightIcon } from 'lucide-react'
 
 const A = styled(NextLink, {
   base: {
@@ -93,22 +94,7 @@ const NavLink = ({ children, href }: Props) => {
         initial="hidden"
         style={{ marginInlineEnd: 8 }}
       >
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-          <path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M13.75 6.75L19.25 12L13.75 17.25"
-          ></path>
-          <path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M19 12H4.75"
-          ></path>
-        </svg>
+        <ArrowRightIcon />
       </motion.div>
     </A>
   )
