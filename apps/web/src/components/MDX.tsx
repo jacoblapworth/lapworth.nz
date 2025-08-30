@@ -1,6 +1,5 @@
 import * as runtime from 'react/jsx-runtime'
-
-const sharedComponents = {}
+import { components as sharedComponents } from './Markdown'
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code)
