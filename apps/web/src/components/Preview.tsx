@@ -1,32 +1,49 @@
+'use client'
+
 import { ReactNode } from 'react'
 
-import { ResizableBox, ResizableBoxProps } from 'react-resizable'
+import { Panel, PanelGroup, PanelResizer } from '@window-splitter/react'
+import { ResizableBoxProps } from 'react-resizable'
 
 import { styled } from '@/styled/jsx'
 
-const Container = styled(ResizableBox, {
-  base: {
-    // padding: 'md',
-    borderRadius: 'md',
-    backgroundColor: 'surface',
-    boxShadow: 'md',
-    position: 'relative',
-    paddingInlineEnd: 'md',
-    overflow: 'hidden',
+const Container = styled(
+  Panel,
+  {
+    base: {
+      // padding: 'md',
+      borderRadius: 'md',
+      backgroundColor: 'surface',
+      boxShadow: 'md',
+      position: 'relative',
+      paddingInlineEnd: 'md',
+      overflow: 'hidden',
+    },
   },
-})
+  {
+    shouldForwardProp: (prop, variantKeys) => {
+      if (['min', 'max'].includes(prop)) {
+        return true
+      }
 
-const Handle = styled('span', {
+      if (variantKeys.includes(prop)) return false
+
+      return false
+    },
+  },
+)
+
+const Handle = styled(PanelResizer, {
   base: {
-    position: 'absolute',
+    // position: 'absolute',
     height: '100%',
-    width: 16,
+    width: '16px',
     display: 'flex',
     justifyItems: 'center',
     alignItems: 'center',
 
     _after: {
-      content: '',
+      content: '""',
       display: 'flex',
       backgroundColor: 'quaternary',
       borderRadius: 'max',
@@ -34,15 +51,21 @@ const Handle = styled('span', {
       height: 40,
       marginLeft: '6px',
     },
+
+    _hover: {
+      _after: {
+        backgroundColor: 'interactive',
+      },
+    },
   },
 
   variants: {
-    direction: {
+    handleAxis: {
       s: {},
       w: {},
       e: {
-        right: 0,
-        top: 0,
+        // right: 0,
+        // top: 0,
         cursor: 'ew-resize',
       },
       n: {},
@@ -69,16 +92,13 @@ export function ResponsivePreview({
   maxWidth = 1200,
 }: PreviewProps) {
   return (
-    <Container
-      axis="x"
-      width={width}
-      minConstraints={[minWidth, 0]}
-      maxConstraints={[maxWidth, 99999]}
-      resizeHandles={['e']}
-      handle={(handle, ref) => <Handle ref={ref} direction={handle} />}
-    >
-      {children}
-    </Container>
+    <PanelGroup>
+      <Container min={'300px'} default="300px" max={'1200px'}>
+        {children}
+      </Container>
+      <Handle size="24px" handleAxis="e" />
+      <Panel />
+    </PanelGroup>
   )
 }
 

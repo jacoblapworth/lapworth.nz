@@ -26,7 +26,12 @@ const DropdownTrigger = styled('button', {
     display: 'flex',
     cursor: 'pointer',
     alignItems: 'center',
+    borderRadius: 'md',
     paddingInline: 'md',
+    margin: 'sm',
+    _hover: {
+      backgroundColor: 'grey',
+    },
   },
 })
 
@@ -141,7 +146,7 @@ function OverflowIndicator({ direction, opacity }: OverflowIndicatorProps) {
       _before: {
         borderRadius: '100%',
         boxShadow: '0 0 30px rgba(0, 0, 0, 0.35)',
-        content: '',
+        content: '""',
         height: '100%',
         position: 'absolute',
         width: '100%',
@@ -262,7 +267,8 @@ const TabsRoot = styled(RadixTabs.Root, {
   base: {
     display: 'flex',
     flexDirection: 'column',
-    boxShadow: `0 2px 10px token(colors.primary)`,
+    margin: 'md',
+    // boxShadow: `0 2px 10px token(colors.primary)`,
   },
 })
 
@@ -271,6 +277,7 @@ const TabsContainer = styled('div', {
     display: 'flex',
     flexDirection: 'row',
     boxShadow: 'inset 0 -1px #c9c7ca',
+    marginBlockEnd: 'lg',
   },
 })
 
@@ -317,6 +324,7 @@ const ScrollContainer = styled('div', {
   base: {
     overflowX: 'scroll',
     marginBlockEnd: '-md',
+    flexGrow: 1,
   },
 })
 
@@ -361,13 +369,10 @@ export function TabsExample() {
     <ResponsivePreview>
       <TabsRoot
         value={tabValue}
+        className={lato.className}
         onValueChange={onChange}
-        css={{ margin: 'md' }}
       >
-        <TabsContainer
-          css={{ marginBlockEnd: 'lg' }}
-          className={lato.className}
-        >
+        <TabsContainer>
           <OverflowIndicator direction="start" opacity={overflowStartOpacity} />
           <ScrollContainer ref={scrollRef}>
             <TabsList ref={tabsRef}>
