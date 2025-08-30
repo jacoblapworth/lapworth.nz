@@ -3,7 +3,7 @@ import { NextConfig } from 'next'
 import withBundleAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
 import { withSentryConfig } from '@sentry/nextjs'
-import rehypePrettyCode, { Options } from 'rehype-pretty-code'
+import { Options, rehypePrettyCode } from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
