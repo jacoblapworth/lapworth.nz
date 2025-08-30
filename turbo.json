@@ -46,9 +46,9 @@
         "!.next/cache/**"
       ]
     },
-    "check-types": {
+    "types:check": {
       "dependsOn": [
-        "^check-types"
+        "^types:check"
       ],
       "inputs": [
         "**/*.{ts,tsx}"

@@ -4,7 +4,7 @@ import { FlatCompat } from '@eslint/eslintrc'
 import pluginJs from '@eslint/js'
 import tsParser from '@typescript-eslint/parser'
 import eslintConfigPrettier from 'eslint-config-prettier'
-import pluginImportX from 'eslint-plugin-import-x'
+import { flatConfigs as pluginImportX } from 'eslint-plugin-import-x'
 import pluginPromise from 'eslint-plugin-promise'
 import pluginReact from 'eslint-plugin-react'
 import pluginReactCompiler from 'eslint-plugin-react-compiler'
@@ -16,9 +16,20 @@ const compat = new FlatCompat({ baseDirectory: __dirname })
 
 const config = [
   {
-    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      'build/**',
+      'out/**',
+      'next-env.d.ts',
+      'eslint.config.mjs',
+      '.next/**',
+      '.styled/**',
+      '.turbo/**',
+    ],
   },
   {
+    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     languageOptions: {
       ecmaVersion: 'latest',
       globals: { ...globals.browser, ...globals.node },
@@ -49,18 +60,6 @@ const config = [
         version: 'detect',
       },
     },
-  },
-  pluginImportX.flatConfigs.recommended,
-  pluginImportX.flatConfigs.typescript,
-  pluginJs.configs.recommended, // https://github.com/eslint/eslint
-  ...tseslint.configs.strict, // https://github.com/typescript-eslint/typescript-eslint
-  ...tseslint.configs.stylistic,
-  pluginPromise.configs['flat/recommended'], // https://github.com/eslint-community/eslint-plugin-promise
-  pluginReact.configs.flat.recommended, // https://github.com/jsx-eslint/eslint-plugin-react
-  pluginReact.configs.flat['jsx-runtime'], // https://github.com/jsx-eslint/eslint-plugin-react
-  eslintConfigPrettier, // https://github.com/prettier/eslint-config-prettier
-  ...compat.extends('next'),
-  {
     rules: {
       'react/prop-types': 'off',
       'newline-before-return': 'error',
@@ -123,6 +122,17 @@ const config = [
       ],
     },
   },
+  pluginImportX.recommended,
+  pluginImportX.typescript,
+  pluginJs.configs.recommended, // https://github.com/eslint/eslint
+  ...tseslint.configs.strict, // https://github.com/typescript-eslint/typescript-eslint
+  ...tseslint.configs.stylistic,
+  pluginPromise.configs['flat/recommended'], // https://github.com/eslint-community/eslint-plugin-promise
+  pluginReact.configs.flat.recommended, // https://github.com/jsx-eslint/eslint-plugin-react
+  pluginReact.configs.flat['jsx-runtime'], // https://github.com/jsx-eslint/eslint-plugin-react
+  eslintConfigPrettier, // https://github.com/prettier/eslint-config-prettier
+  ...compat.extends('next'),
+
   // ! ===================== DISCLAIMER =====================
   // ! There is no official solution available for new ESLint 9 flat config structure for NextJS
   // ! The solution is taken from the community and may not be the best practice, use it at your own risk

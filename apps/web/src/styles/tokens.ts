@@ -1,4 +1,4 @@
-import { defineTokens, defineSemanticTokens } from '@pandacss/dev'
+import { defineSemanticTokens, defineTokens } from '@pandacss/dev'
 
 export const tokens = defineTokens({
   sizes: {
@@ -232,7 +232,7 @@ export const semanticTokens = defineSemanticTokens({
   },
 })
 
-const tradeMeColors = defineTokens.colors({
+export const tradeMeColors = defineTokens.colors({
   pohutukawa: {
     DEFAULT: { value: 'pohutukawa.500' },
     '5': { value: '#FFF8F8' },
@@ -286,7 +286,7 @@ const tradeMeColors = defineTokens.colors({
   },
 })
 
-const tradeMeTokens = defineSemanticTokens.colors({
+export const tradeMeTokens = defineSemanticTokens.colors({
   marketplace: { value: 'pohutukawa' },
   jobs: { value: '#FC723E' },
   property: { value: '#2FBC7A' },

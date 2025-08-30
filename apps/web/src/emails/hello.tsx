@@ -1,36 +1,37 @@
 import {
-  Row,
-  Hr,
-  Section,
-  Img,
   Heading,
-  Text,
+  Hr,
+  Img,
   Link,
+  Row,
+  Section,
+  Text,
 } from '@react-email/components'
 
-interface HelloEmailProps {
-  username?: string
-  userImage?: string
-  invitedByUsername?: string
-  invitedByEmail?: string
-  teamName?: string
-  teamImage?: string
-  inviteLink?: string
-  inviteFromIp?: string
-  inviteFromLocation?: string
-}
+// interface HelloEmailProps {
+//   username?: string
+//   userImage?: string
+//   invitedByUsername?: string
+//   invitedByEmail?: string
+//   teamName?: string
+//   teamImage?: string
+//   inviteLink?: string
+//   inviteFromIp?: string
+//   inviteFromLocation?: string
+// }
 
-export function HelloEmail({
-  username = 'alanturing',
-  userImage = 'https://demo.react.email/static/vercel-user.png',
-  invitedByUsername = 'Alan',
-  invitedByEmail = 'alan.turing@example.com',
-  teamName = 'Enigma',
-  teamImage = 'https://demo.react.email/static/vercel-team.png',
-  inviteLink = 'https://vercel.com/teams/invite/foo',
-  inviteFromIp = '204.13.186.218',
-  inviteFromLocation = 'São Paulo, Brazil',
-}: HelloEmailProps) {
+export function HelloEmail() {
+  // {
+  // username = 'alanturing',
+  // userImage = 'https://demo.react.email/static/vercel-user.png',
+  // invitedByUsername = 'Alan',
+  // invitedByEmail = 'alan.turing@example.com',
+  // teamName = 'Enigma',
+  // teamImage = 'https://demo.react.email/static/vercel-team.png',
+  // inviteLink = 'https://vercel.com/teams/invite/foo',
+  // inviteFromIp = '204.13.186.218',
+  // inviteFromLocation = 'São Paulo, Brazil',
+  // }: HelloEmailProps,
   return (
     <Row>
       <Hr
