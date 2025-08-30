@@ -7,6 +7,12 @@ import { ResizableBoxProps } from 'react-resizable'
 
 import { styled } from '@/styled/jsx'
 
+const Group = styled(PanelGroup, {
+  base: {
+    height: 'auto',
+  },
+})
+
 const Container = styled(
   Panel,
   {
@@ -92,13 +98,13 @@ export function ResponsivePreview({
   maxWidth = 1200,
 }: PreviewProps) {
   return (
-    <PanelGroup>
+    <Group style={{ height: 'auto' }}>
       <Container min={'300px'} default="300px" max={'1200px'}>
         {children}
       </Container>
       <Handle size="24px" handleAxis="e" />
       <Panel />
-    </PanelGroup>
+    </Group>
   )
 }
 

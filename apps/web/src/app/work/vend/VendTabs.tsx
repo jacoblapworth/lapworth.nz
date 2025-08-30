@@ -1,16 +1,15 @@
 'use client'
 
-import { ComponentProps, useRef, useState } from 'react'
+import { ComponentProps, useEffect, useRef, useState } from 'react'
 
 import { Lato } from 'next/font/google'
 
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
-import { CaretDownIcon } from '@radix-ui/react-icons'
-import * as RadixTabs from '@radix-ui/react-tabs'
+import * as Ariakit from '@ariakit/react'
 import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
 
 import { ResponsivePreview } from '@/components/Preview'
 import { styled } from '@/styled/jsx'
+import { ChevronDownIcon } from 'lucide-react'
 
 const VEND_GREEN = '#41AF4B'
 
@@ -19,7 +18,7 @@ const lato = Lato({
   subsets: ['latin'],
 })
 
-const DropdownTrigger = styled('button', {
+const MenuButton = styled(Ariakit.MenuButton, {
   base: {
     all: 'unset',
     color: '#7191A6',
@@ -27,30 +26,25 @@ const DropdownTrigger = styled('button', {
     cursor: 'pointer',
     alignItems: 'center',
     borderRadius: 'md',
-    paddingInline: 'md',
-    margin: 'sm',
+    paddingInline: 'sm',
+    paddingBlock: 'sm',
+    marginInlineStart: 'sm',
+    alignSelf: 'center',
     _hover: {
-      backgroundColor: 'grey',
+      backgroundColor: 'surfaceHovered',
     },
   },
 })
 
-const DropdownPortal = styled(DropdownMenu.Portal, {
-  base: {
-    zIndex: '4',
-  },
-})
-
-const DropdownMenuArrow = styled(DropdownMenu.Arrow, {
+const MenuArrow = styled(Ariakit.MenuArrow, {
   base: {
     fill: 'surface',
   },
 })
 
-const DropdownContent = styled(DropdownMenu.Content, {
+const Menu = styled(Ariakit.Menu, {
   base: {
     backgroundColor: 'surface',
-    // filter: 'drop-shadow(0 4px 5px rgba(0,0,0,.35))',
     boxShadow: '0 4px 5px rgba(0,0,0,.35)',
     borderRadius: 5,
     zIndex: '4',
@@ -61,12 +55,16 @@ const DropdownContent = styled(DropdownMenu.Content, {
   },
 })
 
-const DropdownItem = styled(DropdownMenu.Item, {
+const MenuItem = styled(Ariakit.MenuItem, {
   base: {
     cursor: 'pointer',
     padding: 'md',
     zIndex: '4',
-    _highlighted: {
+    _hover: {
+      backgroundColor: 'surfaceHovered',
+    },
+    _active: {
+      color: VEND_GREEN,
       backgroundColor: 'surfaceHovered',
     },
     display: 'flex',
@@ -84,45 +82,37 @@ const DropdownItem = styled(DropdownMenu.Item, {
 interface TabItem {
   value: string
   label: string
-  // ref: RefObject<HTMLButtonElement>
 }
 
-interface DropdownMenuProps {
+interface DropdownMenuProps extends Ariakit.MenuStoreProps {
   tabs: TabItem[]
   onChange: (value: string) => void
   activeTab?: string
 }
 
-function TabOverflowDropdownMenu({
-  tabs,
-  onChange,
-  activeTab,
-}: DropdownMenuProps) {
+function TabsMenu({ tabs, onChange, activeTab }: DropdownMenuProps) {
+  const menu = Ariakit.useMenuStore()
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
-        <DropdownTrigger className={lato.className}>
-          <CaretDownIcon /> All
-        </DropdownTrigger>
-      </DropdownMenu.Trigger>
-      <DropdownPortal>
-        <DropdownContent sideOffset={0} alignOffset={0} align="start">
-          {tabs.map(({ value, label }) => (
-            <DropdownItem
-              key={value}
-              onSelect={() => {
-                onChange(value)
-              }}
-              isActive={activeTab == value}
-            >
-              {activeTab == value && <Highlight vertical />}
-              {label}
-            </DropdownItem>
-          ))}
-          <DropdownMenuArrow width={16} height={8} />
-        </DropdownContent>
-      </DropdownPortal>
-    </DropdownMenu.Root>
+    <Ariakit.MenuProvider store={menu}>
+      <MenuButton>
+        All
+        <ChevronDownIcon size={16} />
+      </MenuButton>
+      <Menu gutter={0} portal>
+        <MenuArrow />
+        {tabs.map(({ value, label }) => (
+          <MenuItem
+            key={value}
+            onClick={() => onChange(value)}
+            isActive={activeTab == value}
+          >
+            {activeTab == value && <Highlight vertical />}
+            {label}
+          </MenuItem>
+        ))}
+        <MenuArrow width={16} height={8} />
+      </Menu>
+    </Ariakit.MenuProvider>
   )
 }
 
@@ -211,7 +201,7 @@ const Highlight = styled(motion.div, {
   },
 })
 
-const TabTrigger = styled(RadixTabs.Trigger, {
+const TabTrigger = styled(Ariakit.Tab, {
   base: {
     all: 'unset',
     position: 'relative',
@@ -252,7 +242,7 @@ function Tab({ children, isActive, ref, ...rest }: TabProps) {
   )
 }
 
-const TabsList = styled(RadixTabs.List, {
+const TabList = styled(Ariakit.TabList, {
   base: {
     display: 'flex',
     margin: 0,
@@ -263,7 +253,7 @@ const TabsList = styled(RadixTabs.List, {
   },
 })
 
-const TabsRoot = styled(RadixTabs.Root, {
+const TabsRoot = styled('div', {
   base: {
     display: 'flex',
     flexDirection: 'column',
@@ -331,73 +321,77 @@ const ScrollContainer = styled('div', {
 export function TabsExample() {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
   const tabs: TabItem[] = [
-    { value: '1', label: 'Inventory' },
-    { value: '2', label: 'Tax' },
-    { value: '3', label: 'Price & Loyalty' },
-    { value: '4', label: 'Select Images' },
-    { value: '5', label: 'RACS' },
+    { value: 'inventory', label: 'Inventory' },
+    { value: 'tax', label: 'Tax' },
+    { value: 'price-loyalty', label: 'Price & Loyalty' },
+    { value: 'select-images', label: 'Select Images' },
+    { value: 'racs', label: 'RACS' },
   ]
 
   const [tabValue, setTabValue] = useState<string>(tabs[0].value)
   const scrollRef = useRef<HTMLDivElement>(null)
-  const tabsRef = useRef(null)
+  const tabsRef = useRef<HTMLDivElement | null>(null)
   const { scrollX, scrollXProgress } = useScroll({ container: scrollRef })
-
-  const startTransformer = ([x, progress]: number[]) =>
-    x > 0.1 && progress > 0.1 ? 1 : 0
 
   const overflowStartOpacity = useTransform(
     [scrollX, scrollXProgress],
-    startTransformer,
+    ([x, progress]: number[]) => (x > 0 && progress > 0 ? 1 : 0),
   )
-  const overflowEndOpacity = useTransform(scrollXProgress, (v) =>
-    v < 1 ? 1 : 0,
+  const overflowEndOpacity = useTransform(scrollXProgress, (x) =>
+    x < 1 ? 1 : 0,
   )
 
   const onChange = (value: string) => {
     setTabValue(value)
-    const index = tabs.findIndex((tab) => tab.value == value)
+  }
+
+  // Scroll active tab into view when selection changes
+  useEffect(() => {
+    const index = tabs.findIndex((tab) => tab.value === tabValue)
     if (index < 0) return
     tabRefs.current[index]?.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'center',
     })
-  }
+  }, [tabValue, tabs])
+
+  // Ariakit tab store controlled by tabValue
+  const tabStore = Ariakit.useTabStore({
+    selectedId: tabValue,
+    setSelectedId: (id) => setTabValue(id ?? tabs[0].value),
+  })
 
   return (
     <ResponsivePreview>
-      <TabsRoot
-        value={tabValue}
-        className={lato.className}
-        onValueChange={onChange}
-      >
-        <TabsContainer>
-          <OverflowIndicator direction="start" opacity={overflowStartOpacity} />
-          <ScrollContainer ref={scrollRef}>
-            <TabsList ref={tabsRef}>
-              {tabs.map(({ value, label }, i) => (
-                <Tab
-                  key={value}
-                  value={value}
-                  isActive={value == tabValue}
-                  ref={(el) => {
-                    tabRefs.current[i] = el
-                  }}
-                >
-                  {label}
-                </Tab>
-              ))}
-            </TabsList>
-          </ScrollContainer>
-          <OverflowIndicator direction="end" opacity={overflowEndOpacity} />
-          <TabOverflowDropdownMenu
-            tabs={tabs}
-            onChange={onChange}
-            activeTab={tabValue}
-          />
-        </TabsContainer>
-        <SkeletonContent />
+      <TabsRoot className={lato.className}>
+        <Ariakit.TabProvider store={tabStore}>
+          <TabsContainer>
+            <OverflowIndicator
+              direction="start"
+              opacity={overflowStartOpacity}
+            />
+            <ScrollContainer ref={scrollRef}>
+              <TabList ref={tabsRef}>
+                {tabs.map(({ value, label }, i) => (
+                  <Tab
+                    key={value}
+                    id={value}
+                    isActive={value === tabValue}
+                    ref={(el: HTMLButtonElement | null) => {
+                      tabRefs.current[i] = el
+                    }}
+                  >
+                    {label}
+                  </Tab>
+                ))}
+              </TabList>
+            </ScrollContainer>
+            <OverflowIndicator direction="end" opacity={overflowEndOpacity} />
+            <TabsMenu tabs={tabs} onChange={onChange} activeTab={tabValue} />
+          </TabsContainer>
+          <SkeletonContent />
+        </Ariakit.TabProvider>
       </TabsRoot>
     </ResponsivePreview>
   )
