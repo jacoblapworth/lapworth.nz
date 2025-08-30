@@ -1,3 +1,5 @@
+'use client'
+
 import NextImage from 'next/image'
 import Link from 'next/link'
 
@@ -25,11 +27,11 @@ const Image = styled(NextImage, {
 
 type Props = Recipe
 
-export const RecipeListItem = ({ title, slug: href, image }: Props) => {
+export const RecipeListItem = ({ title, slug, image }: Props) => {
   return (
     <Article>
       <Text as="h2" size="medium" display>
-        <Link href={href}>{title}</Link>
+        <Link href={`/recipes/${slug}`}>{title}</Link>
       </Text>
 
       {image && <Image height={300} width={300} src={image} alt={title} />}
