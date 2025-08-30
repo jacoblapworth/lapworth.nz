@@ -10,6 +10,24 @@ const meta = s
   })
   .default({})
 
+const recipe = defineCollection({
+  name: 'Recipe',
+  pattern: 'recipes/**/*.mdx',
+  schema: s.object({
+    draft: s.boolean().default(false),
+    title: s.string().max(99),
+    slug: s.slug('recipes'),
+    servings: s.number().min(1).optional(),
+    image: s.image().optional(),
+    prep: s.string().optional(),
+    cook: s.string().optional(),
+    toc: s.toc(),
+    metadata: s.metadata(),
+    excerpt: s.excerpt(),
+    content: s.mdx(),
+  }),
+})
+
 const work = defineCollection({
   name: 'Work',
   pattern: 'work/**/*.mdx',
@@ -46,6 +64,7 @@ export default defineConfig({
   },
   collections: {
     work,
+    recipe,
   },
   mdx: {
     rehypePlugins: [
