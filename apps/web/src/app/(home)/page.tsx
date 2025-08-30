@@ -42,6 +42,9 @@ export default function Page() {
       <Text size="xlarge" display>
         Tāmaki Makaurau, Aotearoa —&nbsp;Auckland, New Zealand
       </Text>
+      <Text size="xlarge" display>
+        London soon ✈️
+      </Text>
       <Text aria-label="GPS coordinates">-36.862600º, 174.741270º</Text>
       <Text size="xlarge" display serif>
         Scaling design systems at <Link href="https://xero.com">Xero</Link>
