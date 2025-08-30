@@ -17,6 +17,15 @@ const compat = new FlatCompat({ baseDirectory: __dirname })
 const config = [
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      'build/**',
+      'out/**',
+      '.next/**',
+      '.styled/**',
+      '.turbo/**',
+    ],
   },
   {
     languageOptions: {
