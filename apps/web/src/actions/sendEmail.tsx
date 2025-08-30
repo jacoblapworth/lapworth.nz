@@ -40,7 +40,7 @@ export async function sendEmail(
         from: 'Lapworth.nz <hello@lapworth.nz>',
         to: [email],
         subject: 'Updates from Lapworth.nz',
-        react: HelloEmail({}),
+        react: <HelloEmail />,
         text: 'This is a test',
       })
 
