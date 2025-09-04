@@ -66,8 +66,8 @@ importers:
         specifier: 6.0.12
         version: 6.0.12
       klaviyo-api:
-        specifier: 19.0.1
-        version: 19.0.1
+        specifier: 19.0.2
+        version: 19.0.2
       next:
         specifier: 15.5.2
         version: 15.5.2(@babel/core@7.28.3)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@19.0.0-beta-714736e-20250131)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -3984,8 +3984,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  klaviyo-api@19.0.1:
-    resolution: {integrity: sha512-5GKWGE4cBqkI4clE7vnGNiJGKCPyKDI6g9cShlrsmRNAnPCtOxc0FkAfgnOgO33RZPHJ6Frk0FNSqNlK2gPDTw==}
+  klaviyo-api@19.0.2:
+    resolution: {integrity: sha512-ivoDYHj8Fg9f8ncXSZ1IJ4ao6GMMucntTX1UMIgF8gCTrreliIilZ8wp623LBGtcrTHiCqRv4lih3vbNRymLHQ==}
 
   kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
@@ -5256,8 +5256,8 @@ packages:
       uglify-js:
         optional: true
 
-  terser@5.43.1:
-    resolution: {integrity: sha512-+6erLbBm0+LROX2sPXlUYx/ux5PyE9K/a92Wrt6oA+WDAoFTdpHE5tCYCI5PNzq2y8df4rA+QgHLJuR4jNymsg==}
+  terser@5.44.0:
+    resolution: {integrity: sha512-nIVck8DK+GM/0Frwd+nIhZ84pR/BX7rmXMfYwyg+Sri5oGVE99/E3KvXqpC2xHFxyqXyGHTKBSioxxplrO4I4w==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -9929,7 +9929,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  klaviyo-api@19.0.1:
+  klaviyo-api@19.0.2:
     dependencies:
       axios: 1.11.0
       form-data: 4.0.4
@@ -11553,12 +11553,12 @@ snapshots:
       jest-worker: 27.5.1
       schema-utils: 4.3.2
       serialize-javascript: 6.0.2
-      terser: 5.43.1
+      terser: 5.44.0
       webpack: 5.99.9(esbuild@0.25.9)
     optionalDependencies:
       esbuild: 0.25.9
 
-  terser@5.43.1:
+  terser@5.44.0:
     dependencies:
       '@jridgewell/source-map': 0.3.11
       acorn: 8.15.0
