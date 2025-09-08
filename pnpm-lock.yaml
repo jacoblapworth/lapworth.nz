@@ -63,8 +63,8 @@ importers:
         specifier: 4.0.3
         version: 4.0.3
       jose:
-        specifier: 6.0.12
-        version: 6.0.12
+        specifier: 6.1.0
+        version: 6.1.0
       klaviyo-api:
         specifier: 19.0.2
         version: 19.0.2
@@ -3968,8 +3968,8 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
 
-  jose@6.0.12:
-    resolution: {integrity: sha512-T8xypXs8CpmiIi78k0E+Lk7T2zlK4zDyg+o1CZ4AkOHgDg98ogdP2BeZ61lTFKFyoEwJ9RgAgN+SdM3iPgNonQ==}
+  jose@6.1.0:
+    resolution: {integrity: sha512-TTQJyoEoKcC1lscpVDCSsVgYzUDg/0Bt3WE//WiTPK6uOCQC2KZS4MpugbMWt/zyjkopgZoXhZuCi00gLudfUA==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -10021,7 +10021,7 @@ snapshots:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jose@6.0.12: {}
+  jose@6.1.0: {}
 
   js-tokens@4.0.0: {}
 
