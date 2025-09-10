@@ -1,6 +1,6 @@
 import { components } from '@/components/Markdown'
 import { recipe } from '@/content'
-import { VStack } from '@/styled/jsx'
+import { styled } from '@/styled/jsx'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
 
@@ -14,6 +14,15 @@ export async function generateStaticParams() {
   const slugs = recipe.map((r) => r.slug)
   return slugs.map((slug) => ({ slug }))
 }
+
+const Article = styled('article', {
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'start',
+    gap: 'md',
+  },
+})
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -30,10 +39,10 @@ export default async function Page(props: Props) {
   console.log(recipe)
 
   return (
-    <VStack>
+    <Article>
       {/* <MDXContent code={recipe.content} /> */}
       <MDXRemote source={recipe.content} components={components} />
       {/* <div dangerouslySetInnerHTML={{ __html: recipe.content }} /> */}
-    </VStack>
+    </Article>
   )
 }
