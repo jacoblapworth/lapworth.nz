@@ -67,6 +67,10 @@ export default async function Page() {
           <Link href="https://instagram.com/platesbyjacob">kitchen</Link> when
           I&apos;m not working.
         </Text>
+        
+        <Text size="medium" display>
+          For a comprehensive overview, see my <Link href="/cv" sameTab>CV</Link>.
+        </Text>
       </div>
       <Experience />
       {music && <HeavyRotation music={music} />}
