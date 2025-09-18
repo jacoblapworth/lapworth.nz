@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const Section = styled('section', {
   base: {
-    marginBlockEnd: '3rem',
+    marginBlockEnd: 'xl',
   },
 })
 
@@ -20,23 +20,28 @@ const Grid = styled('div', {
   base: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
-    gap: '1rem',
-    marginBlockStart: '1rem',
+    gap: 'md',
+    marginBlockStart: 'md',
   },
 })
 
 const ExperienceItem = styled('div', {
   base: {
-    marginBlockEnd: '2rem',
+    marginBlockEnd: 'lg',
   },
 })
 
 const Row = styled('div', {
   base: {
     display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBlockEnd: '0.5rem',
+    flexDirection: 'column',
+    gap: 'xs',
+    marginBlockEnd: 'sm',
+    sm: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+    },
   },
 })
 
@@ -50,15 +55,18 @@ const Column = styled('div', {
 const SkillsGrid = styled('div', {
   base: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    gap: '1.5rem',
-    marginBlockStart: '1rem',
+    gridTemplateColumns: '1fr',
+    gap: 'lg',
+    marginBlockStart: 'md',
+    sm: {
+      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    },
   },
 })
 
 const SkillCategory = styled('div', {
   base: {
-    marginBlockEnd: '1rem',
+    marginBlockEnd: 'md',
   },
 })
 
@@ -97,25 +105,31 @@ const ExperienceRow = ({
     <ExperienceItem>
       <Row>
         <Column>
-          <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: '0.25rem' })}>
+          <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: 'xs' })}>
             {title}
           </Text>
           <Link href={href} sameTab>{company}</Link>
           <Text size="small" className={css({ color: 'tertiary' })}>{location}</Text>
         </Column>
-        <Column className={css({ textAlign: 'right', flexShrink: 0 })}>
+        <Column className={css({ 
+          textAlign: 'left',
+          flexShrink: 0,
+          sm: {
+            textAlign: 'right',
+          }
+        })}>
           <Text size="small" className={css({ fontWeight: 'bold' })}>{from}</Text>
           <Text size="small">— {to}</Text>
         </Column>
       </Row>
       {description && (
         <ul className={css({ 
-          marginBlockStart: '0.5rem', 
-          paddingInlineStart: '1rem',
+          marginBlockStart: 'sm', 
+          paddingInlineStart: 'md',
           fontSize: '0.9rem',
           lineHeight: '1.4',
           '& li': {
-            marginBlockEnd: '0.25rem',
+            marginBlockEnd: 'xs',
           }
         })}>
           {description.map((item, index) => (
@@ -129,7 +143,14 @@ const ExperienceRow = ({
 
 export default function CVPage() {
   return (
-    <div className={css({ maxWidth: '900px', margin: '0 auto' })}>
+    <div className={css({ 
+      maxWidth: '900px', 
+      margin: '0 auto',
+      paddingInline: 'md',
+      sm: {
+        paddingInline: 'lg',
+      }
+    })}>
       <Text as="h1" size="xlarge" display>
         Curriculum Vitae
       </Text>
@@ -220,7 +241,7 @@ export default function CVPage() {
         
         <SkillsGrid>
           <SkillCategory>
-            <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: '0.5rem' })}>
+            <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: 'sm' })}>
               Design
             </Text>
             <SkillList>
@@ -236,7 +257,7 @@ export default function CVPage() {
           </SkillCategory>
 
           <SkillCategory>
-            <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: '0.5rem' })}>
+            <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: 'sm' })}>
               Frontend Development
             </Text>
             <SkillList>
@@ -252,7 +273,7 @@ export default function CVPage() {
           </SkillCategory>
 
           <SkillCategory>
-            <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: '0.5rem' })}>
+            <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: 'sm' })}>
               Tools & Platforms
             </Text>
             <SkillList>
@@ -268,7 +289,7 @@ export default function CVPage() {
           </SkillCategory>
 
           <SkillCategory>
-            <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: '0.5rem' })}>
+            <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: 'sm' })}>
               Methodologies
             </Text>
             <SkillList>
@@ -293,13 +314,19 @@ export default function CVPage() {
         <ExperienceItem>
           <Row>
             <Column>
-              <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: '0.25rem' })}>
+              <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: 'xs' })}>
                 Bachelor of Design
               </Text>
               <Text size="small">Massey University</Text>
               <Text size="small" className={css({ color: 'tertiary' })}>Auckland, New Zealand</Text>
             </Column>
-            <Column className={css({ textAlign: 'right', flexShrink: 0 })}>
+            <Column className={css({ 
+              textAlign: 'left',
+              flexShrink: 0,
+              sm: {
+                textAlign: 'right',
+              }
+            })}>
               <Text size="small" className={css({ fontWeight: 'bold' })}>2013</Text>
               <Text size="small">— 2016</Text>
             </Column>
@@ -313,19 +340,19 @@ export default function CVPage() {
         </Text>
         
         <ExperienceItem>
-          <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: '0.5rem' })}>
+          <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: 'sm' })}>
             XUI Design System
           </Text>
-          <Text size="small" className={css({ marginBlockEnd: '0.5rem' })}>
+          <Text size="small" className={css({ marginBlockEnd: 'sm' })}>
             Comprehensive design system serving 200+ designers and 800+ engineers at Xero
           </Text>
           <ul className={css({ 
-            marginBlockStart: '0.5rem', 
-            paddingInlineStart: '1rem',
+            marginBlockStart: 'sm', 
+            paddingInlineStart: 'md',
             fontSize: '0.9rem',
             lineHeight: '1.4',
             '& li': {
-              marginBlockEnd: '0.25rem',
+              marginBlockEnd: 'xs',
             }
           })}>
             <li>Built design tokens architecture for consistent theming</li>
@@ -336,19 +363,19 @@ export default function CVPage() {
         </ExperienceItem>
 
         <ExperienceItem>
-          <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: '0.5rem' })}>
+          <Text as="h3" size="medium" className={css({ fontWeight: 'bold', marginBlockEnd: 'sm' })}>
             Experience Design Principles
           </Text>
-          <Text size="small" className={css({ marginBlockEnd: '0.5rem' })}>
+          <Text size="small" className={css({ marginBlockEnd: 'sm' })}>
             Co-created design principles through global workshops at Xero
           </Text>
           <ul className={css({ 
-            marginBlockStart: '0.5rem', 
-            paddingInlineStart: '1rem',
+            marginBlockStart: 'sm', 
+            paddingInlineStart: 'md',
             fontSize: '0.9rem',
             lineHeight: '1.4',
             '& li': {
-              marginBlockEnd: '0.25rem',
+              marginBlockEnd: 'xs',
             }
           })}>
             <li>Facilitated workshops across multiple time zones and disciplines</li>
