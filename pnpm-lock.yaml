@@ -151,8 +151,8 @@ importers:
         specifier: 1.0.10
         version: 1.0.10
       '@types/node':
-        specifier: 24.5.1
-        version: 24.5.1
+        specifier: 24.5.2
+        version: 24.5.2
       '@types/react':
         specifier: 19.1.13
         version: 19.1.13
@@ -1984,8 +1984,8 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@24.5.1':
-    resolution: {integrity: sha512-/SQdmUP2xa+1rdx7VwB9yPq8PaKej8TD5cQ+XfKDPWWC+VDJU4rvVVagXqKUzhKjtFoNA8rXDJAkCxQPAe00+Q==}
+  '@types/node@24.5.2':
+    resolution: {integrity: sha512-FYxk1I7wPv3K2XBaoyH2cTnocQEu8AOZ60hPbsyukMPLv5/5qr7V1i8PLHdl6Zf87I+xZXFvPCXYjiTFq+YSDQ==}
 
   '@types/pg-pool@2.0.6':
     resolution: {integrity: sha512-TaAUE5rq2VQYxab5Ts7WZhKNmuN78Q6PiFonTDdpbx8a1H0M1vhy3rhiMjl+e2iHmogyMw7jZF4FrE6eJUy5HQ==}
@@ -7605,7 +7605,7 @@ snapshots:
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 24.5.1
+      '@types/node': 24.5.2
 
   '@types/debug@4.1.12':
     dependencies:
@@ -7653,11 +7653,11 @@ snapshots:
 
   '@types/mysql@2.15.27':
     dependencies:
-      '@types/node': 24.5.1
+      '@types/node': 24.5.2
 
   '@types/node@17.0.45': {}
 
-  '@types/node@24.5.1':
+  '@types/node@24.5.2':
     dependencies:
       undici-types: 7.12.0
 
@@ -7667,7 +7667,7 @@ snapshots:
 
   '@types/pg@8.15.5':
     dependencies:
-      '@types/node': 24.5.1
+      '@types/node': 24.5.2
       pg-protocol: 1.10.3
       pg-types: 2.2.0
 
@@ -7691,7 +7691,7 @@ snapshots:
 
   '@types/tedious@4.0.14':
     dependencies:
-      '@types/node': 24.5.1
+      '@types/node': 24.5.2
 
   '@types/unist@2.0.11': {}
 
@@ -7699,7 +7699,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 24.5.1
+      '@types/node': 24.5.2
     optional: true
 
   '@typescript-eslint/eslint-plugin@8.44.0(@typescript-eslint/parser@8.44.0(eslint@9.35.0)(typescript@5.9.2))(eslint@9.35.0)(typescript@5.9.2)':
@@ -9821,7 +9821,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 24.5.1
+      '@types/node': 24.5.2
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
