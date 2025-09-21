@@ -68,7 +68,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <ServerThemeProvider {...themeConfig}>
-      <html className={sectraFont.variable} suppressHydrationWarning={true}>
+      <html
+        className={sectraFont.variable}
+        suppressHydrationWarning={true}
+        lang="en"
+      >
         <head>
           <link
             rel="icon"

@@ -93,7 +93,13 @@ const NavLink = ({ children, href }: Props) => {
         initial="hidden"
         style={{ marginInlineEnd: 8 }}
       >
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <svg
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          role="presentation"
+        >
           <path
             stroke="currentColor"
             strokeLinecap="round"

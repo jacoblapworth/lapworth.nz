@@ -7,12 +7,15 @@ const GOOGLE_MEASUREMENT_ID = process.env.GOOGLE_MEASUREMENT_ID
 
 type WindowWithAnalytics = Window &
   typeof globalThis & {
+    // biome-ignore lint/suspicious/noExplicitAny: External library
     gtag: any
   }
 
 interface AnalyticsEventHandlerProps {
   action: string
-  params: any
+  // biome-ignore lint/suspicious/noExplicitAny: External library
+  gtag: any
+  params: Record<string, unknown>
 }
 type AnalyticsEventHandler = (props: AnalyticsEventHandlerProps) => void
 
