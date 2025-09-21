@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 
 import { EmailSubscribe } from '@/components/EmailSubscribe'
 import { Text } from '@/components/Typography'

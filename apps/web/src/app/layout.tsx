@@ -1,13 +1,11 @@
 import './index.css'
 
-import { ReactNode } from 'react'
-
-import { Metadata, Viewport } from 'next'
-import localFont from 'next/font/local'
-
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import type { Metadata, Viewport } from 'next'
 import { ServerThemeProvider, ThemeProvider } from 'next-themes'
+import localFont from 'next/font/local'
+import { type ReactNode, useId } from 'react'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -71,10 +69,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const emoji = '🌈'
+  const id = useId()
 
   return (
     <ServerThemeProvider {...themeConfig}>
-      <html className={sectraFont.variable} suppressHydrationWarning={true}>
+      <html
+        className={sectraFont.variable}
+        suppressHydrationWarning={true}
+        lang="en"
+      >
         <head>
           <link
             rel="icon"
@@ -98,12 +101,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           })}
         >
           <ThemeProvider {...themeConfig}>
-            <Skiplink href="#main" tabIndex={0} data-testid="skip-link">
+            <Skiplink href={`#${id}`} tabIndex={0} data-testid="skip-link">
               Skip to main content
             </Skiplink>
             <Header />
             <Navigation />
-            <Main id="main">{children}</Main>
+            <Main id={id}>{children}</Main>
             <Footer />
             <Analytics />
             <SpeedInsights />

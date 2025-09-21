@@ -1,8 +1,10 @@
 'use client'
-import { ReactNode, useState } from 'react'
 
-import NextLink, { LinkProps } from 'next/link'
+import { motion } from 'framer-motion'
+
+import NextLink, { type LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
+import { type ReactNode, useState } from 'react'
 
 import { motion } from 'framer-motion'
 
@@ -136,17 +138,17 @@ const Row = styled('div', {
     justifySelf: 'stretch',
     alignSelf: 'start',
 
-    [`& ul`]: {
+    '& ul': {
       margin: 0,
       lineHeight: '1.4rem',
     },
 
-    [`& li`]: {
+    '& li': {
       display: 'inline-block',
       whiteSpace: 'pre',
     },
 
-    [`& a`]: {
+    '& a': {
       padding: 'xsm',
       margin: '-xsm',
     },

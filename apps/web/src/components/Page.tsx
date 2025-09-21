@@ -43,16 +43,17 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
  * @deprecated this is now implemented directly in the app layout
  */
 export function Page({ hideNav, children, ...rest }: Props) {
+  const id = useId()
   return (
     <ThemeProvider {...themeConfig}>
-      <Skiplink href="#main" tabIndex={0} data-testid="skip-link">
+      <Skiplink href={`#${id}`} tabIndex={0}>
         Skip to main content
       </Skiplink>
 
       <Container>
         <Header />
         {!hideNav && <Navigation />}
-        <Main id="main" {...rest}>
+        <Main id={id} tabIndex={0} {...rest}>
           {children}
         </Main>
         <Footer />

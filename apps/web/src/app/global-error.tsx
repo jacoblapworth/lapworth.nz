@@ -1,10 +1,9 @@
 'use client'
 
-import { useEffect } from 'react'
+import * as Sentry from '@sentry/nextjs'
 
 import ErrorComponent from 'next/error'
-
-import * as Sentry from '@sentry/nextjs'
+import { useEffect } from 'react'
 
 export default function GlobalError({
   error,
@@ -17,7 +16,7 @@ export default function GlobalError({
   }, [error])
 
   return (
-    <html>
+    <html lang="en">
       <body>
         <ErrorComponent statusCode={500} />
       </body>

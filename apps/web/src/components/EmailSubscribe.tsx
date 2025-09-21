@@ -1,9 +1,8 @@
 'use client'
 
-import { useActionState } from 'react'
-import { useFormStatus } from 'react-dom'
-
 import Form from 'next/form'
+import { useActionState, useId } from 'react'
+import { useFormStatus } from 'react-dom'
 
 import { FormState, subscribeEmail } from '@/actions/subscribe'
 import { HStack } from '@/styled/jsx'
@@ -35,23 +34,23 @@ const initialState: FormState = {
 
 export function EmailSubscribe() {
   const [state, formAction] = useActionState(subscribeEmail, initialState)
+  const id = useId()
 
   return (
     <Form action={formAction}>
       <HStack alignItems="end" gap={0}>
         <TextInput
           label="Email address"
-          id="email"
           name="email"
           placeholder="jacob@lapworth.nz"
           type="email"
           autoComplete="email"
           required
-          aria-describedby="message"
+          aria-describedby={id}
         />
         <SubmitButton>Subscribe</SubmitButton>
       </HStack>
-      <div id="message" aria-live="polite">
+      <div id={id} aria-live="polite">
         {state.message}
       </div>
     </Form>

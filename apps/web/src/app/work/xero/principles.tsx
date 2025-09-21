@@ -1,7 +1,6 @@
-import { NextPage } from 'next'
-import NextImage, { StaticImageData } from 'next/image'
-
 import { MDXProvider } from '@mdx-js/react'
+import type { NextPage } from 'next'
+import NextImage, { type StaticImageData } from 'next/image'
 import { MDXRemote } from 'next-mdx-remote'
 
 import { images } from '@/app/work/xero/images'

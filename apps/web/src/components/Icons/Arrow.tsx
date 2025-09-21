@@ -7,6 +7,7 @@ export const ArrowIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Arrow</title>
       <path
         d="M14 7L19 12L14 17"
         stroke="currentColor"

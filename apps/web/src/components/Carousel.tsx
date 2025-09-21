@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 import { Text } from '@/components/Typography'
 import { styled } from '@/styled/jsx'

@@ -1,5 +1,9 @@
 'use client'
 
+import { MDXProvider } from '@mdx-js/react'
+import type { MDXComponents } from 'mdx/types'
+import NextImage from 'next/image'
+import { usePathname } from 'next/navigation'
 import type {
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,

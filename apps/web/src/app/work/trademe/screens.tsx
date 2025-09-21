@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import type { NextPage } from 'next'
 import NextImage from 'next/image'
 
 import { Text } from '@/components/Typography'

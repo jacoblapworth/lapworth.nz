@@ -1,8 +1,7 @@
 'use server'
 
-import { headers } from 'next/headers'
-
 import * as Sentry from '@sentry/nextjs'
+import { headers } from 'next/headers'
 import { Resend } from 'resend'
 
 import { HelloEmail } from '@/emails/hello'

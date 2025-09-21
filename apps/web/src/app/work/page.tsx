@@ -13,12 +13,10 @@ const Layout = styled('div', {
 
 export default function Page() {
   return (
-    <>
-      <Layout>
+    <Layout>
         {/* <XeroTile />
         <DiscoverTile />
         <VendTabsTile /> */}
       </Layout>
-    </>
   )
 }

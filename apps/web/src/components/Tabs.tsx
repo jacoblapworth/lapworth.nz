@@ -4,6 +4,7 @@ import * as Ariakit from '@ariakit/react'
 import { ReactNode, useState, type ComponentProps } from 'react'
 
 import { motion } from 'framer-motion'
+import { type ReactNode, useState } from 'react'
 
 import { styled } from '@/styled/jsx'
 

@@ -1,5 +1,5 @@
 import { ThemeProvider as Provider } from 'next-themes'
-import { ThemeProviderProps } from 'next-themes/dist/types'
+import type { ThemeProviderProps } from 'next-themes/dist/types'
 import type { ReactNode } from 'react'
 
 export const themeConfig: ThemeProviderProps = {

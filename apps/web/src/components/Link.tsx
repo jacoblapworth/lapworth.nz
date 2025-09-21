@@ -3,6 +3,7 @@
 import { type ComponentProps } from 'react'
 
 import NextLink from 'next/link'
+import type { ComponentProps } from 'react'
 
 import { styled } from '@/styled/jsx'
 

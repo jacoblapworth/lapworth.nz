@@ -1,20 +1,19 @@
-import {
-    ComponentProps,
-    ReactNode,
-    useEffect,
-    useRef,
-    type RefObject,
-} from 'react'
-
 import useMouse from '@react-hook/mouse-position'
 import {
-    motion,
-    MotionValue,
-    SpringOptions,
-    useMotionValue,
-    useSpring,
-    useTransform,
+  type MotionValue,
+  motion,
+  type SpringOptions,
+  useMotionValue,
+  useSpring,
+  useTransform,
 } from 'framer-motion'
+import {
+  type ComponentProps,
+  type ReactNode,
+  type RefObject,
+  useEffect,
+  useRef,
+} from 'react'
 
 import { css, cx } from '@/styled/css'
 
