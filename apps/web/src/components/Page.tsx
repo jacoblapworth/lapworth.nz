@@ -1,12 +1,11 @@
 'use client'
 
-import { ThemeProvider } from 'next-themes'
-
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Navigation } from '@/components/Nav'
 import { styled } from '@/styled/jsx'
-
+import { ThemeProvider } from 'next-themes'
+import { useId } from 'react'
 import { Skiplink } from './Skiplink'
 import { themeConfig } from './Theme'
 
