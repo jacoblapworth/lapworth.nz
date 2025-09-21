@@ -1,9 +1,17 @@
-import { defineConfig } from 'cypress'
+import { defineConfig } from "cypress";
 
 export default defineConfig({
-  projectId: 'vkazho',
+  projectId: "vkazho",
+
   e2e: {
-    baseUrl: 'http://localhost:3000',
-    specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
+    baseUrl: "http://localhost:3000",
+    specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx}",
   },
-})
+
+  component: {
+    devServer: {
+      framework: "next",
+      bundler: "webpack",
+    },
+  },
+});
