@@ -3,9 +3,22 @@
     "//"
   ],
   "tasks": {
+    "tokens": {
+      "dependsOn": [
+        "^tokens"
+      ],
+      "outputs": [
+        ".styled/**"
+      ]
+    },
     "build": {
+      "dependsOn": [
+        "tokens",
+        "^build"
+      ],
       "outputs": [
         ".next/**",
+        ".vercel/**",
         "!.next/cache/**"
       ]
     }

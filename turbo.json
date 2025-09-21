@@ -29,21 +29,10 @@
   "tasks": {
     "build": {
       "dependsOn": [
-        "tokens",
         "^build"
       ],
-      "passThroughEnv": [
-        "SENTRY_AUTH_TOKEN"
-      ],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        ".env*"
-      ],
       "outputs": [
-        "dist/**",
-        ".vercel/**",
-        ".next/**",
-        "!.next/cache/**"
+        "dist/**"
       ]
     },
     "types:check": {
@@ -54,14 +43,6 @@
         "**/*.{ts,tsx}"
       ]
     },
-    "tokens": {
-      "dependsOn": [
-        "^tokens"
-      ],
-      "outputs": [
-        ".styled/**"
-      ]
-    },
     "lint": {
       "dependsOn": [
         "tokens",
@@ -70,11 +51,7 @@
     },
     "dev": {
       "persistent": true,
-      "cache": false,
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        ".env*"
-      ]
+      "cache": false
     },
     "start": {
       "dependsOn": [
