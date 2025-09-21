@@ -58,6 +58,7 @@
         "biome.json"
       ]
     },
+    "//#lint:ci": {},
     "dev": {
       "persistent": true,
       "cache": false
