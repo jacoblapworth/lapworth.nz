@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import NextImage from 'next/image'
 
-import ProfileImage from '@/public/static/j-photo-mono.png'
-import { getMusicWithThumbnails } from '@/src/app/about/music'
-import { Link } from '@/src/components/Link'
-import { Text } from '@/src/components/Typography'
+import { getMusicWithThumbnails } from '@/app/about/music'
+import { Link } from '@/components/Link'
+import { Text } from '@/components/Typography'
+import ProfileImage from '@/public/j-photo-mono.png'
 import { css } from '@/styled/css'
 
 import { getReadingWithThumbnails } from './books/oku'

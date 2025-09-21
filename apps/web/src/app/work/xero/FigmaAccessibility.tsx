@@ -1,6 +1,6 @@
 import NextImage from 'next/image'
 
-import image from '@/public/static/work/xero/figma-plugin.png'
+import image from '@/public/work/xero/figma-plugin.png'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 

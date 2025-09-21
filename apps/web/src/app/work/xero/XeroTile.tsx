@@ -1,9 +1,9 @@
 import NextImage, { type StaticImageData } from 'next/image'
 
-import logo from '@/public/static/work/xero/logo.svg'
-import { PillLink } from '@/src/components/Button'
-import { SkewTile } from '@/src/components/Tile'
-import { Text } from '@/src/components/Typography'
+import { PillLink } from '@/components/Button'
+import { SkewTile } from '@/components/Tile'
+import { Text } from '@/components/Typography'
+import logo from '@/public/work/xero/logo.svg'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 

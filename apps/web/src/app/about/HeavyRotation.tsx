@@ -2,9 +2,9 @@
 
 import NextImage from 'next/image'
 
-import type { MusicKitResource } from '@/src/app/about/music'
-import { Carousel } from '@/src/components/Carousel'
-import { Link } from '@/src/components/Link'
+import type { MusicKitResource } from '@/app/about/music'
+import { Carousel } from '@/components/Carousel'
+import { Link } from '@/components/Link'
 import { styled } from '@/styled/jsx'
 
 export const buildImageUrl = (_url: string, size: number): string => {

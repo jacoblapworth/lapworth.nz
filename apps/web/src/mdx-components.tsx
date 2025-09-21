@@ -1,24 +1,12 @@
 import type { MDXComponents } from 'mdx/types'
-import NextImage from 'next/image'
+import { components, Image, Li, Ol, P, Ul } from '@/components/Markdown'
 
-import { styled } from '@/styled/jsx'
-
-const Image = styled(NextImage, {
-  base: {
-    maxWidth: '100%',
-    height: 'auto',
-  },
-})
-
-//TODO: fix
-// Image.defaultProps = {
-//   placeholder: 'blur',
-// }
-
-export function useMDXComponents(components: MDXComponents): MDXComponents {
+export function useMDXComponents(): MDXComponents {
   return {
-    // Allows customizing built-in components, e.g. to add styling.
-    // h1: ({ children }) => <h1 style={{ fontSize: "100px" }}>{children}</h1>,
+    li: Li,
+    ul: Ul,
+    ol: Ol,
+    p: P,
     Image,
     ...components,
   }

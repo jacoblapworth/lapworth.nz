@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@/src/components/Link'
+import { Link } from '@/components/Link'
 import { styled } from '@/styled/jsx'
 
 import { Text } from '../../components/Typography'
@@ -26,6 +26,7 @@ const Row = styled('div', {
   base: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
+    placeItems: 'start',
     gap: '1rem',
   },
 })
@@ -64,7 +65,7 @@ export const Experience = () => {
           workplace="Xero"
           href="https://www.xero.com/nz/"
           from="2020"
-          to="Present"
+          to="2025"
         />
         <ExperienceRow
           workplace="Vend"

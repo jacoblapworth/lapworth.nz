@@ -2,9 +2,9 @@ import { MDXProvider } from '@mdx-js/react'
 import type { NextPage } from 'next'
 import { MDXRemote } from 'next-mdx-remote'
 
-import { images } from '@/src/app/work/xero/images'
-import { Text } from '@/src/components/Typography'
-import type { MDXPageProps } from '@/src/lib/markdown'
+import { images } from '@/app/work/xero/images'
+import { Text } from '@/components/Typography'
+import type { MDXPageProps } from '@/lib/markdown'
 import { styled } from '@/styled/jsx'
 
 const Grid = styled('div', {

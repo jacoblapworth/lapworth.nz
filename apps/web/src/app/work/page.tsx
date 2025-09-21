@@ -1,8 +1,6 @@
-'use client'
-
-import { DiscoverTile } from '@/src/app/work/trademe/DiscoverTile'
-import { VendTabsTile } from '@/src/app/work/vend/Tile'
-import { XeroTile } from '@/src/app/work/xero/XeroTile'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { work } from '@/content'
 import { styled } from '@/styled/jsx'
 
 const Layout = styled('div', {
@@ -14,12 +12,25 @@ const Layout = styled('div', {
   },
 })
 
+export const metadata: Metadata = {
+  title: 'Work',
+  description: 'Xero, Vend, Timely, Trade Me',
+  robots: {
+    index: false,
+  },
+}
+
 export default function Page() {
   return (
     <Layout>
-      <XeroTile />
-      <DiscoverTile />
-      <VendTabsTile />
+      {work.map((item) => (
+        <div key={item.slug}>
+          <Link href={`/work/${item.slug}`}>{item.title}</Link>
+        </div>
+      ))}
+      {/* <XeroTile />
+        <DiscoverTile />
+        <VendTabsTile /> */}
     </Layout>
   )
 }

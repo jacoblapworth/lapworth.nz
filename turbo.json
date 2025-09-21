@@ -31,6 +31,10 @@
     "lint": {
       "dependsOn": ["tokens", "^lint"]
     },
+    "format": {
+      "dependsOn": ["^format"],
+      "inputs": ["**/*.{ts,tsx,js,jsx,json,md}", "biome.json"]
+    },
     "//#lint:ci": {},
     "dev": {
       "persistent": true,

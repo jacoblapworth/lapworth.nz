@@ -1,34 +1,27 @@
-import fs from 'node:fs/promises'
-import path from 'node:path'
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import { notFound } from 'next/navigation'
+import { MDXContent } from '@/components/MDX'
+import { recipe } from '@/content'
+import { styled } from '@/styled/jsx'
 
-const postsDirectory = path.join(process.cwd(), 'src/app/recipes/[slug]')
+export const dynamicParams = false
 
-const mdxFilenamePredicate = (filename: string) => filename.endsWith('.mdx')
+function getRecipe(slug: string) {
+  return recipe.find((r) => r.slug === slug)
+}
 
 export async function generateStaticParams() {
-  const fileNames = await fs.readdir(postsDirectory)
-  const files = fileNames.filter(mdxFilenamePredicate).map((fileName) => {
-    return {
-      fileName: fileName.replace('.mdx', ''),
-    }
-  })
-
-  const paths = files.map((file) => {
-    return {
-      slug: file.fileName,
-    }
-  })
-
-  return paths
+  const slugs = recipe.map((r) => r.slug)
+  return slugs.map((slug) => ({ slug }))
 }
 
-const getRecipe = async (slug: string) => {
-  const filePath = path.join(postsDirectory, slug)
-  const content = await fs.readFile(`${filePath}.mdx`, 'utf8')
-
-  return content
-}
+const Article = styled('article', {
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'start',
+    gap: 'md',
+  },
+})
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -39,7 +32,12 @@ export default async function Page(props: Props) {
 
   const { slug } = params
 
-  const source = await getRecipe(slug)
+  const recipe = getRecipe(slug)
+  if (!recipe) notFound()
 
-  return <MDXRemote source={source} />
+  return (
+    <Article>
+      <MDXContent code={recipe.content} />
+    </Article>
+  )
 }

@@ -1,19 +1,18 @@
 'use client'
 
-import { MDXProvider } from '@mdx-js/react'
 import type { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
+
 import { usePathname } from 'next/navigation'
 import type {
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,
   ComponentProps,
   HTMLAttributes,
-  ReactNode,
 } from 'react'
 
-import { Link } from '@/src/components/Link'
-import { Text } from '@/src/components/Typography'
+import { Link } from '@/components/Link'
+import { Text } from '@/components/Typography'
 import { styled } from '@/styled/jsx'
 
 export const Image = styled(NextImage, {
@@ -111,20 +110,45 @@ export const blockquote = ({ children, ...props }: BlockquoteProps) => (
   </Blockquote>
 )
 
+export const P = styled('p', {
+  base: {
+    marginBlockEnd: 2,
+  },
+})
+
+export const Ul = styled('ul', {
+  base: {
+    listStyleType: 'square',
+    listStylePosition: 'inside',
+    marginBlock: 'md',
+    paddingInlineStart: 'sm',
+  },
+})
+
+export const Ol = styled('ol', {
+  base: {
+    listStyleType: 'decimal',
+    listStylePosition: 'outside',
+    marginBlock: 'md',
+  },
+})
+
+export const Li = styled('li', {
+  base: {
+    paddingInlineStart: 'sm',
+  },
+})
+
 export const components: MDXComponents = {
   wrapper: Wrapper,
   h1,
   h2,
   h3,
   a,
+  p: P,
+  ul: Ul,
+  ol: Ol,
+  li: Li,
   Image,
   blockquote,
-}
-
-interface Props {
-  children: ReactNode
-}
-
-export function MarkdownProvider({ children }: Props) {
-  return <MDXProvider components={components}>{children}</MDXProvider>
 }

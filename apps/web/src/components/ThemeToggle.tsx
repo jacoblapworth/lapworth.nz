@@ -58,6 +58,7 @@ export const ThemeToggle = () => {
       onClick={toggleTheme}
       aria-label={`Change to ${themeToSet} theme`}
       data-testid="theme-toggle"
+      suppressHydrationWarning={true}
       animate={{
         rotate: rotation,
         transition: {

@@ -1,13 +1,12 @@
 'use client'
 
-import * as RadixTabs from '@radix-ui/react-tabs'
+import * as Ariakit from '@ariakit/react'
 import { motion } from 'framer-motion'
-import { type ReactNode, useState } from 'react'
+import { type ComponentProps, type ReactNode, useState } from 'react'
 
-import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 
-export const Trigger = styled(RadixTabs.Trigger, {
+export const Trigger = styled(Ariakit.Tab, {
   base: {
     all: 'unset',
     cursor: 'pointer',
@@ -20,29 +19,33 @@ export const Trigger = styled(RadixTabs.Trigger, {
   },
 })
 
-interface WrappedTriggerProps extends React.ComponentProps<typeof Trigger> {
+const HighlightElement = styled('div', {
+  base: {
+    backgroundColor: 'interactive',
+    height: 1,
+    width: '100%',
+    position: 'absolute',
+    bottom: -1,
+  },
+})
+
+const Highlight = motion.create(HighlightElement)
+
+interface WrappedTriggerProps extends ComponentProps<typeof Trigger> {
   isActive?: boolean
 }
 
-// const WrappedTrigger = forwardRef<HTMLDivElement, WrappedTriggerProps>(
 function Tab({ children, isActive, ...props }: WrappedTriggerProps) {
   return (
     <Trigger {...props}>
       {children}
       {isActive && (
-        <motion.div
+        <Highlight
           layoutId="highlight"
           transition={{
             ease: [0.4, 0, 0.2, 1],
             duration: 0.15,
           }}
-          className={css({
-            backgroundColor: 'interactive',
-            height: 1,
-            width: '100%',
-            position: 'absolute',
-            bottom: -1,
-          })}
         />
       )}
     </Trigger>
@@ -50,11 +53,12 @@ function Tab({ children, isActive, ...props }: WrappedTriggerProps) {
 }
 // )
 
-export const List = styled(RadixTabs.List, {
+export const TabList = styled(Ariakit.TabList, {
   base: {
     display: 'flex',
     gap: 'md',
     borderBlockEnd: '1px solid token(colors.quaternary)',
+    marginBlockEnd: 'md',
   },
 })
 
@@ -72,22 +76,24 @@ export function TabsExample() {
     { value: '4', label: 'Variations' },
   ]
 
-  const [currentValue, setValue] = useState('1')
+  const [selectedId, setSelectedId] = useState<string | null | undefined>(
+    values[0].value,
+  )
 
   return (
-    <RadixTabs.Root value={currentValue} onValueChange={setValue}>
-      <List css={{ marginBlockEnd: 'md' }}>
+    <Ariakit.TabProvider selectedId={selectedId} setSelectedId={setSelectedId}>
+      <TabList>
         {values.map(({ value, label }) => (
-          <Tab key={value} value={value} isActive={value === currentValue}>
+          <Tab key={value} value={value} isActive={value === selectedId}>
             {label}
           </Tab>
         ))}
-      </List>
+      </TabList>
       {values.map(({ value, content }) => (
-        <RadixTabs.Content key={value} value={value}>
+        <Ariakit.TabPanel key={value} tabId={value}>
           {content}
-        </RadixTabs.Content>
+        </Ariakit.TabPanel>
       ))}
-    </RadixTabs.Root>
+    </Ariakit.TabProvider>
   )
 }

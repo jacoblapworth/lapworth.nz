@@ -5,8 +5,10 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "lint:ci": "biome ci --reporter=github",
+    "format": "turbo run format",
     "build": "turbo run build",
     "start": "turbo run start",
+    "content": "turbo run content",
     "types:check": "turbo run types:check"
   },
   "devDependencies": {
