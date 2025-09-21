@@ -1,12 +1,12 @@
 'use client'
 
+import NextLink from 'next/link'
+import { ThemeProvider } from 'next-themes'
+import { useId } from 'react'
 import { Footer } from '@/src/components/Footer'
 import { Header } from '@/src/components/Header'
 import { Navigation } from '@/src/components/Nav'
 import { styled } from '@/styled/jsx'
-import { ThemeProvider } from 'next-themes'
-import NextLink from 'next/link'
-import { useId } from 'react'
 import { themeConfig } from './Theme'
 
 const Container = styled('div', {
