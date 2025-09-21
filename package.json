@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "lint:ci": "biome ci --reporter=github",
     "build": "turbo run build",
     "start": "turbo run start",
     "types:check": "turbo run types:check"
