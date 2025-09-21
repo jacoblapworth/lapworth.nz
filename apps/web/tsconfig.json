@@ -16,15 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@/styled/*": ["./.styled/*"],
-      "@/content": [
-        "./.velite"
-      ],
-      "@/public/*": [
-        "./public/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
+      "@/content": ["./.velite"],
+      "@/public/*": ["./public/*"],
+      "@/*": ["./src/*"]
     },
     "incremental": true,
     "plugins": [

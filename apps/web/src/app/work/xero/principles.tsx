@@ -5,10 +5,10 @@ import { MDXRemote } from 'next-mdx-remote'
 
 import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
-import { MDXPageProps } from '@/lib/markdown'
+import type { MDXPageProps } from '@/lib/markdown'
 import disciplines from '@/public/work/xero/principles-disciplines.webp'
-import worldMapDark from '@/public/work/xero/principles-world-map-dark.svg'
 import worldMap from '@/public/work/xero/principles-world-map.svg'
+import worldMapDark from '@/public/work/xero/principles-world-map-dark.svg'
 import { styled } from '@/styled/jsx'
 
 export function Principles() {

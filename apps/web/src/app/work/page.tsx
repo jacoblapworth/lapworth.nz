@@ -14,9 +14,9 @@ const Layout = styled('div', {
 export default function Page() {
   return (
     <Layout>
-        {/* <XeroTile />
+      {/* <XeroTile />
         <DiscoverTile />
         <VendTabsTile /> */}
-      </Layout>
+    </Layout>
   )
 }

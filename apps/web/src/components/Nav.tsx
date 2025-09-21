@@ -1,16 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
+import { ArrowRightIcon } from 'lucide-react'
 import NextLink, { type LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 import { type ReactNode, useState } from 'react'
-
-import { motion } from 'framer-motion'
-
 import { Link } from '@/components/Link'
 import { styled } from '@/styled/jsx'
-import { ArrowRightIcon } from 'lucide-react'
 
 const A = styled(NextLink, {
   base: {

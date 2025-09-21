@@ -1,21 +1,23 @@
 'use client'
 
+import * as Ariakit from '@ariakit/react'
 import {
-  ComponentProps,
+  type MotionValue,
+  motion,
+  useScroll,
+  useTransform,
+} from 'framer-motion'
+import { ChevronDownIcon } from 'lucide-react'
+import { Lato } from 'next/font/google'
+import {
+  type ComponentProps,
+  type ReactNode,
   useEffect,
   useRef,
   useState,
-  type ReactNode,
 } from 'react'
-
-import { Lato } from 'next/font/google'
-
-import * as Ariakit from '@ariakit/react'
-import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
-
 import { ResponsivePreview } from '@/components/Preview'
 import { styled } from '@/styled/jsx'
-import { ChevronDownIcon } from 'lucide-react'
 
 const VEND_GREEN = '#41AF4B'
 
@@ -110,9 +112,9 @@ function TabsMenu({ tabs, onChange, activeTab }: DropdownMenuProps) {
           <MenuItem
             key={value}
             onClick={() => onChange(value)}
-            isActive={activeTab == value}
+            isActive={activeTab === value}
           >
-            {activeTab == value && <Highlight vertical />}
+            {activeTab === value && <Highlight vertical />}
             {label}
           </MenuItem>
         ))}
@@ -381,7 +383,7 @@ export function TabsExample() {
       block: 'nearest',
       inline: 'center',
     })
-  }, [tabValue, tabs])
+  }, [tabValue])
 
   // Ariakit tab store controlled by tabValue
   const tabStore = Ariakit.useTabStore({

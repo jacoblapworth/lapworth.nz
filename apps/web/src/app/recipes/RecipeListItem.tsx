@@ -2,12 +2,9 @@
 
 import NextImage from 'next/image'
 import Link from 'next/link'
-
-import { styled } from '@/styled/jsx'
-
 import { Text } from '@/components/Typography'
-
 import type { Recipe } from '@/content'
+import { styled } from '@/styled/jsx'
 
 const Article = styled('article', {
   base: {

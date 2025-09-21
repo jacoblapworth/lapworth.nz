@@ -1,9 +1,9 @@
 import withBundleAnalyzer from '@next/bundle-analyzer'
 import { withSentryConfig } from '@sentry/nextjs'
 import type { NextConfig } from 'next'
-import { type Options, rehypePrettyCode } from 'rehype-pretty-code'
+import type { Options } from 'rehype-pretty-code'
 
-const prettyCodeOptions: Options = {
+const _prettyCodeOptions: Options = {
   theme: 'github-dark',
 }
 

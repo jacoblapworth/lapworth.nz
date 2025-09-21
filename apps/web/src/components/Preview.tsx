@@ -1,9 +1,8 @@
 'use client'
 
-import { ReactNode } from 'react'
-
 import { Panel, PanelGroup, PanelResizer } from '@window-splitter/react'
-import { ResizableBoxProps } from 'react-resizable'
+import type { ReactNode } from 'react'
+import type { ResizableBoxProps } from 'react-resizable'
 
 import { styled } from '@/styled/jsx'
 

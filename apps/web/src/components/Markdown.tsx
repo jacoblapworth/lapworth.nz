@@ -3,6 +3,7 @@
 import { MDXProvider } from '@mdx-js/react'
 import type { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
+
 import { usePathname } from 'next/navigation'
 import type {
   AnchorHTMLAttributes,
@@ -11,12 +12,6 @@ import type {
   HTMLAttributes,
   ReactNode,
 } from 'react'
-
-import NextImage from 'next/image'
-import { usePathname } from 'next/navigation'
-
-import { MDXProvider } from '@mdx-js/react'
-import type { MDXComponents } from 'mdx/types'
 
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'

@@ -1,5 +1,5 @@
-import { work } from '@/content'
 import { notFound } from 'next/navigation'
+import { work } from '@/content'
 
 function getPostBySlug(slug: string) {
   return work.find((post) => post.slug === slug)
@@ -18,11 +18,9 @@ export default async function Page({ params }: Props) {
   if (!post) notFound()
 
   return (
-    <>
-      <div
-        className="prose"
-        dangerouslySetInnerHTML={{ __html: post.content }}
-      ></div>
-    </>
+    <div
+      className="prose"
+      dangerouslySetInnerHTML={{ __html: post.content }}
+    ></div>
   )
 }

@@ -1,10 +1,8 @@
 'use client'
 
 import * as Ariakit from '@ariakit/react'
-import { ReactNode, useState, type ComponentProps } from 'react'
-
 import { motion } from 'framer-motion'
-import { type ReactNode, useState } from 'react'
+import { type ComponentProps, type ReactNode, useState } from 'react'
 
 import { styled } from '@/styled/jsx'
 
@@ -86,7 +84,7 @@ export function TabsExample() {
     <Ariakit.TabProvider selectedId={selectedId} setSelectedId={setSelectedId}>
       <TabList>
         {values.map(({ value, label }) => (
-          <Tab key={value} value={value} isActive={value == selectedId}>
+          <Tab key={value} value={value} isActive={value === selectedId}>
             {label}
           </Tab>
         ))}

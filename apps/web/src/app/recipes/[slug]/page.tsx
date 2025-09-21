@@ -1,8 +1,8 @@
+import { notFound } from 'next/navigation'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 import { components } from '@/components/Markdown'
 import { recipe } from '@/content'
 import { styled } from '@/styled/jsx'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { notFound } from 'next/navigation'
 
 export const dynamicParams = false
 
