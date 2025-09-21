@@ -1,14 +1,13 @@
-import fs from 'fs/promises'
-import path from 'path'
-
-import { MDXRemoteProps, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import { SerializeOptions } from 'next-mdx-remote/dist/types'
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import type { MDXRemoteProps, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import type { SerializeOptions } from 'next-mdx-remote/dist/types'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { z } from 'zod'
 
-import { Image, Wrapper, h1, h2, h3 } from '@/src/components/Markdown'
+import { h1, h2, h3, Image, Wrapper } from '@/src/components/Markdown'
 
 const Frontmatter = z.object({
   title: z.string(),

@@ -2,7 +2,7 @@
 
 import NextImage from 'next/image'
 
-import { MusicKitResource } from '@/src/app/about/music'
+import type { MusicKitResource } from '@/src/app/about/music'
 import { Carousel } from '@/src/components/Carousel'
 import { Link } from '@/src/components/Link'
 import { styled } from '@/styled/jsx'

@@ -1,7 +1,7 @@
 import { useId } from 'react'
 
 import type { HTMLStyledProps } from '@/styled/jsx'
-import { VStack, styled } from '@/styled/jsx'
+import { styled, VStack } from '@/styled/jsx'
 import type { StyledVariantProps } from '@/styled/types'
 
 const Input = styled('input', {

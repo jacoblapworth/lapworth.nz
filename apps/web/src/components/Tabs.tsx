@@ -1,9 +1,8 @@
 'use client'
 
-import { ReactNode, useState } from 'react'
-
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { motion } from 'framer-motion'
+import { type ReactNode, useState } from 'react'
 
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
@@ -79,7 +78,7 @@ export function TabsExample() {
     <RadixTabs.Root value={currentValue} onValueChange={setValue}>
       <List css={{ marginBlockEnd: 'md' }}>
         {values.map(({ value, label }) => (
-          <Tab key={value} value={value} isActive={value == currentValue}>
+          <Tab key={value} value={value} isActive={value === currentValue}>
             {label}
           </Tab>
         ))}

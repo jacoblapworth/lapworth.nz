@@ -1,9 +1,9 @@
 'use client'
-import { useEffect, useState } from 'react'
-
-import NextScript from 'next/script'
 
 import * as Sentry from '@sentry/nextjs'
+
+import NextScript from 'next/script'
+import { useEffect, useState } from 'react'
 
 import { TextInput } from '@/src/components/TextInput'
 
@@ -50,7 +50,7 @@ export function useAppleMusicAuthorisation({
       Sentry.captureException(error)
       console.error(error)
     }
-  }, [client, setAuthorisation])
+  }, [client])
 
   return authorisation
 }

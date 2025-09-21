@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import type { NextPage } from 'next'
 import NextImage from 'next/image'
 
 import Img1 from '@/public/static/work/trademe/1.png'

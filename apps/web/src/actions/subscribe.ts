@@ -1,7 +1,5 @@
 'use server'
 
-import { headers } from 'next/headers'
-
 import * as Sentry from '@sentry/nextjs'
 import { isAxiosError } from 'axios'
 import {
@@ -12,6 +10,7 @@ import {
   ProfilesApi,
   SubscriptionParameters,
 } from 'klaviyo-api'
+import { headers } from 'next/headers'
 
 const session = new ApiKeySession(process.env.KLAVIYO_API_KEY)
 const profiles = new ProfilesApi(session)
@@ -20,7 +19,10 @@ export interface FormState {
   message: string | null
 }
 
-export async function subscribeEmail(prevState: FormState, formData: FormData) {
+export async function subscribeEmail(
+  _prevState: FormState,
+  formData: FormData,
+) {
   return await Sentry.withServerActionInstrumentation(
     'subscribeEmail',
     {

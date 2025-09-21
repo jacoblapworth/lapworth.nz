@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-import { ResizableBox, ResizableBoxProps } from 'react-resizable'
+import { ResizableBox, type ResizableBoxProps } from 'react-resizable'
 
 import { styled } from '@/styled/jsx'
 

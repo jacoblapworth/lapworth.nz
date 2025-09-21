@@ -1,6 +1,5 @@
-import fs from 'fs/promises'
-import path from 'path'
-
+import fs from 'node:fs/promises'
+import path from 'node:path'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 const postsDirectory = path.join(process.cwd(), 'src/app/recipes/[slug]')
