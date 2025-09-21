@@ -1,7 +1,10 @@
 import withBundleAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
 import { withSentryConfig } from '@sentry/nextjs'
+import createWithVercelToolbar from '@vercel/toolbar/plugins/next'
 import type { NextConfig } from 'next'
+
+const withVercelToolbar = createWithVercelToolbar()
 
 const isDev = process.argv.indexOf('dev') !== -1
 const isBuild = process.argv.indexOf('build') !== -1
@@ -53,7 +56,7 @@ const withMDX = createMDX({
 })
 
 export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
-  withSentryConfig(withMDX(config), {
+  withSentryConfig(withVercelToolbar(withMDX(config)), {
     org: 'jacoblapworth',
     project: 'lapworth',
 
