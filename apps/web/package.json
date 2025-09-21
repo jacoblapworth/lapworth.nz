@@ -12,8 +12,8 @@
     "types:gen": "next typegen",
     "types:check": "tsc --noEmit",
     "tokens": "panda codegen",
-    "lint": "eslint",
-    "format": "eslint --fix"
+    "lint": "biome check",
+    "format": "biome check --write"
   },
   "dependencies": {
     "@mdx-js/loader": "3.1.1",
