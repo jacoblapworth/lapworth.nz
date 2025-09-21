@@ -2,11 +2,6 @@ import withBundleAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
 import { withSentryConfig } from '@sentry/nextjs'
 import type { NextConfig } from 'next'
-import type { Options } from 'rehype-pretty-code'
-
-const _prettyCodeOptions: Options = {
-  theme: 'github-dark',
-}
 
 const isDev = process.argv.indexOf('dev') !== -1
 const isBuild = process.argv.indexOf('build') !== -1
@@ -51,7 +46,7 @@ const config: NextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    // remarkPlugins: [remarkGfm],
+    // remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
     // rehypePlugins: [rehypeSlug, [rehypePrettyCode, prettyCodeOptions]],
     // providerImportSource: '@mdx-js/react',
   },

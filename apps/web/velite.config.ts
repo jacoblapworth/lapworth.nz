@@ -24,7 +24,7 @@ const recipe = defineCollection({
     toc: s.toc(),
     metadata: s.metadata(),
     excerpt: s.excerpt(),
-    content: s.markdown(),
+    content: s.mdx(),
   }),
 })
 

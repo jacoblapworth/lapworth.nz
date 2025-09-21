@@ -1,8 +1,7 @@
-import { notFound } from 'next/navigation'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { components } from '@/components/Markdown'
+import { MDXContent } from '@/components/MDX'
 import { recipe } from '@/content'
 import { styled } from '@/styled/jsx'
+import { notFound } from 'next/navigation'
 
 export const dynamicParams = false
 
@@ -36,13 +35,9 @@ export default async function Page(props: Props) {
   const recipe = getRecipe(slug)
   if (!recipe) notFound()
 
-  console.log(recipe)
-
   return (
     <Article>
-      {/* <MDXContent code={recipe.content} /> */}
-      <MDXRemote source={recipe.content} components={components} />
-      {/* <div dangerouslySetInnerHTML={{ __html: recipe.content }} /> */}
+      <MDXContent code={recipe.content} />
     </Article>
   )
 }
