@@ -61,11 +61,14 @@ jobs:
           node-version-file: package.json
           cache: 'pnpm'
 
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+
       - name: Install dependencies
         run: pnpm install
 
       - name: Lint
-        run: pnpm run lint
+        run: pnpm lint:ci
 
   Test:
     runs-on: ubuntu-latest

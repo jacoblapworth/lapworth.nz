@@ -33,6 +33,7 @@
     "lint": {
       "dependsOn": ["tokens", "^lint"]
     },
+    "//#lint:ci": {},
     "dev": {
       "persistent": true,
       "cache": false

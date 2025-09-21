@@ -183,13 +183,6 @@ const Grid = styled(motion.div, {
   },
 })
 
-interface Spot {
-  label: string
-  vertical: Vertical
-  icon: string
-  position: number
-}
-
 export function Spotlights() {
   const [activeVertical, setActiveVertical] = useState<Vertical | undefined>(
     undefined,
