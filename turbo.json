@@ -19,39 +19,54 @@
     "SENTRY_AUTH_TOKEN",
     "RESEND_API_KEY"
   ],
-  "globalPassThroughEnv": ["COREPACK_HOME", "ENABLE_EXPERIMENTAL_COREPACK"],
-  "globalDependencies": [".env"],
+  "globalPassThroughEnv": [
+    "COREPACK_HOME",
+    "ENABLE_EXPERIMENTAL_COREPACK"
+  ],
+  "globalDependencies": [
+    ".env"
+  ],
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     },
     "types:check": {
-      "dependsOn": ["^types:check"],
-      "inputs": ["**/*.{ts,tsx}"]
+      "dependsOn": [
+        "^types:check"
+      ],
+      "inputs": [
+        "**/*.{ts,tsx}"
+      ]
     },
     "lint": {
-      "dependsOn": ["tokens", "^lint"]
+      "dependsOn": [
+        "tokens",
+        "^lint"
+      ]
+    },
+    "format": {
+      "dependsOn": [
+        "^format"
+      ],
+      "inputs": [
+        "**/*.{ts,tsx,js,jsx,json,md}",
+        "biome.json"
+      ]
     },
     "dev": {
       "persistent": true,
       "cache": false
     },
     "start": {
-      "dependsOn": ["build"],
-      "persistent": true
-    },
-    "content": {
       "dependsOn": [
-        "^content"
+        "build"
       ],
-      "inputs": [
-        "src/content/**",
-        "velite.config.ts"
-      ],
-      "outputs": [
-        ".velite/**"
-      ]
+      "persistent": true
     }
   }
 }

@@ -5,8 +5,13 @@
       "dependsOn": ["^tokens"],
       "outputs": [".styled/**"]
     },
+    "content": {
+      "dependsOn": ["^content"],
+      "inputs": ["src/content/**", "velite.config.ts"],
+      "outputs": [".velite/**"]
+    },
     "build": {
-      "dependsOn": ["tokens", "^build"],
+      "dependsOn": ["tokens", "content", "^build"],
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
     }
   }
