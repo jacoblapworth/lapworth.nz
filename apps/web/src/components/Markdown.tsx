@@ -112,12 +112,28 @@ export const blockquote = ({ children, ...props }: BlockquoteProps) => (
   </Blockquote>
 )
 
+export const P = styled(
+  'p',
+  {
+    base: {
+      color: 'red',
+      marginBlockEnd: 2,
+    },
+  },
+  {
+    defaultProps: {
+      style: { color: 'red' },
+    },
+  },
+)
+
 export const components: MDXComponents = {
   wrapper: Wrapper,
   h1,
   h2,
   h3,
   a,
+  p: P,
   Image,
   blockquote,
 }

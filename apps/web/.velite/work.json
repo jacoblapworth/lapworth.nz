@@ -1,0 +1,180 @@
+[
+  {
+    "title": "Deconstructing intent in your design",
+    "slug": "deconstructing-intent",
+    "date": "2021-11-25T00:00:00.000Z",
+    "draft": false,
+    "featured": false,
+    "categories": [
+      "Journal"
+    ],
+    "tags": [
+      "xero"
+    ],
+    "meta": {},
+    "toc": [
+      {
+        "title": "Intent in design",
+        "url": "#intent-in-design",
+        "items": []
+      },
+      {
+        "title": "What does using just XUI mean?",
+        "url": "#what-does-using-just-xui-mean",
+        "items": []
+      },
+      {
+        "title": "Cards case study",
+        "url": "#cards-case-study",
+        "items": []
+      },
+      {
+        "title": "Identify the different intents within the design",
+        "url": "#identify-the-different-intents-within-the-design",
+        "items": []
+      },
+      {
+        "title": "Match intents in the design with XUI",
+        "url": "#match-intents-in-the-design-with-xui",
+        "items": [
+          {
+            "title": "Sentiment",
+            "url": "#sentiment",
+            "items": []
+          },
+          {
+            "title": "Errors",
+            "url": "#errors",
+            "items": []
+          },
+          {
+            "title": "Actions",
+            "url": "#actions",
+            "items": []
+          },
+          {
+            "title": "Content hierarchy & typographic scale",
+            "url": "#content-hierarchy--typographic-scale",
+            "items": []
+          }
+        ]
+      },
+      {
+        "title": "Reconstructing with XUI",
+        "url": "#reconstructing-with-xui",
+        "items": []
+      },
+      {
+        "title": "Testing again in context",
+        "url": "#testing-again-in-context",
+        "items": []
+      },
+      {
+        "title": "Identifying persisting problems",
+        "url": "#identifying-persisting-problems",
+        "items": []
+      },
+      {
+        "title": "Designing with intent",
+        "url": "#designing-with-intent",
+        "items": []
+      }
+    ],
+    "metadata": {
+      "readingTime": 3,
+      "wordCount": 869
+    },
+    "excerpt": "When you bring a problem to the XUI team, one of the questions you might get asked is:\n\nHave you tried using just XUI?\n\nWe’re not trying to be difficult, this is one of the ways that helps us understand your problem better, and why you’ve chosen to try other t",
+    "content": "const{Fragment:e,jsx:t,jsxs:n}=arguments[0];function _createMdxContent(i){const s={a:\"a\",blockquote:\"blockquote\",em:\"em\",h2:\"h2\",h3:\"h3\",img:\"img\",li:\"li\",ol:\"ol\",p:\"p\",ul:\"ul\",...i.components},{Image:a}=s;return a||function(e,t){throw new Error(\"Expected \"+(t?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}(\"Image\",!0),n(e,{children:[t(s.p,{children:\"When you bring a problem to the XUI team, one of the questions you might get asked is:\"}),\"\\n\",n(s.blockquote,{children:[\"\\n\",t(s.p,{children:\"Have you tried using just XUI?\"}),\"\\n\"]}),\"\\n\",t(s.p,{children:\"We’re not trying to be difficult, this is one of the ways that helps us understand your problem better, and why you’ve chosen to try other things. We’re not against you exploring new patterns, and in fact we want you to use your domain and customer knowledge to find the best experience for your users!\"}),\"\\n\",t(s.p,{children:\"Reconstructing a design using XUI, and the fundamentals, helps us identify the gaps in the current design system and evolve XUI in a sustainable way.\"}),\"\\n\",t(s.h2,{children:\"Intent in design\"}),\"\\n\",n(s.p,{children:[\"Design intent is how we \",t(s.em,{children:\"intend\"}),\" to influence user behaviour through design. What does each element need to convey to the user? What do we want the user to understand? How should they interact with it?\"]}),\"\\n\",t(s.p,{children:\"By being clear on the specific and individual problems we’re trying to solve, we can create and reuse consistent experiences across all of Xero. Creating consistency and predictability builds trust with our customers and means they can focus on the jobs they need to do.\"}),\"\\n\",t(s.h2,{children:\"What does using just XUI mean?\"}),\"\\n\",t(s.p,{children:\"Using just XUI can be broken down into three steps:\"}),\"\\n\",n(s.ol,{children:[\"\\n\",t(s.li,{children:\"Identify the different intents within the design\"}),\"\\n\",t(s.li,{children:\"Match intents in the design with XUI\"}),\"\\n\",t(s.li,{children:\"Reconstruct with XUI\"}),\"\\n\"]}),\"\\n\",t(s.p,{children:\"To help understand how to to do this, we’ve put together a case study using a card style component.\"}),\"\\n\",t(s.h2,{children:\"Cards case study\"}),\"\\n\",t(s.p,{children:\"At face value, these “cards” might seem like a reasonable usage of XUI. As we deconstruct the intent of these cards, let’s explore if there are any patterns in XUI that we can better align with.\"}),\"\\n\",t(s.p,{children:t(s.img,{src:\"/static/1-a8ba29.png\",alt:\"Example of cards\"})}),\"\\n\",t(a,{src:\"/static/1-a8ba29.png\",alt:\"Example of cards\"}),\"\\n\",t(s.h2,{children:\"Identify the different intents within the design\"}),\"\\n\",t(s.p,{children:\"What does each element need to convey to the user? What do we want the user to understand? How should they interact with it?\"}),\"\\n\",t(s.p,{children:\"In the example below, we can start to call out specific elements that mean things to a user, or encourage certain behaviour.\"}),\"\\n\",t(a,{src:\"/static/2-3aa697.png\",alt:\"Card example annotated with specific intents\"}),\"\\n\",t(s.h2,{children:\"Match intents in the design with XUI\"}),\"\\n\",t(s.p,{children:\"Use XUI as precedence for patterns in both visual language and interaction. You might find that XUI has a different or conflicting meaning for a similar pattern.\"}),\"\\n\",t(s.h3,{children:\"Sentiment\"}),\"\\n\",t(s.p,{children:\"Where possible, try to reuse existing patterns to help reinforce concepts with users. The example below is a good example of using existing patterns. XUI has a side highlight that we use on alert components like banners and toasts to indicate negative and positive sentiment.\"}),\"\\n\",t(a,{src:\"/static/3-324e4a.png\",alt:\"The example has a negative sentiment highlight across card\"}),\"\\n\",t(a,{src:\"/static/4-d2e9fa.png\",alt:\"XUI uses a negative sentiment across the left of toasts and banners\"}),\"\\n\",t(s.h3,{children:\"Errors\"}),\"\\n\",t(s.p,{children:\"There’s opportunities to either align, or differentiate ourselves from existing patterns. In the example below, we have a similar error message used in the XUI Text Input, although there are slight differences between the two designs:\"}),\"\\n\",n(s.ul,{children:[\"\\n\",t(s.li,{children:\"The text is all caps\"}),\"\\n\",t(s.li,{children:\"Triangular warning icon instead of circular invalid used\"}),\"\\n\"]}),\"\\n\",t(s.p,{children:\"These inconsistencies can be quite subtle, but if not intentionally thought about, can lessen the impact of existing patterns. From a user's perspective, they might question (even if subconsciously) the different icon (“does it mean something different?”) and these inconsistencies can break trust.\"}),\"\\n\",t(a,{src:\"/static/5-eb5dfe.png\",alt:\"The example card includes a warning message about being overdue.\"}),\"\\n\",t(a,{src:\"/static/6-5a94f1.png\",alt:\"XUI uses an icon with red text on text inputs to highlight error messages.\"}),\"\\n\",t(s.h3,{children:\"Actions\"}),\"\\n\",t(s.p,{children:\"Sometimes we may unintentionally design something that conflicts with existing patterns. The example below uses a full width red button as the primary call-to-action. XUI uses the colour red semantically to identify errors and destructive actions – this might not be what you want to convey when you’re asking users to prepare their tax return.\"}),\"\\n\",t(s.p,{children:\"XUI also uses backgrounds with rounded corners to identify primary buttons. It may not be obvious that the card footer is an action when it doesn’t “look” like a button within Xero.\"}),\"\\n\",n(s.p,{children:[\"See \",t(s.a,{href:\"https://twitter.com/LukeW/status/1002281609100378112\",children:\"Luke Wroblewski on consistency in design\"}),\".\"]}),\"\\n\",t(a,{src:\"/static/7-103004.png\",alt:\"The example card has a red footer for the primary action\"}),\"\\n\",t(a,{src:\"/static/8-63410a.png\",alt:\"XUI uses red to indicate negative, or destructive actions\"}),\"\\n\",t(s.h3,{children:\"Content hierarchy & typographic scale\"}),\"\\n\",t(s.p,{children:\"Sometimes, we might only identify issues when we place the component in surrounding contexts. Every designer at Xero has to consider how their work fits into the customer’s entire experience. What might it look like if these cards were surfaced in other experiences?\"}),\"\\n\",t(s.p,{children:\"Below, we’ve place the card in the dashboard, and you can see how some of the typography starts to create an imbalance in hierarchy.\"}),\"\\n\",t(a,{src:\"/static/9-16e0ec.png\",alt:\"Card in-situ on the dashboard\"}),\"\\n\",t(s.p,{children:\"To make sure your design works well with other parts of Xero, you can look to how we create hierarchy within our existing components. The Overview Block which is commonly used at the top of a page only uses xLarge type, but still manages to stand out.\"}),\"\\n\",t(a,{src:\"/static/10-bfb3db.png\",alt:\"The example uses 2xlarge type to create hierarchy within the card\"}),\"\\n\",t(a,{src:\"/static/11-960131.png\",alt:\"XUI uses xlarge type in it’s Overview Block \"}),\"\\n\",t(s.h2,{children:\"Reconstructing with XUI\"}),\"\\n\",t(s.p,{children:\"Now that we’ve identified all of the intents and visual language we want to align with, we can reconstruct the card using XUI. You can see that there’s not just one way to use XUI.\"}),\"\\n\",t(a,{src:\"/static/12-bed294.png\",alt:\"Two examples reconstructed using different interpretations of XUI\"}),\"\\n\",t(a,{src:\"/static/13-f1bc85.png\",alt:\"Other iterations that didn’t make the cut\"}),\"\\n\",t(s.h2,{children:\"Testing again in context\"}),\"\\n\",t(a,{src:\"/static/14-036738.png\",alt:\"\"}),\"\\n\",t(s.h2,{children:\"Identifying persisting problems\"}),\"\\n\",t(s.p,{children:\"Once we’ve reconstructed the card, we can start to identify any gaps in XUI. What doesn’t work well in XUI? Is there still a lack of hierarchy? How can we make this the primary focus on the page?\"}),\"\\n\",t(s.p,{children:\"These are the types of questions that really help evolve XUI in a sustainable and responsible way. We love seeing this exploration, so please reach out to us on #xui-design with any questions.\"}),\"\\n\",t(s.h2,{children:\"Designing with intent\"}),\"\\n\",t(s.p,{children:\"To recap, there’s three steps to consider when trying to align with XUI.\"}),\"\\n\",n(s.ol,{children:[\"\\n\",t(s.li,{children:\"Identify the different intents within the design\"}),\"\\n\",t(s.li,{children:\"Match intents in the design with XUI\"}),\"\\n\",t(s.li,{children:\"Reconstruct with XUI\"}),\"\\n\"]})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?t(n,{...e,children:t(_createMdxContent,{...e})}):_createMdxContent(e)}};",
+    "permalink": "/work/deconstructing-intent"
+  },
+  {
+    "title": "Bringing documentation closer to designers",
+    "slug": "figma-plugin",
+    "date": "2022-06-01T00:00:00.000Z",
+    "draft": false,
+    "featured": false,
+    "categories": [
+      "Journal"
+    ],
+    "tags": [
+      "xero",
+      "figma"
+    ],
+    "meta": {},
+    "toc": [
+      {
+        "title": "Bringing documentation closer to designers",
+        "url": "#bringing-documentation-closer-to-designers",
+        "items": [
+          {
+            "title": "XUI Figma Plugin",
+            "url": "#xui-figma-plugin",
+            "items": []
+          },
+          {
+            "title": "Documentation",
+            "url": "#documentation",
+            "items": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 151
+    },
+    "excerpt": "\nBringing documentation closer to designers\nWhen it comes to translating user journeys into higher fidelity designs and prototypes, designers spend a lot of their time in Figma. We wanted to make it easier for designers to access the information they need, whe",
+    "content": "const{Fragment:e,jsx:n,jsxs:t}=arguments[0];function _createMdxContent(i){const o={h1:\"h1\",h2:\"h2\",p:\"p\",...i.components},{Image:s}=o;return s||function(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}(\"Image\",!0),t(e,{children:[n(s,{src:\"/static/xui-plugin-cover-9d778e.png\",alt:\"\"}),\"\\n\",n(o.h1,{children:\"Bringing documentation closer to designers\"}),\"\\n\",n(o.p,{children:\"When it comes to translating user journeys into higher fidelity designs and prototypes, designers spend a lot of their time in Figma. We wanted to make it easier for designers to access the information they need, when and where they need it, so we built a Figma plugin that allows them to search and access Xero’s documentation directly from Figma. This reduces friction and saves time, allowing designers to focus on what they do best.\"}),\"\\n\",n(o.h2,{children:\"XUI Figma Plugin\"}),\"\\n\",n(s,{src:\"/static/figma+xui-e357ff.png\",alt:\"Figma app icon plus XUI icon\"}),\"\\n\",n(o.h2,{children:\"Documentation\"}),\"\\n\",n(o.p,{children:\"Onboarding to a new design system can be a daunting task, unfamiliar names and different component patterns can be difficult to pick up. We wanted the experience to be as seamless as possible, promoting discovery of components and best practices.\\nWe integrated XUI's Figma library directly into the plugin so that when someone selects a XUI component, they can see the documentation for that component without searching.\"}),\"\\n\",n(s,{src:\"/static/docs-0ac558.gif\",alt:\"Gif of plugin in Figma showing a user select a component\"})]})}return{default:function(e={}){const{wrapper:t}=e.components||{};return t?n(t,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};",
+    "permalink": "/work/figma-plugin"
+  },
+  {
+    "title": "The influence of customer fit on a design system",
+    "slug": "tabs",
+    "date": "2020-06-01T00:00:00.000Z",
+    "draft": false,
+    "featured": false,
+    "categories": [
+      "Journal"
+    ],
+    "tags": [
+      "vend",
+      "tabs"
+    ],
+    "meta": {},
+    "toc": [
+      {
+        "title": "The problem",
+        "url": "#the-problem",
+        "items": []
+      },
+      {
+        "title": "Establishing a case for a new/changed component",
+        "url": "#establishing-a-case-for-a-newchanged-component",
+        "items": []
+      },
+      {
+        "title": "Interrogating the original purpose",
+        "url": "#interrogating-the-original-purpose",
+        "items": []
+      },
+      {
+        "title": "Documenting the changes",
+        "url": "#documenting-the-changes",
+        "items": []
+      },
+      {
+        "title": "Preview",
+        "url": "#preview",
+        "items": []
+      }
+    ],
+    "metadata": {
+      "readingTime": 5,
+      "wordCount": 1326
+    },
+    "excerpt": "Houston is the name of the design system at Vend — “Houston we have a problem”. We’ve been working on Houston for a few years now, and it’s been a really interesting journey. We’ve had to deal with a lot of challenges, and I think we’ve come out the other side",
+    "content": "const{Fragment:e,jsx:t,jsxs:o}=arguments[0];function _createMdxContent(n){const a={h2:\"h2\",li:\"li\",p:\"p\",ul:\"ul\",...n.components},{Image:s,TabsExample:i}=a;return s||_missingMdxReference(\"Image\",!0),i||_missingMdxReference(\"TabsExample\",!0),o(e,{children:[t(a.p,{children:\"Houston is the name of the design system at Vend — “Houston we have a problem”. We’ve been working on Houston for a few years now, and it’s been a really interesting journey. We’ve had to deal with a lot of challenges, and I think we’ve come out the other side with a really solid foundation. I’m going to walk you through some of the challenges we’ve faced, and how we’ve dealt with them.\"}),\"\\n\",t(a.p,{children:\"Here’s what our design documentation actually looks like. This is a snippet of part of our tabs docs.\"}),\"\\n\",t(s,{src:\"/static/tabs-docs-6dd31a.png\",alt:\"Tabs documentation\"}),\"\\n\",t(s,{src:\"/static/tabs-inline-docs-39f3d3.png\",alt:\"Inline Tabs documentation\"}),\"\\n\",t(a.p,{children:\"We also curate in-context designs. These help future designers understand how to use a component, but also help during design to “road-test” the component.\"}),\"\\n\",t(s,{src:\"/static/register-example-974a35.png\",alt:\"Register example\"}),\"\\n\",t(s,{src:\"/static/specs-e45262.png\",alt:\"Developement specifications for Tabs\"}),\"\\n\",t(a.h2,{children:\"The problem\"}),\"\\n\",t(a.p,{children:\"When our tabs were initially designed and developed, we hadn’t anticipated them being used with so much content. The component essentially visually breaks, the pattern no longer “makes sense”. New uses push designs forward. The reason I chose to walk you through a case study of a component that already exists, is that this feels like a much more common scenario, especially within a mature design system. A lot of the time we’re not working from scratch, we’re building on top of what’s there, leveraging existing patterns, and questioning design decisions.\"}),\"\\n\",t(s,{src:\"/static/register-overflow-example-51542f.png\",alt:\"Example of tabs overflowing\"}),\"\\n\",t(a.h2,{children:\"Establishing a case for a new/changed component\"}),\"\\n\",o(a.ul,{children:[\"\\n\",t(a.li,{children:\"Are we just using tabs “wrong”?\"}),\"\\n\",t(a.li,{children:\"Are there other patterns for dealing with this kind of content?\"}),\"\\n\",t(a.li,{children:\"Need to look at the problem in the context of the business & product.\"}),\"\\n\"]}),\"\\n\",t(a.p,{children:\"Business focus – why is supporting something like this important? One of the reasons I can assume that we didn’t anticipate this overflow problem, is when we looked at the original use cases, the core customer for Vend was smaller. Because of the small size of the team, we take quite a pragmatic approach to defining scope. We don’t worry about things that don’t bring value to our customers. Don’t create deviations of components unless you actually have to. Very frequently we thought we might need variations of a component but by continually denying ourselves the option we realised that we either didn’t need them at all, or could find a different solution to the problem for which we were about to create a variation. Vend has started to look more closely at it’s unit economics, and what sort of customer “fits” and is profitable for us. As we focus on larger customers, the product has to grow to cater more towards them. Larger customers = more locations, more complex needs, in general more of everything.\"}),\"\\n\",t(a.p,{children:\"Working on another project we ran into this issue again. We’d started exploring how third-party add-ons would be surfaced within the product. How do we attach and attribute extra metadata to entities in Vend? We were pretty sold on this approach This raises the issue of, we no longer have control over the content\"}),\"\\n\",t(s,{src:\"/static/edit-product-8da3fa.png\",alt:\"Edit product example\"}),\"\\n\",t(a.p,{children:\"One of the reasons we take such a pragmatic approach is because we see the design system as a contract between dev & design. We agree to design within these boundaries, and engineering is able to reduce complexity and effort. This comes about because of our team structure. It’s ad-hoc in nature, dealing with issues as they arise and impact work. The concept of YAGNI is pretty pragmatic in the way we deal value and effort. In the past we’ve been bitten by projects that have ballooned and been delayed by over-engineering and under estimation. Sometimes good is good enough. How do we slice small, so that we can deliver value at every step of the way, understanding the risks, and measuring the return on investment\"}),\"\\n\",t(a.h2,{children:\"Interrogating the original purpose\"}),\"\\n\",t(a.p,{children:\"Tabs are used in a group as page or section controls, each representing a page or section of a page that is a sibling of each other. Only one tab is active at a time, displaying its content while hiding that of other tabs.\"}),\"\\n\",t(a.p,{children:\"Words before pixels. It’s so much easier Speak the same language. Of all the other benefits, design systems increase the efficiency of different teams working together, simply, because it unifies the language that the two teams are using. I have a real interest in semantics. What we call something has so much impact on how we can use something. Having clear names can\"}),\"\\n\",t(a.p,{children:\"Tabs can function as a tertiary form of navigation. We can start to also critique the current rationale: should tabs include user generated content? We start questioning whether\"}),\"\\n\",t(a.p,{children:\"If we take that same visual language and apply it to the tabs, our users know to scroll. One thing we’re very averse to doing at Vend is truncating content. We think that we should respect our users’ content – this goes into a larger topic of dealing with edge cases. A lot of our product is desktop based, based on a retailer’s jobs-to-be done. At times we’ve chosen not to invest in supporting mobile. A lot of our components and designs going forward do work at these breakpoints, but following that rule of YAGNI, we think sometimes there is more valuable work we could be doing. At a systems level, i still think it’s really valuable that we invest the time – enabling us to scale in the future. Here, it also greatly exaggerates the issue at hand.\"}),\"\\n\",t(s,{src:\"/static/exploration-overflow-scroll-c684f9.png\",alt:\"\"}),\"\\n\",t(a.p,{children:\"Another approach we took, was to create some sort of overflow menu. This spurred a lot of questions. – What lives in the popover, and what lives in the tabs? – Is it static or dynamic? – How complex is this to build? Watching the viewport size. – This still seems to break on mobile\"}),\"\\n\",t(s,{src:\"/static/exploration-overflow-start-546301.png\",alt:\"\"}),\"\\n\",t(a.p,{children:\"We then started to question if a tab could start to function by itself. In our visual system an active tab isn’t interactive. We use our green across the product to indicate state. Could tabs become just an indicator for the current page, leaving all navigation to the overflow? – if we look back to the original intention of tabs, this seems like a step too far – just because we can, doesn’t mean we should – from a development perspective this also seems like it could be complex Would we never show all the tabs? Do it dynamically depending on the viewport? The mobile breakpoint really highlights this, we still run into overflow issues with a long name. This is also where the gold started to appear. If we combine this dropdown with the overflow shadow, could a user scroll through all tabs, not just the active one?\"}),\"\\n\",t(s,{src:\"/static/exploration-overflow-single-active-9e4ef9.png\",alt:\"\"}),\"\\n\",t(a.p,{children:\"We start to combine some of these concepts into something that appears to deal with the problem at hand, while also respecting the current implementation. We’d recognised earlier that scrolling horizontally on a small touch area might be an issue. So we started to revisit that core definition of what tabs are. Both a navigation element, but also an indicator for current location. We can then question if we can split those functions. The tabs maintain the visual indicator for place, but the button becomes the function for navigation. With this focus we can look closer at the overflow button.\"}),\"\\n\",t(s,{src:\"/static/exploration-overflow-combo-a93a22.png\",alt:\"\"}),\"\\n\",t(a.p,{children:\"The popover naturally becomes a translation of the tab bar, but vertically. So many of the questions we had earlier about when and which content to show become answered with this approach. With those functions defined earlier we can start talking to them. If I navigate to an item hidden in the tabbar, from the overflow, what should happen?\"}),\"\\n\",t(s,{src:\"/static/exploration-example-231cc8.png\",alt:\"\"}),\"\\n\",o(a.p,{children:[\"This is where we can start to see how this new overflow component can scale, with existing components. We already have patterns for dealing with finding something in a list. Say you have 30 outlets across the states,\",\" \"]}),\"\\n\",t(s,{src:\"/static/exploration-crit-554417.png\",alt:\"\"}),\"\\n\",t(a.p,{children:\"During this time, we’re road-testing the components in-situ across the product. We realised that when the tabs serve a navigation role as opposed to filters, “All” might not be the best name for the collection of tabs – considering what a user is looking for.\"}),\"\\n\",t(s,{src:\"/static/roadtest-dec584.png\",alt:\"\"}),\"\\n\",t(a.h2,{children:\"Documenting the changes\"}),\"\\n\",t(s,{src:\"/static/documentation-82304f.png\",alt:\"\"}),\"\\n\",t(a.h2,{children:\"Preview\"}),\"\\n\",t(i,{})]})}return{default:function(e={}){const{wrapper:o}=e.components||{};return o?t(o,{...e,children:t(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,t){throw new Error(\"Expected \"+(t?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/work/tabs"
+  }
+]

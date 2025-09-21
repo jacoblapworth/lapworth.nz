@@ -1,4 +1,5 @@
 import withBundleAnalyzer from '@next/bundle-analyzer'
+import createMDX from '@next/mdx'
 import { withSentryConfig } from '@sentry/nextjs'
 import type { NextConfig } from 'next'
 import type { Options } from 'rehype-pretty-code'
@@ -47,17 +48,17 @@ const config: NextConfig = {
   },
 }
 
-// const withMDX = createMDX({
-//   extension: /\.mdx?$/,
-//   options: {
-//     remarkPlugins: [remarkGfm],
-//     rehypePlugins: [rehypeSlug, [rehypePrettyCode, prettyCodeOptions]],
-//     providerImportSource: '@mdx-js/react',
-//   },
-// })
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    // remarkPlugins: [remarkGfm],
+    // rehypePlugins: [rehypeSlug, [rehypePrettyCode, prettyCodeOptions]],
+    // providerImportSource: '@mdx-js/react',
+  },
+})
 
 export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
-  withSentryConfig(config, {
+  withSentryConfig(withMDX(config), {
     org: 'jacoblapworth',
     project: 'lapworth',
 

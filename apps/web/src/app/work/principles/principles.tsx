@@ -1,14 +1,16 @@
+'use client'
+
 import { MDXProvider } from '@mdx-js/react'
 import type { NextPage } from 'next'
-import NextImage, { type StaticImageData } from 'next/image'
 import { MDXRemote } from 'next-mdx-remote'
+import NextImage, { type StaticImageData } from 'next/image'
 
-import { images } from '@/app/work/xero/images'
+// import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
 import type { MDXPageProps } from '@/lib/markdown'
 import disciplines from '@/public/work/xero/principles-disciplines.webp'
-import worldMap from '@/public/work/xero/principles-world-map.svg'
 import worldMapDark from '@/public/work/xero/principles-world-map-dark.svg'
+import worldMap from '@/public/work/xero/principles-world-map.svg'
 import { styled } from '@/styled/jsx'
 
 export function Principles() {
@@ -244,7 +246,7 @@ export const Page: NextPage<MDXPageProps> = ({ source }) => {
         <MDXRemote
           {...source}
           components={{ WorldMap, Disciplines }}
-          scope={{ images }}
+          // scope={{ images }}
         />
       </Grid>
     </MDXProvider>

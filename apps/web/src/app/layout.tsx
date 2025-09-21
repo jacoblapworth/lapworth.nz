@@ -3,8 +3,8 @@ import './index.css'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata, Viewport } from 'next'
-import localFont from 'next/font/local'
 import { ServerThemeProvider, ThemeProvider } from 'next-themes'
+import localFont from 'next/font/local'
 import { type ReactNode, useId } from 'react'
 
 import { Footer } from '@/components/Footer'
@@ -78,6 +78,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         lang="en"
       >
         <body
+          key="body"
           className={css({
             backgroundColor: 'background',
             display: 'grid',
