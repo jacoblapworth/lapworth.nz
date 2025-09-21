@@ -1,13 +1,16 @@
 'use client'
 
-import { ComponentProps, forwardRef, useRef, useState } from 'react'
-
-import { Lato } from 'next/font/google'
-
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import * as RadixTabs from '@radix-ui/react-tabs'
-import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
+import {
+  type MotionValue,
+  motion,
+  useScroll,
+  useTransform,
+} from 'framer-motion'
+import { Lato } from 'next/font/google'
+import { type ComponentProps, forwardRef, useRef, useState } from 'react'
 
 import { ResponsivePreview } from '@/src/components/Preview'
 import { styled } from '@/styled/jsx'
@@ -240,7 +243,7 @@ interface TabProps extends ComponentProps<typeof TabTrigger> {
 
 const Tab = forwardRef<HTMLButtonElement, TabProps>(function Tab(
   { children, isActive, ...rest },
-  ref,
+  ref
 ) {
   return (
     <TabTrigger {...rest} ref={ref}>
@@ -343,10 +346,10 @@ export function TabsExample() {
 
   const overflowStartOpacity = useTransform(
     [scrollX, scrollXProgress],
-    startTransformer,
+    startTransformer
   )
   const overflowEndOpacity = useTransform(scrollXProgress, (v) =>
-    v < 1 ? 1 : 0,
+    v < 1 ? 1 : 0
   )
 
   const onChange = (value: string) => {

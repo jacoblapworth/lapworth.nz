@@ -1,6 +1,5 @@
-import { Metadata } from 'next'
-
 import * as Sentry from '@sentry/nextjs'
+import type { Metadata } from 'next'
 
 import { createAppleJWT } from '@/src/app/about/music'
 

@@ -1,8 +1,7 @@
 'use server'
 
-import { headers } from 'next/headers'
-
 import * as Sentry from '@sentry/nextjs'
+import { headers } from 'next/headers'
 import { Resend } from 'resend'
 
 import { HelloEmail } from '@/src/emails/hello'
@@ -24,7 +23,7 @@ export type State =
 
 export async function sendEmail(
   _prevState: State,
-  formData: FormData,
+  formData: FormData
 ): Promise<State> {
   return await Sentry.withServerActionInstrumentation(
     'sendEmail',
@@ -57,6 +56,6 @@ export async function sendEmail(
         status: 'success',
         id: data.id,
       }
-    },
+    }
   )
 }

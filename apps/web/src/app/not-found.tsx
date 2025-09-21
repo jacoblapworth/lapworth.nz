@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 
 import { PillLink } from '@/src/components/Button'
 import { Text } from '@/src/components/Typography'

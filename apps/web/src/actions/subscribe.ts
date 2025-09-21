@@ -1,7 +1,5 @@
 'use server'
 
-import { headers } from 'next/headers'
-
 import * as Sentry from '@sentry/nextjs'
 import { isAxiosError } from 'axios'
 import {
@@ -12,6 +10,7 @@ import {
   ProfilesApi,
   SubscriptionParameters,
 } from 'klaviyo-api'
+import { headers } from 'next/headers'
 
 const session = new ApiKeySession(process.env.KLAVIYO_API_KEY)
 const profiles = new ProfilesApi(session)
@@ -74,7 +73,7 @@ export async function subscribeEmail(prevState: FormState, formData: FormData) {
         if (isAxiosError(error)) {
           console.error(
             `Klaviyo error: ${error.response?.statusText}`,
-            error.response?.status,
+            error.response?.status
           )
         } else {
           console.error(error)
@@ -82,6 +81,6 @@ export async function subscribeEmail(prevState: FormState, formData: FormData) {
 
         return { message: 'Unable to subscribe' }
       }
-    },
+    }
   )
 }

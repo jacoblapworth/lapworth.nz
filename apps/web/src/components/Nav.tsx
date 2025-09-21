@@ -1,10 +1,10 @@
 'use client'
-import { ReactNode, useState } from 'react'
-
-import NextLink, { LinkProps } from 'next/link'
-import { usePathname } from 'next/navigation'
 
 import { motion } from 'framer-motion'
+
+import NextLink, { type LinkProps } from 'next/link'
+import { usePathname } from 'next/navigation'
+import { type ReactNode, useState } from 'react'
 
 import { Link } from '@/src/components/Link'
 import { styled } from '@/styled/jsx'

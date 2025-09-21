@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
-
 import packageJson from 'package.json'
+import { useEffect, useState } from 'react'
 
 const isDebug = process.env.NODE_ENV != 'production'
 

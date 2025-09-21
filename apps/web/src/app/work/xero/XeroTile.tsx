@@ -1,4 +1,4 @@
-import NextImage, { StaticImageData } from 'next/image'
+import NextImage, { type StaticImageData } from 'next/image'
 
 import logo from '@/public/static/work/xero/logo.svg'
 import { PillLink } from '@/src/components/Button'

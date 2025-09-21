@@ -1,9 +1,8 @@
-import { NextConfig } from 'next'
-
 import withBundleAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
 import { withSentryConfig } from '@sentry/nextjs'
-import { Options, rehypePrettyCode } from 'rehype-pretty-code'
+import type { NextConfig } from 'next'
+import { type Options, rehypePrettyCode } from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
@@ -82,5 +81,5 @@ export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
     sourcemaps: {
       deleteSourcemapsAfterUpload: true,
     },
-  }),
+  })
 )

@@ -1,9 +1,8 @@
 'use client'
 
-import { ReactNode, useState } from 'react'
-
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { motion } from 'framer-motion'
+import { type ReactNode, useState } from 'react'
 
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'

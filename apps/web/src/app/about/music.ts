@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/nextjs'
-import { SignJWT, importPKCS8 } from 'jose'
+import { importPKCS8, SignJWT } from 'jose'
 import { getPlaiceholder } from 'plaiceholder'
 import { z } from 'zod'
 
@@ -100,7 +100,7 @@ export enum MusicEndpoint {
 
 export function formatArtworkUrl(
   artwork: MusicKitArtwork,
-  size: number,
+  size: number
 ): string {
   const url = decodeURI(artwork.url)
   const h = (size || artwork.height) ?? 100
@@ -132,12 +132,12 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
 }
 
 const getMusicWithThumnail = async (
-  item: MusicKitResource,
+  item: MusicKitResource
 ): Promise<MusicKitResource | undefined> => {
   try {
     const src = formatArtworkUrl(item.attributes.artwork, 24)
     const image = await fetch(src).then(async (res) =>
-      Buffer.from(await res.arrayBuffer()),
+      Buffer.from(await res.arrayBuffer())
     )
     const placeholder = await getPlaiceholder(image)
 

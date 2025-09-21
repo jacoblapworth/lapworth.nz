@@ -1,15 +1,14 @@
-import { NextPage } from 'next'
-import NextImage, { StaticImageData } from 'next/image'
-
 import { MDXProvider } from '@mdx-js/react'
+import type { NextPage } from 'next'
+import NextImage, { type StaticImageData } from 'next/image'
 import { MDXRemote } from 'next-mdx-remote'
 
 import disciplines from '@/public/static/work/xero/principles-disciplines.webp'
-import worldMapDark from '@/public/static/work/xero/principles-world-map-dark.svg'
 import worldMap from '@/public/static/work/xero/principles-world-map.svg'
+import worldMapDark from '@/public/static/work/xero/principles-world-map-dark.svg'
 import { images } from '@/src/app/work/xero/images'
 import { Text } from '@/src/components/Typography'
-import { MDXPageProps } from '@/src/lib/markdown'
+import type { MDXPageProps } from '@/src/lib/markdown'
 import { styled } from '@/styled/jsx'
 
 export function Principles() {

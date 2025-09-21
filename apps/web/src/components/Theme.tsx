@@ -1,4 +1,4 @@
-import { ThemeProviderProps } from 'next-themes/dist/types'
+import type { ThemeProviderProps } from 'next-themes/dist/types'
 
 export const themeConfig: ThemeProviderProps = {
   enableSystem: true,

@@ -6,7 +6,7 @@ import { Carousel } from '@/src/components/Carousel'
 import { Link } from '@/src/components/Link'
 import { styled } from '@/styled/jsx'
 
-import { OkuBookWithThumbnail } from './books/oku'
+import type { OkuBookWithThumbnail } from './books/oku'
 
 const BookCover = styled(NextImage, {
   base: {

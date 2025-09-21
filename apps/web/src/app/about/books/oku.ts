@@ -80,13 +80,13 @@ const baseUrl = 'https://oku.club/api'
 
 export async function getReading(): Promise<OkuBook[]> {
   const response = await fetch(
-    `${baseUrl}/collections/user/jacoblapworth/reading`,
+    `${baseUrl}/collections/user/jacoblapworth/reading`
   )
 
   const { books } = OkuReadingSchema.parse(await response.json())
 
   const validBooks = books.filter(
-    (book) => OkuBookSchema.safeParse(book).success,
+    (book) => OkuBookSchema.safeParse(book).success
   ) as OkuBook[]
 
   return validBooks
@@ -100,7 +100,7 @@ export async function getImgBuffer(src: string): Promise<Buffer> {
 }
 
 export async function getBookWithThumbnail(
-  book: OkuBook,
+  book: OkuBook
 ): Promise<OkuBookWithThumbnail> {
   const src = book.imageLinks.thumbnail
 

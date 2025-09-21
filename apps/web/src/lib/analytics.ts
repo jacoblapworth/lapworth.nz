@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useEffect } from 'react'
-
 import { Router } from 'next/router'
+import { useEffect } from 'react'
 
 const GOOGLE_MEASUREMENT_ID = process.env.GOOGLE_MEASUREMENT_ID
 
