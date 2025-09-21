@@ -1,13 +1,13 @@
 {
-  "extends": [
-    "//"
-  ],
+  "extends": ["//"],
   "tasks": {
+    "tokens": {
+      "dependsOn": ["^tokens"],
+      "outputs": [".styled/**"]
+    },
     "build": {
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**"
-      ]
+      "dependsOn": ["tokens", "^build"],
+      "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
     }
   }
 }

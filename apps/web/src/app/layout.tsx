@@ -1,13 +1,11 @@
 import './index.css'
 
-import { ReactNode } from 'react'
-
-import { Metadata, Viewport } from 'next'
-import localFont from 'next/font/local'
-
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import type { Metadata, Viewport } from 'next'
+import localFont from 'next/font/local'
 import { ServerThemeProvider } from 'next-themes'
+import type { ReactNode } from 'react'
 
 import { Page } from '@/src/components/Page'
 import { themeConfig } from '@/src/components/Theme'
@@ -70,7 +68,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <ServerThemeProvider {...themeConfig}>
-      <html className={sectraFont.variable} suppressHydrationWarning={true}>
+      <html
+        className={sectraFont.variable}
+        suppressHydrationWarning={true}
+        lang="en"
+      >
         <head>
           <link
             rel="icon"

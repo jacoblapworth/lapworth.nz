@@ -1,9 +1,7 @@
-import { FC } from 'react'
-
 import NextHead from 'next/head'
 import { useRouter } from 'next/router'
-
-import { DefaultSeo, NextSeoProps } from 'next-seo'
+import { DefaultSeo, type NextSeoProps } from 'next-seo'
+import type { FC } from 'react'
 
 export const baseUrl = 'https://lapworth.nz'
 export const email = 'jacob@lapworth.nz'

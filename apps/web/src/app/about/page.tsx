@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import NextImage from 'next/image'
 
 import ProfileImage from '@/public/static/j-photo-mono.png'

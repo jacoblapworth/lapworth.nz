@@ -1,16 +1,15 @@
-import { FC, useState } from 'react'
-
 import { AnimatePresence, motion } from 'framer-motion'
+import { type FC, useState } from 'react'
 
 import { styled } from '@/styled/jsx'
 
 import {
-    BagIcon,
-    BriefcaseIcon,
-    CarIcon,
-    CrossIcon,
-    HouseIcon,
-    WrenchIcon,
+  BagIcon,
+  BriefcaseIcon,
+  CarIcon,
+  CrossIcon,
+  HouseIcon,
+  WrenchIcon,
 } from './Icons'
 
 const Circle = styled('div', {

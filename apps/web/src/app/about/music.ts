@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/nextjs'
-import { SignJWT, importPKCS8 } from 'jose'
+import { importPKCS8, SignJWT } from 'jose'
 import { getPlaiceholder } from 'plaiceholder'
 import { z } from 'zod'
 
@@ -87,8 +87,8 @@ export class MKError extends Error {
     this.name = 'MusicKitError'
     this.message = `${title} [${code}] ${detail}`
     this.id = id
-    this.code = parseInt(code)
-    this.status = parseInt(status)
+    this.code = parseInt(code, 10)
+    this.status = parseInt(status, 10)
   }
 }
 
@@ -107,8 +107,8 @@ export function formatArtworkUrl(
   const w = (size || artwork.width) ?? 100
 
   return url
-    .replace('{h}', '' + h)
-    .replace('{w}', '' + w)
+    .replace('{h}', `${h}`)
+    .replace('{w}', `${w}`)
     .replace('{f}', 'jpeg')
 }
 
@@ -163,7 +163,7 @@ export const getMusicWithThumbnails = async () => {
     const promises = response.map(getMusicWithThumnail)
     const thumbnails = await Promise.allSettled(promises)
     const music = thumbnails
-      .map((v) => v.status == 'fulfilled' && v.value)
+      .map((v) => v.status === 'fulfilled' && v.value)
       .filter(Boolean)
 
     return music

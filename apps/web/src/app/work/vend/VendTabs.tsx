@@ -1,13 +1,16 @@
 'use client'
 
-import { ComponentProps, forwardRef, useRef, useState } from 'react'
-
-import { Lato } from 'next/font/google'
-
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import * as RadixTabs from '@radix-ui/react-tabs'
-import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
+import {
+  type MotionValue,
+  motion,
+  useScroll,
+  useTransform,
+} from 'framer-motion'
+import { Lato } from 'next/font/google'
+import { type ComponentProps, forwardRef, useRef, useState } from 'react'
 
 import { ResponsivePreview } from '@/src/components/Preview'
 import { styled } from '@/styled/jsx'
@@ -108,9 +111,9 @@ function TabOverflowDropdownMenu({
               onSelect={() => {
                 onChange(value)
               }}
-              isActive={activeTab == value}
+              isActive={activeTab === value}
             >
-              {activeTab == value && <Highlight vertical />}
+              {activeTab === value && <Highlight vertical />}
               {label}
             </DropdownItem>
           ))}
@@ -351,7 +354,7 @@ export function TabsExample() {
 
   const onChange = (value: string) => {
     setTabValue(value)
-    const index = tabs.findIndex((tab) => tab.value == value)
+    const index = tabs.findIndex((tab) => tab.value === value)
     if (index < 0) return
     tabRefs.current[index]?.scrollIntoView({
       behavior: 'smooth',
@@ -378,7 +381,7 @@ export function TabsExample() {
                 <Tab
                   key={value}
                   value={value}
-                  isActive={value == tabValue}
+                  isActive={value === tabValue}
                   ref={(el) => {
                     tabRefs.current[i] = el
                   }}

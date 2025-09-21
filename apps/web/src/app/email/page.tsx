@@ -1,10 +1,9 @@
 'use client'
 
+import Form from 'next/form'
 import { useActionState } from 'react'
 
-import Form from 'next/form'
-
-import { sendEmail, type State } from '@/src/actions/sendEmail'
+import { type State, sendEmail } from '@/src/actions/sendEmail'
 import { SubmitButton } from '@/src/components/EmailSubscribe'
 import { TextInput } from '@/src/components/TextInput'
 import { HStack } from '@/styled/jsx'

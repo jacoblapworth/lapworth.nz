@@ -1,14 +1,12 @@
 'use client'
 
 import NextLink from 'next/link'
-
 import { ThemeProvider } from 'next-themes'
-
+import { useId } from 'react'
 import { Footer } from '@/src/components/Footer'
 import { Header } from '@/src/components/Header'
 import { Navigation } from '@/src/components/Nav'
 import { styled } from '@/styled/jsx'
-
 import { themeConfig } from './Theme'
 
 const Container = styled('div', {
@@ -61,16 +59,17 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function Page({ hideNav, children, ...rest }: Props) {
+  const id = useId()
   return (
     <ThemeProvider {...themeConfig}>
-      <Skiplink href="#main" tabIndex={0} data-testid="skip-link">
+      <Skiplink href={`#${id}`} tabIndex={0}>
         Skip to main content
       </Skiplink>
 
       <Container>
         <Header />
         {!hideNav && <Navigation />}
-        <Main id="main" data-testid="main" {...rest}>
+        <Main id={id} tabIndex={0} {...rest}>
           {children}
         </Main>
         <Footer />

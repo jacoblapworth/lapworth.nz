@@ -3,13 +3,7 @@
   "compilerOptions": {
     "isolatedModules": false,
     "allowJs": true,
-    "types": [
-      "cypress",
-      "@testing-library/cypress",
-      "cypress-real-events"
-    ]
+    "types": ["cypress", "@testing-library/cypress", "cypress-real-events"]
   },
-  "include": [
-    "**/*.*"
-  ]
+  "include": ["**/*.*"]
 }

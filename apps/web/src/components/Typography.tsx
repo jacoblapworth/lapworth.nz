@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
-import { RecipeVariantProps, cva } from '@/styled/css'
+import { cva, type RecipeVariantProps } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 
 const styles = cva({

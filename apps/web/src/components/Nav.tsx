@@ -1,10 +1,10 @@
 'use client'
-import { ReactNode, useState } from 'react'
-
-import NextLink, { LinkProps } from 'next/link'
-import { usePathname } from 'next/navigation'
 
 import { motion } from 'framer-motion'
+
+import NextLink, { type LinkProps } from 'next/link'
+import { usePathname } from 'next/navigation'
+import { type ReactNode, useState } from 'react'
 
 import { Link } from '@/src/components/Link'
 import { styled } from '@/styled/jsx'
@@ -93,7 +93,13 @@ const NavLink = ({ children, href }: Props) => {
         initial="hidden"
         style={{ marginInlineEnd: 8 }}
       >
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <svg
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          role="presentation"
+        >
           <path
             stroke="currentColor"
             strokeLinecap="round"
@@ -150,17 +156,17 @@ const Row = styled('div', {
     justifySelf: 'stretch',
     alignSelf: 'start',
 
-    [`& ul`]: {
+    '& ul': {
       margin: 0,
       lineHeight: '1.4rem',
     },
 
-    [`& li`]: {
+    '& li': {
       display: 'inline-block',
       whiteSpace: 'pre',
     },
 
-    [`& a`]: {
+    '& a': {
       padding: 'xsm',
       margin: '-xsm',
     },
