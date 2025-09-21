@@ -12,6 +12,7 @@
     "types:gen": "next typegen",
     "types:check": "tsc --noEmit",
     "content": "velite",
+    "content:watch": "velite --watch",
     "tokens": "panda codegen",
     "lint": "biome check",
     "format": "biome check --write"

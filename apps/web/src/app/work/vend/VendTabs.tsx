@@ -9,13 +9,7 @@ import {
 } from 'framer-motion'
 import { ChevronDownIcon } from 'lucide-react'
 import { Lato } from 'next/font/google'
-import {
-  type ComponentProps,
-  type ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import { type ComponentProps, type ReactNode, useRef, useState } from 'react'
 import { ResponsivePreview } from '@/components/Preview'
 import { styled } from '@/styled/jsx'
 
@@ -267,7 +261,6 @@ const TabsRoot = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     margin: 'md',
-    // boxShadow: `0 2px 10px token(colors.primary)`,
   },
 })
 
@@ -372,18 +365,15 @@ export function TabsExample() {
 
   const onChange = (value: string) => {
     setTabValue(value)
-  }
-
-  // Scroll active tab into view when selection changes
-  useEffect(() => {
-    const index = tabs.findIndex((tab) => tab.value === tabValue)
+    const index = tabs.findIndex((tab) => tab.value === value)
     if (index < 0) return
-    tabRefs.current[index]?.scrollIntoView({
+    const tab = tabRefs.current[index]
+    tab?.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'center',
     })
-  }, [tabValue])
+  }
 
   // Ariakit tab store controlled by tabValue
   const tabStore = Ariakit.useTabStore({

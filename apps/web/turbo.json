@@ -10,6 +10,15 @@
       "inputs": ["src/content/**", "velite.config.ts"],
       "outputs": [".velite/**", "public/static/**"]
     },
+    "content:watch": {
+      "dependsOn": ["^content:watch"],
+      "inputs": ["src/content/**", "velite.config.ts"],
+      "outputs": [".velite/**", "public/static/**"],
+      "persistent": true
+    },
+    "dev": {
+      "with": ["content:watch"]
+    },
     "build": {
       "dependsOn": ["tokens", "content", "^build"],
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]

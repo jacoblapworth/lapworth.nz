@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import NextLink from 'next/link'
+
 import { Text } from '@/components/Typography'
 import { work } from '@/content'
 import { styled, VStack } from '@/styled/jsx'
 import { DiscoverTile } from './trademe/DiscoverTile'
 import { VendTabsTile } from './vend/Tile'
+import { Link } from './WorkListItem'
 import { XeroTile } from './xero/XeroTile'
 
 const Layout = styled('div', {
@@ -15,19 +16,6 @@ const Layout = styled('div', {
     gap: 'lg',
     columnGap: 'md',
     // gridTemplateColumns: 'repeat(8, 1fr)',
-  },
-})
-
-const Link = styled(NextLink, {
-  base: {
-    fontSize: 'lg',
-    display: 'flex',
-    flexDirection: 'column',
-    color: 'primary',
-    textDecoration: 'none',
-    _hover: {
-      textDecoration: 'underline',
-    },
   },
 })
 

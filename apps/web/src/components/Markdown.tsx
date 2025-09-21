@@ -3,7 +3,6 @@
 import type { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
 
-import { usePathname } from 'next/navigation'
 import type {
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,
@@ -54,17 +53,17 @@ export const Blockquote = styled('blockquote', {
 type TextProps = ComponentProps<typeof Text>
 
 export const HeadingAnchor = ({ children, ...props }: TextProps) => {
-  const pathname = usePathname()
+  // const pathname = usePathname()
 
   return (
     <Text display css={{ marginBlock: 'lg' }} {...props}>
-      <Link
+      {/* <Link
         href={`${pathname}#${props.id}`}
         sameTab
         css={{ display: 'inline-flex', gap: 'sm', alignItems: 'center' }}
-      >
-        {children}
-      </Link>
+      > */}
+      {children}
+      {/* </Link> */}
     </Text>
   )
 }

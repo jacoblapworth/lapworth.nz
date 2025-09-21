@@ -1,4 +1,5 @@
 import { styled } from '@/styled/jsx'
+import { Link } from './Link'
 
 const Tagline = styled('footer', {
   base: {
@@ -16,5 +17,11 @@ const Tagline = styled('footer', {
 export const Footer = () => {
   const year = new Date().getFullYear()
 
-  return <Tagline>Designed and built by J — Product Designer — {year}</Tagline>
+  return (
+    <Tagline>
+      Designed and{' '}
+      <Link href="https://github.com/jacoblapworth/lapworth.nz">built</Link> by
+      J — Product Designer — {year}
+    </Tagline>
+  )
 }

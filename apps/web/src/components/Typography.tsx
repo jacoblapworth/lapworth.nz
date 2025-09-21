@@ -1,12 +1,12 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 import { cva, type RecipeVariantProps } from '@/styled/css'
-import { styled } from '@/styled/jsx'
+import { type HTMLStyledProps, styled } from '@/styled/jsx'
+import type { JsxStyleProps } from '@/styled/types'
 
 const styles = cva({
   base: {
     color: 'text',
-    // cursor: 'auto',
     fontWeight: 400,
   },
   variants: {
@@ -100,7 +100,8 @@ type TextHTMLElements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'
 export type TextProps<T extends ElementType = TextHTMLElements> = Variants & {
   children?: ReactNode
   as?: T
-} & ComponentPropsWithoutRef<T>
+} & ComponentPropsWithoutRef<T> &
+  JsxStyleProps
 
 export const Text = <T extends ElementType>({ as, ...props }: TextProps<T>) => {
   const tag: ElementType = as ?? 'p'

@@ -2,6 +2,7 @@ import rehypeShiki from '@shikijs/rehype'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypePrettyCode } from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
 
 import { defineCollection, defineConfig, s } from 'velite'
 
@@ -69,6 +70,7 @@ export default defineConfig({
     recipes,
   },
   mdx: {
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypePrettyCode,
       rehypeSlug,
