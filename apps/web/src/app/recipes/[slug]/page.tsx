@@ -14,6 +14,16 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }))
 }
 
+export function generateMetadata({ params }: Props) {
+  return params.then(({ slug }) => {
+    const recipe = getRecipe(slug)
+    if (!recipe) return {}
+    return {
+      title: recipe.title,
+    }
+  })
+}
+
 const Article = styled('article', {
   base: {
     display: 'flex',

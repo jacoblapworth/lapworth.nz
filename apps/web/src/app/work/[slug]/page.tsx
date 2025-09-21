@@ -13,6 +13,20 @@ interface Props {
   }>
 }
 
+export function generateStaticParams() {
+  return work.map((post) => ({ slug: post.slug }))
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
+  if (post == null) return {}
+  return {
+    title: post.title,
+    description: post.description,
+  }
+}
+
 export default async function Page({ params }: Props) {
   const { slug } = await params
   const post = getPostBySlug(slug)

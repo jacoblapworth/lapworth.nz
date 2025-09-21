@@ -112,7 +112,7 @@ export const blockquote = ({ children, ...props }: BlockquoteProps) => (
 
 export const P = styled('p', {
   base: {
-    marginBlockEnd: 2,
+    marginBlockEnd: 'md',
   },
 })
 
@@ -142,7 +142,7 @@ export const Li = styled('li', {
 export const components: MDXComponents = {
   wrapper: Wrapper,
   h1,
-  h2,
+  h2: h2,
   h3,
   a,
   p: P,
@@ -150,5 +150,6 @@ export const components: MDXComponents = {
   ol: Ol,
   li: Li,
   Image,
+  img: Image,
   blockquote,
 }
