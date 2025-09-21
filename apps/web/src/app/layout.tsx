@@ -2,6 +2,7 @@ import './index.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { VercelToolbar } from '@vercel/toolbar/next'
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { ServerThemeProvider, ThemeProvider } from 'next-themes'
@@ -69,6 +70,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const id = useId()
+  const shouldInjectToolbar = process.env.NODE_ENV === 'development'
 
   return (
     <ServerThemeProvider {...themeConfig}>
@@ -104,6 +106,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Analytics />
             <SpeedInsights />
           </ThemeProvider>
+          {shouldInjectToolbar && <VercelToolbar />}
         </body>
       </html>
     </ServerThemeProvider>

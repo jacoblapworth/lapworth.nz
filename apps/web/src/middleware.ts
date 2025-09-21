@@ -1,12 +1,17 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
+import { devmode } from './flags'
 
 export const config = {
   matcher: '/work/:path*',
 }
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith('/work/coming-soon')) {
+    return
+  }
+
+  if (await devmode()) {
     return
   }
 
