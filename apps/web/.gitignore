@@ -2,3 +2,4 @@
 .velite/
 .styled/
 .next/
+.env*.local
