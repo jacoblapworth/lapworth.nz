@@ -8,7 +8,7 @@
     "content": {
       "dependsOn": ["^content"],
       "inputs": ["src/content/**", "velite.config.ts"],
-      "outputs": [".velite/**"]
+      "outputs": [".velite/**", "public/static/**"]
     },
     "build": {
       "dependsOn": ["tokens", "content", "^build"],
