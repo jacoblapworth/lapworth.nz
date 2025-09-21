@@ -7,3 +7,11 @@ export const devmode = flag({
     return false
   },
 })
+
+export const showWork = flag({
+  key: 'work',
+  description: 'Enable the /work pages',
+  decide() {
+    return false
+  },
+})

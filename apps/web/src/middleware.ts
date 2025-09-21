@@ -1,27 +1,37 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
-import { devmode } from './flags'
+import { devmode, showWork } from './flags'
+
+async function shouldRedirectWorkComingSoon(
+  request: NextRequest,
+): Promise<boolean> {
+  if (await showWork()) {
+    return false
+  }
+
+  if (request.nextUrl.pathname.startsWith('/work/coming-soon')) {
+    return false
+  }
+
+  if (!request.nextUrl.pathname.startsWith('/work')) {
+    return false
+  }
+
+  if (await devmode()) {
+    return false
+  }
+
+  return true
+}
 
 export const config = {
   matcher: '/work/:path*',
 }
 
 export async function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith('/work/coming-soon')) {
-    return
+  if (await shouldRedirectWorkComingSoon(request)) {
+    return NextResponse.redirect(new URL(`/work/coming-soon`, request.url))
   }
 
-  if (await devmode()) {
-    return
-  }
-
-  const isPreview =
-    request.cookies.get('preview')?.value === 'true' ||
-    request.nextUrl.searchParams.get('preview') === 'true'
-
-  if (isPreview) {
-    return
-  }
-
-  return NextResponse.redirect(new URL(`/work/coming-soon`, request.url))
+  return NextResponse.next()
 }
