@@ -1,7 +1,7 @@
+import { notFound } from 'next/navigation'
 import { MDXContent } from '@/components/MDX'
 import { recipe } from '@/content'
 import { styled } from '@/styled/jsx'
-import { notFound } from 'next/navigation'
 
 export const dynamicParams = false
 

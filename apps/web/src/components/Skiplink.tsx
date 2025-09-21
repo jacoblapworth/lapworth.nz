@@ -1,7 +1,7 @@
 'use client'
 
-import { styled } from '@/styled/jsx'
 import Link from 'next/link'
+import { styled } from '@/styled/jsx'
 
 export const Skiplink = styled(Link, {
   base: {

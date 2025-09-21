@@ -1,10 +1,10 @@
 'use client'
 
+import NextImage from 'next/image'
+import Link from 'next/link'
 import { Text } from '@/components/Typography'
 import type { Recipe } from '@/content'
 import { styled } from '@/styled/jsx'
-import NextImage from 'next/image'
-import Link from 'next/link'
 
 const Article = styled('article', {
   base: {

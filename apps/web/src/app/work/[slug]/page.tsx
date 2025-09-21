@@ -1,6 +1,6 @@
+import { notFound } from 'next/navigation'
 import { MDXContent } from '@/components/MDX'
 import { work } from '@/content'
-import { notFound } from 'next/navigation'
 import { TabsExample } from '../vend/VendTabs'
 
 function getPostBySlug(slug: string) {

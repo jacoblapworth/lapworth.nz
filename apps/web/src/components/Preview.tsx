@@ -98,7 +98,11 @@ export function ResponsivePreview({
 }: PreviewProps) {
   return (
     <Group style={{ height: 'auto' }}>
-      <Container min={'300px'} default="300px" max={'1200px'}>
+      <Container
+        min={`${minWidth}px`}
+        default={`${width}px`}
+        max={`${maxWidth}px`}
+      >
         {children}
       </Container>
       <Handle size="24px" handleAxis="e" />

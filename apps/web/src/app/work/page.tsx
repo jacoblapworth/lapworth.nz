@@ -1,7 +1,7 @@
-import { work } from '@/content'
-import { styled } from '@/styled/jsx'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { work } from '@/content'
+import { styled } from '@/styled/jsx'
 
 const Layout = styled('div', {
   base: {
