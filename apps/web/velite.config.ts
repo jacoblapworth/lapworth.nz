@@ -1,5 +1,8 @@
 import rehypeShiki from '@shikijs/rehype'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypePrettyCode } from 'rehype-pretty-code'
+import rehypeSlug from 'rehype-slug'
+
 import { defineCollection, defineConfig, s } from 'velite'
 
 const meta = s
@@ -60,7 +63,7 @@ export default defineConfig({
     assets: 'public/static',
     base: '/static/',
     name: '[name]-[hash:6].[ext]',
-    clean: false,
+    clean: true,
   },
   collections: {
     work,
@@ -68,7 +71,17 @@ export default defineConfig({
   },
   mdx: {
     rehypePlugins: [
-      [rehypePrettyCode],
+      rehypePrettyCode,
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ['subheading-anchor'],
+            ariaLabel: 'Link to section',
+          },
+        },
+      ],
       [
         rehypeShiki,
         {
@@ -77,54 +90,4 @@ export default defineConfig({
       ],
     ],
   },
-  // prepare: ({ categories, tags, posts }) => {
-  //   const docs = posts.filter(
-  //     (i) => process.env.NODE_ENV !== 'production' || !i.draft,
-  //   )
-
-  //   // missing categories, tags from posts or courses inlined
-  //   const categoriesFromDoc = Array.from(
-  //     new Set(docs.flatMap((i) => i.categories)),
-  //   ).filter((i) => categories.find((j) => j.name === i) == null)
-  //   categories.push(
-  //     ...categoriesFromDoc.map((name) => ({
-  //       name,
-  //       slug: slugify(name),
-  //       permalink: '',
-  //       count: { total: 0, posts: 0 },
-  //     })),
-  //   )
-  //   for (const category of categories) {
-  //     category.count.posts = posts.filter((j) =>
-  //       j.categories.includes(category.name),
-  //     ).length
-  //     category.count.total = category.count.posts
-  //     category.permalink = `/${category.slug}`
-  //   }
-
-  //   const tagsFromDoc = Array.from(new Set(docs.flatMap((i) => i.tags))).filter(
-  //     (i) => tags.find((j) => j.name === i) == null,
-  //   )
-  //   tags.push(
-  //     ...tagsFromDoc.map((name) => ({
-  //       name,
-  //       slug: slugify(name),
-  //       permalink: '',
-  //       count: { total: 0, posts: 0 },
-  //     })),
-  //   )
-  //   for (const tag of tags) {
-  //     tag.count.posts = posts.filter((j) => j.tags.includes(tag.name)).length
-  //     tag.count.total = tag.count.posts
-  //     tag.permalink = `/${tag.slug}`
-  //   }
-
-  //   // push extra data to collections, it's ok!! but they are not type-safed
-  //   // Object.assign(collections, {
-  //   //   anything: { name: 'Anything', data: { name: 'Anything' } },
-  //   //   list: ['one', 'two', 'three']
-  //   // })
-
-  //   // return false // return false to prevent velite from writing data to disk
-  // },
 })
