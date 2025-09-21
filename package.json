@@ -9,6 +9,7 @@
     "types:check": "turbo run types:check"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.4",
     "turbo": "latest"
   }
 }
