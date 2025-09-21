@@ -1,6 +1,13 @@
 import * as runtime from 'react/jsx-runtime'
 
-import { Li, Ol, P, components as sharedComponents, Ul } from './Markdown'
+import {
+  Image,
+  Li,
+  Ol,
+  P,
+  components as sharedComponents,
+  Ul,
+} from './Markdown'
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code)
@@ -21,6 +28,7 @@ export const MDXContent = ({ code, components }: MDXProps) => {
         ul: Ul,
         ol: Ol,
         p: P,
+        Image,
         ...sharedComponents,
         ...components,
       }}

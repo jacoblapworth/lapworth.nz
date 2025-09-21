@@ -1,5 +1,7 @@
 'use client'
 
+import { ResponsivePreview } from '@/components/Preview'
+import { styled } from '@/styled/jsx'
 import * as Ariakit from '@ariakit/react'
 import {
   type MotionValue,
@@ -16,8 +18,6 @@ import {
   useRef,
   useState,
 } from 'react'
-import { ResponsivePreview } from '@/components/Preview'
-import { styled } from '@/styled/jsx'
 
 const VEND_GREEN = '#41AF4B'
 

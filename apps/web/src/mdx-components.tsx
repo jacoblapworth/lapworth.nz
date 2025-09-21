@@ -1,4 +1,4 @@
-import { components, Li, Ol, P, Ul } from '@/components/Markdown'
+import { components, Image, Li, Ol, P, Ul } from '@/components/Markdown'
 import type { MDXComponents } from 'mdx/types'
 
 export function useMDXComponents(): MDXComponents {
@@ -7,6 +7,7 @@ export function useMDXComponents(): MDXComponents {
     ul: Ul,
     ol: Ol,
     p: P,
+    Image,
     ...components,
   }
 }
