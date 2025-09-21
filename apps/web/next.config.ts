@@ -81,5 +81,5 @@ export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
     sourcemaps: {
       deleteSourcemapsAfterUpload: true,
     },
-  })
+  }),
 )

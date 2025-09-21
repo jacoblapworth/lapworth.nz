@@ -16,12 +16,10 @@ const Layout = styled('div', {
 
 export default function Page() {
   return (
-    <>
-      <Layout>
-        <XeroTile />
-        <DiscoverTile />
-        <VendTabsTile />
-      </Layout>
-    </>
+    <Layout>
+      <XeroTile />
+      <DiscoverTile />
+      <VendTabsTile />
+    </Layout>
   )
 }

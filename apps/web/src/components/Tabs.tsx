@@ -78,7 +78,7 @@ export function TabsExample() {
     <RadixTabs.Root value={currentValue} onValueChange={setValue}>
       <List css={{ marginBlockEnd: 'md' }}>
         {values.map(({ value, label }) => (
-          <Tab key={value} value={value} isActive={value == currentValue}>
+          <Tab key={value} value={value} isActive={value === currentValue}>
             {label}
           </Tab>
         ))}

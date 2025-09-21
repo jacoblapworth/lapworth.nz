@@ -65,5 +65,5 @@ export const PillLink = forwardRef<HTMLAnchorElement, PillLinkProps>(
         <ArrowIcon />
       </Pill>
     )
-  }
+  },
 )

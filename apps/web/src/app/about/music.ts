@@ -87,8 +87,8 @@ export class MKError extends Error {
     this.name = 'MusicKitError'
     this.message = `${title} [${code}] ${detail}`
     this.id = id
-    this.code = parseInt(code)
-    this.status = parseInt(status)
+    this.code = parseInt(code, 10)
+    this.status = parseInt(status, 10)
   }
 }
 
@@ -100,15 +100,15 @@ export enum MusicEndpoint {
 
 export function formatArtworkUrl(
   artwork: MusicKitArtwork,
-  size: number
+  size: number,
 ): string {
   const url = decodeURI(artwork.url)
   const h = (size || artwork.height) ?? 100
   const w = (size || artwork.width) ?? 100
 
   return url
-    .replace('{h}', '' + h)
-    .replace('{w}', '' + w)
+    .replace('{h}', `${h}`)
+    .replace('{w}', `${w}`)
     .replace('{f}', 'jpeg')
 }
 
@@ -132,12 +132,12 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
 }
 
 const getMusicWithThumnail = async (
-  item: MusicKitResource
+  item: MusicKitResource,
 ): Promise<MusicKitResource | undefined> => {
   try {
     const src = formatArtworkUrl(item.attributes.artwork, 24)
     const image = await fetch(src).then(async (res) =>
-      Buffer.from(await res.arrayBuffer())
+      Buffer.from(await res.arrayBuffer()),
     )
     const placeholder = await getPlaiceholder(image)
 
@@ -163,7 +163,7 @@ export const getMusicWithThumbnails = async () => {
     const promises = response.map(getMusicWithThumnail)
     const thumbnails = await Promise.allSettled(promises)
     const music = thumbnails
-      .map((v) => v.status == 'fulfilled' && v.value)
+      .map((v) => v.status === 'fulfilled' && v.value)
       .filter(Boolean)
 
     return music

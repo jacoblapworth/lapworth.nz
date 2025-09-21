@@ -67,7 +67,7 @@ export const XeroTile = () => {
         }}
       />
       <Layout>
-        <Text display size="large" role="text">
+        <Text display size="large">
           <Highlight>Scaling</Highlight> the design system
           <wbr /> at&nbsp;Xero
         </Text>

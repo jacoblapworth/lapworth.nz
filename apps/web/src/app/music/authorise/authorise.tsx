@@ -50,7 +50,7 @@ export function useAppleMusicAuthorisation({
       Sentry.captureException(error)
       console.error(error)
     }
-  }, [client, setAuthorisation])
+  }, [client])
 
   return authorisation
 }

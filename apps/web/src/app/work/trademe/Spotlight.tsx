@@ -192,7 +192,7 @@ interface Spot {
 
 export function Spotlights() {
   const [activeVertical, setActiveVertical] = useState<Vertical | undefined>(
-    undefined
+    undefined,
   )
 
   const onClick = (vertical?: Vertical) => {

@@ -14,10 +14,8 @@ export default function Page() {
   // })
 
   return (
-    <>
-      <Text as="h1" display size="large">
-        {/* {frontmatter.title} */}Test
-      </Text>
-    </>
+    <Text as="h1" display size="large">
+      {/* {frontmatter.title} */}Test
+    </Text>
   )
 }

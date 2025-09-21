@@ -111,9 +111,9 @@ function TabOverflowDropdownMenu({
               onSelect={() => {
                 onChange(value)
               }}
-              isActive={activeTab == value}
+              isActive={activeTab === value}
             >
-              {activeTab == value && <Highlight vertical />}
+              {activeTab === value && <Highlight vertical />}
               {label}
             </DropdownItem>
           ))}
@@ -243,7 +243,7 @@ interface TabProps extends ComponentProps<typeof TabTrigger> {
 
 const Tab = forwardRef<HTMLButtonElement, TabProps>(function Tab(
   { children, isActive, ...rest },
-  ref
+  ref,
 ) {
   return (
     <TabTrigger {...rest} ref={ref}>
@@ -346,15 +346,15 @@ export function TabsExample() {
 
   const overflowStartOpacity = useTransform(
     [scrollX, scrollXProgress],
-    startTransformer
+    startTransformer,
   )
   const overflowEndOpacity = useTransform(scrollXProgress, (v) =>
-    v < 1 ? 1 : 0
+    v < 1 ? 1 : 0,
   )
 
   const onChange = (value: string) => {
     setTabValue(value)
-    const index = tabs.findIndex((tab) => tab.value == value)
+    const index = tabs.findIndex((tab) => tab.value === value)
     if (index < 0) return
     tabRefs.current[index]?.scrollIntoView({
       behavior: 'smooth',
@@ -381,7 +381,7 @@ export function TabsExample() {
                 <Tab
                   key={value}
                   value={value}
-                  isActive={value == tabValue}
+                  isActive={value === tabValue}
                   ref={(el) => {
                     tabRefs.current[i] = el
                   }}

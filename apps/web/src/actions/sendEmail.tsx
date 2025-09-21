@@ -23,7 +23,7 @@ export type State =
 
 export async function sendEmail(
   _prevState: State,
-  formData: FormData
+  formData: FormData,
 ): Promise<State> {
   return await Sentry.withServerActionInstrumentation(
     'sendEmail',
@@ -56,6 +56,6 @@ export async function sendEmail(
         status: 'success',
         id: data.id,
       }
-    }
+    },
   )
 }

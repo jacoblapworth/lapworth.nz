@@ -19,7 +19,10 @@ export interface FormState {
   message: string | null
 }
 
-export async function subscribeEmail(prevState: FormState, formData: FormData) {
+export async function subscribeEmail(
+  _prevState: FormState,
+  formData: FormData,
+) {
   return await Sentry.withServerActionInstrumentation(
     'subscribeEmail',
     {
@@ -73,7 +76,7 @@ export async function subscribeEmail(prevState: FormState, formData: FormData) {
         if (isAxiosError(error)) {
           console.error(
             `Klaviyo error: ${error.response?.statusText}`,
-            error.response?.status
+            error.response?.status,
           )
         } else {
           console.error(error)
@@ -81,6 +84,6 @@ export async function subscribeEmail(prevState: FormState, formData: FormData) {
 
         return { message: 'Unable to subscribe' }
       }
-    }
+    },
   )
 }

@@ -132,7 +132,7 @@ export const SkewTile = ({
   const rotateX = useSpring(useTransform(y1, [0, elH ?? 1], [-1, 1]), config)
   const rotateY = useSpring(
     useTransform(x1, [0, elW ?? 1], [1.5, -1.5]),
-    config
+    config,
   )
 
   return (
