@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <Stack>
-      <Text size="xlarge" display>
+      <Text size="xl" display>
         Coming soon 👀
       </Text>
       <EmailSubscribe />

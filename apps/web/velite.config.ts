@@ -13,7 +13,7 @@ const meta = s
   })
   .default({})
 
-const recipe = defineCollection({
+const recipes = defineCollection({
   name: 'Recipe',
   pattern: 'recipes/**/*.mdx',
   schema: s.object({
@@ -62,11 +62,11 @@ export default defineConfig({
     assets: 'public/static',
     base: '/static/',
     name: '[name]-[hash:6].[ext]',
-    clean: true,
+    clean: false,
   },
   collections: {
     work,
-    recipe,
+    recipes,
   },
   mdx: {
     rehypePlugins: [
@@ -88,5 +88,8 @@ export default defineConfig({
         },
       ],
     ],
+  },
+  prepare: ({ work }) => {
+    work.sort((a, b) => (a.date > b.date ? -1 : 1))
   },
 })

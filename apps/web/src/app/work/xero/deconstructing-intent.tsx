@@ -20,7 +20,7 @@ export const Xero: NextPage<MDXPageProps> = ({ source }) => {
   return (
     <MDXProvider>
       <Grid>
-        <Text as="h1" display size="large">
+        <Text as="h1" display size="lg">
           {source.frontmatter?.title}
         </Text>
         <MDXRemote {...source} scope={{ images }} />

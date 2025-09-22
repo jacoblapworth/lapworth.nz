@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: '%s — Jacob Lapworth',
   },
   description:
-    'A digital product designer, living in Tāmaki Makaurau, Aotearoa — Auckland, New Zealand. Currently scaling the design system at Xero.',
+    'A digital product designer, from Tāmaki Makaurau, Aotearoa — Auckland, New Zealand. Currently looking for work in London.',
   openGraph: {
     type: 'website',
     locale: 'en_NZ',

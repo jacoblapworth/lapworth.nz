@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation'
 import { MDXContent } from '@/components/MDX'
+import { Text } from '@/components/Typography'
 import { work } from '@/content'
+import { VStack } from '@/styled/jsx'
 import { TabsExample } from '../vend/VendTabs'
 
 function getPostBySlug(slug: string) {
@@ -33,5 +35,13 @@ export default async function Page({ params }: Props) {
 
   if (!post) notFound()
 
-  return <MDXContent code={post.content} components={{ TabsExample }} />
+  return (
+    <VStack alignItems="stretch">
+      <Text as="h1" size="xl">
+        {post.title}
+      </Text>
+
+      <MDXContent code={post.content} components={{ TabsExample }} />
+    </VStack>
+  )
 }

@@ -29,7 +29,7 @@ export const RecipeListItem = ({ title, slug, image }: Props) => {
     <Article>
       <Link href={`/recipes/${slug}`}>
         {image && <Image height={300} width={300} src={image} alt={title} />}
-        <Text as="p" size="medium" display>
+        <Text as="p" size="md" display>
           {title}
         </Text>
       </Link>

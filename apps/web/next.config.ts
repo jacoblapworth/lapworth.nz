@@ -19,7 +19,6 @@ if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
 const config: NextConfig = {
   reactStrictMode: true,
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -43,7 +42,7 @@ const config: NextConfig = {
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
-    reactCompiler: true,
+    reactCompiler: false,
   },
 }
 

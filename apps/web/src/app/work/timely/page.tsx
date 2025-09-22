@@ -19,7 +19,7 @@ const Grid = styled('div', {
 export default function Page() {
   return (
     <>
-      <Text display size="xlarge">
+      <Text display size="xl">
         Timely
       </Text>
       <p>Consultations</p>

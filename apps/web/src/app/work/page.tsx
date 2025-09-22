@@ -1,36 +1,65 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Image from 'next/image'
+import NextLink from 'next/link'
+import { Text } from '@/components/Typography'
 import { work } from '@/content'
-import { styled } from '@/styled/jsx'
+import { styled, VStack } from '@/styled/jsx'
+import { DiscoverTile } from './trademe/DiscoverTile'
+import { VendTabsTile } from './vend/Tile'
+import { XeroTile } from './xero/XeroTile'
 
 const Layout = styled('div', {
   base: {
+    marginBlock: 'lg',
     display: 'grid',
     gap: 'lg',
     columnGap: 'md',
-    gridTemplateColumns: 'repeat(8, 1fr)',
+    // gridTemplateColumns: 'repeat(8, 1fr)',
+  },
+})
+
+const Link = styled(NextLink, {
+  base: {
+    fontSize: 'lg',
+    display: 'flex',
+    flexDirection: 'column',
+    color: 'primary',
+    textDecoration: 'none',
+    _hover: {
+      textDecoration: 'underline',
+    },
   },
 })
 
 export const metadata: Metadata = {
   title: 'Work',
   description: 'Xero, Vend, Timely, Trade Me',
-  robots: {
-    index: false,
-  },
 }
 
 export default function Page() {
   return (
-    <Layout>
-      {work.map((item) => (
-        <div key={item.slug}>
-          <Link href={`/work/${item.slug}`}>{item.title}</Link>
-        </div>
-      ))}
-      {/* <XeroTile />
+    <>
+      <VStack alignItems="start">
+        {work.map(({ slug, cover, title, date }) => (
+          <div key={slug}>
+            <Link href={`/work/${slug}`}>
+              {cover && (
+                <Image src={cover} alt={title} width={500} height={300} />
+              )}
+
+              {title}
+              <Text color="tertiary">
+                {new Date(date).toLocaleDateString()}
+              </Text>
+            </Link>
+          </div>
+        ))}
+      </VStack>
+      <Layout>
+        <XeroTile />
         <DiscoverTile />
-        <VendTabsTile /> */}
-    </Layout>
+        <VendTabsTile />
+      </Layout>
+    </>
   )
 }

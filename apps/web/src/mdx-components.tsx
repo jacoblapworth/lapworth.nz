@@ -1,13 +1,33 @@
 import type { MDXComponents } from 'mdx/types'
-import { components, Image, Li, Ol, P, Ul } from '@/components/Markdown'
+import {
+  a,
+  blockquote,
+  components,
+  h1,
+  h2,
+  h3,
+  Image,
+  Li,
+  Ol,
+  P,
+  Ul,
+  Wrapper,
+} from '@/components/Markdown'
 
 export function useMDXComponents(): MDXComponents {
   return {
-    li: Li,
+    wrapper: Wrapper,
+    h1,
+    h2: h2,
+    h3,
+    a,
+    p: P,
     ul: Ul,
     ol: Ol,
-    p: P,
+    li: Li,
     Image,
+    img: Image,
+    blockquote,
     ...components,
   }
 }

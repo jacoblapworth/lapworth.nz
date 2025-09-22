@@ -6,23 +6,23 @@ import { styled } from '@/styled/jsx'
 const styles = cva({
   base: {
     color: 'text',
-    cursor: 'auto',
+    // cursor: 'auto',
     fontWeight: 400,
   },
   variants: {
     size: {
-      small: {
+      sm: {
         fontSize: '0.8rem',
       },
-      medium: {
+      md: {
         fontSize: '1rem',
         lineHeight: '1.5rem',
       },
-      large: {
+      lg: {
         fontSize: '2rem',
         lineHeight: '2rem',
       },
-      xlarge: {
+      xl: {
         fontSize: '3rem',
         lineHeight: '3rem',
       },
@@ -40,7 +40,7 @@ const styles = cva({
   compoundVariants: [
     {
       display: true,
-      size: 'xlarge',
+      size: 'xl',
       css: {
         maxWidth: '25ch',
         fontSize: '4rem',
@@ -55,7 +55,7 @@ const styles = cva({
     },
     {
       display: true,
-      size: 'large',
+      size: 'lg',
       css: {
         fontSize: '2rem',
         lineHeight: '2rem',
@@ -69,7 +69,7 @@ const styles = cva({
     },
     {
       display: true,
-      size: 'medium',
+      size: 'md',
       css: {
         fontSize: '1.4rem',
         sm: {
@@ -79,7 +79,7 @@ const styles = cva({
     },
     {
       display: true,
-      size: 'small',
+      size: 'sm',
       css: {
         fontSize: '1.2rem',
         sm: {
@@ -89,7 +89,7 @@ const styles = cva({
     },
   ],
   defaultVariants: {
-    size: 'medium',
+    size: 'md',
   },
 })
 

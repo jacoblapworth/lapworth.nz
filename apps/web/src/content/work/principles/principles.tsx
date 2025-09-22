@@ -120,10 +120,10 @@ export function Principles() {
     <Container>
       {principles.map(({ value, title, means, outcome, watch }) => (
         <Card key={value}>
-          <Text display size="medium" css={{ color: 'background' }}>
+          <Text display size="md" css={{ color: 'background' }}>
             {title}
           </Text>
-          <Text size="small" css={{ color: 'background' }}>
+          <Text size="sm" css={{ color: 'background' }}>
             Principle {value}
           </Text>
           <ul>
@@ -196,16 +196,16 @@ export function WorldMap() {
   return (
     <Grid>
       <Ul>
-        <Text display size="medium">
+        <Text display size="md">
           8 workshops
         </Text>
-        <Text display size="medium">
+        <Text display size="md">
           7 regions
         </Text>
-        <Text display size="medium">
+        <Text display size="md">
           4 time zones
         </Text>
-        <Text display size="medium">
+        <Text display size="md">
           68 participants
         </Text>
       </Ul>
@@ -240,7 +240,7 @@ export const Page: NextPage<MDXPageProps> = ({ source }) => {
   return (
     <MDXProvider>
       <Grid>
-        <Text as="h1" display size="large">
+        <Text as="h1" display size="lg">
           {source.frontmatter?.title}
         </Text>
         <MDXRemote

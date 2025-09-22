@@ -57,7 +57,7 @@ const Stack = styled('div', {
 export const Experience = () => {
   return (
     <div>
-      <Text as="h2" size="large" display>
+      <Text as="h2" size="lg" display>
         Experience
       </Text>
       <Stack>

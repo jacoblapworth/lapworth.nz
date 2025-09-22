@@ -22,7 +22,7 @@ const HiddenLink = styled(Link, {
 export default function Page() {
   return (
     <Container>
-      <Text size="xlarge" display>
+      <Text size="xl" display>
         Kia ora 👋 Ko Jacob tōku ingoa
       </Text>
       <Text>
@@ -41,14 +41,11 @@ export default function Page() {
           jacob@lapworth.nz
         </Link>
       </Text>
-      <Text size="xlarge" display>
-        Tāmaki Makaurau, Aotearoa —&nbsp;Auckland, New Zealand
-      </Text>
-      <Text size="xlarge" display>
-        London soon ✈️
+      <Text size="xl" display>
+        Looking for work in London
       </Text>
       <Text aria-label="GPS coordinates">-36.862600º, 174.741270º</Text>
-      <Text size="xlarge" display serif>
+      <Text size="xl" display serif>
         Scaling design systems at <Link href="https://xero.com">Xero</Link>
       </Text>
       <HiddenLink rel="me" href="https://mastodon.social/@jacoblapworth">

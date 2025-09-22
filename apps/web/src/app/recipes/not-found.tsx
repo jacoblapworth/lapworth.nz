@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <Text as="h1" display size="xlarge">
+      <Text as="h1" display size="xl">
         You’ve found a lemon 🍋
       </Text>
       <p>Can’t find this recipe</p>

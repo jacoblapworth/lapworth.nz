@@ -81,7 +81,7 @@ const Discover = () => {
   return (
     <Container>
       <Header>
-        <Text as="h1" display size="large">
+        <Text as="h1" display size="lg">
           Discover for Trade Me mobile
         </Text>
         <SearchBar />
@@ -97,7 +97,7 @@ const Discover = () => {
         As these verticals have expanded, Trade Me has struggled to This legacy
         of
       </TextContainer>
-      <Text as="h2" display size="large">
+      <Text as="h2" display size="lg">
         Opportunity
       </Text>
     </Container>

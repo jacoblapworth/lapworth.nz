@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <Text as="h1" display size="xlarge">
+      <Text as="h1" display size="xl">
         404
       </Text>
       <p>
