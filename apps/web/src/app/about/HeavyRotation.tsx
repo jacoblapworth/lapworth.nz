@@ -74,7 +74,7 @@ const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
           src={src}
           htmlWidth={size}
           htmlHeight={size}
-          quality={100}
+          quality={75}
           placeholder="blur"
           blurDataURL={resource.attributes.placeholder}
         />

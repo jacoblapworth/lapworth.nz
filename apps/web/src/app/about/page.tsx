@@ -38,7 +38,7 @@ export default async function Page() {
             I&apos;m J
             <NextImage
               src={ProfileImage}
-              quality={100}
+              quality={75}
               alt="Portrait photo of Jacob"
               placeholder="blur"
               priority
