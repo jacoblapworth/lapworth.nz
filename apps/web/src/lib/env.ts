@@ -14,6 +14,9 @@ const envVariables = z.object({
   ] as const),
   NEXT_PUBLIC_PRODUCTION_URL: z.string(),
   NEXT_PUBLIC_SENTRY_DSN: z.string(),
+  SENTRY_ORG: z.string(),
+  SENTRY_PROJECT: z.string(),
+  SENTRY_AUTH_TOKEN: z.string(),
   RESEND_API_KEY: z.string(),
 })
 
