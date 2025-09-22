@@ -39,7 +39,6 @@ const work = defineCollection({
       title: s.string().max(99),
       slug: s.slug('work'),
       date: s.isodate(),
-      // updated: timestamp(),
       cover: s.image().optional(),
       video: s.file().optional(),
       description: s.string().max(999).optional(),
