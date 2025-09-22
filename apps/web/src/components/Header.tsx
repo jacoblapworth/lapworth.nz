@@ -5,12 +5,12 @@ import { styled } from '@/styled/jsx'
 
 const StyledHeader = styled('header', {
   base: {
-    zIndex: 20,
-    gridArea: 'header',
-    display: 'flex',
     alignItems: 'flex-start',
+    display: 'flex',
+    gridArea: 'header',
     justifyContent: 'space-between',
     padding: 'md',
+    zIndex: 20,
   },
 })
 
@@ -23,7 +23,7 @@ const Text = styled('div', {
 export const Header = () => {
   return (
     <StyledHeader aria-label="Header">
-      <NextLink href="/" aria-label="Home">
+      <NextLink aria-label="Home" href="/">
         <Text>
           Lapworth,
           <em> Jacob</em>

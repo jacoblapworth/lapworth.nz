@@ -20,44 +20,42 @@ import { css, cx } from '@/styled/css'
 const SHINE_SIZE = 650
 
 const shineStyles = css({
-  position: 'absolute',
-  width: SHINE_SIZE,
-  height: SHINE_SIZE,
-  backgroundColor: '#7ee787',
-  filter: 'blur(180px)',
-  borderRadius: '300px',
-  opacity: 0,
-  transition: 'opacity 1.2s cubic-bezier(0.16,1,0.3,1)',
-  mixBlendMode: 'soft-light',
-  willChange: 'transform',
-  zIndex: -1,
-  top: 0,
-  left: 0,
-  userSelect: 'none',
-  pointerEvents: 'none',
-
   _groupHover: {
     opacity: 0.85,
   },
+  backgroundColor: '#7ee787',
+  borderRadius: '300px',
+  filter: 'blur(180px)',
+  height: SHINE_SIZE,
+  left: 0,
+  mixBlendMode: 'soft-light',
+  opacity: 0,
+  pointerEvents: 'none',
+  position: 'absolute',
+  top: 0,
+  transition: 'opacity 1.2s cubic-bezier(0.16,1,0.3,1)',
+  userSelect: 'none',
+  width: SHINE_SIZE,
+  willChange: 'transform',
+  zIndex: -1,
 })
 
 const cardStyles = css({
-  backgroundColor: 'surface',
-  borderRadius: 'lg',
-  borderColor: 'rgba(0, 0, 0, 0.1)',
-  borderWidth: '1px',
-  borderStyle: 'solid',
-  padding: '1rem',
-  overflow: 'hidden',
-  display: 'block',
-  zIndex: 1,
-  position: 'relative',
-  willChange: 'transform',
-  boxSizing: 'border-box',
-
   _dark: {
     borderColor: 'rgba(255, 255, 255, 0.1)',
   },
+  backgroundColor: 'surface',
+  borderColor: 'rgba(0, 0, 0, 0.1)',
+  borderRadius: 'lg',
+  borderStyle: 'solid',
+  borderWidth: '1px',
+  boxSizing: 'border-box',
+  display: 'block',
+  overflow: 'hidden',
+  padding: '1rem',
+  position: 'relative',
+  willChange: 'transform',
+  zIndex: 1,
 })
 
 interface ShineProps {
@@ -125,8 +123,8 @@ export const SkewTile = ({
   }, [x, y, x1, y1, elX, elY])
 
   const config: SpringOptions = {
-    stiffness: 200,
     damping: 30,
+    stiffness: 200,
   }
 
   const rotateX = useSpring(useTransform(y1, [0, elH ?? 1], [-1, 1]), config)
@@ -138,20 +136,20 @@ export const SkewTile = ({
   return (
     <motion.div
       className={cx('group', cardStyles, className)}
+      initial={{
+        rotateX: 0,
+        rotateY: 0,
+      }}
       ref={ref}
       style={{
         rotateX,
         rotateY,
         transformPerspective: 700,
       }}
-      initial={{
-        rotateX: 0,
-        rotateY: 0,
-      }}
       transition={{
-        type: 'spring',
         damping: 10,
         stiffness: 100,
+        type: 'spring',
       }}
       {...rest}
     >

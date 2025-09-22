@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
 export const metadata: Metadata = {
-  title: 'Work',
   description: 'Xero, Vend, Timely, Trade Me',
   robots: {
     index: false,
   },
+  title: 'Work',
 }
 
 interface Props {

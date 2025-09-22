@@ -16,13 +16,13 @@ const Container = styled(
   Panel,
   {
     base: {
+      backgroundColor: 'surface',
       // padding: 'md',
       borderRadius: 'md',
-      backgroundColor: 'surface',
       boxShadow: 'md',
-      position: 'relative',
-      paddingInlineEnd: 'md',
       overflow: 'hidden',
+      paddingInlineEnd: 'md',
+      position: 'relative',
     },
   },
   {
@@ -40,21 +40,14 @@ const Container = styled(
 
 const Handle = styled(PanelResizer, {
   base: {
-    // position: 'absolute',
-    height: '100%',
-    width: '16px',
-    display: 'flex',
-    justifyItems: 'center',
-    alignItems: 'center',
-
     _after: {
-      content: '""',
-      display: 'flex',
       backgroundColor: 'quaternary',
       borderRadius: 'max',
-      width: 4,
+      content: '""',
+      display: 'flex',
       height: 40,
       marginLeft: '6px',
+      width: 4,
     },
 
     _hover: {
@@ -62,22 +55,28 @@ const Handle = styled(PanelResizer, {
         backgroundColor: 'interactive',
       },
     },
+    alignItems: 'center',
+    display: 'flex',
+    // position: 'absolute',
+    height: '100%',
+    justifyItems: 'center',
+    width: '16px',
   },
 
   variants: {
     handleAxis: {
-      s: {},
-      w: {},
       e: {
         // right: 0,
         // top: 0,
         cursor: 'ew-resize',
       },
       n: {},
-      sw: {},
-      nw: {},
-      se: {},
       ne: {},
+      nw: {},
+      s: {},
+      se: {},
+      sw: {},
+      w: {},
     },
   },
 })
@@ -99,13 +98,13 @@ export function ResponsivePreview({
   return (
     <Group style={{ height: 'auto' }}>
       <Container
-        min={`${minWidth}px`}
         default={`${width}px`}
         max={`${maxWidth}px`}
+        min={`${minWidth}px`}
       >
         {children}
       </Container>
-      <Handle size="24px" handleAxis="e" />
+      <Handle handleAxis="e" size="24px" />
       <Panel />
     </Group>
   )

@@ -10,15 +10,15 @@ import { ArrowIcon } from './Icons'
 
 export const ButtonStyles = cva({
   base: {
-    padding: 'sm',
-    cursor: 'pointer',
-    borderColor: 'interactive',
-    borderWidth: '1px',
-    borderStyle: 'solid',
     _hover: {
       backgroundColor: 'interactive',
       color: 'background',
     },
+    borderColor: 'interactive',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    cursor: 'pointer',
+    padding: 'sm',
   },
 })
 
@@ -27,28 +27,28 @@ export const LinkButton = styled(NextLink, ButtonStyles)
 
 const Pill = styled(NextLink, {
   base: {
-    display: 'inline-grid',
-    gridTemplateColumns: '1fr 24px',
-    gridTemplateRows: '1fr',
-    gap: '4px',
-    alignItems: 'center',
-    color: 'interactive',
-    paddingBlock: 4,
-    paddingInline: 'sm',
-    border: '1px solid token(colors.primary)',
     // borderRadius: 'max',
 
     '&:hover': {
       backgroundColor: 'surface',
     },
+    alignItems: 'center',
+    border: '1px solid token(colors.primary)',
+    color: 'interactive',
+    display: 'inline-grid',
+    gap: '4px',
+    gridTemplateColumns: '1fr 24px',
+    gridTemplateRows: '1fr',
+    paddingBlock: 4,
+    paddingInline: 'sm',
   },
 
   variants: {
     inverted: {
       true: {
         '&:hover': {
-          color: 'surface',
           backgroundColor: 'interactive',
+          color: 'surface',
         },
       },
     },

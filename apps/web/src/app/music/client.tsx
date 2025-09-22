@@ -16,14 +16,14 @@ export function useAppleMusic(developerToken: string) {
   useEffect(() => {
     const handleMusicKitLoaded = () => {
       const instance = MusicKit.configure({
-        developerToken,
         app: {
-          name: 'Lapworth.nz',
-          version: packageJson.version,
-          suppressErrorDialog: !isDebug,
           debug: isDebug,
           icon: `${BASE_URL}/static/jacob-icon.png`,
+          name: 'Lapworth.nz',
+          suppressErrorDialog: !isDebug,
+          version: packageJson.version,
         },
+        developerToken,
       })
 
       setClient(instance)

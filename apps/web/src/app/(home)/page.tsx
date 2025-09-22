@@ -22,33 +22,33 @@ const HiddenLink = styled(Link, {
 export default function Page() {
   return (
     <Container>
-      <Text size="xl" display>
+      <Text display size="xl">
         Kia ora 👋 Ko Jacob tōku ingoa
       </Text>
       <Text>
         <Link
-          href="https://instagram.com/jacoblapworth"
           aria-label="Instagram @jacoblapworth"
+          href="https://instagram.com/jacoblapworth"
         >
           @jacoblapworth
         </Link>
         <br />
         <Link
-          sameTab
-          href="mailto:jacob@lapworth.nz"
           aria-label="Email jacob@lapworth.nz"
+          href="mailto:jacob@lapworth.nz"
+          sameTab
         >
           jacob@lapworth.nz
         </Link>
       </Text>
-      <Text size="xl" display>
+      <Text display size="xl">
         Looking for work in London
       </Text>
       <Text aria-label="GPS coordinates">-36.862600º, 174.741270º</Text>
-      <Text size="xl" display serif>
+      <Text display serif size="xl">
         Scaling design systems at <Link href="https://xero.com">Xero</Link>
       </Text>
-      <HiddenLink rel="me" href="https://mastodon.social/@jacoblapworth">
+      <HiddenLink href="https://mastodon.social/@jacoblapworth" rel="me">
         Mastodon
       </HiddenLink>
     </Container>

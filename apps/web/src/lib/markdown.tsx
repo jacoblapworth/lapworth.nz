@@ -10,8 +10,8 @@ import { z } from 'zod'
 import { h1, h2, h3, Image, Wrapper } from '@/components/Markdown'
 
 const Frontmatter = z.object({
-  title: z.string(),
   date: z.optional(z.coerce.string()),
+  title: z.string(),
 })
 
 type Frontmatter = z.infer<typeof Frontmatter>
@@ -39,24 +39,23 @@ export const prepareMDX = async ({
   const source = await fs.readFile(`${filePath}.mdx`, 'utf8')
 
   return compileMDX<Frontmatter>({
-    source,
-    options: {
-      parseFrontmatter: true,
-      mdxOptions: {
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypeSlug],
-      },
-      ...options,
-    },
-
     components: {
-      wrapper: Wrapper,
       h1,
       h2,
       h3,
       Image,
+      wrapper: Wrapper,
       ...components,
     },
+    options: {
+      mdxOptions: {
+        rehypePlugins: [rehypeSlug],
+        remarkPlugins: [remarkGfm],
+      },
+      parseFrontmatter: true,
+      ...options,
+    },
+    source,
     ...rest,
   })
 }

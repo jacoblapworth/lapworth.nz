@@ -28,15 +28,15 @@ export const MDXContent = ({ code, components }: MDXProps) => {
   return (
     <Component
       components={{
+        blockquote: Blockquote,
         h1,
         h2,
         h3,
+        Image,
         li: Li,
-        ul: Ul,
         ol: Ol,
         p: P,
-        blockquote: Blockquote,
-        Image,
+        ul: Ul,
         ...sharedComponents,
         ...components,
       }}

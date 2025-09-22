@@ -6,11 +6,11 @@ import type { StyledVariantProps } from '@/styled/types'
 
 const Input = styled('input', {
   base: {
-    padding: 'sm',
     borderColor: 'interactive',
-    borderWidth: '1px',
     borderStyle: 'solid',
+    borderWidth: '1px',
     marginInlineEnd: '-1px',
+    padding: 'sm',
   },
 
   variants: {
@@ -40,7 +40,7 @@ export function TextInput({ label, hideLabel, ...props }: Props) {
 
   return (
     <VStack alignItems="start">
-      <Label srOnly={hideLabel} htmlFor={id}>
+      <Label htmlFor={id} srOnly={hideLabel}>
         {label}
       </Label>
       <Input id={id} {...props} />

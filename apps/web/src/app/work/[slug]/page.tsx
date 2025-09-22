@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: Props) {
   const post = getPostBySlug(slug)
   if (post == null) return {}
   return {
-    title: post.title,
     description: post.description,
+    title: post.title,
   }
 }
 
@@ -37,7 +37,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <VStack alignItems="stretch">
-      <Text as="h1" size="xl">
+      <Text as="h1" marginBlock="lg" size="xl">
         {post.title}
       </Text>
 

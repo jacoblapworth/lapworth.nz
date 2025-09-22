@@ -9,38 +9,32 @@ import {
 } from 'framer-motion'
 import { ChevronDownIcon } from 'lucide-react'
 import { Lato } from 'next/font/google'
-import {
-  type ComponentProps,
-  type ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import { type ComponentProps, type ReactNode, useRef, useState } from 'react'
 import { ResponsivePreview } from '@/components/Preview'
 import { styled } from '@/styled/jsx'
 
 const VEND_GREEN = '#41AF4B'
 
 const lato = Lato({
-  weight: ['400', '700'],
   subsets: ['latin'],
+  weight: ['400', '700'],
 })
 
 const MenuButton = styled(Ariakit.MenuButton, {
   base: {
-    all: 'unset',
-    color: '#7191A6',
-    display: 'flex',
-    cursor: 'pointer',
-    alignItems: 'center',
-    borderRadius: 'md',
-    paddingInline: 'sm',
-    paddingBlock: 'sm',
-    marginInlineStart: 'sm',
-    alignSelf: 'center',
     _hover: {
       backgroundColor: 'surfaceHovered',
     },
+    alignItems: 'center',
+    alignSelf: 'center',
+    all: 'unset',
+    borderRadius: 'md',
+    color: '#7191A6',
+    cursor: 'pointer',
+    display: 'flex',
+    marginInlineStart: 'sm',
+    paddingBlock: 'sm',
+    paddingInline: 'sm',
   },
 })
 
@@ -53,30 +47,30 @@ const MenuArrow = styled(Ariakit.MenuArrow, {
 const Menu = styled(Ariakit.Menu, {
   base: {
     backgroundColor: 'surface',
-    boxShadow: '0 4px 5px rgba(0,0,0,.35)',
     borderRadius: 5,
-    zIndex: '4',
+    boxShadow: '0 4px 5px rgba(0,0,0,.35)',
+    fontFamily: lato.style.fontFamily,
+    minWidth: 200,
     overflow: 'hidden',
     paddingBlock: 'md',
-    minWidth: 200,
-    fontFamily: lato.style.fontFamily,
+    zIndex: '4',
   },
 })
 
 const MenuItem = styled(Ariakit.MenuItem, {
   base: {
-    cursor: 'pointer',
-    padding: 'md',
-    zIndex: '4',
+    _active: {
+      backgroundColor: 'surfaceHovered',
+      color: VEND_GREEN,
+    },
     _hover: {
       backgroundColor: 'surfaceHovered',
     },
-    _active: {
-      color: VEND_GREEN,
-      backgroundColor: 'surfaceHovered',
-    },
+    cursor: 'pointer',
     display: 'flex',
+    padding: 'md',
     position: 'relative',
+    zIndex: '4',
   },
   variants: {
     isActive: {
@@ -110,15 +104,15 @@ function TabsMenu({ tabs, onChange, activeTab }: DropdownMenuProps) {
         <MenuArrow />
         {tabs.map(({ value, label }) => (
           <MenuItem
+            isActive={activeTab === value}
             key={value}
             onClick={() => onChange(value)}
-            isActive={activeTab === value}
           >
             {activeTab === value && <Highlight vertical />}
             {label}
           </MenuItem>
         ))}
-        <MenuArrow width={16} height={8} />
+        <MenuArrow height={8} width={16} />
       </Menu>
     </Ariakit.MenuProvider>
   )
@@ -132,16 +126,6 @@ interface OverflowIndicatorProps {
 function OverflowIndicator({ direction, opacity }: OverflowIndicatorProps) {
   const Indicator = styled(motion.div, {
     base: {
-      '--width': '10px',
-      height: '100%',
-      overflow: 'hidden',
-      position: 'absolute',
-      zIndex: '3',
-      width: 'var(--width)',
-      transition: 'opacity .2s ease 0s',
-      userSelect: 'none',
-      pointerEvents: 'none',
-
       _before: {
         borderRadius: '100%',
         boxShadow: '0 0 var(--width) rgba(0, 0, 0, 0.35)',
@@ -150,6 +134,15 @@ function OverflowIndicator({ direction, opacity }: OverflowIndicatorProps) {
         position: 'absolute',
         width: '100%',
       },
+      '--width': '10px',
+      height: '100%',
+      overflow: 'hidden',
+      pointerEvents: 'none',
+      position: 'absolute',
+      transition: 'opacity .2s ease 0s',
+      userSelect: 'none',
+      width: 'var(--width)',
+      zIndex: '3',
     },
 
     variants: {
@@ -188,52 +181,51 @@ const Highlight = styled(motion.div, {
   base: {
     backgroundColor: VEND_GREEN,
   },
-  variants: {
-    vertical: {
-      true: {
-        height: '100%',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: 4,
-      },
-      false: {
-        height: 4,
-        position: 'absolute',
-        bottom: 0,
-        width: '100%',
-      },
-    },
-  },
   defaultVariants: {
     vertical: false,
+  },
+  variants: {
+    vertical: {
+      false: {
+        bottom: 0,
+        height: 4,
+        position: 'absolute',
+        width: '100%',
+      },
+      true: {
+        height: '100%',
+        left: 0,
+        position: 'absolute',
+        top: 0,
+        width: 4,
+      },
+    },
   },
 })
 
 const TabTrigger = styled(Ariakit.Tab, {
   base: {
-    all: 'unset',
-    position: 'relative',
-    cursor: 'pointer',
-    flexShrink: 0,
-    minHeight: 48,
-
-    _hover: {
-      color: VEND_GREEN,
-      _before: {
-        content: '',
-        backgroundColor: 'quaternary',
-        height: 4,
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-      },
-    },
-
     _active: {
       color: VEND_GREEN,
     },
+
+    _hover: {
+      _before: {
+        backgroundColor: 'quaternary',
+        bottom: 0,
+        content: '',
+        height: 4,
+        left: 0,
+        position: 'absolute',
+        right: 0,
+      },
+      color: VEND_GREEN,
+    },
+    all: 'unset',
+    cursor: 'pointer',
+    flexShrink: 0,
+    minHeight: 48,
+    position: 'relative',
   },
 })
 
@@ -253,11 +245,11 @@ function Tab({ children, isActive, ref, ...rest }: TabProps) {
 const TabList = styled(Ariakit.TabList, {
   base: {
     display: 'flex',
-    margin: 0,
-    padding: 0,
     gap: '16px 32px',
-    paddingInlineEnd: 'md',
+    margin: 0,
     marginBlockEnd: 'md',
+    padding: 0,
+    paddingInlineEnd: 'md',
     scrollbarColor: 'quaternary',
   },
 })
@@ -267,7 +259,6 @@ const TabsRoot = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     margin: 'md',
-    // boxShadow: `0 2px 10px token(colors.primary)`,
   },
 })
 
@@ -287,17 +278,17 @@ function SkeletonContent() {
 
   const Block = styled('div', {
     base: {
-      borderRadius: 'md',
       backgroundColor: 'quaternary',
+      borderRadius: 'md',
     },
   })
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 0.5, y: 0 }}
       exit={{ opacity: 0, y: -100 }}
-      transition={{ type: 'spring', stiffness: 165, damping: 18 }}
+      initial={{ opacity: 0, y: 100 }}
+      transition={{ damping: 18, stiffness: 165, type: 'spring' }}
     >
       <Layout>
         <Block css={{ height: 48, width: 48 }} />
@@ -312,19 +303,19 @@ function SkeletonContent() {
 
 const TabsContainer = styled('div', {
   base: {
+    boxShadow: 'inset 0 -1px #c9c7ca',
     display: 'flex',
     flexDirection: 'row',
-    boxShadow: 'inset 0 -1px #c9c7ca',
     marginBlockEnd: 'lg',
   },
 })
 
 const ScrollContainer = styled('div', {
   base: {
+    flexGrow: 1,
+    marginBlockEnd: '-md',
     overflowX: 'scroll',
     scrollbarWidth: 'thin',
-    marginBlockEnd: '-md',
-    flexGrow: 1,
   },
 })
 
@@ -360,11 +351,11 @@ function Scroll({
 export function TabsExample() {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
   const tabs: TabItem[] = [
-    { value: 'inventory', label: 'Inventory' },
-    { value: 'tax', label: 'Tax' },
-    { value: 'price-loyalty', label: 'Price & Loyalty' },
-    { value: 'select-images', label: 'Select Images' },
-    { value: 'racs', label: 'RACS' },
+    { label: 'Inventory', value: 'inventory' },
+    { label: 'Tax', value: 'tax' },
+    { label: 'Price & Loyalty', value: 'price-loyalty' },
+    { label: 'Select Images', value: 'select-images' },
+    { label: 'RACS', value: 'racs' },
   ]
 
   const [tabValue, setTabValue] = useState<string>(tabs[0].value)
@@ -372,18 +363,15 @@ export function TabsExample() {
 
   const onChange = (value: string) => {
     setTabValue(value)
-  }
-
-  // Scroll active tab into view when selection changes
-  useEffect(() => {
-    const index = tabs.findIndex((tab) => tab.value === tabValue)
+    const index = tabs.findIndex((tab) => tab.value === value)
     if (index < 0) return
-    tabRefs.current[index]?.scrollIntoView({
+    const tab = tabRefs.current[index]
+    tab?.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'center',
     })
-  }, [tabValue])
+  }
 
   // Ariakit tab store controlled by tabValue
   const tabStore = Ariakit.useTabStore({
@@ -397,15 +385,15 @@ export function TabsExample() {
         <Ariakit.TabProvider store={tabStore}>
           <Scroll
             endElement={
-              <TabsMenu tabs={tabs} onChange={onChange} activeTab={tabValue} />
+              <TabsMenu activeTab={tabValue} onChange={onChange} tabs={tabs} />
             }
           >
             <TabList ref={tabsRef}>
               {tabs.map(({ value, label }, i) => (
                 <Tab
-                  key={value}
                   id={value}
                   isActive={value === tabValue}
+                  key={value}
                   ref={(el) => {
                     tabRefs.current[i] = el
                   }}

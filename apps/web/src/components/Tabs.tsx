@@ -8,13 +8,13 @@ import { styled } from '@/styled/jsx'
 
 export const Trigger = styled(Ariakit.Tab, {
   base: {
-    all: 'unset',
-    cursor: 'pointer',
-    paddingBlock: 'sm',
-    color: 'tertiary',
     _active: {
       color: 'interactive',
     },
+    all: 'unset',
+    color: 'tertiary',
+    cursor: 'pointer',
+    paddingBlock: 'sm',
     position: 'relative',
   },
 })
@@ -22,10 +22,10 @@ export const Trigger = styled(Ariakit.Tab, {
 const HighlightElement = styled('div', {
   base: {
     backgroundColor: 'interactive',
-    height: 1,
-    width: '100%',
-    position: 'absolute',
     bottom: -1,
+    height: 1,
+    position: 'absolute',
+    width: '100%',
   },
 })
 
@@ -43,8 +43,8 @@ function Tab({ children, isActive, ...props }: WrappedTriggerProps) {
         <Highlight
           layoutId="highlight"
           transition={{
-            ease: [0.4, 0, 0.2, 1],
             duration: 0.15,
+            ease: [0.4, 0, 0.2, 1],
           }}
         />
       )}
@@ -55,9 +55,9 @@ function Tab({ children, isActive, ...props }: WrappedTriggerProps) {
 
 export const TabList = styled(Ariakit.TabList, {
   base: {
+    borderBlockEnd: '1px solid token(colors.quaternary)',
     display: 'flex',
     gap: 'md',
-    borderBlockEnd: '1px solid token(colors.quaternary)',
     marginBlockEnd: 'md',
   },
 })
@@ -70,10 +70,10 @@ export function TabsExample() {
   }
 
   const values: Value[] = [
-    { value: '1', label: 'Image generation', content: 'Test' },
-    { value: '2', label: 'Outpainting' },
-    { value: '3', label: 'Inpainting' },
-    { value: '4', label: 'Variations' },
+    { content: 'Test', label: 'Image generation', value: '1' },
+    { label: 'Outpainting', value: '2' },
+    { label: 'Inpainting', value: '3' },
+    { label: 'Variations', value: '4' },
   ]
 
   const [selectedId, setSelectedId] = useState<string | null | undefined>(
@@ -84,7 +84,7 @@ export function TabsExample() {
     <Ariakit.TabProvider selectedId={selectedId} setSelectedId={setSelectedId}>
       <TabList>
         {values.map(({ value, label }) => (
-          <Tab key={value} value={value} isActive={value === selectedId}>
+          <Tab isActive={value === selectedId} key={value} value={value}>
             {label}
           </Tab>
         ))}

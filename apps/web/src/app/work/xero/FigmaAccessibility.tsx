@@ -12,8 +12,8 @@ const Copy = styled('div', {
 
 const Picture = styled('div', {
   base: {
-    gridColumn: '8 / -1',
     boxShadow: '0px 0px 0.5px 0px #00000033, 0px 2px 14px 0px #00000026',
+    gridColumn: '8 / -1',
   },
 })
 
@@ -27,10 +27,10 @@ export const FigmaAccessibility = () => {
 
       <Picture>
         <NextImage
-          className={css({ display: 'flex', objectFit: 'contain' })}
-          src={image}
           alt="Screenshot of Accessibility checklist Figma plugin"
+          className={css({ display: 'flex', objectFit: 'contain' })}
           fill
+          src={image}
         />
       </Picture>
     </div>

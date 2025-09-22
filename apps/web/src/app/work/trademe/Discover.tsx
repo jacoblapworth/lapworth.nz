@@ -6,50 +6,50 @@ import { Spotlights } from './Spotlight'
 
 const Header = styled('div', {
   base: {
-    padding: 16,
-    // marginTop: -200,
-    // paddingTop: 200,
-    backgroundColor: 'hokey-pokey',
     _dark: {
       backgroundColor: 'hokey-pokey.900',
     },
+    // marginTop: -200,
+    // paddingTop: 200,
+    backgroundColor: 'hokey-pokey',
+    padding: 16,
   },
 })
 
 const StyledSearchBar = styled('div', {
   base: {
-    display: 'flex',
-    width: '100%',
-    position: 'relative',
+    backgroundColor: '#fff',
     borderColor: 'transparent',
     borderRadius: 'sm',
-    backgroundColor: '#fff',
     boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+    display: 'flex',
+    position: 'relative',
+    width: '100%',
   },
 })
 
 const StyledInputIcon = styled('div', {
   base: {
+    alignItems: 'center',
+    display: 'flex',
+    height: 32,
+    justifyContent: 'center',
     left: 0,
+    position: 'absolute',
     top: 0,
     width: 32,
-    height: 32,
-    position: 'absolute',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 })
 
 const StyledSearchInput = styled('input', {
   base: {
-    width: '100%',
+    appearance: 'none',
     border: 'none',
-    position: 'relative',
     borderRadius: 'sm',
     padding: 8,
     paddingInlineStart: 40,
-    appearance: 'none',
+    position: 'relative',
+    width: '100%',
   },
 })
 
@@ -72,8 +72,8 @@ const Container = styled('div', {
 
 const TextContainer = styled('p', {
   base: {
-    marginInline: 16,
     cursor: 'auto',
+    marginInline: 16,
   },
 })
 

@@ -18,54 +18,54 @@ import { css } from '@/styled/css'
 import { token } from '@/styled/tokens'
 
 const sectraFont = localFont({
+  display: 'swap',
+  preload: true,
   src: './fonts/sectra/regular.woff',
   variable: '--fonts-serif',
-  preload: true,
   weight: '400',
-  display: 'swap',
 })
 
 const baseUrl = new URL('https://lapworth.nz')
 
 export const metadata: Metadata = {
+  description:
+    'A digital product designer, from Tāmaki Makaurau, Aotearoa — Auckland, New Zealand. Currently looking for work in London.',
   metadataBase: baseUrl,
+  openGraph: {
+    images: [
+      {
+        alt: 'Jacob Lapworth',
+        url: `/static/og-image.png`,
+      },
+    ],
+    locale: 'en_NZ',
+    siteName: 'Jacob Lapworth — Product designer',
+    type: 'website',
+    url: baseUrl,
+  },
   title: {
     default: 'Jacob Lapworth',
     template: '%s — Jacob Lapworth',
   },
-  description:
-    'A digital product designer, from Tāmaki Makaurau, Aotearoa — Auckland, New Zealand. Currently looking for work in London.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_NZ',
-    url: baseUrl,
-    siteName: 'Jacob Lapworth — Product designer',
-    images: [
-      {
-        url: `/static/og-image.png`,
-        alt: 'Jacob Lapworth',
-      },
-    ],
-  },
   twitter: {
-    site: '@jacoblapworth',
     card: 'summary_large_image',
+    site: '@jacoblapworth',
   },
 }
 
 export const viewport: Viewport = {
-  width: 'device-width',
   initialScale: 1,
   themeColor: [
     {
-      media: '(prefers-color-scheme: dark)',
       color: token('colors.black.100'),
+      media: '(prefers-color-scheme: dark)',
     },
     {
-      media: '(prefers-color-scheme: light)',
       color: token('colors.white.10'),
+      media: '(prefers-color-scheme: light)',
     },
   ],
+  width: 'device-width',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -76,27 +76,27 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <ServerThemeProvider {...themeConfig}>
       <html
         className={sectraFont.variable}
-        suppressHydrationWarning={true}
         lang="en"
+        suppressHydrationWarning={true}
       >
         <body
-          key="body"
           className={css({
             backgroundColor: 'background',
             display: 'grid',
             gridTemplateAreas: '"header" "nav" "content" "footer"',
-            gridTemplateRows: 'auto auto 1fr auto',
             gridTemplateColumns: 'auto',
-            minHeight: 'calc(100vh - env(safe-area-inset-bottom))',
+            gridTemplateRows: 'auto auto 1fr auto',
             // minHeight: '-webkit-fill-available',
             marginLeft: 'env(safe-area-inset-left)',
             marginRight: 'env(safe-area-inset-right)',
             maxWidth: '100%',
+            minHeight: 'calc(100vh - env(safe-area-inset-bottom))',
             overflowX: 'hidden',
           })}
+          key="body"
         >
           <ThemeProvider {...themeConfig}>
-            <Skiplink href={`#${id}`} tabIndex={0} data-testid="skip-link">
+            <Skiplink data-testid="skip-link" href={`#${id}`} tabIndex={0}>
               Skip to main content
             </Skiplink>
             <Header />
