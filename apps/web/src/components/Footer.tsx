@@ -1,3 +1,4 @@
+import { useFormatter, useNow } from 'next-intl'
 import { styled } from '@/styled/jsx'
 import { Link } from './Link'
 
@@ -14,14 +15,18 @@ const Tagline = styled('footer', {
   },
 })
 
-export const Footer = () => {
-  const year = new Date().getFullYear()
+export function Footer() {
+  const format = useFormatter()
+  const now = useNow()
 
   return (
     <Tagline>
       Designed and{' '}
       <Link href="https://github.com/jacoblapworth/lapworth.nz">built</Link> by
-      J — Product Designer — {year}
+      J — Product Designer —{' '}
+      {format.dateTime(now, {
+        year: 'numeric',
+      })}
     </Tagline>
   )
 }

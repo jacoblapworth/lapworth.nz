@@ -1,10 +1,10 @@
 import './index.css'
-
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { VercelToolbar } from '@vercel/toolbar/next'
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
+import { NextIntlClientProvider } from 'next-intl'
 import { ServerThemeProvider, ThemeProvider } from 'next-themes'
 import { type ReactNode, useId } from 'react'
 
@@ -96,6 +96,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           key="body"
         >
           <ThemeProvider {...themeConfig}>
+            <NextIntlClientProvider>
             <Skiplink data-testid="skip-link" href={`#${id}`} tabIndex={0}>
               Skip to main content
             </Skiplink>
@@ -105,6 +106,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Footer />
             <Analytics />
             <SpeedInsights />
+            </NextIntlClientProvider>
           </ThemeProvider>
           {shouldInjectToolbar && <VercelToolbar />}
         </body>
