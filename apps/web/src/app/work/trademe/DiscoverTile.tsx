@@ -16,9 +16,9 @@ const Layout = styled('div', {
 
 const VStack = styled('div', {
   base: {
+    alignItems: 'start',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'start',
     gap: 'md',
   },
 })
@@ -34,11 +34,11 @@ export function DiscoverTile() {
         },
       })}
       shineClassName={css({
-        mixBlendMode: 'multiply',
-        backgroundColor: '#FFE18D',
         _dark: {
           mixBlendMode: 'soft-light',
         },
+        backgroundColor: '#FFE18D',
+        mixBlendMode: 'multiply',
       })}
       initial="initial"
       whileHover="hover"

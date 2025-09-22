@@ -3,14 +3,14 @@ import { Link } from './Link'
 
 const Tagline = styled('footer', {
   base: {
-    gridArea: 'footer',
-    paddingBlockStart: '8px',
-    paddingBlockEnd: '12px',
     borderTop: 'divider',
-    fontSize: 'sm',
     color: 'tertiary',
-    marginInline: '16px',
+    fontSize: 'sm',
+    gridArea: 'footer',
     marginBottom: 'env(safe-area-inset-bottom)',
+    marginInline: '16px',
+    paddingBlockEnd: '12px',
+    paddingBlockStart: '8px',
   },
 })
 

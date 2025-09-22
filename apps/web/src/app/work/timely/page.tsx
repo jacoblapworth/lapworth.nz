@@ -29,8 +29,8 @@ export default function Page() {
           src={Img1}
           placeholder="blur"
           style={{
-            maxWidth: '100%',
             height: 'auto',
+            maxWidth: '100%',
           }}
         />
         <NextImage
@@ -38,8 +38,8 @@ export default function Page() {
           src={Img2}
           placeholder="blur"
           style={{
-            maxWidth: '100%',
             height: 'auto',
+            maxWidth: '100%',
           }}
         />
         <NextImage
@@ -47,8 +47,8 @@ export default function Page() {
           src={Img3}
           placeholder="blur"
           style={{
-            maxWidth: '100%',
             height: 'auto',
+            maxWidth: '100%',
           }}
         />
         <NextImage
@@ -56,8 +56,8 @@ export default function Page() {
           src={Img4}
           placeholder="blur"
           style={{
-            maxWidth: '100%',
             height: 'auto',
+            maxWidth: '100%',
           }}
         />
       </Grid>

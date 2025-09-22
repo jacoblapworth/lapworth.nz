@@ -7,33 +7,33 @@ import type { NextConfig } from 'next'
 const withVercelToolbar = createWithVercelToolbar()
 
 const config: NextConfig = {
-  reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '*.mzstatic.com',
-        pathname: '/image/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'oku.ams3.cdn.digitaloceanspaces.com',
-        pathname: '/covers/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'i.gr-assets.com',
-        pathname: '/**',
-      },
-    ],
-    dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-  },
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
     reactCompiler: false,
   },
+  images: {
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    dangerouslyAllowSVG: true,
+    remotePatterns: [
+      {
+        hostname: '*.mzstatic.com',
+        pathname: '/image/**',
+        protocol: 'https',
+      },
+      {
+        hostname: 'oku.ams3.cdn.digitaloceanspaces.com',
+        pathname: '/covers/**',
+        protocol: 'https',
+      },
+      {
+        hostname: 'i.gr-assets.com',
+        pathname: '/**',
+        protocol: 'https',
+      },
+    ],
+  },
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  reactStrictMode: true,
 }
 
 const withMDX = createMDX({
@@ -47,15 +47,15 @@ const withMDX = createMDX({
 
 export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
   withSentryConfig(withVercelToolbar(withMDX(config)), {
+    automaticVercelMonitors: true,
+    disableLogger: true,
     org: process.env.SENTRY_ORG,
     project: process.env.SENTRY_PROJECT,
     silent: !process.env.CI,
-    widenClientFileUpload: true,
-    tunnelRoute: '/monitoring',
-    disableLogger: true,
-    automaticVercelMonitors: true,
     sourcemaps: {
       deleteSourcemapsAfterUpload: true,
     },
+    tunnelRoute: '/monitoring',
+    widenClientFileUpload: true,
   }),
 )

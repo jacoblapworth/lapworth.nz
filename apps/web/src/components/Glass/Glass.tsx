@@ -5,24 +5,26 @@ import { styled } from '@/styled/jsx'
 
 const Container = styled('div', {
   base: {
+    display: 'grid',
+    gridTemplate: '1/1',
+    height: 602,
+    justifyItems: 'stretch',
     // width: '298',
     // height: '100%',
     maxWidth: 298,
-    height: 602,
-    position: 'relative',
-    display: 'grid',
-    gridTemplate: '1/1',
-    placeItems: 'center',
-    placeContent: 'center',
-    justifyItems: 'stretch',
     overflow: 'hidden',
+    placeContent: 'center',
+    placeItems: 'center',
+    position: 'relative',
     // maxHeight: 'clamp(450px, 50vh, 600px)',
   },
 })
 
 const Screen = styled('div', {
   base: {
-    zIndex: 2,
+    backgroundClip: 'border-box',
+    borderRadius: '8vmin',
+    clip: 'auto',
     gridArea: 'container',
     // gridTemplate: 'container',
     // width: '100%',
@@ -40,17 +42,15 @@ const Screen = styled('div', {
     // height: 582,
     // padding: 10,
     margin: 5,
-    borderRadius: '8vmin',
-    backgroundClip: 'border-box',
-    clip: 'auto',
     overflow: 'hidden',
+    zIndex: 2,
   },
 })
 
 const Device = styled('div', {
   base: {
-    zIndex: 3,
     gridArea: 'container',
+    zIndex: 3,
     // width: '100%',
     // height: 'auto',
     // display: 'block',
@@ -64,8 +64,8 @@ const Device = styled('div', {
 
 const Shadow = styled('div', {
   base: {
-    zIndex: 1,
     gridArea: 'container',
+    zIndex: 1,
     // display: 'block',
     // position: 'absolute',
     // left: -199,
@@ -76,8 +76,8 @@ const Shadow = styled('div', {
 })
 
 const styles = css({
-  maxWidth: '100%',
   height: 'auto',
+  maxWidth: '100%',
   objectFit: 'contain',
   // gridArea: '1/1',
   // width: '100%',

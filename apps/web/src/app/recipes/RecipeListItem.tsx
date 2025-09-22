@@ -8,9 +8,9 @@ import { styled } from '@/styled/jsx'
 
 const Article = styled('article', {
   base: {
-    borderWidth: 1,
-    borderStyle: 'solid',
     borderColor: 'interactive',
+    borderStyle: 'solid',
+    borderWidth: 1,
     padding: 'md',
   },
 })

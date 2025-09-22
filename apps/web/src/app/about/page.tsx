@@ -15,8 +15,8 @@ import { Reading } from './Reading'
 export const fetchCache = 'default-cache'
 
 export const metadata: Metadata = {
-  title: 'Senior design systems product designer',
   description: `Hey there! I'm J. I'm a product designer and software engineer focused on community driven design systems.`,
+  title: 'Senior design systems product designer',
 }
 
 export default async function Page() {
@@ -30,9 +30,9 @@ export default async function Page() {
           Hey there!{' '}
           <span
             className={css({
-              whiteSpace: 'nowrap',
-              display: 'inline-flex',
               alignItems: 'baseline',
+              display: 'inline-flex',
+              whiteSpace: 'nowrap',
             })}
           >
             I&apos;m J
@@ -43,15 +43,15 @@ export default async function Page() {
               placeholder="blur"
               priority
               className={css({
-                borderRadius: 'max',
-                overflow: 'hidden',
-                marginInlineStart: '0.2em',
-                height: '0.75em',
-                width: '0.75em',
-                border: '1px dashed transparent',
                 _hover: {
                   borderColor: 'divider',
                 },
+                border: '1px dashed transparent',
+                borderRadius: 'max',
+                height: '0.75em',
+                marginInlineStart: '0.2em',
+                overflow: 'hidden',
+                width: '0.75em',
               })}
             />
           </span>

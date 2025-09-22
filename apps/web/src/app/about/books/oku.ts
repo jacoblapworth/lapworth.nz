@@ -5,10 +5,10 @@ export const OkuSourceSchema = z.enum(['gbooks', 'gdreads', 'recs'])
 export type OkuSource = z.infer<typeof OkuSourceSchema>
 
 export const RatingSchema = z.object({
-  source: OkuSourceSchema,
-  score: z.number(),
-  max_score: z.union([z.number(), z.null()]),
   count: z.number(),
+  max_score: z.union([z.number(), z.null()]),
+  score: z.number(),
+  source: OkuSourceSchema,
   updated: z.coerce.date(),
 })
 
@@ -29,44 +29,44 @@ export type OkuImageLinks = z.infer<typeof OkuImageLinksSchema>
 
 export const OkuAuthorSchema = z.object({
   id: z.number(),
-  name: z.string(),
   image_url: z.string(),
+  name: z.string(),
 })
 
 export type OkuAuthor = z.infer<typeof OkuAuthorSchema>
 
 export const OkuBookSchema = z.object({
-  id: z.string(),
-  title: z.string(),
-  subtitle: z.string(),
-  publishedDate: z.string(),
-  isbn10: z.string(),
-  isbn13: z.string(),
+  addedAt: z.string(),
+  authors: z.array(OkuAuthorSchema),
   description: z.string(),
   descriptionMd: z.string(),
-  pageCount: z.number(),
-  language: z.string(),
+  id: z.string(),
   imageLinks: OkuImageLinksSchema,
+  isbn10: z.string(),
+  isbn13: z.string(),
+  language: z.string(),
+  pageCount: z.number(),
+  publishedDate: z.string(),
   purchaseLinks: z.array(OkuPurchaseLinkSchema),
-  authors: z.array(OkuAuthorSchema),
   ratings: z.array(RatingSchema),
-  thumbnail: z.string().url(),
   slug: z.string(),
+  subtitle: z.string(),
+  thumbnail: z.string().url(),
+  title: z.string(),
   workId: z.string(),
-  addedAt: z.string(),
 })
 
 export type OkuBook = z.infer<typeof OkuBookSchema>
 
 export const OkuReadingSchema = z.object({
-  id: z.string(),
-  listId: z.string(),
+  blurb: z.string(),
   books: z.array(z.unknown()),
   createdAt: z.coerce.date(),
+  id: z.string(),
   key: z.string(),
-  slug: z.string(),
-  blurb: z.string(),
+  listId: z.string(),
   name: z.string(),
+  slug: z.string(),
   visibility: z.string(),
 })
 

@@ -16,26 +16,25 @@ import { styled } from '@/styled/jsx'
 const Grid = styled('div', {
   base: {
     display: 'grid',
-    marginBlock: 'md',
     gap: 'md',
+    marginBlock: 'md',
   },
 })
 
 const Link = styled(NextLink, {
   base: {
-    textDecorationLine: 'underline',
-    textDecorationColor: 'quaternary',
-
     '&:hover': {
       textDecorationColor: 'interactive',
     },
+    textDecorationColor: 'quaternary',
+    textDecorationLine: 'underline',
   },
 })
 
 const Logo = styled(NextImage, {
   base: {
-    display: 'inline',
     borderRadius: 8,
+    display: 'inline',
     height: '1em',
     width: 'auto',
   },
@@ -43,20 +42,20 @@ const Logo = styled(NextImage, {
 
 const Thumbnail = styled(NextImage, {
   base: {
-    width: '100%',
-    maxWidth: 300,
     height: 'auto',
+    maxWidth: 300,
+    width: '100%',
   },
 })
 
 const Container = styled(motion.div, {
   base: {
-    position: 'absolute',
     inset: 0,
+    pointerEvents: 'none',
+    position: 'absolute',
     // backgroundColor: 'gray',
     // zIndex: -1,
     userSelect: 'none',
-    pointerEvents: 'none',
   },
 })
 

@@ -4,20 +4,19 @@ import { styled } from '@/styled/jsx'
 
 const Em = styled('em', {
   base: {
-    display: 'inline-grid',
-    position: 'relative',
-    fontStyle: 'inherit',
     alignItems: 'baseline',
+    display: 'inline-grid',
+    fontStyle: 'inherit',
+    position: 'relative',
     width: 'min-content',
   },
 })
 
 const Span = styled('span', {
   base: {
-    height: '0.25em',
-    maxHeight: '1rem',
-    width: '100%',
-    zIndex: 0,
+    _dark: {
+      mixBlendMode: 'lighten',
+    },
     // position: 'absolute',
     // bottom: 26,
     // '@sm': {
@@ -25,23 +24,24 @@ const Span = styled('span', {
     // },
     alignSelf: 'center',
     display: 'block',
-    mixBlendMode: 'darken',
-    _dark: {
-      mixBlendMode: 'lighten',
-    },
-    overflow: 'visible',
     gridArea: '1/-1',
+    height: '0.25em',
+    maxHeight: '1rem',
+    mixBlendMode: 'darken',
+    overflow: 'visible',
+    width: '100%',
+    zIndex: 0,
   },
 })
 
 const Text = styled('span', {
   base: {
-    inset: '0px',
     display: 'inline-block',
+    gridArea: '1/-1',
+    inset: '0px',
     position: 'relative',
     whiteSpace: 'nowrap',
     zIndex: 1,
-    gridArea: '1/-1',
   },
 })
 

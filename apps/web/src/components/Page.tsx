@@ -13,13 +13,13 @@ const Container = styled('div', {
   base: {
     display: 'grid',
     gridTemplateAreas: '"header" "nav" "content" "footer"',
-    gridTemplateRows: 'auto auto 1fr auto',
     gridTemplateColumns: 'auto',
-    minHeight: 'calc(100vh - env(safe-area-inset-bottom))',
+    gridTemplateRows: 'auto auto 1fr auto',
     // minHeight: '-webkit-fill-available',
     marginLeft: 'env(safe-area-inset-left)',
     marginRight: 'env(safe-area-inset-right)',
     maxWidth: '100%',
+    minHeight: 'calc(100vh - env(safe-area-inset-bottom))',
     overflowX: 'hidden',
   },
 })

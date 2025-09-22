@@ -8,25 +8,25 @@ export const email = 'jacob@lapworth.nz'
 
 export const defaultSEO: NextSeoProps = {
   defaultTitle: 'Jacob Lapworth — Product designer',
-  titleTemplate: '%s — Jacob Lapworth — Product designer',
   description:
     'A digital product designer, living in Tāmaki Makaurau, Aotearoa — Auckland, New Zealand. Currently scaling the design system at Xero.',
   openGraph: {
-    type: 'website',
-    locale: 'en_NZ',
-    url: baseUrl,
-    site_name: 'Jacob Lapworth — Product designer',
     images: [
       {
-        url: `${baseUrl}/static/og-image.png`,
         alt: 'Jacob Lapworth',
+        url: `${baseUrl}/static/og-image.png`,
       },
     ],
+    locale: 'en_NZ',
+    site_name: 'Jacob Lapworth — Product designer',
+    type: 'website',
+    url: baseUrl,
   },
+  titleTemplate: '%s — Jacob Lapworth — Product designer',
   twitter: {
+    cardType: 'summary_large_image',
     handle: '@jacoblapworth',
     site: '@jacoblapworth',
-    cardType: 'summary_large_image',
   },
 }
 

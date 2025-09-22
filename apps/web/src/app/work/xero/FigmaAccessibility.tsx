@@ -12,8 +12,8 @@ const Copy = styled('div', {
 
 const Picture = styled('div', {
   base: {
-    gridColumn: '8 / -1',
     boxShadow: '0px 0px 0.5px 0px #00000033, 0px 2px 14px 0px #00000026',
+    gridColumn: '8 / -1',
   },
 })
 

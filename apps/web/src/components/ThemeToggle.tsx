@@ -30,16 +30,16 @@ const Icon = () => (
 
 const Button = styled(motion.button, {
   base: {
-    fontSize: 'lg',
-    border: '1px solid transparent',
-    borderRadius: 9999,
-    backgroundColor: 'surface',
-    textAlign: 'center',
-    cursor: 'pointer',
-    padding: 'sm',
     _hover: {
       border: 'divider',
     },
+    backgroundColor: 'surface',
+    border: '1px solid transparent',
+    borderRadius: 9999,
+    cursor: 'pointer',
+    fontSize: 'lg',
+    padding: 'sm',
+    textAlign: 'center',
   },
 })
 

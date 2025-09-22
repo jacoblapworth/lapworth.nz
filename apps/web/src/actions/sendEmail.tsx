@@ -37,24 +37,24 @@ export async function sendEmail(
 
       const { data, error } = await resend.emails.send({
         from: 'Lapworth.nz <hello@lapworth.nz>',
-        to: [email],
-        subject: 'Updates from Lapworth.nz',
         react: <HelloEmail />,
+        subject: 'Updates from Lapworth.nz',
         text: 'This is a test',
+        to: [email],
       })
 
       if (error || !data) {
         return {
-          status: 'error',
           error: error?.message ?? 'Unknown error',
+          status: 'error',
         }
       }
 
       console.log(data)
 
       return {
-        status: 'success',
         id: data.id,
+        status: 'success',
       }
     },
   )

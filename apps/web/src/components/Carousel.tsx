@@ -9,17 +9,17 @@ interface WithId {
 
 const Grid = styled('div', {
   base: {
+    alignItems: 'start',
     display: 'grid',
-    gridAutoColumns: 128,
-    gridAutoRows: 'auto',
-    gridAutoFlow: 'column',
     gap: 'md',
+    gridAutoColumns: 128,
+    gridAutoFlow: 'column',
+    gridAutoRows: 'auto',
+    marginInline: -16,
     overflowX: 'scroll',
     overflowY: 'visible',
-    marginInline: -16,
     paddingBlock: 'md',
     paddingInline: 'md',
-    alignItems: 'start',
   },
 })
 

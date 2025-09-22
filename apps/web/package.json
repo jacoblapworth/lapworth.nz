@@ -1,22 +1,4 @@
 {
-  "name": "web",
-  "description": "Kopaki – personal website for J Lapworth",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next --turbo",
-    "build": "next build",
-    "start": "next start",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "types:gen": "next typegen",
-    "types:check": "tsc --noEmit",
-    "content": "velite",
-    "content:watch": "velite --watch",
-    "tokens": "panda codegen",
-    "lint": "biome check",
-    "format": "biome check --write"
-  },
   "dependencies": {
     "@ariakit/react": "0.4.18",
     "@mdx-js/loader": "3.1.1",
@@ -58,6 +40,7 @@
     "shiki": "3.13.0",
     "zod": "4.1.9"
   },
+  "description": "Kopaki – personal website for J Lapworth",
   "devDependencies": {
     "@next/bundle-analyzer": "15.5.3",
     "@pandacss/dev": "1.3.1",
@@ -78,5 +61,22 @@
     "prettier": "3.6.2",
     "typescript": "5.9.2",
     "velite": "0.2.4"
-  }
+  },
+  "name": "web",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "content": "velite build --strict",
+    "content:watch": "velite dev",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "dev": "next --turbo",
+    "format": "biome check --write",
+    "lint": "biome check",
+    "start": "next start",
+    "tokens": "panda codegen",
+    "types:check": "tsc --noEmit",
+    "types:gen": "next typegen"
+  },
+  "version": "0.0.0"
 }

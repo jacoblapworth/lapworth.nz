@@ -6,11 +6,11 @@ import type { StyledVariantProps } from '@/styled/types'
 
 const Input = styled('input', {
   base: {
-    padding: 'sm',
     borderColor: 'interactive',
-    borderWidth: '1px',
     borderStyle: 'solid',
+    borderWidth: '1px',
     marginInlineEnd: '-1px',
+    padding: 'sm',
   },
 
   variants: {

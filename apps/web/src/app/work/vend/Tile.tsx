@@ -14,9 +14,9 @@ const Layout = styled('div', {
 
 const VStack = styled('div', {
   base: {
+    alignItems: 'start',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'start',
     gap: 'md',
   },
 })

@@ -5,12 +5,12 @@ import { styled } from '@/styled/jsx'
 
 const StyledHeader = styled('header', {
   base: {
-    zIndex: 20,
-    gridArea: 'header',
-    display: 'flex',
     alignItems: 'flex-start',
+    display: 'flex',
+    gridArea: 'header',
     justifyContent: 'space-between',
     padding: 'md',
+    zIndex: 20,
   },
 })
 

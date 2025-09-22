@@ -7,11 +7,11 @@ import { styled } from '@/styled/jsx'
 
 const A = styled(NextLink, {
   base: {
-    textDecorationLine: 'underline',
-    textDecorationColor: 'quaternary',
     '&:hover': {
       textDecorationColor: 'interactive',
     },
+    textDecorationColor: 'quaternary',
+    textDecorationLine: 'underline',
   },
 })
 

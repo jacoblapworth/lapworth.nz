@@ -16,18 +16,18 @@ const Layout = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    maxWidth: '75ch',
     paddingBlock: 'lg',
     paddingInline: 'md',
-    maxWidth: '75ch',
   },
 })
 
 const Footer = styled('div', {
   base: {
-    margin: 'md',
+    alignItems: 'end',
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'end',
+    margin: 'md',
   },
 })
 
@@ -35,27 +35,27 @@ export const XeroTile = () => {
   return (
     <SkewTile
       className={css({
-        gridColumn: '1/-1',
-        sm: {
-          gridColumn: '1/7',
-        },
-
-        lg: {
-          gridColumn: '1/5',
+        _dark: {
+          backgroundColor: '#111e2b',
         },
 
         backgroundColor: '#fff',
         borderColor: '#d8eeee',
-        _dark: {
-          backgroundColor: '#111e2b',
+        gridColumn: '1/-1',
+
+        lg: {
+          gridColumn: '1/5',
+        },
+        sm: {
+          gridColumn: '1/7',
         },
       })}
       shineClassName={css({
-        mixBlendMode: 'multiply',
-        backgroundColor: '#BBF3FD',
         _dark: {
           mixBlendMode: 'soft-light',
         },
+        backgroundColor: '#BBF3FD',
+        mixBlendMode: 'multiply',
       })}
     >
       <NextImage
@@ -64,8 +64,8 @@ export const XeroTile = () => {
         width={48}
         src={logo as StaticImageData}
         style={{
-          maxWidth: '100%',
           height: 'auto',
+          maxWidth: '100%',
         }}
       />
       <Layout>

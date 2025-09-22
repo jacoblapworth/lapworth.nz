@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: Props) {
   const post = getPostBySlug(slug)
   if (post == null) return {}
   return {
-    title: post.title,
     description: post.description,
+    title: post.title,
   }
 }
 

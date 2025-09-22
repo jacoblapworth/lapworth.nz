@@ -10,24 +10,15 @@ import { styled } from '@/styled/jsx'
 
 const A = styled(NextLink, {
   base: {
-    '--highlight-width': '20px',
-    paddingBlock: 8,
-    borderBottom: 'divider',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    position: 'relative',
-    textDecoration: 'none',
-
     _after: {
-      content: '""',
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      height: '2px',
-      width: '0px',
       backgroundColor: 'divider',
+      bottom: 0,
+      content: '""',
+      height: '2px',
+      left: 0,
+      position: 'absolute',
       transition: 'width 0.1s ease-in-out',
+      width: '0px',
     },
 
     _first: {
@@ -35,13 +26,20 @@ const A = styled(NextLink, {
     },
 
     _hover: {
-      backgroundColor: 'surfaceHovered',
-      textDecoration: 'none',
-
       _after: {
         width: 'var(--highlight-width)',
       },
+      backgroundColor: 'surfaceHovered',
+      textDecoration: 'none',
     },
+    '--highlight-width': '20px',
+    alignItems: 'center',
+    borderBottom: 'divider',
+    display: 'flex',
+    justifyContent: 'space-between',
+    paddingBlock: 8,
+    position: 'relative',
+    textDecoration: 'none',
   },
   variants: {
     isActive: {
@@ -64,8 +62,8 @@ const NavLink = ({ children, href }: Props) => {
   const pathname = usePathname()
 
   const variants = {
-    visible: { rotate: 0, opacity: 1 },
-    hidden: { rotate: -90, opacity: 0 },
+    hidden: { opacity: 0, rotate: -90 },
+    visible: { opacity: 1, rotate: 0 },
   }
 
   const onPointerOver = () => {
@@ -121,22 +119,9 @@ const NavLinks = () => {
 
 const Row = styled('div', {
   base: {
-    fontSize: 13,
-    paddingBlock: 8,
-    borderBottom: '1px solid token(colors.divider)',
-    gridColumn: '1 / span 2',
-    md: {
-      borderTop: '1px solid token(colors.divider)',
-    },
-    sm: {
-      gridColumn: 'span 1',
-    },
-    justifySelf: 'stretch',
-    alignSelf: 'start',
-
-    '& ul': {
-      margin: 0,
-      lineHeight: '1.4rem',
+    '& a': {
+      margin: '-xsm',
+      padding: 'xsm',
     },
 
     '& li': {
@@ -144,37 +129,49 @@ const Row = styled('div', {
       whiteSpace: 'pre',
     },
 
-    '& a': {
-      padding: 'xsm',
-      margin: '-xsm',
+    '& ul': {
+      lineHeight: '1.4rem',
+      margin: 0,
+    },
+    alignSelf: 'start',
+    borderBottom: '1px solid token(colors.divider)',
+    fontSize: 13,
+    gridColumn: '1 / span 2',
+    justifySelf: 'stretch',
+    md: {
+      borderTop: '1px solid token(colors.divider)',
+    },
+    paddingBlock: 8,
+    sm: {
+      gridColumn: 'span 1',
     },
   },
 })
 
 const socialLinks = [
   {
-    name: 'Twitter',
     href: 'https://twitter.com/jacoblapworth',
+    name: 'Twitter',
   },
   {
-    name: 'Instagram',
     href: 'https://instagram.com/jacoblapworth',
+    name: 'Instagram',
   },
   {
-    name: 'LinkedIn',
     href: 'https://linkedin.com/in/jacoblapworth',
+    name: 'LinkedIn',
   },
   {
-    name: 'Github',
     href: 'https://github.com/jacoblapworth',
+    name: 'Github',
   },
   {
-    name: 'Apple Music',
     href: 'https://music.apple.com/profile/jacoblapworth',
+    name: 'Apple Music',
   },
   {
-    name: 'Email',
     href: 'mailto:jacob@lapworth.nz',
+    name: 'Email',
   },
 ]
 
@@ -197,15 +194,15 @@ const Description = () => {
 
 const Nav = styled('nav', {
   base: {
-    gridArea: 'nav',
     display: 'grid',
     gap: 0,
+    gridArea: 'nav',
     gridTemplateColumns: 'repeat(2, 1fr)',
+    marginInline: 16,
     md: {
       gap: 16,
       gridTemplateColumns: 'repeat(4, 1fr)',
     },
-    marginInline: 16,
   },
 })
 

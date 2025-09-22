@@ -37,8 +37,8 @@ export function HelloEmail() {
       <Hr
         style={{
           borderColor: 'rgb(209,213,219) !important',
-          marginTop: '16px',
           marginBottom: '16px',
+          marginTop: '16px',
         }}
       />
       <Section

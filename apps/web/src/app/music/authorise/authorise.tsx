@@ -35,7 +35,7 @@ export function useAppleMusicAuthorisation({
     const authorize = async () => {
       const userToken = await client?.authorize()
       if (!userToken) {
-        setAuthorisation({ state: 'error', error: 'Failed to authorize' })
+        setAuthorisation({ error: 'Failed to authorize', state: 'error' })
 
         return
       }

@@ -1,9 +1,9 @@
 {
   "extends": ["//"],
   "tasks": {
-    "tokens": {
-      "dependsOn": ["^tokens"],
-      "outputs": [".styled/**"]
+    "build": {
+      "dependsOn": ["tokens", "content", "^build"],
+      "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
     },
     "content": {
       "dependsOn": ["^content"],
@@ -19,9 +19,9 @@
     "dev": {
       "with": ["content:watch"]
     },
-    "build": {
-      "dependsOn": ["tokens", "content", "^build"],
-      "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
+    "tokens": {
+      "dependsOn": ["^tokens"],
+      "outputs": [".styled/**"]
     }
   }
 }

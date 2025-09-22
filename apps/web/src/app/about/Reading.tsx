@@ -10,17 +10,17 @@ import type { OkuBookWithThumbnail } from './books/oku'
 
 const BookCover = styled(NextImage, {
   base: {
-    overflow: 'hidden',
-    borderRadius: 'md',
-    backgroundColor: 'surface',
-    marginBlockEnd: 'xsm',
-    willChange: 'transform',
     _groupHover: {
       opacity: 0.8,
     },
     _hover: {
       opacity: 0.8,
     },
+    backgroundColor: 'surface',
+    borderRadius: 'md',
+    marginBlockEnd: 'xsm',
+    overflow: 'hidden',
+    willChange: 'transform',
   },
 })
 
@@ -32,12 +32,12 @@ const Label = styled('div', {
   variants: {
     variant: {
       primary: {
-        fontSize: 'md',
         color: 'primary',
+        fontSize: 'md',
       },
       secondary: {
-        fontSize: 'sm',
         color: 'tertiary',
+        fontSize: 'sm',
       },
     },
   },

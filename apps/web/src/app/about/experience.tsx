@@ -25,9 +25,9 @@ const Column = styled('div', {
 const Row = styled('div', {
   base: {
     display: 'grid',
+    gap: '1rem',
     gridTemplateColumns: '1fr 1fr',
     placeItems: 'start',
-    gap: '1rem',
   },
 })
 

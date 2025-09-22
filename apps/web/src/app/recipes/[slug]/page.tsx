@@ -25,9 +25,9 @@ export async function generateMetadata({ params }: Props) {
 
 const Article = styled('article', {
   base: {
+    alignItems: 'start',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'start',
     gap: 'md',
   },
 })
