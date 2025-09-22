@@ -26,7 +26,7 @@ export const Link = ({ children, href, sameTab, ...rest }: Props) => {
   const rel = sameTab ? undefined : 'noopener noreferrer'
 
   return (
-    <A target={target} rel={rel} href={href} {...rest}>
+    <A href={href} rel={rel} target={target} {...rest}>
       {children}
     </A>
   )

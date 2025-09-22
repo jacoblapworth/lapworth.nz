@@ -93,29 +93,29 @@ const Glass = () => {
     <Container>
       <Screen>
         <NextImage
-          src="/static/glass/share_screen__esashqzqkwa6_medium_2x.jpg"
           alt="Screenshot"
-          width="298"
-          height="602"
           className={styles}
+          height="602"
+          src="/static/glass/share_screen__esashqzqkwa6_medium_2x.jpg"
+          width="298"
         />
       </Screen>
       <Device>
         <NextImage
-          src="/static/glass/iphone_hardware_zoomed__flki3nqhzhqq_medium_2x.png"
           alt=""
-          width="298"
-          height="602"
           className={styles}
+          height="602"
+          src="/static/glass/iphone_hardware_zoomed__flki3nqhzhqq_medium_2x.png"
+          width="298"
         />
       </Device>
       <Shadow>
         <NextImage
-          src="/static/glass/iphone_shadow_zoomed__cb8yk1kh8qly_medium_2x.png"
           alt=""
-          width="696"
-          height="776"
           className={styles}
+          height="776"
+          src="/static/glass/iphone_shadow_zoomed__cb8yk1kh8qly_medium_2x.png"
+          width="696"
         />
       </Shadow>
     </Container>

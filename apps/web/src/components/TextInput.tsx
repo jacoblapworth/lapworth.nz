@@ -40,7 +40,7 @@ export function TextInput({ label, hideLabel, ...props }: Props) {
 
   return (
     <VStack alignItems="start">
-      <Label srOnly={hideLabel} htmlFor={id}>
+      <Label htmlFor={id} srOnly={hideLabel}>
         {label}
       </Label>
       <Input id={id} {...props} />

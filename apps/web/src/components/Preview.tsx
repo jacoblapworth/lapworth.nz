@@ -98,13 +98,13 @@ export function ResponsivePreview({
   return (
     <Group style={{ height: 'auto' }}>
       <Container
-        min={`${minWidth}px`}
         default={`${width}px`}
         max={`${maxWidth}px`}
+        min={`${minWidth}px`}
       >
         {children}
       </Container>
-      <Handle size="24px" handleAxis="e" />
+      <Handle handleAxis="e" size="24px" />
       <Panel />
     </Group>
   )

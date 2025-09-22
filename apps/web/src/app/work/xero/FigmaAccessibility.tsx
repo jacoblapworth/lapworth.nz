@@ -27,10 +27,10 @@ export const FigmaAccessibility = () => {
 
       <Picture>
         <NextImage
-          className={css({ display: 'flex', objectFit: 'contain' })}
-          src={image}
           alt="Screenshot of Accessibility checklist Figma plugin"
+          className={css({ display: 'flex', objectFit: 'contain' })}
           fill
+          src={image}
         />
       </Picture>
     </div>

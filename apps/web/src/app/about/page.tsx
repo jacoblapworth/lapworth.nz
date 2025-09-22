@@ -26,7 +26,7 @@ export default async function Page() {
   return (
     <>
       <div className={css({ maxWidth: '1000px' })}>
-        <Text size="xl" display>
+        <Text display size="xl">
           Hey there!{' '}
           <span
             className={css({
@@ -37,11 +37,7 @@ export default async function Page() {
           >
             I&apos;m J
             <NextImage
-              src={ProfileImage}
-              quality={75}
               alt="Portrait photo of Jacob"
-              placeholder="blur"
-              priority
               className={css({
                 _hover: {
                   borderColor: 'divider',
@@ -53,16 +49,20 @@ export default async function Page() {
                 overflow: 'hidden',
                 width: '0.75em',
               })}
+              placeholder="blur"
+              priority
+              quality={75}
+              src={ProfileImage}
             />
           </span>
         </Text>
 
-        <Text size="lg" display>
+        <Text display size="lg">
           I&apos;m a senior product designer and software engineer focused on
           community-driven design systems.
         </Text>
 
-        <Text size="md" display>
+        <Text display size="md">
           Find me in the{' '}
           <Link href="https://instagram.com/platesbyjacob">kitchen</Link> when
           I&apos;m not working.

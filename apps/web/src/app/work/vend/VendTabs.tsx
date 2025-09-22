@@ -104,15 +104,15 @@ function TabsMenu({ tabs, onChange, activeTab }: DropdownMenuProps) {
         <MenuArrow />
         {tabs.map(({ value, label }) => (
           <MenuItem
+            isActive={activeTab === value}
             key={value}
             onClick={() => onChange(value)}
-            isActive={activeTab === value}
           >
             {activeTab === value && <Highlight vertical />}
             {label}
           </MenuItem>
         ))}
-        <MenuArrow width={16} height={8} />
+        <MenuArrow height={8} width={16} />
       </Menu>
     </Ariakit.MenuProvider>
   )
@@ -285,9 +285,9 @@ function SkeletonContent() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 0.5, y: 0 }}
       exit={{ opacity: 0, y: -100 }}
+      initial={{ opacity: 0, y: 100 }}
       transition={{ damping: 18, stiffness: 165, type: 'spring' }}
     >
       <Layout>
@@ -385,15 +385,15 @@ export function TabsExample() {
         <Ariakit.TabProvider store={tabStore}>
           <Scroll
             endElement={
-              <TabsMenu tabs={tabs} onChange={onChange} activeTab={tabValue} />
+              <TabsMenu activeTab={tabValue} onChange={onChange} tabs={tabs} />
             }
           >
             <TabList ref={tabsRef}>
               {tabs.map(({ value, label }, i) => (
                 <Tab
-                  key={value}
                   id={value}
                   isActive={value === tabValue}
+                  key={value}
                   ref={(el) => {
                     tabRefs.current[i] = el
                   }}

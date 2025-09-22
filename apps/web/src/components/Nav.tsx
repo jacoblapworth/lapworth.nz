@@ -79,16 +79,16 @@ const NavLink = ({ children, href }: Props) => {
   return (
     <A
       href={href}
-      onPointerOver={onPointerOver}
-      onPointerLeave={onPointerLeave}
       isActive={isActive}
+      onPointerLeave={onPointerLeave}
+      onPointerOver={onPointerOver}
     >
       {children}
       <motion.div
-        variants={variants}
         animate={animate}
         initial="hidden"
         style={{ marginInlineEnd: 8 }}
+        variants={variants}
       >
         <ArrowRightIcon />
       </motion.div>

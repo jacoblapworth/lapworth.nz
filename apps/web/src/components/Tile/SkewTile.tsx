@@ -136,15 +136,15 @@ export const SkewTile = ({
   return (
     <motion.div
       className={cx('group', cardStyles, className)}
+      initial={{
+        rotateX: 0,
+        rotateY: 0,
+      }}
       ref={ref}
       style={{
         rotateX,
         rotateY,
         transformPerspective: 700,
-      }}
-      initial={{
-        rotateX: 0,
-        rotateY: 0,
       }}
       transition={{
         damping: 10,

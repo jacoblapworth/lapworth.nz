@@ -55,7 +55,7 @@ export const HeadingAnchor = ({ children, ...props }: TextProps) => {
   // const pathname = usePathname()
 
   return (
-    <Text display css={{ marginBlock: 'lg' }} {...props}>
+    <Text css={{ marginBlock: 'lg' }} display {...props}>
       {/* <Link
         href={`${pathname}#${props.id}`}
         sameTab

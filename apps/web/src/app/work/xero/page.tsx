@@ -90,7 +90,7 @@ export default function Page() {
       <Background />
       <Text as="h1" display size="lg">
         Xero User Interface
-        <Logo src={xuiLogo as StaticImageData} alt="XUI logo" />
+        <Logo alt="XUI logo" src={xuiLogo as StaticImageData} />
       </Text>
       <Text display size="md">
         Design system for beautiful business
@@ -111,7 +111,7 @@ export default function Page() {
         <Link href="/work/xero/principles">
           Experience design principles for cohesive decision making
         </Link>
-        <Thumbnail src={figmaPlugin} alt="" />
+        <Thumbnail alt="" src={figmaPlugin} />
         <Link href="/work/xero/figma-plugin">
           Bringing documentation and tools to Figma
         </Link>

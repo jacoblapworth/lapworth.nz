@@ -25,8 +25,8 @@ export default function Page() {
       <Grid>
         <NextImage
           alt=""
+          placeholder="blur"
           src={Img1}
-          placeholder="blur"
           style={{
             height: 'auto',
             maxWidth: '100%',
@@ -34,8 +34,8 @@ export default function Page() {
         />
         <NextImage
           alt=""
+          placeholder="blur"
           src={Img2}
-          placeholder="blur"
           style={{
             height: 'auto',
             maxWidth: '100%',
@@ -43,8 +43,8 @@ export default function Page() {
         />
         <NextImage
           alt=""
-          src={Img3}
           placeholder="blur"
+          src={Img3}
           style={{
             height: 'auto',
             maxWidth: '100%',

@@ -67,16 +67,16 @@ const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
   const src = buildImageUrl(resource.attributes.artwork.url, size)
 
   return (
-    <Link href={resource.attributes.url} className="group">
+    <Link className="group" href={resource.attributes.url}>
       <Stack>
         <AlbumArt
           alt={`Album artwork for "${name}"`}
-          src={src}
-          htmlWidth={size}
-          htmlHeight={size}
-          quality={75}
-          placeholder="blur"
           blurDataURL={resource.attributes.placeholder}
+          htmlHeight={size}
+          htmlWidth={size}
+          placeholder="blur"
+          quality={75}
+          src={src}
         />
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>
@@ -92,11 +92,11 @@ interface HeavyRotationProps {
 export const HeavyRotation = ({ music }: HeavyRotationProps) => {
   return (
     <Carousel
-      title="Currently vibing to"
       items={music}
       renderItem={(item) => (
         <AppleMusicResource key={item.id} resource={item} />
       )}
+      title="Currently vibing to"
     />
   )
 }

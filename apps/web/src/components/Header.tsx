@@ -23,7 +23,7 @@ const Text = styled('div', {
 export const Header = () => {
   return (
     <StyledHeader aria-label="Header">
-      <NextLink href="/" aria-label="Home">
+      <NextLink aria-label="Home" href="/">
         <Text>
           Lapworth,
           <em> Jacob</em>

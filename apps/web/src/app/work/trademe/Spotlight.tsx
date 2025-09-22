@@ -114,9 +114,9 @@ const Icon: FC<VerticalIconProps> = ({ vertical, isActive }) => {
     return (
       <motion.div
         // transition
-        initial={{ opacity: 0, rotateZ: -90 }}
         animate={{ opacity: 1, rotateZ: 0 }}
         exit={{ opacity: 0, rotateZ: 90 }}
+        initial={{ opacity: 0, rotateZ: -90 }}
       >
         <CrossIcon />
       </motion.div>
@@ -158,10 +158,10 @@ const Spot: FC<SpotProps> = ({
   }
 
   return (
-    <Button onClick={onClick} animate {...rest}>
-      <Circle vertical={vertical} isActive={isActive}>
+    <Button animate onClick={onClick} {...rest}>
+      <Circle isActive={isActive} vertical={vertical}>
         <AnimatePresence>
-          <Icon vertical={vertical} isActive={isActive} />
+          <Icon isActive={isActive} vertical={vertical} />
         </AnimatePresence>
       </Circle>
       <Label>{label}</Label>
@@ -196,11 +196,11 @@ export function Spotlights() {
     <Grid layout>
       {verticals.map((vertical) => (
         <Spot
+          isActive={activeVertical === vertical}
           key={vertical}
           label={vertical}
-          vertical={vertical}
-          isActive={activeVertical === vertical}
           onClick={onClick}
+          vertical={vertical}
         />
       ))}
     </Grid>
@@ -210,12 +210,12 @@ export function Spotlights() {
 export const MarketplaceSpotlights = () => {
   return (
     <Spot
-      label={'Marketplace'}
-      vertical={verticals[0]}
       isActive={true}
+      label={'Marketplace'}
       onClick={() => {
         return
       }}
+      vertical={verticals[0]}
     />
   )
 }

@@ -17,14 +17,14 @@ export default function Page() {
 
   return (
     <Form action={action}>
-      <HStack gap={0} alignItems="end">
+      <HStack alignItems="end" gap={0}>
         <TextInput
+          autoComplete="email"
           label="Email"
           name="email"
-          type="email"
-          autoComplete="email"
           placeholder="Email"
           required
+          type="email"
         />
         <SubmitButton>Send</SubmitButton>
       </HStack>

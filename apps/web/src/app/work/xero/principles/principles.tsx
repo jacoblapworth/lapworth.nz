@@ -119,10 +119,10 @@ export function Principles() {
     <Container>
       {principles.map(({ value, title, means, outcome, watch }) => (
         <Card key={value}>
-          <Text display size="md" css={{ color: 'background' }}>
+          <Text css={{ color: 'background' }} display size="md">
             {title}
           </Text>
-          <Text size="sm" css={{ color: 'background' }}>
+          <Text css={{ color: 'background' }} size="sm">
             Principle {value}
           </Text>
           <ul>
@@ -151,7 +151,7 @@ export function Disciplines() {
     },
   })
 
-  return <Image src={disciplines} alt="" />
+  return <Image alt="" src={disciplines} />
 }
 
 export function WorldMap() {
@@ -210,16 +210,16 @@ export function WorldMap() {
       </Ul>
       <Picture>
         <source
-          srcSet={(worldMapDark as StaticImageData).src}
           media="(prefers-color-scheme: dark)"
+          srcSet={(worldMapDark as StaticImageData).src}
         />
         <source
-          srcSet={(worldMap as StaticImageData).src}
           media="(prefers-color-scheme: light)"
+          srcSet={(worldMap as StaticImageData).src}
         />
         <Image
-          src={worldMapDark as StaticImageData}
           alt="Map of world highlighting 7 locations"
+          src={worldMapDark as StaticImageData}
         />
       </Picture>
     </Grid>

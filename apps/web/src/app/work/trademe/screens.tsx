@@ -24,8 +24,8 @@ export const TradeMe: NextPage = () => {
       <Grid>
         <NextImage
           alt=""
+          placeholder="blur"
           src={Img1}
-          placeholder="blur"
           style={{
             height: 'auto',
             maxWidth: '100%',
@@ -33,8 +33,8 @@ export const TradeMe: NextPage = () => {
         />
         <NextImage
           alt=""
+          placeholder="blur"
           src={Img2}
-          placeholder="blur"
           style={{
             height: 'auto',
             maxWidth: '100%',
@@ -42,8 +42,8 @@ export const TradeMe: NextPage = () => {
         />
         <NextImage
           alt=""
-          src={Img3}
           placeholder="blur"
+          src={Img3}
           style={{
             height: 'auto',
             maxWidth: '100%',

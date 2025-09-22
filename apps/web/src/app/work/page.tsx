@@ -27,7 +27,7 @@ export default function Page() {
     <>
       <VStack alignItems="start">
         {work.map((item) => (
-          <WorkListItem key={item.slug} item={item} />
+          <WorkListItem item={item} key={item.slug} />
         ))}
       </VStack>
       <Layout>

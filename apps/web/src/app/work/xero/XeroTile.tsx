@@ -61,12 +61,12 @@ export const XeroTile = () => {
       <NextImage
         alt="Xero logo"
         height={48}
-        width={48}
         src={logo as StaticImageData}
         style={{
           height: 'auto',
           maxWidth: '100%',
         }}
+        width={48}
       />
       <Layout>
         <Text display size="lg">

@@ -24,7 +24,6 @@ const VStack = styled('div', {
 export function VendTabsTile() {
   return (
     <SkewTile
-      shine={false}
       className={css({
         gridColumn: '1/-1',
         sm: {
@@ -32,6 +31,7 @@ export function VendTabsTile() {
         },
       })}
       initial="initial"
+      shine={false}
       whileHover="hover"
     >
       <Layout>

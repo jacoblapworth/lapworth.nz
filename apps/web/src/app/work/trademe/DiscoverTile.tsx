@@ -26,13 +26,14 @@ const VStack = styled('div', {
 export function DiscoverTile() {
   return (
     <SkewTile
-      shine={false}
       className={css({
         gridColumn: '1/-1',
         sm: {
           gridColumn: '1/span 4',
         },
       })}
+      initial="initial"
+      shine={false}
       shineClassName={css({
         _dark: {
           mixBlendMode: 'soft-light',
@@ -40,7 +41,6 @@ export function DiscoverTile() {
         backgroundColor: '#FFE18D',
         mixBlendMode: 'multiply',
       })}
-      initial="initial"
       whileHover="hover"
     >
       <Layout>

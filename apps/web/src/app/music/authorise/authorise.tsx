@@ -68,10 +68,10 @@ export function Authorise({ developerToken }: Props) {
       <NextScript src="https://js-cdn.music.apple.com/musickit/v1/musickit.js" />
       <TextInput
         label="Apple Music User Token"
+        readOnly
         value={
           authorisation.state === 'authorized' ? authorisation.userToken : ''
         }
-        readOnly
       />
     </>
   )

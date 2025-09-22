@@ -76,11 +76,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <ServerThemeProvider {...themeConfig}>
       <html
         className={sectraFont.variable}
-        suppressHydrationWarning={true}
         lang="en"
+        suppressHydrationWarning={true}
       >
         <body
-          key="body"
           className={css({
             backgroundColor: 'background',
             display: 'grid',
@@ -94,9 +93,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             minHeight: 'calc(100vh - env(safe-area-inset-bottom))',
             overflowX: 'hidden',
           })}
+          key="body"
         >
           <ThemeProvider {...themeConfig}>
-            <Skiplink href={`#${id}`} tabIndex={0} data-testid="skip-link">
+            <Skiplink data-testid="skip-link" href={`#${id}`} tabIndex={0}>
               Skip to main content
             </Skiplink>
             <Header />

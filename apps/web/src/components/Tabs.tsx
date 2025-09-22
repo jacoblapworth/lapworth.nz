@@ -84,7 +84,7 @@ export function TabsExample() {
     <Ariakit.TabProvider selectedId={selectedId} setSelectedId={setSelectedId}>
       <TabList>
         {values.map(({ value, label }) => (
-          <Tab key={value} value={value} isActive={value === selectedId}>
+          <Tab isActive={value === selectedId} key={value} value={value}>
             {label}
           </Tab>
         ))}

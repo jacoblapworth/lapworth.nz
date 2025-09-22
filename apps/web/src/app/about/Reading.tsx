@@ -61,19 +61,19 @@ export const Book = ({
 
   return (
     <Link
-      href={`https://oku.club/book/${slug}`}
-      className="group"
       borderRadius="md"
+      className="group"
+      href={`https://oku.club/book/${slug}`}
     >
       <Stack>
         <BookCover
           alt={`Book cover for "${title}"`}
-          src={thumbnail}
-          htmlWidth={size}
-          htmlHeight={size}
-          quality={75}
-          placeholder="blur"
           blurDataURL={placeholder}
+          htmlHeight={size}
+          htmlWidth={size}
+          placeholder="blur"
+          quality={75}
+          src={thumbnail}
         />
         <Label variant="primary">{title}</Label>
         <Label variant="secondary">{subtitle}</Label>
@@ -89,9 +89,9 @@ interface ReadingProps {
 export const Reading = ({ books }: ReadingProps) => {
   return (
     <Carousel
-      title="Reading"
       items={books}
       renderItem={(item) => <Book key={item.id} {...item} />}
+      title="Reading"
     />
   )
 }

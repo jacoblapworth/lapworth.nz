@@ -28,7 +28,7 @@ export function WorkListItem({ item }: Props) {
   return (
     <div key={slug}>
       <Link href={`/work/${slug}`}>
-        {cover && <Image src={cover} alt={title} width={500} height={300} />}
+        {cover && <Image alt={title} height={300} src={cover} width={500} />}
         {title}
         <Text color="tertiary">{new Date(date).toLocaleDateString()}</Text>
       </Link>
