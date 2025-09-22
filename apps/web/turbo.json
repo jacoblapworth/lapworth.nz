@@ -11,7 +11,7 @@
       "outputs": [".velite/**", "public/static/**"]
     },
     "build": {
-      "dependsOn": ["tokens", "^build"],
+      "dependsOn": ["tokens", "content", "^build"],
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
     }
   }
