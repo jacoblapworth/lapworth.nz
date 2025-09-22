@@ -17,7 +17,7 @@ const Grid = styled('div', {
 export const TradeMe: NextPage = () => {
   return (
     <>
-      <Text display size="xlarge">
+      <Text display size="xl">
         Trade Me
       </Text>
       <p>Online marketplace</p>

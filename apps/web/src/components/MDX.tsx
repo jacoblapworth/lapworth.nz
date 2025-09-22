@@ -1,6 +1,10 @@
 import * as runtime from 'react/jsx-runtime'
 
 import {
+  Blockquote,
+  h1,
+  h2,
+  h3,
   Image,
   Li,
   Ol,
@@ -24,10 +28,14 @@ export const MDXContent = ({ code, components }: MDXProps) => {
   return (
     <Component
       components={{
+        h1,
+        h2,
+        h3,
         li: Li,
         ul: Ul,
         ol: Ol,
         p: P,
+        blockquote: Blockquote,
         Image,
         ...sharedComponents,
         ...components,

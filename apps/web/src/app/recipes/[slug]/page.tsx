@@ -1,17 +1,26 @@
 import { notFound } from 'next/navigation'
 import { MDXContent } from '@/components/MDX'
-import { recipe } from '@/content'
+import { recipes } from '@/content'
 import { styled } from '@/styled/jsx'
 
 export const dynamicParams = false
 
 function getRecipe(slug: string) {
-  return recipe.find((r) => r.slug === slug)
+  return recipes.find((r) => r.slug === slug)
 }
 
 export async function generateStaticParams() {
-  const slugs = recipe.map((r) => r.slug)
+  const slugs = recipes.map((r) => r.slug)
   return slugs.map((slug) => ({ slug }))
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { slug } = await params
+  const recipe = getRecipe(slug)
+  if (!recipe) return {}
+  return {
+    title: recipe.title,
+  }
 }
 
 const Article = styled('article', {

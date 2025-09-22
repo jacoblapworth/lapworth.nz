@@ -1,3 +1,5 @@
+'use client'
+
 import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile/SkewTile'
 import { Text } from '@/components/Typography'
@@ -43,7 +45,7 @@ export function DiscoverTile() {
     >
       <Layout>
         <VStack>
-          <Text display size="medium">
+          <Text display size="md">
             Increasing traffic to business verticals on mobile
           </Text>
           <PillLink href="/work/trademe" inverted>

@@ -1,3 +1,5 @@
+'use client'
+
 import { PillLink } from '@/components/Button'
 import { SkewTile } from '@/components/Tile'
 import { Text } from '@/components/Typography'
@@ -34,7 +36,7 @@ export function VendTabsTile() {
     >
       <Layout>
         <VStack>
-          <Text display size="medium">
+          <Text display size="md">
             The influence of customer fit on a design system
           </Text>
           <PillLink href="/work/vend/tabs" inverted>

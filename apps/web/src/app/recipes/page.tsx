@@ -1,4 +1,4 @@
-import { recipe } from '@/content'
+import { recipes } from '@/content'
 import { styled } from '@/styled/jsx'
 import { RecipeListItem } from './RecipeListItem'
 
@@ -13,7 +13,7 @@ const List = styled('ul', {
 export default function Page() {
   return (
     <List>
-      {recipe.map((recipe) => (
+      {recipes.map((recipe) => (
         <RecipeListItem key={recipe.slug} {...recipe} />
       ))}
     </List>

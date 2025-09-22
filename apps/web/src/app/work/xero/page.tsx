@@ -89,16 +89,11 @@ export default function Page() {
   return (
     <>
       <Background />
-      <Text
-        as="h1"
-        display
-        size="large"
-        // css={{ display: 'flex', gap: 'md', marginBlockEnd: 'sm' }}
-      >
+      <Text as="h1" display size="lg">
         Xero User Interface
         <Logo src={xuiLogo as StaticImageData} alt="XUI logo" />
       </Text>
-      <Text display size="medium">
+      <Text display size="md">
         Design system for beautiful business
       </Text>
 

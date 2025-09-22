@@ -83,15 +83,15 @@ export const Wrapper = styled('div', {
 type HeadingProps = HTMLAttributes<HTMLHeadingElement>
 
 export const h1 = (props: HeadingProps) => (
-  <HeadingAnchor as="h1" size="large" {...props} />
+  <HeadingAnchor as="h1" size="lg" {...props} />
 )
 
 export const h2 = (props: HeadingProps) => (
-  <HeadingAnchor as="h2" size="medium" {...props} />
+  <HeadingAnchor as="h2" size="md" {...props} />
 )
 
 export const h3 = (props: HeadingProps) => (
-  <HeadingAnchor as="h3" size="small" {...props} />
+  <HeadingAnchor as="h3" size="sm" {...props} />
 )
 
 type AProps = AnchorHTMLAttributes<HTMLAnchorElement>
@@ -104,7 +104,7 @@ type BlockquoteProps = BlockquoteHTMLAttributes<HTMLQuoteElement>
 
 export const blockquote = ({ children, ...props }: BlockquoteProps) => (
   <Blockquote {...props}>
-    <Text serif size="medium">
+    <Text serif size="md">
       &ldquo;{children}&rdquo;
     </Text>
   </Blockquote>
@@ -112,7 +112,7 @@ export const blockquote = ({ children, ...props }: BlockquoteProps) => (
 
 export const P = styled('p', {
   base: {
-    marginBlockEnd: 2,
+    marginBlockEnd: 'md',
   },
 })
 
@@ -142,7 +142,7 @@ export const Li = styled('li', {
 export const components: MDXComponents = {
   wrapper: Wrapper,
   h1,
-  h2,
+  h2: h2,
   h3,
   a,
   p: P,
@@ -150,5 +150,6 @@ export const components: MDXComponents = {
   ol: Ol,
   li: Li,
   Image,
+  img: Image,
   blockquote,
 }

@@ -18,7 +18,7 @@ const Grid = styled('div', {
 export default function Page() {
   return (
     <>
-      <Text display size="xlarge">
+      <Text display size="xl">
         Vend
       </Text>
       <p>Point of sale</p>

@@ -1,5 +1,8 @@
 import rehypeShiki from '@shikijs/rehype'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypePrettyCode } from 'rehype-pretty-code'
+import rehypeSlug from 'rehype-slug'
+
 import { defineCollection, defineConfig, s } from 'velite'
 
 const meta = s
@@ -10,7 +13,7 @@ const meta = s
   })
   .default({})
 
-const recipe = defineCollection({
+const recipes = defineCollection({
   name: 'Recipe',
   pattern: 'recipes/**/*.mdx',
   schema: s.object({
@@ -36,7 +39,6 @@ const work = defineCollection({
       title: s.string().max(99),
       slug: s.slug('work'),
       date: s.isodate(),
-      // updated: timestamp(),
       cover: s.image().optional(),
       video: s.file().optional(),
       description: s.string().max(999).optional(),
@@ -59,16 +61,26 @@ export default defineConfig({
     data: '.velite',
     assets: 'public/static',
     base: '/static/',
-    name: '[name]-[hash:6].[ext]',
-    clean: false,
+    name: '[name].[hash:8].[ext]',
+    clean: true,
   },
   collections: {
     work,
-    recipe,
+    recipes,
   },
   mdx: {
     rehypePlugins: [
-      [rehypePrettyCode],
+      rehypePrettyCode,
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ['subheading-anchor'],
+            ariaLabel: 'Link to section',
+          },
+        },
+      ],
       [
         rehypeShiki,
         {
@@ -77,54 +89,7 @@ export default defineConfig({
       ],
     ],
   },
-  // prepare: ({ categories, tags, posts }) => {
-  //   const docs = posts.filter(
-  //     (i) => process.env.NODE_ENV !== 'production' || !i.draft,
-  //   )
-
-  //   // missing categories, tags from posts or courses inlined
-  //   const categoriesFromDoc = Array.from(
-  //     new Set(docs.flatMap((i) => i.categories)),
-  //   ).filter((i) => categories.find((j) => j.name === i) == null)
-  //   categories.push(
-  //     ...categoriesFromDoc.map((name) => ({
-  //       name,
-  //       slug: slugify(name),
-  //       permalink: '',
-  //       count: { total: 0, posts: 0 },
-  //     })),
-  //   )
-  //   for (const category of categories) {
-  //     category.count.posts = posts.filter((j) =>
-  //       j.categories.includes(category.name),
-  //     ).length
-  //     category.count.total = category.count.posts
-  //     category.permalink = `/${category.slug}`
-  //   }
-
-  //   const tagsFromDoc = Array.from(new Set(docs.flatMap((i) => i.tags))).filter(
-  //     (i) => tags.find((j) => j.name === i) == null,
-  //   )
-  //   tags.push(
-  //     ...tagsFromDoc.map((name) => ({
-  //       name,
-  //       slug: slugify(name),
-  //       permalink: '',
-  //       count: { total: 0, posts: 0 },
-  //     })),
-  //   )
-  //   for (const tag of tags) {
-  //     tag.count.posts = posts.filter((j) => j.tags.includes(tag.name)).length
-  //     tag.count.total = tag.count.posts
-  //     tag.permalink = `/${tag.slug}`
-  //   }
-
-  //   // push extra data to collections, it's ok!! but they are not type-safed
-  //   // Object.assign(collections, {
-  //   //   anything: { name: 'Anything', data: { name: 'Anything' } },
-  //   //   list: ['one', 'two', 'three']
-  //   // })
-
-  //   // return false // return false to prevent velite from writing data to disk
-  // },
+  prepare: ({ work }) => {
+    work.sort((a, b) => (a.date > b.date ? -1 : 1))
+  },
 })

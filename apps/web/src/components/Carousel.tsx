@@ -42,7 +42,7 @@ export function Carousel<T extends WithId>({
 
   return (
     <div>
-      <Text as="h2" size="large" display>
+      <Text as="h2" size="lg" display>
         {title}
       </Text>
       <Grid>{Items}</Grid>

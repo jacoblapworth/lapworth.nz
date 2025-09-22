@@ -1,5 +1,6 @@
-.vercel/
-.velite/
-.styled/
-.next/
+.vercel
+.velite
+.styled
+.next
 .env*.local
+public/static

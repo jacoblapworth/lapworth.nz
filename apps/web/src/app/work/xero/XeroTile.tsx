@@ -1,3 +1,5 @@
+'use client'
+
 import NextImage, { type StaticImageData } from 'next/image'
 
 import { PillLink } from '@/components/Button'
@@ -67,11 +69,11 @@ export const XeroTile = () => {
         }}
       />
       <Layout>
-        <Text display size="large">
+        <Text display size="lg">
           <Highlight>Scaling</Highlight> the design system
           <wbr /> at&nbsp;Xero
         </Text>
-        <Text size="medium">
+        <Text size="md">
           Understanding teams’ needs and building tools and processes to support
           them.
         </Text>

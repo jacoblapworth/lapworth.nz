@@ -71,7 +71,7 @@ export const Book = ({
           src={thumbnail}
           htmlWidth={size}
           htmlHeight={size}
-          quality={100}
+          quality={75}
           placeholder="blur"
           blurDataURL={placeholder}
         />

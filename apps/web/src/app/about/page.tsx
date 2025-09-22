@@ -26,7 +26,7 @@ export default async function Page() {
   return (
     <>
       <div className={css({ maxWidth: '1000px' })}>
-        <Text size="xlarge" display>
+        <Text size="xl" display>
           Hey there!{' '}
           <span
             className={css({
@@ -38,7 +38,7 @@ export default async function Page() {
             I&apos;m J
             <NextImage
               src={ProfileImage}
-              quality={100}
+              quality={75}
               alt="Portrait photo of Jacob"
               placeholder="blur"
               priority
@@ -57,12 +57,12 @@ export default async function Page() {
           </span>
         </Text>
 
-        <Text size="large" display>
+        <Text size="lg" display>
           I&apos;m a senior product designer and software engineer focused on
           community-driven design systems.
         </Text>
 
-        <Text size="medium" display>
+        <Text size="md" display>
           Find me in the{' '}
           <Link href="https://instagram.com/platesbyjacob">kitchen</Link> when
           I&apos;m not working.
