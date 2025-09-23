@@ -3,6 +3,12 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import * as Sentry from '@sentry/nextjs'
+import posthog from 'posthog-js'
+
+posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+  api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+  defaults: '2025-05-24',
+})
 
 Sentry.init({
   // Setting this option to true will print useful information to the console while you're setting up Sentry.

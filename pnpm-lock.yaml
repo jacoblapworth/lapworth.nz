@@ -20,6 +20,9 @@ importers:
       '@ariakit/react':
         specifier: 0.4.18
         version: 0.4.18(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@flags-sdk/posthog':
+        specifier: 0.2.0
+        version: 0.2.0(@opentelemetry/api@1.9.0)
       '@mdx-js/loader':
         specifier: 3.1.1
         version: 3.1.1(webpack@5.99.9(esbuild@0.25.10))
@@ -98,6 +101,9 @@ importers:
       plaiceholder:
         specifier: 3.0.0
         version: 3.0.0(sharp@0.34.4)
+      posthog-js:
+        specifier: 1.268.0
+        version: 1.268.0
       react:
         specifier: 19.1.1
         version: 19.1.1
@@ -545,6 +551,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@flags-sdk/posthog@0.2.0':
+    resolution: {integrity: sha512-C59YPeRv3A2hwZE/vCKT7rOY0B0zlP0FWw9O6ZUxnBMKEtI3e1h8v3e46g3i1sagJRmsSIdrXr0MG5I3X8mHIw==}
 
   '@floating-ui/core@1.7.3':
     resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
@@ -1082,6 +1091,9 @@ packages:
 
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
+
+  '@posthog/core@1.1.0':
+    resolution: {integrity: sha512-igElrcnRPJh2nWYACschjH4OwGwzSa6xVFzRDVzpnjirUivdJ8nv4hE+H31nvwE56MFhvvglfHuotnWLMcRW7w==}
 
   '@prisma/instrumentation@6.15.0':
     resolution: {integrity: sha512-6TXaH6OmDkMOQvOxwLZ8XS51hU2v4A3vmE2pSijCIiGRJYyNeMcL6nMHQMyYdZRD8wl7LF3Wzc+AMPMV/9Oo7A==}
@@ -1754,6 +1766,18 @@ packages:
       vue-router:
         optional: true
 
+  '@vercel/edge-config-fs@0.1.0':
+    resolution: {integrity: sha512-NRIBwfcS0bUoUbRWlNGetqjvLSwgYH/BqKqDN7vK1g32p7dN96k0712COgaz6VFizAm9b0g6IG6hR6+hc0KCPg==}
+
+  '@vercel/edge-config@1.4.0':
+    resolution: {integrity: sha512-69Wg5gw9DzwnyUmnjToSeLRm1nm8mCPgN0kflX8EHRHyqvzH80wPem5A8rI2LXPb2Y9tJNoqN3vXPcQhS2Wh5g==}
+    engines: {node: '>=14.6'}
+    peerDependencies:
+      '@opentelemetry/api': ^1.7.0
+    peerDependenciesMeta:
+      '@opentelemetry/api':
+        optional: true
+
   '@vercel/kv@3.0.0':
     resolution: {integrity: sha512-pKT8fRnfyYk2MgvyB6fn6ipJPCdfZwiKDdw7vB+HL50rjboEBHDVBEcnwfkEpVSp2AjNtoaOUH7zG+bVC/rvSg==}
     engines: {node: '>=14.6'}
@@ -2249,6 +2273,9 @@ packages:
     resolution: {integrity: sha512-+Hp8fLp57wnUSt0tY0tHEXh4voZRDnoIrZPqlo3DPiI4y9lwg/jqx+1Om94/W6ZaPDOUbnjOt/99w66zk+l1Xg==}
     engines: {node: '>= 0.6'}
 
+  core-js@3.45.1:
+    resolution: {integrity: sha512-L4NPsJlCfZsPeXukyzHFlg/i7IIVwHSItR0wg0FLNqYClJ4MQYTYLbC7EkjKYRLZF2iof2MUgN0EGy7MdQFChg==}
+
   core-util-is@1.0.2:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}
 
@@ -2604,6 +2631,9 @@ packages:
     peerDependenciesMeta:
       picomatch:
         optional: true
+
+  fflate@0.4.8:
+    resolution: {integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==}
 
   figures@3.2.0:
     resolution: {integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==}
@@ -3763,6 +3793,24 @@ packages:
     resolution: {integrity: sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==}
     engines: {node: '>=0.10.0'}
 
+  posthog-js@1.268.0:
+    resolution: {integrity: sha512-rEtziXONYXi+KKXBTzkxCTsHHKohLQvyAF2uEdXMwmL1vLW+f9rbroa2XuA9QUrvfboJXb5Pvysa+HnFnWnUcw==}
+    peerDependencies:
+      '@rrweb/types': 2.0.0-alpha.17
+      rrweb-snapshot: 2.0.0-alpha.17
+    peerDependenciesMeta:
+      '@rrweb/types':
+        optional: true
+      rrweb-snapshot:
+        optional: true
+
+  posthog-node@4.11.1:
+    resolution: {integrity: sha512-Hdby0Rq2K1rzjHxQdUmFBEP2UqAR/tY4d0WbNp7GxkYUK0YZvAD15MkeorSo4b8X7zgosHfQJVRxGx0HWSYPBA==}
+    engines: {node: '>=15.0.0'}
+
+  preact@10.27.2:
+    resolution: {integrity: sha512-5SYSgFKSyhCbk6SrXyMpqjb5+MQBgfvEKE/OC+PujcY34sOpqtr+0AZQtPYx5IA6VxynQ7rUPCtKzyovpj9Bpg==}
+
   prettier@3.2.5:
     resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
@@ -4443,6 +4491,9 @@ packages:
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
 
+  web-vitals@4.2.4:
+    resolution: {integrity: sha512-r4DIlprAGwJ7YM11VZp4R884m0Vmgr6EAKe3P+kO0PPj3Unqyvv59rczf6UiGcb9Z8QxZVcqKNwv/g0WNdWwsw==}
+
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
 
@@ -4847,6 +4898,14 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.10':
     optional: true
+
+  '@flags-sdk/posthog@0.2.0(@opentelemetry/api@1.9.0)':
+    dependencies:
+      '@vercel/edge-config': 1.4.0(@opentelemetry/api@1.9.0)
+      posthog-node: 4.11.1
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+      - debug
 
   '@floating-ui/core@1.7.3':
     dependencies:
@@ -5572,6 +5631,8 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
+  '@posthog/core@1.1.0': {}
+
   '@prisma/instrumentation@6.15.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
@@ -6280,6 +6341,14 @@ snapshots:
       next: 15.5.3(@babel/core@7.28.4)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@19.0.0-beta-714736e-20250131)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react: 19.1.1
 
+  '@vercel/edge-config-fs@0.1.0': {}
+
+  '@vercel/edge-config@1.4.0(@opentelemetry/api@1.9.0)':
+    dependencies:
+      '@vercel/edge-config-fs': 0.1.0
+    optionalDependencies:
+      '@opentelemetry/api': 1.9.0
+
   '@vercel/kv@3.0.0':
     dependencies:
       '@upstash/redis': 1.35.0
@@ -6766,6 +6835,8 @@ snapshots:
 
   cookie@0.4.0: {}
 
+  core-js@3.45.1: {}
+
   core-util-is@1.0.2: {}
 
   cross-spawn@7.0.6:
@@ -7167,6 +7238,8 @@ snapshots:
   fdir@6.5.0(picomatch@4.0.3):
     optionalDependencies:
       picomatch: 4.0.3
+
+  fflate@0.4.8: {}
 
   figures@3.2.0:
     dependencies:
@@ -8565,6 +8638,22 @@ snapshots:
     dependencies:
       xtend: 4.0.2
 
+  posthog-js@1.268.0:
+    dependencies:
+      '@posthog/core': 1.1.0
+      core-js: 3.45.1
+      fflate: 0.4.8
+      preact: 10.27.2
+      web-vitals: 4.2.4
+
+  posthog-node@4.11.1:
+    dependencies:
+      axios: 1.12.2
+    transitivePeerDependencies:
+      - debug
+
+  preact@10.27.2: {}
+
   prettier@3.2.5: {}
 
   prettier@3.6.2: {}
@@ -9373,6 +9462,8 @@ snapshots:
       graceful-fs: 4.2.11
 
   web-namespaces@2.0.1: {}
+
+  web-vitals@4.2.4: {}
 
   webidl-conversions@3.0.1: {}
 
