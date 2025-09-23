@@ -7,7 +7,7 @@ import { styled } from '@/styled/jsx'
 
 const A = styled(NextLink, {
   base: {
-    '&:hover': {
+    _hover: {
       textDecorationColor: 'interactive',
     },
     textDecorationColor: 'quaternary',
