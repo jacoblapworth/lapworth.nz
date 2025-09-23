@@ -16,77 +16,74 @@ import { styled } from '@/styled/jsx'
 export function Principles() {
   const Container = styled('div', {
     base: {
-      display: 'grid',
-      gridAutoFlow: 'column',
-      gridAutoColumns: '1fr',
-      gap: 'lg',
-      justifyItems: 'stretch',
-
       _selection: {
         backgroundColor: 'background',
         color: 'primary',
       },
+      display: 'grid',
+      gap: 'lg',
+      gridAutoColumns: '1fr',
+      gridAutoFlow: 'column',
+      justifyItems: 'stretch',
     },
   })
 
   const Card = styled('div', {
     base: {
+      alignItems: 'center',
+      backgroundColor: '#002A46',
+      borderRadius: 'lg',
+      color: '#fff',
       display: 'grid',
       gridTemplateRows: '1fr min-content',
-      color: '#fff',
-      borderRadius: 'lg',
-      backgroundColor: '#002A46',
       justifyContent: 'center',
-      alignItems: 'center',
       minHeight: '20rem',
-      textAlign: 'center',
       padding: 'lg',
+      textAlign: 'center',
     },
   })
 
   const principles = [
     {
-      value: 1,
-      title: 'Meet me where I am at',
       means: [
         'Think about my context (place, time, device, business type, accessibility needs)',
         'Think about my experience level(with Xero, accounting, running a small business) ',
         'Understand the problems I care about right now',
       ],
       outcome: 'Always feeling like ‘Xero is for me’',
+      title: 'Meet me where I am at',
+      value: 1,
       watch: [
         'Over-indexing on flexibility that results in paradox of choice and unnecessary complexity',
         'Biases and assumptions',
       ],
     },
     {
-      value: 2,
-      title: 'Remove friction',
       means: [
         'Be familiar, predictable and reliable',
         'Connect my data and my tools seamlessly',
         'Reduce manual work',
       ],
       outcome: 'I feel efficient’',
+      title: 'Remove friction',
+      value: 2,
       watch: [
         'Efficiency at the cost of accuracy or not providing key information',
         'Consistency at the cost of utility and usability',
       ],
     },
     {
-      value: 3,
-      title: 'Honour my attention',
       means: [
         'Reveal what I need, when I need it',
         'Do not overwhelm me with complexity',
         'Don’t distract me with irrelevant noise',
       ],
       outcome: 'My time feels valued',
+      title: 'Honour my attention',
+      value: 3,
       watch: ['Omitting useful content for simplicity sake'],
     },
     {
-      value: 4,
-      title: 'Help me feel in control',
       means: [
         'Be an approachable expert',
         'Help me understand my actions and their consequences',
@@ -95,19 +92,21 @@ export function Principles() {
       ],
       outcome:
         'I have shifted from uncertainty and confusion, to confidence and clarity',
+      title: 'Help me feel in control',
+      value: 4,
       watch: [
         'Black box experiences that lack the transparency required for feeling in control',
       ],
     },
     {
-      value: 5,
-      title: 'Be memorable for the right reasons',
       means: [
         'Turn up in the right way, at the right time',
         'Provide deep delight',
         'Help the user focus on meaningful and thoughtful details',
       ],
       outcome: 'I am a passionate Xero customer',
+      title: 'Be memorable for the right reasons',
+      value: 5,
       watch: [
         'Superficial decoration or delight that hinders the task at hand',
         'Injecting marketing assets and tone of voice into product',
@@ -120,10 +119,10 @@ export function Principles() {
     <Container>
       {principles.map(({ value, title, means, outcome, watch }) => (
         <Card key={value}>
-          <Text display size="md" css={{ color: 'background' }}>
+          <Text css={{ color: 'background' }} display size="md">
             {title}
           </Text>
-          <Text size="sm" css={{ color: 'background' }}>
+          <Text css={{ color: 'background' }} size="sm">
             Principle {value}
           </Text>
           <ul>
@@ -147,22 +146,22 @@ export function Disciplines() {
   // const values = [{name: "Design", value: }]
   const Image = styled(NextImage, {
     base: {
-      width: '100%',
       height: 'auto',
+      width: '100%',
     },
   })
 
-  return <Image src={disciplines} alt="" />
+  return <Image alt="" src={disciplines} />
 }
 
 export function WorldMap() {
   const Grid = styled('div', {
     base: {
+      alignItems: 'center',
       display: 'grid',
       gridTemplateColumns: 'repeat(8, 1fr)',
-      marginBlock: 'md',
-      alignItems: 'center',
       justifySelf: 'stretch',
+      marginBlock: 'md',
     },
   })
 
@@ -178,8 +177,8 @@ export function WorldMap() {
 
   const Image = styled(NextImage, {
     base: {
-      maxWidth: '100%',
       height: 'auto',
+      maxWidth: '100%',
     },
   })
 
@@ -188,8 +187,8 @@ export function WorldMap() {
       gridColumn: '1/-1',
       gridRow: '1',
       listStyleType: 'none',
-      padding: 0,
       margin: 0,
+      padding: 0,
     },
   })
 
@@ -211,16 +210,16 @@ export function WorldMap() {
       </Ul>
       <Picture>
         <source
-          srcSet={(worldMapDark as StaticImageData).src}
           media="(prefers-color-scheme: dark)"
+          srcSet={(worldMapDark as StaticImageData).src}
         />
         <source
-          srcSet={(worldMap as StaticImageData).src}
           media="(prefers-color-scheme: light)"
+          srcSet={(worldMap as StaticImageData).src}
         />
         <Image
-          src={worldMapDark as StaticImageData}
           alt="Map of world highlighting 7 locations"
+          src={worldMapDark as StaticImageData}
         />
       </Picture>
     </Grid>
@@ -230,9 +229,9 @@ export function WorldMap() {
 const Grid = styled('div', {
   base: {
     display: 'grid',
+    marginBlockEnd: 'lg',
     maxWidth: 1200,
     position: 'relative',
-    marginBlockEnd: 'lg',
   },
 })
 
@@ -245,7 +244,7 @@ export const Page: NextPage<MDXPageProps> = ({ source }) => {
         </Text>
         <MDXRemote
           {...source}
-          components={{ WorldMap, Disciplines }}
+          components={{ Disciplines, WorldMap }}
           // scope={{ images }}
         />
       </Grid>

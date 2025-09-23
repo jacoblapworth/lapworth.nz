@@ -25,9 +25,9 @@ const Column = styled('div', {
 const Row = styled('div', {
   base: {
     display: 'grid',
+    gap: '1rem',
     gridTemplateColumns: '1fr 1fr',
     placeItems: 'start',
-    gap: '1rem',
   },
 })
 
@@ -57,33 +57,33 @@ const Stack = styled('div', {
 export const Experience = () => {
   return (
     <div>
-      <Text as="h2" size="lg" display>
+      <Text as="h2" display size="lg">
         Experience
       </Text>
       <Stack>
         <ExperienceRow
-          workplace="Xero"
-          href="https://www.xero.com/nz/"
           from="2020"
+          href="https://www.xero.com/nz/"
           to="2025"
+          workplace="Xero"
         />
         <ExperienceRow
-          workplace="Vend"
-          href="https://www.vendhq.com/nz/"
           from="2019"
+          href="https://www.vendhq.com/nz/"
           to="2020"
+          workplace="Vend"
         />
         <ExperienceRow
-          workplace="Timely"
-          href="https://www.gettimely.com/"
           from="2018"
+          href="https://www.gettimely.com/"
           to="2019"
+          workplace="Timely"
         />
         <ExperienceRow
-          workplace="Trade Me"
-          href="https://www.trademe.co.nz/a/"
           from="2016"
+          href="https://www.trademe.co.nz/a/"
           to="2018"
+          workplace="Trade Me"
         />
       </Stack>
     </div>

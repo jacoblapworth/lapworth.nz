@@ -14,37 +14,50 @@ import {
 
 const Circle = styled('div', {
   base: {
-    height: '54px',
-    width: '54px',
+    alignItems: 'center',
     border: 'none',
     borderRadius: '50%',
-    gridArea: 'icon',
     display: 'flex',
+    gridArea: 'icon',
+    height: '54px',
     justifyContent: 'center',
-    alignItems: 'center',
+    width: '54px',
+  },
+  defaultVariants: {
+    isActive: false,
   },
 
   variants: {
-    vertical: {
-      marketplace: {
-        background: 'marketplace',
-        borderColor: 'marketplace',
-        color: 'marketplace',
+    isActive: {
+      false: {
+        color: '#fff !important',
       },
+      true: {
+        backgroundColor: 'transparent',
+        borderStyle: 'solid',
+        borderWidth: 2,
+      },
+    },
+    vertical: {
       jobs: {
         background: 'jobs',
         borderColor: 'jobs',
         color: 'jobs',
       },
-      property: {
-        background: 'property',
-        borderColor: 'property',
-        color: 'property',
+      marketplace: {
+        background: 'marketplace',
+        borderColor: 'marketplace',
+        color: 'marketplace',
       },
       motors: {
         background: 'motors',
         borderColor: 'motors',
         color: 'motors',
+      },
+      property: {
+        background: 'property',
+        borderColor: 'property',
+        color: 'property',
       },
       services: {
         background: 'services',
@@ -52,47 +65,32 @@ const Circle = styled('div', {
         color: 'services',
       },
     },
-
-    isActive: {
-      true: {
-        backgroundColor: 'transparent',
-        borderWidth: 2,
-        borderStyle: 'solid',
-      },
-      false: {
-        color: '#fff !important',
-      },
-    },
-  },
-  defaultVariants: {
-    isActive: false,
   },
 })
 
 const Label = styled('div', {
   base: {
     fontSize: '12px',
+    gridArea: 'label',
     textAlign: 'center',
     textTransform: 'capitalize',
-    gridArea: 'label',
   },
 })
 
 const Button = styled(motion.button, {
   base: {
-    placeItems: 'center',
-    placeContent: 'center',
+    _hover: {
+      filter: 'brightness(0.8)',
+    },
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
     display: 'grid',
     gap: 4,
     gridTemplateAreas: '"icon" "label"',
     padding: 0,
-    border: 'none',
-    background: 'none',
-    cursor: 'pointer',
-
-    _hover: {
-      filter: 'brightness(0.8)',
-    },
+    placeContent: 'center',
+    placeItems: 'center',
   },
 })
 
@@ -116,9 +114,9 @@ const Icon: FC<VerticalIconProps> = ({ vertical, isActive }) => {
     return (
       <motion.div
         // transition
-        initial={{ opacity: 0, rotateZ: -90 }}
         animate={{ opacity: 1, rotateZ: 0 }}
         exit={{ opacity: 0, rotateZ: 90 }}
+        initial={{ opacity: 0, rotateZ: -90 }}
       >
         <CrossIcon />
       </motion.div>
@@ -160,10 +158,10 @@ const Spot: FC<SpotProps> = ({
   }
 
   return (
-    <Button onClick={onClick} animate {...rest}>
-      <Circle vertical={vertical} isActive={isActive}>
+    <Button animate onClick={onClick} {...rest}>
+      <Circle isActive={isActive} vertical={vertical}>
         <AnimatePresence>
-          <Icon vertical={vertical} isActive={isActive} />
+          <Icon isActive={isActive} vertical={vertical} />
         </AnimatePresence>
       </Circle>
       <Label>{label}</Label>
@@ -173,13 +171,13 @@ const Spot: FC<SpotProps> = ({
 
 const Grid = styled(motion.div, {
   base: {
-    padding: 16,
-    borderRadius: 'sm',
     backgroundColor: 'background',
+    borderRadius: 'sm',
     display: 'grid',
     gap: 16,
     gridTemplateColumns: 'repeat(5, 54px)',
     justifyContent: 'center',
+    padding: 16,
   },
 })
 
@@ -198,11 +196,11 @@ export function Spotlights() {
     <Grid layout>
       {verticals.map((vertical) => (
         <Spot
+          isActive={activeVertical === vertical}
           key={vertical}
           label={vertical}
-          vertical={vertical}
-          isActive={activeVertical === vertical}
           onClick={onClick}
+          vertical={vertical}
         />
       ))}
     </Grid>
@@ -212,12 +210,12 @@ export function Spotlights() {
 export const MarketplaceSpotlights = () => {
   return (
     <Spot
-      label={'Marketplace'}
-      vertical={verticals[0]}
       isActive={true}
+      label={'Marketplace'}
       onClick={() => {
         return
       }}
+      vertical={verticals[0]}
     />
   )
 }
@@ -225,18 +223,18 @@ export const MarketplaceSpotlights = () => {
 export const SpotlightsPreview = () => {
   const Layout = styled('div', {
     base: {
-      width: '100%',
       display: 'flex',
       justifyContent: 'end',
+      width: '100%',
     },
   })
 
   const variants = {
-    initial: {
-      marginLeft: -24,
-    },
     hover: {
       marginLeft: -16,
+    },
+    initial: {
+      marginLeft: -24,
     },
   }
 

@@ -8,8 +8,8 @@ export const Image = styled(
   NextImage,
   {
     base: {
-      maxWidth: '100%',
       height: 'auto',
+      maxWidth: '100%',
     },
   },
   // {

@@ -16,9 +16,9 @@ const Layout = styled('div', {
 
 const VStack = styled('div', {
   base: {
+    alignItems: 'start',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'start',
     gap: 'md',
   },
 })
@@ -26,21 +26,21 @@ const VStack = styled('div', {
 export function DiscoverTile() {
   return (
     <SkewTile
-      shine={false}
       className={css({
         gridColumn: '1/-1',
         sm: {
           gridColumn: '1/span 4',
         },
       })}
+      initial="initial"
+      shine={false}
       shineClassName={css({
-        mixBlendMode: 'multiply',
-        backgroundColor: '#FFE18D',
         _dark: {
           mixBlendMode: 'soft-light',
         },
+        backgroundColor: '#FFE18D',
+        mixBlendMode: 'multiply',
       })}
-      initial="initial"
       whileHover="hover"
     >
       <Layout>

@@ -3,7 +3,6 @@
 import type { MDXComponents } from 'mdx/types'
 import NextImage from 'next/image'
 
-import { usePathname } from 'next/navigation'
 import type {
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,
@@ -17,26 +16,18 @@ import { styled } from '@/styled/jsx'
 
 export const Image = styled(NextImage, {
   base: {
-    maxWidth: '100%',
-    height: 'auto',
-    border: 'muted',
-    boxSizing: 'border-box',
     '& + img': {
       marginBlockStart: -1,
     },
+    border: 'muted',
+    boxSizing: 'border-box',
+    height: 'auto',
+    maxWidth: '100%',
   },
 })
 
 export const Blockquote = styled('blockquote', {
   base: {
-    borderTop: 'muted',
-    marginInline: 0,
-    marginBlock: 'md',
-    paddingBlock: 'md',
-    display: 'inline',
-    lineHeight: '2.5rem',
-    hangingPunctuation: 'first last',
-
     //TODO: fix
     // [`& ${Text}`]: {
     //   maxWidth: '35ch',
@@ -48,23 +39,30 @@ export const Blockquote = styled('blockquote', {
       position: 'relative',
       // maxBlockSize: '35ch',
     },
+    borderTop: 'muted',
+    display: 'inline',
+    hangingPunctuation: 'first last',
+    lineHeight: '2.5rem',
+    marginBlock: 'md',
+    marginInline: 0,
+    paddingBlock: 'md',
   },
 })
 
 type TextProps = ComponentProps<typeof Text>
 
 export const HeadingAnchor = ({ children, ...props }: TextProps) => {
-  const pathname = usePathname()
+  // const pathname = usePathname()
 
   return (
-    <Text display css={{ marginBlock: 'lg' }} {...props}>
-      <Link
+    <Text css={{ marginBlock: 'lg' }} display {...props}>
+      {/* <Link
         href={`${pathname}#${props.id}`}
         sameTab
         css={{ display: 'inline-flex', gap: 'sm', alignItems: 'center' }}
-      >
-        {children}
-      </Link>
+      > */}
+      {children}
+      {/* </Link> */}
     </Text>
   )
 }
@@ -74,9 +72,9 @@ export const Wrapper = styled('div', {
     display: 'grid',
     gridAutoColumns: 'auto',
     gridAutoFlow: 'row',
+    marginBlockEnd: 'lg',
     maxWidth: 1000,
     position: 'relative',
-    marginBlockEnd: 'lg',
   },
 })
 
@@ -118,8 +116,8 @@ export const P = styled('p', {
 
 export const Ul = styled('ul', {
   base: {
-    listStyleType: 'square',
     listStylePosition: 'inside',
+    listStyleType: 'square',
     marginBlock: 'md',
     paddingInlineStart: 'sm',
   },
@@ -127,8 +125,8 @@ export const Ul = styled('ul', {
 
 export const Ol = styled('ol', {
   base: {
-    listStyleType: 'decimal',
     listStylePosition: 'outside',
+    listStyleType: 'decimal',
     marginBlock: 'md',
   },
 })
@@ -140,16 +138,16 @@ export const Li = styled('li', {
 })
 
 export const components: MDXComponents = {
-  wrapper: Wrapper,
+  a,
+  blockquote,
   h1,
   h2: h2,
   h3,
-  a,
-  p: P,
-  ul: Ul,
-  ol: Ol,
-  li: Li,
   Image,
   img: Image,
-  blockquote,
+  li: Li,
+  ol: Ol,
+  p: P,
+  ul: Ul,
+  wrapper: Wrapper,
 }

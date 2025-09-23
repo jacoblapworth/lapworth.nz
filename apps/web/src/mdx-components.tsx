@@ -16,18 +16,18 @@ import {
 
 export function useMDXComponents(): MDXComponents {
   return {
-    wrapper: Wrapper,
+    a,
+    blockquote,
     h1,
     h2: h2,
     h3,
-    a,
-    p: P,
-    ul: Ul,
-    ol: Ol,
-    li: Li,
     Image,
     img: Image,
-    blockquote,
+    li: Li,
+    ol: Ol,
+    p: P,
+    ul: Ul,
+    wrapper: Wrapper,
     ...components,
   }
 }

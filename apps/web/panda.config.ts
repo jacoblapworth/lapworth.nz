@@ -3,17 +3,17 @@ import { defineConfig } from '@pandacss/dev'
 import { globalCss, semanticTokens, tokens } from './src/styles'
 
 export default defineConfig({
+  exclude: [],
+  globalCss,
+  include: ['./src/**/*.{js,jsx,ts,tsx}'],
   jsxFramework: 'react',
+  outdir: '.styled',
+  outExtension: 'js',
   preflight: true,
   strictTokens: false,
-  outExtension: 'js',
-  include: ['./src/**/*.{js,jsx,ts,tsx}'],
-  exclude: [],
-  outdir: '.styled',
-  globalCss,
   theme: {
-    tokens,
     semanticTokens,
+    tokens,
     // textStyles,
     // layerStyles,
   },

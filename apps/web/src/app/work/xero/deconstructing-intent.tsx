@@ -10,9 +10,9 @@ import { styled } from '@/styled/jsx'
 const Grid = styled('div', {
   base: {
     display: 'grid',
+    marginBlockEnd: 'lg',
     maxWidth: 1200,
     position: 'relative',
-    marginBlockEnd: 'lg',
   },
 })
 

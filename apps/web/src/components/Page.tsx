@@ -4,7 +4,7 @@ import { ThemeProvider } from 'next-themes'
 import { useId } from 'react'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import { Navigation } from '@/components/Nav'
+import { Navigation } from '@/components/Nav/Nav'
 import { styled } from '@/styled/jsx'
 import { Skiplink } from './Skiplink'
 import { themeConfig } from './Theme'
@@ -13,13 +13,13 @@ const Container = styled('div', {
   base: {
     display: 'grid',
     gridTemplateAreas: '"header" "nav" "content" "footer"',
-    gridTemplateRows: 'auto auto 1fr auto',
     gridTemplateColumns: 'auto',
-    minHeight: 'calc(100vh - env(safe-area-inset-bottom))',
+    gridTemplateRows: 'auto auto 1fr auto',
     // minHeight: '-webkit-fill-available',
     marginLeft: 'env(safe-area-inset-left)',
     marginRight: 'env(safe-area-inset-right)',
     maxWidth: '100%',
+    minHeight: 'calc(100vh - env(safe-area-inset-bottom))',
     overflowX: 'hidden',
   },
 })

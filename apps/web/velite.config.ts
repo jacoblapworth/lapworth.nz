@@ -2,14 +2,15 @@ import rehypeShiki from '@shikijs/rehype'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypePrettyCode } from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
 
 import { defineCollection, defineConfig, s } from 'velite'
 
 const meta = s
   .object({
-    title: s.string().optional(),
     description: s.string().optional(),
     keywords: s.array(s.string()).optional(),
+    title: s.string().optional(),
   })
   .default({})
 
@@ -17,17 +18,17 @@ const recipes = defineCollection({
   name: 'Recipe',
   pattern: 'recipes/**/*.mdx',
   schema: s.object({
-    draft: s.boolean().default(false),
-    title: s.string().max(99),
-    slug: s.slug('recipes'),
-    servings: s.number().min(1).optional(),
-    image: s.image().optional(),
-    prep: s.string().optional(),
-    cook: s.string().optional(),
-    toc: s.toc(),
-    metadata: s.metadata(),
-    excerpt: s.excerpt(),
     content: s.mdx(),
+    cook: s.string().optional(),
+    draft: s.boolean().default(false),
+    excerpt: s.excerpt(),
+    image: s.image().optional(),
+    metadata: s.metadata(),
+    prep: s.string().optional(),
+    servings: s.number().min(1).optional(),
+    slug: s.slug('recipes'),
+    title: s.string().max(99),
+    toc: s.toc(),
   }),
 })
 
@@ -36,37 +37,29 @@ const work = defineCollection({
   pattern: 'work/**/*.mdx',
   schema: s
     .object({
-      title: s.string().max(99),
-      slug: s.slug('work'),
-      date: s.isodate(),
+      categories: s.array(s.string()).default(['Journal']),
+      content: s.mdx(),
       cover: s.image().optional(),
-      video: s.file().optional(),
+      date: s.isodate(),
       description: s.string().max(999).optional(),
       draft: s.boolean().default(false),
-      featured: s.boolean().default(false),
-      categories: s.array(s.string()).default(['Journal']),
-      tags: s.array(s.string()).default([]),
-      meta: meta,
-      toc: s.toc(),
-      metadata: s.metadata(),
       excerpt: s.excerpt(),
-      content: s.mdx(),
+      featured: s.boolean().default(false),
+      meta: meta,
+      metadata: s.metadata(),
+      slug: s.slug('work'),
+      tags: s.array(s.string()).default([]),
+      title: s.string().max(99),
+      toc: s.toc(),
+      video: s.file().optional(),
     })
     .transform((data) => ({ ...data, permalink: `/work/${data.slug}` })),
 })
 
 export default defineConfig({
-  root: 'src/content',
-  output: {
-    data: '.velite',
-    assets: 'public/static',
-    base: '/static/',
-    name: '[name].[hash:8].[ext]',
-    clean: true,
-  },
   collections: {
-    work,
     recipes,
+    work,
   },
   mdx: {
     rehypePlugins: [
@@ -76,8 +69,8 @@ export default defineConfig({
         rehypeAutolinkHeadings,
         {
           properties: {
-            className: ['subheading-anchor'],
             ariaLabel: 'Link to section',
+            className: ['subheading-anchor'],
           },
         },
       ],
@@ -88,8 +81,17 @@ export default defineConfig({
         },
       ],
     ],
+    remarkPlugins: [remarkGfm],
+  },
+  output: {
+    assets: 'public/static',
+    base: '/static/',
+    clean: true,
+    data: '.velite',
+    name: '[name].[hash:8].[ext]',
   },
   prepare: ({ work }) => {
     work.sort((a, b) => (a.date > b.date ? -1 : 1))
   },
+  root: 'src/content',
 })

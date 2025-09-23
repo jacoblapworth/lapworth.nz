@@ -25,29 +25,29 @@ export default function Page() {
       <Grid>
         <NextImage
           alt=""
+          placeholder="blur"
           src={Img1}
-          placeholder="blur"
           style={{
-            maxWidth: '100%',
             height: 'auto',
+            maxWidth: '100%',
           }}
         />
         <NextImage
           alt=""
+          placeholder="blur"
           src={Img2}
-          placeholder="blur"
           style={{
-            maxWidth: '100%',
             height: 'auto',
+            maxWidth: '100%',
           }}
         />
         <NextImage
           alt=""
-          src={Img3}
           placeholder="blur"
+          src={Img3}
           style={{
-            maxWidth: '100%',
             height: 'auto',
+            maxWidth: '100%',
           }}
         />
       </Grid>

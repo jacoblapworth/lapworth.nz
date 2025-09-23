@@ -16,26 +16,25 @@ import { styled } from '@/styled/jsx'
 const Grid = styled('div', {
   base: {
     display: 'grid',
-    marginBlock: 'md',
     gap: 'md',
+    marginBlock: 'md',
   },
 })
 
 const Link = styled(NextLink, {
   base: {
-    textDecorationLine: 'underline',
-    textDecorationColor: 'quaternary',
-
     '&:hover': {
       textDecorationColor: 'interactive',
     },
+    textDecorationColor: 'quaternary',
+    textDecorationLine: 'underline',
   },
 })
 
 const Logo = styled(NextImage, {
   base: {
-    display: 'inline',
     borderRadius: 8,
+    display: 'inline',
     height: '1em',
     width: 'auto',
   },
@@ -43,20 +42,20 @@ const Logo = styled(NextImage, {
 
 const Thumbnail = styled(NextImage, {
   base: {
-    width: '100%',
-    maxWidth: 300,
     height: 'auto',
+    maxWidth: 300,
+    width: '100%',
   },
 })
 
 const Container = styled(motion.div, {
   base: {
-    position: 'absolute',
     inset: 0,
+    pointerEvents: 'none',
+    position: 'absolute',
     // backgroundColor: 'gray',
     // zIndex: -1,
     userSelect: 'none',
-    pointerEvents: 'none',
   },
 })
 
@@ -91,7 +90,7 @@ export default function Page() {
       <Background />
       <Text as="h1" display size="lg">
         Xero User Interface
-        <Logo src={xuiLogo as StaticImageData} alt="XUI logo" />
+        <Logo alt="XUI logo" src={xuiLogo as StaticImageData} />
       </Text>
       <Text display size="md">
         Design system for beautiful business
@@ -112,7 +111,7 @@ export default function Page() {
         <Link href="/work/xero/principles">
           Experience design principles for cohesive decision making
         </Link>
-        <Thumbnail src={figmaPlugin} alt="" />
+        <Thumbnail alt="" src={figmaPlugin} />
         <Link href="/work/xero/figma-plugin">
           Bringing documentation and tools to Figma
         </Link>

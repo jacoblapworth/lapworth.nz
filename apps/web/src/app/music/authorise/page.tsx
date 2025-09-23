@@ -7,8 +7,8 @@ import { Authorise } from './authorise'
 
 export const metadata: Metadata = {
   robots: {
-    index: false,
     follow: false,
+    index: false,
   },
 }
 

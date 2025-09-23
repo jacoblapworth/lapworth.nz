@@ -16,17 +16,17 @@ export const buildImageUrl = (_url: string, size: number): string => {
 
 const AlbumArt = styled(NextImage, {
   base: {
-    overflow: 'hidden',
-    borderRadius: 'md',
-    backgroundColor: 'surface',
-    marginBlockEnd: 'xsm',
-    willChange: 'transform',
     _groupHover: {
       opacity: 0.8,
     },
     _hover: {
       opacity: 0.8,
     },
+    backgroundColor: 'surface',
+    borderRadius: 'md',
+    marginBlockEnd: 'xsm',
+    overflow: 'hidden',
+    willChange: 'transform',
   },
 })
 
@@ -38,12 +38,12 @@ const Label = styled('div', {
   variants: {
     variant: {
       primary: {
-        fontSize: 'md',
         color: 'primary',
+        fontSize: 'md',
       },
       secondary: {
-        fontSize: 'sm',
         color: 'tertiary',
+        fontSize: 'sm',
       },
     },
   },
@@ -67,16 +67,16 @@ const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
   const src = buildImageUrl(resource.attributes.artwork.url, size)
 
   return (
-    <Link href={resource.attributes.url} className="group">
+    <Link className="group" href={resource.attributes.url}>
       <Stack>
         <AlbumArt
           alt={`Album artwork for "${name}"`}
-          src={src}
-          htmlWidth={size}
-          htmlHeight={size}
-          quality={75}
-          placeholder="blur"
           blurDataURL={resource.attributes.placeholder}
+          htmlHeight={size}
+          htmlWidth={size}
+          placeholder="blur"
+          quality={75}
+          src={src}
         />
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>
@@ -92,11 +92,11 @@ interface HeavyRotationProps {
 export const HeavyRotation = ({ music }: HeavyRotationProps) => {
   return (
     <Carousel
-      title="Currently vibing to"
       items={music}
       renderItem={(item) => (
         <AppleMusicResource key={item.id} resource={item} />
       )}
+      title="Currently vibing to"
     />
   )
 }

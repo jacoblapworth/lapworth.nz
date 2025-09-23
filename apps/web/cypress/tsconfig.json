@@ -1,9 +1,9 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "isolatedModules": false,
     "allowJs": true,
+    "isolatedModules": false,
     "types": ["cypress", "@testing-library/cypress", "cypress-real-events"]
   },
+  "extends": "../tsconfig.json",
   "include": ["**/*.*"]
 }
