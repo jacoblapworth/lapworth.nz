@@ -27,7 +27,7 @@ type Props = Recipe
 export const RecipeListItem = ({ title, slug, image }: Props) => {
   return (
     <Article>
-      <Link href={`/recipes/${slug}`}>
+      <Link href={`/food/${slug}`}>
         {image && <Image alt={title} height={300} src={image} width={300} />}
         <Text as="p" display size="md">
           {title}
