@@ -1,25 +1,18 @@
+import { postHogAdapter } from '@flags-sdk/posthog'
 import { flag } from 'flags/next'
 
 export const devmode = flag({
-  decide() {
-    return false
-  },
+  adapter: postHogAdapter.isFeatureEnabled(),
   description: 'Enable devmode features',
   key: 'devmode',
 })
 
 export const showWork = flag({
-  decide() {
-    return false
-  },
-  description: 'Enable the /work pages',
-  key: 'work',
+  adapter: postHogAdapter.isFeatureEnabled(),
+  key: 'enable-work',
 })
 
 export const enableFood = flag({
-  decide() {
-    return false
-  },
-  description: 'Enable the /food pages',
+  adapter: postHogAdapter.isFeatureEnabled(),
   key: 'enable-food',
 })
