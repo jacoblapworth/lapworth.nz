@@ -35,7 +35,7 @@ export function WorkListItem({ item }: Props) {
   const format = useFormatter()
   const { slug, cover, title, date } = item
   return (
-    <Link href={`/work/${slug}`} key={slug}>
+    <Link href={`/work/${slug}`}>
       {cover && <Cover alt={title} src={cover} />}
       <VStack alignItems="start" gap="xs">
         {title}
