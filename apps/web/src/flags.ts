@@ -15,3 +15,11 @@ export const showWork = flag({
   description: 'Enable the /work pages',
   key: 'work',
 })
+
+export const enableFood = flag({
+  decide() {
+    return false
+  },
+  description: 'Enable the /food pages',
+  key: 'enable-food',
+})
