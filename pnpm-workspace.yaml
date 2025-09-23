@@ -5,6 +5,7 @@ packages:
 onlyBuiltDependencies:
   - '@sentry/cli'
   - '@vercel/speed-insights'
+  - core-js
   - cypress
   - esbuild
   - sharp
