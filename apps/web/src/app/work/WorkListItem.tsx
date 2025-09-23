@@ -36,7 +36,7 @@ export function WorkListItem({ item }: Props) {
   const { slug, cover, title, date } = item
   return (
     <Link href={`/work/${slug}`}>
-      {cover && <Cover alt={title} src={cover} />}
+      {cover && <Cover alt={title} placeholder="blur" src={cover} />}
       <VStack alignItems="start" gap="xs">
         {title}
         <Text color="tertiary">
