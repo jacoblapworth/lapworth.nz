@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { useFormatter } from 'next-intl'
 import { work } from '@/content'
 import { styled, VStack } from '@/styled/jsx'
 import { DiscoverTile } from './trademe/DiscoverTile'

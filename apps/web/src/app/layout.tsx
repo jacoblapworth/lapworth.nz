@@ -97,15 +97,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         >
           <ThemeProvider {...themeConfig}>
             <NextIntlClientProvider>
-            <Skiplink data-testid="skip-link" href={`#${id}`} tabIndex={0}>
-              Skip to main content
-            </Skiplink>
-            <Header />
-            <Navigation />
-            <Main id={id}>{children}</Main>
-            <Footer />
-            <Analytics />
-            <SpeedInsights />
+              <Skiplink data-testid="skip-link" href={`#${id}`} tabIndex={0}>
+                Skip to main content
+              </Skiplink>
+              <Header />
+              <Navigation />
+              <Main id={id}>{children}</Main>
+              <Footer />
+              <Analytics />
+              <SpeedInsights />
             </NextIntlClientProvider>
           </ThemeProvider>
           {shouldInjectToolbar && <VercelToolbar />}
