@@ -1,8 +1,6 @@
 import { getProviderData } from '@flags-sdk/posthog'
 import { createFlagsDiscoveryEndpoint } from 'flags/next'
 
-import * as flags from '../../../../flags'
-
 export const GET = createFlagsDiscoveryEndpoint(() =>
   getProviderData({
     personalApiKey: process.env.POSTHOG_PERSONAL_API_KEY,
