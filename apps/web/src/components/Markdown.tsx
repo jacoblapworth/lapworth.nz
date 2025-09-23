@@ -20,7 +20,7 @@ export const Image = styled(NextImage, {
       marginBlockStart: -1,
     },
     border: 'muted',
-    boxSizing: 'border-box',
+    // boxSizing: 'border-box',
     height: 'auto',
     maxWidth: '100%',
   },

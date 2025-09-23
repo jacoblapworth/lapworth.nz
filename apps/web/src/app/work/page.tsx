@@ -13,6 +13,25 @@ const _Layout = styled('div', {
   },
 })
 
+const Ul = styled('ul', {
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 'lg',
+    listStyle: 'inside',
+    marginBlock: 'lg',
+    marginBlockEnd: 'md',
+    maxWidth: 600,
+    paddingInlineStart: 'md',
+  },
+})
+
+const Li = styled('li', {
+  base: {
+    listStyle: 'none',
+  },
+})
+
 export const metadata: Metadata = {
   description: 'Xero, Vend, Timely, Trade Me',
   title: 'Work',
@@ -20,10 +39,12 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <VStack alignItems="start" gap="lg" marginBlock="lg">
+    <Ul>
       {work.map((item) => (
-        <WorkListItem item={item} key={item.slug} />
+        <Li key={item.slug}>
+          <WorkListItem item={item} />
+        </Li>
       ))}
-    </VStack>
+    </Ul>
   )
 }

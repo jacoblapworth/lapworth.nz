@@ -235,21 +235,21 @@ const Grid = styled('div', {
   },
 })
 
-export const Page: NextPage<MDXPageProps> = ({ source }) => {
-  return (
-    <MDXProvider>
-      <Grid>
-        <Text as="h1" display size="lg">
-          {source.frontmatter?.title}
-        </Text>
-        <MDXRemote
-          {...source}
-          components={{ Disciplines, WorldMap }}
-          // scope={{ images }}
-        />
-      </Grid>
-    </MDXProvider>
-  )
-}
+// export const Page: NextPage<MDXPageProps> = ({ source }) => {
+//   return (
+//     <MDXProvider>
+//       <Grid>
+//         <Text as="h1" display size="lg">
+//           {source.frontmatter?.title}
+//         </Text>
+//         <MDXRemote
+//           {...source}
+//           components={{ Disciplines, WorldMap }}
+//           // scope={{ images }}
+//         />
+//       </Grid>
+//     </MDXProvider>
+//   )
+// }
 
-export default Page
+// export default Page

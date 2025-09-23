@@ -117,7 +117,7 @@ export const tokens = defineTokens({
     lg: { value: '32px' },
     md: { value: '16px' },
     sm: { value: '8px' },
-    xsm: { value: '4px' },
+    xs: { value: '4px' },
   },
   zIndex: {
     1: { value: 0 },
@@ -131,6 +131,9 @@ export const semanticTokens = defineSemanticTokens({
   borders: {
     divider: { value: '1px solid {colors.divider}' },
     muted: { value: '1px solid {colors.quaternary}' },
+    primary: { value: '1px solid {colors.primary}' },
+    secondary: { value: '1px solid {colors.secondary}' },
+    tertiary: { value: '1px solid {colors.tertiary}' },
   },
   colors: {
     background: {

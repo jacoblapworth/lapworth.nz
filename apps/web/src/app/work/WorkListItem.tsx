@@ -5,7 +5,7 @@ import NextLink from 'next/link'
 import { useFormatter } from 'next-intl'
 import { Text } from '@/components/Typography'
 import type { Work } from '@/content'
-import { styled } from '@/styled/jsx'
+import { styled, VStack } from '@/styled/jsx'
 
 const Link = styled(NextLink, {
   base: {
@@ -16,7 +16,14 @@ const Link = styled(NextLink, {
     display: 'flex',
     flexDirection: 'column',
     fontSize: 'lg',
+    gap: 'sm',
     textDecoration: 'none',
+  },
+})
+
+const Cover = styled(Image, {
+  base: {
+    border: 'muted',
   },
 })
 
@@ -28,9 +35,9 @@ export function WorkListItem({ item }: Props) {
   const format = useFormatter()
   const { slug, cover, title, date } = item
   return (
-    <div key={slug}>
-      <Link href={`/work/${slug}`}>
-        {cover && <Image alt={title} height={300} src={cover} width={500} />}
+    <Link href={`/work/${slug}`} key={slug}>
+      {cover && <Cover alt={title} src={cover} />}
+      <VStack alignItems="start" gap="xs">
         {title}
         <Text color="tertiary">
           {format.dateTime(new Date(date), {
@@ -38,7 +45,7 @@ export function WorkListItem({ item }: Props) {
             year: 'numeric',
           })}
         </Text>
-      </Link>
-    </div>
+      </VStack>
+    </Link>
   )
 }
