@@ -28,24 +28,18 @@ export const Image = styled(NextImage, {
 
 export const Blockquote = styled('blockquote', {
   base: {
-    //TODO: fix
-    // [`& ${Text}`]: {
-    //   maxWidth: '35ch',
-    // },
-
     '& p': {
       all: 'unset',
       display: 'inline-block',
+      maxInlineSize: '50ch',
       position: 'relative',
-      // maxBlockSize: '35ch',
     },
-    borderTop: 'muted',
+    borderInlineStart: 'muted',
     display: 'inline',
     hangingPunctuation: 'first last',
-    lineHeight: '2.5rem',
-    marginBlock: 'md',
-    marginInline: 0,
-    paddingBlock: 'md',
+    lineHeight: '1.5rem',
+    marginBlockEnd: 'md',
+    paddingInlineStart: 'lg',
   },
 })
 

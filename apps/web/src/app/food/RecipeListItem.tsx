@@ -1,7 +1,7 @@
 'use client'
 
 import NextImage from 'next/image'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { Text } from '@/components/Typography'
 import type { Recipe } from '@/content'
 import { styled } from '@/styled/jsx'
@@ -15,20 +15,34 @@ const Article = styled('article', {
   },
 })
 
+const Link = styled(NextLink, {
+  base: {
+    _hover: { textDecoration: 'underline' },
+    alignItems: 'start',
+    color: 'inherit',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 'md',
+    textDecoration: 'none',
+  },
+})
+
 const Image = styled(NextImage, {
   base: {
-    height: 'auto',
-    maxWidth: 300,
+    height: '100%',
+    maxHeight: 200,
+    objectFit: 'cover',
+    width: '100%',
   },
 })
 
 type Props = Recipe
 
-export const RecipeListItem = ({ title, slug, image }: Props) => {
+export function RecipeListItem({ title, slug, image }: Props) {
   return (
     <Article>
       <Link href={`/food/${slug}`}>
-        {image && <Image alt={title} height={300} src={image} width={300} />}
+        {image && <Image alt={title} placeholder="blur" src={image} />}
         <Text as="p" display size="md">
           {title}
         </Text>

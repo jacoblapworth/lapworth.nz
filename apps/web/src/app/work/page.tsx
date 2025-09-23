@@ -1,12 +1,9 @@
 import type { Metadata } from 'next'
 import { work } from '@/content'
 import { styled, VStack } from '@/styled/jsx'
-import { DiscoverTile } from './trademe/DiscoverTile'
-import { VendTabsTile } from './vend/Tile'
 import { WorkListItem } from './WorkListItem'
-import { XeroTile } from './xero/XeroTile'
 
-const Layout = styled('div', {
+const _Layout = styled('div', {
   base: {
     columnGap: 'md',
     display: 'grid',
@@ -23,17 +20,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
-      <VStack alignItems="start">
-        {work.map((item) => (
-          <WorkListItem item={item} key={item.slug} />
-        ))}
-      </VStack>
-      <Layout>
-        <XeroTile />
-        <DiscoverTile />
-        <VendTabsTile />
-      </Layout>
-    </>
+    <VStack alignItems="start" gap="lg" marginBlock="lg">
+      {work.map((item) => (
+        <WorkListItem item={item} key={item.slug} />
+      ))}
+    </VStack>
   )
 }

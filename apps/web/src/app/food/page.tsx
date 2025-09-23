@@ -4,8 +4,11 @@ import { RecipeListItem } from './RecipeListItem'
 
 const List = styled('ul', {
   base: {
+    display: 'flex',
+    flexDirection: 'column',
     listStyle: 'none',
     margin: 0,
+    maxWidth: 500,
     padding: 0,
   },
 })
