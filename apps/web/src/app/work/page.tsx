@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-
 import { work } from '@/content'
 import { styled, VStack } from '@/styled/jsx'
 import { DiscoverTile } from './trademe/DiscoverTile'
