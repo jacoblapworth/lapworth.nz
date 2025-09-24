@@ -19,7 +19,7 @@ export function useMDXComponents(): MDXComponents {
     a,
     blockquote,
     h1,
-    h2: h2,
+    h2,
     h3,
     Image,
     img: Image,

@@ -37,7 +37,7 @@ const work = defineCollection({
   pattern: 'work/**/*.mdx',
   schema: s
     .object({
-      categories: s.array(s.string()).default(['Journal']),
+      categories: s.array(s.string()).default(['work']),
       content: s.mdx(),
       cover: s.image().optional(),
       date: s.isodate(),
@@ -45,6 +45,14 @@ const work = defineCollection({
       draft: s.boolean().default(false),
       excerpt: s.excerpt(),
       featured: s.boolean().default(false),
+      links: s
+        .array(
+          s.object({
+            label: s.string().max(49),
+            url: s.string().url(),
+          }),
+        )
+        .optional(),
       meta: meta,
       metadata: s.metadata(),
       slug: s.slug('work'),
@@ -60,6 +68,12 @@ export default defineConfig({
   collections: {
     recipes,
     work,
+  },
+  complete({ work, recipes }) {
+    const drafts = work.filter(({ draft }) => draft)
+    console.info(`Work: ${work.length}`)
+    console.info(`Recipes: ${recipes.length}`)
+    console.info(`Drafts: ${drafts.length}`)
   },
   mdx: {
     rehypePlugins: [

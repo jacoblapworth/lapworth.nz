@@ -3,9 +3,10 @@
 import Image from 'next/image'
 import NextLink from 'next/link'
 import { useFormatter } from 'next-intl'
+import { Tag } from '@/components/Tag'
 import { Text } from '@/components/Typography'
 import type { Work } from '@/content'
-import { styled } from '@/styled/jsx'
+import { styled, VStack } from '@/styled/jsx'
 
 const Link = styled(NextLink, {
   base: {
@@ -16,7 +17,14 @@ const Link = styled(NextLink, {
     display: 'flex',
     flexDirection: 'column',
     fontSize: 'lg',
+    gap: 'sm',
     textDecoration: 'none',
+  },
+})
+
+const Cover = styled(Image, {
+  base: {
+    border: 'muted',
   },
 })
 
@@ -26,19 +34,21 @@ interface Props {
 
 export function WorkListItem({ item }: Props) {
   const format = useFormatter()
-  const { slug, cover, title, date } = item
+  const { draft, slug, cover, title, date, description } = item
   return (
-    <div key={slug}>
-      <Link href={`/work/${slug}`}>
-        {cover && <Image alt={title} height={300} src={cover} width={500} />}
+    <Link href={`/work/${slug}`}>
+      {cover && <Cover alt={title} placeholder="blur" src={cover} />}
+      <VStack alignItems="start" gap="xs">
+        {draft && <Tag sentiment="warning">Draft</Tag>}
         {title}
+        <Text>{description}</Text>
         <Text color="tertiary">
           {format.dateTime(new Date(date), {
             month: 'short',
             year: 'numeric',
           })}
         </Text>
-      </Link>
-    </div>
+      </VStack>
+    </Link>
   )
 }

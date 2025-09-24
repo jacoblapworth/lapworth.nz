@@ -5,6 +5,8 @@ import { work } from '@/content'
 import { VStack } from '@/styled/jsx'
 import { TabsExample } from '../vend/VendTabs'
 
+import * as Principles from '../xero/principles/principles'
+
 function getPostBySlug(slug: string) {
   return work.find((post) => post.slug === slug)
 }
@@ -41,7 +43,10 @@ export default async function Page({ params }: Props) {
         {post.title}
       </Text>
 
-      <MDXContent code={post.content} components={{ TabsExample }} />
+      <MDXContent
+        code={post.content}
+        components={{ TabsExample, ...Principles }}
+      />
     </VStack>
   )
 }

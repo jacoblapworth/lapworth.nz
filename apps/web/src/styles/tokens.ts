@@ -104,6 +104,7 @@ export const tokens = defineTokens({
     max: { value: '99999px;' },
     md: { value: '6px' },
     sm: { value: '3px' },
+    xl: { value: '16px' },
   },
   shadows: {
     md: { value: '0 4px 8px {colors.shadow}' },
@@ -117,7 +118,7 @@ export const tokens = defineTokens({
     lg: { value: '32px' },
     md: { value: '16px' },
     sm: { value: '8px' },
-    xsm: { value: '4px' },
+    xs: { value: '4px' },
   },
   zIndex: {
     1: { value: 0 },
@@ -131,6 +132,9 @@ export const semanticTokens = defineSemanticTokens({
   borders: {
     divider: { value: '1px solid {colors.divider}' },
     muted: { value: '1px solid {colors.quaternary}' },
+    primary: { value: '1px solid {colors.primary}' },
+    secondary: { value: '1px solid {colors.secondary}' },
+    tertiary: { value: '1px solid {colors.tertiary}' },
   },
   colors: {
     background: {
@@ -224,6 +228,12 @@ export const semanticTokens = defineSemanticTokens({
       },
     },
     warning: {
+      surface: {
+        value: {
+          _dark: '{colors.yellow.800}',
+          base: '{colors.yellow.100}',
+        },
+      },
       value: {
         _dark: '{colors.yellow.50}',
         base: '{colors.yellow.50}',

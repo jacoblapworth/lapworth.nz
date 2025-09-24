@@ -1,3 +1,5 @@
+'use client'
+
 import { Text } from '@/components/Typography'
 import { styled } from '@/styled/jsx'
 
