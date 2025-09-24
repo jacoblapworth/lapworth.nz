@@ -21,7 +21,7 @@
     "gray-matter": "4.0.3",
     "jose": "6.1.0",
     "klaviyo-api": "19.0.2",
-    "lucide-react": "0.542.0",
+    "lucide-react": "0.544.0",
     "next": "15.5.3",
     "next-intl": "4.3.9",
     "next-mdx-remote": "5.0.0",
@@ -42,7 +42,7 @@
     "resend": "6.1.0",
     "sharp": "0.34.4",
     "shiki": "3.13.0",
-    "zod": "4.1.9"
+    "zod": "4.1.11"
   },
   "description": "Kopaki – personal website for J Lapworth",
   "devDependencies": {
