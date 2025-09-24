@@ -19,9 +19,9 @@ export function SubmitButton({ children }: Props) {
 
   return (
     <Button
-      type="submit"
       aria-disabled={pending}
       aria-label={pending ? 'Loading' : undefined}
+      type="submit"
     >
       {children}
     </Button>
@@ -40,17 +40,17 @@ export function EmailSubscribe() {
     <Form action={formAction}>
       <HStack alignItems="end" gap={0}>
         <TextInput
+          aria-describedby={id}
+          autoComplete="email"
           label="Email address"
           name="email"
           placeholder="jacob@lapworth.nz"
-          type="email"
-          autoComplete="email"
           required
-          aria-describedby={id}
+          type="email"
         />
         <SubmitButton>Subscribe</SubmitButton>
       </HStack>
-      <div id={id} aria-live="polite">
+      <div aria-live="polite" id={id}>
         {state.message}
       </div>
     </Form>

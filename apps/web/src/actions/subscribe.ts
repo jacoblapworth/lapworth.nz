@@ -39,12 +39,10 @@ export async function subscribeEmail(
 
         await profiles.bulkSubscribeProfiles({
           data: {
-            type: ProfileSubscriptionBulkCreateJobEnum.ProfileSubscriptionBulkCreateJob,
             attributes: {
               profiles: {
                 data: [
                   {
-                    type: ProfileEnum.Profile,
                     attributes: {
                       email,
                       subscriptions: {
@@ -56,6 +54,7 @@ export async function subscribeEmail(
                         },
                       },
                     },
+                    type: ProfileEnum.Profile,
                   },
                 ],
               },
@@ -63,11 +62,12 @@ export async function subscribeEmail(
             relationships: {
               list: {
                 data: {
-                  type: ListEnum.List,
                   id: 'W7qqMe',
+                  type: ListEnum.List,
                 },
               },
             },
+            type: ProfileSubscriptionBulkCreateJobEnum.ProfileSubscriptionBulkCreateJob,
           },
         })
 

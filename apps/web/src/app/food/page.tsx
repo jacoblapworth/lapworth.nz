@@ -5,8 +5,8 @@ import { RecipeListItem } from './RecipeListItem'
 const List = styled('ul', {
   base: {
     listStyle: 'none',
-    padding: 0,
     margin: 0,
+    padding: 0,
   },
 })
 

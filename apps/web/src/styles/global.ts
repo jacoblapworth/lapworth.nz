@@ -7,42 +7,41 @@ import {
 export const textStyles = defineTextStyles({})
 export const layerStyles = defineLayerStyles({})
 export const globalCss = defineGlobalStyles({
-  html: {
-    color: 'text',
-    fontFamily: 'system',
-    fontSize: '100%',
-    lineHeight: '1.2rem',
-    cursor: 'auto',
+  '*': {
+    _focusVisible: {
+      outlineColor: 'interactive',
+      outlineOffset: 5,
+      outlineStyle: 'auto',
+      outlineWidth: 5,
+    },
+
+    _selection: {
+      backgroundColor: 'primary',
+      color: 'background',
+    },
   },
 
   a: {
     color: 'interactive',
     textDecoration: 'none',
   },
+  html: {
+    color: 'text',
+    cursor: 'auto',
+    fontFamily: 'system',
+    fontSize: '100%',
+    lineHeight: '1.2rem',
+  },
 
   main: {
     'p, li': {
-      maxWidth: '70ch',
       fontSize: '1.125rem',
       lineHeight: '1.5rem',
+      maxWidth: '70ch',
     },
 
     'ul, ol': {
       paddingInlineStart: 'lg',
-    },
-  },
-
-  '*': {
-    _focusVisible: {
-      outlineColor: 'interactive',
-      outlineStyle: 'auto',
-      outlineWidth: 5,
-      outlineOffset: 5,
-    },
-
-    _selection: {
-      backgroundColor: 'primary',
-      color: 'background',
     },
   },
 })

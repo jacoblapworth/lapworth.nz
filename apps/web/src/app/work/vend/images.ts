@@ -17,11 +17,11 @@ import tabsInlineDocs from '@/public/work/vend/tabs/tabs-inline-docs.png'
 export const images = {
   documentation,
   editProduct,
+  explorationActive,
+  explorationCombo,
   explorationCrit,
   explorationExample,
-  explorationCombo,
   explorationScroll,
-  explorationActive,
   explorationStart,
   modalPrecedence,
   registerExample,

@@ -35,7 +35,7 @@ export function useAppleMusicAuthorisation({
     const authorize = async () => {
       const userToken = await client?.authorize()
       if (!userToken) {
-        setAuthorisation({ state: 'error', error: 'Failed to authorize' })
+        setAuthorisation({ error: 'Failed to authorize', state: 'error' })
 
         return
       }
@@ -68,10 +68,10 @@ export function Authorise({ developerToken }: Props) {
       <NextScript src="https://js-cdn.music.apple.com/musickit/v1/musickit.js" />
       <TextInput
         label="Apple Music User Token"
+        readOnly
         value={
           authorisation.state === 'authorized' ? authorisation.userToken : ''
         }
-        readOnly
       />
     </>
   )

@@ -5,14 +5,14 @@ import { Text } from '@/components/Typography'
 import { Stack } from '@/styled/jsx'
 
 export const metadata: Metadata = {
-  title: 'Work',
   description: 'Xero, Vend, Timely, Trade Me',
+  title: 'Work',
 }
 
 export default function Page() {
   return (
     <Stack>
-      <Text size="xl" display>
+      <Text display size="xl">
         Coming soon 👀
       </Text>
       <EmailSubscribe />
