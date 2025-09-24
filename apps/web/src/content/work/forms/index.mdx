@@ -6,12 +6,15 @@ date: '2022-10-01'
 tags: ['xero']
 ---
 
-As a design system, both the guidance we provide, and the tools we build can greatly influence the experiences that teams craft for our customers. We have an opportunity to shape how teams
-. Because we're designing at scale, it's important for us to apply an ethical lens to our design decisions. We believe this also translates into an arguably better user experience.
+As a design system, both the guidance we provide, and the tools we build can greatly influence the experiences that teams craft for our customers. We have an opportunity to shape the way teams think about design, and the decisions they make. Because we're designing at scale, it's important for us to apply an ethical lens to our design decisions. We believe this also translates into an arguably better user experience.
+
+When designing forms, we have a responsibility to consider the impact of the data we're asking for. We should consider the privacy implications of collecting data, and whether we really need it. We should also consider the cognitive load of asking for too much information, and whether we're creating unnecessary friction for our users.
 
 Asking for only the information necessary to complete a task means we consider carefully what we're asking, it decreases the friction our users have with completing the task, and it means we limit the exposure of data we don't necessarily want to be responsible for.
 
 At Xero, we suggest that you should identify any optional fields, and mark them as such.
+
+![Form example](form-example.png)
 
 These guidelines can apply pretty easily to a lot of traditional B2C experiences. Consider signing up, purchasing something.
 
@@ -21,7 +24,7 @@ But! Xero is complex, and many forms contain a large amount of optional fields (
 
 If we were to expose this setting on each individual form element, the API becomes quite complex when we consider localisation. Does the implementer have to provide localised labels for both optional and required, is the input required, and how do we know which one to display?
 
-```js
+```tsx
 export const FormExampleIdentifyOptional: FC = () => {
   return (
     <XUIForm identifyFieldsWith="optional" optionalLabel="(Optional)">
@@ -31,3 +34,8 @@ export const FormExampleIdentifyOptional: FC = () => {
   )
 }
 ```
+XUI has started to focus on making components easier to use, and reducing the amount of props that need to be passed. This is especially important for a design system, where we want to reduce the cognitive load of using our components, and make it as easy as possible for teams to implement them correctly.
+
+Leveraging React context locally in components helps provide a more simple API. The consumer can compose their forms without having to pass down props through every level of the component tree.
+
+

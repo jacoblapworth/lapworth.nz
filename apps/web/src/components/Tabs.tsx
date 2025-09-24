@@ -4,7 +4,7 @@ import * as Ariakit from '@ariakit/react'
 import { motion } from 'framer-motion'
 import { type ComponentProps, type ReactNode, useState } from 'react'
 
-import { Box, styled } from '@/styled/jsx'
+import { styled } from '@/styled/jsx'
 
 export const Trigger = styled(Ariakit.Tab, {
   base: {

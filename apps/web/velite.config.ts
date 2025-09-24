@@ -1,4 +1,5 @@
 import rehypeShiki from '@shikijs/rehype'
+import { transformerNotationDiff } from '@shikijs/transformers'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypePrettyCode } from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
@@ -91,7 +92,12 @@ export default defineConfig({
       [
         rehypeShiki,
         {
-          theme: 'one-dark-pro',
+          defaultColor: 'light-dark()',
+          themes: {
+            dark: 'github-dark',
+            light: 'github-light',
+          },
+          transformers: [transformerNotationDiff()],
         },
       ],
     ],

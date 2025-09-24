@@ -1,20 +1,26 @@
-'use client'
-
 import NextImage from 'next/image'
+import { cva } from '@/styled/css'
 
-import { styled } from '@/styled/jsx'
-
-export const Image = styled(
-  NextImage,
-  {
-    base: {
-      height: 'auto',
-      maxWidth: '100%',
+const styles = cva({
+  base: {
+    '& + img': {
+      marginBlockStart: -1,
     },
+    border: 'muted',
+    // boxSizing: 'border-box',
+    height: 'auto',
+    maxWidth: '100%',
   },
-  // {
-  //   defaultProps: {
-  //     placeholder: 'blur',
-  //   },
-  // },
-)
+})
+
+export function Image(props: React.ComponentProps<typeof NextImage>) {
+  return (
+    <NextImage
+      className={styles()}
+      height={400}
+      placeholder={props.blurDataURL ? 'blur' : undefined}
+      width={600}
+      {...props}
+    />
+  )
+}

@@ -1,17 +1,8 @@
+'use client'
+
 import * as runtime from 'react/jsx-runtime'
 
-import {
-  Blockquote,
-  h1,
-  h2,
-  h3,
-  Image,
-  Li,
-  Ol,
-  P,
-  components as sharedComponents,
-  Ul,
-} from './Markdown'
+import { components as sharedComponents } from './Markdown'
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code)
@@ -28,15 +19,18 @@ export const MDXContent = ({ code, components }: MDXProps) => {
   return (
     <Component
       components={{
-        blockquote: Blockquote,
-        h1,
-        h2,
-        h3,
-        Image,
-        li: Li,
-        ol: Ol,
-        p: P,
-        ul: Ul,
+        // blockquote: Blockquote,
+        // figure: Figure,
+        // h1,
+        // h2,
+        // h3,
+        // Image,
+        // li: Li,
+        // ol: Ol,
+        // p: P,
+        // pre: Pre,
+        // ul: Ul,
+        // wrapper: Wrapper,
         ...sharedComponents,
         ...components,
       }}

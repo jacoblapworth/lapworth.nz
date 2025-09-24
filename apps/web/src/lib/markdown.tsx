@@ -6,8 +6,9 @@ import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import { z } from 'zod'
-
-import { h1, h2, h3, Image, Wrapper } from '@/components/Markdown'
+import { h1, h2, h3 } from '@/components/mdx/Heading'
+import { Image } from '@/components/mdx/Image'
+import { Wrapper } from '@/components/mdx/Wrapper'
 
 const Frontmatter = z.object({
   date: z.optional(z.coerce.string()),
