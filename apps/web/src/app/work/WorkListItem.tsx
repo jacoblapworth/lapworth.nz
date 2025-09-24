@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import NextLink from 'next/link'
 import { useFormatter } from 'next-intl'
+import { Tag } from '@/components/Tag'
 import { Text } from '@/components/Typography'
 import type { Work } from '@/content'
 import { styled, VStack } from '@/styled/jsx'
@@ -33,12 +34,14 @@ interface Props {
 
 export function WorkListItem({ item }: Props) {
   const format = useFormatter()
-  const { slug, cover, title, date } = item
+  const { draft, slug, cover, title, date, description } = item
   return (
     <Link href={`/work/${slug}`}>
       {cover && <Cover alt={title} placeholder="blur" src={cover} />}
       <VStack alignItems="start" gap="xs">
+        {draft && <Tag sentiment="warning">Draft</Tag>}
         {title}
+        <Text>{description}</Text>
         <Text color="tertiary">
           {format.dateTime(new Date(date), {
             month: 'short',

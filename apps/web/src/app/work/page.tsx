@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { work } from '@/content'
-import { styled, VStack } from '@/styled/jsx'
+import { enableDrafts } from '@/flags'
+import { styled } from '@/styled/jsx'
 import { WorkListItem } from './WorkListItem'
 
 const _Layout = styled('div', {
@@ -37,14 +38,19 @@ export const metadata: Metadata = {
   title: 'Work',
 }
 
-export default function Page() {
+export default async function Page() {
+  const isPreview =
+    process.env.NODE_ENV === 'development' || (await enableDrafts())
+
   return (
     <Ul>
-      {work.map((item) => (
-        <Li key={item.slug}>
-          <WorkListItem item={item} />
-        </Li>
-      ))}
+      {work
+        .filter(({ draft }) => (isPreview ? true : !draft))
+        .map((item) => (
+          <Li key={item.slug}>
+            <WorkListItem item={item} />
+          </Li>
+        ))}
     </Ul>
   )
 }

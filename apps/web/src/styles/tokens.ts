@@ -104,6 +104,7 @@ export const tokens = defineTokens({
     max: { value: '99999px;' },
     md: { value: '6px' },
     sm: { value: '3px' },
+    xl: { value: '16px' },
   },
   shadows: {
     md: { value: '0 4px 8px {colors.shadow}' },
@@ -227,6 +228,12 @@ export const semanticTokens = defineSemanticTokens({
       },
     },
     warning: {
+      surface: {
+        value: {
+          _dark: '{colors.yellow.800}',
+          base: '{colors.yellow.100}',
+        },
+      },
       value: {
         _dark: '{colors.yellow.50}',
         base: '{colors.yellow.50}',

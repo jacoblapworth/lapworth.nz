@@ -1,48 +1,54 @@
 'use client'
 
-import { MDXProvider } from '@mdx-js/react'
-import type { NextPage } from 'next'
 import NextImage, { type StaticImageData } from 'next/image'
-import { MDXRemote } from 'next-mdx-remote'
 
 // import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
-import type { MDXPageProps } from '@/lib/markdown'
 import disciplines from '@/public/work/xero/principles-disciplines.webp'
 import worldMap from '@/public/work/xero/principles-world-map.svg'
 import worldMapDark from '@/public/work/xero/principles-world-map-dark.svg'
 import { styled } from '@/styled/jsx'
 
+const Container = styled('div', {
+  base: {
+    _selection: {
+      backgroundColor: 'background',
+      color: 'primary',
+    },
+    display: 'grid',
+    gap: 'lg',
+    gridAutoColumns: '1fr',
+    gridAutoFlow: 'column',
+    justifyItems: 'stretch',
+  },
+})
+
+const Wrapper = styled('div', {
+  base: {
+    backgroundColor: 'surface',
+    borderRadius: 'xl',
+    boxShadow: 'md',
+    fontSize: 'sm',
+    paddingInline: 'lg',
+  },
+})
+
+const Card = styled('div', {
+  base: {
+    alignItems: 'center',
+    backgroundColor: '#002A46',
+    borderRadius: 'xl',
+    color: '#fff',
+    display: 'grid',
+    gridTemplateRows: '1fr min-content',
+    justifyContent: 'center',
+    minHeight: '20rem',
+    padding: 'lg',
+    textAlign: 'center',
+  },
+})
+
 export function Principles() {
-  const Container = styled('div', {
-    base: {
-      _selection: {
-        backgroundColor: 'background',
-        color: 'primary',
-      },
-      display: 'grid',
-      gap: 'lg',
-      gridAutoColumns: '1fr',
-      gridAutoFlow: 'column',
-      justifyItems: 'stretch',
-    },
-  })
-
-  const Card = styled('div', {
-    base: {
-      alignItems: 'center',
-      backgroundColor: '#002A46',
-      borderRadius: 'lg',
-      color: '#fff',
-      display: 'grid',
-      gridTemplateRows: '1fr min-content',
-      justifyContent: 'center',
-      minHeight: '20rem',
-      padding: 'lg',
-      textAlign: 'center',
-    },
-  })
-
   const principles = [
     {
       means: [
@@ -118,25 +124,35 @@ export function Principles() {
   return (
     <Container>
       {principles.map(({ value, title, means, outcome, watch }) => (
-        <Card key={value}>
-          <Text css={{ color: 'background' }} display size="md">
-            {title}
-          </Text>
-          <Text css={{ color: 'background' }} size="sm">
-            Principle {value}
-          </Text>
+        <Wrapper key={value}>
+          <Card>
+            <Text
+              css={{ color: 'background' }}
+              display
+              fontWeight="bold"
+              size="md"
+            >
+              {title}
+            </Text>
+            <Text css={{ color: 'background' }} size="sm">
+              Principle {value}
+            </Text>
+          </Card>
+          This means...
           <ul>
             {means.map((mean) => (
               <li key={mean}>{mean}</li>
             ))}
           </ul>
+          Customer outcome:
           <Text>{outcome}</Text>
+          Watch out for:
           <ul>
             {watch.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </Card>
+        </Wrapper>
       ))}
     </Container>
   )
@@ -226,7 +242,7 @@ export function WorldMap() {
   )
 }
 
-const Grid = styled('div', {
+const _Grid = styled('div', {
   base: {
     display: 'grid',
     marginBlockEnd: 'lg',
@@ -249,6 +265,10 @@ const Grid = styled('div', {
 //         />
 //       </Grid>
 //     </MDXProvider>
+//   )
+// }
+
+// export default Page
 //   )
 // }
 

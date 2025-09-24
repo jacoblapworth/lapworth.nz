@@ -14,17 +14,25 @@ import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
 import { styled } from '@/styled/jsx'
 
-export const Image = styled(NextImage, {
-  base: {
-    '& + img': {
-      marginBlockStart: -1,
+export const Image = styled(
+  NextImage,
+  {
+    base: {
+      '& + img': {
+        marginBlockStart: -1,
+      },
+      border: 'muted',
+      // boxSizing: 'border-box',
+      height: 'auto',
+      maxWidth: '100%',
     },
-    border: 'muted',
-    // boxSizing: 'border-box',
-    height: 'auto',
-    maxWidth: '100%',
   },
-})
+  {
+    defaultProps: {
+      placeholder: 'blur',
+    },
+  },
+)
 
 export const Blockquote = styled('blockquote', {
   base: {
