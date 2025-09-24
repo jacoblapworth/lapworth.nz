@@ -82,6 +82,12 @@ export const tokens = defineTokens({
       50: {
         value: '#FFC453',
       },
+      100: {
+        value: '#fef9c3',
+      },
+      800: {
+        value: '#854d0e',
+      },
     },
   },
   durations: {
