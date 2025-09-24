@@ -38,7 +38,7 @@ export default async function Page({ params }: Props) {
   if (!post) notFound()
 
   return (
-    <VStack alignItems="stretch">
+    <VStack alignItems="stretch" marginBlockEnd="xl">
       <Text as="h1" marginBlock="lg" size="xl">
         {post.title}
       </Text>

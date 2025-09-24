@@ -254,7 +254,7 @@ const TabList = styled(Ariakit.TabList, {
   },
 })
 
-const TabsRoot = styled('div', {
+const Container = styled('div', {
   base: {
     display: 'flex',
     flexDirection: 'column',
@@ -381,7 +381,7 @@ export function TabsExample() {
 
   return (
     <ResponsivePreview>
-      <TabsRoot className={lato.className}>
+      <Container className={lato.className}>
         <Ariakit.TabProvider store={tabStore}>
           <Scroll
             endElement={
@@ -403,9 +403,11 @@ export function TabsExample() {
               ))}
             </TabList>
           </Scroll>
-          <SkeletonContent />
+          <Ariakit.TabPanel key={tabValue} tabId={tabValue}>
+            <SkeletonContent />
+          </Ariakit.TabPanel>
         </Ariakit.TabProvider>
-      </TabsRoot>
+      </Container>
     </ResponsivePreview>
   )
 }

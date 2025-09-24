@@ -3,9 +3,6 @@ import type { ReactNode } from 'react'
 
 export const metadata: Metadata = {
   description: 'Xero, Vend, Timely, Trade Me',
-  robots: {
-    index: false,
-  },
   title: 'Work',
 }
 

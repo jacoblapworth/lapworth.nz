@@ -4,16 +4,6 @@ import { enableDrafts } from '@/flags'
 import { styled } from '@/styled/jsx'
 import { WorkListItem } from './WorkListItem'
 
-const _Layout = styled('div', {
-  base: {
-    columnGap: 'md',
-    display: 'grid',
-    gap: 'lg',
-    marginBlock: 'lg',
-    // gridTemplateColumns: 'repeat(8, 1fr)',
-  },
-})
-
 const Ul = styled('ul', {
   base: {
     display: 'flex',
@@ -23,7 +13,7 @@ const Ul = styled('ul', {
     marginBlock: 'lg',
     marginBlockEnd: 'md',
     maxWidth: 600,
-    paddingInlineStart: 'md',
+    padding: 0,
   },
 })
 

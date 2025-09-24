@@ -97,7 +97,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Skiplink>
             <Header />
             <Navigation />
-            <Main id={id}>{children}</Main>
+            <main
+              className={css({
+                gridArea: 'content',
+                margin: 'md',
+                maxWidth: 'calc(100vw - token(spacing.md) * 2)',
+              })}
+              id={id}
+              tabIndex={-1}
+            >
+              {children}
+            </main>
             <Footer />
             <Analytics />
             <SpeedInsights />
