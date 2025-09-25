@@ -27,8 +27,9 @@ const sectraFont = localFont({
 const monoFont = Google_Sans_Code({
   display: 'swap',
   fallback: ['ui-monospace', 'SFMono-Regular', 'monospace'],
+  preload: false,
+  subsets: ['latin-ext', 'math', 'symbols'],
   variable: '--fonts-mono',
-  // subsets: ['latin'],
   weight: '400',
 })
 
