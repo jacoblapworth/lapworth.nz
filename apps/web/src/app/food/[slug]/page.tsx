@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { MDXContent } from '@/components/MDX'
+import { MDXContent } from '@/components/MDXContent'
 import { recipes } from '@/content'
 import { styled } from '@/styled/jsx'
 

@@ -1,5 +1,10 @@
 import rehypeShiki from '@shikijs/rehype'
-import { transformerNotationDiff } from '@shikijs/transformers'
+import {
+  transformerNotationDiff,
+  transformerNotationErrorLevel,
+  transformerNotationFocus,
+  transformerNotationHighlight,
+} from '@shikijs/transformers'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypePrettyCode } from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
@@ -78,7 +83,7 @@ export default defineConfig({
   },
   mdx: {
     rehypePlugins: [
-      rehypePrettyCode,
+      // rehypePrettyCode,
       rehypeSlug,
       [
         rehypeAutolinkHeadings,
@@ -92,12 +97,19 @@ export default defineConfig({
       [
         rehypeShiki,
         {
-          defaultColor: 'light-dark()',
+          // defaultColor: 'light-dark()',
+          defaultColor: false,
+          theme: 'github-light',
           themes: {
             dark: 'github-dark',
             light: 'github-light',
           },
-          transformers: [transformerNotationDiff()],
+          transformers: [
+            transformerNotationDiff({ matchAlgorithm: 'v3' }),
+            transformerNotationHighlight({ matchAlgorithm: 'v3' }),
+            transformerNotationFocus({ matchAlgorithm: 'v3' }),
+            transformerNotationErrorLevel({ matchAlgorithm: 'v3' }),
+          ],
         },
       ],
     ],

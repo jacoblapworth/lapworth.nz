@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation'
-import { MDXContent } from '@/components/MDX'
+import { MDXContent } from '@/components/MDXContent'
 import { Text } from '@/components/Typography'
 import { work } from '@/content'
 import { VStack } from '@/styled/jsx'
-import { TabsExample } from '../vend/VendTabs'
+import { TabsExample } from '../vend/tabs/VendTabs'
 
 import * as Principles from '../xero/principles/principles'
 

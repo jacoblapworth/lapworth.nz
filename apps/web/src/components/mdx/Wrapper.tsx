@@ -5,9 +5,9 @@ export const Wrapper = styled('div', {
     display: 'grid',
     gridAutoColumns: 'auto',
     gridAutoFlow: 'row',
+    marginBlockEnd: 'lg',
+    position: 'relative',
+    rowGap: 'lg',
     width: '100%',
-    // marginBlockEnd: 'lg',
-    // maxWidth: 1000,
-    // position: 'relative',
   },
 })

@@ -5,7 +5,7 @@ import type { ComponentProps } from 'react'
 
 import { styled } from '@/styled/jsx'
 
-const A = styled(NextLink, {
+const Anchor = styled(NextLink, {
   base: {
     _hover: {
       textDecorationColor: 'interactive',
@@ -15,7 +15,7 @@ const A = styled(NextLink, {
   },
 })
 
-type AProps = ComponentProps<typeof A>
+type AProps = ComponentProps<typeof Anchor>
 
 interface Props extends AProps {
   sameTab?: boolean
@@ -26,8 +26,8 @@ export const Link = ({ children, href, sameTab, ...rest }: Props) => {
   const rel = sameTab ? undefined : 'noopener noreferrer'
 
   return (
-    <A href={href} rel={rel} target={target} {...rest}>
+    <Anchor href={href} rel={rel} target={target} {...rest}>
       {children}
-    </A>
+    </Anchor>
   )
 }
