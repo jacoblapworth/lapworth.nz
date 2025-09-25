@@ -4,8 +4,11 @@ import { css, cva } from '@/styled/css'
 
 const styles = cva({
   base: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 'sm',
     listStylePosition: 'outside',
-    paddingInlineStart: '16',
+    paddingInlineStart: '24',
   },
   variants: {
     type: {
@@ -34,6 +37,7 @@ export function ListItem(props: ComponentProps<'li'>) {
         _marker: {
           color: 'tertiary',
         },
+        lineHeight: '1.25',
         paddingInlineStart: '4',
       })}
       {...props}
