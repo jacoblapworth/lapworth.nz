@@ -1,4 +1,6 @@
 import NextImage from 'next/image'
+import type { ComponentProps } from 'react'
+import { getImageMetadata } from 'velite'
 import { cva } from '@/styled/css'
 
 const styles = cva({
@@ -13,14 +15,10 @@ const styles = cva({
   },
 })
 
-export function Image(props: React.ComponentProps<typeof NextImage>) {
+export async function Image(props: ComponentProps<typeof NextImage>) {
+  const src = `@/public/static/${props.src.toString().replace(/\/static\//, '')}`
+  const img = await import(src).then((mod) => mod.default)
   return (
-    <NextImage
-      className={styles()}
-      height={400}
-      placeholder={props.blurDataURL ? 'blur' : undefined}
-      width={600}
-      {...props}
-    />
+    <NextImage className={styles()} placeholder="blur" {...props} src={img} />
   )
 }

@@ -26,8 +26,7 @@
     "video": {
       "dependsOn": ["^video"],
       "inputs": ["src/videos/**"],
-      "outputs": ["src/videos/**"],
-      "persistent": true
+      "outputs": ["src/videos/**"]
     },
     "video:watch": {
       "dependsOn": ["^video:watch"],
