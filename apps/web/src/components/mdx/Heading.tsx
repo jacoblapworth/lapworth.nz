@@ -5,9 +5,9 @@ type Props = ComponentProps<typeof Text>
 
 export const HeadingAnchor = ({ children, ...props }: Props) => {
   // const pathname = usePathname()
-
+  console.log(props)
   return (
-    <Text css={{ marginBlock: 'lg' }} display {...props}>
+    <Text display {...props}>
       {/* <Link
         href={`${pathname}#${props.id}`}
         sameTab

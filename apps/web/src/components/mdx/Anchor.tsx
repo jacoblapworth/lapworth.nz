@@ -5,7 +5,7 @@ const EXTERNAL_HREF_REGEX = /https?:\/\//
 
 type AProps = AnchorHTMLAttributes<HTMLAnchorElement>
 
-export const a = ({ href, ...props }: AProps) => (
+export const Anchor = ({ href, ...props }: AProps) => (
   <Link
     href={href ?? ''}
     sameTab={!EXTERNAL_HREF_REGEX.test(href ?? '')}

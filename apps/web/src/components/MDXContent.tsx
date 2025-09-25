@@ -1,5 +1,3 @@
-'use client'
-
 import * as runtime from 'react/jsx-runtime'
 
 import { components as sharedComponents } from './mdx'
@@ -10,12 +8,12 @@ const useMDXComponent = (code: string) => {
 }
 
 interface MDXProps {
-  code: string
+  mdx: string
   components?: Record<string, React.ComponentType>
 }
 
-export const MDXContent = ({ code, components }: MDXProps) => {
-  const Component = useMDXComponent(code)
+export const MDXContent = ({ mdx, components }: MDXProps) => {
+  const Component = useMDXComponent(mdx)
   return (
     <Component
       components={{

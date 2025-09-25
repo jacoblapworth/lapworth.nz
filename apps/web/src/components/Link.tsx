@@ -1,11 +1,8 @@
-'use client'
-
 import NextLink from 'next/link'
 import type { ComponentProps } from 'react'
+import { cva, cx, type RecipeVariantProps } from '@/styled/css'
 
-import { styled } from '@/styled/jsx'
-
-const Anchor = styled(NextLink, {
+const styles = cva({
   base: {
     _hover: {
       textDecorationColor: 'interactive',
@@ -15,19 +12,32 @@ const Anchor = styled(NextLink, {
   },
 })
 
-type AProps = ComponentProps<typeof Anchor>
+type AnchorVariants = RecipeVariantProps<typeof styles>
 
-interface Props extends AProps {
-  sameTab?: boolean
-}
+type Props = AnchorVariants &
+  ComponentProps<typeof NextLink> & {
+    sameTab?: boolean
+  }
 
-export const Link = ({ children, href, sameTab, ...rest }: Props) => {
+export const Link = ({
+  children,
+  href,
+  className,
+  sameTab,
+  ...rest
+}: Props) => {
   const target = sameTab ? undefined : '_blank'
   const rel = sameTab ? undefined : 'noopener noreferrer'
 
   return (
-    <Anchor href={href} rel={rel} target={target} {...rest}>
+    <NextLink
+      className={cx(styles(), className)}
+      href={href}
+      rel={rel}
+      target={target}
+      {...rest}
+    >
       {children}
-    </Anchor>
+    </NextLink>
   )
 }

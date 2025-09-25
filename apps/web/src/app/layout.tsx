@@ -3,17 +3,17 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { VercelToolbar } from '@vercel/toolbar/next'
 import type { Metadata, Viewport } from 'next'
+import { Google_Sans_Code } from 'next/font/google'
 import localFont from 'next/font/local'
 import { NextIntlClientProvider } from 'next-intl'
 import { ThemeProvider } from 'next-themes'
 import { type ReactNode, useId } from 'react'
-
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Navigation } from '@/components/Nav/Nav'
 import { Skiplink } from '@/components/Skiplink'
 import { themeConfig } from '@/components/Theme'
-import { css } from '@/styled/css'
+import { css, cx } from '@/styled/css'
 import { token } from '@/styled/tokens'
 
 const sectraFont = localFont({
@@ -21,6 +21,14 @@ const sectraFont = localFont({
   preload: true,
   src: './fonts/sectra/regular.woff',
   variable: '--fonts-serif',
+  weight: '400',
+})
+
+const monoFont = Google_Sans_Code({
+  display: 'swap',
+  fallback: ['ui-monospace', 'SFMono-Regular', 'monospace'],
+  variable: '--fonts-mono',
+  // subsets: ['latin'],
   weight: '400',
 })
 
@@ -72,7 +80,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const shouldInjectToolbar = process.env.NODE_ENV === 'development'
 
   return (
-    <html className={sectraFont.variable} lang="en" suppressHydrationWarning>
+    <html
+      className={cx(sectraFont.variable, monoFont.variable)}
+      lang="en"
+      suppressHydrationWarning
+    >
       <body
         className={css({
           backgroundColor: 'background',

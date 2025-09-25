@@ -1,5 +1,3 @@
-'use client'
-
 import { Panel, PanelGroup, PanelResizer } from '@window-splitter/react'
 import type { ReactNode } from 'react'
 import type { ResizableBoxProps } from 'react-resizable'
@@ -96,17 +94,19 @@ export function ResponsivePreview({
   maxWidth = 1200,
 }: PreviewProps) {
   return (
-    <Group style={{ height: 'auto' }}>
-      <Container
-        default={`${width}px`}
-        max={`${maxWidth}px`}
-        min={`${minWidth}px`}
-      >
-        {children}
-      </Container>
-      <Handle handleAxis="e" size="24px" />
-      <Panel />
-    </Group>
+    <div>
+      <Group style={{ height: 'auto' }}>
+        <Container
+          default={`${width}px`}
+          max={`${maxWidth}px`}
+          min={`${minWidth}px`}
+        >
+          {children}
+        </Container>
+        <Handle handleAxis="e" size="24px" />
+        <Panel />
+      </Group>
+    </div>
   )
 }
 

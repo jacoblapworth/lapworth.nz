@@ -1,14 +1,12 @@
 'use client'
 
+import { ArrowRightIcon } from 'lucide-react'
 import NextLink from 'next/link'
-import { type ComponentProps, forwardRef, type ReactNode } from 'react'
-
+import type { ComponentProps, ReactNode } from 'react'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 
-import { ArrowIcon } from './Icons'
-
-export const ButtonStyles = cva({
+export const styles = cva({
   base: {
     _hover: {
       backgroundColor: 'interactive',
@@ -18,12 +16,34 @@ export const ButtonStyles = cva({
     borderStyle: 'solid',
     borderWidth: '1px',
     cursor: 'pointer',
+    display: 'inline-grid',
+    gap: '4px',
+    gridTemplateColumns: '1fr 24px',
+    gridTemplateRows: '1fr',
     padding: 'sm',
+    placeItems: 'center',
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+  variants: {
+    size: {
+      md: {
+        fontSize: 'md',
+        paddingBlock: 'sm',
+        paddingInline: 'md',
+      },
+      sm: {
+        fontSize: 'sm',
+        paddingBlock: 'xs',
+        paddingInline: 'sm',
+      },
+    },
   },
 })
 
-export const Button = styled('button', ButtonStyles)
-export const LinkButton = styled(NextLink, ButtonStyles)
+export const Button = styled('button', styles)
+export const LinkButton = styled(NextLink, styles)
 
 const Pill = styled(NextLink, {
   base: {
@@ -59,13 +79,11 @@ interface PillLinkProps extends ComponentProps<typeof Pill> {
   children: ReactNode
 }
 
-export const PillLink = forwardRef<HTMLAnchorElement, PillLinkProps>(
-  function PillLink({ children, ...rest }, ref) {
-    return (
-      <Pill ref={ref} {...rest}>
-        {children}
-        <ArrowIcon />
-      </Pill>
-    )
-  },
-)
+export function PillLink({ children, ref, ...rest }: PillLinkProps) {
+  return (
+    <Pill ref={ref} {...rest}>
+      {children}
+      <ArrowRightIcon />
+    </Pill>
+  )
+}

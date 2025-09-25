@@ -2,8 +2,7 @@ import { styled } from '@/styled/jsx'
 
 const StyledVideo = styled('video', {
   base: {
-    borderRadius: 'md',
-    marginBlockEnd: 'md',
+    border: 'muted',
     maxWidth: '100%',
   },
 })
@@ -16,13 +15,7 @@ interface Prop {
 
 export function Video({ src, captions, poster }: Prop) {
   return (
-    <StyledVideo
-      controls
-      // height="240"
-      poster={poster}
-      preload="none"
-      width="600"
-    >
+    <StyledVideo controls poster={poster} preload="none" width="600">
       <source src={src} type="video/mp4" />
       <track kind="captions" label="English" src={captions} srcLang="en" />
       Your browser does not support the video tag.
