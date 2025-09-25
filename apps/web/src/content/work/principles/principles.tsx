@@ -1,13 +1,7 @@
 'use client'
 
-import { MDXProvider } from '@mdx-js/react'
-import type { NextPage } from 'next'
 import NextImage, { type StaticImageData } from 'next/image'
-import { MDXRemote } from 'next-mdx-remote'
-
-// import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
-import type { MDXPageProps } from '@/lib/markdown'
 import disciplines from '@/public/work/xero/principles-disciplines.webp'
 import worldMap from '@/public/work/xero/principles-world-map.svg'
 import worldMapDark from '@/public/work/xero/principles-world-map-dark.svg'
@@ -225,31 +219,3 @@ export function WorldMap() {
     </Grid>
   )
 }
-
-const Grid = styled('div', {
-  base: {
-    display: 'grid',
-    marginBlockEnd: 'lg',
-    maxWidth: 1200,
-    position: 'relative',
-  },
-})
-
-export const Page: NextPage<MDXPageProps> = ({ source }) => {
-  return (
-    <MDXProvider>
-      <Grid>
-        <Text as="h1" display size="lg">
-          {source.frontmatter?.title}
-        </Text>
-        <MDXRemote
-          {...source}
-          components={{ Disciplines, WorldMap }}
-          // scope={{ images }}
-        />
-      </Grid>
-    </MDXProvider>
-  )
-}
-
-export default Page
