@@ -8,6 +8,6 @@ export default function PostHogClient() {
     flushInterval: 0,
     host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
   })
-  posthogClient.debug(true)
+  posthogClient.debug(process.env.NODE_ENV !== 'production')
   return posthogClient
 }
