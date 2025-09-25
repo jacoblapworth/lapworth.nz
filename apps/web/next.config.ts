@@ -4,6 +4,7 @@ import { withSentryConfig } from '@sentry/nextjs'
 import createWithVercelToolbar from '@vercel/toolbar/plugins/next'
 import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
+import { withNextVideo } from 'next-video/process'
 
 const withVercelToolbar = createWithVercelToolbar()
 const withNextIntl = createNextIntlPlugin()
@@ -48,16 +49,19 @@ const withMDX = createMDX({
 })
 
 export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
-  withSentryConfig(withVercelToolbar(withNextIntl(withMDX(config))), {
-    automaticVercelMonitors: true,
-    disableLogger: true,
-    org: process.env.SENTRY_ORG,
-    project: process.env.SENTRY_PROJECT,
-    silent: !process.env.CI,
-    sourcemaps: {
-      deleteSourcemapsAfterUpload: true,
+  withSentryConfig(
+    withVercelToolbar(withNextIntl(withNextVideo(withMDX(config)))),
+    {
+      automaticVercelMonitors: true,
+      disableLogger: true,
+      org: process.env.SENTRY_ORG,
+      project: process.env.SENTRY_PROJECT,
+      silent: !process.env.CI,
+      sourcemaps: {
+        deleteSourcemapsAfterUpload: true,
+      },
+      tunnelRoute: '/monitoring',
+      widenClientFileUpload: true,
     },
-    tunnelRoute: '/monitoring',
-    widenClientFileUpload: true,
-  }),
+  ),
 )

@@ -2,7 +2,7 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["tokens", "content", "^build"],
+      "dependsOn": ["tokens", "content", "video", "^build"],
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
     },
     "content": {
@@ -17,11 +17,23 @@
       "persistent": true
     },
     "dev": {
-      "with": ["content:watch"]
+      "with": ["content:watch", "video:watch"]
     },
     "tokens": {
       "dependsOn": ["^tokens"],
       "outputs": [".styled/**"]
+    },
+    "video": {
+      "dependsOn": ["^video"],
+      "inputs": ["src/videos/**"],
+      "outputs": ["src/videos/**"],
+      "persistent": true
+    },
+    "video:watch": {
+      "dependsOn": ["^video:watch"],
+      "inputs": ["src/videos/**"],
+      "outputs": ["src/videos/**"],
+      "persistent": true
     }
   }
 }

@@ -8,8 +8,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "noEmit": true,
     "paths": {
       "@/*": ["./src/*"],
@@ -29,6 +29,7 @@
   },
   "exclude": ["node_modules"],
   "include": [
+    "video.d.ts",
     "next-env.d.ts",
     "**/*.d.ts",
     "**/*.ts",
