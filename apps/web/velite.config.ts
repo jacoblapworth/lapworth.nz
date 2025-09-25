@@ -1,4 +1,3 @@
-import rehypeShiki from '@shikijs/rehype'
 import {
   transformerNotationDiff,
   transformerNotationErrorLevel,
@@ -24,13 +23,15 @@ const recipes = defineCollection({
   name: 'Recipe',
   pattern: 'recipes/**/*.mdx',
   schema: s.object({
-    content: s.mdx(),
     cook: s.string().optional(),
     draft: s.boolean().default(false),
     excerpt: s.excerpt(),
     image: s.image().optional(),
+    markdown: s.markdown(),
+    mdx: s.mdx(),
     metadata: s.metadata(),
     prep: s.string().optional(),
+    raw: s.raw(),
     servings: s.number().min(1).optional(),
     slug: s.slug('recipes'),
     title: s.string().max(99),
@@ -54,8 +55,8 @@ const work = defineCollection({
       links: s
         .array(
           s.object({
+            href: s.string().url(),
             label: s.string().max(49),
-            url: s.string().url(),
           }),
         )
         .optional(),
@@ -83,25 +84,12 @@ export default defineConfig({
   },
   mdx: {
     rehypePlugins: [
-      // rehypePrettyCode,
-      rehypeSlug,
       [
-        rehypeAutolinkHeadings,
+        rehypePrettyCode,
         {
-          properties: {
-            ariaLabel: 'Link to section',
-            className: ['subheading-anchor'],
-          },
-        },
-      ],
-      [
-        rehypeShiki,
-        {
-          // defaultColor: 'light-dark()',
           defaultColor: false,
-          theme: 'github-light',
-          themes: {
-            dark: 'github-dark',
+          theme: {
+            dark: 'github-dark-dimmed',
             light: 'github-light',
           },
           transformers: [
@@ -110,6 +98,16 @@ export default defineConfig({
             transformerNotationFocus({ matchAlgorithm: 'v3' }),
             transformerNotationErrorLevel({ matchAlgorithm: 'v3' }),
           ],
+        },
+      ],
+      [rehypeSlug],
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'wrap',
+          properties: {
+            ariaLabel: 'Link to section',
+          },
         },
       ],
     ],

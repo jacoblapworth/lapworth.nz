@@ -1,31 +1,40 @@
 import type { MDXComponents } from 'mdx/types'
-import { a } from './A'
+import { Anchor } from './Anchor'
 import { Blockquote } from './Blockquote'
+import { Code } from './Code'
+import { Divider } from './Divider'
 import { Figure } from './Figure'
 import { h1, h2, h3 } from './Heading'
 import { Image } from './Image'
-import { Li } from './Li'
-import { Ol } from './Ol'
-import { P } from './P'
+import { ListItem, OrderedList, UnorderedList } from './List'
+import { Paragraph } from './Paragraph'
 import { Pre } from './Pre'
-import { Ul } from './Ul'
+import { Table, Td, Th, Tr } from './Table'
 import { Video } from './Video'
 import { Wrapper } from './Wrapper'
 
 export const components: MDXComponents = {
-  a,
+  a: Anchor,
   blockquote: Blockquote,
+  code: Code,
+  // details: Details,
   figure: Figure,
   h1,
   h2,
   h3,
+  hr: Divider,
   Image,
   img: Image,
-  li: Li,
-  ol: Ol,
-  p: P,
+  li: ListItem,
+  ol: OrderedList,
+  p: Paragraph,
   pre: Pre,
-  ul: Ul,
+  // summary: Summary,
+  table: Table,
+  td: Td,
+  th: Th,
+  tr: Tr,
+  ul: UnorderedList,
   Video,
   wrapper: Wrapper,
 }

@@ -5,7 +5,7 @@ import NextImage from 'next/image'
 import type { MusicKitResource } from '@/app/about/music'
 import { Carousel } from '@/components/Carousel'
 import { Link } from '@/components/Link'
-import { styled } from '@/styled/jsx'
+import { styled, VStack } from '@/styled/jsx'
 
 export const buildImageUrl = (_url: string, size: number): string => {
   const url = decodeURI(_url)
@@ -42,17 +42,10 @@ const Label = styled('div', {
         fontSize: 'md',
       },
       secondary: {
-        color: 'tertiary',
+        color: 'secondary',
         fontSize: 'sm',
       },
     },
-  },
-})
-
-const Stack = styled('div', {
-  base: {
-    display: 'flex',
-    flexDirection: 'column',
   },
 })
 
@@ -68,7 +61,7 @@ const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
 
   return (
     <Link className="group" href={resource.attributes.url}>
-      <Stack>
+      <VStack alignItems="start" gap="xs">
         <AlbumArt
           alt={`Album artwork for "${name}"`}
           blurDataURL={resource.attributes.placeholder}
@@ -80,7 +73,7 @@ const AppleMusicResource = ({ resource }: AppleMusicResourceProps) => {
         />
         <Label variant="primary">{name}</Label>
         <Label variant="secondary">{artistName}</Label>
-      </Stack>
+      </VStack>
     </Link>
   )
 }

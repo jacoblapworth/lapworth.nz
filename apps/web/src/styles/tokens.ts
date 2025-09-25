@@ -102,6 +102,7 @@ export const tokens = defineTokens({
   },
   fonts: {
     display: { value: 'canela' },
+    mono: { value: 'mono' },
     serif: { value: 'sectra' },
     system: { value: 'system-ui' },
   },
@@ -194,8 +195,8 @@ export const semanticTokens = defineSemanticTokens({
     },
     secondary: {
       value: {
-        _dark: '{colors.black.90}',
-        base: '{colors.black.90}',
+        _dark: '{colors.grey.30}',
+        base: '{colors.grey.70}',
       },
     },
     shadow: {
@@ -225,7 +226,7 @@ export const semanticTokens = defineSemanticTokens({
     tertiary: {
       value: {
         _dark: '{colors.grey.40}',
-        base: '{colors.black.70}',
+        base: '{colors.grey.50}',
       },
     },
     text: {

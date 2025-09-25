@@ -4,17 +4,9 @@ import { Text } from '../Typography'
 type Props = ComponentProps<typeof Text>
 
 export const HeadingAnchor = ({ children, ...props }: Props) => {
-  // const pathname = usePathname()
-
   return (
-    <Text css={{ marginBlock: 'lg' }} display {...props}>
-      {/* <Link
-        href={`${pathname}#${props.id}`}
-        sameTab
-        css={{ display: 'inline-flex', gap: 'sm', alignItems: 'center' }}
-      > */}
+    <Text display {...props}>
       {children}
-      {/* </Link> */}
     </Text>
   )
 }

@@ -27,7 +27,7 @@
     "strict": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "cypress"],
   "include": [
     "video.d.ts",
     "next-env.d.ts",

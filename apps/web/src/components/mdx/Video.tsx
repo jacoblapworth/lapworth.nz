@@ -5,8 +5,7 @@ import { styled } from '@/styled/jsx'
 
 const StyledVideo = styled(NextVideo, {
   base: {
-    borderRadius: 'md',
-    marginBlockEnd: 'md',
+    border: 'muted',
     maxWidth: '100%',
   },
 })
