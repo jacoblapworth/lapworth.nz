@@ -4,7 +4,7 @@ import NextImage from 'next/image'
 
 import { Carousel } from '@/components/Carousel'
 import { Link } from '@/components/Link'
-import { styled } from '@/styled/jsx'
+import { styled, VStack } from '@/styled/jsx'
 
 import type { OkuBookWithThumbnail } from './books/oku'
 
@@ -36,17 +36,10 @@ const Label = styled('div', {
         fontSize: 'md',
       },
       secondary: {
-        color: 'tertiary',
+        color: 'secondary',
         fontSize: 'sm',
       },
     },
-  },
-})
-
-const Stack = styled('div', {
-  base: {
-    display: 'flex',
-    flexDirection: 'column',
   },
 })
 
@@ -60,12 +53,8 @@ export const Book = ({
   const size = 128
 
   return (
-    <Link
-      borderRadius="md"
-      className="group"
-      href={`https://oku.club/book/${slug}`}
-    >
-      <Stack>
+    <Link className="group" href={`https://oku.club/book/${slug}`}>
+      <VStack alignItems="start" gap="xs">
         <BookCover
           alt={`Book cover for "${title}"`}
           blurDataURL={placeholder}
@@ -77,7 +66,7 @@ export const Book = ({
         />
         <Label variant="primary">{title}</Label>
         <Label variant="secondary">{subtitle}</Label>
-      </Stack>
+      </VStack>
     </Link>
   )
 }

@@ -4,6 +4,7 @@
     "isolatedModules": false,
     "types": ["cypress", "@testing-library/cypress", "cypress-real-events"]
   },
+  "exclude": ["node_modules"],
   "extends": "../tsconfig.json",
-  "include": ["**/*.*"]
+  "include": ["**/*.ts", "**/*.tsx"]
 }

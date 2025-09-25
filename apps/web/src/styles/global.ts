@@ -35,13 +35,9 @@ export const globalCss = defineGlobalStyles({
 
   main: {
     'p, li': {
-      fontSize: '1.125rem',
+      // fontSize: '1.125rem',
       lineHeight: '1.5rem',
-      maxWidth: '70ch',
-    },
-
-    'ul, ol': {
-      paddingInlineStart: 'lg',
+      maxWidth: '60ch',
     },
   },
 })

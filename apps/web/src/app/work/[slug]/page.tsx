@@ -1,10 +1,11 @@
+import { SquareArrowOutUpRightIcon } from 'lucide-react'
 import { notFound } from 'next/navigation'
-import { MDXContent } from '@/components/MDX'
+import { LinkButton } from '@/components/Button'
+import { MDXContent } from '@/components/MDXContent'
 import { Text } from '@/components/Typography'
 import { work } from '@/content'
-import { VStack } from '@/styled/jsx'
-import { TabsExample } from '../vend/VendTabs'
-
+import { HStack, VStack } from '@/styled/jsx'
+import { TabsExample } from '../vend/tabs/VendTabs'
 import * as Principles from '../xero/principles/principles'
 
 function getPostBySlug(slug: string) {
@@ -38,15 +39,26 @@ export default async function Page({ params }: Props) {
   if (!post) notFound()
 
   return (
-    <VStack alignItems="stretch">
-      <Text as="h1" marginBlock="lg" size="xl">
-        {post.title}
-      </Text>
-
+    <>
+      <VStack alignItems="start" gap="md" marginBlock="lg">
+        <Text as="h1" size="xl">
+          {post.title}
+        </Text>
+        {post.links && (
+          <HStack>
+            {post.links.map(({ href, label }) => (
+              <LinkButton href={href} key={href} size="sm">
+                {label}
+                <SquareArrowOutUpRightIcon size={16} />
+              </LinkButton>
+            ))}
+          </HStack>
+        )}
+      </VStack>
       <MDXContent
-        code={post.content}
         components={{ TabsExample, ...Principles }}
+        mdx={post.content}
       />
-    </VStack>
+    </>
   )
 }

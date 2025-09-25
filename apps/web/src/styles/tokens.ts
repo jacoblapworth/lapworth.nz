@@ -82,6 +82,12 @@ export const tokens = defineTokens({
       50: {
         value: '#FFC453',
       },
+      100: {
+        value: '#fef9c3',
+      },
+      800: {
+        value: '#854d0e',
+      },
     },
   },
   durations: {
@@ -96,6 +102,7 @@ export const tokens = defineTokens({
   },
   fonts: {
     display: { value: 'canela' },
+    mono: { value: 'mono' },
     serif: { value: 'sectra' },
     system: { value: 'system-ui' },
   },
@@ -113,6 +120,7 @@ export const tokens = defineTokens({
     lg: { value: '32px' },
     md: { value: '16px' },
     sm: { value: '8px' },
+    xl: { value: '48px' },
   },
   spacing: {
     lg: { value: '32px' },
@@ -187,8 +195,8 @@ export const semanticTokens = defineSemanticTokens({
     },
     secondary: {
       value: {
-        _dark: '{colors.black.90}',
-        base: '{colors.black.90}',
+        _dark: '{colors.grey.30}',
+        base: '{colors.grey.70}',
       },
     },
     shadow: {
@@ -218,7 +226,7 @@ export const semanticTokens = defineSemanticTokens({
     tertiary: {
       value: {
         _dark: '{colors.grey.40}',
-        base: '{colors.black.70}',
+        base: '{colors.grey.50}',
       },
     },
     text: {
