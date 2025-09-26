@@ -19,7 +19,7 @@ export function Image(props: React.ComponentProps<typeof NextImage>) {
       className={styles()}
       height={400}
       placeholder={props.blurDataURL ? 'blur' : undefined}
-      width={600}
+      width={800}
       {...props}
     />
   )
