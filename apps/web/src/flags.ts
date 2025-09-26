@@ -27,18 +27,6 @@ export const devmode = flag({
   key: 'devmode',
 })
 
-export const showWork = flag({
-  adapter: postHogAdapter.isFeatureEnabled(),
-  identify,
-  key: 'enable-work',
-})
-
-export const enableFood = flag({
-  adapter: postHogAdapter.isFeatureEnabled(),
-  identify,
-  key: 'enable-food',
-})
-
 export const enableDrafts = flag({
   adapter: postHogAdapter.isFeatureEnabled(),
   identify,

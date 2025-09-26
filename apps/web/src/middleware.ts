@@ -1,14 +1,11 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
-import { devmode, showWork } from './flags'
+import { devmode } from './flags'
 
 async function shouldRedirectWorkComingSoon(
   request: NextRequest,
 ): Promise<boolean> {
-  if (await showWork()) {
-    return false
-  }
-
+  // Work section is now always accessible
   if (request.nextUrl.pathname.startsWith('/work/coming-soon')) {
     return false
   }
@@ -21,7 +18,7 @@ async function shouldRedirectWorkComingSoon(
     return false
   }
 
-  return true
+  return false // Work is always enabled, no redirect needed
 }
 
 export const config = {
