@@ -20,11 +20,28 @@ async function identify() {
   }
 }
 
+// Static adapter that always returns true for enabled flags
+const staticAdapter = {
+  isFeatureEnabled: () => () => Promise.resolve(true),
+}
+
 export const devmode = flag({
   adapter: postHogAdapter.isFeatureEnabled(),
   description: 'Enable devmode features',
   identify,
   key: 'devmode',
+})
+
+export const showWork = flag({
+  adapter: staticAdapter.isFeatureEnabled(),
+  identify,
+  key: 'enable-work',
+})
+
+export const enableFood = flag({
+  adapter: staticAdapter.isFeatureEnabled(),
+  identify,
+  key: 'enable-food',
 })
 
 export const enableDrafts = flag({
