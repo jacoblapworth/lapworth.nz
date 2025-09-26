@@ -111,8 +111,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0(sharp@0.34.4)
       posthog-js:
-        specifier: 1.268.0
-        version: 1.268.0
+        specifier: 1.268.1
+        version: 1.268.1
       posthog-node:
         specifier: 5.8.8
         version: 5.8.8
@@ -3800,8 +3800,8 @@ packages:
     resolution: {integrity: sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==}
     engines: {node: '>=0.10.0'}
 
-  posthog-js@1.268.0:
-    resolution: {integrity: sha512-rEtziXONYXi+KKXBTzkxCTsHHKohLQvyAF2uEdXMwmL1vLW+f9rbroa2XuA9QUrvfboJXb5Pvysa+HnFnWnUcw==}
+  posthog-js@1.268.1:
+    resolution: {integrity: sha512-vkV8vFHUWtPsFeHZCCszGdnLxKJn93UVw7a7SZGTJyyQ3JBC1Sydy4DvolnDt2IhqIUZCs9ljwqaUXcITqLoEg==}
     peerDependencies:
       '@rrweb/types': 2.0.0-alpha.17
       rrweb-snapshot: 2.0.0-alpha.17
@@ -8649,7 +8649,7 @@ snapshots:
     dependencies:
       xtend: 4.0.2
 
-  posthog-js@1.268.0:
+  posthog-js@1.268.1:
     dependencies:
       '@posthog/core': 1.1.0
       core-js: 3.45.1
