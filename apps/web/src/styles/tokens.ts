@@ -137,6 +137,11 @@ export const tokens = defineTokens({
 })
 
 export const semanticTokens = defineSemanticTokens({
+  blurs: {
+    lg: { value: 'blur(12px)' },
+    md: { value: 'blur(8px)' },
+    sm: { value: 'blur(4px)' },
+  },
   borders: {
     divider: { value: '1px solid {colors.divider}' },
     muted: { value: '1px solid {colors.quaternary}' },
