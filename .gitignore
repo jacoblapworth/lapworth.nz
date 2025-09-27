@@ -52,6 +52,9 @@ cypress/videos/*
 styled-system
 .styled
 
+# TypeScript build cache
+*.tsbuildinfo
+
 # Sentry Config File
 .sentryclirc
 .env*.local

@@ -28,13 +28,13 @@ export const devmode = flag({
 })
 
 export const showWork = flag({
-  adapter: postHogAdapter.isFeatureEnabled(),
+  decide: () => true,
   identify,
   key: 'enable-work',
 })
 
 export const enableFood = flag({
-  adapter: postHogAdapter.isFeatureEnabled(),
+  decide: () => true,
   identify,
   key: 'enable-food',
 })
