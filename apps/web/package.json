@@ -17,7 +17,7 @@
     "@window-splitter/react": "1.1.2",
     "axios": "1.12.2",
     "flags": "4.0.1",
-    "framer-motion": "12.23.19",
+    "framer-motion": "12.23.22",
     "got": "14.4.9",
     "gray-matter": "4.0.3",
     "import-in-the-middle": "1.14.3",
