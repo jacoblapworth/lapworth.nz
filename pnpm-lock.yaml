@@ -114,8 +114,8 @@ importers:
         specifier: 1.268.1
         version: 1.268.1
       posthog-node:
-        specifier: 5.8.8
-        version: 5.8.8
+        specifier: 5.9.2
+        version: 5.9.2
       react:
         specifier: 19.2.0
         version: 19.2.0
@@ -1085,6 +1085,9 @@ packages:
 
   '@posthog/core@1.1.0':
     resolution: {integrity: sha512-igElrcnRPJh2nWYACschjH4OwGwzSa6xVFzRDVzpnjirUivdJ8nv4hE+H31nvwE56MFhvvglfHuotnWLMcRW7w==}
+
+  '@posthog/core@1.2.2':
+    resolution: {integrity: sha512-f16Ozx6LIigRG+HsJdt+7kgSxZTHeX5f1JlCGKI1lXcvlZgfsCR338FuMI2QRYXGl+jg/vYFzGOTQBxl90lnBg==}
 
   '@prisma/instrumentation@6.15.0':
     resolution: {integrity: sha512-6TXaH6OmDkMOQvOxwLZ8XS51hU2v4A3vmE2pSijCIiGRJYyNeMcL6nMHQMyYdZRD8wl7LF3Wzc+AMPMV/9Oo7A==}
@@ -3802,8 +3805,8 @@ packages:
     resolution: {integrity: sha512-Hdby0Rq2K1rzjHxQdUmFBEP2UqAR/tY4d0WbNp7GxkYUK0YZvAD15MkeorSo4b8X7zgosHfQJVRxGx0HWSYPBA==}
     engines: {node: '>=15.0.0'}
 
-  posthog-node@5.8.8:
-    resolution: {integrity: sha512-M0m7k+mO3EBXGoOB4zswOvQsxpoO8xs4EyUXeKmMG7uVTUCZXdMbCxpAvpbr1h+g3R6A5TDbyRInTf437xGdtw==}
+  posthog-node@5.9.2:
+    resolution: {integrity: sha512-oU7FbFcH5cn40nhP04cBeT67zE76EiGWjKKzDvm6IOm5P83sqM0Ij0wMJQSHp+QI6ZN7MLzb+4xfMPUEZ4q6CA==}
     engines: {node: '>=20'}
 
   preact@10.27.2:
@@ -5607,6 +5610,8 @@ snapshots:
   '@polka/url@1.0.0-next.29': {}
 
   '@posthog/core@1.1.0': {}
+
+  '@posthog/core@1.2.2': {}
 
   '@prisma/instrumentation@6.15.0(@opentelemetry/api@1.9.0)':
     dependencies:
@@ -8647,9 +8652,9 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  posthog-node@5.8.8:
+  posthog-node@5.9.2:
     dependencies:
-      '@posthog/core': 1.1.0
+      '@posthog/core': 1.2.2
 
   preact@10.27.2: {}
 
