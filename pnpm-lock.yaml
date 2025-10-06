@@ -99,8 +99,8 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(@types/react@19.2.0)(acorn@8.15.0)(react@19.2.0)
       next-mdx-remote-client:
-        specifier: 2.1.5
-        version: 2.1.5(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(unified@11.0.5)
+        specifier: 2.1.6
+        version: 2.1.6(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(unified@11.0.5)
       next-seo:
         specifier: 6.8.0
         version: 6.8.0(next@15.5.4(@babel/core@7.28.4)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@19.0.0-beta-714736e-20250131)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -3497,12 +3497,12 @@ packages:
       typescript:
         optional: true
 
-  next-mdx-remote-client@2.1.5:
-    resolution: {integrity: sha512-swVVe2Eix+oYxUWo9UW+6a6BZNVgB460Do6ZdT6duEWobj0Pfr1DfACvD93629LW86ZNtG2t5Od6iHnbfwgbIw==}
+  next-mdx-remote-client@2.1.6:
+    resolution: {integrity: sha512-HQrGo05LkGqWyxUNneELIzXfbXBnQqBoU22eEgGMHwsuvzyaPr7wS7wWlvfoQqtahwokwtTBfbNTvmq5l1bDtA==}
     engines: {node: '>=18.18.0'}
     peerDependencies:
-      react: ^19.1.0
-      react-dom: ^19.1.0
+      react: ^19.1.1
+      react-dom: ^19.1.1
 
   next-mdx-remote@5.0.0:
     resolution: {integrity: sha512-RNNbqRpK9/dcIFZs/esQhuLA8jANqlH694yqoDBK8hkVdJUndzzGmnPHa2nyi90N4Z9VmzuSWNRpr5ItT3M7xQ==}
@@ -4485,9 +4485,6 @@ packages:
   vfile-matter@5.0.1:
     resolution: {integrity: sha512-o6roP82AiX0XfkyTHyRCMXgHfltUNlXSEqCIS80f+mbAyiQBE2fxtDVMtseyytGx75sihiJFo/zR6r/4LTs2Cw==}
 
-  vfile-message@4.0.2:
-    resolution: {integrity: sha512-jRDZ1IMLttGj41KcZvlrYAaI3CfqpLpfpf+Mfig13viT6NKvRzWZ+lXz0Y5D60w6uJIBAOGq9mSHf0gktF0duw==}
-
   vfile-message@4.0.3:
     resolution: {integrity: sha512-QTHzsGd1EhbZs4AsQ20JX1rC3cOlt/IWJruk893DfLRr57lcnOeMaWG4K0JrRta4mIJZKth2Au3mM3u03/JWKw==}
 
@@ -4573,6 +4570,11 @@ packages:
 
   yaml@2.8.0:
     resolution: {integrity: sha512-4lLa/EcQCB0cJkyts+FpIRx5G/llPxfP6VQU5KByHEhLxY3IJCH0f0Hy1MHI8sClTvsIb8qwRJ6R/ZdlDJ/leQ==}
+    engines: {node: '>= 14.6'}
+    hasBin: true
+
+  yaml@2.8.1:
+    resolution: {integrity: sha512-lcYcMxX2PO9XMGvAJkJ3OsNMw+/7FKes7/hgerGUYWIoWu5j/+YQqcZr5JnPZWzOsEBgMbSbiSTn/dv/69Mkpw==}
     engines: {node: '>= 14.6'}
     hasBin: true
 
@@ -7400,7 +7402,7 @@ snapshots:
       hast-util-from-parse5: 8.0.3
       parse5: 7.3.0
       vfile: 6.0.3
-      vfile-message: 4.0.2
+      vfile-message: 4.0.3
 
   hast-util-from-parse5@8.0.3:
     dependencies:
@@ -8357,7 +8359,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.2
 
-  next-mdx-remote-client@2.1.5(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(unified@11.0.5):
+  next-mdx-remote-client@2.1.6(@types/react@19.2.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(unified@11.0.5):
     dependencies:
       '@babel/code-frame': 7.27.1
       '@mdx-js/mdx': 3.1.1
@@ -9455,12 +9457,7 @@ snapshots:
   vfile-matter@5.0.1:
     dependencies:
       vfile: 6.0.3
-      yaml: 2.8.0
-
-  vfile-message@4.0.2:
-    dependencies:
-      '@types/unist': 3.0.3
-      unist-util-stringify-position: 4.0.0
+      yaml: 2.8.1
 
   vfile-message@4.0.3:
     dependencies:
@@ -9470,7 +9467,7 @@ snapshots:
   vfile@6.0.3:
     dependencies:
       '@types/unist': 3.0.3
-      vfile-message: 4.0.2
+      vfile-message: 4.0.3
 
   watchpack@2.4.4:
     dependencies:
@@ -9569,6 +9566,8 @@ snapshots:
   yallist@3.1.1: {}
 
   yaml@2.8.0: {}
+
+  yaml@2.8.1: {}
 
   yauzl@2.10.0:
     dependencies:
