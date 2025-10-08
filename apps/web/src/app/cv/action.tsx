@@ -27,7 +27,7 @@ export async function requestCv(
     attachments: [
       {
         filename: 'JacobLapworth_CV.pdf',
-        path: `${process.env.VERCEL_URL}/JacobLapworth_CV.pdf`,
+        path: `http://${process.env.VERCEL_URL}/JacobLapworth_CV.pdf`,
       },
     ],
     from: 'Lapworth.nz <hello@lapworth.nz>',
@@ -39,7 +39,7 @@ export async function requestCv(
   if (error) {
     console.error(`Email error: ${error.name}\n${error.message}`)
     return {
-      message: error.message,
+      message: 'Unknown error, please try again later.',
       success: false,
     }
   }
