@@ -12,7 +12,7 @@ export interface FormState {
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const filepath = path.resolve(`public/JacobLapworth_CV.pdf`)
+const filepath = path.join(process.cwd(), 'JacobLapworth_CV.pdf')
 const attachment = fs.readFileSync(filepath).toString('base64')
 
 export async function requestCv(
