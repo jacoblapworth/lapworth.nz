@@ -7,8 +7,7 @@ import { SubmitButton } from '@/components/SubmitButton'
 import { TextInput } from '@/components/TextInput'
 import { Text } from '@/components/Typography'
 import { HStack, VStack } from '@/styled/jsx'
-import type { FormState } from './action'
-import { requestCv } from './action'
+import { type FormState, requestCv } from './action'
 
 const initialState: FormState = {}
 
