@@ -3,6 +3,8 @@ import { enableFood } from '@/flags'
 import { styled } from '@/styled/jsx'
 import { NavLinks } from './NavLinks'
 
+const EXTERNAL_HREF_REGEX = /(https?|mailto):\/\//
+
 const Row = styled('div', {
   base: {
     '& a': {
@@ -59,6 +61,10 @@ const socialLinks = [
     href: 'mailto:jacob@lapworth.nz',
     name: 'Email',
   },
+  {
+    href: '/cv',
+    name: 'CV',
+  },
 ]
 
 const Description = () => {
@@ -67,7 +73,9 @@ const Description = () => {
       <ul aria-label="Social media links">
         {socialLinks.map(({ name, href }, i) => (
           <li key={href}>
-            <Link href={href}>{name}</Link>
+            <Link href={href} sameTab={!EXTERNAL_HREF_REGEX.test(href)}>
+              {name}
+            </Link>
             {i !== socialLinks.length - 1 && (
               <span aria-hidden="true">{` \u2022 `}</span>
             )}

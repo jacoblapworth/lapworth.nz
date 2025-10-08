@@ -18,7 +18,7 @@ export const styles = cva({
     cursor: 'pointer',
     display: 'inline-grid',
     gap: '4px',
-    gridTemplateColumns: '1fr 24px',
+    gridTemplateColumns: '1fr',
     gridTemplateRows: '1fr',
     padding: 'sm',
     placeItems: 'center',
@@ -37,6 +37,24 @@ export const styles = cva({
         fontSize: 'sm',
         paddingBlock: 'xs',
         paddingInline: 'sm',
+      },
+    },
+    variant: {
+      primary: {
+        _hover: {
+          backgroundColor: 'background',
+          color: 'interactive',
+        },
+        backgroundColor: 'interactive',
+        color: 'background',
+      },
+      secondary: {
+        _hover: {
+          backgroundColor: 'interactive',
+          color: 'background',
+        },
+        backgroundColor: 'background',
+        color: 'interactive',
       },
     },
   },

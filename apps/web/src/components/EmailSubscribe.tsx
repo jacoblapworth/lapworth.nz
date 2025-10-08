@@ -2,31 +2,11 @@
 
 import Form from 'next/form'
 import { useActionState, useId } from 'react'
-import { useFormStatus } from 'react-dom'
 
 import { type FormState, subscribeEmail } from '@/actions/subscribe'
 import { HStack } from '@/styled/jsx'
-
-import { Button } from './Button'
+import { SubmitButton } from './SubmitButton'
 import { TextInput } from './TextInput'
-
-interface Props {
-  children: React.ReactNode
-}
-
-export function SubmitButton({ children }: Props) {
-  const { pending } = useFormStatus()
-
-  return (
-    <Button
-      aria-disabled={pending}
-      aria-label={pending ? 'Loading' : undefined}
-      type="submit"
-    >
-      {children}
-    </Button>
-  )
-}
 
 const initialState: FormState = {
   message: null,
