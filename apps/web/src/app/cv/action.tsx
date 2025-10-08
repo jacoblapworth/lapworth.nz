@@ -1,7 +1,5 @@
 'use server'
 
-import fs from 'node:fs'
-import path from 'node:path'
 import { track } from '@vercel/analytics/server'
 import { Resend } from 'resend'
 import { CvRequestEmail } from '@/emails/cv'
@@ -12,8 +10,6 @@ export interface FormState {
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const filepath = path.resolve(`public/JacobLapworth_CV.pdf`)
-const attachment = fs.readFileSync(filepath).toString('base64')
 
 export async function requestCv(
   _prevState: FormState,
@@ -30,8 +26,8 @@ export async function requestCv(
   const { data, error } = await resend.emails.send({
     attachments: [
       {
-        content: attachment,
         filename: 'JacobLapworth_CV.pdf',
+        path: `http://${process.env.VERCEL_URL}/JacobLapworth_CV.pdf`,
       },
     ],
     from: 'Lapworth.nz <hello@lapworth.nz>',
@@ -43,7 +39,7 @@ export async function requestCv(
   if (error) {
     console.error(`Email error: ${error.name}\n${error.message}`)
     return {
-      message: error.message,
+      message: 'Unknown error, please try again later.',
       success: false,
     }
   }
