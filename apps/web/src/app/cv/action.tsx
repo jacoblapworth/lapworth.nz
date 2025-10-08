@@ -1,9 +1,10 @@
 'use server'
 
 import fs from 'node:fs'
+import path from 'node:path'
 import { track } from '@vercel/analytics/server'
 import { Resend } from 'resend'
-import { CvRequestEmail } from '../../emails/cv'
+import { CvRequestEmail } from '@/emails/cv'
 
 export interface FormState {
   message?: string | undefined
@@ -11,7 +12,7 @@ export interface FormState {
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const filepath = `public/2509_JacobLapworth_CV.pdf`
+const filepath = path.resolve(`public/JacobLapworth_CV.pdf`)
 const attachment = fs.readFileSync(filepath).toString('base64')
 
 export async function requestCv(
