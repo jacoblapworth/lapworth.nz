@@ -4,7 +4,7 @@ import Form from 'next/form'
 import { useActionState } from 'react'
 
 import { type State, sendEmail } from '@/actions/sendEmail'
-import { SubmitButton } from '@/components/EmailSubscribe'
+import { SubmitButton } from '@/components/SubmitButton'
 import { TextInput } from '@/components/TextInput'
 import { HStack } from '@/styled/jsx'
 

@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation'
 import { MDXContent } from '@/components/MDXContent'
-import { MDXRemote } from '@/components/MDXRemote'
 import { Text } from '@/components/Typography'
 import { recipes } from '@/content'
 import { styled } from '@/styled/jsx'
@@ -48,8 +47,6 @@ export default async function Page({ params }: Props) {
       <Text as="h1" marginBlock="lg" size="xl">
         {recipe.title}
       </Text>
-
-      {/* <MDXRemote mdx={recipe.markdown} /> */}
       <MDXContent mdx={recipe.mdx} />
     </Article>
   )
