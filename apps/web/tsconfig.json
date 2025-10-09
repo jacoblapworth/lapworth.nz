@@ -27,7 +27,7 @@
     "strict": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules", "cypress"],
+  "exclude": ["node_modules", "cypress", ".next", "out", "dist"],
   "include": [
     "next-env.d.ts",
     "**/*.d.ts",

@@ -1,10 +1,5 @@
-import {
-  defineGlobalStyles,
-  defineLayerStyles,
-  defineTextStyles,
-} from '@pandacss/dev'
+import { defineGlobalStyles, defineLayerStyles } from '@pandacss/dev'
 
-export const textStyles = defineTextStyles({})
 export const layerStyles = defineLayerStyles({})
 export const globalCss = defineGlobalStyles({
   '*': {
@@ -25,6 +20,7 @@ export const globalCss = defineGlobalStyles({
     color: 'interactive',
     textDecoration: 'none',
   },
+
   html: {
     color: 'text',
     cursor: 'auto',

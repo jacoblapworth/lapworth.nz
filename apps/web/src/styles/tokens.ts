@@ -78,6 +78,7 @@ export const tokens = defineTokens({
         value: 'rgba(255,255,255,0.1)',
       },
     },
+
     yellow: {
       50: {
         value: '#FFC453',
@@ -108,7 +109,7 @@ export const tokens = defineTokens({
   },
   radii: {
     lg: { value: '12px' },
-    max: { value: '99999px;' },
+    max: { value: '99999px' },
     md: { value: '6px' },
     sm: { value: '3px' },
     xl: { value: '16px' },
@@ -250,6 +251,70 @@ export const semanticTokens = defineSemanticTokens({
       value: {
         _dark: '{colors.yellow.50}',
         base: '{colors.yellow.50}',
+      },
+    },
+    xero: {
+      action: {
+        active: { value: '#1C5DC5' },
+        DEFAULT: { value: '{colors.xero.blue}' },
+        disabled: { value: '#828995' },
+        focus: { value: '#1C5DC5' },
+        hover: { value: '#184390' },
+      },
+      background: {
+        inform: { value: '#F0F9FE' },
+        negative: { value: '#FFF6F7' },
+        neutral: { value: '#F6F6F8' },
+        positive: { value: '#F0FBF3' },
+        primary: { value: '#FFFFFF' },
+        quaternary: { value: '#E1E2E5' },
+        secondary: { value: '#F6F6F8' },
+        tertiary: { value: '#EFF0F3' },
+        warning: { value: '#FEF8E4' },
+      },
+      blue: { value: '#1F68DD' },
+      border: {
+        regular: { value: '#A6AAB1' },
+        soft: { value: '#E1E2E5' },
+        strong: { value: '#828995' },
+        subtle: { value: '#CFD1D5' },
+      },
+      icon: {
+        DEFAULT: { value: '#1E3145' },
+        faint: { value: '#616B7A' },
+        inverse: { value: '#FFF' },
+        muted: { value: '#424F60' },
+      },
+      inform: {
+        value: '{colors.xero.blue}',
+      },
+      negative: {
+        value: '#C31230',
+      },
+      positive: {
+        value: '#0F7B3D',
+      },
+      text: {
+        DEFAULT: { value: '{colors.xero.text.primary}' },
+        faint: { value: '#616B7A' },
+        inform: { value: '{colors.xero.inform}' },
+        inverse: { value: '#FFF' },
+        muted: { value: '#424F60' },
+        negative: { value: '{colors.xero.negative}' },
+        positive: { value: '{colors.xero.positive}' },
+        primary: { value: '#1E3145' },
+        warning: { value: '{colors.xero.warning}' },
+      },
+      warning: {
+        value: '#BB421F',
+      },
+    },
+  },
+  shadows: {
+    xero: {
+      overflow: {
+        left: { value: 'rgba(0,0,0,0.08) -8px 0 8px -8px inset' },
+        right: { value: 'rgba(0,0,0,0.08) 8px 0 8px -8px inset' },
       },
     },
   },
