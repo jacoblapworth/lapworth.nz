@@ -46,7 +46,7 @@
     "resend": "6.1.2",
     "sharp": "0.34.4",
     "shiki": "3.13.0",
-    "zod": "4.1.11"
+    "zod": "4.1.12"
   },
   "description": "Kopaki – personal website for J Lapworth",
   "devDependencies": {
