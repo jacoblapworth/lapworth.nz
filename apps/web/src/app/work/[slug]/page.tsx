@@ -4,7 +4,7 @@ import { LinkButton } from '@/components/Button'
 import { MDXContent } from '@/components/MDXContent'
 import { Text } from '@/components/Typography'
 import { work } from '@/content'
-import { HStack, VStack } from '@/styled/jsx'
+import { Box, HStack, VStack } from '@/styled/jsx'
 import { TabsExample } from '../vend/tabs/VendTabs'
 import * as Principles from '../xero/principles/principles'
 
@@ -49,7 +49,9 @@ export default async function Page({ params }: Props) {
             {post.links.map(({ href, label }) => (
               <LinkButton href={href} key={href} size="sm">
                 {label}
-                <SquareArrowOutUpRightIcon size={16} />
+                <Box gridArea="right-icon">
+                  <SquareArrowOutUpRightIcon size={16} />
+                </Box>
               </LinkButton>
             ))}
           </HStack>
