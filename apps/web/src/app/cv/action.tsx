@@ -1,15 +1,18 @@
 'use server'
 
 import { track } from '@vercel/analytics/server'
+import { redirect } from 'next/navigation'
 import { Resend } from 'resend'
 import { CvRequestEmail } from '@/emails/cv'
+import PostHogClient from '@/lib/posthog'
 
 export interface FormState {
   message?: string | undefined
-  success?: boolean
+  error?: boolean
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY)
+const ph = await PostHogClient()
 
 export async function requestCv(
   _prevState: FormState,
@@ -20,6 +23,21 @@ export async function requestCv(
   if (typeof email !== 'string') {
     throw new Error('Invalid email')
   }
+
+  ph.identify({
+    distinctId: email,
+    properties: {
+      email,
+    },
+  })
+
+  ph.capture({
+    distinctId: email,
+    event: 'request-cv',
+    properties: {
+      email,
+    },
+  })
 
   await track('request-cv', { email })
 
@@ -39,15 +57,12 @@ export async function requestCv(
   if (error) {
     console.error(`Email error: ${error.name}\n${error.message}`)
     return {
+      error: true,
       message: 'Unknown error, please try again later.',
-      success: false,
     }
   }
 
   console.debug(`Email sent: ${data.id}`)
 
-  return {
-    message: 'CV sent! Please check your inbox.',
-    success: true,
-  }
+  redirect('/cv/requested')
 }

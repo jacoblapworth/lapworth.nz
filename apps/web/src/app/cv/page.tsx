@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckCircleIcon, CircleAlertIcon } from 'lucide-react'
+import { CircleAlertIcon } from 'lucide-react'
 import { useActionState, useId } from 'react'
 import { Form } from '@/components/Form'
 import { SubmitButton } from '@/components/SubmitButton'
@@ -17,9 +17,6 @@ export default function Page() {
 
   return (
     <Form action={action}>
-      <Text as="h1" display size="lg">
-        Request CV
-      </Text>
       <VStack alignItems="start">
         <HStack alignItems="end" gap={0}>
           <TextInput
@@ -33,13 +30,9 @@ export default function Page() {
           />
           <SubmitButton>Get CV</SubmitButton>
         </HStack>
-        {state.success !== undefined && (
+        {state.error && (
           <HStack aria-live="polite" id={id}>
-            {state.success ? (
-              <CheckCircleIcon size={16} />
-            ) : (
-              <CircleAlertIcon size={16} />
-            )}
+            <CircleAlertIcon size={16} />
             <Text size="sm">{state.message}</Text>
           </HStack>
         )}
