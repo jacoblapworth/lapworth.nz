@@ -12,5 +12,6 @@ onlyBuiltDependencies:
   - turbo
   - turbo-darwin-arm64
   - unrs-resolver
+  - workerd
 
 sideEffectsCache: false

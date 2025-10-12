@@ -8,11 +8,13 @@
   "scripts": {
     "build": "turbo run build",
     "content": "turbo run content",
+    "deploy": "turbo run deploy",
     "dev": "turbo run dev",
     "format": "turbo run format",
     "lint": "turbo run lint",
     "lint:ci": "biome ci --reporter=github",
     "start": "turbo run start",
+    "test": "turbo run test",
     "types:check": "turbo run types:check"
   }
 }

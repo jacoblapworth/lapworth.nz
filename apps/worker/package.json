@@ -1,0 +1,18 @@
+{
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.8.19",
+    "typescript": "^5.5.2",
+    "vitest": "~3.2.0",
+    "wrangler": "^4.42.2"
+  },
+  "name": "worker",
+  "private": true,
+  "scripts": {
+    "typegen": "wrangler types",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "test": "vitest",
+    "types:check": "tsc --noEmit"
+  }
+}
