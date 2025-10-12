@@ -12,10 +12,9 @@ export interface FormState {
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const ph = await PostHogClient()
 
 export async function requestCv(
-  _prevState: FormState,
+  _: FormState,
   formData: FormData,
 ): Promise<FormState> {
   const email = formData.get('email')
@@ -23,6 +22,8 @@ export async function requestCv(
   if (typeof email !== 'string') {
     throw new Error('Invalid email')
   }
+
+  const ph = await PostHogClient()
 
   ph.identify({
     distinctId: email,
@@ -41,7 +42,7 @@ export async function requestCv(
 
   await track('request-cv', { email })
 
-  const { data, error } = await resend.emails.send({
+  const { error } = await resend.emails.send({
     attachments: [
       {
         filename: 'JacobLapworth_CV.pdf',
@@ -61,8 +62,6 @@ export async function requestCv(
       message: 'Unknown error, please try again later.',
     }
   }
-
-  console.debug(`Email sent: ${data.id}`)
 
   redirect('/cv/requested')
 }

@@ -6,8 +6,9 @@ import * as Sentry from '@sentry/nextjs'
 import posthog from 'posthog-js'
 
 posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-  api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+  api_host: 'https://ph.lapworth.nz',
   defaults: '2025-05-24',
+  ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
 })
 
 Sentry.init({

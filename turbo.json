@@ -30,6 +30,9 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
+    "deploy": {
+      "dependsOn": ["^deploy"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
@@ -44,6 +47,9 @@
     "start": {
       "dependsOn": ["build"],
       "persistent": true
+    },
+    "test": {
+      "dependsOn": ["^test"]
     },
     "types:check": {
       "dependsOn": ["^types:check"],

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
+  "extends": "//",
+  "files": {
+    "includes": ["!worker-configuration.d.ts", "src/**", "wrangler.jsonc"]
+  }
+}
