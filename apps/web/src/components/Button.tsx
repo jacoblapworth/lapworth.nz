@@ -6,23 +6,20 @@ import type { ComponentProps, ReactNode } from 'react'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 
-export const styles = cva({
+export const ButtonStyles = cva({
   base: {
     _hover: {
       backgroundColor: 'interactive',
       color: 'background',
-    },
-    '& > *': {
-      gridArea: 'content',
     },
     borderColor: 'interactive',
     borderStyle: 'solid',
     borderWidth: '1px',
     cursor: 'pointer',
     display: 'inline-grid',
-    gap: '4px',
-    gridTemplateAreas: '"left-icon content right-icon"',
-    gridTemplateColumns: 'fit-content 1fr fit-content',
+    gap: 4,
+    gridAutoColumns: 'auto',
+    gridAutoFlow: 'column',
     gridTemplateRows: '1fr',
     padding: 'sm',
     placeItems: 'center',
@@ -64,22 +61,21 @@ export const styles = cva({
   },
 })
 
-export const Button = styled('button', styles)
-export const LinkButton = styled(NextLink, styles)
+export const Button = styled('button', ButtonStyles)
+export const LinkButton = styled(NextLink, ButtonStyles)
 
 const Pill = styled(NextLink, {
   base: {
-    // borderRadius: 'max',
-
-    '&:hover': {
+    _hover: {
       backgroundColor: 'surface',
     },
     alignItems: 'center',
     border: '1px solid token(colors.primary)',
     color: 'interactive',
     display: 'inline-grid',
-    gap: '4px',
-    gridTemplateColumns: '1fr 24px',
+    gap: 4,
+    gridAutoColumns: 'auto',
+    gridAutoFlow: 'column',
     gridTemplateRows: '1fr',
     paddingBlock: 4,
     paddingInline: 'sm',
@@ -88,7 +84,7 @@ const Pill = styled(NextLink, {
   variants: {
     inverted: {
       true: {
-        '&:hover': {
+        _hover: {
           backgroundColor: 'interactive',
           color: 'surface',
         },
@@ -105,7 +101,7 @@ export function PillLink({ children, ref, ...rest }: PillLinkProps) {
   return (
     <Pill ref={ref} {...rest}>
       {children}
-      <ArrowRightIcon />
+      <ArrowRightIcon size={16} />
     </Pill>
   )
 }
