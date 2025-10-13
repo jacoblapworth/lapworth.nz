@@ -1,11 +1,11 @@
 import { postHogAdapter } from '@flags-sdk/posthog'
 import { flag } from 'flags/next'
 import { cookies } from 'next/headers'
+import { env } from '@/lib/env'
 
 async function identify() {
   const jar = await cookies()
-  const { value } =
-    jar.get(`ph_${process.env.NEXT_PUBLIC_POSTHOG_KEY}_posthog`) || {}
+  const { value } = jar.get(`ph_${env.NEXT_PUBLIC_POSTHOG_KEY}_posthog`) || {}
 
   if (!value) {
     return {

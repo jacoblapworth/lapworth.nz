@@ -42,7 +42,7 @@
       "inputs": ["**/*.{ts,tsx,js,jsx,json,md}", "biome.json"]
     },
     "lint": {
-      "dependsOn": ["tokens", "^lint"]
+      "dependsOn": ["^lint"]
     },
     "start": {
       "dependsOn": ["build"],

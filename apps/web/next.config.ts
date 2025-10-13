@@ -4,6 +4,7 @@ import { withSentryConfig } from '@sentry/nextjs'
 import createWithVercelToolbar from '@vercel/toolbar/plugins/next'
 import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
+import { env } from '@/lib/env'
 
 const withVercelToolbar = createWithVercelToolbar()
 const withNextIntl = createNextIntlPlugin()
@@ -51,8 +52,8 @@ export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
   withSentryConfig(withVercelToolbar(withNextIntl(withMDX(config))), {
     automaticVercelMonitors: true,
     disableLogger: true,
-    org: process.env.SENTRY_ORG,
-    project: process.env.SENTRY_PROJECT,
+    org: env.SENTRY_ORG,
+    project: env.SENTRY_PROJECT,
     silent: !process.env.CI,
     sourcemaps: {
       deleteSourcemapsAfterUpload: true,

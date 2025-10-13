@@ -4,17 +4,18 @@
 
 import * as Sentry from '@sentry/nextjs'
 import posthog from 'posthog-js'
+import { env } from '@/lib/env'
 
-posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-  api_host: 'https://ph.lapworth.nz',
+posthog.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
+  api_host: env.NEXT_PUBLIC_POSTHOG_API_HOST,
   defaults: '2025-05-24',
-  ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+  ui_host: env.NEXT_PUBLIC_POSTHOG_HOST,
 })
 
 Sentry.init({
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,
-  dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  dsn: env.NEXT_PUBLIC_SENTRY_DSN,
 
   // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
   tracesSampleRate: 1,

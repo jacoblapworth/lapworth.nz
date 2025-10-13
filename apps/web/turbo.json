@@ -1,8 +1,10 @@
 {
+  "$schema": "https://turborepo.com/schema.json",
   "extends": ["//"],
   "tasks": {
     "build": {
       "dependsOn": ["tokens", "content", "^build"],
+      "env": ["NEXT_PUBLIC_POSTHOG_API_HOST"],
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
     },
     "content": {
