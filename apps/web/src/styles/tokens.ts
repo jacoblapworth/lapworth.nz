@@ -279,6 +279,26 @@ export const semanticTokens = defineSemanticTokens({
         strong: { value: '#828995' },
         subtle: { value: '#CFD1D5' },
       },
+      grey: {
+        1: { value: '#000A1E' },
+        2: { value: '#404756' },
+        3: { value: '#59606D' },
+        4: { value: '#80858F' },
+        5: { value: '#A6A9B0' },
+        6: { value: '#CCCED2' },
+        7: { value: '#E6E7E9' },
+        8: { value: '#F2F3F4' },
+        alpha: {
+          1: { value: '{colors.grey.1}' },
+          2: { value: 'rgba(0, 10, 30, 0.75)' },
+          3: { value: 'rgba(0, 10, 30, 0.65)' },
+          4: { value: 'rgba(0, 10, 30, 0.5)' },
+          5: { value: 'rgba(0, 10, 30, 0.35)' },
+          6: { value: 'rgba(0, 10, 30, 0.2)' },
+          7: { value: 'rgba(0, 10, 30, 0.1)' },
+          8: { value: 'rgba(0, 10, 30, 0.05)' },
+        },
+      },
       icon: {
         DEFAULT: { value: '#1E3145' },
         faint: { value: '#616B7A' },
@@ -312,9 +332,33 @@ export const semanticTokens = defineSemanticTokens({
   },
   shadows: {
     xero: {
+      hover: {
+        value: '0 8px 16px 0 {colors.grey.alpha.6}',
+      },
+      lift: {
+        value:
+          '0 0 0 1px {colors.grey.alpha.6}, 0 3px 6px 0 {colors.grey.alpha.6}',
+      },
       overflow: {
-        left: { value: 'rgba(0,0,0,0.08) -8px 0 8px -8px inset' },
-        right: { value: 'rgba(0,0,0,0.08) 8px 0 8px -8px inset' },
+        bottom: {
+          value:
+            '0 -1px 0 0 {colors.xero.grey.alpha.6}, 0 -3px 0 0 {colors.xero.grey.alpha.8}',
+        },
+        left: {
+          value:
+            '1px 0 0 0 {colors.xero.grey.alpha.6}, 3px 0 0 0 {colors.xero.grey.alpha.8}',
+        },
+        right: {
+          value:
+            '-1px 0 0 0 {colors.xero.grey.alpha.6}, -3px 0 0 0 {colors.xero.grey.alpha.8}',
+        },
+        top: {
+          value:
+            '0 1px 0 0 {colors.xero.grey.alpha.6}, 0 3px 0 0 {colors.xero.grey.alpha.8}',
+        },
+      },
+      pop: {
+        value: '0 8px 16px 0 {colors.xero.grey.alpha.6}',
       },
     },
   },

@@ -1,4 +1,6 @@
+import type { Table } from '@tanstack/react-table'
 import { CircleXIcon, CrossIcon, SearchIcon } from 'lucide-react'
+import { memo, useDeferredValue, useState } from 'react'
 import { styled } from '@/styled/jsx'
 
 const Container = styled('div', {
@@ -47,20 +49,27 @@ const ClearButton = styled(
 )
 
 interface Props {
-  query: string
-  onSearch: (query: string) => void
+  table: Table<any>
+  // query: string
+  // onSearch: (query: string) => void
 }
 
-export function Search({ query, onSearch }: Props) {
+export const Search = memo(function Search({ table }: Props) {
+  const [query, setQuery] = useState('')
+  const deferred = useDeferredValue(query)
+
   return (
     <Container>
       <SearchIcon size={16} />
       <Input
-        onChange={(e) => onSearch(e.target.value)}
+        onChange={(e) => {
+          setQuery(e.target.value)
+          table.setGlobalFilter(e.target.value)
+        }}
         placeholder="Search..."
-        value={query}
+        value={deferred}
       />
-      {query.length > 0 && <ClearButton onClick={() => onSearch('')} />}
+      {deferred.length > 0 && <ClearButton onClick={() => setQuery('')} />}
     </Container>
   )
-}
+})

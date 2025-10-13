@@ -25,7 +25,7 @@ export const textStyles = defineTextStyles({
         regular: {
           value: {
             fontFamily: 'inter',
-            fontSize: 'xsmall',
+            fontSize: 13,
             fontWeight: 'regular',
             lineHeight: '145%',
           },
@@ -33,7 +33,7 @@ export const textStyles = defineTextStyles({
         semibold: {
           value: {
             fontFamily: 'inter',
-            fontSize: 'xsmall',
+            fontSize: 13,
             fontWeight: 'semibold',
             lineHeight: '145%',
           },
@@ -43,7 +43,7 @@ export const textStyles = defineTextStyles({
         regular: {
           value: {
             fontFamily: 'inter',
-            fontSize: 'base',
+            fontSize: 15,
             fontWeight: 'regular',
             lineHeight: '145%',
           },
@@ -51,7 +51,7 @@ export const textStyles = defineTextStyles({
         semibold: {
           value: {
             fontFamily: 'inter',
-            fontSize: 'base',
+            fontSize: 15,
             fontWeight: 'semibold',
             lineHeight: '145%',
           },

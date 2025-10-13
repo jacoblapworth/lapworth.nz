@@ -69,7 +69,7 @@ export function useHeaderSize(id: string) {
 const Handle = styled('button', {
   base: {
     _active: {
-      backgroundColor: 'action',
+      backgroundColor: 'xero.action',
       opacity: 1,
     },
 
@@ -86,10 +86,10 @@ const Handle = styled('button', {
     },
 
     _selected: {
-      backgroundColor: 'action',
+      backgroundColor: 'xero.action',
       opacity: 1,
     },
-    backgroundColor: 'grey.6',
+    backgroundColor: 'xero.border.subtle',
     border: 'none',
     borderRadius: 999,
     bottom: 4,

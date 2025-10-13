@@ -1,21 +1,17 @@
+import * as Ariakit from '@ariakit/react'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 
 export const ButtonStyles = cva({
   base: {
     _disabled: {
-      backgroundColor: 'gray400',
       cursor: 'not-allowed',
-      pointerEvents: 'none',
+      // pointerEvents: 'none',
     },
 
     _expanded: {
       backgroundColor: 'xero.background.secondary',
       borderColor: 'xero.border.regular',
-    },
-
-    _hover: {
-      backgroundColor: 'primaryHover',
     },
 
     alignItems: 'center',
@@ -56,6 +52,9 @@ export const ButtonStyles = cva({
         _active: {
           color: 'xero.text',
         },
+        _disabled: {
+          color: 'xero.text.faint',
+        },
         _selected: {
           _hover: {
             borderColor: 'xero.action.hover',
@@ -82,4 +81,4 @@ export const ButtonStyles = cva({
   },
 })
 
-export const Button = styled('button', ButtonStyles)
+export const Button = styled(Ariakit.Button, ButtonStyles)

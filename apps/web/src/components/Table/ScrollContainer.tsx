@@ -24,6 +24,7 @@ export function TableScrollContainer({ children }: TableContainerProps) {
         flexGrow={1}
         overflowX={'scroll'}
         ref={container}
+        scrollbarGutter="auto"
         width="100%"
       >
         <TableScrollContext.Provider value={scroll}>
@@ -33,7 +34,7 @@ export function TableScrollContainer({ children }: TableContainerProps) {
       <motion.span
         className={css({
           bottom: 0,
-          boxShadow: 'overflow.right',
+          boxShadow: 'xero.overflow.right',
           position: 'absolute',
           right: -16,
           top: 0,

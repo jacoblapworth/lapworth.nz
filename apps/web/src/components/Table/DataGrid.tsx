@@ -155,7 +155,7 @@ export const TR = styled(
   {
     base: {
       _focusWithin: {
-        backgroundColor: 'xero.background.secondary',
+        // backgroundColor: 'xero.background.secondary',
       },
 
       _hover: {
@@ -345,7 +345,6 @@ export const tdStyles = cva({
     borderBlockColor: 'xero.border.subtle',
     borderBlockStartWidth: 1,
     borderBlockStyle: 'solid',
-
     borderInlineColor: 'xero.border.subtle',
     borderInlineStartWidth: 1,
     borderInlineStyle: 'solid',
@@ -393,6 +392,29 @@ export const Td = styled('td', tdStyles, {
   },
 })
 
+export const CellContainer = styled('div', {
+  base: {
+    alignItems: 'center',
+    display: 'flex',
+    flexGrow: 1,
+    height: '100%',
+    justifyContent: 'stretch',
+    overflow: 'hidden',
+    paddingInline: 6,
+    truncate: true,
+    width: '100%',
+  },
+  defaultVariants: {
+    variant: 'accessor',
+  },
+  variants: {
+    variant: {
+      accessor: {},
+      display: {},
+    },
+  },
+})
+
 export function TableCell<TData extends RowData, TValue>({
   cell,
 }: {
@@ -415,7 +437,11 @@ export function TableCell<TData extends RowData, TValue>({
         // width: cell.column.getSize(),
       }}
     >
-      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+      <CellContainer
+        variant={cell.column.getCanHide() ? 'accessor' : 'display'}
+      >
+        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+      </CellContainer>
       {showOverflow && <ColumnOverflowIndicator position={isPinned} />}
     </Td>
   )

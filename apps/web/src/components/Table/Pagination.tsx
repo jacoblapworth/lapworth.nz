@@ -32,7 +32,10 @@ export function Pagination({
       justifyContent="space-between"
       padding={8}
     >
-      <HStack></HStack>
+      <HStack color="xero.text" textStyle="xero.body.small.regular">
+        {total} items
+      </HStack>
+
       <HStack>
         <Button disabled={!canPreviousPage} onClick={onPrevious} size="sm">
           <ArrowLeftIcon size={16} />

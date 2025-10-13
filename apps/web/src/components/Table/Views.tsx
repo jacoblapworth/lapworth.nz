@@ -1,6 +1,6 @@
 import * as Ariakit from '@ariakit/react'
 import { ViewsTabList } from './ViewsTabList'
-import { ViewTab } from './ViewTab'
+import { BorderHighlight, ViewTab } from './ViewTab'
 
 export interface View {
   id: string
@@ -17,6 +17,7 @@ export function Views({ views }: Props) {
       <ViewsTabList>
         {views.map(({ id, label }) => (
           <ViewTab id={id} key={id} value={id}>
+            {/* <BorderHighlight layoutId="highlight" /> */}
             {label}
           </ViewTab>
         ))}

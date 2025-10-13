@@ -1,16 +1,18 @@
 import type { Column, Header, Table } from '@tanstack/react-table'
+import { useDeferredValue } from 'react'
 import { HStack } from '@/styled/jsx'
 import { ColumnsMenu } from './ColumnsMenu'
-import type { Filter } from './Filters'
+import type { AppliedFilter } from './Filters'
 import { FiltersToggle } from './FiltersToggle'
 import { Search } from './Search'
 import { ViewMenu } from './ViewMenu'
-import { Views } from './Views'
+import { type View, Views } from './Views'
 
 interface Props<TData> {
-  filters?: Filter[]
-  showFilters: boolean
-  searchQuery: string
+  views: View[]
+  appliedFilters?: AppliedFilter[]
+  showFilters?: boolean
+  query: string
   onToggleFilters: () => void
   onSearch: (query: string) => void
   headers: Header<TData, unknown>[]
@@ -19,11 +21,13 @@ interface Props<TData> {
 }
 
 export function Controls<TData>({
+  views,
+  table,
   columns,
-  filters,
+  appliedFilters,
   headers,
   showFilters,
-  searchQuery,
+  query,
   onToggleFilters,
   onSearch,
 }: Props<TData>) {
@@ -36,17 +40,11 @@ export function Controls<TData>({
       justifyContent="space-between"
       padding={8}
     >
-      <Views
-        views={[
-          { id: 'all', label: 'All' },
-          { id: 'invoices', label: 'Invoices' },
-          { id: 'bills', label: 'Bills' },
-        ]}
-      />
+      <Views views={views} />
       <HStack alignItems="stretch" gap={8}>
-        <Search onSearch={onSearch} query={searchQuery} />
+        <Search table={table} />
         <FiltersToggle
-          filterCount={filters?.length}
+          filterCount={appliedFilters?.length}
           isSelected={showFilters}
           onClick={onToggleFilters}
         />

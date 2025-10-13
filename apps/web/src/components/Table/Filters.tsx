@@ -1,4 +1,4 @@
-import { PlusIcon, TrashIcon } from 'lucide-react'
+import { TrashIcon } from 'lucide-react'
 import { HStack } from '@/styled/jsx'
 import { Button } from './Button'
 import { FilterPill } from './FilterPill'
@@ -7,18 +7,30 @@ import { AddFilterMenu } from './FiltersAddMenu'
 export interface Filter {
   id: string
   label: string
+}
+
+export interface AppliedFilter {
+  id: string
+  label: string
   operator?: string
   value: string
 }
 
 interface Props {
   filters: Filter[]
+  appliedFilters: AppliedFilter[]
   onClear: () => void
   onAdd?: () => void
   onRemove: (id: string) => void
 }
 
-export function Filters({ filters, onClear, onAdd, onRemove }: Props) {
+export function Filters({
+  filters,
+  appliedFilters,
+  onClear,
+  onAdd,
+  onRemove,
+}: Props) {
   return (
     <HStack
       borderBottomColor="xero.border.soft"
@@ -29,8 +41,8 @@ export function Filters({ filters, onClear, onAdd, onRemove }: Props) {
       padding={8}
     >
       <HStack>
-        <AddFilterMenu />
-        {filters.map(({ id, label, operator, value }) => (
+        <AddFilterMenu filters={filters} />
+        {appliedFilters.map(({ id, label, operator, value }) => (
           <FilterPill
             key={id}
             label={label}
@@ -41,7 +53,7 @@ export function Filters({ filters, onClear, onAdd, onRemove }: Props) {
         ))}
       </HStack>
       <HStack>
-        {filters.length > 0 && (
+        {appliedFilters.length > 0 && (
           <Button onClick={onClear} variant="secondary">
             <TrashIcon size={16} />
             Clear filters

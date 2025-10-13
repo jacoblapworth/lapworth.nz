@@ -3,42 +3,36 @@
 import { CheckboxProvider } from '@ariakit/react'
 import {
   type ColumnFiltersState,
-  type ColumnPinningState,
   createColumnHelper,
-  type SortingState,
 } from '@tanstack/react-table'
+import { CheckCircleIcon, TrashIcon } from 'lucide-react'
 import { useState } from 'react'
 import { Table, useTable } from '@/components/Table'
 import { Checkbox } from '@/components/Table/Checkbox'
 import { Tag } from '@/components/Table/Tag'
-
-type InvoiceRow = {
-  number: string
-  invoiceID: string
-  contact: {
-    name: string
-  }
-  status: string
-  invoiceNumber: string
-  date: string
-  dueDate: string
-  amountPaid: number
-  amountDue: number
-  notes: string[]
-}
+import { Box } from '@/styled/jsx'
+import { initialData } from './data'
+import { getInvoiceStatus, type InvoiceRow } from './model'
 
 const columnHelper = createColumnHelper<InvoiceRow>()
 
 const initialColumns = [
   columnHelper.display({
     cell: (ctx) => (
-      <CheckboxProvider
-        setValue={ctx.row.getToggleSelectedHandler()}
-        value={ctx.row.getIsSelected()}
-      >
-        <Checkbox />
-      </CheckboxProvider>
+      <Box placeItems="center">
+        <CheckboxProvider
+          setValue={ctx.row.getToggleSelectedHandler()}
+          value={ctx.row.getIsSelected()}
+        >
+          <Checkbox />
+        </CheckboxProvider>
+      </Box>
     ),
+    enableGrouping: false,
+    enableHiding: false,
+    enablePinning: false,
+    enableResizing: false,
+    enableSorting: false,
     id: 'select',
     size: 32,
   }),
@@ -56,13 +50,12 @@ const initialColumns = [
     size: 150,
   }),
   columnHelper.accessor('status', {
-    // cell: (ctx) => {
-    //   const value = ctx.cell.getValue()
-    //   const tag = getInvoiceStatus(value)
-    //   if (!tag) return null
+    cell: (ctx) => {
+      const value = ctx.cell.getValue()
+      const { sentiment, label } = getInvoiceStatus(value)
 
-    //   return <Tag sentiment={tag.sentiment}>{tag.label}</Tag>
-    // },
+      return <Tag variant={sentiment}>{label}</Tag>
+    },
     filterFn: 'arrIncludesSome',
     header: 'Status',
     id: 'status',
@@ -129,92 +122,56 @@ const initialColumns = [
 
 export default function Page() {
   const [columns] = useState(initialColumns)
-  const [data] = useState<InvoiceRow[]>([
-    {
-      amountDue: 1000,
-      amountPaid: 0,
-      contact: {
-        name: 'Acme Corp',
-      },
-      date: '2023-10-01',
-      dueDate: '2023-10-15',
-      invoiceID: 'inv_1',
-      invoiceNumber: 'INV-001',
-      notes: ['First note', 'Second note'],
-      number: '1',
-      status: 'draft',
-    },
-    {
-      amountDue: 2000,
-      amountPaid: 500,
-      contact: {
-        name: 'Beta LLC',
-      },
-      date: '2023-09-15',
-      dueDate: '2023-09-30',
-      invoiceID: 'inv_2',
-      invoiceNumber: 'INV-002',
-      notes: ['Urgent'],
-      number: '2',
-      status: 'sent',
-    },
-    {
-      amountDue: 1500,
-      amountPaid: 1500,
-      contact: {
-        name: 'Gamma Inc',
-      },
-      date: '2023-08-20',
-      dueDate: '2023-09-05',
-      invoiceID: 'inv_3',
-      invoiceNumber: 'INV-003',
-      notes: [],
-      number: '3',
-      status: 'paid',
-    },
-  ])
-
-  const [columnOrder, onColumnOrderChange] = useState<string[]>([
-    'select',
-    'contact',
-    'status',
-    'invoiceNumber',
-    'date',
-    'dueDate',
-    'amountPaid',
-    'due',
-    'notes',
-    'add',
-  ])
-
-  const [sorting, onSortingChange] = useState<SortingState>([
-    {
-      desc: true,
-      id: 'date',
-    },
-  ])
+  const [data] = useState<InvoiceRow[]>(initialData)
   const [columnFilters, onColumnFiltersChange] = useState<ColumnFiltersState>(
     [],
   )
-  const [columnPinning, onColumnPinningChange] = useState<ColumnPinningState>({
-    left: ['select', 'contact'],
-    right: [],
-  })
 
   const table = useTable<InvoiceRow>({
     columns,
     data,
+    initialState: {
+      columnPinning: {
+        left: ['select', 'contact'],
+      },
+      sorting: [
+        {
+          desc: true,
+          id: 'date',
+        },
+      ],
+    },
     onColumnFiltersChange,
-    onColumnOrderChange,
-    onColumnPinningChange,
-    onSortingChange,
     state: {
       columnFilters,
-      columnOrder,
-      columnPinning,
-      sorting,
     },
   })
 
-  return <Table table={table} />
+  return (
+    <Table
+      bulkActions={[
+        {
+          id: 'approve',
+          label: (
+            <>
+              <CheckCircleIcon />
+              Approve
+            </>
+          ),
+          onClick: () => alert('Approved'),
+        },
+        {
+          id: 'delete',
+          label: (
+            <>
+              <TrashIcon />
+              Delete
+            </>
+          ),
+          onClick: () => alert('Deleted'),
+        },
+      ]}
+      table={table}
+    />
+  )
 }

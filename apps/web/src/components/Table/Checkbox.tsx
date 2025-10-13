@@ -79,7 +79,7 @@ export function Checkbox({ ref, ...props }: ComponentPropsWithRef<'input'>) {
   return (
     <label
       className="checkbox"
-      data-checked={checked}
+      data-checked={checked ? true : undefined}
       data-focus-visible={focusVisible || undefined}
       htmlFor={id}
     >
@@ -97,7 +97,7 @@ export function Checkbox({ ref, ...props }: ComponentPropsWithRef<'input'>) {
           ref={ref}
         />
       </Ariakit.VisuallyHidden>
-      <Box data-checked={checked ? 'true' : undefined}>
+      <Box aria-checked={checked ? 'true' : undefined}>
         {checked && <Check />}
       </Box>
     </label>

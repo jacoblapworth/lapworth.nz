@@ -1,17 +1,19 @@
+import type { ReactNode } from 'react'
 import { HStack } from '@/styled/jsx'
 import { Button } from './Button'
 
 export interface BulkAction {
   id: string
-  label: string
+  label: ReactNode
   onClick: () => void
 }
 
 interface Props {
   actions: BulkAction[]
+  isDisabled?: boolean
 }
 
-export function BulkActions({ actions }: Props) {
+export function BulkActions({ actions, isDisabled }: Props) {
   return (
     <HStack
       borderBottomColor="xero.border.soft"
@@ -22,7 +24,7 @@ export function BulkActions({ actions }: Props) {
     >
       <HStack gap={8}>
         {actions.map(({ id, label, onClick }) => (
-          <Button key={id} onClick={onClick}>
+          <Button disabled={isDisabled} key={id} onClick={onClick}>
             {label}
           </Button>
         ))}

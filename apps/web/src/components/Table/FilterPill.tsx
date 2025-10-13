@@ -14,7 +14,7 @@ const Pill = styled('div', {
     display: 'inline-flex',
     fontSize: 13,
     lineHeight: '1.2',
-    overflow: 'hidden',
+    // overflow: 'hidden',
   },
 })
 

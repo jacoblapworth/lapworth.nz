@@ -9,6 +9,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import { Inter } from 'next/font/google'
+import { parseAsBoolean, useQueryState } from 'nuqs'
 import { useState } from 'react'
 import { styled } from '@/styled/jsx'
 import { type BulkAction, BulkActions } from './BulkActions'
@@ -39,14 +40,9 @@ export function useTable<TData extends RowData>(
     'getCoreRowModel' | 'getSortedRowModel' | 'getFilteredRowModel'
   >,
 ) {
-  const debug = false
-
   return useReactTable<TData>({
     columnResizeDirection: 'ltr',
     columnResizeMode: 'onChange',
-    debugColumns: debug,
-    debugHeaders: debug,
-    debugTable: debug,
     defaultColumn: {
       maxSize: 800,
       minSize: 32,
@@ -62,19 +58,19 @@ export function useTable<TData extends RowData>(
 
 interface Props<TData extends RowData> {
   table: ReturnType<typeof useTable<TData>>
+  bulkActions: BulkAction[]
 }
 
-export function Table<TData extends RowData>({ table }: Props<TData>) {
-  const [showFilters, setShowFilters] = useState(true)
+export function Table<TData extends RowData>({
+  table,
+  bulkActions,
+}: Props<TData>) {
+  const [showFilters, setShowFilters] = useQueryState(
+    'filter',
+    parseAsBoolean.withDefault(false),
+  )
   const [searchQuery, setSearchQuery] = useState('')
-  const [bulkActions, setBulkActions] = useState<BulkAction[]>([
-    {
-      id: 'delete',
-      label: 'Delete',
-      onClick: () => alert('Delete'),
-    },
-  ])
-  const [filters, setFilters] = useState([
+  const [appliedFilters, setAppliedFilters] = useState([
     {
       id: 'status',
       label: 'Status',
@@ -83,39 +79,64 @@ export function Table<TData extends RowData>({ table }: Props<TData>) {
     },
   ])
 
-  // const summaryRowModel = table.getFilteredSelectedRowModel()
+  const filters = table
+    .getAllFlatColumns()
+    .filter((col) => col.getCanFilter())
+    .map(({ columnDef: { id, header } }) => {
+      if (!header || typeof header !== 'string' || !id) {
+        return undefined
+      }
+      return {
+        id,
+        label: header,
+      }
+    })
+    .filter(Boolean)
 
-  // summaryRowModel.flatRows
-  //   .map((v) => v.getValue('paid'))
-  //   .reduce((a, b) => a + b, 0)
+  const summaryRowModel = table.getFilteredSelectedRowModel()
+
+  summaryRowModel.flatRows
+    .map((v) => v.getValue<number>('paid'))
+    .reduce((a, b) => a + b, 0)
 
   return (
     <Container className={inter.className}>
       <Controls
+        appliedFilters={appliedFilters}
         columns={table.getAllFlatColumns()}
-        filters={filters}
         headers={table.getFlatHeaders()}
         onSearch={setSearchQuery}
         onToggleFilters={() => setShowFilters((v) => !v)}
-        searchQuery={searchQuery}
+        query={searchQuery}
         showFilters={showFilters}
         table={table}
+        views={[
+          { id: 'all', label: 'All' },
+          { id: 'invoices', label: 'Invoices' },
+          { id: 'bills', label: 'Bills' },
+        ]}
       />
       {showFilters && (
         <Filters
+          appliedFilters={appliedFilters}
           filters={filters}
-          onClear={() => setFilters([])}
-          onRemove={(id) => setFilters((fs) => fs.filter((f) => f.id !== id))}
+          onClear={() => setAppliedFilters([])}
+          onRemove={(id) =>
+            setAppliedFilters((fs) => fs.filter((f) => f.id !== id))
+          }
         />
       )}
-      <BulkActions actions={bulkActions} />
+      <BulkActions
+        actions={bulkActions}
+        isDisabled={!table.getIsSomeRowsSelected()}
+      />
       <DataGrid table={table} />
       <Pagination
         canNextPage={table.getCanNextPage()}
         canPreviousPage={table.getCanPreviousPage()}
         onNext={table.nextPage}
         onPrevious={table.previousPage}
-        total={table.getRowModel().rows.length}
+        total={table.getRowCount()}
       />
     </Container>
   )

@@ -1,9 +1,14 @@
 import * as Ariakit from '@ariakit/react'
 import { PlusIcon } from 'lucide-react'
 import { Button } from './Button'
+import type { Filter } from './Filters'
 import { Menu, MenuItem } from './Menu'
 
-export function AddFilterMenu() {
+interface Props {
+  filters: Filter[]
+}
+
+export function AddFilterMenu({ filters }: Props) {
   return (
     <Ariakit.MenuProvider>
       <Ariakit.MenuButton render={<Button />}>
@@ -11,7 +16,9 @@ export function AddFilterMenu() {
         Add filter
       </Ariakit.MenuButton>
       <Menu>
-        <MenuItem>Add filter</MenuItem>
+        {filters.map((filter) => (
+          <MenuItem key={filter.id}>{filter.label}</MenuItem>
+        ))}
       </Menu>
     </Ariakit.MenuProvider>
   )
