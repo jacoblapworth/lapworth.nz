@@ -1,38 +1,19 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "bundler",
-    "noEmit": true,
     "paths": {
       "@/*": ["./src/*"],
       "@/styled/*": ["./.styled/*"]
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "esnext"
+    "strict": true
   },
-  "exclude": ["node_modules", "cypress", ".next", "out", "dist"],
-  "include": [
-    "next-env.d.ts",
-    "**/*.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "next.config.ts",
-    ".next/types/**/*.ts"
-  ]
+  "exclude": ["node_modules", "dist"],
+  // "extends": "@total-typescript/tsconfig/tsc/dom/library-monorepo",
+  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx"]
 }
