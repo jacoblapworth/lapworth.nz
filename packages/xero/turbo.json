@@ -9,7 +9,6 @@
     },
     "css:watch": {
       "cache": false,
-      "dependsOn": ["^css:watch"],
       "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
       "outputs": ["dist/styles.css"],
       "persistent": true

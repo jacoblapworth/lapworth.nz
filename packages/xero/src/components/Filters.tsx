@@ -1,4 +1,6 @@
 import { TrashIcon } from 'lucide-react'
+import { motion } from 'motion/react'
+import { css } from '@/styled/css'
 import { HStack } from '@/styled/jsx'
 import { Button } from './Button'
 import { FilterPill } from './FilterPill'
@@ -32,13 +34,30 @@ export function Filters({
   onRemove,
 }: Props) {
   return (
-    <HStack
-      borderBottomColor="border.soft"
-      borderBottomStyle="solid"
-      borderBottomWidth={1}
-      gap={8}
-      justifyContent="space-between"
-      padding={8}
+    <motion.div
+      animate={{ height: 'auto', opacity: 1 }}
+      className={css({
+        borderBottomColor: 'border.soft',
+        borderBottomStyle: 'solid',
+        borderBottomWidth: 1,
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 8,
+        justifyContent: 'space-between',
+        overflow: 'hidden',
+        padding: 8,
+      })}
+      exit={{
+        height: 0,
+      }}
+      initial={{
+        height: 0,
+      }}
+      key="filters"
+      transition={{
+        duration: 0.1,
+        ease: 'easeInOut',
+      }}
     >
       <HStack>
         <AddFilterMenu filters={filters} />
@@ -60,6 +79,6 @@ export function Filters({
           </Button>
         )}
       </HStack>
-    </HStack>
+    </motion.div>
   )
 }

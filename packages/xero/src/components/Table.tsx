@@ -8,6 +8,7 @@ import {
   type TableOptions,
   useReactTable,
 } from '@tanstack/react-table'
+import { AnimatePresence } from 'motion/react'
 import { Inter } from 'next/font/google'
 import { parseAsBoolean, useQueryState } from 'nuqs'
 import { useState } from 'react'
@@ -133,16 +134,18 @@ export function Table<TData extends RowData>({
           { id: 'bills', label: 'Bills' },
         ]}
       />
-      {showFilters && (
-        <Filters
-          appliedFilters={appliedFilters}
-          filters={filters}
-          onClear={() => setAppliedFilters([])}
-          onRemove={(id) =>
-            setAppliedFilters((fs) => fs.filter((f) => f.id !== id))
-          }
-        />
-      )}
+      <AnimatePresence>
+        {showFilters && (
+          <Filters
+            appliedFilters={appliedFilters}
+            filters={filters}
+            onClear={() => setAppliedFilters([])}
+            onRemove={(id) =>
+              setAppliedFilters((fs) => fs.filter((f) => f.id !== id))
+            }
+          />
+        )}
+      </AnimatePresence>
       <BulkActions
         actions={bulkActions}
         isDisabled={!table.getIsSomeRowsSelected()}

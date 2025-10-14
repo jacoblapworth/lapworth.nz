@@ -134,7 +134,7 @@ export const TH = styled(
         css: {
           backgroundColor: 'background.primary',
           position: 'sticky',
-          zIndex: 'responsiveoverlay',
+          zIndex: 100,
         },
         isPinned: ['left', 'right'],
       },
@@ -259,11 +259,7 @@ export function TableHeadCell<TData extends RowData, TValue>({
       {isDisplay ? (
         children
       ) : (
-        <TableHeadMenu header={header}>
-          <Heading id={id} size="small">
-            {children}
-          </Heading>
-        </TableHeadMenu>
+        <TableHeadMenu header={header}>{children}</TableHeadMenu>
       )}
 
       {canResize && <HeaderResizeHandle header={header} />}
@@ -374,9 +370,16 @@ export const TdStyles = cva({
       css: {
         backgroundColor: 'background.primary',
         position: 'sticky',
-        zIndex: 'responsiveoverlay',
+        zIndex: 100,
       },
       isPinned: ['left', 'right'],
+    },
+    {
+      css: {
+        backgroundColor: 'rgba(240, 249, 254, 1)',
+      },
+      isPinned: ['left', 'right'],
+      isSelected: true,
     },
   ],
   variants: {
@@ -391,6 +394,11 @@ export const TdStyles = cva({
       },
       right: {
         right: 0,
+      },
+    },
+    isSelected: {
+      true: {
+        backgroundColor: 'rgba(240, 249, 254, 1)',
       },
     },
     isStart: {
@@ -417,7 +425,7 @@ export const CellContainer = styled('div', {
     overflow: 'hidden',
     paddingInline: 6,
     truncate: true,
-    width: '100%',
+    width: 'calc(80%)',
   },
   defaultVariants: {
     variant: 'accessor',

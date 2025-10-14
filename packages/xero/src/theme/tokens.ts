@@ -103,12 +103,10 @@ export const semanticTokens = defineSemanticTokens({
           '0 -1px 0 0 {colors.grey.alpha.6}, 0 -3px 0 0 {colors.grey.alpha.8}',
       },
       left: {
-        value:
-          '1px 0 0 0 {colors.grey.alpha.6}, 3px 0 0 0 {colors.grey.alpha.8}',
+        value: '3px 0 3px 0 {colors.grey.alpha.8}',
       },
       right: {
-        value:
-          '-1px 0 0 0 {colors.grey.alpha.6}, -3px 0 0 0 {colors.grey.alpha.8}',
+        value: '-3px 0 3px 0 {colors.grey.alpha.8}',
       },
       top: {
         value:

@@ -18,7 +18,7 @@ import '@lapworth/xero/styles.css'
 
 const columnHelper = createColumnHelper<InvoiceRow>()
 
-const initialColumns = [
+const columns = [
   columnHelper.display({
     cell: (ctx) => (
       <Box placeItems="center">
@@ -49,7 +49,7 @@ const initialColumns = [
     enableHiding: false,
     header: 'From',
     id: 'contact',
-    size: 150,
+    size: 200,
   }),
   columnHelper.accessor('status', {
     cell: (ctx) => {
@@ -61,6 +61,7 @@ const initialColumns = [
     filterFn: 'arrIncludesSome',
     header: 'Status',
     id: 'status',
+    size: 90,
   }),
   columnHelper.accessor('invoiceNumber', {
     // cell: (ctx) => <Cell>{ctx.getValue<string>()}</Cell>,
@@ -123,7 +124,6 @@ const initialColumns = [
 ]
 
 export default function Page() {
-  const [columns] = useState(initialColumns)
   const [data] = useState<InvoiceRow[]>(initialData)
   const [columnFilters, onColumnFiltersChange] = useState<ColumnFiltersState>(
     [],

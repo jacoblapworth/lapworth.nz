@@ -29,13 +29,13 @@ export type InvoiceRow = z.infer<typeof InvoiceRow>
 
 export function getInvoiceStatus(status: InvoiceStatus): {
   label: string
-  sentiment: 'positive' | 'negative' | 'neutral' | 'inform'
+  sentiment: 'positive' | 'negative' | 'neutral' | 'inform' | 'warning'
 } {
   switch (status) {
     case 'draft':
       return {
         label: 'Draft',
-        sentiment: 'neutral',
+        sentiment: 'warning',
       }
     case 'sent':
       return {
