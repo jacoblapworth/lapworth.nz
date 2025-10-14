@@ -111,8 +111,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0(sharp@0.34.4)
       posthog-js:
-        specifier: 1.273.0
-        version: 1.273.0
+        specifier: 1.275.1
+        version: 1.275.1
       posthog-node:
         specifier: 5.9.5
         version: 5.9.5
@@ -1563,9 +1563,6 @@ packages:
 
   '@poppinss/exception@1.2.2':
     resolution: {integrity: sha512-m7bpKCD4QMlFCjA/nKTs23fuvoVFoA83brRKmObCUNmi/9tVu8Ve3w4YQAnJu4q3Tjf5fr685HYIC/IA2zHRSg==}
-
-  '@posthog/core@1.2.2':
-    resolution: {integrity: sha512-f16Ozx6LIigRG+HsJdt+7kgSxZTHeX5f1JlCGKI1lXcvlZgfsCR338FuMI2QRYXGl+jg/vYFzGOTQBxl90lnBg==}
 
   '@posthog/core@1.2.4':
     resolution: {integrity: sha512-o2TkycuV98PtAkcqE8B1DJv5LBvHEDTWirK5TlkQMeF2MJg0BYliY95CeRZFILNgZJCbI3k/fhahSMRQlpXOMg==}
@@ -5152,8 +5149,8 @@ packages:
     resolution: {integrity: sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==}
     engines: {node: '>=0.10.0'}
 
-  posthog-js@1.273.0:
-    resolution: {integrity: sha512-ZpRZjZeoihgkUIWj0OwjXwuE+4FVFm2I0gaJsCGwdeyNZOZk54BWLLZ39+4hWi16s0o0fsdCfp1qpRXvpD89OQ==}
+  posthog-js@1.275.1:
+    resolution: {integrity: sha512-ILglAzeUQl7h7rB3axr5rn5j2wBp53XedzJoUha5IC594BsrScdOD9NjLpkDAqV/Q5IsRKXbYOkr+HKaxgb4FA==}
     peerDependencies:
       '@rrweb/types': 2.0.0-alpha.17
       rrweb-snapshot: 2.0.0-alpha.17
@@ -7734,8 +7731,6 @@ snapshots:
       supports-color: 10.2.2
 
   '@poppinss/exception@1.2.2': {}
-
-  '@posthog/core@1.2.2': {}
 
   '@posthog/core@1.2.4': {}
 
@@ -11727,9 +11722,9 @@ snapshots:
     dependencies:
       xtend: 4.0.2
 
-  posthog-js@1.273.0:
+  posthog-js@1.275.1:
     dependencies:
-      '@posthog/core': 1.2.2
+      '@posthog/core': 1.2.4
       core-js: 3.46.0
       fflate: 0.4.8
       preact: 10.27.2
