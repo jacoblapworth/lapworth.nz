@@ -8,6 +8,7 @@ import { Tag } from '@lapworth/xero/Tag'
 import {
   type ColumnFiltersState,
   createColumnHelper,
+  type HeaderContext,
 } from '@tanstack/react-table'
 import { CheckCircleIcon, TrashIcon } from 'lucide-react'
 import { useState } from 'react'
@@ -18,7 +19,18 @@ import '@lapworth/xero/styles.css'
 
 const columnHelper = createColumnHelper<InvoiceRow>()
 
+function footer<TData, TValue>(ctx: HeaderContext<TData, TValue>) {
+  const fn = ctx.column.getAutoAggregationFn()
+
+  if (!fn) return null
+
+  const { rows, flatRows } = ctx.table.getPrePaginationRowModel()
+  return fn(ctx.column.id, rows, flatRows)
+}
 const columns = [
+  columnHelper.display({
+    id: 'group',
+  }),
   columnHelper.display({
     cell: (ctx) => (
       <Box placeItems="center">
@@ -69,6 +81,7 @@ const columns = [
     id: 'invoiceNumber',
   }),
   columnHelper.accessor('date', {
+    aggregationFn: 'sum',
     // cell: (ctx) => <DateCell ctx={ctx} />,
     header: 'Date',
     id: 'date',
@@ -84,6 +97,7 @@ const columns = [
   }),
   columnHelper.accessor('amountPaid', {
     aggregationFn: 'sum',
+    footer,
     // cell: (ctx) => (
     //   <Cell textAlign={'end'}>{ctx.cell.getValue<number>().toFixed(2)}</Cell>
     // ),
@@ -100,6 +114,7 @@ const columns = [
     id: 'amountPaid',
   }),
   columnHelper.accessor('amountDue', {
+    footer,
     // cell: (ctx) => (
     //   <Cell textAlign={'end'}>{ctx.cell.getValue<number>().toFixed(2)}</Cell>
     // ),
@@ -136,6 +151,7 @@ export default function Page() {
       columnPinning: {
         left: ['select', 'contact'],
       },
+      // grouping: ['group'],
       sorting: [
         {
           desc: true,

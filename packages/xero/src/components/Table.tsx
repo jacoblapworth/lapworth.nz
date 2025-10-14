@@ -2,6 +2,7 @@ import {
   type ColumnPinningState,
   getCoreRowModel,
   getFilteredRowModel,
+  getGroupedRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   type RowData,
@@ -53,6 +54,7 @@ export function useTable<TData extends RowData>({
     enableColumnResizing: true,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
+    getGroupedRowModel: getGroupedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
     initialState: {

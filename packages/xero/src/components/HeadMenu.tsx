@@ -35,7 +35,12 @@ export function TableHeadMenu<TData, TValue>({
   const [values, setValues] = useState({ dir: sort })
 
   return (
-    <HStack justifyContent="space-between" paddingInline={4} width="100%">
+    <HStack
+      alignItems="stretch"
+      justifyContent="space-between"
+      paddingInlineStart={4}
+      width="100%"
+    >
       <HStack>
         {children}
         <SortIcon sort={sort} />

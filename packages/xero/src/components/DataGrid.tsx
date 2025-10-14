@@ -463,7 +463,10 @@ export function TableCell<TData extends RowData, TValue>({
       <CellContainer
         variant={cell.column.getCanHide() ? 'accessor' : 'display'}
       >
-        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+        {cell.getIsAggregated()
+          ? flexRender(cell.column.columnDef.aggregatedCell, cell.getContext())
+          : flexRender(cell.column.columnDef.cell, cell.getContext())}
+        {/* {flexRender(cell.column.columnDef.cell, cell.getContext())} */}
       </CellContainer>
       {showOverflow && <ColumnOverflowIndicator position={isPinned} />}
     </Td>
@@ -594,10 +597,10 @@ export function TableFootCell<TData extends RowData, TValue>({
   header: Header<TData, TValue>
 }) {
   return (
-    <td>
+    <Td>
       {header.isPlaceholder
         ? null
         : flexRender(header.column.columnDef.footer, header.getContext())}
-    </td>
+    </Td>
   )
 }
