@@ -1,4 +1,4 @@
-import type { Column, Header, Table } from '@tanstack/react-table'
+import type { Column, Header, RowData, Table } from '@tanstack/react-table'
 import { useDeferredValue } from 'react'
 import { HStack } from '@/styled/jsx'
 import { ColumnsMenu } from './ColumnsMenu'
@@ -8,7 +8,7 @@ import { Search } from './Search'
 import { ViewMenu } from './ViewMenu'
 import { type View, Views } from './Views'
 
-interface Props<TData> {
+interface Props<TData extends RowData> {
   views: View[]
   appliedFilters?: AppliedFilter[]
   showFilters?: boolean
@@ -20,7 +20,7 @@ interface Props<TData> {
   columns: Column<TData, unknown>[]
 }
 
-export function Controls<TData>({
+export function Controls<TData extends RowData>({
   views,
   table,
   columns,
@@ -33,7 +33,7 @@ export function Controls<TData>({
 }: Props<TData>) {
   return (
     <HStack
-      borderBottomColor="xero.border.soft"
+      borderBottomColor="border.soft"
       borderBottomStyle="solid"
       borderBottomWidth={1}
       gap={8}

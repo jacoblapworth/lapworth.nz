@@ -1,5 +1,5 @@
-import type { Table } from '@tanstack/react-table'
-import { CircleXIcon, CrossIcon, SearchIcon } from 'lucide-react'
+import type { RowData, Table } from '@tanstack/react-table'
+import { CircleXIcon, SearchIcon } from 'lucide-react'
 import { memo, useDeferredValue, useState } from 'react'
 import { styled } from '@/styled/jsx'
 
@@ -10,7 +10,7 @@ const Container = styled('div', {
       outlineOffset: 2,
     },
     alignItems: 'center',
-    borderColor: 'xero.border.subtle',
+    borderColor: 'border.subtle',
     borderRadius: 6,
     borderStyle: 'solid',
     borderWidth: 1,
@@ -35,8 +35,8 @@ const ClearButton = styled(
   {
     base: {
       color: {
-        _hover: 'xero.icon',
-        base: 'xero.icon.faint',
+        _hover: 'icon',
+        base: 'icon.faint',
       },
       cursor: 'pointer',
     },
@@ -48,13 +48,13 @@ const ClearButton = styled(
   },
 )
 
-interface Props {
-  table: Table<any>
+interface Props<TData extends RowData> {
+  table: Table<TData>
   // query: string
   // onSearch: (query: string) => void
 }
 
-export const Search = memo(function Search({ table }: Props) {
+export function Search<TData extends RowData>({ table }: Props<TData>) {
   const [query, setQuery] = useState('')
   const deferred = useDeferredValue(query)
 
@@ -72,4 +72,4 @@ export const Search = memo(function Search({ table }: Props) {
       {deferred.length > 0 && <ClearButton onClick={() => setQuery('')} />}
     </Container>
   )
-})
+}

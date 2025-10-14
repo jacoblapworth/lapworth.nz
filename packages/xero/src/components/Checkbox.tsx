@@ -34,21 +34,21 @@ export function Check() {
 export const CheckboxStyles = cva({
   base: {
     _checked: {
-      backgroundColor: 'xero.action',
-      borderColor: 'xero.action',
-      color: 'xero.text.inverse',
+      backgroundColor: 'action',
+      borderColor: 'action',
+      color: 'text.inverse',
     },
     _disabled: {
-      backgroundColor: 'xero.background.quaternary',
-      borderColor: 'xero.border.subtle',
-      color: 'xero.text.inverse',
+      backgroundColor: 'background.quaternary',
+      borderColor: 'border.subtle',
+      color: 'text.inverse',
     },
     _groupHover: {
-      // backgroundColor: 'xero.background.primary',
+      // backgroundColor: 'background.primary',
     },
     alignItems: 'center',
-    backgroundColor: 'xero.background.primary',
-    borderColor: 'xero.border.subtle',
+    backgroundColor: 'background.primary',
+    borderColor: 'border.subtle',
     borderRadius: 6,
     borderStyle: 'solid',
     borderWidth: 1,

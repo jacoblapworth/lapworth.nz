@@ -23,12 +23,12 @@ const inter = Inter({ subsets: ['latin'] })
 const Container = styled('div', {
   base: {
     backgroundColor: 'white',
-    borderColor: 'xero.border.subtle',
+    borderColor: 'border.subtle',
     borderRadius: 6,
     borderStyle: 'solid',
     borderWidth: 1,
     boxShadow: 'sm',
-    color: 'xero.text.primary',
+    color: 'text.primary',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -134,8 +134,11 @@ export function Table<TData extends RowData>({
       <Pagination
         canNextPage={table.getCanNextPage()}
         canPreviousPage={table.getCanPreviousPage()}
+        currentPage={table.getState().pagination.pageIndex}
         onNext={table.nextPage}
+        onPageSizeChange={table.setPageSize}
         onPrevious={table.previousPage}
+        pageSize={table.getState().pagination.pageSize}
         total={table.getRowCount()}
       />
     </Container>

@@ -34,7 +34,7 @@ export function TableScrollContainer({ children }: TableContainerProps) {
       <motion.span
         className={css({
           bottom: 0,
-          boxShadow: 'xero.overflow.right',
+          boxShadow: 'overflow.right',
           position: 'absolute',
           right: -16,
           top: 0,

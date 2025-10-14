@@ -1,0 +1,16 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build", "cssgen"],
+      "inputs": ["$TURBO_DEFAULT$"],
+      "outputs": ["dist/**"]
+    },
+    "cssgen": {
+      "dependsOn": ["^cssgen"],
+      "inputs": ["$TURBO_DEFAULT$"],
+      "outputs": ["dist/styles.css"]
+    }
+  }
+}

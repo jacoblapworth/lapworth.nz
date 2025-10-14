@@ -9,28 +9,28 @@ export const Heading = styled(Ariakit.Heading, {
   variants: {
     size: {
       '2xlarge': {
-        textStyle: 'xero.heading.2xlarge',
+        textStyle: 'heading.2xlarge',
       },
       '3xlarge': {
-        textStyle: 'xero.heading.3xlarge',
+        textStyle: 'heading.3xlarge',
       },
       '4xlarge': {
-        textStyle: 'xero.heading.4xlarge',
+        textStyle: 'heading.4xlarge',
       },
       large: {
-        textStyle: 'xero.heading.large',
+        textStyle: 'heading.large',
       },
       medium: {
-        textStyle: 'xero.heading.medium',
+        textStyle: 'heading.medium',
       },
       small: {
-        textStyle: 'xero.heading.small',
+        textStyle: 'heading.small',
       },
       xlarge: {
-        textStyle: 'xero.heading.xlarge',
+        textStyle: 'heading.xlarge',
       },
       xsmall: {
-        textStyle: 'xero.heading.xsmall',
+        textStyle: 'heading.xsmall',
       },
     },
   },

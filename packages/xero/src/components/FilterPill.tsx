@@ -6,8 +6,8 @@ import { Menu, MenuButton, MenuItemRadio, MenuProvider } from './Menu'
 const Pill = styled('div', {
   base: {
     alignItems: 'stretch',
-    backgroundColor: 'xero.background.primary',
-    borderColor: 'xero.border.subtle',
+    backgroundColor: 'background.primary',
+    borderColor: 'border.subtle',
     borderRadius: 6,
     borderStyle: 'solid',
     borderWidth: 1,
@@ -29,12 +29,12 @@ const Label = styled('span', {
 const Value = styled('button', {
   base: {
     _hover: {
-      backgroundColor: 'xero.background.secondary',
+      backgroundColor: 'background.secondary',
     },
-    borderLeftColor: 'xero.border.subtle',
+    borderLeftColor: 'border.subtle',
     borderLeftStyle: 'solid',
     borderLeftWidth: 1,
-    color: 'xero.action',
+    color: 'action',
     cursor: 'pointer',
     paddingBlock: 4,
     paddingInline: 8,
@@ -46,9 +46,9 @@ const RemoveButton = styled(
   {
     base: {
       _hover: {
-        backgroundColor: 'xero.background.secondary',
+        backgroundColor: 'background.secondary',
       },
-      borderLeftColor: 'xero.border.subtle',
+      borderLeftColor: 'border.subtle',
       borderLeftStyle: 'solid',
       borderLeftWidth: 1,
       cursor: 'pointer',

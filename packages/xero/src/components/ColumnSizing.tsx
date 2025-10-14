@@ -10,7 +10,7 @@ import {
   useMemo,
 } from 'react'
 
-import { HTMLStyledProps, styled } from '@/styled/jsx'
+import { type HTMLStyledProps, styled } from '@/styled/jsx'
 
 type SizeMap = Map<string, number>
 
@@ -69,7 +69,7 @@ export function useHeaderSize(id: string) {
 const Handle = styled('button', {
   base: {
     _active: {
-      backgroundColor: 'xero.action',
+      backgroundColor: 'action',
       opacity: 1,
     },
 
@@ -86,10 +86,10 @@ const Handle = styled('button', {
     },
 
     _selected: {
-      backgroundColor: 'xero.action',
+      backgroundColor: 'action',
       opacity: 1,
     },
-    backgroundColor: 'xero.border.subtle',
+    backgroundColor: 'border.subtle',
     border: 'none',
     borderRadius: 999,
     bottom: 4,

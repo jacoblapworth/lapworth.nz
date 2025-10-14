@@ -4,7 +4,7 @@ import { styled } from '@/styled/jsx'
 
 export const BorderHighlight = styled(motion.div, {
   base: {
-    borderColor: 'xero.action',
+    borderColor: 'action',
     borderRadius: 6,
     borderStyle: 'solid',
     borderWidth: 1,
@@ -17,7 +17,7 @@ export const BorderHighlight = styled(motion.div, {
 export const ViewTab = styled(Ariakit.Tab, {
   base: {
     _after: {
-      backgroundColor: 'xero.border.subtle',
+      backgroundColor: 'border.subtle',
       // content: '""',
       display: 'block',
       insetBlock: 4,
@@ -32,25 +32,25 @@ export const ViewTab = styled(Ariakit.Tab, {
     },
     _selected: {
       _hover: {
-        backgroundColor: 'xero.action/5',
-        borderColor: 'xero.action',
+        backgroundColor: 'action/5',
+        borderColor: 'action',
       },
       backgroundColor: 'white',
-      borderColor: 'xero.action',
-      color: 'xero.action',
+      borderColor: 'action',
+      color: 'action',
     },
     backgroundColor: {
-      _hover: 'xero.background.tertiary',
+      _hover: 'background.tertiary',
       base: '#F6F6F8',
     },
     borderColor: {
-      _hover: 'xero.border.subtle',
+      _hover: 'border.subtle',
       base: 'transparent',
     },
     borderRadius: 'md',
     borderStyle: 'solid',
     borderWidth: 1,
-    color: 'xero.text',
+    color: 'text',
     cursor: 'pointer',
     fontSize: 13,
     fontWeight: 500,

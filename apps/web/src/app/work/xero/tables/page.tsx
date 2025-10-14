@@ -1,18 +1,19 @@
 'use client'
 
 import { CheckboxProvider } from '@ariakit/react'
+import { Checkbox } from '@lapworth/xero/Checkbox'
+import { Table, useTable } from '@lapworth/xero/Table'
+import { Tag } from '@lapworth/xero/Tag'
 import {
   type ColumnFiltersState,
   createColumnHelper,
 } from '@tanstack/react-table'
 import { CheckCircleIcon, TrashIcon } from 'lucide-react'
 import { useState } from 'react'
-import { Table, useTable } from '@/components/Table'
-import { Checkbox } from '@/components/Table/Checkbox'
-import { Tag } from '@/components/Table/Tag'
 import { Box } from '@/styled/jsx'
 import { initialData } from './data'
 import { getInvoiceStatus, type InvoiceRow } from './model'
+import '@lapworth/xero/styles.css'
 
 const columnHelper = createColumnHelper<InvoiceRow>()
 

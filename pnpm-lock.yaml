@@ -4,6 +4,21 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    next:
+      specifier: 15.5.4
+      version: 15.5.4
+    nuqs:
+      specifier: 2.7.1
+      version: 2.7.1
+    react:
+      specifier: 19.2.0
+      version: 19.2.0
+    react-dom:
+      specifier: 19.2.0
+      version: 19.2.0
+
 importers:
 
   .:
@@ -29,6 +44,9 @@ importers:
       '@gsap/react':
         specifier: 2.1.2
         version: 2.1.2(gsap@3.13.0)(react@19.2.0)
+      '@lapworth/xero':
+        specifier: workspace:^
+        version: link:../../packages/xero
       '@mdx-js/loader':
         specifier: 3.1.1
         version: 3.1.1(webpack@5.99.9(esbuild@0.25.10))
@@ -108,7 +126,7 @@ importers:
         specifier: 12.23.22
         version: 12.23.22(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       next:
-        specifier: 15.5.4
+        specifier: 'catalog:'
         version: 15.5.4(@babel/core@7.28.4)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@19.0.0-beta-714736e-20250131)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       next-intl:
         specifier: 4.3.11
@@ -126,8 +144,8 @@ importers:
         specifier: 0.4.6
         version: 0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       nuqs:
-        specifier: 2.7.1
-        version: 2.7.1(next@15.5.4(@babel/core@7.28.4)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@19.0.0-beta-714736e-20250131)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
+        specifier: 'catalog:'
+        version: 2.7.1(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
       plaiceholder:
         specifier: 3.0.0
         version: 3.0.0(sharp@0.34.4)
@@ -138,10 +156,10 @@ importers:
         specifier: 5.9.5
         version: 5.9.5
       react:
-        specifier: 19.2.0
+        specifier: 'catalog:'
         version: 19.2.0
       react-dom:
-        specifier: 19.2.0
+        specifier: 'catalog:'
         version: 19.2.0(react@19.2.0)
       react-resizable:
         specifier: 3.0.5
@@ -261,6 +279,67 @@ importers:
       wrangler:
         specifier: ^4.42.2
         version: 4.42.2
+
+  packages/xero:
+    dependencies:
+      '@ariakit/react':
+        specifier: 0.4.19
+        version: 0.4.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      '@gsap/react':
+        specifier: 2.1.2
+        version: 2.1.2(gsap@3.13.0)(react@19.2.0)
+      '@tanstack/react-table':
+        specifier: 8.21.3
+        version: 8.21.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      gsap:
+        specifier: 3.13.0
+        version: 3.13.0
+      lucide-react:
+        specifier: 0.545.0
+        version: 0.545.0(react@19.2.0)
+      motion:
+        specifier: 12.23.22
+        version: 12.23.22(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      next:
+        specifier: 'catalog:'
+        version: 15.5.4(@babel/core@7.28.4)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@19.0.0-beta-714736e-20250131)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      nuqs:
+        specifier: 'catalog:'
+        version: 2.7.1(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
+      react:
+        specifier: 'catalog:'
+        version: 19.2.0
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.0(react@19.2.0)
+    devDependencies:
+      '@biomejs/biome':
+        specifier: 2.2.5
+        version: 2.2.5
+      '@pandacss/dev':
+        specifier: 1.4.1
+        version: 1.4.1(typescript@5.9.3)
+      '@pandacss/types':
+        specifier: 1.4.2
+        version: 1.4.2
+      '@total-typescript/ts-reset':
+        specifier: 0.6.1
+        version: 0.6.1
+      '@total-typescript/tsconfig':
+        specifier: 1.0.4
+        version: 1.0.4
+      '@types/react':
+        specifier: 19.2.2
+        version: 19.2.2
+      '@types/react-dom':
+        specifier: 19.2.1
+        version: 19.2.1(@types/react@19.2.2)
+      typescript:
+        specifier: 5.9.3
+        version: 5.9.3
+      zshy:
+        specifier: 0.4.3
+        version: 0.4.3(typescript@5.9.3)
 
 packages:
 
@@ -1582,6 +1661,9 @@ packages:
   '@pandacss/types@1.4.1':
     resolution: {integrity: sha512-JsoFZQ0uc8Pq2ZSee9gbS7treyuKOxUQwtgdKq+1Vew3R2ZyCJ0vW61dT2LY4Lh6l46ICKn3uGDWnUjF8ourAA==}
 
+  '@pandacss/types@1.4.2':
+    resolution: {integrity: sha512-kpG7Oj0HL/KK6gXvjA7GbHVe9UMtkRyWQMts1O5h053qjycLy+oVLPLhLAcqI0Wm9BmtQA5AdR9bpLEgdXKWmw==}
+
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
@@ -2579,6 +2661,9 @@ packages:
   '@total-typescript/ts-reset@0.6.1':
     resolution: {integrity: sha512-cka47fVSo6lfQDIATYqb/vO1nvFfbPw7uWLayIXIhGETj0wcOOlrlkobOMDNQOFr9QOafegUPq13V2+6vtD7yg==}
 
+  '@total-typescript/tsconfig@1.0.4':
+    resolution: {integrity: sha512-fO4ctMPGz1kOFOQ4RCPBRBfMy3gDn+pegUfrGyUFRMv/Rd0ZM3/SHH3hFCYG4u6bPLG8OlmOGcBLDexvyr3A5w==}
+
   '@ts-morph/common@0.27.0':
     resolution: {integrity: sha512-Wf29UqxWDpc+i61k3oIOzcUfQt79PIT9y/MWfAGlrkjg6lBC1hwDECLXPVJAhWjiGbfBCxZd65F/LIZF3+jeJQ==}
 
@@ -3185,12 +3270,6 @@ packages:
   caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
 
-  caniuse-lite@1.0.30001745:
-    resolution: {integrity: sha512-ywt6i8FzvdgrrrGbr1jZVObnVv6adj+0if2/omv9cmR2oiZs30zL4DIyaptKcbOrBdOIc74QTMoJvSE2QHh5UQ==}
-
-  caniuse-lite@1.0.30001747:
-    resolution: {integrity: sha512-mzFa2DGIhuc5490Nd/G31xN1pnBnYMadtkyTjefPI7wzypqgCEpeWu9bJr0OnDsyKrW75zA9ZAt7pbQFmwLsQg==}
-
   caniuse-lite@1.0.30001748:
     resolution: {integrity: sha512-5P5UgAr0+aBmNiplks08JLw+AW/XG/SurlgZLgB1dDLfAw7EfRGxIwzPHxdSCGY/BTKDqIVyJL87cCN6s0ZR0w==}
 
@@ -3563,9 +3642,6 @@ packages:
 
   ecc-jsbn@0.1.2:
     resolution: {integrity: sha512-eh9O+hwRHNbG4BLTjEl3nw044CkGm5X6LoaCf7LPp7UU8Qrt47JYNi6nPX8xjW97TKGKm1ouctg0QSpZe9qrnw==}
-
-  electron-to-chromium@1.5.230:
-    resolution: {integrity: sha512-A6A6Fd3+gMdaed9wX83CvHYJb4UuapPD5X5SLq72VZJzxHSY0/LUweGXRWmQlh2ln7KV7iw7jnwXK7dlPoOnHQ==}
 
   electron-to-chromium@1.5.232:
     resolution: {integrity: sha512-ENirSe7wf8WzyPCibqKUG1Cg43cPaxH4wRR7AJsX7MCABCHBIOFqvaYODSLKUuZdraxUTHRE/0A2Aq8BYKEHOg==}
@@ -4943,9 +5019,6 @@ packages:
 
   node-html-parser@7.0.1:
     resolution: {integrity: sha512-KGtmPY2kS0thCWGK0VuPyOS+pBKhhe8gXztzA2ilAOhbUbxa9homF1bOyKvhGzMLXUoRds9IOmr/v5lr/lqNmA==}
-
-  node-releases@2.0.21:
-    resolution: {integrity: sha512-5b0pgg78U3hwXkCM8Z9b2FJdPZlr9Psr9V2gQPESdGHqbntyFJKFW4r5TeWGFzafGY3hzs1JC62VEQMbl1JFkw==}
 
   node-releases@2.0.23:
     resolution: {integrity: sha512-cCmFDMSm26S6tQSDpBCg/NR8NENrVPhAJSf+XbxBG4rPFaaonlEoE9wHQmun+cls499TQGSb7ZyPBRlzgKfpeg==}
@@ -6489,6 +6562,12 @@ packages:
   zod@4.1.12:
     resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
 
+  zshy@0.4.3:
+    resolution: {integrity: sha512-onhD/E4OVAOFION4DmXza93+x8XItEdyZibxrtDu2rpAYIg63cKhmYqLwXmK0UNfqchvyabbBDUcJbQg097dZA==}
+    hasBin: true
+    peerDependencies:
+      typescript: '>5.5.0'
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -7844,6 +7923,8 @@ snapshots:
 
   '@pandacss/types@1.4.1': {}
 
+  '@pandacss/types@1.4.2': {}
+
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
@@ -8913,6 +8994,8 @@ snapshots:
 
   '@total-typescript/ts-reset@0.6.1': {}
 
+  '@total-typescript/tsconfig@1.0.4': {}
+
   '@ts-morph/common@0.27.0':
     dependencies:
       fast-glob: 3.3.3
@@ -9188,7 +9271,7 @@ snapshots:
       '@vue/shared': 3.4.19
       estree-walker: 2.0.2
       magic-string: 0.30.19
-      postcss: 8.4.49
+      postcss: 8.5.6
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.4.19':
@@ -9471,9 +9554,9 @@ snapshots:
 
   browserslist@4.23.3:
     dependencies:
-      caniuse-lite: 1.0.30001747
-      electron-to-chromium: 1.5.230
-      node-releases: 2.0.21
+      caniuse-lite: 1.0.30001748
+      electron-to-chromium: 1.5.232
+      node-releases: 2.0.23
       update-browserslist-db: 1.1.3(browserslist@4.23.3)
 
   browserslist@4.26.3:
@@ -9529,13 +9612,9 @@ snapshots:
   caniuse-api@3.0.0:
     dependencies:
       browserslist: 4.26.3
-      caniuse-lite: 1.0.30001747
+      caniuse-lite: 1.0.30001748
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
-
-  caniuse-lite@1.0.30001745: {}
-
-  caniuse-lite@1.0.30001747: {}
 
   caniuse-lite@1.0.30001748: {}
 
@@ -9884,8 +9963,6 @@ snapshots:
     dependencies:
       jsbn: 0.1.1
       safer-buffer: 2.1.2
-
-  electron-to-chromium@1.5.230: {}
 
   electron-to-chromium@1.5.232: {}
 
@@ -11569,7 +11646,7 @@ snapshots:
     dependencies:
       '@next/env': 15.5.4
       '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001745
+      caniuse-lite: 1.0.30001748
       postcss: 8.4.31
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -11603,8 +11680,6 @@ snapshots:
       css-select: 5.2.2
       he: 1.2.0
 
-  node-releases@2.0.21: {}
-
   node-releases@2.0.23: {}
 
   normalize-path@3.0.0: {}
@@ -11621,7 +11696,7 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
-  nuqs@2.7.1(next@15.5.4(@babel/core@7.28.4)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@19.0.0-beta-714736e-20250131)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0):
+  nuqs@2.7.1(next@15.5.4(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0):
     dependencies:
       '@standard-schema/spec': 1.0.0
       react: 19.2.0
@@ -13330,5 +13405,12 @@ snapshots:
   zod@3.24.3: {}
 
   zod@4.1.12: {}
+
+  zshy@0.4.3(typescript@5.9.3):
+    dependencies:
+      arg: 5.0.2
+      fast-glob: 3.3.3
+      table: 6.9.0
+      typescript: 5.9.3
 
   zwitch@2.0.4: {}

@@ -1,7 +1,6 @@
 import { defineTextStyles } from '@pandacss/dev'
 
 export const textStyles = defineTextStyles({
-  xero: {
     body: {
       large: {
         regular: {
@@ -129,5 +128,4 @@ export const textStyles = defineTextStyles({
         },
       },
     },
-  },
 })

@@ -39,7 +39,7 @@ export function ColumnsSortMenu<TData extends RowData>({
   headers,
   table,
 }: ColumnsSortMenuProps<TData>) {
-  const { id, desc } = table.getState().sorting[0]
+  const { id, desc } = table.getState().sorting[0]!
 
   const [values, setValues] = useState({ dir: desc ? 'desc' : 'asc', id })
 
@@ -104,7 +104,7 @@ export function ColumnsMenu<TData>({ columns, headers }: Props<TData>) {
     .map((column) => column.id)
 
   const [values, setValues] = useState({ columns: initialValues })
-  const context = headers[0].getContext()
+  const context = headers[0]!.getContext()
 
   return (
     <MenuProvider

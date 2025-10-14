@@ -15,7 +15,7 @@ gsap.registerPlugin(DrawSVGPlugin)
 
 export const MenuProvider = Ariakit.MenuProvider
 
-export const menuStyles = cva({
+export const MenuStyles = cva({
   base: {
     _focusVisible: {
       outlineColor: 'focus.outline',
@@ -23,13 +23,19 @@ export const menuStyles = cva({
       outlineStyle: 'solid',
       outlineWidth: 3,
     },
-    backgroundColor: 'background',
+    backgroundColor: 'background.primary',
+    // borderColor: 'border.soft',
     borderRadius: 6,
+    // borderStyle: 'solid',
+    // borderWidth: 1,
     boxShadow: 'lift',
+    // boxShadow: 'md',
     display: 'flex',
     flexDirection: 'column',
-    paddingBlock: 'xsmall',
-    zIndex: '1000',
+    minWidth: 200,
+    overflow: 'hidden',
+    paddingBlock: 8,
+    zIndex: 1000,
   },
   variants: {
     size: {
@@ -49,28 +55,11 @@ export const menuStyles = cva({
   },
 })
 
-export const Menu = styled(
-  Ariakit.Menu,
-  {
-    base: {
-      backgroundColor: 'xero.background.primary',
-      borderColor: 'xero.border.soft',
-      borderRadius: 6,
-      borderStyle: 'solid',
-      borderWidth: 1,
-      boxShadow: 'md',
-      minWidth: 200,
-      overflow: 'hidden',
-      paddingBlock: 8,
-      zIndex: 1000,
-    },
+export const Menu = styled(Ariakit.Menu, MenuStyles, {
+  defaultProps: {
+    gutter: 4,
   },
-  {
-    defaultProps: {
-      gutter: 4,
-    },
-  },
-)
+})
 
 const MenuButtonArrow = styled(Ariakit.MenuButtonArrow, {
   base: {},
@@ -80,24 +69,24 @@ export const MenuButton = styled(Ariakit.MenuButton, ButtonStyles)
 
 export const MenuSeparator = styled(Ariakit.MenuSeparator, {
   base: {
-    color: 'xero.border.soft',
+    color: 'border.soft',
     height: 0,
     marginBlock: 8,
   },
 })
 
-export const menuItemStyles = cva({
+export const MenuItemStyles = cva({
   base: {
     _activeItem: {
-      backgroundColor: 'xero.background.secondary',
+      backgroundColor: 'background.secondary',
     },
 
     _checked: {
-      color: 'xero.action',
+      color: 'action',
     },
 
     _disabled: {
-      color: 'xero.text.faint',
+      color: 'text.faint',
       cursor: 'not-allowed',
     },
 
@@ -118,28 +107,27 @@ export const menuItemStyles = cva({
       outline: 'none',
     },
     _hover: {
-      backgroundColor: 'xero.background.secondary',
+      backgroundColor: 'background.secondary',
     },
     alignItems: 'center',
-    color: 'xero.text.primary',
+    color: 'text.primary',
     cursor: 'pointer',
     display: 'flex',
     flexDirection: 'row',
-    fontSize: 15,
     gap: 8,
     justifyContent: 'stretch',
     lineHeight: '1.45',
     paddingBlock: 8,
     paddingInline: 16,
     position: 'relative',
-    textStyle: 'xero.body.small.regular',
+    textStyle: 'body.small.regular',
   },
 
   variants: {
     checked: {
       true: {
         _before: {
-          backgroundColor: 'xero.background.primary',
+          backgroundColor: 'background.primary',
           borderRadius: '50%',
           content: '""',
           height: 6,
@@ -151,7 +139,7 @@ export const menuItemStyles = cva({
 
     disabled: {
       true: {
-        color: 'xero.text.tertiary',
+        color: 'text.tertiary',
         cursor: 'not-allowed',
       },
     },
@@ -166,9 +154,9 @@ export const menuItemStyles = cva({
   },
 })
 
-const highlightStyles = cva({
+const MenuHighlightStyles = cva({
   base: {
-    backgroundColor: 'xero.action',
+    backgroundColor: 'action',
     borderRightRadius: 999,
     bottom: 0,
     left: 0,
@@ -178,7 +166,7 @@ const highlightStyles = cva({
   },
 })
 
-const Highlight = motion.create(styled('span', highlightStyles))
+const Highlight = motion.create(styled('span', MenuHighlightStyles))
 
 const MenuItemLabel = styled('div', {
   base: {
@@ -216,7 +204,7 @@ export function MenuItem({
     <Ariakit.MenuItem
       aria-describedby={description ? descriptionId : undefined}
       aria-labelledby={labelId}
-      className={menuItemStyles()}
+      className={MenuItemStyles()}
       ref={ref}
       render={
         href ? (
@@ -281,7 +269,7 @@ export function MenuItemRadio({
     <Ariakit.MenuItemRadio
       aria-describedby={description ? descriptionId : undefined}
       aria-labelledby={labelId}
-      className={menuItemStyles({ variant: 'radio' })}
+      className={MenuItemStyles({ variant: 'radio' })}
       ref={ref}
       {...props}
     >
@@ -311,7 +299,7 @@ export function MenuItemCheckbox({
 }: Ariakit.MenuItemCheckboxProps) {
   return (
     <Ariakit.MenuItemCheckbox
-      className={cx(menuItemStyles({ variant: 'check' }), className)}
+      className={cx(MenuItemStyles({ variant: 'check' }), className)}
       ref={ref}
       {...props}
     >
@@ -329,21 +317,21 @@ export function MenuItemCheckbox({
 export const MenuGroup = styled(Ariakit.MenuGroup, {})
 export const MenuGroupLabel = styled(Ariakit.MenuGroupLabel, {
   base: {
-    color: 'xero.text.tertiary',
+    color: 'text.tertiary',
     fontSize: 'xsmall',
     paddingBlock: 'xsmall',
     paddingInline: 'large',
-    textStyle: 'xero.body.small.regular',
+    textStyle: 'body.small.regular',
   },
 })
 
 export const MenuDescription = styled(Ariakit.MenuDescription, {
   base: {
-    color: 'xero.text.tertiary',
+    color: 'text.tertiary',
     fontSize: 'xsmall',
     paddingBlock: 'xsmall',
     paddingInline: 'large',
-    textStyle: 'xero.body.small.regular',
+    textStyle: 'body.small.regular',
     textWrap: 'wrap',
   },
 })

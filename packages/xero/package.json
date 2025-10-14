@@ -1,0 +1,49 @@
+{
+  "dependencies": {
+    "@ariakit/react": "0.4.19",
+    "@gsap/react": "2.1.2",
+    "@tanstack/react-table": "8.21.3",
+    "gsap": "3.13.0",
+    "lucide-react": "0.545.0",
+    "motion": "12.23.22",
+    "next": "catalog:",
+    "nuqs": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.5",
+    "@pandacss/dev": "1.4.1",
+    "@pandacss/types": "1.4.2",
+    "@total-typescript/ts-reset": "0.6.1",
+    "@total-typescript/tsconfig": "1.0.4",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.1",
+    "typescript": "5.9.3",
+    "zshy": "0.4.3"
+  },
+  "exports": {
+    "./*": {
+      "import": "./src/components/*.tsx",
+      "types": "./src/components/*.tsx"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "name": "@lapworth/xero",
+  "scripts": {
+    "build": "zshy",
+    "cssgen": "panda cssgen --outfile dist/styles.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "zshy": {
+    "cjs": false,
+    "exports": {
+      "./**": "./src/components/**"
+    }
+  }
+}

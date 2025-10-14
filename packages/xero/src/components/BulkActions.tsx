@@ -16,7 +16,7 @@ interface Props {
 export function BulkActions({ actions, isDisabled }: Props) {
   return (
     <HStack
-      borderBottomColor="xero.border.soft"
+      borderBottomColor="border.soft"
       borderBottomStyle="solid"
       borderBottomWidth={1}
       justifyContent="space-between"

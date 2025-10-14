@@ -60,21 +60,22 @@ export function DataGrid<TData extends RowData>({ table }: TableProps<TData>) {
   )
 }
 
-export const tableStyles = cva({
+export const TableStyles = cva({
   base: {
     /* box-shadow and borders will not work with positon: sticky otherwise */
     borderCollapse: 'separate',
     borderSpacing: 0,
-    color: 'xero.text',
+    color: 'text',
     fontSize: 13,
     lineHeight: '20px',
     // height: 1,
     marginBottom: 1,
+    minWidth: '100%',
     tableLayout: 'fixed',
   },
 })
 
-export const TableElement = styled('table', tableStyles, {
+export const TableElement = styled('table', TableStyles, {
   defaultProps: {
     role: 'grid',
   },
@@ -116,10 +117,10 @@ export const TH = styled(
       _first: {
         borderInlineStartWidth: 0,
       },
-      borderInlineStartColor: 'xero.border.subtle',
+      borderInlineStartColor: 'border.subtle',
       borderInlineStartStyle: 'solid',
       borderInlineStartWidth: 1,
-      color: 'xero.text',
+      color: 'text',
       fontSize: 12,
       fontWeight: 600,
       lineHeight: '16px',
@@ -155,13 +156,13 @@ export const TR = styled(
   {
     base: {
       _focusWithin: {
-        // backgroundColor: 'xero.background.secondary',
+        // backgroundColor: 'background.secondary',
       },
 
       _hover: {
-        backgroundColor: 'xero.background.secondary',
+        backgroundColor: 'background.secondary',
       },
-      borderBlockStartColor: 'xero.border.subtle',
+      borderBlockStartColor: 'border.subtle',
       borderBlockStartStyle: 'solid',
       borderBlockStartWidth: 1,
     },
@@ -233,7 +234,7 @@ export function TableHeadCell<TData extends RowData, TValue>({
       aria-labelledby={id}
       className={cx(
         'group',
-        columnStyles({ isPinned: column.getIsPinned() || undefined }),
+        ColumnStyles({ isPinned: column.getIsPinned() || undefined }),
       )}
       id={header.id}
       style={{
@@ -318,16 +319,16 @@ export function TableRow<TData extends RowData>({ row }: { row: Row<TData> }) {
   )
 }
 
-export const tdStyles = cva({
+export const TdStyles = cva({
   base: {
     _first: {
       borderInlineStartWidth: 0,
     },
     _groupFocusWithin: {
-      backgroundColor: 'xero.background.secondary',
+      backgroundColor: 'background.secondary',
     },
     _groupHover: {
-      backgroundColor: 'xero.background.secondary',
+      backgroundColor: 'background.secondary',
     },
 
     // _last: {
@@ -336,16 +337,16 @@ export const tdStyles = cva({
 
     '& a': {
       _hover: {
-        color: 'xero.action',
+        color: 'action',
         textDecoration: 'underline',
       },
-      color: 'xero.text',
+      color: 'text',
       cursor: 'pointer',
     },
-    borderBlockColor: 'xero.border.subtle',
+    borderBlockColor: 'border.subtle',
     borderBlockStartWidth: 1,
     borderBlockStyle: 'solid',
-    borderInlineColor: 'xero.border.subtle',
+    borderInlineColor: 'border.subtle',
     borderInlineStartWidth: 1,
     borderInlineStyle: 'solid',
     boxSizing: 'content-box',
@@ -357,7 +358,7 @@ export const tdStyles = cva({
   compoundVariants: [
     {
       css: {
-        backgroundColor: 'xero.background.primary',
+        backgroundColor: 'background.primary',
         position: 'sticky',
         zIndex: 'responsiveoverlay',
       },
@@ -386,7 +387,7 @@ export const tdStyles = cva({
   },
 })
 
-export const Td = styled('td', tdStyles, {
+export const Td = styled('td', TdStyles, {
   defaultProps: {
     role: 'gridcell',
   },
@@ -451,7 +452,7 @@ function useScrollOpacity() {
   const { scrollXProgress, scrollX } = useTableScroll()
   const startOpacity = useTransform<number, number>(
     [scrollXProgress, scrollX],
-    ([progress, x]) => {
+    ([progress = 0, x = 0]) => {
       return progress > 0 && progress <= 1 && x > 0 ? 1 : 0
     },
   )
@@ -475,23 +476,25 @@ export function ColumnOverflowIndicator({
 
   return (
     <motion.span
-      className={tableCellOverflowStyles({ position })}
+      className={TableCellOverflowStyles({ position })}
       style={{ opacity }}
       transition={{ duration: 2, ease: 'linear' }}
     />
   )
 }
 
-const columnStyles = cva({
+const ColumnStyles = cva({
   base: {
     _groupHover: {
-      backgroundColor: 'xero.background.secondary',
+      backgroundColor: 'background.secondary',
     },
-    backgroundColor: 'xero.background.primary',
-    position: 'relative',
+    backgroundColor: 'background.primary',
   },
   variants: {
     isPinned: {
+      false: {
+        position: 'relative',
+      },
       left: {
         left: 0,
         position: 'sticky',
@@ -506,7 +509,7 @@ const columnStyles = cva({
   },
 })
 
-export const tableCellOverflowStyles = cva({
+export const TableCellOverflowStyles = cva({
   base: {
     bottom: 0,
     display: 'block',
@@ -520,18 +523,18 @@ export const tableCellOverflowStyles = cva({
   variants: {
     position: {
       left: {
-        boxShadow: 'xero.overflow.left',
+        boxShadow: 'overflow.left',
         right: 0,
       },
       right: {
-        boxShadow: 'xero.overflow.right',
+        boxShadow: 'overflow.right',
         left: 0,
       },
     },
   },
 })
 
-export const TableCellOverflow = styled('span', tableCellOverflowStyles)
+export const TableCellOverflow = styled('span', TableCellOverflowStyles)
 
 // MARK: - Footer
 

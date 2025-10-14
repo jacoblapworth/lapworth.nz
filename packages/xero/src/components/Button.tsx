@@ -10,8 +10,8 @@ export const ButtonStyles = cva({
     },
 
     _expanded: {
-      backgroundColor: 'xero.background.secondary',
-      borderColor: 'xero.border.regular',
+      backgroundColor: 'background.secondary',
+      borderColor: 'border.regular',
     },
 
     alignItems: 'center',
@@ -40,41 +40,41 @@ export const ButtonStyles = cva({
     variant: {
       primary: {
         backgroundColor: {
-          _active: 'xero.action.active',
-          _disabled: 'xero.action.disabled',
-          _focus: 'xero.action.focus',
-          _hover: 'xero.action.hover',
-          base: 'xero.action',
+          _active: 'action.active',
+          _disabled: 'action.disabled',
+          _focus: 'action.focus',
+          _hover: 'action.hover',
+          base: 'action',
         },
         color: 'white',
       },
       secondary: {
         _active: {
-          color: 'xero.text',
+          color: 'text',
         },
         _disabled: {
-          color: 'xero.text.faint',
+          color: 'text.faint',
         },
         _selected: {
           _hover: {
-            borderColor: 'xero.action.hover',
+            borderColor: 'action.hover',
           },
-          color: 'xero.action',
+          color: 'action',
         },
         backgroundColor: {
-          _active: 'xero.background.quaternary',
-          _hover: 'xero.background.tertiary',
+          _active: 'background.quaternary',
+          _hover: 'background.tertiary',
         },
         borderColor: {
-          _active: 'xero.border.subtle',
-          _focusVisible: 'xero.action.focus',
-          _hover: 'xero.border.subtle',
-          _selected: 'xero.action',
-          base: 'xero.border.subtle',
+          _active: 'border.subtle',
+          _focusVisible: 'action.focus',
+          _hover: 'border.subtle',
+          _selected: 'action',
+          base: 'border.subtle',
         },
         borderStyle: 'solid',
         borderWidth: 1,
-        color: 'xero.text',
+        color: 'text',
       },
       tertiary: {},
     },
