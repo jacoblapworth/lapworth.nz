@@ -27,7 +27,7 @@
   },
   "name": "@lapworth/xero",
   "scripts": {
-    "css": "panda cssgen --outfile dist/styles.css",
+    "css": "mkdir -p dist && panda cssgen --outfile dist/styles.css",
     "css:watch": "panda cssgen --watch --outfile dist/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tokens": "panda codegen",
