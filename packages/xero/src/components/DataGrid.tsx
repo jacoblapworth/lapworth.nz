@@ -62,15 +62,16 @@ export function DataGrid<TData extends RowData>({ table }: TableProps<TData>) {
 
 export const TableStyles = cva({
   base: {
-    /* box-shadow and borders will not work with positon: sticky otherwise */
+    /* box-shadow and borders will not work with `position: sticky` otherwise */
     borderCollapse: 'separate',
     borderSpacing: 0,
     color: 'text',
     fontSize: 13,
     lineHeight: '20px',
-    // height: 1,
     marginBottom: 1,
     minWidth: '100%',
+    // height: 1,
+    paddingBlockEnd: 16,
     tableLayout: 'fixed',
   },
 })
@@ -98,10 +99,7 @@ export const THead = styled(
 export const THeadRow = styled(
   'tr',
   {
-    base: {
-      // borderBlockStart: 'divider',
-      // backgroundColor: 'background.tertiary',
-    },
+    base: {},
   },
   {
     defaultProps: {
@@ -123,6 +121,7 @@ export const TH = styled(
       color: 'text',
       fontSize: 12,
       fontWeight: 600,
+      height: 32,
       lineHeight: '16px',
       paddingBlock: 2,
       paddingInlineEnd: 2,
@@ -130,10 +129,29 @@ export const TH = styled(
       position: 'relative',
       textAlign: 'left',
     },
+    compoundVariants: [
+      {
+        css: {
+          backgroundColor: 'background.primary',
+          position: 'sticky',
+          zIndex: 'responsiveoverlay',
+        },
+        isPinned: ['left', 'right'],
+      },
+    ],
     variants: {
+      // isLastLeftPinnedColumn: {
       isEnd: {
         true: {
           // paddingInlineEnd: 0,
+        },
+      },
+      isPinned: {
+        left: {
+          left: 0,
+        },
+        right: {
+          right: 0,
         },
       },
       isStart: {
@@ -162,9 +180,6 @@ export const TR = styled(
       _hover: {
         backgroundColor: 'background.secondary',
       },
-      borderBlockStartColor: 'border.subtle',
-      borderBlockStartStyle: 'solid',
-      borderBlockStartWidth: 1,
     },
 
     variants: {
@@ -232,11 +247,9 @@ export function TableHeadCell<TData extends RowData, TValue>({
   return (
     <TH
       aria-labelledby={id}
-      className={cx(
-        'group',
-        ColumnStyles({ isPinned: column.getIsPinned() || undefined }),
-      )}
+      className="group"
       id={header.id}
+      isPinned={isPinned}
       style={{
         left: isPinned === 'left' ? column.getStart('left') : undefined,
         right: isPinned === 'right' ? column.getStart('right') : undefined,
@@ -343,6 +356,7 @@ export const TdStyles = cva({
       color: 'text',
       cursor: 'pointer',
     },
+
     borderBlockColor: 'border.subtle',
     borderBlockStartWidth: 1,
     borderBlockStyle: 'solid',
@@ -492,9 +506,6 @@ const ColumnStyles = cva({
   },
   variants: {
     isPinned: {
-      false: {
-        position: 'relative',
-      },
       left: {
         left: 0,
         position: 'sticky',

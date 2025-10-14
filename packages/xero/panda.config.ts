@@ -1,5 +1,5 @@
-import { theme } from "@/theme"
-import { defineConfig } from "@pandacss/dev";
+import { defineConfig } from '@pandacss/dev'
+import { theme } from '@/theme'
 
 export default defineConfig({
   conditions: {
@@ -16,11 +16,13 @@ export default defineConfig({
       marker: '&::marker, &::-webkit-details-marker',
     },
   },
+  // eject: true,
   exclude: [],
-  include: ["./src/**/*.{js,jsx,ts,tsx}"],
-  jsxFramework: "react",
-  outdir: ".styled",
-  outExtension: "js",
+  include: ['./src/**/*.{js,jsx,ts,tsx}'],
+  jsxFramework: 'react',
+  outdir: '.styled',
+  outExtension: 'js',
   presets: [],
-  theme
-});
+  shorthands: false,
+  theme,
+})

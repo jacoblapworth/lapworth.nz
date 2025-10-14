@@ -4,11 +4,11 @@ import { styled } from '@/styled/jsx'
 
 export const Tooltip = styled(Ariakit.Tooltip, {
   base: {
-    backgroundColor: 'background.inverse',
+    backgroundColor: 'background.primary.inverse',
     borderRadius: 6,
     color: 'white',
-    paddingBlock: '2xsmall',
-    paddingInline: 'xsmall',
-    textStyle: 'body.small',
+    paddingBlock: 4,
+    paddingInline: 8,
+    textStyle: 'body.small.regular',
   },
 })

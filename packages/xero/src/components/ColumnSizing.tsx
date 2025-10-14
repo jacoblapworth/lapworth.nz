@@ -49,7 +49,7 @@ export function useColumnSizes<TData extends RowData>(table: Table<TData>) {
     const style: CSSProperties = Object.fromEntries(vars)
 
     return { columns, headers, style, vars }
-  }, [table])
+  }, [table, columnSizingInfo, columnSizing])
 
   return sizes
 }

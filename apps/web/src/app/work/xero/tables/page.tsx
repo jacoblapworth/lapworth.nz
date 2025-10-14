@@ -4,6 +4,7 @@ import { CheckboxProvider } from '@ariakit/react'
 import { Checkbox } from '@lapworth/xero/Checkbox'
 import { Table, useTable } from '@lapworth/xero/Table'
 import { Tag } from '@lapworth/xero/Tag'
+
 import {
   type ColumnFiltersState,
   createColumnHelper,
@@ -155,7 +156,7 @@ export default function Page() {
           id: 'approve',
           label: (
             <>
-              <CheckCircleIcon />
+              <CheckCircleIcon size={16} />
               Approve
             </>
           ),
@@ -165,13 +166,14 @@ export default function Page() {
           id: 'delete',
           label: (
             <>
-              <TrashIcon />
+              <TrashIcon size={16} />
               Delete
             </>
           ),
           onClick: () => alert('Deleted'),
         },
       ]}
+      summaryTotalKey="due"
       table={table}
     />
   )

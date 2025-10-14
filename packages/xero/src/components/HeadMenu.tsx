@@ -3,7 +3,7 @@ import { type Column, flexRender, type Header } from '@tanstack/react-table'
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
-  EllipsisIcon,
+  EllipsisVerticalIcon,
   EyeOffIcon,
   ListFilterIcon,
   PinOffIcon,
@@ -35,77 +35,78 @@ export function TableHeadMenu<TData, TValue>({
   const [values, setValues] = useState({ dir: sort })
 
   return (
-    <Ariakit.MenuProvider<typeof values> setValues={setValues} values={values}>
-      <Ariakit.TooltipProvider>
-        <Ariakit.TooltipAnchor render={<MenuButton variant="tertiary" />}>
-          <HStack justifyContent="space-between" width="100%">
-            <HStack>
-              {children}
-              <SortIcon sort={sort} />
-            </HStack>
-            <EllipsisIcon
-              className={css({ _groupHover: { opacity: 1 }, opacity: 0 })}
-              size={16}
-            />
-          </HStack>
-        </Ariakit.TooltipAnchor>
-        <Tooltip>
-          <Ariakit.TooltipArrow />
-          {flexRender(header.column.columnDef.header, header.getContext())}{' '}
-          column options
-        </Tooltip>
-      </Ariakit.TooltipProvider>
-      <Menu portal>
-        {header.column.getCanSort() && (
-          <>
-            <MenuItemRadio
-              name="dir"
-              onClick={() => header.column.toggleSorting(false)}
-              value="asc"
-            >
-              <SortIcon sort="asc" />
-              Sort ascending
-            </MenuItemRadio>
-            <MenuItemRadio
-              name="dir"
-              onClick={() => header.column.toggleSorting(true)}
-              value="desc"
-            >
-              <SortIcon sort="desc" />
-              Sort descending
-            </MenuItemRadio>
-          </>
-        )}
-        {header.column.getCanFilter() && (
-          <>
-            <MenuSeparator />
-            <MenuItem>
-              <ListFilterIcon size={16} />
-              Filter...
-            </MenuItem>
-          </>
-        )}
-        {header.column.getCanPin() && (
-          <>
-            <MenuSeparator />
-            {header.column.getIsPinned() ? (
-              <MenuItem onClick={() => header.column.pin(false)}>
-                <PinOffIcon size={16} />
-                Unpin
+    <HStack justifyContent="space-between" paddingInline={4} width="100%">
+      <HStack>
+        {children}
+        <SortIcon sort={sort} />
+      </HStack>
+      <Ariakit.MenuProvider<typeof values>
+        setValues={setValues}
+        values={values}
+      >
+        <Ariakit.TooltipProvider>
+          <Ariakit.TooltipAnchor
+            render={<MenuButton size="sm" variant="tertiary" />}
+          >
+            <EllipsisVerticalIcon size={16} />
+          </Ariakit.TooltipAnchor>
+          <Tooltip>
+            <Ariakit.TooltipArrow />
+            {flexRender(header.column.columnDef.header, header.getContext())}{' '}
+            column options
+          </Tooltip>
+        </Ariakit.TooltipProvider>
+        <Menu portal>
+          {header.column.getCanSort() && (
+            <>
+              <MenuItemRadio
+                name="dir"
+                onClick={() => header.column.toggleSorting(false)}
+                value="asc"
+              >
+                <SortIcon sort="asc" />
+                Sort ascending
+              </MenuItemRadio>
+              <MenuItemRadio
+                name="dir"
+                onClick={() => header.column.toggleSorting(true)}
+                value="desc"
+              >
+                <SortIcon sort="desc" />
+                Sort descending
+              </MenuItemRadio>
+            </>
+          )}
+          {header.column.getCanFilter() && (
+            <>
+              <MenuSeparator />
+              <MenuItem>
+                <ListFilterIcon size={16} />
+                Filter...
               </MenuItem>
-            ) : (
-              <>
-                <MenuItem onClick={() => header.column.pin('left')}>
-                  <ArrowLeftIcon size={16} />
-                  Pin left
+            </>
+          )}
+          {header.column.getCanPin() && (
+            <>
+              <MenuSeparator />
+              {header.column.getIsPinned() ? (
+                <MenuItem onClick={() => header.column.pin(false)}>
+                  <PinOffIcon size={16} />
+                  Unpin
                 </MenuItem>
-                <MenuItem onClick={() => header.column.pin('right')}>
-                  <ArrowRightIcon size={16} />
-                  Pin right
-                </MenuItem>
-              </>
-            )}
-            {/* <Ariakit.MenuButton
+              ) : (
+                <>
+                  <MenuItem onClick={() => header.column.pin('left')}>
+                    <ArrowLeftIcon size={16} />
+                    Pin left
+                  </MenuItem>
+                  <MenuItem onClick={() => header.column.pin('right')}>
+                    <ArrowRightIcon size={16} />
+                    Pin right
+                  </MenuItem>
+                </>
+              )}
+              {/* <Ariakit.MenuButton
               ref={ref}
               {...props}
               className={clsx(!menu.parent && 'button', props.className)}
@@ -127,18 +128,19 @@ export function TableHeadMenu<TData, TValue>({
               <MenuItem>Pin left</MenuItem>
               <MenuItem>Pin right</MenuItem>
             </Menu> */}
-          </>
-        )}
-        {header.column.getCanHide() && (
-          <>
-            <MenuSeparator />
-            <MenuItem onClick={header.column.getToggleVisibilityHandler()}>
-              <EyeOffIcon size={16} />
-              Hide column
-            </MenuItem>
-          </>
-        )}
-      </Menu>
-    </Ariakit.MenuProvider>
+            </>
+          )}
+          {header.column.getCanHide() && (
+            <>
+              <MenuSeparator />
+              <MenuItem onClick={header.column.getToggleVisibilityHandler()}>
+                <EyeOffIcon size={16} />
+                Hide column
+              </MenuItem>
+            </>
+          )}
+        </Menu>
+      </Ariakit.MenuProvider>
+    </HStack>
   )
 }

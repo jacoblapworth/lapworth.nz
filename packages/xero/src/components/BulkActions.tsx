@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { HStack } from '@/styled/jsx'
+import { HStack, VStack } from '@/styled/jsx'
 import { Button } from './Button'
 
 export interface BulkAction {
@@ -11,9 +11,16 @@ export interface BulkAction {
 interface Props {
   actions: BulkAction[]
   isDisabled?: boolean
+  summary: ReactNode
+  selectedCount?: number
 }
 
-export function BulkActions({ actions, isDisabled }: Props) {
+export function BulkActions({
+  actions,
+  isDisabled,
+  summary,
+  selectedCount,
+}: Props) {
   return (
     <HStack
       borderBottomColor="border.soft"
@@ -29,7 +36,19 @@ export function BulkActions({ actions, isDisabled }: Props) {
           </Button>
         ))}
       </HStack>
-      <HStack>Summary count</HStack>
+      <VStack
+        alignItems="end"
+        color="text.subtle"
+        gap={2}
+        lineHeight={1}
+        marginBlock={-8}
+        textStyle="body.small.regular"
+      >
+        <span>
+          {selectedCount !== undefined ? `${selectedCount} selected ` : ''}
+        </span>
+        <span>{summary}</span>
+      </VStack>
     </HStack>
   )
 }

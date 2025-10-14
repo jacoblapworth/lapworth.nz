@@ -2,7 +2,7 @@
 
 import { SelectArrow } from '@ariakit/react'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
-import { HStack } from '@/styled/jsx'
+import { Box, HStack } from '@/styled/jsx'
 import { Button } from './Button'
 import {
   Select,
@@ -16,6 +16,7 @@ import { SrOnly } from './SrOnly'
 interface Props {
   total: number
   pageSize: number
+  pageCount: number
   currentPage: number
   onNext: () => void
   onPrevious: () => void
@@ -27,13 +28,14 @@ interface Props {
 export function Pagination({
   total,
   pageSize,
+  pageCount,
+  currentPage,
   onPageSizeChange,
   onNext,
   onPrevious,
   canPreviousPage,
   canNextPage,
 }: Props) {
-  console.log({ pageSize })
   return (
     <HStack
       borderBlockStartColor="border.soft"
@@ -64,6 +66,14 @@ export function Pagination({
       </HStack>
 
       <HStack>
+        <Box
+          color="text.subtle"
+          fontVariantNumeric="tabular-nums"
+          marginInlineEnd={8}
+          textStyle="body.small.regular"
+        >
+          Page {currentPage + 1} of {pageCount}
+        </Box>
         <Button disabled={!canPreviousPage} onClick={onPrevious} size="sm">
           <ArrowLeftIcon size={16} />
           <SrOnly>Previous page</SrOnly>

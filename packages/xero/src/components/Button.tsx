@@ -35,7 +35,10 @@ export const ButtonStyles = cva({
   variants: {
     size: {
       md: {},
-      sm: {},
+      sm: {
+        paddingBlock: 4,
+        paddingInline: 6,
+      },
     },
     variant: {
       primary: {
@@ -76,7 +79,11 @@ export const ButtonStyles = cva({
         borderWidth: 1,
         color: 'text',
       },
-      tertiary: {},
+      tertiary: {
+        _hover: {
+          backgroundColor: 'background.tertiary',
+        },
+      },
     },
   },
 })

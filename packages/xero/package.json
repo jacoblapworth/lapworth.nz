@@ -19,33 +19,19 @@
     "@total-typescript/tsconfig": "1.0.4",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.1",
-    "tsdown": "0.15.7",
-    "typescript": "5.9.3",
-    "zshy": "0.4.3"
+    "typescript": "5.9.3"
   },
   "exports": {
-    "./*": "./src/components/**/*",
-    "./styles.css": "./assets/styles.css"
+    "./*": "./src/components/*.tsx",
+    "./styles.css": "./dist/styles.css"
   },
-  "files": ["dist"],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "name": "@lapworth/xero",
   "scripts": {
-    "build": "tsdown",
-    "css": "panda cssgen --outfile assets/styles.css",
+    "css": "panda cssgen --outfile dist/styles.css",
+    "css:watch": "panda cssgen --watch --outfile dist/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tokens": "panda codegen"
+    "tokens": "panda codegen",
+    "tokens:watch": "panda codegen --watch"
   },
-  "type": "module",
-  "types": "./dist/index.d.ts",
-  "zshy": {
-    "cjs": false,
-    "exports": {
-      ".": "./src/components/index.ts",
-      "./*": "./src/components/**/*",
-      "./styles.css": "./assets/styles.css"
-    },
-    "noEdit": true
-  }
+  "type": "module"
 }

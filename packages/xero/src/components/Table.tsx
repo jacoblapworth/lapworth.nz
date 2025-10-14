@@ -11,6 +11,7 @@ import {
 import { Inter } from 'next/font/google'
 import { parseAsBoolean, useQueryState } from 'nuqs'
 import { useState } from 'react'
+import { cx } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 import { type BulkAction, BulkActions } from './BulkActions'
 import { Controls } from './Controls'
@@ -18,7 +19,7 @@ import { DataGrid } from './DataGrid'
 import { Filters } from './Filters'
 import { Pagination } from './Pagination'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--fonts-inter' })
 
 const Container = styled('div', {
   base: {
@@ -34,12 +35,13 @@ const Container = styled('div', {
   },
 })
 
-export function useTable<TData extends RowData>(
-  props: Omit<
-    TableOptions<TData>,
-    'getCoreRowModel' | 'getSortedRowModel' | 'getFilteredRowModel'
-  >,
-) {
+export function useTable<TData extends RowData>({
+  initialState: { pagination, ...initialState } = {},
+  ...props
+}: Omit<
+  TableOptions<TData>,
+  'getCoreRowModel' | 'getSortedRowModel' | 'getFilteredRowModel'
+>) {
   return useReactTable<TData>({
     columnResizeDirection: 'ltr',
     columnResizeMode: 'onChange',
@@ -52,6 +54,13 @@ export function useTable<TData extends RowData>(
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    initialState: {
+      pagination: {
+        ...pagination,
+        pageSize: 20,
+      },
+      ...initialState,
+    },
     ...props,
   })
 }
@@ -59,16 +68,24 @@ export function useTable<TData extends RowData>(
 interface Props<TData extends RowData> {
   table: ReturnType<typeof useTable<TData>>
   bulkActions: BulkAction[]
+  /**
+   * The key of the column to sum for the summary row
+   *
+   * Must be a number column
+   */
+  summaryTotalKey: string
 }
 
 export function Table<TData extends RowData>({
   table,
   bulkActions,
+  summaryTotalKey,
 }: Props<TData>) {
-  const [showFilters, setShowFilters] = useQueryState(
-    'filter',
-    parseAsBoolean.withDefault(false),
-  )
+  // const [showFilters, setShowFilters] = useQueryState(
+  //   'filter',
+  //   parseAsBoolean.withDefault(false),
+  // )
+  const [showFilters, setShowFilters] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
   const [appliedFilters, setAppliedFilters] = useState([
     {
@@ -95,12 +112,12 @@ export function Table<TData extends RowData>({
 
   const summaryRowModel = table.getFilteredSelectedRowModel()
 
-  summaryRowModel.flatRows
-    .map((v) => v.getValue<number>('paid'))
+  const summary = summaryRowModel.flatRows
+    .map((v) => v.getValue<number>(summaryTotalKey))
     .reduce((a, b) => a + b, 0)
 
   return (
-    <Container className={inter.className}>
+    <Container className={cx(inter.className, inter.variable)}>
       <Controls
         appliedFilters={appliedFilters}
         columns={table.getAllFlatColumns()}
@@ -129,6 +146,8 @@ export function Table<TData extends RowData>({
       <BulkActions
         actions={bulkActions}
         isDisabled={!table.getIsSomeRowsSelected()}
+        selectedCount={summaryRowModel.flatRows.length}
+        summary={summary.toFixed(2)}
       />
       <DataGrid table={table} />
       <Pagination
@@ -138,6 +157,7 @@ export function Table<TData extends RowData>({
         onNext={table.nextPage}
         onPageSizeChange={table.setPageSize}
         onPrevious={table.previousPage}
+        pageCount={table.getPageCount()}
         pageSize={table.getState().pagination.pageSize}
         total={table.getRowCount()}
       />
