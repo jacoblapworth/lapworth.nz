@@ -2,6 +2,9 @@
   "$schema": "https://turborepo.com/schema.json",
   "extends": ["//"],
   "tasks": {
+    "build": {
+      "dependsOn": ["css", "tokens"]
+    },
     "css": {
       "dependsOn": ["^css"],
       "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
