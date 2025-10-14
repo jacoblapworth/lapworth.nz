@@ -1,39 +1,56 @@
 'use client'
 
 import { CheckboxProvider } from '@ariakit/react'
+import { CurrencyCell, DateCell } from '@lapworth/xero/Cells'
+import { Checkbox } from '@lapworth/xero/Checkbox'
+import { footer } from '@lapworth/xero/ColumnHelper'
+import { DataCell } from '@lapworth/xero/DataCell'
+import { Table, useTable } from '@lapworth/xero/Table'
+import { Tag } from '@lapworth/xero/Tag'
 import {
   type ColumnFiltersState,
   createColumnHelper,
+  type HeaderContext,
 } from '@tanstack/react-table'
 import { CheckCircleIcon, TrashIcon } from 'lucide-react'
 import { useState } from 'react'
-import { Table, useTable } from '@/components/Table'
-import { Checkbox } from '@/components/Table/Checkbox'
-import { Tag } from '@/components/Table/Tag'
 import { Box } from '@/styled/jsx'
 import { initialData } from './data'
 import { getInvoiceStatus, type InvoiceRow } from './model'
+import '@lapworth/xero/styles.css'
+
+import * as Ariakit from '@ariakit/react'
 
 const columnHelper = createColumnHelper<InvoiceRow>()
 
-const initialColumns = [
+const columns = [
   columnHelper.display({
-    cell: (ctx) => (
-      <Box placeItems="center">
-        <CheckboxProvider
-          setValue={ctx.row.getToggleSelectedHandler()}
-          value={ctx.row.getIsSelected()}
-        >
-          <Checkbox />
-        </CheckboxProvider>
-      </Box>
+    cell: ({ row }) => (
+      <Ariakit.Checkbox
+        checked={row.getIsSelected()}
+        onChange={row.getToggleSelectedHandler()}
+      />
     ),
     enableGrouping: false,
     enableHiding: false,
     enablePinning: false,
     enableResizing: false,
     enableSorting: false,
+    header: ({ table }) => (
+      <Ariakit.Checkbox
+        checked={
+          table.getIsAllRowsSelected() ||
+          (table.getIsSomeRowsSelected() ? 'mixed' : false)
+        }
+        onChange={
+          table.getIsAllPageRowsSelected()
+            ? table.getToggleAllRowsSelectedHandler()
+            : table.getToggleAllPageRowsSelectedHandler()
+        }
+      />
+    ),
     id: 'select',
+    maxSize: 32,
     size: 32,
   }),
   columnHelper.accessor('contact.name', {
@@ -47,7 +64,7 @@ const initialColumns = [
     enableHiding: false,
     header: 'From',
     id: 'contact',
-    size: 150,
+    size: 200,
   }),
   columnHelper.accessor('status', {
     cell: (ctx) => {
@@ -59,6 +76,7 @@ const initialColumns = [
     filterFn: 'arrIncludesSome',
     header: 'Status',
     id: 'status',
+    size: 90,
   }),
   columnHelper.accessor('invoiceNumber', {
     // cell: (ctx) => <Cell>{ctx.getValue<string>()}</Cell>,
@@ -66,21 +84,31 @@ const initialColumns = [
     id: 'invoiceNumber',
   }),
   columnHelper.accessor('date', {
-    // cell: (ctx) => <DateCell ctx={ctx} />,
+    aggregationFn: 'sum',
+    cell: (ctx) => <DateCell ctx={ctx} />,
     header: 'Date',
     id: 'date',
+    meta: {
+      alignment: 'end',
+    },
     sortingFn: 'datetime',
   }),
   columnHelper.accessor('dueDate', {
     // cell: (ctx) => (
     //   <TextInputCell onChange={() => {}} value={ctx.getValue<string>()} />
     // ),
+    cell: (ctx) => <DateCell ctx={ctx} />,
     header: 'Due',
     id: 'dueDate',
+    meta: {
+      alignment: 'end',
+    },
     sortingFn: 'datetime',
   }),
   columnHelper.accessor('amountPaid', {
     aggregationFn: 'sum',
+    cell: (ctx) => <CurrencyCell ctx={ctx} />,
+    footer,
     // cell: (ctx) => (
     //   <Cell textAlign={'end'}>{ctx.cell.getValue<number>().toFixed(2)}</Cell>
     // ),
@@ -95,13 +123,19 @@ const initialColumns = [
     // },
     header: 'Paid',
     id: 'amountPaid',
+    meta: {
+      alignment: 'end',
+      isNumeric: true,
+    },
   }),
   columnHelper.accessor('amountDue', {
-    // cell: (ctx) => (
-    //   <Cell textAlign={'end'}>{ctx.cell.getValue<number>().toFixed(2)}</Cell>
-    // ),
+    cell: (ctx) => <CurrencyCell ctx={ctx} />,
+    footer,
     header: 'Due',
     id: 'due',
+    meta: {
+      alignment: 'end',
+    },
   }),
 
   columnHelper.accessor('notes', {
@@ -121,7 +155,6 @@ const initialColumns = [
 ]
 
 export default function Page() {
-  const [columns] = useState(initialColumns)
   const [data] = useState<InvoiceRow[]>(initialData)
   const [columnFilters, onColumnFiltersChange] = useState<ColumnFiltersState>(
     [],
@@ -134,6 +167,7 @@ export default function Page() {
       columnPinning: {
         left: ['select', 'contact'],
       },
+      // grouping: ['group'],
       sorting: [
         {
           desc: true,
@@ -154,7 +188,7 @@ export default function Page() {
           id: 'approve',
           label: (
             <>
-              <CheckCircleIcon />
+              <CheckCircleIcon size={16} />
               Approve
             </>
           ),
@@ -164,14 +198,72 @@ export default function Page() {
           id: 'delete',
           label: (
             <>
-              <TrashIcon />
+              <TrashIcon size={16} />
               Delete
             </>
           ),
           onClick: () => alert('Deleted'),
         },
       ]}
+      summaryTotalKey="due"
       table={table}
+      views={[
+        { filters: [], id: 'all', label: 'All' },
+        {
+          filters: [
+            {
+              id: 'status',
+              label: 'Status',
+              operator: 'is',
+              value: 'draft',
+            },
+          ],
+          id: 'draft',
+          label: 'Draft',
+        },
+        {
+          filters: [
+            {
+              id: 'status',
+              label: 'Status',
+              operator: 'is',
+              value: 'awaiting-payment',
+            },
+          ],
+          id: 'awaiting-payment',
+          label: 'Awaiting Payment',
+        },
+        {
+          filters: [
+            {
+              id: 'status',
+              label: 'Status',
+              operator: 'is',
+              value: 'awaiting-payment',
+            },
+            {
+              id: 'due',
+              label: 'Due date',
+              operator: 'is before',
+              value: 'today',
+            },
+          ],
+          id: 'overdue',
+          label: 'Overdue',
+        },
+        {
+          filters: [
+            {
+              id: 'status',
+              label: 'Status',
+              operator: 'is',
+              value: 'paid',
+            },
+          ],
+          id: 'paid',
+          label: 'Paid',
+        },
+      ]}
     />
   )
 }

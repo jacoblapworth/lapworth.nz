@@ -8,12 +8,10 @@
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
     },
     "content": {
-      "dependsOn": ["^content"],
       "inputs": ["src/content/**", "velite.config.ts"],
       "outputs": [".velite/**", "public/static/**"]
     },
     "content:watch": {
-      "dependsOn": ["^content:watch"],
       "inputs": ["src/content/**", "velite.config.ts"],
       "outputs": [".velite/**", "public/static/**"],
       "persistent": true
@@ -22,7 +20,6 @@
       "with": ["content:watch"]
     },
     "tokens": {
-      "dependsOn": ["^tokens"],
       "outputs": [".styled/**"]
     }
   }

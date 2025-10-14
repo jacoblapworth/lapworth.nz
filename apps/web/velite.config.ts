@@ -11,6 +11,11 @@ import remarkGfm from 'remark-gfm'
 
 import { defineCollection, defineConfig, s } from 'velite'
 
+const computedFields = <T extends { slug: string }>(data: T) => ({
+  ...data,
+  slugAsParams: data.slug.split('/'),
+})
+
 const meta = s
   .object({
     description: s.string().optional(),
@@ -44,7 +49,7 @@ const work = defineCollection({
   pattern: 'work/**/*.mdx',
   schema: s
     .object({
-      categories: s.array(s.string()).default(['work']),
+      category: s.string().optional(),
       content: s.mdx(),
       cover: s.image().optional(),
       date: s.isodate(),
@@ -68,7 +73,8 @@ const work = defineCollection({
       toc: s.toc(),
       video: s.file().optional(),
     })
-    .transform((data) => ({ ...data, permalink: `/work/${data.slug}` })),
+    .transform((data) => ({ ...data, permalink: `/work/${data.slug}` }))
+    .transform(computedFields),
 })
 
 export default defineConfig({
@@ -121,6 +127,7 @@ export default defineConfig({
     name: '[name].[hash:8].[ext]',
   },
   prepare: ({ work }) => {
+    console.log(work)
     work.sort((a, b) => (a.date > b.date ? -1 : 1))
   },
   root: 'src/content',
