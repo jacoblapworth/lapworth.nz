@@ -2,23 +2,19 @@ import * as Sentry from '@sentry/nextjs'
 import { importPKCS8, SignJWT } from 'jose'
 import { getPlaiceholder } from 'plaiceholder'
 import { z } from 'zod'
-
-const APPLE_MUSIC_PRIVATE_KEY = process.env.APPLE_MUSIC_PRIVATE_KEY
-const APPLE_TEAM_ID = process.env.APPLE_TEAM_ID
-const APPLE_MUSIC_KEY_ID = process.env.APPLE_MUSIC_KEY_ID
-const APPLE_MUSIC_USER_TOKEN = process.env.APPLE_MUSIC_USER_TOKEN
+import { env } from '@/lib/env'
 
 export const createAppleJWT = async () => {
   const ALGORITHM = 'ES256'
-  const ecPrivateKey = await importPKCS8(APPLE_MUSIC_PRIVATE_KEY, ALGORITHM)
+  const ecPrivateKey = await importPKCS8(env.APPLE_MUSIC_PRIVATE_KEY, ALGORITHM)
 
   return new SignJWT({})
     .setProtectedHeader({
       alg: ALGORITHM,
-      kid: APPLE_MUSIC_KEY_ID,
+      kid: env.APPLE_MUSIC_KEY_ID,
     })
     .setIssuedAt()
-    .setIssuer(APPLE_TEAM_ID)
+    .setIssuer(env.APPLE_TEAM_ID)
     .setExpirationTime('180days')
     .sign(ecPrivateKey)
 }
@@ -116,7 +112,7 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
   const response = await fetch(`https://api.music.apple.com/${endpoint}`, {
     headers: {
       Authorization: `Bearer ${await createAppleJWT()}`,
-      'Music-User-Token': APPLE_MUSIC_USER_TOKEN,
+      'Music-User-Token': env.APPLE_MUSIC_USER_TOKEN,
     },
     next: { revalidate: 60 * 60 * 24 },
   }).then((res) => res.json())

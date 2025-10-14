@@ -4,6 +4,7 @@ import { track } from '@vercel/analytics/server'
 import { redirect } from 'next/navigation'
 import { Resend } from 'resend'
 import { CvRequestEmail } from '@/emails/cv'
+import { env } from '@/lib/env'
 import PostHogClient from '@/lib/posthog'
 
 export interface FormState {
@@ -11,7 +12,7 @@ export interface FormState {
   error?: boolean
 }
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend(env.RESEND_API_KEY)
 
 export async function requestCv(
   _: FormState,

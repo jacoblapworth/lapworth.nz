@@ -11,8 +11,9 @@ import {
   SubscriptionParameters,
 } from 'klaviyo-api'
 import { headers } from 'next/headers'
+import { env } from '@/lib/env'
 
-const session = new ApiKeySession(process.env.KLAVIYO_API_KEY)
+const session = new ApiKeySession(env.KLAVIYO_API_KEY)
 const profiles = new ProfilesApi(session)
 
 export interface FormState {

@@ -1,7 +1,7 @@
 import packageJson from 'package.json'
 import { useEffect, useState } from 'react'
 
-const isDebug = process.env.NODE_ENV !== 'production'
+const debug = process.env.NODE_ENV !== 'production'
 
 const BASE_URL = (() => {
   switch (process.env.NEXT_PUBLIC_VERCEL_ENV) {
@@ -23,10 +23,10 @@ export function useAppleMusic(developerToken: string) {
     const handleMusicKitLoaded = () => {
       const instance = MusicKit.configure({
         app: {
-          debug: isDebug,
-          icon: `${BASE_URL}/static/jacob-icon.png`,
+          debug,
+          icon: `${BASE_URL}/jacob-icon.png`,
           name: 'Lapworth.nz',
-          suppressErrorDialog: !isDebug,
+          suppressErrorDialog: !debug,
           version: packageJson.version,
         },
         developerToken,
