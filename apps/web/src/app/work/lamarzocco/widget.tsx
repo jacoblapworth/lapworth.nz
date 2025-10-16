@@ -62,7 +62,7 @@ const State = {
     title: 'Standby',
   },
   on: {
-    subtitle: 'Ready in 2 minutes',
+    subtitle: 'Turning off in 2 minutes',
     title: 'Heating Up',
   },
 }
