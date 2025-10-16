@@ -61,7 +61,7 @@ export const trademe: ExperienceItem = {
   },
   details: [
     'Design of Trade Me’s iOS and Android apps (combined 1.2M MAU), optimising engagement, conversion and retention.',
-    'Lead the mobile design guild, facilitating collaboration across business units, working with product owners and designers, identifying shared problems to resolve cohesive experiences for customers.',
+    'Led the mobile design guild, facilitating collaboration across business units, working with product owners and designers, identifying shared problems to resolve cohesive experiences for customers.',
     'Development of design systems, combining brand and development including developing guidance for onboarding, change aversion, experimentation, and cross platform cohesive experiences.',
     'Design sprints, Qualitative and quantitative research, identifying user needs, wireframing, prototyping, user- testing, interface design and release management.',
   ],
