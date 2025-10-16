@@ -50,7 +50,7 @@
   },
   "description": "Kopaki – personal website for J Lapworth",
   "devDependencies": {
-    "@next/bundle-analyzer": "15.5.4",
+    "@next/bundle-analyzer": "15.5.5",
     "@pandacss/dev": "1.4.2",
     "@react-email/preview-server": "4.3.0",
     "@sentry/cli": "2.56.1",
