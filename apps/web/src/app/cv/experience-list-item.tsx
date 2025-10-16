@@ -1,11 +1,10 @@
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
-import { Box, Stack, styled, VStack } from '@/styled/jsx'
+import { Box, styled, VStack } from '@/styled/jsx'
 import type { ExperienceItem } from './experience'
 
 const Ul = styled('ul', {
   base: {
-    // listStyle:
     listStylePosition: 'outside',
     listStyleType: 'square',
     marginInlineStart: 16,

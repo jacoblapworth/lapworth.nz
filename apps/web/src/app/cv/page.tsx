@@ -1,3 +1,4 @@
+import { LinkButton } from '@/components/Button'
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
 import { styled, VStack } from '@/styled/jsx'
@@ -36,6 +37,9 @@ export default async function Page() {
           </Text>
           <Text size="sm">Currently in London</Text>
         </VStack>
+        <LinkButton href="/cv/download" prefetch={false} size="sm">
+          Download
+        </LinkButton>
       </VStack>
       {experience.map((item) => (
         <ExperienceListItem item={item} key={item.company.title} />
