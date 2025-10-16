@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { ArrowRightIcon } from 'lucide-react'
 import NextLink, { type LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'

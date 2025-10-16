@@ -1,7 +1,7 @@
 'use client'
 
 import useMouse from '@react-hook/mouse-position'
-import { motion, useMotionValue } from 'framer-motion'
+import { motion, useMotionValue } from 'motion/react'
 import NextImage, { type StaticImageData } from 'next/image'
 import NextLink from 'next/link'
 import { type RefObject, useEffect, useRef } from 'react'

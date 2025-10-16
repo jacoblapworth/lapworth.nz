@@ -1,7 +1,7 @@
 'use client'
 
 import * as Ariakit from '@ariakit/react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { type ComponentProps, type ReactNode, useState } from 'react'
 
 import { styled } from '@/styled/jsx'

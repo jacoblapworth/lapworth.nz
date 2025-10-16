@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useCycle } from 'framer-motion'
+import { motion, useCycle } from 'motion/react'
 import { useTheme } from 'next-themes'
 
 import { styled } from '@/styled/jsx'
