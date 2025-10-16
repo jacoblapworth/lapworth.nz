@@ -49,9 +49,7 @@ export default async function Page({ params }: Props) {
             {post.links.map(({ href, label }) => (
               <LinkButton href={href} key={href} size="sm">
                 {label}
-                <Box gridArea="right-icon">
-                  <SquareArrowOutUpRightIcon size={16} />
-                </Box>
+                <SquareArrowOutUpRightIcon size={16} />
               </LinkButton>
             ))}
           </HStack>
