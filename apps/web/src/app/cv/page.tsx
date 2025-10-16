@@ -33,7 +33,7 @@ export default async function Page() {
             <Link href="tel:+447949536308">(+44) 7949 536308</Link>
           </Text>
           <Text size="sm">
-            <Link href="tel:+6277271661">(+64) 27 727 1661</Link>
+            <Link href="tel:+64277271661">(+64) 27 727 1661</Link>
           </Text>
           <Text size="sm">Currently in London</Text>
         </VStack>
