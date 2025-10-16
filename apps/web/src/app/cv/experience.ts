@@ -21,7 +21,7 @@ export const xero: ExperienceItem = {
   details: [
     'Scaled the design system at Xero to support over 200 designers, 1,000 engineers and 100 product teams. (Figma, Typescript, React, SASS)',
     'Developed Design Tokens to support a complete redesign of Xero’s product, delivering on brand promises in marketing and enabling a cohesive experience across web and mobile platforms.',
-    'Redesigned advanced tables across Xero for viewing, filtering and editing, empowering customers to easily scan, compare, and interact with their wealth of financial data. Lead engineering feasibility through coded prototyping.',
+    'Redesigned advanced tables across Xero for viewing, filtering and editing, empowering customers to easily scan, compare, and interact with their wealth of financial data. Led engineering feasibility through coded prototyping.',
     'Iterative prototyping-lead design of dashboard and widgets for a reimagined homepage experience, the landing page for millions of Xero’s customers.',
     'Lead user research into pain-points across the product including inconsistent experiences, and issues with density and efficiency, informing design and product strategy.',
     'Designed and built internal tooling including Figma plugins for Accessibility and Design System documentation.',
