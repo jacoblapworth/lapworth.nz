@@ -42,6 +42,10 @@ export async function requestCv(
 
   await track('request-cv', { email })
 
+  if (email === 'test@test.com') {
+    redirect('/cv/requested')
+  }
+
   const filename = 'Jacob-Lapworth_CV.pdf'
   const { error } = await resend.emails.send({
     attachments: [
