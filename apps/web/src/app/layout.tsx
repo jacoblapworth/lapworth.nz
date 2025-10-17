@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     images: [
       {
         alt: 'Jacob Lapworth',
-        url: `/static/og-image.png`,
+        url: 'og-image.png',
       },
     ],
     locale: 'en_NZ',

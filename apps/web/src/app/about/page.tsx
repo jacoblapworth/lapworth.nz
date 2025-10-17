@@ -9,14 +9,14 @@ import { css } from '@/styled/css'
 
 import { getReadingWithThumbnails } from './books/oku'
 import { Experience } from './experience'
-import { HeavyRotation } from './HeavyRotation'
+import { HeavyRotation } from './heavy-rotation'
 import { Reading } from './Reading'
 
 export const fetchCache = 'default-cache'
 
 export const metadata: Metadata = {
-  description: `Hey there! I'm J. I'm a product designer and software engineer focused on community driven design systems.`,
-  title: 'Senior design systems product designer',
+  description: `Hey there! I'm J. I'm a lead product designer and design engineer focused on community driven design systems.`,
+  title: 'Lead product designer and design engineer',
 }
 
 export default async function Page() {

@@ -71,7 +71,7 @@ const State = {
 export function LaMarzoccoWidget() {
   const WARMUP_DURATION_SECONDS = 5
   const [state, setState] = useState<State>('off')
-  const { subtitle, title } = State[state]
+  const { title } = State[state]
   const [showTooltip, setShowTooltip] = useState(true)
   const [readyTime, setReadyTime] = useState<Date | null>(null)
   const now = useNow({
@@ -164,7 +164,6 @@ export function LaMarzoccoWidget() {
                 {readyTime && isFuture(readyTime)
                   ? `Ready ${format.relativeTime(readyTime, now)}`
                   : null}
-                {/* {getSubtitle()} */}
               </motion.div>
             </Box>
           </AnimatePresence>
