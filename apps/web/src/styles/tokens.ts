@@ -156,6 +156,9 @@ export const semanticTokens = defineSemanticTokens({
         base: '{colors.white.10}',
       },
     },
+    border: {
+      value: '{colors.divider}',
+    },
     critical: {
       value: {
         _dark: '{colors.red.50}',

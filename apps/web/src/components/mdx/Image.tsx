@@ -11,6 +11,7 @@ const DialogDisclosure = styled(Ariakit.DialogDisclosure, {
     },
     cursor: 'zoom-in',
     display: 'inline-block',
+    width: 'fit-content',
   },
 })
 
