@@ -16,27 +16,32 @@ export default function Page() {
   const [state, action] = useActionState(requestCv, initialState)
 
   return (
-    <Form action={action}>
-      <VStack alignItems="start">
-        <HStack alignItems="end" gap={0}>
-          <TextInput
-            aria-describedby={id}
-            autoComplete="email"
-            label="Email"
-            name="email"
-            placeholder="jacob@lapworth.nz"
-            required
-            type="email"
-          />
-          <SubmitButton>Get CV</SubmitButton>
-        </HStack>
-        {state.error && (
-          <HStack aria-live="polite" id={id}>
-            <CircleAlertIcon size={16} />
-            <Text size="sm">{state.message}</Text>
+    <VStack alignItems="start">
+      <Text as="h1" display size="lg">
+        Request CV
+      </Text>
+      <Form action={action}>
+        <VStack alignItems="start">
+          <HStack alignItems="end" gap={0}>
+            <TextInput
+              aria-describedby={id}
+              autoComplete="email"
+              label="Email"
+              name="email"
+              placeholder="jacob@lapworth.nz"
+              required
+              type="email"
+            />
+            <SubmitButton>Get CV</SubmitButton>
           </HStack>
-        )}
-      </VStack>
-    </Form>
+          {state.error && (
+            <HStack aria-live="polite" id={id}>
+              <CircleAlertIcon size={16} />
+              <Text size="sm">{state.message}</Text>
+            </HStack>
+          )}
+        </VStack>
+      </Form>
+    </VStack>
   )
 }
