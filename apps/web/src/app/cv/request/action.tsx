@@ -42,11 +42,12 @@ export async function requestCv(
 
   await track('request-cv', { email })
 
+  const filename = 'Jacob-Lapworth_CV.pdf'
   const { error } = await resend.emails.send({
     attachments: [
       {
-        filename: 'JacobLapworth_CV.pdf',
-        path: `http://${process.env.VERCEL_URL}/JacobLapworth_CV.pdf`,
+        filename,
+        path: `https://${process.env.VERCEL_URL}/${filename}`,
       },
     ],
     from: 'Lapworth.nz <hello@lapworth.nz>',
