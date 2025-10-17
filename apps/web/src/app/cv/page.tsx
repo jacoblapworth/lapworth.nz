@@ -1,42 +1,49 @@
-'use client'
-
-import { CircleAlertIcon } from 'lucide-react'
-import { useActionState, useId } from 'react'
-import { Form } from '@/components/Form'
-import { SubmitButton } from '@/components/SubmitButton'
-import { TextInput } from '@/components/TextInput'
+import { LinkButton } from '@/components/Button'
+import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
-import { HStack, VStack } from '@/styled/jsx'
-import { type FormState, requestCv } from './action'
+import { styled, VStack } from '@/styled/jsx'
+import { experience } from './experience'
+import { ExperienceListItem } from './experience-list-item'
 
-const initialState: FormState = {}
+const Container = styled('div', {
+  base: {
+    columnGap: 32,
+    display: 'grid',
+    md: {
+      gridTemplateAreas: '"title details"',
+      gridTemplateColumns: 'auto 1fr',
+    },
+    rowGap: 32,
+  },
+})
 
-export default function Page() {
-  const id = useId()
-  const [state, action] = useActionState(requestCv, initialState)
-
+export default async function Page() {
   return (
-    <Form action={action}>
-      <VStack alignItems="start">
-        <HStack alignItems="end" gap={0}>
-          <TextInput
-            aria-describedby={id}
-            autoComplete="email"
-            label="Email"
-            name="email"
-            placeholder="jacob@lapworth.nz"
-            required
-            type="email"
-          />
-          <SubmitButton>Get CV</SubmitButton>
-        </HStack>
-        {state.error && (
-          <HStack aria-live="polite" id={id}>
-            <CircleAlertIcon size={16} />
-            <Text size="sm">{state.message}</Text>
-          </HStack>
-        )}
+    <Container>
+      <VStack alignItems="start" gap={16} gridColumn="1/-1">
+        <VStack alignItems="start" gap={0}>
+          <Text as="h1" display size="xl">
+            CV
+          </Text>
+          <Text size="lg">Jacob Lapworth</Text>
+          <Text size="sm">
+            <Link href="mailto:jacob@lapworth.nz">jacob@lapworth.nz</Link>
+          </Text>
+          <Text size="sm">
+            <Link href="tel:+447949536308">(+44) 7949 536308</Link>
+          </Text>
+          <Text size="sm">
+            <Link href="tel:+64277271661">(+64) 27 727 1661</Link>
+          </Text>
+          <Text size="sm">Currently in London</Text>
+        </VStack>
+        <LinkButton href="/cv/download" prefetch={false} size="sm">
+          Download
+        </LinkButton>
       </VStack>
-    </Form>
+      {experience.map((item) => (
+        <ExperienceListItem item={item} key={item.company.title} />
+      ))}
+    </Container>
   )
 }

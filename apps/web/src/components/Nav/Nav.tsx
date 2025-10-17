@@ -62,7 +62,7 @@ const socialLinks = [
     name: 'Email',
   },
   {
-    href: '/cv',
+    href: '/cv/request',
     name: 'CV',
   },
 ]

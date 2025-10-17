@@ -64,6 +64,9 @@ const styles = cva({
     size: 'md',
   },
   variants: {
+    bold: {
+      true: { fontWeight: '600' },
+    },
     display: {
       true: {},
     },
@@ -76,7 +79,7 @@ const styles = cva({
     size: {
       lg: {
         fontSize: '2rem',
-        lineHeight: '2rem',
+        lineHeight: '2.4rem',
       },
       md: {
         fontSize: '1rem',
@@ -84,6 +87,7 @@ const styles = cva({
       },
       sm: {
         fontSize: '0.8rem',
+        lineHeight: '1.2rem',
       },
       xl: {
         fontSize: '3rem',
