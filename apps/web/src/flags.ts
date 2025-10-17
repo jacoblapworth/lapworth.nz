@@ -1,4 +1,3 @@
-import { postHogAdapter } from '@flags-sdk/posthog'
 import { flag } from 'flags/next'
 import { cookies } from 'next/headers'
 

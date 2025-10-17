@@ -8,11 +8,11 @@
   "name": "worker",
   "private": true,
   "scripts": {
-    "typegen": "wrangler types",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "start": "wrangler dev",
     "test": "vitest",
+    "typegen": "wrangler types",
     "types:check": "tsc --noEmit"
   }
 }

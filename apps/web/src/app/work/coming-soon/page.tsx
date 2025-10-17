@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { EmailSubscribe } from '@/components/EmailSubscribe'
+import { EmailSubscribe } from '@/app/work/coming-soon/email-subscribe'
 import { Text } from '@/components/Typography'
 import { Stack } from '@/styled/jsx'
 

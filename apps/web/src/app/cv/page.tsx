@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { LinkButton } from '@/components/Button'
 import { Link } from '@/components/Link'
 import { Text } from '@/components/Typography'
@@ -16,6 +17,11 @@ const Container = styled('div', {
     rowGap: 32,
   },
 })
+
+export const metadata: Metadata = {
+  description: 'Lead product designer and design engineer',
+  title: 'CV',
+}
 
 export default async function Page() {
   return (

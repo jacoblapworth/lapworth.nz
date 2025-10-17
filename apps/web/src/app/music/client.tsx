@@ -1,4 +1,3 @@
-import packageJson from 'package.json'
 import { useEffect, useState } from 'react'
 
 const isDebug = process.env.NODE_ENV !== 'production'
@@ -24,10 +23,10 @@ export function useAppleMusic(developerToken: string) {
       const instance = MusicKit.configure({
         app: {
           debug: isDebug,
-          icon: `${BASE_URL}/static/jacob-icon.png`,
+          icon: `${BASE_URL}/jacob-icon.png`,
           name: 'Lapworth.nz',
           suppressErrorDialog: !isDebug,
-          version: packageJson.version,
+          version: '1',
         },
         developerToken,
       })

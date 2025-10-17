@@ -20,6 +20,7 @@ export const xero: ExperienceItem = {
   },
   details: [
     'Scaled the design system at Xero to support over 200 designers, 1,000 engineers and 100 product teams. (Figma, Typescript, React, SASS)',
+    'WCAG 2.1 AA compliance across Xero’s web products, ensuring accessibility for millions of customers worldwide through inclusive design and development practices. Identified and resolved key accessibility issues through audits, user testing and training.',
     'Developed Design Tokens to support a complete redesign of Xero’s product, delivering on brand promises in marketing and enabling a cohesive experience across web and mobile platforms.',
     'Redesigned advanced tables across Xero for viewing, filtering and editing, empowering customers to easily scan, compare, and interact with their wealth of financial data. Led engineering feasibility through coded prototyping.',
     'Iterative prototyping-lead design of dashboard and widgets for a reimagined homepage experience, the landing page for millions of Xero’s customers.',

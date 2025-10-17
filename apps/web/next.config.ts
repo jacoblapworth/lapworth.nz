@@ -32,7 +32,7 @@ const config: NextConfig = {
     ],
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  reactCompiler: false,
+  reactCompiler: true,
   reactStrictMode: true,
 }
 
@@ -55,7 +55,7 @@ export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
     sourcemaps: {
       deleteSourcemapsAfterUpload: true,
     },
-    tunnelRoute: '/monitoring',
+    tunnelRoute: true,
     widenClientFileUpload: true,
   }),
 )

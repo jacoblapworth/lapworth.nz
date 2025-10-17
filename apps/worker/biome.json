@@ -1,7 +1,14 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
+  "$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
   "extends": "//",
   "files": {
-    "includes": ["!worker-configuration.d.ts", "src/**", "wrangler.jsonc"]
+    "includes": [
+      "*.ts",
+      "!worker-configuration.d.ts",
+      "src/**",
+      "wrangler.jsonc",
+      "*.json",
+      "test/**"
+    ]
   }
 }

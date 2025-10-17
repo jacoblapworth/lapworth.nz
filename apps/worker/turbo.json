@@ -3,9 +3,9 @@
   "extends": ["//"],
   "tasks": {
     "dev": {
-      "persistent": true,
       "cache": false,
-      "dependsOn": ["^dev", "typegen"]
+      "dependsOn": ["^dev", "typegen"],
+      "persistent": true
     },
     "typegen": {
       "dependsOn": ["^typegen"],
