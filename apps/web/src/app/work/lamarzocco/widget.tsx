@@ -1,15 +1,16 @@
 'use client'
-
 import {
   TooltipAnchor,
   TooltipArrow,
   TooltipProvider,
   VisuallyHidden,
 } from '@ariakit/react'
+import { addSeconds, isFuture } from 'date-fns'
 import { PowerIcon } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import NextImage from 'next/image'
-import { useEffect, useState } from 'react'
+import { useFormatter, useNow } from 'next-intl'
+import { useCallback, useRef, useState } from 'react'
 import { Tooltip } from '@/components/Tooltip'
 import { cva } from '@/styled/css'
 import { Box, HStack, styled, VStack } from '@/styled/jsx'
@@ -68,17 +69,43 @@ const State = {
 }
 
 export function LaMarzoccoWidget() {
+  const WARMUP_DURATION_SECONDS = 5
   const [state, setState] = useState<State>('off')
   const { subtitle, title } = State[state]
   const [showTooltip, setShowTooltip] = useState(true)
+  const [readyTime, setReadyTime] = useState<Date | null>(null)
+  const now = useNow({
+    updateInterval: 1000,
+  })
+  const format = useFormatter()
   const isOn = ['on', 'heating-up'].includes(state)
+  const timeout = useRef<NodeJS.Timeout | null>(null)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
+  const startHeating = useCallback(() => {
+    timeout.current = setTimeout(() => {
+      console.log('timeout fired')
+      setReadyTime(null)
       setState('on')
-    }, 1000)
-    return () => clearTimeout(timer)
+    }, WARMUP_DURATION_SECONDS * 1000)
   }, [])
+
+  const onPowerToggle = () => {
+    setShowTooltip(false)
+
+    if (state === 'off') {
+      const ready = addSeconds(now, WARMUP_DURATION_SECONDS)
+      setReadyTime(ready)
+      setState('heating-up')
+      startHeating()
+    } else {
+      if (timeout.current) {
+        clearTimeout(timeout.current)
+        timeout.current = null
+      }
+      setState('off')
+      setReadyTime(null)
+    }
+  }
 
   return (
     <HStack
@@ -134,7 +161,10 @@ export function LaMarzoccoWidget() {
                 key={state}
                 transition={{ duration: 1 }}
               >
-                {subtitle}
+                {readyTime && isFuture(readyTime)
+                  ? `Ready ${format.relativeTime(readyTime, now)}`
+                  : null}
+                {/* {getSubtitle()} */}
               </motion.div>
             </Box>
           </AnimatePresence>
@@ -145,10 +175,7 @@ export function LaMarzoccoWidget() {
           render={
             <motion.button
               className={PowerButtonStyles({ isOn })}
-              onClick={() => {
-                setShowTooltip(false)
-                setState((v) => (v !== 'off' ? 'off' : 'heating-up'))
-              }}
+              onClick={onPowerToggle}
             />
           }
         >

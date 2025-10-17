@@ -21,7 +21,8 @@ async function identify() {
 }
 
 export const devmode = flag({
-  adapter: postHogAdapter.isFeatureEnabled(),
+  decide: () => false,
+  defaultValue: false,
   description: 'Enable devmode features',
   identify,
   key: 'devmode',
@@ -29,18 +30,21 @@ export const devmode = flag({
 
 export const showWork = flag({
   decide: () => true,
+  defaultValue: true,
   identify,
   key: 'enable-work',
 })
 
 export const enableFood = flag({
   decide: () => true,
+  defaultValue: true,
   identify,
   key: 'enable-food',
 })
 
 export const enableDrafts = flag({
-  adapter: postHogAdapter.isFeatureEnabled(),
+  decide: () => false,
+  defaultValue: false,
   identify,
   key: 'enable-drafts',
 })
