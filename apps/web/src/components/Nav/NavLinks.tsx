@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { ArrowRightIcon } from 'lucide-react'
+import { motion } from 'motion/react'
 import NextLink, { type LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 import { type ReactNode, useState } from 'react'
