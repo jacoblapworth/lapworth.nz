@@ -48,8 +48,8 @@ importers:
         specifier: 3.1.1
         version: 3.1.1(@types/react@19.2.2)(react@19.2.0)
       '@next/mdx':
-        specifier: 16.0.0-beta.0
-        version: 16.0.0-beta.0(@mdx-js/loader@3.1.1(webpack@5.99.9(esbuild@0.25.10)))(@mdx-js/react@3.1.1(@types/react@19.2.2)(react@19.2.0))
+        specifier: 16.0.0-canary.6
+        version: 16.0.0-canary.6(@mdx-js/loader@3.1.1(webpack@5.99.9(esbuild@0.25.10)))(@mdx-js/react@3.1.1(@types/react@19.2.2)(react@19.2.0))
       '@number-flow/react':
         specifier: 0.5.10
         version: 0.5.10(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -1215,8 +1215,8 @@ packages:
   '@next/env@16.0.0-canary.6':
     resolution: {integrity: sha512-os+eVGKISkQsyrM0S0hj57rJPqNYxKL7YOMreTt3BElE04wROaw+SSDitr2TBQG7qJ2MOu+NhMOy56aVtS0gLA==}
 
-  '@next/mdx@16.0.0-beta.0':
-    resolution: {integrity: sha512-RdeGCzANRJG7rL1/ozMexdLeYUUFuR/n/busiDYaoIJyYXLexViS5NT8hIEQlfIuPRyFnsBe0bssK3TDlzQOvA==}
+  '@next/mdx@16.0.0-canary.6':
+    resolution: {integrity: sha512-C1f6Glvn9vBEJL5k/eVO35kWMkw0CJSY+VUMAKyCFxEi32k/vA3pzWi3NBT614Mnc0oVerO0rwtdZENd7/20eA==}
     peerDependencies:
       '@mdx-js/loader': '>=0.15.0'
       '@mdx-js/react': '>=0.15.0'
@@ -7419,7 +7419,7 @@ snapshots:
 
   '@next/env@16.0.0-canary.6': {}
 
-  '@next/mdx@16.0.0-beta.0(@mdx-js/loader@3.1.1(webpack@5.99.9(esbuild@0.25.10)))(@mdx-js/react@3.1.1(@types/react@19.2.2)(react@19.2.0))':
+  '@next/mdx@16.0.0-canary.6(@mdx-js/loader@3.1.1(webpack@5.99.9(esbuild@0.25.10)))(@mdx-js/react@3.1.1(@types/react@19.2.2)(react@19.2.0))':
     dependencies:
       source-map: 0.7.6
     optionalDependencies:
