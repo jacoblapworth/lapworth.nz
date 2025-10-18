@@ -12,8 +12,8 @@ import NextImage from 'next/image'
 import { useFormatter, useNow } from 'next-intl'
 import { useCallback, useRef, useState } from 'react'
 import { Tooltip } from '@/components/Tooltip'
-import { cva } from '@/styled/css'
-import { Box, HStack, styled, VStack } from '@/styled/jsx'
+import { css, cva } from '@/styled/css'
+import { HStack, styled } from '@/styled/jsx'
 import { Logo } from './logo'
 import MicraStainlessFront from './micra-stainless-front.png'
 
@@ -64,12 +64,12 @@ const State = {
   },
   on: {
     subtitle: 'Turning off in 2 minutes',
-    title: 'Heating Up',
+    title: 'Ready',
   },
 }
 
 export function LaMarzoccoWidget() {
-  const WARMUP_DURATION_SECONDS = 5
+  const WARMUP_DURATION_SECONDS = 10
   const [state, setState] = useState<State>('off')
   const { title } = State[state]
   const [showTooltip, setShowTooltip] = useState(true)
@@ -82,20 +82,20 @@ export function LaMarzoccoWidget() {
   const timeout = useRef<NodeJS.Timeout | null>(null)
 
   const startHeating = useCallback(() => {
+    const ready = addSeconds(now, WARMUP_DURATION_SECONDS)
+    setReadyTime(ready)
+    setState('heating-up')
+
     timeout.current = setTimeout(() => {
-      console.log('timeout fired')
       setReadyTime(null)
       setState('on')
     }, WARMUP_DURATION_SECONDS * 1000)
-  }, [])
+  }, [timeout, now])
 
   const onPowerToggle = () => {
     setShowTooltip(false)
 
     if (state === 'off') {
-      const ready = addSeconds(now, WARMUP_DURATION_SECONDS)
-      setReadyTime(ready)
-      setState('heating-up')
       startHeating()
     } else {
       if (timeout.current) {
@@ -110,12 +110,19 @@ export function LaMarzoccoWidget() {
   return (
     <HStack
       alignItems="start"
-      backgroundColor="#F1F0E4"
-      borderColor="#E3E3DB"
+      backgroundColor="background"
+      borderColor="border"
       borderRadius={40}
       borderStyle="solid"
       borderWidth={1}
       boxShadow="rgba(0, 0, 0, 0.05) 0px 1px 2px 0px"
+      css={{
+        '--colors-accent': isOn ? '#7F0000' : '#E3E3DB',
+        '--colors-background': { _dark: '#3D3A38', base: '#F1F0E4' },
+        '--colors-border': { _dark: '#211F14', base: '#E3E3DB' },
+        '--colors-primary': { _dark: '#E3E3DB', base: '#211F14' },
+        '--colors-secondary': { _dark: '#F1F0E4', base: '#B0B0A4' },
+      }}
       gap={32}
       height={245}
       padding={24}
@@ -126,55 +133,85 @@ export function LaMarzoccoWidget() {
         objectFit="contain"
         src={MicraStainlessFront}
       />
-      <VStack
-        alignItems="start"
-        flexGrow={2}
-        height="100%"
-        justifyContent="space-between"
+      <motion.div
+        className={css({
+          alignItems: 'start',
+          display: 'flex',
+          flexDirection: 'column',
+          flexGrow: 2,
+          height: '100%',
+          justifyContent: 'space-between',
+        })}
+        layout
       >
-        <Logo color="#9C9B90" height={40} />
-        <VStack alignItems="start" gap={2} lineHeight="1">
-          <Box
-            color="#B0B0A4"
-            fontSize={18}
-            fontVariationSettings='"wdth" 115'
-            fontWeight={600}
-            textTransform="uppercase"
+        <motion.div>
+          <Logo color="#9C9B90" height={40} />
+        </motion.div>
+        <motion.div
+          className={css({
+            alignItems: 'start',
+            display: 'flex',
+            flexDirection: 'column',
+            lineHeight: '1',
+          })}
+          layout
+        >
+          <motion.div
+            className={css({
+              color: 'secondary',
+              fontSize: 18,
+              fontVariationSettings: '"wdth" 115',
+              fontWeight: 600,
+              textTransform: 'uppercase',
+            })}
+            layout
           >
             Linea Micra
-          </Box>
-          <Box
-            color="#211F14"
-            fontSize={39}
-            fontVariationSettings='"wdth" 50'
-            fontWeight={700}
-            textTransform="uppercase"
+          </motion.div>
+          <motion.div
+            animate={{ opacity: 1, scale: 1 }}
+            className={css({
+              color: 'primary',
+              fontSize: 39,
+              fontVariationSettings: '"wdth" 50',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+            })}
+            exit={{ opacity: 0, scale: 0.5 }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            key={`${state}-title`}
+            layout
+            transition={{ duration: 0.2 }}
           >
             {title}
-          </Box>
-
+          </motion.div>
           <AnimatePresence>
-            <Box color="#211F14" fontWeight={500}>
-              <motion.div
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                key={state}
-                transition={{ duration: 1 }}
-              >
-                {readyTime && isFuture(readyTime)
-                  ? `Ready ${format.relativeTime(readyTime, now)}`
-                  : null}
-              </motion.div>
-            </Box>
+            <motion.div
+              animate={{ opacity: 1 }}
+              className={css({
+                color: 'primary',
+                fontVariantNumeric: 'tabular-nums',
+                fontWeight: 500,
+              })}
+              exit={{ height: 0, opacity: 0 }}
+              initial={{ opacity: 0 }}
+              key={`${state}-subtitle`}
+              transition={{ duration: 0.2 }}
+            >
+              {readyTime && isFuture(readyTime)
+                ? `Ready ${format.relativeTime(readyTime, now)}`
+                : null}
+            </motion.div>
           </AnimatePresence>
-        </VStack>
-      </VStack>
+        </motion.div>
+      </motion.div>
       <TooltipProvider open={showTooltip}>
         <TooltipAnchor
           render={
             <motion.button
               className={PowerButtonStyles({ isOn })}
               onClick={onPowerToggle}
+              whileTap={{ scale: 0.95 }}
             />
           }
         >
