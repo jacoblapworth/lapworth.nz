@@ -22,7 +22,7 @@
     "flags": "4.0.1",
     "got": "14.5.0",
     "gray-matter": "4.0.3",
-    "import-in-the-middle": "1.15.0",
+    "import-in-the-middle": "2.0.0",
     "jose": "6.1.0",
     "klaviyo-api": "19.0.2",
     "lucide-react": "0.545.0",
