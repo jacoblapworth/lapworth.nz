@@ -69,19 +69,23 @@ export function dateFilterFn<TData extends RowData>(
   inputData: Date,
   filterValue: FilterModel<'date'>,
 ) {
-  if (!filterValue || filterValue.values.length === 0) return true
+  if (!filterValue || filterValue.values.length === 0) {
+    return true
+  }
 
   if (
     dateFilterOperators[filterValue.operator].target === 'single' &&
     filterValue.values.length > 1
-  )
+  ) {
     throw new Error('Singular operators require at most one filter value')
+  }
 
   if (
     filterValue.operator in ['is between', 'is not between'] &&
     filterValue.values.length !== 2
-  )
+  ) {
     throw new Error('Plural operators require two filter values')
+  }
 
   const filterVals = filterValue.values
   const d1 = filterVals[0]
