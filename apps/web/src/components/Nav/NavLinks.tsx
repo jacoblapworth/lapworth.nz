@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { ArrowRightIcon } from 'lucide-react'
+import { motion } from 'motion/react'
 import NextLink, { type LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 import { type ReactNode, useState } from 'react'
@@ -37,6 +37,7 @@ const A = styled(NextLink, {
     display: 'flex',
     justifyContent: 'space-between',
     paddingBlock: 8,
+    paddingInlineEnd: 8,
     position: 'relative',
     textDecoration: 'none',
   },
@@ -83,12 +84,7 @@ const NavLink = ({ children, href }: Props) => {
       onPointerOver={onPointerOver}
     >
       {children}
-      <motion.div
-        animate={animate}
-        initial="hidden"
-        style={{ marginInlineEnd: 8 }}
-        variants={variants}
-      >
+      <motion.div animate={animate} initial="hidden" variants={variants}>
         <ArrowRightIcon />
       </motion.div>
     </A>

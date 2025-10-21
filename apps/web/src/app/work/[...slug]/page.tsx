@@ -5,6 +5,7 @@ import { MDXContent } from '@/components/MDXContent'
 import { Text } from '@/components/Typography'
 import { work } from '@/content'
 import { HStack, VStack } from '@/styled/jsx'
+import { LaMarzoccoWidget } from '../lamarzocco/widget'
 import { TabsExample } from '../vend/tabs/VendTabs'
 import * as Principles from '../xero/principles/principles'
 
@@ -59,7 +60,7 @@ export default async function Page({ params }: Props) {
         )}
       </VStack>
       <MDXContent
-        components={{ TabsExample, ...Principles }}
+        components={{ LaMarzoccoWidget, TabsExample, ...Principles }}
         mdx={post.content}
       />
     </>

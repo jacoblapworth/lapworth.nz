@@ -1,4 +1,3 @@
-import { postHogAdapter } from '@flags-sdk/posthog'
 import { flag } from 'flags/next'
 import { cookies } from 'next/headers'
 import { env } from '@/lib/env'
@@ -22,12 +21,14 @@ async function identify() {
 
 export const devmode = flag({
   decide: () => false,
+  defaultValue: false,
   description: 'Enable devmode features',
   key: 'devmode',
 })
 
 export const showWork = flag({
   decide: () => true,
+  defaultValue: true,
   description: 'Show work pages',
   identify,
   key: 'enable-work',
@@ -35,6 +36,7 @@ export const showWork = flag({
 
 export const enableFood = flag({
   decide: () => true,
+  defaultValue: true,
   description: 'Show food pages',
   identify,
   key: 'enable-food',
@@ -42,6 +44,7 @@ export const enableFood = flag({
 
 export const enableDrafts = flag({
   decide: () => false,
+  defaultValue: false,
   description: 'Show draft articles',
   identify,
   key: 'enable-drafts',

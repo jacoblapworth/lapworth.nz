@@ -1,13 +1,8 @@
 'use client'
 
 import * as Ariakit from '@ariakit/react'
-import {
-  type MotionValue,
-  motion,
-  useScroll,
-  useTransform,
-} from 'framer-motion'
 import { ChevronDownIcon } from 'lucide-react'
+import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import { Lato } from 'next/font/google'
 import { type ComponentProps, type ReactNode, useRef, useState } from 'react'
 import { ResponsivePreview } from '@/components/Preview'

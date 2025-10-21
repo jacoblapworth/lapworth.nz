@@ -11,7 +11,8 @@
     "enabled": true
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": ["**/*", "!next-env.d.ts"]
   },
   "formatter": {
     "attributePosition": "auto",

@@ -29,7 +29,7 @@ export const config = {
   runtime: 'nodejs',
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   if (await shouldRedirectWorkComingSoon(request)) {
     return NextResponse.redirect(new URL(`/work/coming-soon`, request.url))
   }

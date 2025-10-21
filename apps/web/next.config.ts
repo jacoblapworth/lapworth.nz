@@ -10,9 +10,6 @@ const withVercelToolbar = createWithVercelToolbar()
 const withNextIntl = createNextIntlPlugin()
 
 const config: NextConfig = {
-  experimental: {
-    reactCompiler: false,
-  },
   images: {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -36,6 +33,7 @@ const config: NextConfig = {
     ],
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  reactCompiler: true,
   reactStrictMode: true,
 }
 
@@ -58,7 +56,7 @@ export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
     sourcemaps: {
       deleteSourcemapsAfterUpload: true,
     },
-    tunnelRoute: '/monitoring',
+    tunnelRoute: true,
     widenClientFileUpload: true,
   }),
 )

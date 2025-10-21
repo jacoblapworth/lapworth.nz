@@ -1,19 +1,19 @@
 {
   "devDependencies": {
     "@biomejs/biome": "2.2.5",
-    "@cloudflare/vitest-pool-workers": "^0.8.19",
+    "@cloudflare/vitest-pool-workers": "^0.9.13",
     "typescript": "^5.5.2",
     "vitest": "~3.2.0",
-    "wrangler": "^4.42.2"
+    "wrangler": "^4.43.0"
   },
   "name": "worker",
   "private": true,
   "scripts": {
-    "typegen": "wrangler types",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "start": "wrangler dev",
     "test": "vitest",
+    "typegen": "wrangler types",
     "types:check": "tsc --noEmit"
   }
 }

@@ -3,10 +3,10 @@
 import Form from 'next/form'
 import { useActionState, useId } from 'react'
 
-import { type FormState, subscribeEmail } from '@/actions/subscribe'
+import { type FormState, subscribeEmail } from '@/app/work/coming-soon/action'
+import { SubmitButton } from '@/components/SubmitButton'
+import { TextInput } from '@/components/TextInput'
 import { HStack } from '@/styled/jsx'
-import { SubmitButton } from './SubmitButton'
-import { TextInput } from './TextInput'
 
 const initialState: FormState = {
   message: null,

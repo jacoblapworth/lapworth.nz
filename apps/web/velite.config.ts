@@ -7,6 +7,7 @@ import {
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypePrettyCode } from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
+import rehypeUnwrapImages from 'rehype-unwrap-images'
 import remarkGfm from 'remark-gfm'
 
 import { defineCollection, defineConfig, s } from 'velite'
@@ -106,6 +107,7 @@ export default defineConfig({
           ],
         },
       ],
+      [rehypeUnwrapImages],
       [rehypeSlug],
       [
         rehypeAutolinkHeadings,
