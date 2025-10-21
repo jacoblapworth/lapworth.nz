@@ -15,9 +15,16 @@ export function createNumberFilterValue(
   values: number[] | undefined,
 ): number[] {
   if (!values || values.length === 0) return []
-  if (values.length === 1) return [values[0]]
+  if (values.length === 1) {
+    const v0 = values[0]
+    if (v0 === undefined) return []
+    return [v0]
+  }
   if (values.length === 2) return createNumberRange(values)
-  return [values[0], values[1]]
+  const v0 = values[0]
+  const v1 = values[1]
+  if (v0 === undefined || v1 === undefined) return []
+  return [v0, v1]
 }
 
 export function createDateFilterValue(
@@ -42,10 +49,15 @@ export function createNumberRange(values: number[] | undefined) {
 
   if (!values || values.length === 0) return [a, b]
   if (values.length === 1) {
-    a = values[0]
+    const v0 = values[0]
+    if (v0 === undefined) return [a, b]
+    a = v0
   } else {
-    a = values[0]
-    b = values[1]
+    const v0 = values[0]
+    const v1 = values[1]
+    if (v0 === undefined || v1 === undefined) return [a, b]
+    a = v0
+    b = v1
   }
 
   const [min, max] = a < b ? [a, b] : [b, a]

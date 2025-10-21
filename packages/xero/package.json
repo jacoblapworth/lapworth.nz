@@ -24,7 +24,7 @@
     "@types/node": "24.7.2",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.1",
-    "typescript": "5.9.3"
+    "typescript": "catalog:"
   },
   "exports": {
     "./*": "./src/components/*.tsx",
@@ -36,7 +36,8 @@
     "css:watch": "panda cssgen --watch --outfile dist/styles.css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tokens": "panda codegen",
-    "tokens:watch": "panda codegen --watch"
+    "tokens:watch": "panda codegen --watch",
+    "types:check": "tsc --noEmit"
   },
   "type": "module"
 }

@@ -8,7 +8,7 @@ import { AddFilterMenu } from './FiltersAddMenu'
 export interface Filter {
   id: string
   label: string
-  values: { id: string; label: string }[]
+  values?: { id: string; label: string }[]
   operators?: { id: string; label: string }[]
 }
 

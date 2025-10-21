@@ -1,4 +1,4 @@
-import type { RowData } from '@tanstack/react-table'
+// RowData import removed - not needed in these helper functions
 import {
   endOfDay,
   isAfter,
@@ -11,7 +11,7 @@ import { dateFilterOperators } from '../core/operators'
 import type { FilterModel } from '../core/types'
 import { intersection } from './array'
 
-export function optionFilterFn<TData extends RowData>(
+export function optionFilterFn(
   inputData: string,
   filterValue: FilterModel<'option'>,
 ) {
@@ -30,6 +30,7 @@ export function optionFilterFn<TData extends RowData>(
     case 'is none of':
       return !found
   }
+  return true
 }
 
 export function multiOptionFilterFn(
@@ -63,9 +64,10 @@ export function multiOptionFilterFn(
         intersection(values, filterValues).length === filterValues.length
       )
   }
+  return true
 }
 
-export function dateFilterFn<TData extends RowData>(
+export function dateFilterFn(
   inputData: Date,
   filterValue: FilterModel<'date'>,
 ) {
@@ -81,15 +83,17 @@ export function dateFilterFn<TData extends RowData>(
   }
 
   if (
-    filterValue.operator in ['is between', 'is not between'] &&
+    ['is between', 'is not between'].includes(filterValue.operator) &&
     filterValue.values.length !== 2
   ) {
     throw new Error('Plural operators require two filter values')
   }
 
   const filterVals = filterValue.values
+  if (!filterVals || filterVals.length === 0) return true
   const d1 = filterVals[0]
   const d2 = filterVals[1]
+  if (!d1) return true
 
   const value = inputData
 
@@ -107,26 +111,30 @@ export function dateFilterFn<TData extends RowData>(
     case 'is on or before':
       return isSameDay(value, d1) || isBefore(value, startOfDay(d1))
     case 'is between':
+      if (!d2) return true
       return isWithinInterval(value, {
         end: endOfDay(d2),
         start: startOfDay(d1),
       })
     case 'is not between':
+      if (!filterValue.values[1] || !filterValue.values[0]) return true
       return !isWithinInterval(value, {
         end: endOfDay(filterValue.values[1]),
         start: startOfDay(filterValue.values[0]),
       })
   }
+  return true
 }
 
-export function textFilterFn<TData>(
+export function textFilterFn(
   inputData: string,
   filterValue: FilterModel<'text'>,
 ) {
   if (!filterValue || filterValue.values.length === 0) return true
 
   const value = inputData.toLowerCase().trim()
-  const filterStr = filterValue.values[0].toLowerCase().trim()
+  if (!filterValue.values || filterValue.values.length === 0) return true
+  const filterStr = (filterValue.values[0] as string).toLowerCase().trim()
 
   if (filterStr === '') return true
 
@@ -138,9 +146,10 @@ export function textFilterFn<TData>(
     case 'does not contain':
       return !found
   }
+  return true
 }
 
-export function numberFilterFn<TData>(
+export function numberFilterFn(
   inputData: number,
   filterValue: FilterModel<'number'>,
 ) {
@@ -150,6 +159,7 @@ export function numberFilterFn<TData>(
 
   const value = inputData
   const filterVal = filterValue.values[0]
+  if (filterVal === undefined) return true
 
   switch (filterValue.operator) {
     case 'is':
@@ -167,11 +177,13 @@ export function numberFilterFn<TData>(
     case 'is between': {
       const lowerBound = filterValue.values[0]
       const upperBound = filterValue.values[1]
+      if (lowerBound === undefined || upperBound === undefined) return true
       return value >= lowerBound && value <= upperBound
     }
     case 'is not between': {
       const lowerBound = filterValue.values[0]
       const upperBound = filterValue.values[1]
+      if (lowerBound === undefined || upperBound === undefined) return true
       return value < lowerBound || value > upperBound
     }
     default:
