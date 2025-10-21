@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "@biomejs/biome": "2.2.5",
+    "@biomejs/biome": "catalog:",
     "@cloudflare/vitest-pool-workers": "^0.9.13",
     "typescript": "catalog:",
     "vitest": "catalog:",
@@ -11,6 +11,7 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
+    "format": "biome check --write",
     "start": "wrangler dev",
     "test": "vitest",
     "typegen": "wrangler types",

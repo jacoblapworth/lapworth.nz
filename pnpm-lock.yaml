@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@biomejs/biome':
+      specifier: 2.2.5
+      version: 2.2.5
     '@types/react':
       specifier: 19.2.2
       version: 19.2.2
@@ -222,6 +225,9 @@ importers:
         specifier: 4.1.12
         version: 4.1.12
     devDependencies:
+      '@biomejs/biome':
+        specifier: 'catalog:'
+        version: 2.2.5
       '@next/bundle-analyzer':
         specifier: 16.0.0-beta.0
         version: 16.0.0-beta.0
@@ -286,7 +292,7 @@ importers:
   apps/worker:
     devDependencies:
       '@biomejs/biome':
-        specifier: 2.2.5
+        specifier: 'catalog:'
         version: 2.2.5
       '@cloudflare/vitest-pool-workers':
         specifier: ^0.9.13
@@ -347,7 +353,7 @@ importers:
         version: 0.0.2
     devDependencies:
       '@biomejs/biome':
-        specifier: 2.2.5
+        specifier: 'catalog:'
         version: 2.2.5
       '@pandacss/dev':
         specifier: 1.4.1
