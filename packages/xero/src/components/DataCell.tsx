@@ -3,9 +3,9 @@ import { styled } from '@/styled/jsx'
 const Container = styled('div', {
   base: {
     alignItems: 'center',
-    display: 'flex',
+    display: 'grid',
     flexGrow: 1,
-    justifyContent: 'stretch',
+    justifyContent: 'flex-start',
     minWidth: 0,
     truncate: true,
   },
@@ -29,7 +29,10 @@ const Container = styled('div', {
         paddingInline: 6,
         truncate: true,
       },
-      display: {},
+      display: {
+        justifyContent: 'stretch',
+        placeItems: 'stretch',
+      },
     },
   },
 })

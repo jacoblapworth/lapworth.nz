@@ -263,7 +263,10 @@ export function TableHeadCell<TData extends RowData, TValue>({
         width: `var(--column-${column.id}-size)`,
       }}
     >
-      <DataCell>
+      <DataCell
+        alignment={column.columnDef.meta?.alignment}
+        variant={isDisplay ? 'display' : 'accessor'}
+      >
         {isDisplay ? (
           children
         ) : (
@@ -437,7 +440,7 @@ export function TableCell<TData extends RowData, TValue>({
   const isLastRightPinnedColumn =
     isPinned === 'right' && cell.column.getIsLastColumn('right')
   const showOverflow = isLastLeftPinnedColumn || isLastRightPinnedColumn
-
+  const isDisplay = !cell.column.accessorFn
   const isSelected = cell.row.getIsSelected()
 
   return (
@@ -451,7 +454,10 @@ export function TableCell<TData extends RowData, TValue>({
         // width: cell.column.getSize(),
       }}
     >
-      <DataCell>
+      <DataCell
+        alignment={cell.column.columnDef.meta?.alignment}
+        variant={isDisplay ? 'display' : 'accessor'}
+      >
         {cell.getIsAggregated()
           ? flexRender(cell.column.columnDef.aggregatedCell, cell.getContext())
           : flexRender(cell.column.columnDef.cell, cell.getContext())}

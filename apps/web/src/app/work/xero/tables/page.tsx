@@ -1,24 +1,18 @@
 'use client'
 
-import { CheckboxProvider } from '@ariakit/react'
 import { CurrencyCell, DateCell } from '@lapworth/xero/Cells'
-import { Checkbox } from '@lapworth/xero/Checkbox'
 import { footer } from '@lapworth/xero/ColumnHelper'
-import { DataCell } from '@lapworth/xero/DataCell'
 import { Table, useTable } from '@lapworth/xero/Table'
 import { Tag } from '@lapworth/xero/Tag'
 import {
   type ColumnFiltersState,
   createColumnHelper,
-  type HeaderContext,
 } from '@tanstack/react-table'
 import { CheckCircleIcon, TrashIcon } from 'lucide-react'
 import { useState } from 'react'
-import { Box } from '@/styled/jsx'
 import { initialData } from './data'
 import { getInvoiceStatus, type InvoiceRow } from './model'
 import '@lapworth/xero/styles.css'
-
 import * as Ariakit from '@ariakit/react'
 
 const columnHelper = createColumnHelper<InvoiceRow>()
