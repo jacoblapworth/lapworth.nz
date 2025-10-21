@@ -24,6 +24,12 @@ catalogs:
     react-dom:
       specifier: 19.2.0
       version: 19.2.0
+    typescript:
+      specifier: 5.9.3
+      version: 5.9.3
+    vitest:
+      specifier: 3.2.4
+      version: 3.2.4
 
 importers:
 
@@ -271,7 +277,7 @@ importers:
         specifier: 3.6.2
         version: 3.6.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
       velite:
         specifier: 0.3.0
@@ -286,10 +292,10 @@ importers:
         specifier: ^0.9.13
         version: 0.9.14(@vitest/runner@3.2.4)(@vitest/snapshot@3.2.4)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.25.1)(terser@5.44.0)(yaml@2.8.1))
       typescript:
-        specifier: ^5.5.2
+        specifier: 'catalog:'
         version: 5.9.3
       vitest:
-        specifier: ~3.2.0
+        specifier: 'catalog:'
         version: 3.2.4(@types/debug@4.1.12)(@types/node@24.7.2)(jiti@2.6.1)(lightningcss@1.25.1)(terser@5.44.0)(yaml@2.8.1)
       wrangler:
         specifier: ^4.43.0
@@ -365,7 +371,7 @@ importers:
         specifier: 19.2.1
         version: 19.2.1(@types/react@19.2.2)
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
 packages:
