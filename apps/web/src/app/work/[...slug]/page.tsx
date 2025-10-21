@@ -5,7 +5,7 @@ import { MDXContent } from '@/components/MDXContent'
 import { Text } from '@/components/Typography'
 import { work } from '@/content'
 import { HStack, VStack } from '@/styled/jsx'
-import { LaMarzoccoWidget } from '../lamarzocco/widget'
+import { LaMarzoccoWidget } from '../lamarzocco/widget/widget'
 import { TabsExample } from '../vend/tabs/VendTabs'
 import * as Principles from '../xero/principles/principles'
 
@@ -20,7 +20,7 @@ interface Props {
 }
 
 export function generateStaticParams() {
-  return work.map((post) => ({ slug: post.slugAsParams }))
+  return work.map((post) => ({ slug: post.params }))
 }
 
 export async function generateMetadata({ params }: Props) {
