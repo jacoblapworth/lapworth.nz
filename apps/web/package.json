@@ -20,7 +20,7 @@
     "axios": "1.12.2",
     "date-fns": "4.1.0",
     "flags": "4.0.1",
-    "got": "14.5.0",
+    "got": "14.6.0",
     "gray-matter": "4.0.3",
     "import-in-the-middle": "2.0.0",
     "jose": "6.1.0",
