@@ -47,7 +47,8 @@ const Dialog = styled(
         opacity: 1,
         transform: 'scale(1)',
       },
-      '--inset': '2rem',
+      '--inset': '16px',
+
       alignItems: 'stretch',
       backgroundColor: 'background',
       boxShadow: `
@@ -62,7 +63,11 @@ const Dialog = styled(
       justifyContent: 'stretch',
       margin: 'auto',
       maxHeight: 'calc(100dvh - var(--inset) * 2)',
-      maxWidth: '80vw',
+      maxWidth: '100vw',
+      md: {
+        '--inset': '2rem',
+        maxWidth: '90vw',
+      },
       opacity: 0,
       position: 'fixed',
       transform: 'scale(0.95)',
