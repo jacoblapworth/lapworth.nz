@@ -58,7 +58,7 @@ export default async function Page() {
         </Text>
 
         <Text display size="lg">
-          I&apos;m a lead product designer and software engineer focused on
+          I&apos;m a lead product designer and design engineer focused on
           community-driven design systems.
         </Text>
 

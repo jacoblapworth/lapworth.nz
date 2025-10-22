@@ -1,6 +1,7 @@
 'use server'
 
 import { track } from '@vercel/analytics/server'
+import { list } from '@vercel/blob'
 import { redirect } from 'next/navigation'
 import { Resend } from 'resend'
 import { CvRequestEmail } from '@/emails/cv'
@@ -24,50 +25,62 @@ export async function requestCv(
     throw new Error('Invalid email')
   }
 
-  const ph = await PostHogClient()
+  try {
+    const ph = await PostHogClient()
 
-  ph.identify({
-    distinctId: email,
-    properties: {
-      email,
-    },
-  })
-
-  ph.capture({
-    distinctId: email,
-    event: 'request-cv',
-    properties: {
-      email,
-    },
-  })
-
-  await track('request-cv', { email })
-
-  if (email === 'test@test.com') {
-    redirect('/cv/requested')
-  }
-
-  const filename = 'Jacob-Lapworth_CV.pdf'
-  const { error } = await resend.emails.send({
-    attachments: [
-      {
-        filename,
-        path: `https://${process.env.VERCEL_URL}/${filename}`,
+    ph.identify({
+      distinctId: email,
+      properties: {
+        email,
       },
-    ],
-    from: 'Lapworth.nz <hello@lapworth.nz>',
-    react: <CvRequestEmail />,
-    subject: 'CV for Jacob Lapworth',
-    to: [email],
-  })
+    })
 
-  if (error) {
-    console.error(`Email error: ${error.name}\n${error.message}`)
+    ph.capture({
+      distinctId: email,
+      event: 'request-cv',
+      properties: {
+        email,
+      },
+    })
+
+    await track('request-cv', { email })
+
+    const { blobs } = await list({ prefix: 'cv' })
+
+    const cv = blobs
+      .toSorted(
+        (a, b) =>
+          new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime(),
+      )
+      .pop()
+
+    if (!cv) {
+      throw new Error('CV not found')
+    }
+
+    const { error } = await resend.emails.send({
+      attachments: [
+        {
+          filename: 'Jacob-Lapworth_CV.pdf',
+          path: cv.downloadUrl,
+        },
+      ],
+      from: 'Lapworth.nz <hello@mail.lapworth.nz>',
+      react: <CvRequestEmail />,
+      subject: 'CV for Jacob Lapworth',
+      to: [email],
+    })
+
+    if (error) {
+      throw new Error('Failed to send email', { cause: error })
+    }
+
+    redirect('/cv/requested')
+  } catch (e) {
+    console.error('CV request error:', e)
     return {
       error: true,
       message: 'Unknown error, please try again later.',
     }
   }
-
-  redirect('/cv/requested')
 }
