@@ -108,8 +108,8 @@ importers:
         specifier: 6.1.0
         version: 6.1.0
       klaviyo-api:
-        specifier: 19.0.2
-        version: 19.0.2
+        specifier: 20.0.0
+        version: 20.0.0
       lucide-react:
         specifier: 0.546.0
         version: 0.546.0(react@19.2.0)
@@ -4363,8 +4363,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  klaviyo-api@19.0.2:
-    resolution: {integrity: sha512-ivoDYHj8Fg9f8ncXSZ1IJ4ao6GMMucntTX1UMIgF8gCTrreliIilZ8wp623LBGtcrTHiCqRv4lih3vbNRymLHQ==}
+  klaviyo-api@20.0.0:
+    resolution: {integrity: sha512-z9LGzZjVKXqxYCOLHxu4uNQZY09GZUTe3FxkLhLkCuUyx8O7CyjEJmAbqVhzJqUsNqXw2muWQAqhI9ck0DY6dw==}
 
   kleur@3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
@@ -10906,7 +10906,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  klaviyo-api@19.0.2:
+  klaviyo-api@20.0.0:
     dependencies:
       axios: 1.12.2
       form-data: 4.0.4
