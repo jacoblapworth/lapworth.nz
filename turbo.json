@@ -52,7 +52,7 @@
       "dependsOn": ["^test"]
     },
     "types:check": {
-      "dependsOn": ["^types:check"],
+      "dependsOn": ["^types:check", "^types:gen"],
       "inputs": ["**/*.{ts,tsx}"]
     }
   },

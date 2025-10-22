@@ -14,7 +14,7 @@
     "format": "biome check --write",
     "start": "wrangler dev",
     "test": "vitest",
-    "typegen": "wrangler types",
-    "types:check": "tsc --noEmit"
+    "types:check": "tsc --noEmit",
+    "types:gen": "wrangler types"
   }
 }

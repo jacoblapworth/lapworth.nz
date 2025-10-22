@@ -21,6 +21,12 @@
     },
     "tokens": {
       "outputs": [".styled/**"]
+    },
+    "types:check": {
+      "dependsOn": ["^types:check", "types:gen"]
+    },
+    "types:gen": {
+      "outputs": [".next/types/**", "next-env.d.ts"]
     }
   }
 }
