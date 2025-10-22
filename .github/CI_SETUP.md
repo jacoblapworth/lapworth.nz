@@ -15,11 +15,18 @@ The CI workflow uses Vercel to manage environment variables for the web applicat
 
 ### Required GitHub Secrets
 
-To enable the Vercel environment variable integration, configure the following secrets in the GitHub repository settings:
+To enable the Vercel environment variable integration, configure the following in the GitHub repository settings:
+
+**Secrets** (Settings > Secrets and variables > Actions > Secrets):
 
 | Secret Name | Description | How to Obtain |
 |------------|-------------|---------------|
 | `VERCEL_TOKEN` | Vercel authentication token | Create in [Vercel Account Settings > Tokens](https://vercel.com/account/tokens) |
+
+**Variables** (Settings > Secrets and variables > Actions > Variables):
+
+| Variable Name | Description | How to Obtain |
+|------------|-------------|---------------|
 | `VERCEL_ORG_ID` | Vercel organization/team ID | Found in Vercel project settings or by running `vercel link` locally and checking `.vercel/project.json` |
 | `VERCEL_PROJECT_ID` | Vercel project ID | Found in Vercel project settings or by running `vercel link` locally and checking `.vercel/project.json` |
 
@@ -65,12 +72,13 @@ This will show your `projectId` and `orgId`.
 3. Find the "Project ID" in the project settings
 4. For the Organization ID, check your team/organization settings
 
-### 3. Configure GitHub Secrets
+### 3. Configure GitHub Secrets and Variables
 
 1. Go to your GitHub repository
 2. Navigate to Settings > Secrets and variables > Actions
-3. Add the following secrets:
+3. Add the following **secret**:
    - `VERCEL_TOKEN`: Your Vercel token from step 1
+4. Add the following **variables** (click on the "Variables" tab):
    - `VERCEL_ORG_ID`: Your organization ID from step 2
    - `VERCEL_PROJECT_ID`: Your project ID from step 2
 
