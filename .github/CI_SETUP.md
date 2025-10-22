@@ -84,6 +84,7 @@ Make sure the following environment variables are configured in your Vercel proj
 - `APPLE_MUSIC_KEY_ID`
 - `APPLE_MUSIC_PRIVATE_KEY`
 - `APPLE_MUSIC_USER_TOKEN`
+- `KLAVIYO_API_KEY`
 - `RESEND_API_KEY`
 - `SENTRY_AUTH_TOKEN`
 - `SENTRY_ORG`
