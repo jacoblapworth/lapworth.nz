@@ -1,17 +1,11 @@
 // import { Select } from '@ariakit/react'
 
-import { SelectArrow } from '@ariakit/react'
+import { SelectArrow, SelectProvider } from '@ariakit/react'
 import type { RowData, Table } from '@tanstack/react-table'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
 import { Box, HStack } from '@/styled/jsx'
 import { Button } from './Button'
-import {
-  Select,
-  SelectItem,
-  SelectLabel,
-  SelectPopover,
-  SelectProvider,
-} from './Select'
+import { Select, SelectItem, SelectLabel, SelectPopover } from './Select'
 import { SrOnly } from './SrOnly'
 
 interface Props<TData extends RowData> {
@@ -22,9 +16,6 @@ export function Pagination<TData extends RowData>({ table }: Props<TData>) {
   const canNextPage = table.getCanNextPage()
   const canPreviousPage = table.getCanPreviousPage()
   const currentPage = table.getState().pagination.pageIndex
-  const onNext = table.nextPage
-  const onPageSizeChange = table.setPageSize
-  const onPrevious = table.previousPage
   const pageCount = table.getPageCount()
   const pageSize = table.getState().pagination.pageSize
   const total = table.getRowCount()
@@ -39,8 +30,9 @@ export function Pagination<TData extends RowData>({ table }: Props<TData>) {
     >
       <HStack color="text" textStyle="body.small.regular">
         <SelectProvider
-          defaultValue={String(pageSize)}
-          setValue={(v) => onPageSizeChange(Number(v))}
+          // defaultValue={String(pageSize)}
+          setValue={(v) => table.setPageSize(Number(v))}
+          value={String(pageSize)}
         >
           <SelectLabel>Items per page</SelectLabel>
           <Select>
@@ -49,10 +41,11 @@ export function Pagination<TData extends RowData>({ table }: Props<TData>) {
           </Select>
 
           <SelectPopover>
-            <SelectItem value="10">10</SelectItem>
-            <SelectItem value="20">20</SelectItem>
-            <SelectItem value="50">50</SelectItem>
-            <SelectItem value="100">100</SelectItem>
+            {[10, 20, 50, 100].map((size) => (
+              <SelectItem key={size} value={String(size)}>
+                {size}
+              </SelectItem>
+            ))}
           </SelectPopover>
         </SelectProvider>
         {total} items
@@ -67,11 +60,15 @@ export function Pagination<TData extends RowData>({ table }: Props<TData>) {
         >
           Page {currentPage + 1} of {pageCount}
         </Box>
-        <Button disabled={!canPreviousPage} onClick={onPrevious} size="sm">
+        <Button
+          disabled={!canPreviousPage}
+          onClick={table.previousPage}
+          size="sm"
+        >
           <ArrowLeftIcon size={16} />
           <SrOnly>Previous page</SrOnly>
         </Button>
-        <Button disabled={!canNextPage} onClick={onNext} size="sm">
+        <Button disabled={!canNextPage} onClick={table.nextPage} size="sm">
           <ArrowRightIcon size={16} />
           <SrOnly>Next page</SrOnly>
         </Button>

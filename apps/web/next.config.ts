@@ -33,7 +33,7 @@ const config: NextConfig = {
     ],
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  reactCompiler: true,
+  reactCompiler: false,
   reactStrictMode: true,
 }
 

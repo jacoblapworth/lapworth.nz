@@ -3,8 +3,6 @@ import { styled } from '@/styled/jsx'
 import { ButtonStyles } from './Button'
 import { MenuItemStyles, MenuStyles } from './Menu'
 
-export const SelectProvider = Ariakit.SelectProvider
-
 export const Select = styled(Ariakit.Select, ButtonStyles, {
   defaultProps: {
     children: undefined,

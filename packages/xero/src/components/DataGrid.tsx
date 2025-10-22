@@ -366,10 +366,9 @@ export const TdStyles = cva({
 
     borderBlockColor: 'border.subtle',
     borderBlockStartWidth: 1,
-    borderBlockStyle: 'solid',
     borderInlineColor: 'border.subtle',
     borderInlineStartWidth: 1,
-    borderInlineStyle: 'solid',
+    borderStyle: 'solid',
     boxSizing: 'content-box',
     height: 32,
     textOverflow: 'ellipsis',
