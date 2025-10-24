@@ -3,23 +3,6 @@ on:
   pull_request:
   workflow_dispatch:
 env:
-  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-  APPLE_MUSIC_KEY_ID: ${{ secrets.APPLE_MUSIC_KEY_ID }}
-  APPLE_MUSIC_PRIVATE_KEY: ${{ secrets.APPLE_MUSIC_PRIVATE_KEY }}
-  APPLE_MUSIC_USER_TOKEN: ${{ secrets.APPLE_MUSIC_USER_TOKEN }}
-  BLOB_READ_WRITE_TOKEN:  ${{ secrets.BLOB_READ_WRITE_TOKEN }}
-  KLAVIYO_API_KEY: ${{ secrets.KLAVIYO_API_KEY }}
-  NEXT_PUBLIC_POSTHOG_API_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_API_HOST}}
-  NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}
-  NEXT_PUBLIC_POSTHOG_KEY: ${{ vars.NEXT_PUBLIC_POSTHOG_KEY }}
-  NEXT_PUBLIC_POSTHOG_PROJECT_ID: ${{ vars.NEXT_PUBLIC_POSTHOG_PROJECT_ID }}
-  NEXT_PUBLIC_PRODUCTION_URL: ${{ vars.NEXT_PUBLIC_PRODUCTION_URL }}
-  NEXT_PUBLIC_SENTRY_DSN: ${{ vars.NEXT_PUBLIC_SENTRY_DSN }}
-  RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-  SENTRY_ORG: ${{ vars.SENTRY_ORG }}
-  SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
-  POSTHOG_PERSONAL_API_KEY: ${{ secrets.POSTHOG_PERSONAL_API_KEY }}
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
@@ -41,6 +24,14 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Pull Vercel Environment Variables
+        run: |
+          pnpm dlx vercel@latest env pull .env.local --token=${{ secrets.VERCEL_TOKEN }} --yes
+        working-directory: apps/web
+        env:
+          VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
 
       - name: Next build cache
         uses: actions/cache@v4
@@ -106,6 +97,14 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Pull Vercel Environment Variables
+        run: |
+          pnpm dlx vercel@latest env pull .env.local --token=${{ secrets.VERCEL_TOKEN }} --yes
+        working-directory: apps/web
+        env:
+          VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
 
       - name: Build
         run: pnpm run build
