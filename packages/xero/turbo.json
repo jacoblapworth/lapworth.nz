@@ -8,12 +8,12 @@
     "css": {
       "dependsOn": ["^css"],
       "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
-      "outputs": ["dist/styles.css"]
+      "outputs": [".styled/styles.css"]
     },
     "css:watch": {
       "cache": false,
       "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
-      "outputs": ["dist/styles.css"],
+      "outputs": [".styled/styles.css"],
       "persistent": true
     },
     "dev": {
