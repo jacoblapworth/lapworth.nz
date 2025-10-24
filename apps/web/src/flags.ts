@@ -2,6 +2,8 @@ import { flag } from 'flags/next'
 import { cookies } from 'next/headers'
 import { env } from '@/lib/env'
 
+const isDebug = process.env.NODE_ENV !== 'production'
+
 async function identify() {
   const jar = await cookies()
   const { value } = jar.get(`ph_${env.NEXT_PUBLIC_POSTHOG_KEY}_posthog`) || {}
@@ -43,7 +45,7 @@ export const enableFood = flag({
 })
 
 export const enableDrafts = flag({
-  decide: () => false,
+  decide: () => isDebug,
   defaultValue: false,
   description: 'Show draft articles',
   identify,

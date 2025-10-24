@@ -110,12 +110,13 @@ const Dismiss = styled(
 const Figure = styled('figure', {
   base: {
     margin: 0,
-    // textAlign: 'center',
   },
 })
 
 const Figcaption = styled('figcaption', {
   base: {
+    color: 'secondary',
+    fontSize: 'sm',
     margin: 0,
     textAlign: 'start',
   },

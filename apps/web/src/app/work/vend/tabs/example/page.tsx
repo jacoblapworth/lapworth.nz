@@ -1,4 +1,4 @@
-import { TabsExample } from './VendTabs'
+import { TabsExample } from '../VendTabs'
 
 export default function Page() {
   return <TabsExample />
