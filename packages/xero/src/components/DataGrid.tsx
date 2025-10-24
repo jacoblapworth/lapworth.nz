@@ -4,8 +4,9 @@ import '@tanstack/react-table'
 
 declare module '@tanstack/react-table' {
   interface ColumnMeta<TData extends RowData, TValue> {
-    alignment: 'start' | 'center' | 'end'
+    alignment?: 'start' | 'center' | 'end'
     isNumeric?: boolean
+    isEditable?: boolean
   }
 }
 

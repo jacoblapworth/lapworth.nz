@@ -1,7 +1,9 @@
 'use client'
 
+import * as Ariakit from '@ariakit/react'
 import { CurrencyCell, DateCell } from '@lapworth/xero/Cells'
 import { footer } from '@lapworth/xero/ColumnHelper'
+import { DataEditableCell } from '@lapworth/xero/DataEditableCell'
 import { Table, useTable } from '@lapworth/xero/Table'
 import { Tag } from '@lapworth/xero/Tag'
 import {
@@ -12,8 +14,6 @@ import { CheckCircleIcon, TrashIcon } from 'lucide-react'
 import { useState } from 'react'
 import { initialData } from './data'
 import { getInvoiceStatus, type InvoiceRow } from './model'
-import '@lapworth/xero/styles.css'
-import * as Ariakit from '@ariakit/react'
 
 const columnHelper = createColumnHelper<InvoiceRow>()
 
@@ -70,12 +70,19 @@ const columns = [
     filterFn: 'arrIncludesSome',
     header: 'Status',
     id: 'status',
+    meta: {
+      alignment: 'start',
+    },
     size: 90,
   }),
   columnHelper.accessor('invoiceNumber', {
+    cell: (ctx) => <DataEditableCell defaultValue={ctx.getValue<string>()} />,
     // cell: (ctx) => <Cell>{ctx.getValue<string>()}</Cell>,
     header: 'Reference',
     id: 'invoiceNumber',
+    meta: {
+      isEditable: true,
+    },
   }),
   columnHelper.accessor('date', {
     aggregationFn: 'sum',

@@ -1,6 +1,9 @@
 import * as Ariakit from '@ariakit/react'
+import type { ReactNode } from 'react'
 import { cva } from '@/styled/css'
-import { styled } from '@/styled/jsx'
+import { Box, HStack, styled } from '@/styled/jsx'
+import type { HTMLStyledProps, StyledVariantProps } from '@/styled/types'
+import { Spinner } from './Spinner'
 
 export const ButtonStyles = cva({
   base: {
@@ -17,13 +20,15 @@ export const ButtonStyles = cva({
     alignItems: 'center',
     borderRadius: 'md',
     cursor: 'pointer',
-    display: 'inline-flex',
+    display: 'inline-grid',
     fontSize: 13,
     fontWeight: 500,
     gap: 8,
+    gridAutoFlow: 'column',
     lineHeight: '1.2',
     paddingBlock: 6,
     paddingInline: 8,
+    placeItems: 'center',
     transitionDuration: '100',
     transitionProperty: 'colors',
     transitionTimingFunction: 'in-out',
@@ -37,7 +42,10 @@ export const ButtonStyles = cva({
       md: {},
       sm: {
         paddingBlock: 4,
-        paddingInline: 6,
+        paddingInline: 8,
+      },
+      xs: {
+        paddingInline: 8,
       },
     },
     variant: {
@@ -70,7 +78,6 @@ export const ButtonStyles = cva({
         },
         borderColor: {
           _active: 'border.subtle',
-          _focusVisible: 'action.focus',
           _hover: 'border.subtle',
           _selected: 'action',
           base: 'border.subtle',
@@ -87,5 +94,25 @@ export const ButtonStyles = cva({
     },
   },
 })
+const ButtonElement = styled(Ariakit.Button, ButtonStyles)
 
-export const Button = styled(Ariakit.Button, ButtonStyles)
+type Props = Ariakit.ButtonProps &
+  StyledVariantProps<typeof ButtonElement> &
+  HTMLStyledProps<'button'> & {
+    isLoading?: boolean
+  }
+
+export function Button({ children, isLoading, ...props }: Props) {
+  return (
+    <ButtonElement {...props}>
+      <HStack
+        gap={8}
+        gridArea="1/-1"
+        visibility={isLoading ? 'hidden' : 'visible'}
+      >
+        {children}
+      </HStack>
+      {isLoading && <Spinner gridArea="1/-1" justifySelf="center" />}
+    </ButtonElement>
+  )
+}

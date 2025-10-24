@@ -32,7 +32,7 @@ export const MenuStyles = cva({
     // boxShadow: 'md',
     display: 'flex',
     flexDirection: 'column',
-    minWidth: 200,
+    minWidth: 'var(--popover-anchor-width)',
     overflow: 'hidden',
     paddingBlock: 8,
     zIndex: 1000,

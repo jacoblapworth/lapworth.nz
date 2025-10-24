@@ -4,12 +4,12 @@ const Container = styled('div', {
   base: {
     alignItems: 'center',
     display: 'grid',
-    flexGrow: 1,
-    justifyContent: 'flex-start',
     minWidth: 0,
-    truncate: true,
+    width: '100%',
+    // truncate: true,
   },
   defaultVariants: {
+    // alignment: 'flex-start',
     variant: 'accessor',
   },
   variants: {
@@ -24,10 +24,16 @@ const Container = styled('div', {
         justifyContent: 'flex-start',
       },
     },
+    isEditable: {
+      true: {
+        paddingBlock: 0,
+        paddingInline: 0,
+      },
+    },
     variant: {
       accessor: {
         paddingInline: 6,
-        truncate: true,
+        // truncate: true,
       },
       display: {
         justifyContent: 'stretch',
@@ -43,10 +49,6 @@ interface Props {
   variant?: 'accessor' | 'display'
 }
 
-export function DataCell({ children, alignment, variant }: Props) {
-  return (
-    <Container alignment={alignment} variant={variant}>
-      {children}
-    </Container>
-  )
+export function DataCell({ children, ...props }: Props) {
+  return <Container {...props}>{children}</Container>
 }

@@ -53,6 +53,7 @@ export const semanticTokens = defineSemanticTokens({
     },
 
     border: {
+      focus: { value: '{colors.action}' },
       regular: { value: '#A6AAB1' },
       soft: { value: '#E1E2E5' },
       strong: { value: '#828995' },

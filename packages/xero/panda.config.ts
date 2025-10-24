@@ -1,5 +1,6 @@
 import { defineConfig } from '@pandacss/dev'
 import { theme } from '@/theme'
+import { globalCss } from '@/theme/global'
 
 export default defineConfig({
   conditions: {
@@ -16,13 +17,12 @@ export default defineConfig({
       marker: '&::marker, &::-webkit-details-marker',
     },
   },
-  // eject: true,
   exclude: [],
+  globalCss,
   include: ['./src/**/*.{js,jsx,ts,tsx}'],
   jsxFramework: 'react',
   outdir: '.styled',
   outExtension: 'js',
-  // presets: [],
   shorthands: false,
   theme,
 })
