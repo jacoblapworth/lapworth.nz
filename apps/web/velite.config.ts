@@ -45,7 +45,7 @@ const work = defineCollection({
   pattern: 'work/**/*.mdx',
   schema: s
     .object({
-      categories: s.array(s.string()).default(['work']),
+      category: s.string().optional(),
       content: s.mdx(),
       cover: s.image().optional(),
       date: s.isodate(),
@@ -63,13 +63,20 @@ const work = defineCollection({
         .optional(),
       meta: meta,
       metadata: s.metadata(),
-      slug: s.slug('work'),
+      path: s.path(),
       tags: s.array(s.string()).default([]),
       title: s.string().max(99),
       toc: s.toc(),
       video: s.file().optional(),
     })
-    .transform((data) => ({ ...data, permalink: `/work/${data.slug}` })),
+    .transform((data) => {
+      const params = data.path.split('/').slice(1)
+      return {
+        params,
+        slug: params.join('/'),
+        ...data,
+      }
+    }),
 })
 
 export default defineConfig({
@@ -122,8 +129,9 @@ export default defineConfig({
     data: '.velite',
     name: '[name].[hash:8].[ext]',
   },
-  prepare: ({ work }) => {
+  prepare: ({ work, recipes }) => {
     work.sort((a, b) => (a.date > b.date ? -1 : 1))
+    recipes.sort((a, b) => (a.title < b.title ? -1 : 1))
   },
   root: 'src/content',
 })

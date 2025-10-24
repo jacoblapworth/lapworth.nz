@@ -45,6 +45,7 @@
       "trailingCommas": "all"
     }
   },
+
   "linter": {
     "enabled": true,
     "rules": {

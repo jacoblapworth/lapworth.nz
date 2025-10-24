@@ -78,6 +78,7 @@ export const tokens = defineTokens({
         value: 'rgba(255,255,255,0.1)',
       },
     },
+
     yellow: {
       50: {
         value: '#FFC453',
@@ -108,7 +109,7 @@ export const tokens = defineTokens({
   },
   radii: {
     lg: { value: '12px' },
-    max: { value: '99999px;' },
+    max: { value: '99999px' },
     md: { value: '6px' },
     sm: { value: '3px' },
     xl: { value: '16px' },

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["css", "tokens"]
+    },
+    "css": {
+      "dependsOn": ["^css"],
+      "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
+      "outputs": [".styled/styles.css"]
+    },
+    "css:watch": {
+      "cache": false,
+      "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
+      "outputs": [".styled/styles.css"],
+      "persistent": true
+    },
+    "dev": {
+      "cache": false,
+      "inputs": ["$TURBO_DEFAULT$", "src/**/*"],
+      "persistent": true,
+      "with": ["css:watch", "tokens:watch"]
+    },
+    "tokens": {
+      "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
+      "outputs": [".styled/**"]
+    },
+    "tokens:watch": {
+      "cache": false,
+      "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
+      "outputs": [".styled/**"],
+      "persistent": true
+    }
+  }
+}

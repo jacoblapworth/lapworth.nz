@@ -9,7 +9,7 @@
     "jsx": "react-jsx",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "paths": {
       "@/*": ["./src/*"],
@@ -17,17 +17,13 @@
       "@/public/*": ["./public/*"],
       "@/styled/*": ["./.styled/*"]
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{ "name": "next" }],
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules", "cypress"],
+  "exclude": ["node_modules", "cypress", ".next", "out", "dist"],
   "include": [
     "next-env.d.ts",
     "**/*.d.ts",

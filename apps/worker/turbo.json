@@ -4,11 +4,13 @@
   "tasks": {
     "dev": {
       "cache": false,
-      "dependsOn": ["^dev", "typegen"],
+      "dependsOn": ["types:gen"],
       "persistent": true
     },
-    "typegen": {
-      "dependsOn": ["^typegen"],
+    "types:check": {
+      "dependsOn": ["types:gen"]
+    },
+    "types:gen": {
       "inputs": ["$TURBO_DEFAULT$", "wrangler.jsonc"],
       "outputs": ["worker-configuration.d.ts", ".wrangler/**"]
     }

@@ -47,7 +47,8 @@ const Dialog = styled(
         opacity: 1,
         transform: 'scale(1)',
       },
-      '--inset': '2rem',
+      '--inset': '16px',
+
       alignItems: 'stretch',
       backgroundColor: 'background',
       boxShadow: `
@@ -62,7 +63,11 @@ const Dialog = styled(
       justifyContent: 'stretch',
       margin: 'auto',
       maxHeight: 'calc(100dvh - var(--inset) * 2)',
-      maxWidth: '80vw',
+      maxWidth: '100vw',
+      md: {
+        '--inset': '2rem',
+        maxWidth: '90vw',
+      },
       opacity: 0,
       position: 'fixed',
       transform: 'scale(0.95)',
@@ -102,6 +107,21 @@ const Dismiss = styled(
   },
 )
 
+const Figure = styled('figure', {
+  base: {
+    margin: 0,
+  },
+})
+
+const Figcaption = styled('figcaption', {
+  base: {
+    color: 'secondary',
+    fontSize: 'sm',
+    margin: 0,
+    textAlign: 'start',
+  },
+})
+
 const styles = cva({
   base: {
     '& + img': {
@@ -117,23 +137,29 @@ export function Image(props: React.ComponentProps<typeof NextImage>) {
   return (
     <Ariakit.DialogProvider>
       <DialogDisclosure>
-        <NextImage
-          className={styles()}
-          height={400}
-          placeholder={props.blurDataURL ? 'blur' : undefined}
-          width={800}
-          {...props}
-        />
+        <Figure>
+          <NextImage
+            className={styles()}
+            height={400}
+            placeholder={props.blurDataURL ? 'blur' : undefined}
+            width={800}
+            {...props}
+          />
+          {props.title && <Figcaption>{props.title}</Figcaption>}
+        </Figure>
       </DialogDisclosure>
       <Dialog unmountOnHide>
         <Dismiss />
-        <NextImage
-          alt={props.alt}
-          height={800}
-          placeholder={props.blurDataURL ? 'blur' : undefined}
-          src={props.src}
-          width={1600}
-        />
+        <Figure>
+          <NextImage
+            alt={props.alt}
+            height={800}
+            placeholder={props.blurDataURL ? 'blur' : undefined}
+            src={props.src}
+            width={1600}
+          />
+          {props.title && <Figcaption>{props.title}</Figcaption>}
+        </Figure>
       </Dialog>
     </Ariakit.DialogProvider>
   )

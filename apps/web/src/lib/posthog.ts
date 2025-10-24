@@ -1,14 +1,20 @@
 'use server'
 
 import { PostHog } from 'posthog-node'
+import { env } from '@/lib/env'
 
 export default async function PostHogClient() {
-  const posthogClient = new PostHog(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+  const client = new PostHog(env.NEXT_PUBLIC_POSTHOG_KEY, {
     flushAt: 1,
-
     flushInterval: 0,
-    host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+    host: env.NEXT_PUBLIC_POSTHOG_HOST,
   })
-  posthogClient.debug(true)
-  return posthogClient
+
+  client.debug(process.env.NODE_ENV !== 'production')
+
+  if (process.env.CI) {
+    client.disable()
+  }
+
+  return client
 }
