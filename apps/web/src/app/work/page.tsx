@@ -9,8 +9,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const isPreview =
-    process.env.NODE_ENV === 'development' || (await enableDrafts())
+  const isPreview = await enableDrafts()
 
   return (
     <WorkList work={work.filter(({ draft }) => (isPreview ? true : !draft))} />

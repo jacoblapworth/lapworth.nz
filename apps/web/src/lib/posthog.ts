@@ -12,5 +12,9 @@ export default async function PostHogClient() {
 
   client.debug(process.env.NODE_ENV !== 'production')
 
+  if (process.env.CI) {
+    client.disable()
+  }
+
   return client
 }

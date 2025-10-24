@@ -5,8 +5,7 @@ import { WorkList } from '../WorkList'
 import { Background } from './background'
 
 export default async function Page() {
-  const isPreview =
-    process.env.NODE_ENV === 'development' || (await enableDrafts())
+  const isPreview = await enableDrafts()
 
   return (
     <>
