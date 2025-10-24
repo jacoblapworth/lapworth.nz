@@ -74,8 +74,6 @@ export async function requestCv(
     if (error) {
       throw new Error('Failed to send email', { cause: error })
     }
-
-    redirect('/cv/requested')
   } catch (e) {
     console.error('CV request error:', e)
     return {
@@ -83,4 +81,6 @@ export async function requestCv(
       message: 'Unknown error, please try again later.',
     }
   }
+
+  redirect('/cv/requested')
 }

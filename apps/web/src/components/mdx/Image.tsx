@@ -107,6 +107,20 @@ const Dismiss = styled(
   },
 )
 
+const Figure = styled('figure', {
+  base: {
+    margin: 0,
+    // textAlign: 'center',
+  },
+})
+
+const Figcaption = styled('figcaption', {
+  base: {
+    margin: 0,
+    textAlign: 'start',
+  },
+})
+
 const styles = cva({
   base: {
     '& + img': {
@@ -122,23 +136,29 @@ export function Image(props: React.ComponentProps<typeof NextImage>) {
   return (
     <Ariakit.DialogProvider>
       <DialogDisclosure>
-        <NextImage
-          className={styles()}
-          height={400}
-          placeholder={props.blurDataURL ? 'blur' : undefined}
-          width={800}
-          {...props}
-        />
+        <Figure>
+          <NextImage
+            className={styles()}
+            height={400}
+            placeholder={props.blurDataURL ? 'blur' : undefined}
+            width={800}
+            {...props}
+          />
+          {props.title && <Figcaption>{props.title}</Figcaption>}
+        </Figure>
       </DialogDisclosure>
       <Dialog unmountOnHide>
         <Dismiss />
-        <NextImage
-          alt={props.alt}
-          height={800}
-          placeholder={props.blurDataURL ? 'blur' : undefined}
-          src={props.src}
-          width={1600}
-        />
+        <Figure>
+          <NextImage
+            alt={props.alt}
+            height={800}
+            placeholder={props.blurDataURL ? 'blur' : undefined}
+            src={props.src}
+            width={1600}
+          />
+          {props.title && <Figcaption>{props.title}</Figcaption>}
+        </Figure>
       </Dialog>
     </Ariakit.DialogProvider>
   )
