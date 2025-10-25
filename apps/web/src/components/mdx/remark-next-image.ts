@@ -1,9 +1,8 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-
 import type { Literal, Node, Parent } from 'unist'
 import { visit } from 'unist-util-visit'
-import { getImageMetadata, Image } from 'velite'
+import { getImageMetadata } from 'velite'
 
 export type ImageNode = Parent & {
   url: string
@@ -17,9 +16,9 @@ export const nextImage = () => {
   return async (tree: Node) => {
     const images: ImageNode[] = []
 
-    // Find all the local image node.
-    visit(tree, 'image', (node: ImageNode, _, parent: Parent) => {
-      // Skip remote images.
+    // Find all the local image nodes
+    visit(tree, 'image', (node: ImageNode) => {
+      // Skip remote images
       if (node.url.startsWith('http')) {
         return
       }
@@ -27,7 +26,7 @@ export const nextImage = () => {
       images.push(node)
     })
 
-    // Process images.
+    // Process images
     await Promise.all(images.map(transformNextImage))
     return tree
   }

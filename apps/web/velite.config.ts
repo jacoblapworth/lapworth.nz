@@ -9,7 +9,7 @@ import { rehypePrettyCode } from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
 import { defineCollection, defineConfig, s } from 'velite'
-import { nextImage } from '@/components/mdx/remark-plugins'
+import { nextImage } from '@/components/mdx/remark-next-image'
 
 const meta = s
   .object({
