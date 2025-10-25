@@ -14,6 +14,7 @@ const config: NextConfig = {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     dangerouslyAllowSVG: true,
+    qualities: [75, 100],
     remotePatterns: [
       {
         hostname: '*.mzstatic.com',

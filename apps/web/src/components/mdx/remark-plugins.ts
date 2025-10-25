@@ -9,6 +9,7 @@ export type ImageNode = Parent & {
   url: string
   alt: string
   name: string
+  title?: string
   attributes: (Literal & { name: string })[]
 }
 
@@ -17,14 +18,13 @@ export const nextImage = () => {
     const images: ImageNode[] = []
 
     // Find all the local image node.
-    visit(tree, 'image', (node: Node, _, parent: Parent) => {
-      const imageNode = node as ImageNode
+    visit(tree, 'image', (node: ImageNode, _, parent: Parent) => {
       // Skip remote images.
-      if (imageNode.url.startsWith('http')) {
+      if (node.url.startsWith('http')) {
         return
       }
 
-      images.push(imageNode)
+      images.push(node)
     })
 
     // Process images.
@@ -33,25 +33,33 @@ export const nextImage = () => {
   }
 }
 
-const transformNextImage = async (imageNode: ImageNode) => {
-  const path = join(process.cwd(), 'public', imageNode.url)
+async function transformNextImage(node: ImageNode) {
+  const path = join(process.cwd(), 'public', node.url)
   const buffer = await readFile(path)
   const metadata = await getImageMetadata(buffer)
   if (metadata == null) {
     throw new Error(`Failed to get image metadata: ${path}`)
   }
   // Convert original node to next/image
-  ;(imageNode.type = 'mdxJsxFlowElement'),
-    (imageNode.name = 'Image'),
-    (imageNode.attributes = [
-      { name: 'alt', type: 'mdxJsxAttribute', value: imageNode.alt },
-      { name: 'src', type: 'mdxJsxAttribute', value: imageNode.url },
-      { name: 'width', type: 'mdxJsxAttribute', value: metadata.width },
-      { name: 'height', type: 'mdxJsxAttribute', value: metadata.height },
-      {
-        name: 'blurDataURL',
-        type: 'mdxJsxAttribute',
-        value: metadata.blurDataURL,
-      },
-    ])
+  node.type = 'mdxJsxFlowElement'
+  node.name = 'img'
+  node.attributes = [
+    { name: 'alt', type: 'mdxJsxAttribute', value: node.alt },
+    { name: 'src', type: 'mdxJsxAttribute', value: node.url },
+    { name: 'width', type: 'mdxJsxAttribute', value: metadata.width },
+    { name: 'height', type: 'mdxJsxAttribute', value: metadata.height },
+    {
+      name: 'blurDataURL',
+      type: 'mdxJsxAttribute',
+      value: metadata.blurDataURL,
+    },
+  ]
+
+  if (node.title) {
+    node.attributes.push({
+      name: 'title',
+      type: 'mdxJsxAttribute',
+      value: node.title,
+    })
+  }
 }

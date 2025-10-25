@@ -270,6 +270,9 @@ importers:
       '@types/react-resizable':
         specifier: 3.0.8
         version: 3.0.8
+      '@types/unist':
+        specifier: 3.0.3
+        version: 3.0.3
       babel-plugin-react-compiler:
         specifier: 1.0.0
         version: 1.0.0
