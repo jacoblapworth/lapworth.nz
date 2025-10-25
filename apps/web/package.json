@@ -59,6 +59,7 @@
     "resend": "6.2.0",
     "sharp": "0.34.4",
     "shiki": "3.13.0",
+    "unist-util-visit": "5.0.0",
     "zod": "4.1.12"
   },
   "description": "Kopaki – personal website for J Lapworth",
@@ -83,6 +84,7 @@
     "globals": "16.4.0",
     "prettier": "3.6.2",
     "typescript": "catalog:",
+    "unist": "0.0.1",
     "velite": "0.3.0"
   },
   "name": "web",

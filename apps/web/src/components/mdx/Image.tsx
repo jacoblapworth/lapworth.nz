@@ -123,7 +123,7 @@ const Figcaption = styled('figcaption', {
   variants: {
     dialog: {
       true: {
-        padding: '1',
+        padding: 'sm',
       },
     },
   },
@@ -147,9 +147,7 @@ export function Image(props: React.ComponentProps<typeof NextImage>) {
         <Figure>
           <NextImage
             className={styles()}
-            height={400}
             placeholder={props.blurDataURL ? 'blur' : undefined}
-            width={800}
             {...props}
           />
           {props.title && <Figcaption>{props.title}</Figcaption>}
@@ -159,11 +157,9 @@ export function Image(props: React.ComponentProps<typeof NextImage>) {
         <Dismiss />
         <Figure>
           <NextImage
-            alt={props.alt}
-            height={800}
+            className={styles({ dialog: true })}
             placeholder={props.blurDataURL ? 'blur' : undefined}
-            src={props.src}
-            width={1600}
+            {...props}
           />
           {props.title && <Figcaption>{props.title}</Figcaption>}
         </Figure>
