@@ -90,6 +90,7 @@ export default defineConfig({
     console.info(`Drafts: ${drafts.length}`)
   },
   mdx: {
+    copyLinkedFiles: true,
     gfm: true,
     rehypePlugins: [
       [
