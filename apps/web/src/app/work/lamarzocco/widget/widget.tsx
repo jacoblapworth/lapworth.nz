@@ -51,8 +51,6 @@ const PowerButtonStyles = cva({
   },
 })
 
-type State = 'on' | 'off' | 'heating-up'
-
 const State = {
   'heating-up': {
     subtitle: 'Ready in 2 minutes',
@@ -68,42 +66,51 @@ const State = {
   },
 }
 
+type State =
+  | {
+      status: 'off'
+      readyTime?: null
+    }
+  | {
+      status: 'heating-up'
+      readyTime: Date
+    }
+  | {
+      status: 'on'
+      readyTime?: null
+    }
+
 export function LaMarzoccoWidget() {
   const WARMUP_DURATION_SECONDS = 10
-  const [state, setState] = useState<State>('off')
-  const { title } = State[state]
+  const [state, setState] = useState<State>({ status: 'off' })
+  const { title } = State[state.status]
   const [showTooltip, setShowTooltip] = useState(true)
-  const [readyTime, setReadyTime] = useState<Date | null>(null)
-  const now = useNow({
-    updateInterval: 1000,
-  })
+  const now = useNow({ updateInterval: 1000 })
   const format = useFormatter()
-  const isOn = ['on', 'heating-up'].includes(state)
+  const isOn = ['on', 'heating-up'].includes(state.status)
   const timeout = useRef<NodeJS.Timeout | null>(null)
 
   const startHeating = useCallback(() => {
     const ready = addSeconds(now, WARMUP_DURATION_SECONDS)
-    setReadyTime(ready)
-    setState('heating-up')
+    setState({ readyTime: ready, status: 'heating-up' })
 
     timeout.current = setTimeout(() => {
-      setReadyTime(null)
-      setState('on')
+      setState({ status: 'on' })
+      timeout.current = null
     }, WARMUP_DURATION_SECONDS * 1000)
   }, [timeout, now])
 
   const onPowerToggle = () => {
     setShowTooltip(false)
 
-    if (state === 'off') {
+    if (state.status === 'off') {
       startHeating()
     } else {
       if (timeout.current) {
         clearTimeout(timeout.current)
         timeout.current = null
       }
-      setState('off')
-      setReadyTime(null)
+      setState({ status: 'off' })
     }
   }
 
@@ -179,7 +186,7 @@ export function LaMarzoccoWidget() {
             })}
             exit={{ opacity: 0, scale: 0.5 }}
             initial={{ opacity: 0, scale: 0.5 }}
-            key={`${state}-title`}
+            key={`${state.status}-title`}
             layout
             transition={{ duration: 0.2 }}
           >
@@ -195,11 +202,11 @@ export function LaMarzoccoWidget() {
               })}
               exit={{ height: 0, opacity: 0 }}
               initial={{ opacity: 0 }}
-              key={`${state}-subtitle`}
+              key={`${state.status}-subtitle`}
               transition={{ duration: 0.2 }}
             >
-              {readyTime && isFuture(readyTime)
-                ? `Ready ${format.relativeTime(readyTime, now)}`
+              {state.readyTime && isFuture(state.readyTime)
+                ? `Ready ${format.relativeTime(state.readyTime, now)}`
                 : null}
             </motion.div>
           </AnimatePresence>

@@ -120,6 +120,14 @@ const Figcaption = styled('figcaption', {
     margin: 0,
     textAlign: 'start',
   },
+  variants: {
+    dialog: {
+      true: {
+        paddingBlock: 'xs',
+        paddingInline: 'sm',
+      },
+    },
+  },
 })
 
 const styles = cva({
@@ -136,13 +144,12 @@ const styles = cva({
 export function Image(props: React.ComponentProps<typeof NextImage>) {
   return (
     <Ariakit.DialogProvider>
-      <DialogDisclosure>
+      <DialogDisclosure data-image>
         <Figure>
           <NextImage
             className={styles()}
-            height={400}
             placeholder={props.blurDataURL ? 'blur' : undefined}
-            width={800}
+            quality={100}
             {...props}
           />
           {props.title && <Figcaption>{props.title}</Figcaption>}
@@ -152,13 +159,12 @@ export function Image(props: React.ComponentProps<typeof NextImage>) {
         <Dismiss />
         <Figure>
           <NextImage
-            alt={props.alt}
-            height={800}
+            className={styles()}
             placeholder={props.blurDataURL ? 'blur' : undefined}
-            src={props.src}
-            width={1600}
+            quality={100}
+            {...props}
           />
-          {props.title && <Figcaption>{props.title}</Figcaption>}
+          {props.title && <Figcaption dialog>{props.title}</Figcaption>}
         </Figure>
       </Dialog>
     </Ariakit.DialogProvider>

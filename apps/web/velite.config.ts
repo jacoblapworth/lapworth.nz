@@ -8,9 +8,8 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypePrettyCode } from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
-import remarkGfm from 'remark-gfm'
-
 import { defineCollection, defineConfig, s } from 'velite'
+import { nextImage } from '@/components/mdx/remark-next-image'
 
 const meta = s
   .object({
@@ -91,6 +90,8 @@ export default defineConfig({
     console.info(`Drafts: ${drafts.length}`)
   },
   mdx: {
+    copyLinkedFiles: true,
+    gfm: true,
     rehypePlugins: [
       [
         rehypePrettyCode,
@@ -120,7 +121,8 @@ export default defineConfig({
         },
       ],
     ],
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [nextImage],
+    removeComments: true,
   },
   output: {
     assets: 'public/static',

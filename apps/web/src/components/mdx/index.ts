@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
+import ResponsivePreview from '../Preview'
 import { Anchor } from './Anchor'
 import { Blockquote } from './Blockquote'
 import { Code } from './Code'
@@ -29,6 +30,7 @@ export const components: MDXComponents = {
   ol: OrderedList,
   p: Paragraph,
   pre: Pre,
+  ResponsivePreview,
   // summary: Summary,
   table: Table,
   td: Td,

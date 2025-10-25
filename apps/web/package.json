@@ -59,6 +59,7 @@
     "resend": "6.2.0",
     "sharp": "0.34.4",
     "shiki": "3.13.0",
+    "unist-util-visit": "5.0.0",
     "zod": "4.1.12"
   },
   "description": "Kopaki – personal website for J Lapworth",
@@ -76,6 +77,7 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@types/react-resizable": "3.0.8",
+    "@types/unist": "3.0.3",
     "babel-plugin-react-compiler": "1.0.0",
     "cypress": "15.5.0",
     "cypress-real-events": "1.15.0",
@@ -83,6 +85,7 @@
     "globals": "16.4.0",
     "prettier": "3.6.2",
     "typescript": "catalog:",
+    "unist": "0.0.1",
     "velite": "0.3.0"
   },
   "name": "web",
