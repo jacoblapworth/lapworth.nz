@@ -1,3 +1,4 @@
+import { FormExample } from '@lapworth/xero/FormExample'
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { LinkButton } from '@/components/Button'
@@ -35,12 +36,38 @@ export async function generateMetadata({ params }: Props) {
   }
 }
 
+function mapPagesToImports(
+  params: string[],
+): Record<string, React.ComponentType> {
+  const path = params.join('/')
+
+  if (path.startsWith('xero')) {
+    return { FormExample }
+  }
+
+  if (path.startsWith('lamarzocco')) {
+    return { LaMarzoccoWidget }
+  }
+
+  if (path.startsWith('vend')) {
+    return { TabsExample }
+  }
+
+  if (path.startsWith('xero/principles')) {
+    return Principles
+  }
+
+  return {}
+}
+
 export default async function Page({ params }: Props) {
   const { slug } = await params
 
   const post = getPostBySlugParams(slug)
 
   if (!post) notFound()
+
+  const components = mapPagesToImports(slug)
 
   return (
     <>
@@ -59,10 +86,7 @@ export default async function Page({ params }: Props) {
           </HStack>
         )}
       </VStack>
-      <MDXContent
-        components={{ LaMarzoccoWidget, TabsExample, ...Principles }}
-        mdx={post.content}
-      />
+      <MDXContent components={components} mdx={post.content} />
     </>
   )
 }

@@ -26,7 +26,6 @@ async function shouldRedirectWorkComingSoon(
 
 export const config = {
   matcher: '/work/:path*',
-  runtime: 'nodejs',
 }
 
 export async function proxy(request: NextRequest) {

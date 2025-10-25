@@ -120,6 +120,13 @@ const Figcaption = styled('figcaption', {
     margin: 0,
     textAlign: 'start',
   },
+  variants: {
+    dialog: {
+      true: {
+        padding: '1',
+      },
+    },
+  },
 })
 
 const styles = cva({
