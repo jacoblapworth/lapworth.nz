@@ -33,6 +33,7 @@ export const nextImage = () => {
 }
 
 async function transformNextImage(node: ImageNode) {
+  console.log(node.url)
   const path = join(process.cwd(), 'public', node.url)
   console.log('CWD:', process.cwd(), '->', path)
   const buffer = await readFile(path)
