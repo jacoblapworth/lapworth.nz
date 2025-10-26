@@ -2,6 +2,7 @@
 
 import { ArrowRightIcon } from 'lucide-react'
 import { motion } from 'motion/react'
+import type { Route } from 'next'
 import NextLink, { type LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 import { type ReactNode, useState } from 'react'
@@ -53,7 +54,7 @@ const A = styled(NextLink, {
 })
 
 interface Props extends LinkProps {
-  href: string
+  href: Route
   children: ReactNode
 }
 
@@ -99,15 +100,27 @@ const Stack = styled('div', {
   },
 })
 
+interface NavLink<T extends string = string> {
+  href: T
+  name: string
+}
+
 export function NavLinks({ enableFood }: { enableFood?: boolean } = {}) {
   const pathname = usePathname()
   const showFood = enableFood || pathname?.startsWith('/food')
+  const links: NavLink<Route>[] = [
+    { href: '/work', name: 'Work' },
+    showFood ? { href: '/food', name: 'Food' } : undefined,
+    { href: '/about', name: 'About' },
+  ].filter(Boolean)
 
   return (
     <Stack>
-      <NavLink href="/work">Work</NavLink>
-      {showFood ? <NavLink href="/food">Food</NavLink> : null}
-      <NavLink href="/about">About</NavLink>
+      {links.map(({ href, name }) => (
+        <NavLink href={href} key={href}>
+          {name}
+        </NavLink>
+      ))}
     </Stack>
   )
 }
