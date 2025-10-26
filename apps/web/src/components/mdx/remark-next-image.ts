@@ -1,5 +1,5 @@
 import { readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 import type { Literal, Node, Parent } from 'unist'
 import { visit } from 'unist-util-visit'
 import { getImageMetadata } from 'velite'
@@ -33,6 +33,7 @@ export const nextImage = () => {
 }
 
 async function transformNextImage(node: ImageNode) {
+  console.log('CWD:', process.cwd())
   const path = join(process.cwd(), 'public', node.url)
   const buffer = await readFile(path)
   const metadata = await getImageMetadata(buffer)
