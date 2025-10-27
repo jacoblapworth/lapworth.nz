@@ -1,7 +1,10 @@
 'use client'
 
 import * as Sentry from '@sentry/nextjs'
+import { OctagonAlertIcon } from 'lucide-react'
 import { useEffect } from 'react'
+import { Text } from '@/components/Typography'
+import { HStack } from '@/styled/jsx'
 
 export default function ErrorPage({
   error,
@@ -13,8 +16,11 @@ export default function ErrorPage({
   }, [error])
 
   return (
-    <div>
-      <h2>Something went wrong!</h2>
-    </div>
+    <HStack>
+      <OctagonAlertIcon size={32} />
+      <Text as="h1" size="lg">
+        Something went wrong!
+      </Text>
+    </HStack>
   )
 }
