@@ -91,7 +91,7 @@ export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
     disableLogger: true,
     org: env.SENTRY_ORG,
     project: env.SENTRY_PROJECT,
-    silent: !process.env.CI,
+    silent: !(process.env.CI && process.env.ACTIONS_RUNNER_DEBUG),
     sourcemaps: {
       deleteSourcemapsAfterUpload: true,
     },
