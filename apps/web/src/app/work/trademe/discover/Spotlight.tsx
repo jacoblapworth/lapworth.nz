@@ -1,3 +1,5 @@
+'use client'
+
 import { AnimatePresence, motion } from 'motion/react'
 import { type FC, useState } from 'react'
 

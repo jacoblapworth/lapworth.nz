@@ -1,15 +1,13 @@
 'use client'
 
 import NextImage, { type StaticImageData } from 'next/image'
-
 import { LinkButton } from '@/components/Button'
 import { SkewTile } from '@/components/Tile'
 import { Text } from '@/components/Typography'
-import logo from '@/public/work/xero/logo.svg'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
-
 import { Highlight } from './Highlight'
+import logo from './logo.svg'
 
 const Layout = styled('div', {
   base: {

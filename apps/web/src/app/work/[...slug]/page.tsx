@@ -1,14 +1,10 @@
-import { FormExample } from '@lapworth/xero/FormExample'
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { LinkButton } from '@/components/Button'
-import { MDXContent } from '@/components/MDXContent'
+import { MDXRemote } from '@/components/MDXRemote'
 import { Text } from '@/components/Typography'
 import { HStack, VStack } from '@/styled/jsx'
-import { LaMarzoccoWidget } from '../lamarzocco/widget'
-import { TabsExample } from '../vend/tabs/VendTabs'
 import { work } from '../work'
-import * as Principles from '../xero/principles/principles'
 
 function getPostBySlugParams(slug: string[]) {
   return work.find((post) => post.slug === slug.join('/'))
@@ -36,38 +32,12 @@ export async function generateMetadata({ params }: Props) {
   }
 }
 
-function mapPagesToImports(
-  params: string[],
-): Record<string, React.ComponentType> {
-  const path = params.join('/')
-
-  if (path.startsWith('xero')) {
-    return { FormExample }
-  }
-
-  if (path.startsWith('lamarzocco')) {
-    return { LaMarzoccoWidget }
-  }
-
-  if (path.startsWith('vend')) {
-    return { TabsExample }
-  }
-
-  if (path.startsWith('xero/principles')) {
-    return Principles
-  }
-
-  return {}
-}
-
 export default async function Page({ params }: Props) {
   const { slug } = await params
 
   const post = getPostBySlugParams(slug)
 
   if (!post) notFound()
-
-  const components = mapPagesToImports(slug)
 
   return (
     <>
@@ -86,7 +56,7 @@ export default async function Page({ params }: Props) {
           </HStack>
         )}
       </VStack>
-      <MDXContent components={components} mdx={post.content} />
+      <MDXRemote mdx={post.content} />
     </>
   )
 }
