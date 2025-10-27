@@ -1,6 +1,6 @@
 import { VStack } from '@/styled/jsx'
 
-import { LaMarzoccoWidget } from './widget'
+import { LaMarzoccoWidget } from '.'
 
 export default function Page() {
   return (

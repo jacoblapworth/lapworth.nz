@@ -1,17 +1,13 @@
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import { Article } from '@/components/article'
 import { LinkButton } from '@/components/Button'
-import { MDXContent } from '@/components/MDXContent'
 import { Text } from '@/components/Typography'
-import { work } from '@/content'
 import { HStack, VStack } from '@/styled/jsx'
-import { LaMarzoccoWidget } from '../lamarzocco/widget/widget'
-import { TabsExample } from '../vend/tabs/VendTabs'
-import * as Principles from '../xero/principles/principles'
+import { getPostBySlugParams, work } from '../work'
 
-function getPostBySlugParams(slug: string[]) {
-  return work.find((post) => post.slug === slug.join('/'))
-}
+export const dynamicParams = false
+export const dynamic = 'force-static'
 
 interface Props {
   params: Promise<{
@@ -27,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params
   const post = getPostBySlugParams(slug)
 
-  if (post == null) return {}
+  if (!post) return notFound()
 
   return {
     description: post.description,
@@ -42,8 +38,10 @@ export default async function Page({ params }: Props) {
 
   if (!post) notFound()
 
+  const { default: Mdx } = await import(`../${post.filePath}`)
+
   return (
-    <>
+    <Article>
       <VStack alignItems="start" gap="md" marginBlock="lg">
         <Text as="h1" size="xl">
           {post.title}
@@ -59,10 +57,7 @@ export default async function Page({ params }: Props) {
           </HStack>
         )}
       </VStack>
-      <MDXContent
-        components={{ LaMarzoccoWidget, TabsExample, ...Principles }}
-        mdx={post.content}
-      />
-    </>
+      <Mdx />
+    </Article>
   )
 }

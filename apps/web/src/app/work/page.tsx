@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { work } from '@/content'
 import { enableDrafts } from '@/flags'
-import { WorkList } from './WorkList'
+import { work } from './work'
+import { WorkList } from './work-list'
 
 export const metadata: Metadata = {
   description: 'Xero, Vend, Timely, Trade Me',

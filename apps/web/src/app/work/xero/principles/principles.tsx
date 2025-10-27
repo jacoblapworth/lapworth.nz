@@ -1,13 +1,11 @@
 'use client'
 
 import NextImage, { type StaticImageData } from 'next/image'
-
-// import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
-import disciplines from '@/public/work/xero/principles-disciplines.webp'
-import worldMap from '@/public/work/xero/principles-world-map.svg'
-import worldMapDark from '@/public/work/xero/principles-world-map-dark.svg'
 import { styled } from '@/styled/jsx'
+import disciplines from './principles-disciplines.webp'
+import worldMap from './principles-world-map.svg'
+import worldMapDark from './principles-world-map-dark.svg'
 
 const Container = styled('div', {
   base: {
@@ -241,35 +239,3 @@ export function WorldMap() {
     </Grid>
   )
 }
-
-const _Grid = styled('div', {
-  base: {
-    display: 'grid',
-    marginBlockEnd: 'lg',
-    maxWidth: 1200,
-    position: 'relative',
-  },
-})
-
-// export const Page: NextPage<MDXPageProps> = ({ source }) => {
-//   return (
-//     <MDXProvider>
-//       <Grid>
-//         <Text as="h1" display size="lg">
-//           {source.frontmatter?.title}
-//         </Text>
-//         <MDXRemote
-//           {...source}
-//           components={{ Disciplines, WorldMap }}
-//           // scope={{ images }}
-//         />
-//       </Grid>
-//     </MDXProvider>
-//   )
-// }
-
-// export default Page
-//   )
-// }
-
-// export default Page

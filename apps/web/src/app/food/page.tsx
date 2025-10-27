@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { recipes } from '@/content'
 import { styled } from '@/styled/jsx'
-import { RecipeListItem } from './RecipeListItem'
+import { RecipeListItem } from './recipe-list-item'
+import { recipes } from './recipes'
 
 const List = styled('ul', {
   base: {

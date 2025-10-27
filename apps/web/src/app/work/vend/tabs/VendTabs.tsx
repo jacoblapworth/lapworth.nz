@@ -5,7 +5,6 @@ import { ChevronDownIcon } from 'lucide-react'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import { Lato } from 'next/font/google'
 import { type ComponentProps, type ReactNode, useRef, useState } from 'react'
-import { ResponsivePreview } from '@/components/Preview'
 import { styled } from '@/styled/jsx'
 
 const VEND_GREEN = '#41AF4B'
@@ -301,7 +300,7 @@ const TabsContainer = styled('div', {
     boxShadow: 'inset 0 -1px #c9c7ca',
     display: 'flex',
     flexDirection: 'row',
-    marginBlockEnd: 'lg',
+    marginBlockEnd: 'md',
   },
 })
 
@@ -310,7 +309,7 @@ const ScrollContainer = styled('div', {
     flexGrow: 1,
     marginBlockEnd: '-md',
     overflowX: 'scroll',
-    scrollbarWidth: 'thin',
+    scrollbarWidth: 'none',
   },
 })
 
@@ -375,34 +374,32 @@ export function TabsExample() {
   })
 
   return (
-    <ResponsivePreview>
-      <Container className={lato.className}>
-        <Ariakit.TabProvider store={tabStore}>
-          <Scroll
-            endElement={
-              <TabsMenu activeTab={tabValue} onChange={onChange} tabs={tabs} />
-            }
-          >
-            <TabList ref={tabsRef}>
-              {tabs.map(({ value, label }, i) => (
-                <Tab
-                  id={value}
-                  isActive={value === tabValue}
-                  key={value}
-                  ref={(el) => {
-                    tabRefs.current[i] = el
-                  }}
-                >
-                  {label}
-                </Tab>
-              ))}
-            </TabList>
-          </Scroll>
-          <Ariakit.TabPanel key={tabValue} tabId={tabValue}>
-            <SkeletonContent />
-          </Ariakit.TabPanel>
-        </Ariakit.TabProvider>
-      </Container>
-    </ResponsivePreview>
+    <Container className={lato.className}>
+      <Ariakit.TabProvider store={tabStore}>
+        <Scroll
+          endElement={
+            <TabsMenu activeTab={tabValue} onChange={onChange} tabs={tabs} />
+          }
+        >
+          <TabList ref={tabsRef}>
+            {tabs.map(({ value, label }, i) => (
+              <Tab
+                id={value}
+                isActive={value === tabValue}
+                key={value}
+                ref={(el) => {
+                  tabRefs.current[i] = el
+                }}
+              >
+                {label}
+              </Tab>
+            ))}
+          </TabList>
+        </Scroll>
+        <Ariakit.TabPanel key={tabValue} tabId={tabValue}>
+          <SkeletonContent />
+        </Ariakit.TabPanel>
+      </Ariakit.TabProvider>
+    </Container>
   )
 }
