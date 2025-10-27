@@ -28,13 +28,12 @@ export async function parseMdxFrontmatter<TSchema extends z.ZodTypeAny>(
 ): Promise<{
   frontmatter: z.infer<TSchema>
   excerpt?: string
-  content: string
 }> {
   const fullPath = path.join(baseDir, filePath)
   const fileContents = await fs.readFile(fullPath, 'utf8')
-  const { data, content, excerpt } = matter(fileContents)
+  const { data, excerpt } = matter(fileContents)
   const frontmatter = schema.parse(data)
-  return { content, excerpt, frontmatter }
+  return { excerpt, frontmatter }
 }
 
 export function toEntry(

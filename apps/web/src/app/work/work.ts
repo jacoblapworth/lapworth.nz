@@ -24,8 +24,9 @@ const WorkFrontmatter = z.object({
 export type WorkFrontmatter = z.infer<typeof WorkFrontmatter>
 
 export const Work = WorkFrontmatter.extend({
-  content: z.string(),
   cover: z.custom<StaticImageData>().optional(),
+  excerpt: z.string().optional(),
+  filePath: z.string(),
   params: z.array(z.string()),
   slug: z.string(),
 })
@@ -38,7 +39,7 @@ async function getWork(): Promise<Work[]> {
   const files = await listMdxFiles(WORK_DIR)
   const items = await Promise.all(
     files.map(async (filePath) => {
-      const { frontmatter, excerpt, content } = await parseMdxFrontmatter(
+      const { frontmatter, excerpt } = await parseMdxFrontmatter(
         WORK_DIR,
         filePath,
         WorkFrontmatter,
@@ -59,11 +60,9 @@ async function getWork(): Promise<Work[]> {
 
       return {
         ...frontmatter,
-        content,
         cover,
-        // Keep excerpt available if needed later (not in schema)
-        // @ts-expect-error - excerpt is not part of Work schema
         excerpt,
+        filePath,
         params,
         slug,
       } satisfies Work
@@ -71,7 +70,11 @@ async function getWork(): Promise<Work[]> {
   )
 
   // Filter out any nulls just in case
-  return items.filter(Boolean)
+  const validItems = items.filter(Boolean)
+
+  validItems.sort((a, b) => b.date.getTime() - a.date.getTime())
+
+  return validItems
 }
 
 export const work = await getWork()
