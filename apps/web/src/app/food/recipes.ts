@@ -2,7 +2,7 @@ import fs, { glob } from 'node:fs/promises'
 import path from 'node:path'
 import matter from 'gray-matter'
 import type { StaticImageData } from 'next/image'
-import { file, z } from 'zod/v4'
+import { z } from 'zod/v4'
 
 export const RecipeFrontmatter = z.object({
   cook: z.string().optional(),
@@ -18,7 +18,7 @@ export const Recipe = RecipeFrontmatter.extend({
   cover: z.custom<StaticImageData>().optional(),
   excerpt: z.string().optional(),
   filePath: z.string(),
-  slug: z.string(),
+  slug: z.array(z.string()),
 })
 
 export type Recipe = z.infer<typeof Recipe>
@@ -27,13 +27,17 @@ const RECIPES_DIR = path.join(process.cwd(), 'src/app/food')
 
 /**
  * Generate a slug from a file path
- * @example "focaccia/index.mdx" -> "focaccia"
- * @example "recipe.mdx" -> "recipe"
+ * @example "focaccia/index.mdx" -> ["focaccia"]
+ * @example "category/recipe.mdx" -> ["category", "recipe"]
  */
-function getSlugFromPath(filePath: string): string {
-  return filePath.includes('/')
-    ? path.dirname(filePath)
-    : path.basename(filePath, '.mdx')
+function getSlugFromPath(filePath: string): string[] {
+  const pathWithoutExt = filePath.replace(/\.mdx$/, '')
+  const parts = pathWithoutExt.split('/')
+  // Remove 'index' if it's the last part
+  if (parts[parts.length - 1] === 'index') {
+    parts.pop()
+  }
+  return parts
 }
 
 /**
@@ -62,10 +66,13 @@ async function parseRecipeFile(filePath: string): Promise<Recipe | null> {
     let cover: StaticImageData | undefined
     if (frontmatter.image) {
       try {
-        const imagePath = `./${slug}/${frontmatter.image}`
+        const imagePath = `./${slug.join('/')}/${frontmatter.image}`
         cover = (await import(imagePath)).default as StaticImageData
       } catch (error) {
-        console.error(`Error importing image for recipe ${slug}:`, error)
+        console.error(
+          `Error importing image for recipe ${slug.join('/')}:`,
+          error,
+        )
       }
     }
 
@@ -98,6 +105,10 @@ export async function getRecipes(): Promise<Recipe[]> {
 
 export const recipes = await getRecipes()
 
-export function getRecipe(slug: string): Recipe | undefined {
-  return recipes.find((r) => r.slug === slug)
+export function getRecipe(slug: string[]): Recipe | undefined {
+  return recipes.find(
+    (r) =>
+      r.slug.length === slug.length &&
+      r.slug.every((part, i) => part === slug[i]),
+  )
 }

@@ -4,9 +4,12 @@ import { styled } from '@/styled/jsx'
 import { getRecipe, recipes } from '../recipes'
 export const dynamicParams = false
 
+interface Props {
+  params: Promise<{ slug: string[] }>
+}
+
 export async function generateStaticParams() {
-  const slugs = recipes.map((r) => r.slug)
-  return slugs.map((slug) => ({ slug }))
+  return recipes.map((r) => ({ slug: r.slug }))
 }
 
 export async function generateMetadata({ params }: Props) {
@@ -26,10 +29,6 @@ const Article = styled('article', {
     gap: 'md',
   },
 })
-
-interface Props {
-  params: Promise<{ slug: string }>
-}
 
 export default async function Page({ params }: Props) {
   const { slug } = await params
