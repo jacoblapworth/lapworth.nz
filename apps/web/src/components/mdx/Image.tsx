@@ -1,12 +1,7 @@
-import { readFile } from 'node:fs/promises'
-import { join } from 'node:path'
 import * as Ariakit from '@ariakit/react'
 import { XIcon } from 'lucide-react'
-import { getImageSize } from 'next/dist/server/image-optimizer'
-import type { StaticImport } from 'next/dist/shared/lib/get-img-props'
-import NextImage, { type StaticImageData } from 'next/image'
+import NextImage from 'next/image'
 import type { ComponentProps } from 'react'
-import { getImageMetadata } from 'velite'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 
@@ -147,29 +142,7 @@ const styles = cva({
   },
 })
 
-async function getMetadata(
-  src: string | StaticImport,
-): Promise<StaticImport | StaticImageData> {
-  if (typeof src !== 'string') {
-    return src as StaticImport
-  }
-  const location = join(process.cwd(), 'public', src)
-  console.log({ location })
-  const buffer = await readFile(location)
-  const metadata = await getImageMetadata(buffer)
-  if (metadata == null) {
-    throw new Error(`Failed to get image metadata: ${location}`)
-  }
-  return {
-    blurDataURL: metadata.blurDataURL,
-    height: metadata.height,
-    src,
-    width: metadata.width,
-  }
-}
-
 export async function Image(props: ComponentProps<typeof NextImage>) {
-  const metadata = await getMetadata(props.src)
   return (
     <Ariakit.DialogProvider>
       <DialogDisclosure data-image>
@@ -178,7 +151,6 @@ export async function Image(props: ComponentProps<typeof NextImage>) {
             className={styles()}
             placeholder={props.blurDataURL ? 'blur' : undefined}
             quality={100}
-            {...metadata}
             {...props}
           />
           {props.title && <Figcaption>{props.title}</Figcaption>}
@@ -191,7 +163,6 @@ export async function Image(props: ComponentProps<typeof NextImage>) {
             className={styles()}
             placeholder={props.blurDataURL ? 'blur' : undefined}
             quality={100}
-            {...metadata}
             {...props}
           />
           {props.title && <Figcaption dialog>{props.title}</Figcaption>}
