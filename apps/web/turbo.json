@@ -9,11 +9,11 @@
     },
     "content": {
       "inputs": ["src/content/**", "velite.config.ts"],
-      "outputs": [".velite/**", "public/static/**"]
+      "outputs": [".velite/**"]
     },
     "content:watch": {
       "inputs": ["src/content/**", "velite.config.ts"],
-      "outputs": [".velite/**", "public/static/**"],
+      "outputs": [".velite/**"],
       "persistent": true
     },
     "dev": {

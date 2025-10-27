@@ -71,6 +71,7 @@
     "@sentry/cli": "2.56.1",
     "@testing-library/cypress": "10.1.0",
     "@total-typescript/ts-reset": "0.6.1",
+    "@types/mdast": "4.0.4",
     "@types/mdx": "2.0.13",
     "@types/musickit-js": "1.0.10",
     "@types/node": "24.9.1",
@@ -83,8 +84,10 @@
     "cypress-real-events": "1.15.0",
     "esbuild": "0.25.10",
     "globals": "16.4.0",
+    "mdast-util-mdx-jsx": "3.2.0",
     "prettier": "3.6.2",
     "typescript": "catalog:",
+    "unified": "11.0.5",
     "unist": "0.0.1",
     "velite": "0.3.0"
   },

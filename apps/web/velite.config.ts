@@ -8,6 +8,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import { rehypePrettyCode } from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
+import type { Plugin } from 'unified'
 import { defineCollection, defineConfig, s } from 'velite'
 import { nextImage } from '@/components/mdx/remark-next-image'
 
@@ -121,9 +122,10 @@ export default defineConfig({
         },
       ],
     ],
-    remarkPlugins: [nextImage],
+    remarkPlugins: [nextImage as unknown as Plugin],
     removeComments: true,
   },
+
   output: {
     assets: 'public/static',
     base: '/static/',

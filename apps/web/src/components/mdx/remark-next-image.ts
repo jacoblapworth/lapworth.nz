@@ -1,5 +1,8 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
+import type { Image } from 'mdast'
+import type { MdxJsxFlowElement } from 'mdast-util-mdx-jsx'
+import type { Plugin } from 'unified'
 import type { Literal, Node, Parent } from 'unist'
 import { visit } from 'unist-util-visit'
 import { getImageMetadata } from 'velite'
@@ -14,11 +17,9 @@ export type ImageNode = Parent & {
 
 export async function nextImage() {
   return async (tree: Node) => {
-    const images: ImageNode[] = []
+    const images: Image[] = []
 
-    // Find all the local image nodes
-    visit(tree, 'image', (node: ImageNode) => {
-      // Skip remote images
+    visit(tree, 'image', (node: Image) => {
       if (node.url.startsWith('http')) {
         return
       }
@@ -26,39 +27,51 @@ export async function nextImage() {
       images.push(node)
     })
 
-    // Process images
     await Promise.all(images.map(transformNextImage))
     return tree
   }
 }
 
-async function transformNextImage(node: ImageNode) {
+async function transformNextImage(node: Image) {
   const path = join(process.cwd(), 'public', node.url)
   const buffer = await readFile(path)
   const metadata = await getImageMetadata(buffer)
   if (metadata == null) {
     throw new Error(`Failed to get image metadata: ${path}`)
   }
-  // Convert original node to next/image
-  node.type = 'mdxJsxFlowElement'
-  node.name = 'img'
-  node.attributes = [
-    { name: 'alt', type: 'mdxJsxAttribute', value: node.alt },
-    { name: 'src', type: 'mdxJsxAttribute', value: node.url },
-    { name: 'width', type: 'mdxJsxAttribute', value: metadata.width },
-    { name: 'height', type: 'mdxJsxAttribute', value: metadata.height },
-    {
-      name: 'blurDataURL',
-      type: 'mdxJsxAttribute',
-      value: metadata.blurDataURL,
-    },
-  ]
+
+  const jsx: MdxJsxFlowElement = {
+    attributes: [
+      { name: 'alt', type: 'mdxJsxAttribute', value: node.alt },
+      { name: 'src', type: 'mdxJsxAttribute', value: node.url },
+      {
+        name: 'width',
+        type: 'mdxJsxAttribute',
+        value: metadata.width.toString(),
+      },
+      {
+        name: 'height',
+        type: 'mdxJsxAttribute',
+        value: metadata.height.toString(),
+      },
+      {
+        name: 'blurDataURL',
+        type: 'mdxJsxAttribute',
+        value: metadata.blurDataURL,
+      },
+    ],
+    children: [],
+    name: 'img',
+    type: 'mdxJsxFlowElement',
+  }
 
   if (node.title) {
-    node.attributes.push({
+    jsx.attributes.push({
       name: 'title',
       type: 'mdxJsxAttribute',
       value: node.title,
     })
   }
+
+  node = jsx as unknown as Image
 }
