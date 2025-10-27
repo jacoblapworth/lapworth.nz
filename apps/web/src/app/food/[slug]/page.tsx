@@ -1,13 +1,8 @@
 import { notFound } from 'next/navigation'
-import { MDXContent } from '@/components/MDXContent'
 import { Text } from '@/components/Typography'
-import { recipes } from '@/content'
 import { styled } from '@/styled/jsx'
+import { getRecipe, recipes } from '../recipes'
 export const dynamicParams = false
-
-function getRecipe(slug: string) {
-  return recipes.find((r) => r.slug === slug)
-}
 
 export async function generateStaticParams() {
   const slugs = recipes.map((r) => r.slug)
@@ -42,12 +37,14 @@ export default async function Page({ params }: Props) {
   const recipe = getRecipe(slug)
   if (!recipe) notFound()
 
+  const { default: Mdx } = await import(`../${recipe.filePath}`)
+
   return (
     <Article>
       <Text as="h1" marginBlock="lg" size="xl">
         {recipe.title}
       </Text>
-      <MDXContent mdx={recipe.mdx} />
+      <Mdx />
     </Article>
   )
 }

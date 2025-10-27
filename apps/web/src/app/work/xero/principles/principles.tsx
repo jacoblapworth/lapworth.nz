@@ -239,35 +239,3 @@ export function WorldMap() {
     </Grid>
   )
 }
-
-const _Grid = styled('div', {
-  base: {
-    display: 'grid',
-    marginBlockEnd: 'lg',
-    maxWidth: 1200,
-    position: 'relative',
-  },
-})
-
-// export const Page: NextPage<MDXPageProps> = ({ source }) => {
-//   return (
-//     <MDXProvider>
-//       <Grid>
-//         <Text as="h1" display size="lg">
-//           {source.frontmatter?.title}
-//         </Text>
-//         <MDXRemote
-//           {...source}
-//           components={{ Disciplines, WorldMap }}
-//           // scope={{ images }}
-//         />
-//       </Grid>
-//     </MDXProvider>
-//   )
-// }
-
-// export default Page
-//   )
-// }
-
-// export default Page

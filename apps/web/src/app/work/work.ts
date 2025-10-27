@@ -3,13 +3,12 @@ import { z } from 'zod/v4'
 
 const WorkFrontmatter = z.object({
   category: z.string().optional(),
-  cover: z.image().optional(),
-  date: z.isodate(),
+  cover: z.string().optional(),
+  date: z.coerce.date(),
   description: z.string().max(999).optional(),
   draft: z.boolean().default(false),
-  excerpt: z.excerpt(),
   featured: z.boolean().default(false),
-  links: s
+  links: z
     .array(
       z.object({
         href: z.string().url(),
@@ -17,13 +16,8 @@ const WorkFrontmatter = z.object({
       }),
     )
     .optional(),
-  meta: meta,
-  metadata: z.metadata(),
-  path: z.path(),
   tags: z.array(z.string()).default([]),
   title: z.string().max(99),
-  toc: z.toc(),
-  video: z.file().optional(),
 })
 
 export type WorkFrontmatter = z.infer<typeof WorkFrontmatter>

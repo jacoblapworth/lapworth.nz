@@ -155,7 +155,6 @@ export function Image({
   src,
   ...props
 }: ComponentProps<typeof NextImage>) {
-  console.log({ blurDataURL, placeholder, props })
   return (
     <Ariakit.DialogProvider>
       <DialogDisclosure>
