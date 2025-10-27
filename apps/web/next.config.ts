@@ -11,6 +11,7 @@ const withVercelToolbar = createWithVercelToolbar()
 const withNextIntl = createNextIntlPlugin()
 
 const config: NextConfig = {
+  cacheComponents: true,
   images: {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",

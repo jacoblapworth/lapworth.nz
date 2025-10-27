@@ -1,22 +1,22 @@
+'use cache'
+
 import { notFound } from 'next/navigation'
 import { Article } from '@/components/article'
 import { Text } from '@/components/text'
-import { getRecipe, recipes } from '../recipes'
-
-export const dynamicParams = false
-export const dynamic = 'force-static'
+import { getRecipe, getRecipes } from '../recipes'
 
 interface Props {
   params: Promise<{ slug: string[] }>
 }
 
 export async function generateStaticParams() {
+  const recipes = await getRecipes()
   return recipes.map((r) => ({ slug: r.params }))
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params
-  const recipe = getRecipe(slug)
+  const recipe = await getRecipe(slug)
   if (!recipe) return notFound()
   return {
     title: recipe.title,
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props) {
 export default async function Page({ params }: Props) {
   const { slug } = await params
 
-  const recipe = getRecipe(slug)
+  const recipe = await getRecipe(slug)
   if (!recipe) notFound()
 
   const { default: Mdx } = await import(`../${recipe.filePath}`)

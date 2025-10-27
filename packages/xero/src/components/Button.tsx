@@ -1,7 +1,6 @@
 import * as Ariakit from '@ariakit/react'
-import type { ReactNode } from 'react'
 import { cva } from '@/styled/css'
-import { Box, HStack, styled } from '@/styled/jsx'
+import { HStack, styled } from '@/styled/jsx'
 import type { HTMLStyledProps, StyledVariantProps } from '@/styled/types'
 import { Spinner } from './Spinner'
 

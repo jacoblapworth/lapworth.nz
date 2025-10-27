@@ -1,3 +1,4 @@
+import { cacheLife, cacheTag } from 'next/cache'
 import { getPlaiceholder } from 'plaiceholder'
 import * as z from 'zod'
 
@@ -117,6 +118,9 @@ export async function getBookWithThumbnail(
 export async function getReadingWithThumbnails(): Promise<
   OkuBookWithThumbnail[]
 > {
+  'use cache'
+  cacheLife('days')
+  cacheTag('reading')
   const books = await getReading()
 
   return Promise.all(books.map(getBookWithThumbnail))

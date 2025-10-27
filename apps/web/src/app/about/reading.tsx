@@ -1,28 +1,13 @@
-'use client'
-
 import NextImage from 'next/image'
 
 import { Carousel } from '@/components/carousel'
 import { Link } from '@/components/link'
+import { css } from '@/styled/css'
 import { styled, VStack } from '@/styled/jsx'
-
-import type { OkuBookWithThumbnail } from './books/oku'
-
-const BookCover = styled(NextImage, {
-  base: {
-    _groupHover: {
-      opacity: 0.8,
-    },
-    _hover: {
-      opacity: 0.8,
-    },
-    backgroundColor: 'surface',
-    borderRadius: 'md',
-    height: 'auto',
-    marginBlockEnd: 'xsm',
-    overflow: 'hidden',
-  },
-})
+import {
+  getReadingWithThumbnails,
+  type OkuBookWithThumbnail,
+} from './books/oku'
 
 const Label = styled('div', {
   base: {
@@ -55,14 +40,27 @@ export const Book = ({
   return (
     <Link className="group" href={`https://oku.club/book/${slug}`}>
       <VStack alignItems="start" gap="xs">
-        <BookCover
+        <NextImage
           alt={`Book cover for "${title}"`}
           blurDataURL={placeholder}
-          htmlHeight={size}
-          htmlWidth={size}
+          className={css({
+            _groupHover: {
+              opacity: 0.8,
+            },
+            _hover: {
+              opacity: 0.8,
+            },
+            backgroundColor: 'surface',
+            borderRadius: 'md',
+            marginBlockEnd: 'xsm',
+            overflow: 'hidden',
+            willChange: 'transform',
+          })}
+          height={size}
           placeholder="blur"
           quality={75}
           src={thumbnail}
+          width={size}
         />
         <Label variant="primary">{title}</Label>
         <Label variant="secondary">{subtitle}</Label>
@@ -71,11 +69,13 @@ export const Book = ({
   )
 }
 
-interface ReadingProps {
-  books: OkuBookWithThumbnail[]
-}
+export async function Reading() {
+  const books = await getReadingWithThumbnails()
 
-export const Reading = ({ books }: ReadingProps) => {
+  if (!books) {
+    return null
+  }
+
   return (
     <Carousel
       items={books}

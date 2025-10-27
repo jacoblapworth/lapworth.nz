@@ -1,10 +1,12 @@
 import * as Sentry from '@sentry/nextjs'
 import { importPKCS8, SignJWT } from 'jose'
+import { cacheLife, cacheTag } from 'next/cache'
 import { getPlaiceholder } from 'plaiceholder'
 import { z } from 'zod'
 import { env } from '@/lib/env'
 
-export const createAppleJWT = async () => {
+export async function createAppleJWT() {
+  'use cache'
   const ALGORITHM = 'ES256'
   const ecPrivateKey = await importPKCS8(env.APPLE_MUSIC_PRIVATE_KEY, ALGORITHM)
 
@@ -108,7 +110,7 @@ export function formatArtworkUrl(
     .replace('{f}', 'jpeg')
 }
 
-export const getMusic = async (endpoint: MusicEndpoint) => {
+export async function getMusic(endpoint: MusicEndpoint) {
   const response = await fetch(`https://api.music.apple.com/${endpoint}`, {
     headers: {
       Authorization: `Bearer ${await createAppleJWT()}`,
@@ -127,9 +129,9 @@ export const getMusic = async (endpoint: MusicEndpoint) => {
   }
 }
 
-const getMusicWithThumnail = async (
+async function getMusicWithThumbnail(
   item: MusicKitResource,
-): Promise<MusicKitResource | undefined> => {
+): Promise<MusicKitResource | undefined> {
   try {
     const src = formatArtworkUrl(item.attributes.artwork, 24)
     const image = await fetch(src).then(async (res) =>
@@ -153,10 +155,13 @@ const getMusicWithThumnail = async (
   }
 }
 
-export const getMusicWithThumbnails = async () => {
+export async function getMusicWithThumbnails() {
+  'use cache'
+  cacheLife('days')
+  cacheTag('music')
   try {
     const response = await getMusic(MusicEndpoint.RECENT)
-    const promises = response.map(getMusicWithThumnail)
+    const promises = response.map(getMusicWithThumbnail)
     const thumbnails = await Promise.allSettled(promises)
     const music = thumbnails
       .map((v) => v.status === 'fulfilled' && v.value)

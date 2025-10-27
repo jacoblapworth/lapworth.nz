@@ -1,4 +1,5 @@
 import path from 'node:path'
+import { cacheLife } from 'next/cache'
 import type { StaticImageData } from 'next/image'
 import { z } from 'zod/v4'
 import { getSlugFromPath, listMdxFiles, parseMdxFrontmatter } from '@/lib/mdx'
@@ -36,7 +37,9 @@ export type Work = z.infer<typeof Work>
 
 const WORK_DIR = path.join(process.cwd(), 'src/app/work')
 
-async function getWork(): Promise<Work[]> {
+export async function getWork(): Promise<Work[]> {
+  'use cache'
+  cacheLife('max')
   const files = await listMdxFiles(WORK_DIR)
   const items = await Promise.all(
     files.map(async (filePath) => {
@@ -78,8 +81,7 @@ async function getWork(): Promise<Work[]> {
   return validItems
 }
 
-export const work = await getWork()
-
-export function getPostBySlugParams(slug: string[]) {
+export async function getPostBySlugParams(slug: string[]) {
+  const work = await getWork()
   return work.find((post) => post.slug === slug.join('/'))
 }
