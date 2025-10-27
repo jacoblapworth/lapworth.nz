@@ -1,3 +1,4 @@
+import path from 'node:path'
 import type { StaticImageData } from 'next/image'
 import { z } from 'zod/v4'
 import { getSlugFromPath, listMdxFiles, parseMdxFrontmatter } from '@/lib/mdx'
@@ -33,7 +34,7 @@ export const Work = WorkFrontmatter.extend({
 
 export type Work = z.infer<typeof Work>
 
-const WORK_DIR = process.cwd() + '/src/app/work'
+const WORK_DIR = path.join(process.cwd(), 'src/app/work')
 
 async function getWork(): Promise<Work[]> {
   const files = await listMdxFiles(WORK_DIR)
