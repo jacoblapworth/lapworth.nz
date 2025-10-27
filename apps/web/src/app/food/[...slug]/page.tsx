@@ -2,7 +2,9 @@ import { notFound } from 'next/navigation'
 import { Article } from '@/components/article'
 import { Text } from '@/components/Typography'
 import { getRecipe, recipes } from '../recipes'
+
 export const dynamicParams = false
+export const dynamic = 'force-static'
 
 interface Props {
   params: Promise<{ slug: string[] }>
@@ -15,7 +17,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params
   const recipe = getRecipe(slug)
-  if (!recipe) return {}
+  if (!recipe) return notFound()
   return {
     title: recipe.title,
   }

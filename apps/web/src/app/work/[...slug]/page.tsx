@@ -4,11 +4,10 @@ import { Article } from '@/components/article'
 import { LinkButton } from '@/components/Button'
 import { Text } from '@/components/Typography'
 import { HStack, VStack } from '@/styled/jsx'
-import { work } from '../work'
+import { getPostBySlugParams, work } from '../work'
 
-function getPostBySlugParams(slug: string[]) {
-  return work.find((post) => post.slug === slug.join('/'))
-}
+export const dynamicParams = false
+export const dynamic = 'force-static'
 
 interface Props {
   params: Promise<{
@@ -24,7 +23,7 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params
   const post = getPostBySlugParams(slug)
 
-  if (post == null) return {}
+  if (!post) return notFound()
 
   return {
     description: post.description,

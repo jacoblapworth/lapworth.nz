@@ -78,3 +78,7 @@ async function getWork(): Promise<Work[]> {
 }
 
 export const work = await getWork()
+
+export function getPostBySlugParams(slug: string[]) {
+  return work.find((post) => post.slug === slug.join('/'))
+}
