@@ -1,6 +1,5 @@
 import type { Route } from 'next'
 import { Link } from '@/components/Link'
-import { enableFood } from '@/flags'
 import { styled } from '@/styled/jsx'
 import { NavLinks } from './NavLinks'
 
@@ -102,11 +101,9 @@ const Nav = styled('nav', {
 })
 
 export async function Navigation() {
-  const showFood = await enableFood()
-
   return (
     <Nav>
-      <NavLinks enableFood={showFood} />
+      <NavLinks />
       <Description />
     </Nav>
   )
