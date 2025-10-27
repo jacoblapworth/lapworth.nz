@@ -1,4 +1,4 @@
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { enableDrafts } from '@/flags'
 import { work } from '../work'
 import { WorkList } from '../work-list'

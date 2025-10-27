@@ -5,7 +5,7 @@ import { useActionState, useId } from 'react'
 import { Form } from '@/components/Form'
 import { SubmitButton } from '@/components/SubmitButton'
 import { TextInput } from '@/components/TextInput'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { HStack, VStack } from '@/styled/jsx'
 import { type FormState, requestCv } from './action'
 

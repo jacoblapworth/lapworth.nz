@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { Article } from '@/components/article'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { getRecipe, recipes } from '../recipes'
 
 export const dynamicParams = false

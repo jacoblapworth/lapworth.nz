@@ -1,7 +1,7 @@
 'use client'
 
 import { Link } from '@/components/Link'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
 
 const Container = styled('div', {

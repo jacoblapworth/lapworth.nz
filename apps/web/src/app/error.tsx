@@ -3,7 +3,7 @@
 import * as Sentry from '@sentry/nextjs'
 import { OctagonAlertIcon } from 'lucide-react'
 import { useEffect } from 'react'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { HStack } from '@/styled/jsx'
 
 export default function ErrorPage({

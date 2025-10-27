@@ -4,7 +4,7 @@ import Image from 'next/image'
 import NextLink from 'next/link'
 import { useFormatter } from 'next-intl'
 import { Tag } from '@/components/Tag'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { styled, VStack } from '@/styled/jsx'
 import type { Work } from './work'
 

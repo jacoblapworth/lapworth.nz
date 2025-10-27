@@ -1,6 +1,6 @@
 import NextImage from 'next/image'
 import NextLink from 'next/link'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { css } from '@/styled/css/css'
 import { styled } from '@/styled/jsx'
 import type { Recipe } from './recipes'
