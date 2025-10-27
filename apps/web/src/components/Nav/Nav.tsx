@@ -1,3 +1,4 @@
+import type { Route } from 'next'
 import { Link } from '@/components/Link'
 import { enableFood } from '@/flags'
 import { styled } from '@/styled/jsx'
@@ -62,7 +63,7 @@ const socialLinks = [
     name: 'Email',
   },
   {
-    href: '/cv/request',
+    href: '/cv/request' satisfies Route,
     name: 'CV',
   },
 ]

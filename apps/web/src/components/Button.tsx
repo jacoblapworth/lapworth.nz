@@ -1,8 +1,6 @@
 'use client'
 
-import { ArrowRightIcon } from 'lucide-react'
 import NextLink from 'next/link'
-import type { ComponentProps, ReactNode } from 'react'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 
@@ -63,45 +61,3 @@ export const ButtonStyles = cva({
 
 export const Button = styled('button', ButtonStyles)
 export const LinkButton = styled(NextLink, ButtonStyles)
-
-const Pill = styled(NextLink, {
-  base: {
-    _hover: {
-      backgroundColor: 'surface',
-    },
-    alignItems: 'center',
-    border: '1px solid token(colors.primary)',
-    color: 'interactive',
-    display: 'inline-grid',
-    gap: 4,
-    gridAutoColumns: 'auto',
-    gridAutoFlow: 'column',
-    gridTemplateRows: '1fr',
-    paddingBlock: 4,
-    paddingInline: 'sm',
-  },
-
-  variants: {
-    inverted: {
-      true: {
-        _hover: {
-          backgroundColor: 'interactive',
-          color: 'surface',
-        },
-      },
-    },
-  },
-})
-
-interface PillLinkProps extends ComponentProps<typeof Pill> {
-  children: ReactNode
-}
-
-export function PillLink({ children, ref, ...rest }: PillLinkProps) {
-  return (
-    <Pill ref={ref} {...rest}>
-      {children}
-      <ArrowRightIcon size={16} />
-    </Pill>
-  )
-}

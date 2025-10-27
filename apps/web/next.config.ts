@@ -35,6 +35,7 @@ const config: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactCompiler: false,
   reactStrictMode: true,
+  typedRoutes: true,
 }
 
 const withMDX = createMDX({
