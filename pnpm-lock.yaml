@@ -51,8 +51,8 @@ importers:
         specifier: 0.4.19
         version: 0.4.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@faker-js/faker':
-        specifier: 10.0.0
-        version: 10.0.0
+        specifier: 10.1.0
+        version: 10.1.0
       '@flags-sdk/posthog':
         specifier: 0.2.0
         version: 0.2.0(@opentelemetry/api@1.9.0)
@@ -1033,8 +1033,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@faker-js/faker@10.0.0':
-    resolution: {integrity: sha512-UollFEUkVXutsaP+Vndjxar40Gs5JL2HeLcl8xO1QAjJgOdhc3OmBFWyEylS+RddWaaBiAzH+5/17PLQJwDiLw==}
+  '@faker-js/faker@10.1.0':
+    resolution: {integrity: sha512-C3mrr3b5dRVlKPJdfrAXS8+dq+rq8Qm5SNRazca0JKgw1HQERFmrVb0towvMmw5uu8hHKNiQasMaR/tydf3Zsg==}
     engines: {node: ^20.19.0 || ^22.13.0 || ^23.5.0 || >=24.0.0, npm: '>=10'}
 
   '@fastify/busboy@2.1.1':
@@ -7391,7 +7391,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.4':
     optional: true
 
-  '@faker-js/faker@10.0.0': {}
+  '@faker-js/faker@10.1.0': {}
 
   '@fastify/busboy@2.1.1': {}
 
