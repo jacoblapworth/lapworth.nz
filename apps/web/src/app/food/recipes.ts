@@ -18,7 +18,8 @@ export const Recipe = RecipeFrontmatter.extend({
   cover: z.custom<StaticImageData>().optional(),
   excerpt: z.string().optional(),
   filePath: z.string(),
-  slug: z.array(z.string()),
+  params: z.array(z.string()),
+  slug: z.string(),
 })
 
 export type Recipe = z.infer<typeof Recipe>
@@ -80,7 +81,8 @@ async function parseRecipeFile(filePath: string): Promise<Recipe | null> {
       cover,
       excerpt,
       filePath,
-      slug,
+      params: slug,
+      slug: slug.join('/'),
       ...frontmatter,
     }
   } catch (error) {
@@ -105,10 +107,10 @@ export async function getRecipes(): Promise<Recipe[]> {
 
 export const recipes = await getRecipes()
 
-export function getRecipe(slug: string[]): Recipe | undefined {
+export function getRecipe(params: string[]): Recipe | undefined {
   return recipes.find(
     (r) =>
-      r.slug.length === slug.length &&
-      r.slug.every((part, i) => part === slug[i]),
+      r.params.length === params.length &&
+      r.params.every((part, i) => part === params[i]),
   )
 }

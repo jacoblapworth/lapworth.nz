@@ -1,5 +1,5 @@
-import type { Work } from '@/content'
 import { styled } from '@/styled/jsx'
+import type { Work } from './work'
 import { WorkListItem } from './work-list-item'
 
 const Ul = styled('ul', {

@@ -9,7 +9,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return recipes.map((r) => ({ slug: r.slug }))
+  return recipes.map((r) => ({ slug: r.params }))
 }
 
 export async function generateMetadata({ params }: Props) {

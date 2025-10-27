@@ -4,10 +4,10 @@ import { notFound } from 'next/navigation'
 import { LinkButton } from '@/components/Button'
 import { MDXContent } from '@/components/MDXContent'
 import { Text } from '@/components/Typography'
-import { work } from '@/content'
 import { HStack, VStack } from '@/styled/jsx'
 import { LaMarzoccoWidget } from '../lamarzocco/widget'
 import { TabsExample } from '../vend/tabs/VendTabs'
+import { work } from '../work'
 import * as Principles from '../xero/principles/principles'
 
 function getPostBySlugParams(slug: string[]) {

@@ -1,6 +1,6 @@
 import { Text } from '@/components/Typography'
-import { work } from '@/content'
 import { enableDrafts } from '@/flags'
+import { work } from '../work'
 import { WorkList } from '../work-list'
 import { Background } from './background'
 
