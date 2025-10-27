@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
+import { Article } from '@/components/article'
 import { Text } from '@/components/Typography'
-import { styled } from '@/styled/jsx'
 import { getRecipe, recipes } from '../recipes'
 export const dynamicParams = false
 
@@ -20,15 +20,6 @@ export async function generateMetadata({ params }: Props) {
     title: recipe.title,
   }
 }
-
-const Article = styled('article', {
-  base: {
-    alignItems: 'start',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 'md',
-  },
-})
 
 export default async function Page({ params }: Props) {
   const { slug } = await params

@@ -1,40 +1,13 @@
-import { FormExample } from '@lapworth/xero/FormExample'
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import { Article } from '@/components/article'
 import { LinkButton } from '@/components/Button'
 import { Text } from '@/components/Typography'
 import { HStack, VStack } from '@/styled/jsx'
-import { LaMarzoccoWidget } from '../lamarzocco/widget'
-import { TabsExample } from '../vend/tabs/VendTabs'
 import { work } from '../work'
-import * as Principles from '../xero/principles/principles'
 
 function getPostBySlugParams(slug: string[]) {
   return work.find((post) => post.slug === slug.join('/'))
-}
-
-function mapPagesToImports(
-  params: string[],
-): Record<string, React.ComponentType> {
-  const path = params.join('/')
-
-  if (path.startsWith('xero')) {
-    return { FormExample }
-  }
-
-  if (path.startsWith('lamarzocco')) {
-    return { LaMarzoccoWidget }
-  }
-
-  if (path.startsWith('vend')) {
-    return { TabsExample }
-  }
-
-  if (path.startsWith('xero/principles')) {
-    return Principles
-  }
-
-  return {}
 }
 
 interface Props {
@@ -68,10 +41,8 @@ export default async function Page({ params }: Props) {
 
   const { default: Mdx } = await import(`../${post.filePath}`)
 
-  const components = mapPagesToImports(slug)
-
   return (
-    <>
+    <Article>
       <VStack alignItems="start" gap="md" marginBlock="lg">
         <Text as="h1" size="xl">
           {post.title}
@@ -87,7 +58,7 @@ export default async function Page({ params }: Props) {
           </HStack>
         )}
       </VStack>
-      <Mdx components={components} />
-    </>
+      <Mdx />
+    </Article>
   )
 }
