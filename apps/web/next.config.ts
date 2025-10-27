@@ -1,9 +1,18 @@
 import withBundleAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
 import { withSentryConfig } from '@sentry/nextjs'
+import {
+  transformerNotationDiff,
+  transformerNotationErrorLevel,
+  transformerNotationFocus,
+  transformerNotationHighlight,
+} from '@shikijs/transformers'
 import createWithVercelToolbar from '@vercel/toolbar/plugins/next'
 import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
+import rehypeMdxImportMedia from 'rehype-mdx-import-media'
+import { rehypePrettyCode } from 'rehype-pretty-code'
+import rehypeSlug from 'rehype-slug'
 import { env } from '@/lib/env'
 
 const withVercelToolbar = createWithVercelToolbar()
@@ -42,9 +51,37 @@ const config: NextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    // remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
-    // rehypePlugins: [rehypeSlug, [rehypePrettyCode, prettyCodeOptions]],
-    // providerImportSource: '@mdx-js/react',
+    rehypePlugins: [
+      ['rehype-unwrap-images'],
+      ['rehype-mdx-import-media'],
+      ['rehype-slug'],
+      [
+        'rehype-autolink-headings',
+        {
+          behavior: 'wrap',
+          properties: {
+            ariaLabel: 'Link to section',
+          },
+        },
+      ],
+      [
+        'rehype-pretty-code',
+        {
+          defaultColor: false,
+          theme: {
+            dark: 'github-dark-dimmed',
+            light: 'github-light',
+          },
+          //     transformers: [
+          //       transformerNotationDiff({ matchAlgorithm: 'v3' }),
+          //       transformerNotationHighlight({ matchAlgorithm: 'v3' }),
+          //       transformerNotationFocus({ matchAlgorithm: 'v3' }),
+          //       transformerNotationErrorLevel({ matchAlgorithm: 'v3' }),
+          //     ],
+        },
+      ],
+    ],
+    remarkPlugins: ['remark-frontmatter', 'remark-mdx-frontmatter'],
   },
 })
 

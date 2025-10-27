@@ -1,7 +1,7 @@
 import { Text } from '@/components/Typography'
 import { work } from '@/content'
 import { enableDrafts } from '@/flags'
-import { WorkList } from '../WorkList'
+import { WorkList } from '../work-list'
 import { Background } from './background'
 
 export default async function Page() {

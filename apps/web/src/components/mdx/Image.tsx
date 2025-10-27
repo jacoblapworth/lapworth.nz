@@ -49,7 +49,6 @@ const Dialog = styled(
         transform: 'scale(1)',
       },
       '--inset': '16px',
-
       alignItems: 'stretch',
       backgroundColor: 'background',
       boxShadow: `
@@ -63,7 +62,7 @@ const Dialog = styled(
       inset: 'var(--inset)',
       justifyContent: 'stretch',
       margin: 'auto',
-      maxHeight: 'calc(100dvh - var(--inset) * 2)',
+      maxHeight: 'calc(100dvh - var(--inset) * 2 - 36px)',
       maxWidth: '100vw',
       md: {
         '--inset': '2rem',
@@ -137,21 +136,37 @@ const styles = cva({
       marginBlockStart: -1,
     },
     border: 'muted',
-    height: 'auto',
-    maxWidth: '100%',
+    // height: 'auto',
+    maxWidth: '800px',
+    // width: '100%',
+  },
+  variants: {
+    dialog: {
+      true: {
+        maxWidth: '100%',
+      },
+    },
   },
 })
 
-export async function Image(props: ComponentProps<typeof NextImage>) {
+export function Image({
+  blurDataURL,
+  placeholder,
+  src,
+  ...props
+}: ComponentProps<typeof NextImage>) {
+  console.log({ blurDataURL, placeholder, props })
   return (
     <Ariakit.DialogProvider>
-      <DialogDisclosure data-image>
+      <DialogDisclosure>
         <Figure>
           <NextImage
-            className={styles()}
-            placeholder={props.blurDataURL ? 'blur' : undefined}
-            quality={100}
             {...props}
+            className={styles()}
+            placeholder="blur"
+            quality={75}
+            sizes="(max-width: 800px) 100vw, 600px"
+            src={src}
           />
           {props.title && <Figcaption>{props.title}</Figcaption>}
         </Figure>
@@ -160,10 +175,11 @@ export async function Image(props: ComponentProps<typeof NextImage>) {
         <Dismiss />
         <Figure>
           <NextImage
-            className={styles()}
-            placeholder={props.blurDataURL ? 'blur' : undefined}
-            quality={100}
             {...props}
+            className={styles()}
+            placeholder="blur"
+            quality={100}
+            src={src}
           />
           {props.title && <Figcaption dialog>{props.title}</Figcaption>}
         </Figure>

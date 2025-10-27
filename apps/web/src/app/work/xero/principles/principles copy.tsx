@@ -2,10 +2,10 @@
 
 import NextImage, { type StaticImageData } from 'next/image'
 import { Text } from '@/components/Typography'
-import disciplines from '@/public/work/xero/principles-disciplines.webp'
-import worldMap from '@/public/work/xero/principles-world-map.svg'
-import worldMapDark from '@/public/work/xero/principles-world-map-dark.svg'
 import { styled } from '@/styled/jsx'
+import disciplines from './principles-disciplines.webp'
+import worldMap from './principles-world-map.svg'
+import worldMapDark from './principles-world-map-dark.svg'
 
 export function Principles() {
   const Container = styled('div', {

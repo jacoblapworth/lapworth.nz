@@ -6,7 +6,7 @@ import { MDXContent } from '@/components/MDXContent'
 import { Text } from '@/components/Typography'
 import { work } from '@/content'
 import { HStack, VStack } from '@/styled/jsx'
-import { LaMarzoccoWidget } from '../lamarzocco/widget/widget'
+import { LaMarzoccoWidget } from '../lamarzocco/widget'
 import { TabsExample } from '../vend/tabs/VendTabs'
 import * as Principles from '../xero/principles/principles'
 

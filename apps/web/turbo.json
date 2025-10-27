@@ -3,21 +3,13 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["tokens", "content", "^build"],
+      "dependsOn": ["tokens", "^build"],
       "env": ["NEXT_PUBLIC_POSTHOG_API_HOST"],
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
     },
-    "content": {
-      "inputs": ["src/content/**", "velite.config.ts"],
-      "outputs": [".velite/**"]
-    },
-    "content:watch": {
-      "inputs": ["src/content/**", "velite.config.ts"],
-      "outputs": [".velite/**"],
-      "persistent": true
-    },
     "dev": {
-      "with": ["content:watch"]
+      "cache": false,
+      "persistent": true
     },
     "tokens": {
       "outputs": [".styled/**"]

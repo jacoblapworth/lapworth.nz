@@ -1,13 +1,11 @@
 'use client'
 
 import NextImage, { type StaticImageData } from 'next/image'
-
-// import { images } from '@/app/work/xero/images'
 import { Text } from '@/components/Typography'
-import disciplines from '@/public/work/xero/principles-disciplines.webp'
-import worldMap from '@/public/work/xero/principles-world-map.svg'
-import worldMapDark from '@/public/work/xero/principles-world-map-dark.svg'
 import { styled } from '@/styled/jsx'
+import disciplines from './principles-disciplines.webp'
+import worldMap from './principles-world-map.svg'
+import worldMapDark from './principles-world-map-dark.svg'
 
 const Container = styled('div', {
   base: {

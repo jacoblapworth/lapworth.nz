@@ -13,7 +13,6 @@
     "noEmit": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@/content": ["./.velite"],
       "@/public/*": ["./public/*"],
       "@/styled/*": ["./.styled/*"]
     },
