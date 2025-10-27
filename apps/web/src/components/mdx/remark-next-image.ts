@@ -2,7 +2,6 @@ import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { Image } from 'mdast'
 import type { MdxJsxFlowElement } from 'mdast-util-mdx-jsx'
-import type { Plugin } from 'unified'
 import type { Literal, Node, Parent } from 'unist'
 import { visit } from 'unist-util-visit'
 import { getImageMetadata } from 'velite'
@@ -73,5 +72,6 @@ async function transformNextImage(node: Image) {
     })
   }
 
-  node = jsx as unknown as Image
+  node = { ...node, ...(jsx as unknown as Image) }
+  console.log(node)
 }
