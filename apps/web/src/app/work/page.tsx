@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 export default async function Page() {
   const isPreview = await enableDrafts()
 
+  console.log(work)
+
   return (
     <WorkList work={work.filter(({ draft }) => (isPreview ? true : !draft))} />
   )

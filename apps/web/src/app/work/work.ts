@@ -37,6 +37,7 @@ const WORK_DIR = process.cwd() + '/src/app/work'
 
 async function getWork(): Promise<Work[]> {
   const files = await listMdxFiles(WORK_DIR)
+  console.log(files)
   const items = await Promise.all(
     files.map(async (filePath) => {
       const { frontmatter, excerpt } = await parseMdxFrontmatter(
