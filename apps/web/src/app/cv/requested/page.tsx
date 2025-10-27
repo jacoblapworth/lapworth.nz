@@ -1,4 +1,4 @@
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 
 export default function Page() {
   return (

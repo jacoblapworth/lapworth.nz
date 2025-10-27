@@ -12,49 +12,37 @@ const styles = cva({
   compoundVariants: [
     {
       css: {
-        fontSize: '4rem',
-        lineHeight: '4rem',
         marginBlock: '4rem',
         maxWidth: '25ch',
         sm: {
-          fontSize: '6rem',
-          lineHeight: '6rem',
           marginBlock: '5rem',
         },
+        textStyle: 'display.xl',
       },
       display: true,
       size: 'xl',
     },
     {
       css: {
-        fontSize: '2rem',
-        lineHeight: '2rem',
         marginBlock: '2rem',
         sm: {
-          fontSize: '3rem',
-          lineHeight: '3rem',
           marginBlock: '3rem',
         },
+        textStyle: 'display.lg',
       },
       display: true,
       size: 'lg',
     },
     {
       css: {
-        fontSize: '1.4rem',
-        sm: {
-          fontSize: '1.5rem',
-        },
+        textStyle: 'display.md',
       },
       display: true,
       size: 'md',
     },
     {
       css: {
-        fontSize: '1.2rem',
-        sm: {
-          fontSize: '1.2rem',
-        },
+        textStyle: 'display.sm',
       },
       display: true,
       size: 'sm',
@@ -78,20 +66,16 @@ const styles = cva({
     },
     size: {
       lg: {
-        fontSize: '2rem',
-        lineHeight: '2.4rem',
+        textStyle: 'body.lg',
       },
       md: {
-        fontSize: '1rem',
-        lineHeight: '1.5rem',
+        textStyle: 'body.md',
       },
       sm: {
-        fontSize: '0.8rem',
-        lineHeight: '1.2rem',
+        textStyle: 'body.sm',
       },
       xl: {
-        fontSize: '3rem',
-        lineHeight: '3rem',
+        textStyle: 'body.xl',
       },
     },
   },

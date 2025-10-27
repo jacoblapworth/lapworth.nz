@@ -1,5 +1,5 @@
 import type { ComponentProps, HTMLAttributes } from 'react'
-import { Text } from '../Typography'
+import { Text } from '../text'
 
 type Props = ComponentProps<typeof Text>
 

@@ -3,7 +3,7 @@
 import NextImage, { type StaticImageData } from 'next/image'
 import { LinkButton } from '@/components/Button'
 import { SkewTile } from '@/components/Tile'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 import { Highlight } from './Highlight'

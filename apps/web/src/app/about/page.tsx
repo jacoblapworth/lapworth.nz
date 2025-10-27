@@ -3,7 +3,7 @@ import NextImage from 'next/image'
 
 import { getMusicWithThumbnails } from '@/app/about/music'
 import { Link } from '@/components/Link'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import ProfileImage from '@/public/j-photo-mono.png'
 import { css } from '@/styled/css'
 

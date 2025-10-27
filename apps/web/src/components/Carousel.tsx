@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
 
 interface WithId {

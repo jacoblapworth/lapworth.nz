@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { LinkButton } from '@/components/Button'
 import { Link } from '@/components/Link'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { styled, VStack } from '@/styled/jsx'
 import { experience } from './experience'
 import { ExperienceListItem } from './experience-list-item'

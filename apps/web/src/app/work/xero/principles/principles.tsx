@@ -1,7 +1,7 @@
 'use client'
 
 import NextImage, { type StaticImageData } from 'next/image'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
 import disciplines from './principles-disciplines.webp'
 import worldMap from './principles-world-map.svg'

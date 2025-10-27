@@ -1,6 +1,6 @@
 'use client'
 
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
 
 import { SearchIcon } from './Icons'
