@@ -10,7 +10,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
 import type { Plugin } from 'unified'
 import { defineCollection, defineConfig, s } from 'velite'
-import { nextImage } from '@/components/mdx/remark-next-image'
+import { remarkNextImage } from '@/components/mdx/remark-next-image'
 
 const meta = s
   .object({
@@ -122,7 +122,7 @@ export default defineConfig({
         },
       ],
     ],
-    remarkPlugins: [nextImage as unknown as Plugin],
+    remarkPlugins: [remarkNextImage as unknown as Plugin],
     removeComments: true,
   },
 

@@ -14,7 +14,7 @@ export type ImageNode = Parent & {
   attributes: (Literal & { name: string })[]
 }
 
-export async function nextImage() {
+export function remarkNextImage() {
   return async (tree: Node) => {
     const images: Image[] = []
 
@@ -60,7 +60,7 @@ async function transformNextImage(node: Image) {
       },
     ],
     children: [],
-    name: 'img',
+    name: 'Image',
     type: 'mdxJsxFlowElement',
   }
 
