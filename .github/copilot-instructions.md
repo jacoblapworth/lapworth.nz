@@ -14,10 +14,10 @@ This is a pnpm workspace monorepo with the following structure:
 
 ```
 ├── apps/
-│   ├── web/          # Next.js web application (main site)
+│   ├── web/          # Next.js web application (main site, includes main UI components)
 │   └── worker/       # Cloudflare Worker
 └── packages/
-    └── xero/         # Shared UI component library
+    └── xero/         # Xero design system examples and components
 ```
 
 ### Apps
@@ -36,9 +36,10 @@ This is a pnpm workspace monorepo with the following structure:
 
 ### Packages
 
-- **xero**: Shared UI component library with:
-  - React components
+- **xero**: Xero design system examples with:
+  - Example React components (DataGrid, Table, etc.)
   - Panda CSS for styling
+  - Used for Xero-specific UI patterns and examples
 
 ## Building the Project
 
@@ -57,19 +58,21 @@ pnpm install
 ### Build Commands
 
 ```bash
-# Build all packages and apps
-pnpm run build
+# Build all packages and apps (uses Turborepo caching)
+turbo run build
 
-# Build specific workspace
-pnpm --filter web build
-pnpm --filter worker build
+# Build specific workspace (recommended - uses caching)
+turbo run build --filter=web
+turbo run build --filter=worker
 
 # Development mode
-pnpm run dev
+turbo run dev
 
 # Start production server
-pnpm run start
+turbo run start
 ```
+
+**Note**: Prefer using `turbo run` commands instead of `pnpm --filter` to leverage Turborepo's caching and task orchestration. Root-level scripts like `pnpm run build` automatically use turbo.
 
 ## Testing
 
@@ -120,10 +123,10 @@ pnpm run format
 
 ```bash
 # Type check all workspaces
-pnpm run types:check
+turbo run types:check
 
 # Type check specific workspace
-pnpm --filter web types:check
+turbo run types:check --filter=web
 ```
 
 ## Coding Conventions
@@ -141,6 +144,7 @@ pnpm --filter web types:check
 - Use Panda CSS for styling
 
 ### Component Library (packages/xero)
+- Example components for Xero design patterns
 - Export components from individual files
 - Include TypeScript types for all props
 - Use Panda CSS for styling
@@ -149,7 +153,7 @@ pnpm --filter web types:check
 
 The web app requires several environment variables for full functionality:
 - Managed via Vercel in production
-- For local development, run: `pnpm --filter web env`
+- For local development, run: `cd apps/web && pnpm env`
 - Required variables are documented in `turbo.json` under `globalEnv`
 
 Key environment variables include:
@@ -170,12 +174,17 @@ This project uses Turborepo for task orchestration:
 ### Running Commands Across Workspaces
 
 ```bash
-# Run a command in all workspaces
-pnpm run <script>
+# Run a command in all workspaces (uses Turborepo)
+turbo run <task>
 
-# Run in specific workspace
-pnpm --filter <workspace> <script>
+# Run task in specific workspace (recommended - uses caching)
+turbo run <task> --filter=<workspace>
+
+# For package management tasks, use pnpm
+pnpm --filter <workspace> <command>
 ```
+
+**Best Practice**: Use `turbo run` for all build, test, lint, and dev tasks to benefit from caching. Use `pnpm --filter` only for package management (installing dependencies, etc.).
 
 ## CI/CD
 
@@ -203,7 +212,7 @@ The web app uses MDX for content:
 ## Deployment
 
 - **Web App**: Deploys to Vercel automatically
-- **Worker**: Deploy via `pnpm --filter worker deploy`
+- **Worker**: Deploy via `turbo run deploy --filter=worker` or `cd apps/worker && pnpm deploy`
 
 ## Important Notes
 
