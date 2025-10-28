@@ -22,7 +22,7 @@ This is a pnpm workspace monorepo with the following structure:
 
 ### Apps
 
-- **web**: Next.js 16.0.0 application with:
+- **web**: Next.js 16.0.0 application (using React 19.2.0) with:
   - MDX support for content
   - Panda CSS for styling
   - Cypress for E2E testing
