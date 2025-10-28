@@ -15,7 +15,10 @@ import { parseAsBoolean, useQueryState } from 'nuqs'
 import { useState } from 'react'
 import { css, cx } from '@/styled/css'
 import { styled } from '@/styled/jsx'
-import { appliedFiltersToColumnFilters } from '../utils/filterUtils'
+import {
+  appliedFiltersToColumnFilters,
+  columnFiltersToAppliedFilters,
+} from '../utils/filterUtils'
 import { type BulkAction, BulkActions } from './BulkActions'
 import { Controls } from './Controls'
 import { DataGrid } from './DataGrid'
@@ -141,30 +144,13 @@ export function Table<TData extends RowData>({
   const [selectedViewId, setSelectedViewId] = useState<
     string | null | undefined
   >(views[0]?.id)
-  // const [appliedFilters, setAppliedFilters] = useState([
-  //   {
-  //     id: 'status',
-  //     label: 'Status',
-  //     operator: 'is',
-  //     value: 'draft',
-  //   },
-  // ])
-
-  const [appliedFilters, setAppliedFilters] = useState<AppliedFilter[]>(() => {
-    const initialFilters = views[0]?.filters || []
-    // Apply initial filters to table on mount
-    const columnFilters = appliedFiltersToColumnFilters(initialFilters)
-    table.setColumnFilters(columnFilters)
-    return initialFilters
-  })
 
   const onViewChange = (viewId: string | null | undefined) => {
     setSelectedViewId(viewId)
     const view = views.find((v) => v.id === viewId)
     const newFilters = view?.filters || []
-    setAppliedFilters(newFilters)
     
-    // Apply filters directly when view changes
+    // Convert AppliedFilter[] to ColumnFiltersState and apply to table
     const columnFilters = appliedFiltersToColumnFilters(newFilters)
     table.setColumnFilters(columnFilters)
   }
@@ -182,6 +168,12 @@ export function Table<TData extends RowData>({
       }
     })
     .filter(Boolean)
+
+  // Convert table's columnFilters to AppliedFilter[] for UI components
+  const appliedFilters = columnFiltersToAppliedFilters(
+    table.getState().columnFilters,
+    filters as { id: string; label: string }[],
+  )
 
   const summaryRowModel = table.getFilteredSelectedRowModel()
 
@@ -210,9 +202,11 @@ export function Table<TData extends RowData>({
             <Filters
               appliedFilters={appliedFilters}
               filters={filters}
-              onClear={() => setAppliedFilters([])}
+              onClear={() => table.setColumnFilters([])}
               onRemove={(id) =>
-                setAppliedFilters((fs) => fs.filter((f) => f.id !== id))
+                table.setColumnFilters(
+                  table.getState().columnFilters.filter((f) => f.id !== id),
+                )
               }
             />
           </CollapsibleRow>

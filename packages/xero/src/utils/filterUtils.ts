@@ -21,3 +21,28 @@ export function appliedFiltersToColumnFilters(
     value: typeof filter.value === 'string' ? [filter.value] : filter.value,
   }))
 }
+
+/**
+ * Converts ColumnFiltersState to AppliedFilter format for UI display.
+ * Extracts the first value from arrays for simple string-based filters.
+ *
+ * @param columnFilters - Column filters from TanStack Table
+ * @param availableFilters - Available filter definitions to get labels
+ * @returns AppliedFilter array for UI components
+ */
+export function columnFiltersToAppliedFilters(
+  columnFilters: ColumnFiltersState,
+  availableFilters: { id: string; label: string }[],
+): AppliedFilter[] {
+  return columnFilters.map((filter) => {
+    const filterDef = availableFilters.find((f) => f.id === filter.id)
+    const value = Array.isArray(filter.value) ? filter.value[0] : filter.value
+    
+    return {
+      id: filter.id,
+      label: filterDef?.label || filter.id,
+      operator: 'is',
+      value: String(value),
+    }
+  })
+}
