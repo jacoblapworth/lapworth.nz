@@ -24,6 +24,7 @@
   },
   "exclude": ["node_modules", "cypress", ".next", "out", "dist"],
   "include": [
+    "video.d.ts",
     "next-env.d.ts",
     "**/*.d.ts",
     "**/*.ts",

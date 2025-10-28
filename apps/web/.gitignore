@@ -4,3 +4,4 @@
 .next
 .env*.local
 public/static
+public/_next-video

@@ -3,13 +3,14 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["tokens", "^build"],
+      "dependsOn": ["tokens", "video", "^build"],
       "env": ["NEXT_PUBLIC_POSTHOG_API_HOST"],
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
     },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "with": ["video:watch"]
     },
     "tokens": {
       "outputs": [".styled/**"]
@@ -19,6 +20,15 @@
     },
     "types:gen": {
       "outputs": [".next/types/**", "next-env.d.ts"]
+    },
+    "video": {
+      "inputs": ["src/videos/**"],
+      "outputs": ["src/videos/**/*.json"]
+    },
+    "video:watch": {
+      "inputs": ["src/videos/**"],
+      "outputs": ["src/videos/**/*.json"],
+      "persistent": true
     }
   }
 }

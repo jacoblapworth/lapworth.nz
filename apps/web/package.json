@@ -40,6 +40,7 @@
     "next-intl": "4.3.12",
     "next-seo": "7.0.1",
     "next-themes": "0.4.6",
+    "next-video": "2.5.0",
     "nuqs": "catalog:",
     "plaiceholder": "3.0.0",
     "posthog-js": "1.277.0",
@@ -105,6 +106,8 @@
     "start": "next start",
     "tokens": "panda codegen",
     "types:check": "tsc --noEmit",
-    "types:gen": "next typegen"
+    "types:gen": "next typegen",
+    "video": "next-video sync --dir=src/videos",
+    "video:watch": "next-video sync --dir=src/videos -w"
   }
 }

@@ -18,9 +18,9 @@ const BookCover = styled(NextImage, {
     },
     backgroundColor: 'surface',
     borderRadius: 'md',
+    height: 'auto',
     marginBlockEnd: 'xsm',
     overflow: 'hidden',
-    willChange: 'transform',
   },
 })
 

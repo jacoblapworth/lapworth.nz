@@ -1,24 +1,19 @@
+import NextVideo, { type PlayerProps } from 'next-video'
 import { styled } from '@/styled/jsx'
 
-const StyledVideo = styled('video', {
+const StyledVideo = styled(NextVideo, {
   base: {
     border: 'muted',
-    maxWidth: '100%',
+    maxWidth: '800px',
+    width: '100%',
   },
 })
 
-interface Prop {
-  src: string
-  captions: string
-  poster: string
+type Props = PlayerProps & {
+  video: string
 }
 
-export function Video({ src, captions, poster }: Prop) {
-  return (
-    <StyledVideo controls poster={poster} preload="lazy" width="600">
-      <source src={src} type="video/mp4" />
-      <track kind="captions" label="English" src={captions} srcLang="en" />
-      Your browser does not support the video tag.
-    </StyledVideo>
-  )
+export async function Video({ video, ...props }: Props) {
+  const { default: src } = await import(`@/videos/${video}`)
+  return <StyledVideo controls preload="lazy" src={src} {...props} />
 }
