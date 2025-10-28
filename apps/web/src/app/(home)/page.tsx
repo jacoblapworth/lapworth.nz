@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@/components/Link'
+import { Link } from '@/components/link'
 import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
 

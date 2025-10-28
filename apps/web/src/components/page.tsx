@@ -2,12 +2,12 @@
 
 import { ThemeProvider } from 'next-themes'
 import { useId } from 'react'
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
-import { Navigation } from '@/components/Nav/Nav'
+import { Footer } from '@/components/footer'
+import { Header } from '@/components/header'
+import { Navigation } from '@/components/nav/nav'
 import { styled } from '@/styled/jsx'
-import { Skiplink } from './Skiplink'
-import { themeConfig } from './Theme'
+import { Skiplink } from './skiplink'
+import { themeConfig } from './theme'
 
 const Container = styled('div', {
   base: {

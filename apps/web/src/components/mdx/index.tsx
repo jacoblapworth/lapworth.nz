@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
-import ResponsivePreview from '../Preview'
+import ResponsivePreview from '../preview'
 import { Anchor } from './anchor'
 import { Blockquote } from './blockquote'
 import { Code } from './code'

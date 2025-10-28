@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import NextImage from 'next/image'
 
 import { getMusicWithThumbnails } from '@/app/about/music'
-import { Link } from '@/components/Link'
+import { Link } from '@/components/link'
 import { Text } from '@/components/text'
 import ProfileImage from '@/public/j-photo-mono.png'
 import { css } from '@/styled/css'
@@ -10,7 +10,7 @@ import { css } from '@/styled/css'
 import { getReadingWithThumbnails } from './books/oku'
 import { Experience } from './experience'
 import { HeavyRotation } from './heavy-rotation'
-import { Reading } from './Reading'
+import { Reading } from './reading'
 
 export const fetchCache = 'default-cache'
 

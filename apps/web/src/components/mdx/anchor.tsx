@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes } from 'react'
-import { Link } from '@/components/Link'
+import { Link } from '@/components/link'
 
 const EXTERNAL_HREF_REGEX = /https?:\/\//
 

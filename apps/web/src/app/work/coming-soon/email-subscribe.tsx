@@ -4,8 +4,8 @@ import Form from 'next/form'
 import { useActionState, useId } from 'react'
 
 import { type FormState, subscribeEmail } from '@/app/work/coming-soon/action'
-import { SubmitButton } from '@/components/SubmitButton'
-import { TextInput } from '@/components/TextInput'
+import { SubmitButton } from '@/components/submit-button'
+import { TextInput } from '@/components/text-input'
 import { HStack } from '@/styled/jsx'
 
 const initialState: FormState = {

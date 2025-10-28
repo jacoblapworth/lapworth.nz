@@ -1,8 +1,8 @@
 'use client'
 
-import { LinkButton } from '@/components/Button'
-import { SkewTile } from '@/components/Tile/SkewTile'
+import { LinkButton } from '@/components/button'
 import { Text } from '@/components/text'
+import { SkewTile } from '@/components/tile/skew-tile'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 import { SpotlightsPreview } from './Spotlight'

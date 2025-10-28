@@ -1,6 +1,6 @@
 import { ArrowLeftIcon } from 'lucide-react'
 import type { ReactNode } from 'react'
-import { LinkButton } from '@/components/Button'
+import { LinkButton } from '@/components/button'
 import { Text } from '@/components/text'
 import { VStack } from '@/styled/jsx'
 

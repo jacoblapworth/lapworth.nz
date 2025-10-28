@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { LinkButton } from '@/components/Button'
-import { Link } from '@/components/Link'
+import { LinkButton } from '@/components/button'
+import { Link } from '@/components/link'
 import { Text } from '@/components/text'
 import { styled, VStack } from '@/styled/jsx'
 import { experience } from './experience'
