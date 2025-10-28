@@ -12,7 +12,7 @@ import {
 import { AnimatePresence, motion } from 'motion/react'
 import { Inter } from 'next/font/google'
 import { parseAsBoolean, useQueryState } from 'nuqs'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { css, cx } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 import { appliedFiltersToColumnFilters } from '../utils/filterUtils'
@@ -150,21 +150,24 @@ export function Table<TData extends RowData>({
   //   },
   // ])
 
-  const [appliedFilters, setAppliedFilters] = useState<AppliedFilter[]>(
-    views[0]?.filters || [],
-  )
+  const [appliedFilters, setAppliedFilters] = useState<AppliedFilter[]>(() => {
+    const initialFilters = views[0]?.filters || []
+    // Apply initial filters to table on mount
+    const columnFilters = appliedFiltersToColumnFilters(initialFilters)
+    table.setColumnFilters(columnFilters)
+    return initialFilters
+  })
 
   const onViewChange = (viewId: string | null | undefined) => {
     setSelectedViewId(viewId)
     const view = views.find((v) => v.id === viewId)
-    setAppliedFilters(view?.filters || [])
-  }
-
-  // Sync appliedFilters with table's columnFilters
-  useEffect(() => {
-    const columnFilters = appliedFiltersToColumnFilters(appliedFilters)
+    const newFilters = view?.filters || []
+    setAppliedFilters(newFilters)
+    
+    // Apply filters directly when view changes
+    const columnFilters = appliedFiltersToColumnFilters(newFilters)
     table.setColumnFilters(columnFilters)
-  }, [appliedFilters, table])
+  }
 
   const filters = table
     .getAllFlatColumns()
