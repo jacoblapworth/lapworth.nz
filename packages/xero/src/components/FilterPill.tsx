@@ -94,9 +94,9 @@ export function FilterPill({
       className={PillStyles()}
       exit={{ opacity: 0, y: -8 }}
       initial={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.05, ease: 'easeInOut' }}
+      transition={{ duration: 0.2, ease: 'easeInOut' }}
     >
-      <Label>{label}</Label>
+      <Label key="label">{label}</Label>
       {selectedOperatorId && onOperatorChange && operators && (
         <MenuProvider
           defaultValues={{ operator: selectedOperatorId }}
@@ -119,7 +119,7 @@ export function FilterPill({
         defaultValues={{ value: selectedValueId }}
         setValues={(e) => onValueChange(e.value)}
       >
-        <Ariakit.MenuButton render={<Value />}>
+        <Ariakit.MenuButton render={<Value key="value" />}>
           {selectedValueId}
         </Ariakit.MenuButton>
         <Menu>
