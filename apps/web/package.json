@@ -43,7 +43,7 @@
     "nuqs": "catalog:",
     "plaiceholder": "3.0.0",
     "posthog-js": "1.277.0",
-    "posthog-node": "5.10.0",
+    "posthog-node": "5.10.3",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-email": "4.3.2",
