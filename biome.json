@@ -12,7 +12,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**", "!videos/**/*.json", "!next-env.d.ts"]
+    "includes": ["**", "!**/videos/*.json", "!next-env.d.ts"]
   },
   "formatter": {
     "attributePosition": "auto",
