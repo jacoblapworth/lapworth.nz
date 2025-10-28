@@ -1,4 +1,4 @@
-import NextVideo from 'next-video'
+import NextVideo, { type PlayerProps } from 'next-video'
 import { styled } from '@/styled/jsx'
 
 const StyledVideo = styled(NextVideo, {
@@ -9,11 +9,11 @@ const StyledVideo = styled(NextVideo, {
   },
 })
 
-interface Prop {
+type Props = PlayerProps & {
   video: string
 }
 
-export async function Video({ video }: Prop) {
+export async function Video({ video, ...props }: Props) {
   const { default: src } = await import(`@/videos/${video}`)
-  return <StyledVideo controls preload="lazy" src={src}></StyledVideo>
+  return <StyledVideo controls preload="lazy" src={src} {...props} />
 }

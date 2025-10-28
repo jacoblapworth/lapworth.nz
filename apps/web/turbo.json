@@ -23,11 +23,11 @@
     },
     "video": {
       "inputs": ["src/videos/**"],
-      "outputs": ["src/videos/**"]
+      "outputs": ["src/videos/**/*.json"]
     },
     "video:watch": {
       "inputs": ["src/videos/**"],
-      "outputs": ["src/videos/**"],
+      "outputs": ["src/videos/**/*.json"],
       "persistent": true
     }
   }
