@@ -4,7 +4,7 @@ import useMouse from '@react-hook/mouse-position'
 import { motion, useMotionValue } from 'motion/react'
 import { type RefObject, useEffect, useRef } from 'react'
 
-import { Shine } from '@/components/Tile/SkewTile'
+import { Shine } from '@/components/tile/skew-tile'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 

@@ -1,6 +1,6 @@
 import { useFormatter, useNow } from 'next-intl'
 import { styled } from '@/styled/jsx'
-import { Link } from './Link'
+import { Link } from './link'
 
 const Tagline = styled('footer', {
   base: {

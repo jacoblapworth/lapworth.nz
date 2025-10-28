@@ -1,7 +1,7 @@
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { Article } from '@/components/article'
-import { LinkButton } from '@/components/Button'
+import { LinkButton } from '@/components/button'
 import { Text } from '@/components/text'
 import { HStack, VStack } from '@/styled/jsx'
 import { getPostBySlugParams, work } from '../work'

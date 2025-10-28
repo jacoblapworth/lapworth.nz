@@ -1,7 +1,7 @@
 import type { Route } from 'next'
-import { Link } from '@/components/Link'
+import { Link } from '@/components/link'
 import { styled } from '@/styled/jsx'
-import { NavLinks } from './NavLinks'
+import { NavLinks } from './nav-links'
 
 const EXTERNAL_HREF_REGEX = /(https?|mailto):\/\//
 

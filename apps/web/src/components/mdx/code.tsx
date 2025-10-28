@@ -8,7 +8,7 @@ import { toJsxRuntime } from 'hast-util-to-jsx-runtime'
 import type { JSX } from 'react'
 import { Fragment } from 'react'
 import { jsx, jsxs } from 'react/jsx-runtime'
-import { codeToHast, codeToTokens } from 'shiki'
+import { codeToHast } from 'shiki'
 import { cva, cx } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 
@@ -76,7 +76,7 @@ export async function Code(props: React.ComponentProps<'code'>) {
       transformerNotationFocus({ matchAlgorithm: 'v3' }),
       transformerNotationErrorLevel({ matchAlgorithm: 'v3' }),
       {
-        span(hast, line, col, lineElement, token) {
+        span(_hast, line, _col, lineElement, _token) {
           lineElement.properties['data-line'] = line
         },
       },

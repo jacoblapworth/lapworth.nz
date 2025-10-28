@@ -2,8 +2,8 @@
 
 import NextImage from 'next/image'
 
-import { Carousel } from '@/components/Carousel'
-import { Link } from '@/components/Link'
+import { Carousel } from '@/components/carousel'
+import { Link } from '@/components/link'
 import { styled, VStack } from '@/styled/jsx'
 
 import type { OkuBookWithThumbnail } from './books/oku'
