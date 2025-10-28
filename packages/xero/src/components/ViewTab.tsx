@@ -38,6 +38,7 @@ export const ViewTab = styled(Ariakit.Tab, {
       backgroundColor: 'white',
       borderColor: 'action',
       color: 'action',
+      zIndex: 1,
     },
     backgroundColor: {
       _hover: 'background.tertiary',
