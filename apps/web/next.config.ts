@@ -71,6 +71,7 @@ export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
     silent: !(process.env.CI && process.env.ACTIONS_RUNNER_DEBUG),
     sourcemaps: {
       deleteSourcemapsAfterUpload: true,
+      disable: process.env.NODE_ENV !== 'production',
     },
     tunnelRoute: true,
     widenClientFileUpload: true,
