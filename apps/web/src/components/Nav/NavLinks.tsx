@@ -105,14 +105,12 @@ interface NavLink<T extends string = string> {
   name: string
 }
 
-export function NavLinks({ enableFood }: { enableFood?: boolean } = {}) {
-  const pathname = usePathname()
-  const showFood = enableFood || pathname?.startsWith('/food')
+export function NavLinks() {
   const links: NavLink<Route>[] = [
     { href: '/work', name: 'Work' },
-    showFood ? { href: '/food', name: 'Food' } : undefined,
+    { href: '/food', name: 'Food' },
     { href: '/about', name: 'About' },
-  ].filter(Boolean)
+  ]
 
   return (
     <Stack>

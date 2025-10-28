@@ -36,14 +36,6 @@ export const showWork = flag({
   key: 'enable-work',
 })
 
-export const enableFood = flag({
-  decide: () => true,
-  defaultValue: true,
-  description: 'Show food pages',
-  identify,
-  key: 'enable-food',
-})
-
 export const enableDrafts = flag({
   decide: () => isDebug,
   defaultValue: false,
