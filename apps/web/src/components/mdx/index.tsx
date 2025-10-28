@@ -5,6 +5,7 @@ import { Blockquote } from './blockquote'
 import { Code } from './code'
 import { Divider } from './divider'
 import { Figure } from './figure'
+import { Grid } from './grid'
 import { h1, h2, h3 } from './heading'
 import { Image } from './image'
 import { ListItem, OrderedList, UnorderedList } from './list'
@@ -20,6 +21,7 @@ export const components: MDXComponents = {
   code: Code,
   // details: Details,
   figure: Figure,
+  Grid,
   h1,
   h2,
   h3,
