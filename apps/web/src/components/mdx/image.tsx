@@ -12,7 +12,8 @@ const DialogDisclosure = styled(Ariakit.DialogDisclosure, {
     },
     cursor: 'zoom-in',
     display: 'inline-block',
-    width: 'fit-content',
+    maxWidth: '800px',
+    width: '100%',
   },
 })
 
@@ -63,10 +64,9 @@ const Dialog = styled(
       justifyContent: 'stretch',
       margin: 'auto',
       maxHeight: 'calc(100dvh - var(--inset) * 2 - 36px)',
-      maxWidth: '100vw',
+      maxWidth: '1000px',
       md: {
         '--inset': '2rem',
-        maxWidth: '90vw',
       },
       opacity: 0,
       position: 'fixed',
@@ -130,15 +130,14 @@ const Figcaption = styled('figcaption', {
   },
 })
 
-const styles = cva({
+const ImageStyles = cva({
   base: {
     '& + img': {
       marginBlockStart: -1,
     },
     border: 'muted',
-    // height: 'auto',
-    maxWidth: '800px',
-    // width: '100%',
+    height: 'auto',
+    width: '100%',
   },
   variants: {
     dialog: {
@@ -161,7 +160,7 @@ export function Image({
         <Figure>
           <NextImage
             {...props}
-            className={styles()}
+            className={ImageStyles()}
             placeholder="blur"
             quality={75}
             sizes="(max-width: 800px) 100vw, 600px"
@@ -175,9 +174,10 @@ export function Image({
         <Figure>
           <NextImage
             {...props}
-            className={styles()}
+            className={ImageStyles()}
             placeholder="blur"
             quality={100}
+            sizes="(max-width: 800px) 100vw, 600px"
             src={src}
           />
           {props.title && <Figcaption dialog>{props.title}</Figcaption>}

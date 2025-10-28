@@ -134,6 +134,9 @@ importers:
       gsap:
         specifier: 3.13.0
         version: 3.13.0
+      hast-util-to-jsx-runtime:
+        specifier: 2.3.6
+        version: 2.3.6
       import-in-the-middle:
         specifier: 1.15.0
         version: 1.15.0
@@ -191,9 +194,15 @@ importers:
       rehype-autolink-headings:
         specifier: 7.1.0
         version: 7.1.0
+      rehype-mdx-code-props:
+        specifier: 3.0.1
+        version: 3.0.1
       rehype-mdx-import-media:
         specifier: 1.2.0
         version: 1.2.0
+      rehype-pre-language:
+        specifier: 1.1.5
+        version: 1.1.5(unified@11.0.5)
       rehype-pretty-code:
         specifier: 0.14.1
         version: 0.14.1(shiki@3.13.0)
@@ -5829,11 +5838,19 @@ packages:
   rehype-autolink-headings@7.1.0:
     resolution: {integrity: sha512-rItO/pSdvnvsP4QRB1pmPiNHUskikqtPojZKJPPPAVx9Hj8i8TwMBhofrrAYRhYOOBZH9tgmG5lPqDLuIWPWmw==}
 
+  rehype-mdx-code-props@3.0.1:
+    resolution: {integrity: sha512-BWWKn0N6r7/qd7lbLgv5J8of7imz1l1PyCNoY7BH0AOR9JdJlQIfA9cKqTZVEb2h2GPKh473qrBajF0i01fq3A==}
+
   rehype-mdx-import-media@1.2.0:
     resolution: {integrity: sha512-rf+2qnPv3LTqLtCr8GjhHUja2TEbmwWtD1o4jigrmGWbVDggOMxyNeqJhGpC4E3vtH+sY+a+u9WPSEaskEWPFA==}
 
   rehype-parse@9.0.1:
     resolution: {integrity: sha512-ksCzCD0Fgfh7trPDxr2rSylbwq9iYDkSn8TCDmEJ49ljEUBxDVCzCHv7QNzZOfODanX4+bWQ4WZqLCRWYLfhag==}
+
+  rehype-pre-language@1.1.5:
+    resolution: {integrity: sha512-nspHTVIAZHSEiWpofxw00UMXgmLdRnJmunKO846Rt8eiBqJBA8nfVtyjnMf54gJNzz9PJ2O5Qfmd5icjQly/Lw==}
+    peerDependencies:
+      unified: ^11
 
   rehype-pretty-code@0.14.1:
     resolution: {integrity: sha512-IpG4OL0iYlbx78muVldsK86hdfNoht0z63AP7sekQNW2QOTmjxB7RbTO+rhIYNGRljgHxgVZoPwUl6bIC9SbjA==}
@@ -12691,6 +12708,18 @@ snapshots:
       unified: 11.0.5
       unist-util-visit: 5.0.0
 
+  rehype-mdx-code-props@3.0.1:
+    dependencies:
+      '@types/hast': 3.0.4
+      hast-util-properties-to-mdx-jsx-attributes: 1.0.1
+      mdast-util-from-markdown: 2.0.2
+      mdast-util-mdx: 3.0.0
+      micromark-extension-mdxjs: 3.0.0
+      unified: 11.0.5
+      unist-util-visit-parents: 6.0.1
+    transitivePeerDependencies:
+      - supports-color
+
   rehype-mdx-import-media@1.2.0:
     dependencies:
       '@types/hast': 3.0.4
@@ -12706,6 +12735,12 @@ snapshots:
       '@types/hast': 3.0.4
       hast-util-from-html: 2.0.3
       unified: 11.0.5
+
+  rehype-pre-language@1.1.5(unified@11.0.5):
+    dependencies:
+      '@types/hast': 3.0.4
+      unified: 11.0.5
+      unist-util-visit: 5.0.0
 
   rehype-pretty-code@0.14.1(shiki@3.13.0):
     dependencies:
