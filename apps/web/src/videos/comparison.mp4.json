@@ -1,9 +1,1 @@
-{
-  "createdAt": 1761655340662,
-  "originalFilePath": "src/videos/comparison.mp4",
-  "provider": "mux",
-  "providerMetadata": {},
-  "size": 215383,
-  "status": "sourced",
-  "updatedAt": 1761655340662
-}
+{"createdAt":1761655340662,"originalFilePath":"src/videos/comparison.mp4","provider":"mux","providerMetadata":{"mux":{"uploadId":"ThkJ9MRQsYbz63gOaMMCwjUrCdoRIMGYSYVQf1Wg5c8","assetId":"MrieJI901tiU02SRU01avSm4tuzYLaaFkXZOOMqb201G85Q","playbackId":"bzWNuWu02qw1rIjxS00kfdF01twdGPeRaeq70200ACcJJs01k"}},"size":215383,"status":"ready","updatedAt":1761656661124,"sources":[{"src":"https://stream.mux.com/bzWNuWu02qw1rIjxS00kfdF01twdGPeRaeq70200ACcJJs01k.m3u8","type":"application/x-mpegURL"}],"poster":"https://image.mux.com/bzWNuWu02qw1rIjxS00kfdF01twdGPeRaeq70200ACcJJs01k/thumbnail.webp","blurDataURL":"data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAQCdASoQAAkAAQAcJZQCdAEO+oH4AAD+/UE/jm7mv66PHNbUSL63PaOzxKZCaf1FQ0CMDuwMrXCO1pX1Ue0uEC1ZSd7db0zlzCJzI3uJHwHb3KyP4CkYm3DgAA=="}
