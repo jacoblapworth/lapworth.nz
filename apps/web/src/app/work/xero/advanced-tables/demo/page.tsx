@@ -228,11 +228,11 @@ export default function Page() {
               id: 'status',
               label: 'Status',
               operator: 'is',
-              value: 'awaiting-payment',
+              value: 'sent',
             },
           ],
-          id: 'awaiting-payment',
-          label: 'Awaiting Payment',
+          id: 'sent',
+          label: 'Sent',
         },
         {
           filters: [
@@ -240,7 +240,7 @@ export default function Page() {
               id: 'status',
               label: 'Status',
               operator: 'is',
-              value: 'awaiting-payment',
+              value: 'sent',
             },
             {
               id: 'due',

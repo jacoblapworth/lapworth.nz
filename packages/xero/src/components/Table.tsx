@@ -12,9 +12,10 @@ import {
 import { AnimatePresence, motion } from 'motion/react'
 import { Inter } from 'next/font/google'
 import { parseAsBoolean, useQueryState } from 'nuqs'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { css, cx } from '@/styled/css'
 import { styled } from '@/styled/jsx'
+import { appliedFiltersToColumnFilters } from '../utils/filterUtils'
 import { type BulkAction, BulkActions } from './BulkActions'
 import { Controls } from './Controls'
 import { DataGrid } from './DataGrid'
@@ -149,20 +150,21 @@ export function Table<TData extends RowData>({
   //   },
   // ])
 
-  const [appliedFilters, setAppliedFilters] = useState<AppliedFilter[]>([
-    {
-      id: 'status',
-      label: 'Status',
-      operator: 'is',
-      value: 'draft',
-    },
-  ])
+  const [appliedFilters, setAppliedFilters] = useState<AppliedFilter[]>(
+    views[0]?.filters || [],
+  )
 
   const onViewChange = (viewId: string | null | undefined) => {
     setSelectedViewId(viewId)
     const view = views.find((v) => v.id === viewId)
     setAppliedFilters(view?.filters || [])
   }
+
+  // Sync appliedFilters with table's columnFilters
+  useEffect(() => {
+    const columnFilters = appliedFiltersToColumnFilters(appliedFilters)
+    table.setColumnFilters(columnFilters)
+  }, [appliedFilters, table])
 
   const filters = table
     .getAllFlatColumns()
