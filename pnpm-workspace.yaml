@@ -12,5 +12,18 @@ onlyBuiltDependencies:
   - turbo
   - turbo-darwin-arm64
   - unrs-resolver
+  - workerd
 
 sideEffectsCache: false
+linkWorkspacePackages: true
+
+catalog:
+  '@biomejs/biome': 2.2.5
+  '@types/react': 19.2.2
+  '@types/react-dom': 19.2.2
+  next: 16.0.0
+  nuqs: 2.7.2
+  react: 19.2.0
+  react-dom: 19.2.0
+  typescript: 5.9.3
+  vitest: 3.2.4

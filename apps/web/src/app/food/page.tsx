@@ -1,6 +1,7 @@
-import { recipes } from '@/content'
+import type { Metadata } from 'next'
 import { styled } from '@/styled/jsx'
-import { RecipeListItem } from './RecipeListItem'
+import { RecipeListItem } from './recipe-list-item'
+import { recipes } from './recipes'
 
 const List = styled('ul', {
   base: {
@@ -13,7 +14,11 @@ const List = styled('ul', {
   },
 })
 
-export default function Page() {
+export const metadata: Metadata = {
+  title: 'Recipes',
+}
+
+export default async function Page() {
   return (
     <List>
       {recipes.map((recipe) => (

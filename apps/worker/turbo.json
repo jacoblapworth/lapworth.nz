@@ -1,0 +1,18 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "dependsOn": ["types:gen"],
+      "persistent": true
+    },
+    "types:check": {
+      "dependsOn": ["types:gen"]
+    },
+    "types:gen": {
+      "inputs": ["$TURBO_DEFAULT$", "wrangler.jsonc"],
+      "outputs": ["worker-configuration.d.ts", ".wrangler/**"]
+    }
+  }
+}

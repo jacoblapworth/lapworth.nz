@@ -1,30 +1,27 @@
 {
+  "$schema": "https://turborepo.com/schema.json",
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["tokens", "content", "video", "^build"],
+      "dependsOn": ["tokens", "video", "^build"],
+      "env": ["NEXT_PUBLIC_POSTHOG_API_HOST"],
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
     },
-    "content": {
-      "dependsOn": ["^content"],
-      "inputs": ["src/content/**", "velite.config.ts"],
-      "outputs": [".velite/**", "public/static/**"]
-    },
-    "content:watch": {
-      "dependsOn": ["^content:watch"],
-      "inputs": ["src/content/**", "velite.config.ts"],
-      "outputs": [".velite/**", "public/static/**"],
-      "persistent": true
-    },
     "dev": {
-      "with": ["content:watch", "video:watch"]
+      "cache": false,
+      "persistent": true,
+      "with": ["video:watch"]
     },
     "tokens": {
-      "dependsOn": ["^tokens"],
       "outputs": [".styled/**"]
     },
+    "types:check": {
+      "dependsOn": ["^types:check", "types:gen"]
+    },
+    "types:gen": {
+      "outputs": [".next/types/**", "next-env.d.ts"]
+    },
     "video": {
-      "dependsOn": ["^video"],
       "inputs": ["src/videos/**"],
       "outputs": ["src/videos/**"]
     },

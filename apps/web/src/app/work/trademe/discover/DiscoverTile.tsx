@@ -1,11 +1,10 @@
 'use client'
 
-import { PillLink } from '@/components/Button'
+import { LinkButton } from '@/components/Button'
 import { SkewTile } from '@/components/Tile/SkewTile'
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
-
 import { SpotlightsPreview } from './Spotlight'
 
 const Layout = styled('div', {
@@ -48,9 +47,7 @@ export function DiscoverTile() {
           <Text display size="md">
             Increasing traffic to business verticals on mobile
           </Text>
-          <PillLink href="/work/trademe" inverted>
-            Discover Trade Me
-          </PillLink>
+          <LinkButton href="/work/trademe">Discover Trade Me</LinkButton>
         </VStack>
         <SpotlightsPreview />
       </Layout>

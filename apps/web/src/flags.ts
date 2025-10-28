@@ -1,11 +1,12 @@
-import { postHogAdapter } from '@flags-sdk/posthog'
 import { flag } from 'flags/next'
 import { cookies } from 'next/headers'
+import { env } from '@/lib/env'
+
+const isDebug = process.env.NODE_ENV !== 'production'
 
 async function identify() {
   const jar = await cookies()
-  const { value } =
-    jar.get(`ph_${process.env.NEXT_PUBLIC_POSTHOG_KEY}_posthog`) || {}
+  const { value } = jar.get(`ph_${env.NEXT_PUBLIC_POSTHOG_KEY}_posthog`) || {}
 
   if (!value) {
     return {
@@ -21,26 +22,24 @@ async function identify() {
 }
 
 export const devmode = flag({
-  adapter: postHogAdapter.isFeatureEnabled(),
+  decide: () => false,
+  defaultValue: false,
   description: 'Enable devmode features',
-  identify,
   key: 'devmode',
 })
 
 export const showWork = flag({
-  adapter: postHogAdapter.isFeatureEnabled(),
+  decide: () => true,
+  defaultValue: true,
+  description: 'Show work pages',
   identify,
   key: 'enable-work',
 })
 
-export const enableFood = flag({
-  adapter: postHogAdapter.isFeatureEnabled(),
-  identify,
-  key: 'enable-food',
-})
-
 export const enableDrafts = flag({
-  adapter: postHogAdapter.isFeatureEnabled(),
+  decide: () => isDebug,
+  defaultValue: false,
+  description: 'Show draft articles',
   identify,
   key: 'enable-drafts',
 })

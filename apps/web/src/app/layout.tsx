@@ -7,6 +7,7 @@ import { Google_Sans_Code } from 'next/font/google'
 import localFont from 'next/font/local'
 import { NextIntlClientProvider } from 'next-intl'
 import { ThemeProvider } from 'next-themes'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { type ReactNode, useId } from 'react'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     images: [
       {
         alt: 'Jacob Lapworth',
-        url: `/static/og-image.png`,
+        url: 'og-image.png',
       },
     ],
     locale: 'en_NZ',
@@ -102,29 +103,31 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         })}
         key="body"
       >
-        <ThemeProvider {...themeConfig}>
-          <NextIntlClientProvider>
-            <Skiplink data-testid="skip-link" href={`#${id}`} tabIndex={0}>
-              Skip to main content
-            </Skiplink>
-            <Header />
-            <Navigation />
-            <main
-              className={css({
-                gridArea: 'content',
-                margin: 'md',
-                maxWidth: 'calc(100vw - token(spacing.md) * 2)',
-              })}
-              id={id}
-              tabIndex={-1}
-            >
-              {children}
-            </main>
-            <Footer />
-            <Analytics />
-            <SpeedInsights />
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <NuqsAdapter>
+          <ThemeProvider {...themeConfig}>
+            <NextIntlClientProvider>
+              <Skiplink data-testid="skip-link" href={`#${id}`} tabIndex={0}>
+                Skip to main content
+              </Skiplink>
+              <Header />
+              <Navigation />
+              <main
+                className={css({
+                  gridArea: 'content',
+                  margin: 'md',
+                  maxWidth: 'calc(100vw - token(spacing.md) * 2)',
+                })}
+                id={id}
+                tabIndex={-1}
+              >
+                {children}
+              </main>
+              <Footer />
+              <Analytics />
+              <SpeedInsights />
+            </NextIntlClientProvider>
+          </ThemeProvider>
+        </NuqsAdapter>
         {shouldInjectToolbar && <VercelToolbar />}
       </body>
     </html>

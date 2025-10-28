@@ -1,4 +1,6 @@
-import { AnimatePresence, motion } from 'framer-motion'
+'use client'
+
+import { AnimatePresence, motion } from 'motion/react'
 import { type FC, useState } from 'react'
 
 import { styled } from '@/styled/jsx'

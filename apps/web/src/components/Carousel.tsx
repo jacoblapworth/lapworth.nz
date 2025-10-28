@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import { Text } from '@/components/Typography'
+import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
 
 interface WithId {
@@ -38,14 +38,14 @@ export function Carousel<T extends WithId>({
     return null
   }
 
-  const Items = items.map((ele) => renderItem(ele))
+  const renderedItems = items.map(renderItem)
 
   return (
     <div>
       <Text as="h2" display size="lg">
         {title}
       </Text>
-      <Grid>{Items}</Grid>
+      <Grid>{renderedItems}</Grid>
     </div>
   )
 }

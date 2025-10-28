@@ -4,19 +4,21 @@ import { withSentryConfig } from '@sentry/nextjs'
 import createWithVercelToolbar from '@vercel/toolbar/plugins/next'
 import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
+<<<<<<< HEAD
 import { withNextVideo } from 'next-video/process'
+=======
+import { env } from '@/lib/env'
+>>>>>>> main
 
 const withVercelToolbar = createWithVercelToolbar()
 const withNextIntl = createNextIntlPlugin()
 
 const config: NextConfig = {
-  experimental: {
-    reactCompiler: false,
-  },
   images: {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     dangerouslyAllowSVG: true,
+    qualities: [75, 100],
     remotePatterns: [
       {
         hostname: '*.mzstatic.com',
@@ -36,19 +38,36 @@ const config: NextConfig = {
     ],
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  reactCompiler: false,
   reactStrictMode: true,
+  typedRoutes: true,
 }
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    // remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
-    // rehypePlugins: [rehypeSlug, [rehypePrettyCode, prettyCodeOptions]],
-    // providerImportSource: '@mdx-js/react',
+    rehypePlugins: [
+      ['rehype-unwrap-images'],
+      ['rehype-mdx-import-media'],
+      ['rehype-slug'],
+      [
+        'rehype-autolink-headings',
+        {
+          behavior: 'wrap',
+          properties: {
+            ariaLabel: 'Link to section',
+          },
+        },
+      ],
+      ['rehype-pre-language', 'data-language'],
+      ['rehype-mdx-code-props'],
+    ],
+    remarkPlugins: ['remark-frontmatter', 'remark-mdx-frontmatter'],
   },
 })
 
 export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
+<<<<<<< HEAD
   withSentryConfig(
     withVercelToolbar(withNextIntl(withNextVideo(withMDX(config)))),
     {
@@ -64,4 +83,19 @@ export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
       widenClientFileUpload: true,
     },
   ),
+=======
+  withSentryConfig(withVercelToolbar(withNextIntl(withMDX(config))), {
+    automaticVercelMonitors: true,
+    disableLogger: true,
+    org: env.SENTRY_ORG,
+    project: env.SENTRY_PROJECT,
+    silent: !(process.env.CI && process.env.ACTIONS_RUNNER_DEBUG),
+    sourcemaps: {
+      deleteSourcemapsAfterUpload: true,
+      disable: process.env.NODE_ENV !== 'production',
+    },
+    tunnelRoute: true,
+    widenClientFileUpload: true,
+  }),
+>>>>>>> main
 )

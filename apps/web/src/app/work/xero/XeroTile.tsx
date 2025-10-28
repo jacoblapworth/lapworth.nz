@@ -1,15 +1,13 @@
 'use client'
 
 import NextImage, { type StaticImageData } from 'next/image'
-
-import { PillLink } from '@/components/Button'
+import { LinkButton } from '@/components/Button'
 import { SkewTile } from '@/components/Tile'
-import { Text } from '@/components/Typography'
-import logo from '@/public/work/xero/logo.svg'
+import { Text } from '@/components/text'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
-
 import { Highlight } from './Highlight'
+import logo from './logo.svg'
 
 const Layout = styled('div', {
   base: {
@@ -79,7 +77,7 @@ export const XeroTile = () => {
         </Text>
       </Layout>
       <Footer>
-        <PillLink href="/work/xero">View</PillLink>
+        <LinkButton href="/work/xero">View</LinkButton>
       </Footer>
     </SkewTile>
   )

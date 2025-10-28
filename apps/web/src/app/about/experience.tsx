@@ -3,7 +3,7 @@
 import { Link } from '@/components/Link'
 import { styled } from '@/styled/jsx'
 
-import { Text } from '../../components/Typography'
+import { Text } from '../../components/text'
 
 interface ExperienceRowProps {
   title?: string

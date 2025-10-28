@@ -1,7 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { ArrowRightIcon } from 'lucide-react'
+import { motion } from 'motion/react'
+import type { Route } from 'next'
 import NextLink, { type LinkProps } from 'next/link'
 import { usePathname } from 'next/navigation'
 import { type ReactNode, useState } from 'react'
@@ -37,6 +38,7 @@ const A = styled(NextLink, {
     display: 'flex',
     justifyContent: 'space-between',
     paddingBlock: 8,
+    paddingInlineEnd: 8,
     position: 'relative',
     textDecoration: 'none',
   },
@@ -52,7 +54,7 @@ const A = styled(NextLink, {
 })
 
 interface Props extends LinkProps {
-  href: string
+  href: Route
   children: ReactNode
 }
 
@@ -83,12 +85,7 @@ const NavLink = ({ children, href }: Props) => {
       onPointerOver={onPointerOver}
     >
       {children}
-      <motion.div
-        animate={animate}
-        initial="hidden"
-        style={{ marginInlineEnd: 8 }}
-        variants={variants}
-      >
+      <motion.div animate={animate} initial="hidden" variants={variants}>
         <ArrowRightIcon />
       </motion.div>
     </A>
@@ -103,15 +100,25 @@ const Stack = styled('div', {
   },
 })
 
-export function NavLinks({ enableFood }: { enableFood?: boolean } = {}) {
-  const pathname = usePathname()
-  const showFood = enableFood || pathname?.startsWith('/food')
+interface NavLink<T extends string = string> {
+  href: T
+  name: string
+}
+
+export function NavLinks() {
+  const links: NavLink<Route>[] = [
+    { href: '/work', name: 'Work' },
+    { href: '/food', name: 'Food' },
+    { href: '/about', name: 'About' },
+  ]
 
   return (
     <Stack>
-      <NavLink href="/work">Work</NavLink>
-      {showFood ? <NavLink href="/food">Food</NavLink> : null}
-      <NavLink href="/about">About</NavLink>
+      {links.map(({ href, name }) => (
+        <NavLink href={href} key={href}>
+          {name}
+        </NavLink>
+      ))}
     </Stack>
   )
 }

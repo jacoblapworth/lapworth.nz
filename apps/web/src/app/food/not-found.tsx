@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
-
-import { PillLink } from '@/components/Button'
-import { Text } from '@/components/Typography'
+import { NotFound } from '@/components/not-found'
 
 export const metadata: Metadata = {
   title: '404',
@@ -9,12 +7,13 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
-      <Text as="h1" display size="xl">
-        You’ve found a lemon 🍋
-      </Text>
-      <p>Can’t find this recipe</p>
-      <PillLink href="/recipes">Back to recipes</PillLink>
-    </>
+    <NotFound
+      action={{
+        href: '/food',
+        label: 'Back to recipes',
+      }}
+      description="Can’t find this recipe"
+      title="You’ve found a lemon 🍋"
+    />
   )
 }

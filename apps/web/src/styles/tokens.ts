@@ -78,6 +78,7 @@ export const tokens = defineTokens({
         value: 'rgba(255,255,255,0.1)',
       },
     },
+
     yellow: {
       50: {
         value: '#FFC453',
@@ -108,7 +109,7 @@ export const tokens = defineTokens({
   },
   radii: {
     lg: { value: '12px' },
-    max: { value: '99999px;' },
+    max: { value: '99999px' },
     md: { value: '6px' },
     sm: { value: '3px' },
     xl: { value: '16px' },
@@ -137,6 +138,11 @@ export const tokens = defineTokens({
 })
 
 export const semanticTokens = defineSemanticTokens({
+  blurs: {
+    lg: { value: 'blur(12px)' },
+    md: { value: 'blur(8px)' },
+    sm: { value: 'blur(4px)' },
+  },
   borders: {
     divider: { value: '1px solid {colors.divider}' },
     muted: { value: '1px solid {colors.quaternary}' },
@@ -150,6 +156,9 @@ export const semanticTokens = defineSemanticTokens({
         _dark: '{colors.black.100}',
         base: '{colors.white.10}',
       },
+    },
+    border: {
+      value: '{colors.divider}',
     },
     critical: {
       value: {

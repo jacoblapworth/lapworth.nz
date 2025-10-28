@@ -3,17 +3,6 @@ on:
   pull_request:
   workflow_dispatch:
 env:
-  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-  APPLE_MUSIC_KEY_ID: ${{ secrets.APPLE_MUSIC_KEY_ID }}
-  APPLE_MUSIC_PRIVATE_KEY: ${{ secrets.APPLE_MUSIC_PRIVATE_KEY }}
-  APPLE_MUSIC_USER_TOKEN: ${{ secrets.APPLE_MUSIC_USER_TOKEN }}
-  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-  SENTRY_ORG: ${{ vars.SENTRY_ORG }}
-  SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
-  NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.NEXT_PUBLIC_POSTHOG_HOST }}
-  NEXT_PUBLIC_POSTHOG_KEY: ${{ vars.NEXT_PUBLIC_POSTHOG_KEY }}
-  NEXT_PUBLIC_POSTHOG_PROJECT_ID: ${{ vars.NEXT_PUBLIC_POSTHOG_PROJECT_ID }}
-  NEXT_PUBLIC_SENTRY_DSN: ${{ vars.NEXT_PUBLIC_SENTRY_DSN }}
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
@@ -28,13 +17,21 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Use Node
-        uses: actions/setup-node@v5.0.0
+        uses: actions/setup-node@v6.0.0
         with:
           node-version-file: package.json
           cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Pull Vercel Environment Variables
+        run: |
+          pnpm dlx vercel@latest env pull .env.local --token=${{ secrets.VERCEL_TOKEN }} --yes
+        working-directory: apps/web
+        env:
+          VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
 
       - name: Next build cache
         uses: actions/cache@v4
@@ -63,7 +60,7 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Use Node
-        uses: actions/setup-node@v5.0.0
+        uses: actions/setup-node@v6.0.0
         with:
           node-version-file: package.json
           cache: 'pnpm'
@@ -87,7 +84,7 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Use Node
-        uses: actions/setup-node@v5.0.0
+        uses: actions/setup-node@v6.0.0
         with:
           node-version-file: package.json
           cache: 'pnpm'
@@ -100,6 +97,14 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Pull Vercel Environment Variables
+        run: |
+          pnpm dlx vercel@latest env pull .env.local --token=${{ secrets.VERCEL_TOKEN }} --yes
+        working-directory: apps/web
+        env:
+          VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
 
       - name: Build
         run: pnpm run build

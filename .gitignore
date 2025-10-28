@@ -37,6 +37,7 @@ yarn-error.log*
 # next.js
 .next
 out
+next-env.d.ts
 
 # cypress
 cypress/results/*
@@ -51,6 +52,9 @@ cypress/videos/*
 # panda-css
 styled-system
 .styled
+
+# TypeScript build cache
+*.tsbuildinfo
 
 # Sentry Config File
 .sentryclirc
