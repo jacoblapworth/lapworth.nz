@@ -1,9 +1,1 @@
-{
-  "createdAt": 1761655340662,
-  "originalFilePath": "src/videos/announcement.mp4",
-  "provider": "mux",
-  "providerMetadata": {},
-  "size": 3995041,
-  "status": "sourced",
-  "updatedAt": 1761655340662
-}
+{"createdAt":1761655340662,"originalFilePath":"src/videos/announcement.mp4","provider":"mux","providerMetadata":{"mux":{"uploadId":"RyFzQGNc00Hby11HKztzo02BPFdjg00VWRazcGkBvcBfUQ","assetId":"5X1J43c4IM3Bvu3daMMzERl01P00k76EMlA2zPmFJExCo","playbackId":"BcL3xGpM7VbR2BkxmYQW02UVPF55uHarQVUz01SFypk5A"}},"size":3995041,"status":"ready","updatedAt":1761656664303,"sources":[{"src":"https://stream.mux.com/BcL3xGpM7VbR2BkxmYQW02UVPF55uHarQVUz01SFypk5A.m3u8","type":"application/x-mpegURL"}],"poster":"https://image.mux.com/BcL3xGpM7VbR2BkxmYQW02UVPF55uHarQVUz01SFypk5A/thumbnail.webp","blurDataURL":"data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAAkAAQAcJbACdAELZHLtWcAA/vKmbJ/6g4pXN/Z1WocCpnpTW6pAE1LYj++phcG0EyPHbmpCH/+2iH02mJVBLf/uC8Lf/d5+rpM5iw9hTBf/3PcquIAA"}
