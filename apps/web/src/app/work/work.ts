@@ -83,3 +83,35 @@ export const work = await getWork()
 export function getPostBySlugParams(slug: string[]) {
   return work.find((post) => post.slug === slug.join('/'))
 }
+
+export function getRelatedPosts(currentPost: Work, limit = 3): Work[] {
+  // Calculate relevance score for each post
+  const scoredPosts = work
+    .filter((post) => post.slug !== currentPost.slug && !post.draft)
+    .map((post) => {
+      let score = 0
+
+      // Same category gets highest score
+      if (currentPost.category && post.category === currentPost.category) {
+        score += 10
+      }
+
+      // Shared tags get points
+      const sharedTags = post.tags.filter((tag) =>
+        currentPost.tags.includes(tag),
+      )
+      score += sharedTags.length * 2
+
+      return { post, score }
+    })
+    .filter(({ score }) => score > 0) // Only include posts with some relevance
+    .sort((a, b) => {
+      // Sort by score first, then by date
+      if (b.score !== a.score) {
+        return b.score - a.score
+      }
+      return b.post.date.getTime() - a.post.date.getTime()
+    })
+
+  return scoredPosts.slice(0, limit).map(({ post }) => post)
+}

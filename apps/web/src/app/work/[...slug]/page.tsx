@@ -4,7 +4,8 @@ import { Article } from '@/components/article'
 import { LinkButton } from '@/components/button'
 import { Text } from '@/components/text'
 import { HStack, VStack } from '@/styled/jsx'
-import { getPostBySlugParams, work } from '../work'
+import { Related } from '../related'
+import { getPostBySlugParams, getRelatedPosts, work } from '../work'
 
 export const dynamicParams = false
 export const dynamic = 'force-static'
@@ -39,6 +40,7 @@ export default async function Page({ params }: Props) {
   if (!post) notFound()
 
   const { default: Mdx } = await import(`../${post.filePath}`)
+  const relatedPosts = getRelatedPosts(post)
 
   return (
     <Article>
@@ -58,6 +60,7 @@ export default async function Page({ params }: Props) {
         )}
       </VStack>
       <Mdx />
+      <Related posts={relatedPosts} />
     </Article>
   )
 }
