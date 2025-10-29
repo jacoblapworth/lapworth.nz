@@ -81,15 +81,18 @@ function useActiveId(itemIds: string[]) {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id)
-          }
+        // Find the first intersecting entry (closest to top of viewport)
+        const intersectingEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+
+        if (intersectingEntries.length > 0) {
+          setActiveId(intersectingEntries[0].target.id)
         }
       },
       {
-        rootMargin: '-80px 0px -80% 0px',
-        threshold: 0,
+        rootMargin: '-100px 0px -66% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1],
       },
     )
 
