@@ -178,7 +178,6 @@ export function Image({
             className={ImageStyles()}
             placeholder={placeholder}
             quality={100}
-            sizes="(max-width: 800px) 100vw, 600px"
             src={src}
             {...props}
           />
