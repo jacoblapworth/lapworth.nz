@@ -40,27 +40,29 @@ export default async function Page({ params }: Props) {
   if (!post) notFound()
 
   const { default: Mdx } = await import(`../${post.filePath}`)
-  const relatedPosts = post.related ? getRelatedPosts(post) : []
+  const relatedPosts = post.showRelated ? getRelatedPosts(post) : []
 
   return (
-    <Article>
-      <VStack alignItems="start" gap="md" marginBlock="lg">
-        <Text as="h1" size="xl">
-          {post.title}
-        </Text>
-        {post.links && (
-          <HStack>
-            {post.links.map(({ href, label }) => (
-              <LinkButton href={href} key={href} size="sm">
-                {label}
-                <SquareArrowOutUpRightIcon size={16} />
-              </LinkButton>
-            ))}
-          </HStack>
-        )}
-      </VStack>
-      <Mdx />
+    <>
+      <Article>
+        <VStack alignItems="start" gap="md" marginBlock="lg">
+          <Text as="h1" size="xl">
+            {post.title}
+          </Text>
+          {post.links && (
+            <HStack>
+              {post.links.map(({ href, label }) => (
+                <LinkButton href={href} key={href} size="sm">
+                  {label}
+                  <SquareArrowOutUpRightIcon size={16} />
+                </LinkButton>
+              ))}
+            </HStack>
+          )}
+        </VStack>
+        <Mdx />
+      </Article>
       <Related posts={relatedPosts} />
-    </Article>
+    </>
   )
 }

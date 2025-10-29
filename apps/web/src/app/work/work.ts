@@ -18,7 +18,8 @@ const WorkFrontmatter = z.object({
       }),
     )
     .optional(),
-  related: z.boolean().default(true),
+  recommend: z.boolean().default(false),
+  showRelated: z.boolean().default(true),
   tags: z.array(z.string()).default([]),
   title: z.string().max(99),
 })
@@ -85,10 +86,18 @@ export function getPostBySlugParams(slug: string[]) {
   return work.find((post) => post.slug === slug.join('/'))
 }
 
+/**
+ * Get related posts for a given post
+ *
+ * A simple algorithm that scores posts based on shared category and tags.
+ */
 export function getRelatedPosts(currentPost: Work, limit = 3): Work[] {
   // Calculate relevance score for each post
   const scoredPosts = work
-    .filter((post) => post.slug !== currentPost.slug && !post.draft)
+    .filter(
+      (post) =>
+        post.slug !== currentPost.slug && !post.draft && post.showRelated,
+    )
     .map((post) => {
       let score = 0
 

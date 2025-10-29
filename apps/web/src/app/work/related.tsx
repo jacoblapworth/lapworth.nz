@@ -6,19 +6,13 @@ import { WorkListItemCard } from './work-list-item-card'
 const Section = styled('section', {
   base: {
     backgroundColor: 'muted',
-    borderRadius: 'lg',
-    marginBlockStart: '2xl',
-    marginInline: 'calc(-1 * var(--spacing-md))',
-    padding: 'xl',
-    width: 'auto',
-  },
-})
-
-const Container = styled('div', {
-  base: {
+    border: 'muted',
     display: 'flex',
     flexDirection: 'column',
     gap: 'md',
+    marginBlockStart: '2xl',
+    padding: 'md',
+    width: '100%',
   },
 })
 
@@ -26,18 +20,22 @@ const Grid = styled('ul', {
   base: {
     display: 'grid',
     gap: 'md',
+    gridAutoRows: 'auto',
     gridTemplateColumns: {
-      base: '1fr',
-      lg: 'repeat(3, 1fr)',
-      md: 'repeat(2, 1fr)',
+      base: 'repeat(auto-fill, 200px)',
     },
+    gridTemplateRows: '1fr auto',
     listStyle: 'none',
     padding: 0,
+    rowGap: 'sm',
   },
 })
 
 const Li = styled('li', {
   base: {
+    display: 'inherit',
+    gridRow: '1/-1',
+    gridTemplateRows: 'subgrid',
     listStyle: 'none',
   },
 })
@@ -53,18 +51,16 @@ export function Related({ posts }: RelatedProps) {
 
   return (
     <Section>
-      <Container>
-        <Text as="h2" bold size="lg">
-          Related
-        </Text>
-        <Grid>
-          {posts.map((post) => (
-            <Li key={post.slug}>
-              <WorkListItemCard item={post} />
-            </Li>
-          ))}
-        </Grid>
-      </Container>
+      <Text as="h2" size="lg">
+        Related
+      </Text>
+      <Grid>
+        {posts.map((post) => (
+          <Li key={post.slug}>
+            <WorkListItemCard item={post} />
+          </Li>
+        ))}
+      </Grid>
     </Section>
   )
 }

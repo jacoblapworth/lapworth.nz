@@ -150,21 +150,23 @@ const ImageStyles = cva({
 
 export function Image({
   blurDataURL,
-  placeholder,
   src,
   ...props
 }: ComponentProps<typeof NextImage>) {
+  const placeholder =
+    typeof src !== 'string' && 'blurDataURL' in src ? 'blur' : undefined
+
   return (
     <Ariakit.DialogProvider>
       <DialogDisclosure>
         <Figure>
           <NextImage
-            {...props}
             className={ImageStyles()}
-            placeholder="blur"
+            placeholder={placeholder}
             quality={75}
             sizes="(max-width: 800px) 100vw, 600px"
             src={src}
+            {...props}
           />
           {props.title && <Figcaption>{props.title}</Figcaption>}
         </Figure>
@@ -173,12 +175,12 @@ export function Image({
         <Dismiss />
         <Figure>
           <NextImage
-            {...props}
             className={ImageStyles()}
-            placeholder="blur"
+            placeholder={placeholder}
             quality={100}
             sizes="(max-width: 800px) 100vw, 600px"
             src={src}
+            {...props}
           />
           {props.title && <Figcaption dialog>{props.title}</Figcaption>}
         </Figure>
