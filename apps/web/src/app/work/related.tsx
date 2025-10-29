@@ -1,7 +1,7 @@
 import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
 import type { Work } from './work'
-import { WorkListItem } from './work-list-item'
+import { WorkListItemCompact } from './work-list-item-compact'
 
 const Section = styled('section', {
   base: {
@@ -16,7 +16,7 @@ const Ul = styled('ul', {
   base: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 'md',
+    gap: 'sm',
     listStyle: 'none',
     marginBlockStart: 'md',
     padding: 0,
@@ -46,7 +46,7 @@ export function Related({ posts }: RelatedProps) {
       <Ul>
         {posts.map((post) => (
           <Li key={post.slug}>
-            <WorkListItem item={post} />
+            <WorkListItemCompact item={post} />
           </Li>
         ))}
       </Ul>

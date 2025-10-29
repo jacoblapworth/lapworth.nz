@@ -40,7 +40,7 @@ export default async function Page({ params }: Props) {
   if (!post) notFound()
 
   const { default: Mdx } = await import(`../${post.filePath}`)
-  const relatedPosts = getRelatedPosts(post)
+  const relatedPosts = post.related ? getRelatedPosts(post) : []
 
   return (
     <Article>

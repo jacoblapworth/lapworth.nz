@@ -18,6 +18,7 @@ const WorkFrontmatter = z.object({
       }),
     )
     .optional(),
+  related: z.boolean().default(true),
   tags: z.array(z.string()).default([]),
   title: z.string().max(99),
 })
