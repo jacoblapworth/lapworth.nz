@@ -11,7 +11,7 @@ export const textStyles = defineTextStyles({
     md: {
       value: {
         fontSize: '1rem',
-        lineHeight: '1.5rem',
+        lineHeight: '1.3rem',
       },
     },
     sm: {

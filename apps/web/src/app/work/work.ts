@@ -18,6 +18,8 @@ const WorkFrontmatter = z.object({
       }),
     )
     .optional(),
+  recommend: z.boolean().default(false),
+  showRelated: z.boolean().default(true),
   tags: z.array(z.string()).default([]),
   title: z.string().max(99),
 })
@@ -82,4 +84,44 @@ export const work = await getWork()
 
 export function getPostBySlugParams(slug: string[]) {
   return work.find((post) => post.slug === slug.join('/'))
+}
+
+/**
+ * Get related posts for a given post
+ *
+ * A simple algorithm that scores posts based on shared category and tags.
+ */
+export function getRelatedPosts(currentPost: Work, limit = 3): Work[] {
+  // Calculate relevance score for each post
+  const scoredPosts = work
+    .filter(
+      (post) =>
+        post.slug !== currentPost.slug && !post.draft && post.showRelated,
+    )
+    .map((post) => {
+      let score = 0
+
+      // Same category gets highest score
+      if (currentPost.category && post.category === currentPost.category) {
+        score += 10
+      }
+
+      // Shared tags get points
+      const currentTags = currentPost.tags ?? []
+      const postTags = post.tags ?? []
+      const sharedTags = postTags.filter((tag) => currentTags.includes(tag))
+      score += sharedTags.length * 2
+
+      return { post, score }
+    })
+    .filter(({ score }) => score > 0) // Only include posts with some relevance
+    .sort((a, b) => {
+      // Sort by score first, then by date
+      if (b.score !== a.score) {
+        return b.score - a.score
+      }
+      return b.post.date.getTime() - a.post.date.getTime()
+    })
+
+  return scoredPosts.slice(0, limit).map(({ post }) => post)
 }
