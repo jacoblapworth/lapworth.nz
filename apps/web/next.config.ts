@@ -59,7 +59,11 @@ const withMDX = createMDX({
       ['rehype-pre-language', 'data-language'],
       ['rehype-mdx-code-props'],
     ],
-    remarkPlugins: ['remark-frontmatter', 'remark-mdx-frontmatter'],
+    remarkPlugins: [
+      'remark-frontmatter',
+      'remark-mdx-frontmatter',
+      'remark-gfm',
+    ],
   },
 })
 
