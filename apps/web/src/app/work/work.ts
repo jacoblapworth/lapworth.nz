@@ -95,8 +95,7 @@ export function getRelatedPosts(currentPost: Work, limit = 3): Work[] {
   // Calculate relevance score for each post
   const scoredPosts = work
     .filter(
-      (post) =>
-        post.slug !== currentPost.slug && !post.draft && post.showRelated,
+      (post) => post.slug !== currentPost.slug && !post.draft && post.recommend,
     )
     .map((post) => {
       let score = 0

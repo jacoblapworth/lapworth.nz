@@ -41,11 +41,11 @@ const Li = styled('li', {
 })
 
 interface RelatedProps {
-  posts: Work[]
+  posts?: Work[]
 }
 
 export function Related({ posts }: RelatedProps) {
-  if (posts.length === 0) {
+  if (!posts || posts.length === 0) {
     return null
   }
 
