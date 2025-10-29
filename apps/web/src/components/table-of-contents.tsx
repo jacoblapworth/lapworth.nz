@@ -1,18 +1,12 @@
 'use client'
 
+import type { Toc } from '@stefanprobst/rehype-extract-toc'
 import { useEffect, useState } from 'react'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 
-export interface TocItem {
-  depth: number
-  id: string
-  title: string
-  children?: TocItem[]
-}
-
 interface TableOfContentsProps {
-  items: TocItem[]
+  items: Toc
 }
 
 const TocNav = styled('nav', {
@@ -114,10 +108,12 @@ function useActiveId(itemIds: string[]) {
   return activeId
 }
 
-function getItemIds(items: TocItem[]): string[] {
+function getItemIds(items: Toc): string[] {
   const ids: string[] = []
   for (const item of items) {
-    ids.push(item.id)
+    if (item.id) {
+      ids.push(item.id)
+    }
     if (item.children) {
       ids.push(...getItemIds(item.children))
     }
@@ -125,16 +121,16 @@ function getItemIds(items: TocItem[]): string[] {
   return ids
 }
 
-function TocItems({ items, activeId }: { items: TocItem[]; activeId: string }) {
+function TocItems({ items, activeId }: { items: Toc; activeId: string }) {
   return (
     <>
       {items.map((item) => (
-        <li key={item.id}>
+        <li key={item.id || item.value}>
           <TocLink
             className={activeId === item.id ? 'active' : ''}
             href={`#${item.id}`}
           >
-            {item.title}
+            {item.value}
           </TocLink>
           {item.children && item.children.length > 0 && (
             <NestedList>

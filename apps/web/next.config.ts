@@ -58,6 +58,8 @@ const withMDX = createMDX({
       ],
       ['rehype-pre-language', 'data-language'],
       ['rehype-mdx-code-props'],
+      ['@stefanprobst/rehype-extract-toc'],
+      ['@stefanprobst/rehype-extract-toc/mdx', { name: 'tableOfContents' }],
     ],
     remarkPlugins: ['remark-frontmatter', 'remark-mdx-frontmatter'],
   },

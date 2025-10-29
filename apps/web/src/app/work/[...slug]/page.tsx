@@ -1,11 +1,9 @@
-import path from 'node:path'
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { Article } from '@/components/article'
 import { LinkButton } from '@/components/button'
 import { TableOfContents } from '@/components/table-of-contents'
 import { Text } from '@/components/text'
-import { extractToc } from '@/lib/toc'
 import { HStack, VStack } from '@/styled/jsx'
 import { getPostBySlugParams, work } from '../work'
 
@@ -41,11 +39,7 @@ export default async function Page({ params }: Props) {
 
   if (!post) notFound()
 
-  const { default: Mdx } = await import(`../${post.filePath}`)
-
-  // Extract table of contents
-  const WORK_DIR = path.join(process.cwd(), 'src/app/work')
-  const toc = await extractToc(WORK_DIR, post.filePath)
+  const { default: Mdx, tableOfContents } = await import(`../${post.filePath}`)
 
   return (
     <HStack alignItems="start" gap="xl">
@@ -67,7 +61,7 @@ export default async function Page({ params }: Props) {
         </VStack>
         <Mdx />
       </Article>
-      <TableOfContents items={toc} />
+      <TableOfContents items={tableOfContents} />
     </HStack>
   )
 }
