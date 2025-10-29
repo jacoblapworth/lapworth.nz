@@ -37,6 +37,25 @@ const config: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactCompiler: false,
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        destination: '/work/xero/advanced-tables',
+        permanent: true,
+        source: '/work/xero/tables',
+      },
+      {
+        destination: '/work/xero/advanced-tables',
+        permanent: true,
+        source: '/work/xero-advanced-tables',
+      },
+      {
+        destination: '/work/lamarzocco',
+        permanent: true,
+        source: '/work/lamarzocco-widget',
+      },
+    ]
+  },
   typedRoutes: true,
 }
 
