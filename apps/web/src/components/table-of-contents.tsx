@@ -10,10 +10,10 @@ interface TableOfContentsProps {
 
 const TocNav = styled('nav', {
   base: {
-    '@media (min-width: 1200px)': {
+    display: 'none',
+    lg: {
       display: 'block',
     },
-    display: 'none',
     maxHeight: 'calc(100vh - 2 * token(spacing.md))',
     overflowY: 'auto',
     position: 'sticky',
@@ -35,10 +35,17 @@ const TocList = styled('ul', {
 
 const TocLink = styled('a', {
   base: {
-    _hover: {
-      color: 'text.primary',
+    _active: {
+      _before: {
+        backgroundColor: 'primary',
+      },
+      //   color: 'primary',
+      //   fontWeight: 'medium',
     },
-    '&::before': {
+    _before: {
+      // _active: {
+      //   backgroundColor: 'primary',
+      // },
       backgroundColor: 'transparent',
       bottom: 0,
       content: '""',
@@ -48,14 +55,11 @@ const TocLink = styled('a', {
       transition: 'background-color 0.2s',
       width: '2px',
     },
-    '&[data-active="true"]': {
-      '&::before': {
-        backgroundColor: 'text.primary',
-      },
-      color: 'text.primary',
-      fontWeight: 'medium',
+    _hover: {
+      backgroundColor: 'surface',
+      color: 'primary',
     },
-    color: 'text.secondary',
+    color: 'secondary',
     display: 'block',
     fontSize: 'sm',
     lineHeight: '1.5',

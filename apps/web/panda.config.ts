@@ -5,7 +5,7 @@ import { globalCss, semanticTokens, textStyles, tokens } from './src/styles'
 export default defineConfig({
   conditions: {
     extend: {
-      active: '&:not(:disabled):is(:active, [data-active])',
+      // active: '&:not(:disabled):is(:active, [data-active])',
       activeItem: '&[data-active-item]',
       checked: ':is(:checked, [data-checked], [aria-checked=true]) &',
       disabled: '&[aria-disabled]',
