@@ -1,24 +1,37 @@
 import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
 import type { Work } from './work'
-import { WorkListItemCompact } from './work-list-item-compact'
+import { WorkListItemCard } from './work-list-item-card'
 
 const Section = styled('section', {
   base: {
-    borderColor: 'border',
-    borderTop: '1px solid',
-    marginBlockStart: 'xl',
-    paddingBlockStart: 'xl',
+    backgroundColor: 'muted',
+    borderRadius: 'lg',
+    marginBlockStart: '2xl',
+    marginInline: 'calc(-1 * var(--spacing-md))',
+    padding: 'xl',
+    width: 'auto',
   },
 })
 
-const Ul = styled('ul', {
+const Container = styled('div', {
   base: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 'sm',
+    gap: 'md',
+  },
+})
+
+const Grid = styled('ul', {
+  base: {
+    display: 'grid',
+    gap: 'md',
+    gridTemplateColumns: {
+      base: '1fr',
+      lg: 'repeat(3, 1fr)',
+      md: 'repeat(2, 1fr)',
+    },
     listStyle: 'none',
-    marginBlockStart: 'md',
     padding: 0,
   },
 })
@@ -40,16 +53,18 @@ export function Related({ posts }: RelatedProps) {
 
   return (
     <Section>
-      <Text as="h2" size="lg">
-        Related
-      </Text>
-      <Ul>
-        {posts.map((post) => (
-          <Li key={post.slug}>
-            <WorkListItemCompact item={post} />
-          </Li>
-        ))}
-      </Ul>
+      <Container>
+        <Text as="h2" bold size="lg">
+          Related
+        </Text>
+        <Grid>
+          {posts.map((post) => (
+            <Li key={post.slug}>
+              <WorkListItemCard item={post} />
+            </Li>
+          ))}
+        </Grid>
+      </Container>
     </Section>
   )
 }
