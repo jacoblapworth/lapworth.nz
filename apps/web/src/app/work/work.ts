@@ -97,9 +97,9 @@ export function getRelatedPosts(currentPost: Work, limit = 3): Work[] {
       }
 
       // Shared tags get points
-      const sharedTags = post.tags.filter((tag) =>
-        currentPost.tags.includes(tag),
-      )
+      const currentTags = currentPost.tags ?? []
+      const postTags = post.tags ?? []
+      const sharedTags = postTags.filter((tag) => currentTags.includes(tag))
       score += sharedTags.length * 2
 
       return { post, score }
