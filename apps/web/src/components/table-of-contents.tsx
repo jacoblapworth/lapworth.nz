@@ -2,7 +2,6 @@
 
 import type { Toc } from '@stefanprobst/rehype-extract-toc'
 import { useEffect, useState } from 'react'
-import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 
 interface TableOfContentsProps {
@@ -36,6 +35,9 @@ const TocList = styled('ul', {
 
 const TocLink = styled('a', {
   base: {
+    _hover: {
+      color: 'text.primary',
+    },
     '&::before': {
       backgroundColor: 'transparent',
       bottom: 0,
@@ -46,10 +48,7 @@ const TocLink = styled('a', {
       transition: 'background-color 0.2s',
       width: '2px',
     },
-    '&:hover': {
-      color: 'text.primary',
-    },
-    '&.active': {
+    '&[data-active="true"]': {
       '&::before': {
         backgroundColor: 'text.primary',
       },
@@ -130,7 +129,7 @@ function TocItems({ items, activeId }: { items: Toc; activeId: string }) {
       {items.map((item) => (
         <li key={item.id || item.value}>
           <TocLink
-            className={activeId === item.id ? 'active' : ''}
+            data-active={activeId === item.id ? 'true' : 'false'}
             href={`#${item.id}`}
           >
             {item.value}
@@ -156,17 +155,6 @@ export function TableOfContents({ items }: TableOfContentsProps) {
 
   return (
     <TocNav aria-label="Table of contents">
-      <div
-        className={css({
-          color: 'text.secondary',
-          fontSize: 'xs',
-          fontWeight: 'semibold',
-          marginBottom: 'sm',
-          textTransform: 'uppercase',
-        })}
-      >
-        On this page
-      </div>
       <TocList>
         <TocItems activeId={activeId} items={items} />
       </TocList>
