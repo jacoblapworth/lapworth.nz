@@ -49,7 +49,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <HStack alignItems="start" gap="xl">
-      <Article>
+      <Article style={{ flex: 1, minWidth: 0 }}>
         <VStack alignItems="start" gap="md" marginBlock="lg">
           <Text as="h1" size="xl">
             {post.title}
