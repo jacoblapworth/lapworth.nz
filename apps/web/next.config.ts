@@ -19,6 +19,11 @@ const config: NextConfig = {
     qualities: [75, 100],
     remotePatterns: [
       {
+        hostname: 'books.google.com',
+        pathname: '/books/content/**',
+        protocol: 'https',
+      },
+      {
         hostname: '*.mzstatic.com',
         pathname: '/image/**',
         protocol: 'https',

@@ -15,8 +15,12 @@ export const buildImageUrl = (src: string, size: number): string => {
 
 const Label = styled('div', {
   base: {
-    display: 'inline',
-    wordWrap: 'break-word',
+    flexGrow: 0,
+    lineClamp: 2,
+    minWidth: 0,
+    overflowWrap: 'break-word',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'wrap',
   },
   variants: {
     variant: {
@@ -44,7 +48,14 @@ function AppleMusicResource({ resource }: AppleMusicResourceProps) {
 
   return (
     <Link className="group" href={resource.attributes.url}>
-      <VStack alignItems="start" gap="xs">
+      <VStack
+        alignItems="start"
+        gap="xs"
+        maxWidth="100%"
+        minWidth={0}
+        overflow="hidden"
+        overflowWrap="break-word"
+      >
         <NextImage
           alt={`Album artwork for "${name}"`}
           blurDataURL={resource.attributes.placeholder}

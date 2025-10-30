@@ -9,7 +9,7 @@ import { LinkButton } from '@/components/button'
 import { Text } from '@/components/text'
 import { HStack, VStack } from '@/styled/jsx'
 import { Related } from '../related'
-import { getPostBySlugParams, getRelatedPosts, work } from '../work'
+import { getPostBySlugParams, getRelatedPosts, getWork } from '../work'
 
 interface Props {
   params: Promise<{
@@ -25,7 +25,6 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params
   const post = await getPostBySlugParams(slug)
-
   if (!post) return notFound()
 
   return {
@@ -37,13 +36,10 @@ export async function generateMetadata({ params }: Props) {
 export default async function Page({ params }: Props) {
   cacheLife('max')
   const { slug } = await params
-
   const post = await getPostBySlugParams(slug)
-
   if (!post) notFound()
-
   const { default: Mdx } = await import(`../${post.filePath}`)
-  const relatedPosts = post.showRelated ? getRelatedPosts(post) : []
+  const relatedPosts = post.showRelated ? await getRelatedPosts(post) : []
 
   return (
     <>
@@ -63,9 +59,10 @@ export default async function Page({ params }: Props) {
             </HStack>
           )}
         </VStack>
-	  <Suspense>
-        <Mdx />
-      </Suspense>
+        <Suspense>
+          <Mdx />
+        </Suspense>
+      </Article>
       <Related posts={relatedPosts} />
     </>
   )

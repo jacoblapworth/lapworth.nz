@@ -1,67 +1,72 @@
 import { cacheLife, cacheTag } from 'next/cache'
+import type { StaticImageData } from 'next/image'
 import { getPlaiceholder } from 'plaiceholder'
 import * as z from 'zod'
 
-export const OkuSourceSchema = z.enum(['gbooks', 'gdreads', 'recs'])
-export type OkuSource = z.infer<typeof OkuSourceSchema>
+export const OkuSource = z.enum(['gbooks', 'gdreads', 'recs', 'isbndb'])
+export type OkuSource = z.infer<typeof OkuSource>
 
-export const RatingSchema = z.object({
+export const OkuRating = z.object({
   count: z.number(),
-  max_score: z.union([z.number(), z.null()]),
+  max_score: z.number().nullable(),
   score: z.number(),
-  source: OkuSourceSchema,
+  source: OkuSource,
   updated: z.coerce.date(),
 })
 
-export type OkuRating = z.infer<typeof RatingSchema>
+export type OkuRating = z.infer<typeof OkuRating>
 
-export const OkuPurchaseLinkSchema = z.object({
+export const OkuPurchaseLink = z.object({
   store: z.string(),
   url: z.string(),
 })
 
-export type OkuPurchaseLink = z.infer<typeof OkuPurchaseLinkSchema>
+export type OkuPurchaseLink = z.infer<typeof OkuPurchaseLink>
 
-export const OkuImageLinksSchema = z.object({
-  thumbnail: z.string().url(),
+export const OkuImageLinks = z.object({
+  thumbnail: z.url(),
 })
 
-export type OkuImageLinks = z.infer<typeof OkuImageLinksSchema>
+export type OkuImageLinks = z.infer<typeof OkuImageLinks>
 
-export const OkuAuthorSchema = z.object({
+export const OkuAuthor = z.object({
   id: z.number(),
   image_url: z.string(),
   name: z.string(),
 })
 
-export type OkuAuthor = z.infer<typeof OkuAuthorSchema>
+export type OkuAuthor = z.infer<typeof OkuAuthor>
 
-export const OkuBookSchema = z.object({
-  addedAt: z.string(),
-  authors: z.array(OkuAuthorSchema),
-  description: z.string(),
-  descriptionMd: z.string(),
+export const OkuBook = z.object({
+  addedAt: z.coerce.date(),
+  authors: z.array(OkuAuthor),
+  description: z.string().nullish().default(''),
+  descriptionMd: z.string().nullish().default(''),
   id: z.string(),
-  imageLinks: OkuImageLinksSchema,
-  isbn10: z.string(),
-  isbn13: z.string(),
+  imageLinks: OkuImageLinks,
+  isbn10: z.string().nullish(),
+  isbn13: z.string().nullish(),
   language: z.string(),
   pageCount: z.number(),
-  publishedDate: z.string(),
-  purchaseLinks: z.array(OkuPurchaseLinkSchema),
-  ratings: z.array(RatingSchema),
+  publishedDate: z.coerce.date(),
+  purchaseLinks: z.array(OkuPurchaseLink),
+  ratings: z.array(OkuRating),
   slug: z.string(),
-  subtitle: z.string(),
-  thumbnail: z.string().url(),
+  subtitle: z.string().nullish().default(''),
+  thumbnail: z.url(),
   title: z.string(),
-  workId: z.string(),
+  workId: z.string().nullish(),
 })
 
-export type OkuBook = z.infer<typeof OkuBookSchema>
+export type OkuBook = z.infer<typeof OkuBook>
 
-export const OkuReadingSchema = z.object({
+export function isBook(object: unknown): object is OkuBook {
+  return OkuBook.safeParse(object).success
+}
+
+export const OkuCollection = z.object({
   blurb: z.string(),
-  books: z.array(z.unknown()),
+  books: z.array(OkuBook),
   createdAt: z.coerce.date(),
   id: z.string(),
   key: z.string(),
@@ -71,33 +76,62 @@ export const OkuReadingSchema = z.object({
   visibility: z.string(),
 })
 
-export type OkuReading = z.infer<typeof OkuReadingSchema>
+export type OkuCollection = z.infer<typeof OkuCollection>
 
-export interface OkuBookWithThumbnail extends OkuBook {
-  placeholder: string
+export interface OkuBookWithThumbnail extends Omit<OkuBook, 'thumbnail'> {
+  thumbnail: string | StaticImageData
 }
 
+/** Cache for 24 hours */
+const defaultRevalidate = 60 * 60 * 24
 const baseUrl = 'https://oku.club/api'
 
-export async function getReading(): Promise<OkuBook[]> {
-  const response = await fetch(
-    `${baseUrl}/collections/user/jacoblapworth/reading`,
-  )
+export async function getCollection(user: string, collection: string) {
+  const path = `collections/user/${encodeURIComponent(user)}/${encodeURIComponent(collection)}`
+  const response = await fetch(`${baseUrl}/${path}`, {
+    next: { revalidate: defaultRevalidate },
+  })
 
-  const { books } = OkuReadingSchema.parse(await response.json())
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch collection "${collection}" for user "${user}": ${response.status} ${response.statusText}`,
+    )
+  }
 
-  const validBooks = books.filter(
-    (book) => OkuBookSchema.safeParse(book).success,
-  ) as OkuBook[]
+  return OkuCollection.parse(await response.json())
+}
 
-  return validBooks
+export async function getBookshelf(): Promise<OkuBook[]> {
+  const { books: reading } = await getCollection('jacoblapworth', 'reading')
+  const { books: read } = await getCollection('jacoblapworth', 'read')
+  return [...reading, ...read]
+    .sort((a, b) => b.addedAt.getTime() - a.addedAt.getTime())
+    .slice(0, 20)
 }
 
 export async function getImgBuffer(src: string): Promise<Buffer> {
+  cacheLife('weeks')
   const response = await fetch(src)
-  const arrayBuffer = await response.arrayBuffer()
 
-  return Buffer.from(arrayBuffer)
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch image: ${response.status} ${response.statusText}`,
+    )
+  }
+
+  return Buffer.from(await response.arrayBuffer())
+}
+
+export async function getImageMetadata(src: string): Promise<StaticImageData> {
+  const buffer = await getImgBuffer(src)
+  const { metadata, base64 } = await getPlaiceholder(buffer)
+
+  return {
+    blurDataURL: base64,
+    height: metadata.height,
+    src,
+    width: metadata.width,
+  }
 }
 
 export async function getBookWithThumbnail(
@@ -105,14 +139,24 @@ export async function getBookWithThumbnail(
 ): Promise<OkuBookWithThumbnail> {
   const src = book.imageLinks.thumbnail
 
-  if (src.length === 0) {
-    return { ...book, placeholder: '' }
+  if (!src || src.length === 0) {
+    return book
   }
 
-  const image = await getImgBuffer(src)
-  const placeholder = await getPlaiceholder(image)
+  try {
+    const thumbnail = await getImageMetadata(src)
 
-  return { ...book, placeholder: placeholder.base64 }
+    return {
+      ...book,
+      thumbnail,
+    }
+  } catch (error) {
+    console.error(
+      `Failed to generate placeholder for book "${book.title}":`,
+      error,
+    )
+    return book
+  }
 }
 
 export async function getReadingWithThumbnails(): Promise<
@@ -121,7 +165,7 @@ export async function getReadingWithThumbnails(): Promise<
   'use cache'
   cacheLife('days')
   cacheTag('reading')
-  const books = await getReading()
+  const books = await getBookshelf()
 
   return Promise.all(books.map(getBookWithThumbnail))
 }

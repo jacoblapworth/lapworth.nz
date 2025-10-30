@@ -11,15 +11,15 @@ const WorkFrontmatter = z.object({
   description: z.string().max(999).optional(),
   draft: z.boolean().default(false),
   featured: z.boolean().default(false),
+  hideFromRelated: z.boolean().default(false),
   links: z
     .array(
       z.object({
-        href: z.string().url(),
+        href: z.url(),
         label: z.string().max(49),
       }),
     )
     .optional(),
-  recommend: z.boolean().default(false),
   showRelated: z.boolean().default(true),
   tags: z.array(z.string()).default([]),
   title: z.string().max(99),
@@ -93,11 +93,16 @@ export async function getPostBySlugParams(slug: string[]) {
  *
  * A simple algorithm that scores posts based on shared category and tags.
  */
-export function getRelatedPosts(currentPost: Work, limit = 3): Work[] {
+export async function getRelatedPosts(
+  currentPost: Work,
+  limit = 3,
+): Promise<Work[]> {
+  const work = await getWork()
   // Calculate relevance score for each post
   const scoredPosts = work
     .filter(
-      (post) => post.slug !== currentPost.slug && !post.draft && post.recommend,
+      ({ slug, draft, hideFromRelated }) =>
+        slug !== currentPost.slug && !draft && !hideFromRelated,
     )
     .map((post) => {
       let score = 0

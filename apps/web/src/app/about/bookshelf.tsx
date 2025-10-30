@@ -11,7 +11,12 @@ import {
 
 const Label = styled('div', {
   base: {
-    display: 'inline',
+    flexGrow: 0,
+    lineClamp: 2,
+    minWidth: 0,
+    overflowWrap: 'break-word',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'wrap',
     wordWrap: 'break-word',
   },
   variants: {
@@ -32,17 +37,13 @@ export const Book = ({
   title,
   subtitle,
   thumbnail,
-  placeholder,
   slug,
 }: OkuBookWithThumbnail) => {
-  const size = 128
-
   return (
     <Link className="group" href={`https://oku.club/book/${slug}`}>
       <VStack alignItems="start" gap="xs">
         <NextImage
           alt={`Book cover for "${title}"`}
-          blurDataURL={placeholder}
           className={css({
             _groupHover: {
               opacity: 0.8,
@@ -52,15 +53,14 @@ export const Book = ({
             },
             backgroundColor: 'surface',
             borderRadius: 'md',
+            height: 'auto',
             marginBlockEnd: 'xsm',
             overflow: 'hidden',
             willChange: 'transform',
           })}
-          height={size}
           placeholder="blur"
           quality={75}
           src={thumbnail}
-          width={size}
         />
         <Label variant="primary">{title}</Label>
         <Label variant="secondary">{subtitle}</Label>
@@ -69,7 +69,7 @@ export const Book = ({
   )
 }
 
-export async function Reading() {
+export async function Bookshelf() {
   const books = await getReadingWithThumbnails()
 
   if (!books) {

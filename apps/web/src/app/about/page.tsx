@@ -4,14 +4,13 @@ import type { Metadata } from 'next'
 import { cacheLife } from 'next/cache'
 import NextImage from 'next/image'
 import { Suspense } from 'react'
-import { getMusicWithThumbnails } from '@/app/about/music'
 import { Link } from '@/components/link'
 import { Text } from '@/components/text'
 import ProfileImage from '@/public/j-photo-mono.png'
 import { css } from '@/styled/css'
+import { Bookshelf } from './bookshelf'
 import { Experience } from './experience'
 import { HeavyRotation } from './heavy-rotation'
-import { Reading } from './reading'
 
 export const metadata: Metadata = {
   description: `Hey there! I'm J. I'm a lead product designer and design engineer focused on community driven design systems.`,
@@ -70,7 +69,7 @@ export default async function Page() {
         <HeavyRotation />
       </Suspense>
       <Suspense>
-        <Reading />
+        <Bookshelf />
       </Suspense>
     </>
   )
