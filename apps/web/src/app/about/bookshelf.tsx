@@ -4,10 +4,7 @@ import { Carousel } from '@/components/carousel'
 import { Link } from '@/components/link'
 import { css } from '@/styled/css'
 import { styled, VStack } from '@/styled/jsx'
-import {
-  getReadingWithThumbnails,
-  type OkuBookWithThumbnail,
-} from './books/oku'
+import { getReadingWithThumbnails, type OkuBookWithThumbnail } from './oku'
 
 const Label = styled('div', {
   base: {

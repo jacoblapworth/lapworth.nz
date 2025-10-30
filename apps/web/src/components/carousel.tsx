@@ -23,6 +23,29 @@ const Grid = styled('div', {
   },
 })
 
+export const Label = styled('div', {
+  base: {
+    flexGrow: 0,
+    lineClamp: 2,
+    minWidth: 0,
+    overflowWrap: 'break-word',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'wrap',
+  },
+  variants: {
+    variant: {
+      primary: {
+        color: 'primary',
+        fontSize: 'md',
+      },
+      secondary: {
+        color: 'secondary',
+        fontSize: 'sm',
+      },
+    },
+  },
+})
+
 interface CarouselProps<T extends WithId> {
   title: ReactNode
   items: T[]

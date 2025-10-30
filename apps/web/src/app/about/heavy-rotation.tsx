@@ -3,38 +3,15 @@ import {
   getMusicWithThumbnails,
   type MusicKitResource,
 } from '@/app/about/music'
-import { Carousel } from '@/components/carousel'
+import { Carousel, Label } from '@/components/carousel'
 import { Link } from '@/components/link'
 import { css } from '@/styled/css'
-import { styled, VStack } from '@/styled/jsx'
+import { VStack } from '@/styled/jsx'
 
 export const buildImageUrl = (src: string, size: number): string => {
   const url = decodeURI(src)
   return url.replace('{w}x{h}', `${size * 2}x${size * 2}`)
 }
-
-const Label = styled('div', {
-  base: {
-    flexGrow: 0,
-    lineClamp: 2,
-    minWidth: 0,
-    overflowWrap: 'break-word',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'wrap',
-  },
-  variants: {
-    variant: {
-      primary: {
-        color: 'primary',
-        fontSize: 'md',
-      },
-      secondary: {
-        color: 'secondary',
-        fontSize: 'sm',
-      },
-    },
-  },
-})
 
 interface AppleMusicResourceProps {
   resource: MusicKitResource
