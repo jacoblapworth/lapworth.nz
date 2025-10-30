@@ -3,7 +3,8 @@
 import '@tanstack/react-table'
 
 declare module '@tanstack/react-table' {
-  interface ColumnMeta<_TData extends RowData, _TValue> {
+  // biome-ignore lint/correctness/noUnusedVariables: Type parameters must be identical
+  interface ColumnMeta<TData extends RowData, TValue> {
     alignment?: 'start' | 'center' | 'end'
     isNumeric?: boolean
     isEditable?: boolean
