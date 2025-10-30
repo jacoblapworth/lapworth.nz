@@ -3,7 +3,6 @@ import type { StaticImageData } from 'next/image'
 import { getPlaiceholder } from 'plaiceholder'
 
 export async function getImgBuffer(src: string): Promise<Buffer> {
-  cacheLife('weeks')
   const response = await fetch(src)
 
   if (!response.ok) {
@@ -16,6 +15,8 @@ export async function getImgBuffer(src: string): Promise<Buffer> {
 }
 
 export async function getImageMetadata(src: string): Promise<StaticImageData> {
+  'use cache'
+  cacheLife('weeks')
   const buffer = await getImgBuffer(src)
   const { metadata, base64 } = await getPlaiceholder(buffer)
 

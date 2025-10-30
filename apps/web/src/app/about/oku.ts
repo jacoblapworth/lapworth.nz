@@ -1,6 +1,5 @@
 import { cacheLife, cacheTag } from 'next/cache'
 import type { StaticImageData } from 'next/image'
-import { getPlaiceholder } from 'plaiceholder'
 import * as z from 'zod'
 import { getImageMetadata } from './image'
 
@@ -86,12 +85,16 @@ export interface OkuBookWithThumbnail extends Omit<OkuBook, 'thumbnail'> {
 /** Cache for 24 hours */
 const defaultRevalidate = 60 * 60 * 24
 const baseUrl = 'https://oku.club/api'
+const fetchOptions = {
+  next: {
+    cache: 'force-cache',
+    revalidate: defaultRevalidate,
+  },
+}
 
 export async function getCollection(user: string, collection: string) {
-  const path = `collections/user/${encodeURIComponent(user)}/${encodeURIComponent(collection)}`
-  const response = await fetch(`${baseUrl}/${path}`, {
-    next: { revalidate: defaultRevalidate },
-  })
+  const path = `${baseUrl}/collections/user/${encodeURIComponent(user)}/${encodeURIComponent(collection)}`
+  const response = await fetch(path, fetchOptions)
 
   if (!response.ok) {
     throw new Error(

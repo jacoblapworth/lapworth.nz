@@ -1,9 +1,10 @@
 import * as Sentry from '@sentry/nextjs'
 import { importPKCS8, SignJWT } from 'jose'
 import { cacheLife, cacheTag } from 'next/cache'
-import { getPlaiceholder } from 'plaiceholder'
+import type { StaticImageData } from 'next/image'
 import { z } from 'zod'
 import { env } from '@/lib/env'
+import { getImageMetadata } from './image'
 
 export async function createAppleJWT() {
   'use cache'
@@ -21,13 +22,7 @@ export async function createAppleJWT() {
     .sign(ecPrivateKey)
 }
 
-const MusicKitResource: z.ZodType<MusicKitResource> = z.any()
-
-const RMusicKitHistory = z.object({
-  data: z.array(MusicKitResource),
-})
-
-const MusicKitError = z.object({
+export const MusicKitError = z.object({
   code: z.string(),
   detail: z.string(),
   id: z.string(),
@@ -35,39 +30,59 @@ const MusicKitError = z.object({
   title: z.string(),
 })
 
-const MusicKitErrorResponse = z.object({
-  errors: z.array(MusicKitError),
+export const MusicKitErrorResponse = z.object({
+  errors: z.array(MusicKitError).optional(),
 })
 
-export interface MusicKitResource {
-  attributes: MusicKitAttributes
-  href: string
-  id: string
-  type: 'stations' | 'library-playlists' | 'playlists'
-}
+export const MusicKitArtwork = z.object({
+  bgColor: z.string(),
+  height: z.number().nullable(),
+  textColor1: z.string().nullable(),
+  textColor2: z.string().nullable(),
+  textColor3: z.string().nullable(),
+  textColor4: z.string().nullable(),
+  url: z.url(),
+  width: z.number().nullable(),
+})
 
-interface MusicKitAttributes {
-  artwork: MusicKitArtwork
-  placeholder: string
-  canEdit: boolean
-  dateAdded: string
-  hasCatalog: boolean
-  isPublic: boolean
-  name: string
-  playParams: {
-    id: string
-    isLibrary: boolean
-    kind: string
-  }
-  url: string
-  artistName?: string
-}
+export type MusicKitArtwork = z.infer<typeof MusicKitArtwork>
 
-interface MusicKitArtwork {
-  height: number | null
-  width: number | null
-  url: string
-}
+export const MusicKitAttributes = z.object({
+  artistName: z.string().optional(),
+  artwork: MusicKitArtwork,
+  canEdit: z.boolean().default(false),
+  dateAdded: z.coerce.date().optional(),
+  hasCatalog: z.boolean().default(false),
+  isPublic: z.boolean().default(false),
+  name: z.string(),
+
+  playParams: z.object({
+    id: z.string(),
+    isLibrary: z.boolean().default(false),
+    kind: z.string(),
+  }),
+  url: z.string(),
+})
+
+export type MusicKitAttributes = z.infer<typeof MusicKitAttributes>
+
+export const MusicKitResource = z.object({
+  attributes: MusicKitAttributes,
+  href: z.string(),
+  id: z.string(),
+  type: z.union([
+    z.enum(['stations', 'library-playlists', 'playlists', 'albums']),
+    z.string(),
+  ]),
+})
+
+export type MusicKitResource = z.infer<typeof MusicKitResource>
+
+export const MusicKitHistory = z.object({
+  data: z.array(MusicKitResource),
+})
+
+export type MusicKitHistory = z.infer<typeof MusicKitHistory>
 
 export class MKError extends Error {
   id: string
@@ -119,40 +134,19 @@ export async function getMusic(endpoint: MusicEndpoint) {
     next: { revalidate: 60 * 60 * 24 },
   }).then((res) => res.json())
 
-  const music = RMusicKitHistory.safeParse(response)
+  const music = MusicKitHistory.parse(response)
 
-  if (music.success) {
-    return music.data.data
-  } else {
-    const errors = MusicKitErrorResponse.parse(response)
-    throw new MKError(errors.errors[0])
-  }
+  return music.data
 }
 
-async function getMusicWithThumbnail(
-  item: MusicKitResource,
-): Promise<MusicKitResource | undefined> {
-  try {
-    const src = formatArtworkUrl(item.attributes.artwork, 24)
-    const image = await fetch(src).then(async (res) =>
-      Buffer.from(await res.arrayBuffer()),
-    )
-    const placeholder = await getPlaiceholder(image)
+async function getMusicWithThumbnail(item: MusicKitResource) {
+  const src = formatArtworkUrl(item.attributes.artwork, 128)
+  const thumbnail = await getImageMetadata(src)
 
-    return {
-      ...item,
-      attributes: {
-        ...item.attributes,
-        placeholder: placeholder.base64,
-      },
-    }
-  } catch (error) {
-    Sentry.captureException(error)
-    console.error(error)
-    console.log(item)
-
-    return undefined
-  }
+  return {
+    ...item,
+    thumbnail,
+  } satisfies MusicKitResource & { thumbnail: StaticImageData }
 }
 
 export async function getMusicWithThumbnails() {
@@ -161,11 +155,7 @@ export async function getMusicWithThumbnails() {
   cacheTag('music')
   try {
     const response = await getMusic(MusicEndpoint.RECENT)
-    const promises = response.map(getMusicWithThumbnail)
-    const thumbnails = await Promise.allSettled(promises)
-    const music = thumbnails
-      .map((v) => v.status === 'fulfilled' && v.value)
-      .filter(Boolean)
+    const music = await Promise.all(response.map(getMusicWithThumbnail))
 
     return music
   } catch (error) {
