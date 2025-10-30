@@ -7,6 +7,10 @@ function init() {
     return
   }
 
+  if (process.env.CI) {
+    return
+  }
+
   posthog.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
     api_host: env.NEXT_PUBLIC_POSTHOG_API_HOST,
     defaults: '2025-05-24',
