@@ -30,7 +30,7 @@
     "gray-matter": "4.0.3",
     "gsap": "3.13.0",
     "hast-util-to-jsx-runtime": "2.3.6",
-    "import-in-the-middle": "1.15.0",
+    "import-in-the-middle": "2.0.0",
     "jose": "6.1.0",
     "klaviyo-api": "20.0.0",
     "lucide-react": "0.548.0",
