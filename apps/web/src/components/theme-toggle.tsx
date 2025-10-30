@@ -71,6 +71,9 @@ export const ThemeToggle = () => {
           duration: 0.1,
         },
       }}
+      whileTap={{
+        scale: 0.95,
+      }}
     >
       <Icon />
     </Button>

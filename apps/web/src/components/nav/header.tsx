@@ -14,8 +14,12 @@ const StyledHeader = styled('header', {
   },
 })
 
-const Text = styled('div', {
+const Text = styled(NextLink, {
   base: {
+    _hover: {
+      textDecoration: 'underline',
+      textDecorationColor: 'quaternary',
+    },
     fontWeight: '500',
   },
 })
@@ -23,12 +27,10 @@ const Text = styled('div', {
 export const Header = () => {
   return (
     <StyledHeader aria-label="Header">
-      <NextLink aria-label="Home" href="/">
-        <Text>
-          Lapworth,
-          <em> Jacob</em>
-        </Text>
-      </NextLink>
+      <Text aria-label="Home" href="/">
+        Lapworth,
+        <em> Jacob</em>
+      </Text>
       <ThemeToggle />
     </StyledHeader>
   )
