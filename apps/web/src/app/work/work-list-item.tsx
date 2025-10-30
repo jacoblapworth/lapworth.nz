@@ -36,7 +36,7 @@ export function WorkListItem({ item }: Props) {
   const format = useFormatter()
   const { draft, slug, cover, title, date, description } = item
   return (
-    <Link href={`/work/${slug}`}>
+    <Link href={`/work/${slug}`} prefetch>
       {cover && <Cover alt={title} placeholder="blur" src={cover} />}
       <VStack alignItems="start" gap="xs">
         {draft && <Tag sentiment="warning">Draft</Tag>}

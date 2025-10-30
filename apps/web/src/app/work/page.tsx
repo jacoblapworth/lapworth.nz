@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { enableDrafts } from '@/flags'
 import { getWork } from './work'
 import { WorkList } from './work-list'
 
@@ -9,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const isPreview = await enableDrafts()
+  const isPreview = false
   const work = await getWork()
 
   return (

@@ -6,12 +6,16 @@ import { styled, VStack } from '@/styled/jsx'
 
 export const Label = styled('div', {
   base: {
-    flexGrow: 0,
+    _groupHover: {
+      textDecoration: 'underline',
+      textDecorationColor: 'quaternary',
+    },
     lineClamp: 2,
     minWidth: 0,
     overflowWrap: 'break-word',
     textOverflow: 'ellipsis',
     whiteSpace: 'wrap',
+    width: '100%',
   },
   variants: {
     variant: {
@@ -38,7 +42,7 @@ interface Props {
 export function CarouselItem({ title, subtitle, thumbnail, href, alt }: Props) {
   return (
     <Link className="group" href={href}>
-      <VStack alignItems="start" gap="xs">
+      <VStack alignItems="start" gap="xs" overflow="hidden">
         <NextImage
           alt={alt}
           className={css({
