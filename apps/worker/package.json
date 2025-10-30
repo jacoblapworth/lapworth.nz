@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@biomejs/biome": "catalog:",
-    "@cloudflare/vitest-pool-workers": "^0.9.13",
+    "@cloudflare/vitest-pool-workers": "^0.10.0",
     "typescript": "catalog:",
     "vitest": "catalog:",
     "wrangler": "^4.45.0"
