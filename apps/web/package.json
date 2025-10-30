@@ -14,7 +14,7 @@
     "@react-pdf/renderer": "4.3.1",
     "@sentry/nextjs": "10.22.0",
     "@shikijs/rehype": "3.14.0",
-    "@shikijs/transformers": "3.13.0",
+    "@shikijs/transformers": "3.14.0",
     "@t3-oss/env-nextjs": "0.13.8",
     "@tanstack/react-table": "8.21.3",
     "@vercel/analytics": "1.5.0",
