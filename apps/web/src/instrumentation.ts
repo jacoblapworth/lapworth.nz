@@ -5,6 +5,10 @@ export async function register() {
     return
   }
 
+  if (process.env.CI) {
+    return
+  }
+
   if (process.env.NEXT_RUNTIME === 'nodejs') {
     await import('../sentry.server.config')
   }
