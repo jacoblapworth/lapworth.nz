@@ -1,7 +1,9 @@
+'use cache'
+
 import type { Metadata } from 'next'
 import { styled } from '@/styled/jsx'
 import { RecipeListItem } from './recipe-list-item'
-import { recipes } from './recipes'
+import { getRecipes } from './recipes'
 
 const List = styled('ul', {
   base: {
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
+  const recipes = await getRecipes()
   return (
     <List>
       {recipes.map((recipe) => (

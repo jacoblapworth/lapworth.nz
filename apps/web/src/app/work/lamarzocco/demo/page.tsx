@@ -1,12 +1,14 @@
+import { Suspense } from 'react'
 import { VStack } from '@/styled/jsx'
-
-import { LaMarzoccoWidget } from '.'
+import { LaMarzoccoWidget } from '../widget'
 
 export default function Page() {
   return (
     <VStack alignItems="start" gap={16}>
       La Marzocco
-      <LaMarzoccoWidget />
+      <Suspense>
+        <LaMarzoccoWidget />
+      </Suspense>
     </VStack>
   )
 }

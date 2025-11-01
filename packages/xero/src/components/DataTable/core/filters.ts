@@ -208,7 +208,7 @@ export function getColumnOptions<TData, TType extends ColumnDataType, TVal>(
 
   if (column.orderFn) {
     models = models.sort((m1, m2) =>
-      column.orderFn!(
+      column.orderFn?.(
         m1 as ElementType<NonNullable<TVal>>,
         m2 as ElementType<NonNullable<TVal>>,
       ),

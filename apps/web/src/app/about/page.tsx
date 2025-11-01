@@ -1,18 +1,16 @@
-import type { Metadata } from 'next'
-import NextImage from 'next/image'
+'use cache'
 
-import { getMusicWithThumbnails } from '@/app/about/music'
+import type { Metadata } from 'next'
+import { cacheLife } from 'next/cache'
+import NextImage from 'next/image'
+import { Suspense } from 'react'
 import { Link } from '@/components/link'
 import { Text } from '@/components/text'
 import ProfileImage from '@/public/j-photo-mono.png'
 import { css } from '@/styled/css'
-
-import { getReadingWithThumbnails } from './books/oku'
+import { Bookshelf } from './bookshelf'
 import { Experience } from './experience'
 import { HeavyRotation } from './heavy-rotation'
-import { Reading } from './reading'
-
-export const fetchCache = 'default-cache'
 
 export const metadata: Metadata = {
   description: `Hey there! I'm J. I'm a lead product designer and design engineer focused on community driven design systems.`,
@@ -20,9 +18,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const music = await getMusicWithThumbnails()
-  const books = await getReadingWithThumbnails()
-
+  cacheLife('max')
   return (
     <>
       <div className={css({ maxWidth: '1000px' })}>
@@ -69,8 +65,12 @@ export default async function Page() {
         </Text>
       </div>
       <Experience />
-      {music && <HeavyRotation music={music} />}
-      {books && <Reading books={books} />}
+      <Suspense>
+        <HeavyRotation />
+      </Suspense>
+      <Suspense>
+        <Bookshelf />
+      </Suspense>
     </>
   )
 }

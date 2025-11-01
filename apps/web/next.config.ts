@@ -11,12 +11,18 @@ const withVercelToolbar = createWithVercelToolbar()
 const withNextIntl = createNextIntlPlugin()
 
 const config: NextConfig = {
+  cacheComponents: true,
   images: {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     dangerouslyAllowSVG: true,
     qualities: [75, 100],
     remotePatterns: [
+      {
+        hostname: 'books.google.com',
+        pathname: '/books/content/**',
+        protocol: 'https',
+      },
       {
         hostname: '*.mzstatic.com',
         pathname: '/image/**',

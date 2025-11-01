@@ -1,5 +1,5 @@
 import * as Ariakit from '@ariakit/react'
-import { type Column, flexRender, type Header } from '@tanstack/react-table'
+import { flexRender, type Header } from '@tanstack/react-table'
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -9,8 +9,7 @@ import {
   PinOffIcon,
 } from 'lucide-react'
 import { type ReactNode, useState } from 'react'
-import { css } from '@/styled/css'
-import { Box, HStack } from '@/styled/jsx'
+import { HStack } from '@/styled/jsx'
 import {
   Menu,
   MenuButton,

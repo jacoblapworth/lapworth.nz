@@ -1,11 +1,12 @@
 import { Text } from '@/components/text'
 import { enableDrafts } from '@/flags'
-import { work } from '../work'
+import { getWork } from '../work'
 import { WorkList } from '../work-list'
 import { Background } from './background'
 
 export default async function Page() {
   const isPreview = await enableDrafts()
+  const work = await getWork()
 
   return (
     <>

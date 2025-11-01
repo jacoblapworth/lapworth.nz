@@ -1,4 +1,7 @@
+'use cache'
+
 import type { Metadata } from 'next'
+import { cacheLife } from 'next/cache'
 import { LinkButton } from '@/components/button'
 import { Link } from '@/components/link'
 import { Text } from '@/components/text'
@@ -24,6 +27,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
+  cacheLife('max')
   return (
     <Container>
       <VStack alignItems="start" gap={16} gridColumn="1/-1">

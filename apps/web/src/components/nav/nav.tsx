@@ -73,7 +73,11 @@ const Description = () => {
       <ul aria-label="Social media links">
         {socialLinks.map(({ name, href }, i) => (
           <li key={href}>
-            <Link href={href} sameTab={!EXTERNAL_HREF_REGEX.test(href)}>
+            <Link
+              href={href}
+              prefetch
+              sameTab={!EXTERNAL_HREF_REGEX.test(href)}
+            >
               {name}
             </Link>
             {i !== socialLinks.length - 1 && (

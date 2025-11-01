@@ -1,7 +1,7 @@
 import { VisuallyHidden } from '@ariakit/react'
 import type { RowData, Table } from '@tanstack/react-table'
 import { CircleXIcon, SearchIcon } from 'lucide-react'
-import { memo, useDeferredValue, useId, useState } from 'react'
+import { useId, useState } from 'react'
 import { styled } from '@/styled/jsx'
 
 const Container = styled('div', {

@@ -1,3 +1,5 @@
+'use cache'
+
 import { styled } from '@/styled/jsx'
 import type { Work } from './work'
 import { WorkListItem } from './work-list-item'
@@ -25,7 +27,7 @@ interface WorkListProps {
   work: Work[]
 }
 
-export function WorkList({ work }: WorkListProps) {
+export async function WorkList({ work }: WorkListProps) {
   return (
     <Ul>
       {work.map((item) => (

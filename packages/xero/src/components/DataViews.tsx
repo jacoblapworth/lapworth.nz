@@ -1,7 +1,7 @@
 import * as Ariakit from '@ariakit/react'
 import type { AppliedFilter } from './Filters'
 import { ViewsTabList } from './ViewsTabList'
-import { BorderHighlight, ViewTab } from './ViewTab'
+import { ViewTab } from './ViewTab'
 
 export interface View {
   id: string

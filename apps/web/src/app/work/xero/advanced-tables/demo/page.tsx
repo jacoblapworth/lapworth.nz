@@ -11,7 +11,7 @@ import {
   createColumnHelper,
 } from '@tanstack/react-table'
 import { CheckCircleIcon, TrashIcon } from 'lucide-react'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { initialData } from './data'
 import { getInvoiceStatus, type InvoiceRow } from './model'
 
@@ -183,88 +183,90 @@ export default function Page() {
   })
 
   return (
-    <Table
-      bulkActions={[
-        {
-          id: 'approve',
-          label: (
-            <>
-              <CheckCircleIcon size={16} />
-              Approve
-            </>
-          ),
-          onClick: () => alert('Approved'),
-        },
-        {
-          id: 'delete',
-          label: (
-            <>
-              <TrashIcon size={16} />
-              Delete
-            </>
-          ),
-          onClick: () => alert('Deleted'),
-        },
-      ]}
-      summaryTotalKey="due"
-      table={table}
-      views={[
-        { filters: [], id: 'all', label: 'All' },
-        {
-          filters: [
-            {
-              id: 'status',
-              label: 'Status',
-              operator: 'is',
-              value: 'draft',
-            },
-          ],
-          id: 'draft',
-          label: 'Draft',
-        },
-        {
-          filters: [
-            {
-              id: 'status',
-              label: 'Status',
-              operator: 'is',
-              value: 'awaiting-payment',
-            },
-          ],
-          id: 'awaiting-payment',
-          label: 'Awaiting Payment',
-        },
-        {
-          filters: [
-            {
-              id: 'status',
-              label: 'Status',
-              operator: 'is',
-              value: 'awaiting-payment',
-            },
-            {
-              id: 'due',
-              label: 'Due date',
-              operator: 'is before',
-              value: 'today',
-            },
-          ],
-          id: 'overdue',
-          label: 'Overdue',
-        },
-        {
-          filters: [
-            {
-              id: 'status',
-              label: 'Status',
-              operator: 'is',
-              value: 'paid',
-            },
-          ],
-          id: 'paid',
-          label: 'Paid',
-        },
-      ]}
-    />
+    <Suspense>
+      <Table
+        bulkActions={[
+          {
+            id: 'approve',
+            label: (
+              <>
+                <CheckCircleIcon size={16} />
+                Approve
+              </>
+            ),
+            onClick: () => alert('Approved'),
+          },
+          {
+            id: 'delete',
+            label: (
+              <>
+                <TrashIcon size={16} />
+                Delete
+              </>
+            ),
+            onClick: () => alert('Deleted'),
+          },
+        ]}
+        summaryTotalKey="due"
+        table={table}
+        views={[
+          { filters: [], id: 'all', label: 'All' },
+          {
+            filters: [
+              {
+                id: 'status',
+                label: 'Status',
+                operator: 'is',
+                value: 'draft',
+              },
+            ],
+            id: 'draft',
+            label: 'Draft',
+          },
+          {
+            filters: [
+              {
+                id: 'status',
+                label: 'Status',
+                operator: 'is',
+                value: 'awaiting-payment',
+              },
+            ],
+            id: 'awaiting-payment',
+            label: 'Awaiting Payment',
+          },
+          {
+            filters: [
+              {
+                id: 'status',
+                label: 'Status',
+                operator: 'is',
+                value: 'awaiting-payment',
+              },
+              {
+                id: 'due',
+                label: 'Due date',
+                operator: 'is before',
+                value: 'today',
+              },
+            ],
+            id: 'overdue',
+            label: 'Overdue',
+          },
+          {
+            filters: [
+              {
+                id: 'status',
+                label: 'Status',
+                operator: 'is',
+                value: 'paid',
+              },
+            ],
+            id: 'paid',
+            label: 'Paid',
+          },
+        ]}
+      />
+    </Suspense>
   )
 }

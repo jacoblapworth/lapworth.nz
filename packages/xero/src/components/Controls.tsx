@@ -1,5 +1,4 @@
 import type { Column, Header, RowData, Table } from '@tanstack/react-table'
-import { useDeferredValue } from 'react'
 import { HStack } from '@/styled/jsx'
 import { ColumnsMenu } from './ColumnsMenu'
 import { DataFiltersToggle } from './DataFiltersToggle'

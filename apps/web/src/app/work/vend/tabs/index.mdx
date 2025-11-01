@@ -8,9 +8,11 @@ cover: tabs-cover.png
 
 import { TabsExample } from './tabs'
 
-<ResponsivePreview width={400}>
-  <TabsExample />
-</ResponsivePreview>
+<Suspense>
+  <ResponsivePreview width={400}>
+    <TabsExample />
+  </ResponsivePreview>
+</Suspense>
 
 Houston is the name of the design system at Vend — "Houston, we have a problem". The team has been working on Houston for a few years, and it's been a really interesting journey. We've had to deal with a lot of challenges, and I think we've come out the other side with a really solid foundation. I'm going to walk you through some of the challenges we've faced and how we've dealt with them.
 
@@ -104,6 +106,8 @@ During this time, we're road-testing the components in-situ across the product. 
 
 Try it out yourself! Resize the panel to see how the overflow behaves.
 
-<ResponsivePreview width={600}>
-  <TabsExample />
-</ResponsivePreview>
+<Suspense>
+  <ResponsivePreview width={600}>
+    <TabsExample />
+  </ResponsivePreview>
+</Suspense>

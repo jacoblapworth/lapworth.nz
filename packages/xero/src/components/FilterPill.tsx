@@ -1,10 +1,9 @@
 import * as Ariakit from '@ariakit/react'
 import { XIcon } from 'lucide-react'
-import { isValidMotionProp, motion } from 'motion/react'
+import { motion } from 'motion/react'
 import { cva } from '@/styled/css'
-import { css } from '@/styled/css/css'
-import { HStack, isCssProperty, styled } from '@/styled/jsx'
-import { Menu, MenuButton, MenuItemRadio, MenuProvider } from './Menu'
+import { styled } from '@/styled/jsx'
+import { Menu, MenuItemRadio, MenuProvider } from './Menu'
 
 const PillStyles = cva({
   base: {
