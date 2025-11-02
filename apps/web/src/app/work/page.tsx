@@ -1,3 +1,5 @@
+'use cache'
+
 import type { Metadata } from 'next'
 import { getWork } from './work'
 import { WorkList } from './work-list'

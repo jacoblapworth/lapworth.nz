@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { cacheLife } from 'next/cache'
+import { cacheLife, cacheTag } from 'next/cache'
 import type { StaticImageData } from 'next/image'
 import { z } from 'zod/v4'
 import { getSlugFromPath, listMdxFiles, parseMdxFrontmatter } from '@/lib/mdx'
@@ -41,6 +41,7 @@ const WORK_DIR = path.join(process.cwd(), 'src/app/work')
 
 export async function getWork(): Promise<Work[]> {
   'use cache'
+  cacheTag('work')
   cacheLife('max')
   const files = await listMdxFiles(WORK_DIR)
   const items = await Promise.all(

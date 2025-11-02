@@ -1,5 +1,6 @@
 'use cache'
 
+import { cacheLife } from 'next/cache'
 import { notFound } from 'next/navigation'
 import { Article } from '@/components/article'
 import { Text } from '@/components/text'
@@ -24,6 +25,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
+  cacheLife('max')
   const { slug } = await params
 
   const recipe = await getRecipe(slug)

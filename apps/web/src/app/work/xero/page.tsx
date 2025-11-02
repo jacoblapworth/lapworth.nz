@@ -1,11 +1,12 @@
+'use cache'
+
 import { Text } from '@/components/text'
-import { enableDrafts } from '@/flags'
 import { getWork } from '../work'
 import { WorkList } from '../work-list'
 import { Background } from './background'
 
 export default async function Page() {
-  const isPreview = await enableDrafts()
+  const isPreview = false
   const work = await getWork()
 
   return (
