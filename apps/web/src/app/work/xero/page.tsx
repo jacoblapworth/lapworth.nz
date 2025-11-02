@@ -1,5 +1,3 @@
-'use cache'
-
 import { Text } from '@/components/text'
 import { getWork } from '../work'
 import { WorkList } from '../work-list'

@@ -6,9 +6,7 @@ import { Article } from '@/components/article'
 import { Text } from '@/components/text'
 import { getRecipe, getRecipes } from '../recipes'
 
-interface Props {
-  params: Promise<{ slug: string[] }>
-}
+type Props = PageProps<'/food/[...slug]'>
 
 export async function generateStaticParams() {
   const recipes = await getRecipes()

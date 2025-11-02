@@ -11,11 +11,7 @@ import { HStack, VStack } from '@/styled/jsx'
 import { Related } from '../related'
 import { getPostBySlugParams, getRelatedPosts, getWork } from '../work'
 
-interface Props {
-  params: Promise<{
-    slug: string[]
-  }>
-}
+type Props = PageProps<'/work/[...slug]'>
 
 export async function generateStaticParams() {
   const work = await getWork()
