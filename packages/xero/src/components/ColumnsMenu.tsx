@@ -10,7 +10,6 @@ import { useState } from 'react'
 import {
   Menu,
   MenuButton,
-  MenuItem,
   MenuItemCheckbox,
   MenuItemRadio,
   MenuProvider,
@@ -43,7 +42,7 @@ export function ColumnsSortMenu<TData extends RowData>({
 
   const [values, setValues] = useState({ dir: desc ? 'desc' : 'asc', id })
 
-  const onDirChange = (dir: boolean) => {}
+  const _onDirChange = (_dir: boolean) => {}
 
   return (
     <MenuProvider
@@ -104,7 +103,7 @@ export function ColumnsMenu<TData>({ columns, headers }: Props<TData>) {
     .map((column) => column.id)
 
   const [values, setValues] = useState({ columns: initialValues })
-  const context = headers[0]!.getContext()
+  const context = headers[0]?.getContext()
 
   return (
     <MenuProvider

@@ -1,4 +1,5 @@
 import path from 'node:path'
+import { cacheLife, cacheTag } from 'next/cache'
 import type { StaticImageData } from 'next/image'
 import { z } from 'zod/v4'
 import { getSlugFromPath, listMdxFiles, parseMdxFrontmatter } from '@/lib/mdx'
@@ -69,6 +70,9 @@ async function parseRecipeFile(filePath: string): Promise<Recipe | null> {
  * Get all recipes from the recipes directory
  */
 export async function getRecipes(): Promise<Recipe[]> {
+  'use cache'
+  cacheTag('recipes')
+  cacheLife('max')
   try {
     const mdxFiles = await listMdxFiles(RECIPES_DIR)
     const recipes = await Promise.all(mdxFiles.map(parseRecipeFile))
@@ -79,9 +83,8 @@ export async function getRecipes(): Promise<Recipe[]> {
   }
 }
 
-export const recipes = await getRecipes()
-
-export function getRecipe(params: string[]): Recipe | undefined {
+export async function getRecipe(params: string[]): Promise<Recipe | undefined> {
+  const recipes = await getRecipes()
   return recipes.find(
     (r) =>
       r.params.length === params.length &&

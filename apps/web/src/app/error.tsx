@@ -1,9 +1,9 @@
 'use client'
 
-import * as Sentry from '@sentry/nextjs'
 import { OctagonAlertIcon } from 'lucide-react'
 import { useEffect } from 'react'
 import { Text } from '@/components/text'
+import { captureException } from '@/lib/error'
 import { HStack } from '@/styled/jsx'
 
 export default function ErrorPage({
@@ -12,7 +12,7 @@ export default function ErrorPage({
   error: Error & { digest?: string }
 }) {
   useEffect(() => {
-    Sentry.captureException(error)
+    captureException(error)
   }, [error])
 
   return (

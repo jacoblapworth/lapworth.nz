@@ -1,29 +1,26 @@
+'use cache'
+
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
+import { cacheLife } from 'next/cache'
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 import { Article } from '@/components/article'
 import { LinkButton } from '@/components/button'
 import { Text } from '@/components/text'
 import { HStack, VStack } from '@/styled/jsx'
 import { Related } from '../related'
-import { getPostBySlugParams, getRelatedPosts, work } from '../work'
+import { getPostBySlugParams, getRelatedPosts, getWork } from '../work'
 
-export const dynamicParams = false
-export const dynamic = 'force-static'
+type Props = PageProps<'/work/[...slug]'>
 
-interface Props {
-  params: Promise<{
-    slug: string[]
-  }>
-}
-
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const work = await getWork()
   return work.map((post) => ({ slug: post.params }))
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params
-  const post = getPostBySlugParams(slug)
-
+  const post = await getPostBySlugParams(slug)
   if (!post) return notFound()
 
   return {
@@ -33,14 +30,12 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
+  cacheLife('max')
   const { slug } = await params
-
-  const post = getPostBySlugParams(slug)
-
+  const post = await getPostBySlugParams(slug)
   if (!post) notFound()
-
   const { default: Mdx } = await import(`../${post.filePath}`)
-  const relatedPosts = post.showRelated ? getRelatedPosts(post) : []
+  const relatedPosts = post.showRelated ? await getRelatedPosts(post) : []
 
   return (
     <>
@@ -60,7 +55,9 @@ export default async function Page({ params }: Props) {
             </HStack>
           )}
         </VStack>
-        <Mdx />
+        <Suspense>
+          <Mdx />
+        </Suspense>
       </Article>
       <Related posts={relatedPosts} />
     </>

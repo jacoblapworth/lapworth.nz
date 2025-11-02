@@ -46,7 +46,7 @@ async function forwardRequest(request: Request, pathWithSearch: string) {
 }
 
 export default {
-  async fetch(request, env, ctx): Promise<Response> {
+  async fetch(request, _env, ctx): Promise<Response> {
     return handleRequest(request, ctx)
   },
 } satisfies ExportedHandler<Env>

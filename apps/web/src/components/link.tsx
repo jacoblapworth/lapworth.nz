@@ -19,13 +19,7 @@ type Props = AnchorVariants &
     sameTab?: boolean
   }
 
-export const Link = ({
-  children,
-  href,
-  className,
-  sameTab,
-  ...rest
-}: Props) => {
+export function Link({ children, href, className, sameTab, ...rest }: Props) {
   const target = sameTab ? undefined : '_blank'
   const rel = sameTab ? undefined : 'noopener noreferrer'
 

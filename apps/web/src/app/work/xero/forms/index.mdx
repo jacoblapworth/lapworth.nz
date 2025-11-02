@@ -27,7 +27,7 @@ But! Xero is complex, and many forms contain a large amount of optional fields (
 
 If we were to expose this setting on each individual form element, the API becomes quite complex when we consider localisation. Does the implementer have to provide localised labels for both optional and required, is the input required, and how do we know which one to display?
 
-```tsx showLineNumbers
+```tsx 
 export const FormExampleIdentifyOptional: FC = () => {
   return (
     <XUIForm identifyFieldsWith="optional" optionalLabel="(Optional)">
