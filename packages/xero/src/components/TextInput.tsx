@@ -12,6 +12,8 @@ const Wrapper = styled('div', {
 
 const Label = styled('label', {
   base: {
+    display: 'inline-flex',
+    gap: 'sm',
     textStyle: 'body.medium.semibold',
   },
 })
@@ -59,7 +61,7 @@ export function TextInput(props: Props) {
       <Label htmlFor={id}>
         {label}
         <RequiredOptionalIndicator>
-          {required ? 'Required' : 'Optional'}
+          {required ? '(Required)' : '(Optional)'}
         </RequiredOptionalIndicator>
       </Label>
       <Input id={id} name={name} required={required} {...rest} />

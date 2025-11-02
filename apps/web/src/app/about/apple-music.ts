@@ -35,12 +35,12 @@ export const MusicKitErrorResponse = z.object({
 })
 
 export const MusicKitArtwork = z.object({
-  bgColor: z.string(),
+  bgColor: z.string().nullish(),
   height: z.number().nullable(),
-  textColor1: z.string().nullable(),
-  textColor2: z.string().nullable(),
-  textColor3: z.string().nullable(),
-  textColor4: z.string().nullable(),
+  textColor1: z.string().nullish(),
+  textColor2: z.string().nullish(),
+  textColor3: z.string().nullish(),
+  textColor4: z.string().nullish(),
   url: z.url(),
   width: z.number().nullable(),
 })
@@ -140,7 +140,7 @@ export async function getMusic(endpoint: MusicEndpoint) {
 }
 
 async function getMusicWithThumbnail(item: MusicKitResource) {
-  const src = formatArtworkUrl(item.attributes.artwork, 128)
+  const src = formatArtworkUrl(item.attributes.artwork, 128 * 2)
   const thumbnail = await getImageMetadata(src)
 
   return {
