@@ -1,8 +1,7 @@
-import * as Sentry from '@sentry/nextjs'
 import type { Metadata } from 'next'
 
 import { createAppleJWT } from '@/app/about/apple-music'
-
+import { captureException } from '@/lib/error'
 import { Authorise } from './authorise'
 
 export const metadata: Metadata = {
@@ -18,8 +17,7 @@ export default async function Page() {
 
     return <Authorise developerToken={token} />
   } catch (error) {
-    Sentry.captureException(error)
-    console.error(error)
+    captureException(error)
 
     return null
   }

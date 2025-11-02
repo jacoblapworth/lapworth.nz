@@ -1,9 +1,9 @@
-import * as Sentry from '@sentry/nextjs'
 import { importPKCS8, SignJWT } from 'jose'
 import { cacheLife, cacheTag } from 'next/cache'
 import type { StaticImageData } from 'next/image'
 import { z } from 'zod'
 import { env } from '@/lib/env'
+import { captureException } from '@/lib/error'
 import { getImageMetadata } from './image'
 
 export async function createAppleJWT() {
@@ -159,7 +159,7 @@ export async function getMusicWithThumbnails() {
 
     return music
   } catch (error) {
-    Sentry.captureException(error)
+    captureException(error)
     console.error(error)
     if (error instanceof MKError) {
       if (error.status === 403) {
