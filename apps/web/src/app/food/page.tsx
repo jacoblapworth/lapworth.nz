@@ -1,7 +1,8 @@
 'use cache'
 
 import type { Metadata } from 'next'
-import { styled } from '@/styled/jsx'
+import { Text } from '@/components/text'
+import { styled, VStack } from '@/styled/jsx'
 import { RecipeListItem } from './recipe-list-item'
 import { getRecipes } from './recipes'
 
@@ -23,10 +24,15 @@ export const metadata: Metadata = {
 export default async function Page() {
   const recipes = await getRecipes()
   return (
-    <List>
-      {recipes.map((recipe) => (
-        <RecipeListItem key={recipe.slug} {...recipe} />
-      ))}
-    </List>
+    <VStack alignItems="start" gap="lg" marginBlock="lg">
+      <Text as="h1" size="xl">
+        Recipes
+      </Text>
+      <List>
+        {recipes.map((recipe) => (
+          <RecipeListItem key={recipe.slug} {...recipe} />
+        ))}
+      </List>
+    </VStack>
   )
 }
