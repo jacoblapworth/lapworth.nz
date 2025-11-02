@@ -40,6 +40,12 @@ const config: NextConfig = {
       },
     ],
   },
+  logging: {
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true,
+    },
+  },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactCompiler: false,
   reactStrictMode: true,
