@@ -3,6 +3,7 @@ title: 'Taking an ethical approach to form design'
 description: 'Identifying optional & required fields'
 date: '2022-10-01'
 tags: ['xero']
+cover: cover.png
 category: xero
 ---
 import '@lapworth/xero/styles.css'
@@ -16,7 +17,7 @@ Asking for only the information necessary to complete a task means we consider c
 
 At Xero, we suggest that you should identify any optional fields, and mark them as such.
 
-![Form example](form-example.png)
+![Form example](example.png)
 
 These guidelines can apply pretty easily to a lot of traditional B2C experiences. Consider signing up, purchasing something.
 
@@ -26,7 +27,7 @@ But! Xero is complex, and many forms contain a large amount of optional fields (
 
 If we were to expose this setting on each individual form element, the API becomes quite complex when we consider localisation. Does the implementer have to provide localised labels for both optional and required, is the input required, and how do we know which one to display?
 
-```tsx showLineNumbers
+```tsx 
 export const FormExampleIdentifyOptional: FC = () => {
   return (
     <XUIForm identifyFieldsWith="optional" optionalLabel="(Optional)">

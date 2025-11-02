@@ -1,5 +1,4 @@
 import {
-  type ColumnPinningState,
   getCoreRowModel,
   getFilteredRowModel,
   getGroupedRowModel,
@@ -11,9 +10,8 @@ import {
 } from '@tanstack/react-table'
 import { AnimatePresence, motion } from 'motion/react'
 import { Inter } from 'next/font/google'
-import { parseAsBoolean, useQueryState } from 'nuqs'
 import { useState } from 'react'
-import { css, cx } from '@/styled/css'
+import { cx } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 import { type BulkAction, BulkActions } from './BulkActions'
 import { Controls } from './Controls'
@@ -180,7 +178,7 @@ export function Table<TData extends RowData>({
 
   const summaryRowModel = table.getFilteredSelectedRowModel()
 
-  const summary = summaryRowModel.flatRows
+  const _summary = summaryRowModel.flatRows
     .map((v) => v.getValue<number>(summaryTotalKey))
     .reduce((a, b) => a + b, 0)
 

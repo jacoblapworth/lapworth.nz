@@ -3,6 +3,7 @@
 import '@tanstack/react-table'
 
 declare module '@tanstack/react-table' {
+  // biome-ignore lint/correctness/noUnusedVariables: Type parameters must be identical
   interface ColumnMeta<TData extends RowData, TValue> {
     alignment?: 'start' | 'center' | 'end'
     isNumeric?: boolean
@@ -22,13 +23,12 @@ import {
 } from '@tanstack/react-table'
 import { ArrowDownWideNarrowIcon, ArrowUpNarrowWideIcon } from 'lucide-react'
 import { motion, useTransform } from 'motion/react'
-import { memo, useEffect, useId } from 'react'
-import { cva, cx } from '@/styled/css'
+import { memo, useId } from 'react'
+import { cva } from '@/styled/css'
 import { HStack, styled } from '@/styled/jsx'
 import { Button } from './Button'
 import { HeaderResizeHandle, useColumnSizes } from './ColumnSizing'
 import { DataCell } from './DataCell'
-import { Heading } from './Heading'
 import { type TableHeadDropdownProps, TableHeadMenu } from './HeadMenu'
 import { TableScrollContainer, useTableScroll } from './ScrollContainer'
 import { SrOnly } from './SrOnly'

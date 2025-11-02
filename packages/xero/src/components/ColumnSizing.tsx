@@ -10,7 +10,7 @@ import {
   useMemo,
 } from 'react'
 
-import { type HTMLStyledProps, styled } from '@/styled/jsx'
+import { styled } from '@/styled/jsx'
 
 type SizeMap = Map<string, number>
 

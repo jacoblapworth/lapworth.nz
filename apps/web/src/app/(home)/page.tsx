@@ -1,5 +1,6 @@
-'use client'
+'use cache'
 
+import { cacheLife } from 'next/cache'
 import { Link } from '@/components/link'
 import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
@@ -19,7 +20,8 @@ const HiddenLink = styled(Link, {
   },
 })
 
-export default function Page() {
+export default async function Page() {
+  cacheLife('max')
   return (
     <Container>
       <Text display size="xl">

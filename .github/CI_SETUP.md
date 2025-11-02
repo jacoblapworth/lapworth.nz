@@ -94,16 +94,12 @@ Make sure the following environment variables are configured in your Vercel proj
 - `APPLE_MUSIC_USER_TOKEN`
 - `KLAVIYO_API_KEY`
 - `RESEND_API_KEY`
-- `SENTRY_AUTH_TOKEN`
-- `SENTRY_ORG`
-- `SENTRY_PROJECT`
 
 ### Public Environment Variables (exposed to client)
 
 - `NEXT_PUBLIC_POSTHOG_HOST`
 - `NEXT_PUBLIC_POSTHOG_KEY`
 - `NEXT_PUBLIC_POSTHOG_PROJECT_ID`
-- `NEXT_PUBLIC_SENTRY_DSN`
 
 ## Troubleshooting
 

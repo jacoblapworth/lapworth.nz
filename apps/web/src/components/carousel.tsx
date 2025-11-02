@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { type ReactNode, useId } from 'react'
 
 import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
@@ -37,15 +37,16 @@ export function Carousel<T extends WithId>({
   if (items.length === 0) {
     return null
   }
+  const id = useId()
 
   const renderedItems = items.map(renderItem)
 
   return (
-    <div>
-      <Text as="h2" display size="lg">
+    <section aria-labelledby={id}>
+      <Text as="h2" display id={id} size="lg">
         {title}
       </Text>
       <Grid>{renderedItems}</Grid>
-    </div>
+    </section>
   )
 }
