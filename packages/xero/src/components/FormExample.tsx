@@ -9,6 +9,7 @@ export function FormExample() {
   return (
     <Panel>
       <form>
+        <TextInput label="Name" name="name" required />
         <SelectProvider>
           <SelectLabel>Gender</SelectLabel>
           <Select />
@@ -20,7 +21,6 @@ export function FormExample() {
             <SelectItem value="other">Other</SelectItem>
           </SelectPopover>
         </SelectProvider>
-        <TextInput label="Name" name="name" required />
       </form>
     </Panel>
   )
