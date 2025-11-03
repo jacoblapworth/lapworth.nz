@@ -25,4 +25,4 @@ catalog:
   react: 19.2.0
   react-dom: 19.2.0
   typescript: 5.9.3
-  vitest: 4.0.3
+  vitest: 4.0.6
