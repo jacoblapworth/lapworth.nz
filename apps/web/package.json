@@ -57,7 +57,7 @@
     "remark-frontmatter": "5.0.0",
     "remark-gfm": "4.0.1",
     "remark-mdx-frontmatter": "5.2.0",
-    "resend": "6.2.2",
+    "resend": "6.4.0",
     "sharp": "0.34.4",
     "shiki": "3.14.0",
     "unist-util-visit": "5.0.0",
