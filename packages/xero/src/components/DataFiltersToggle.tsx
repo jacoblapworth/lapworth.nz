@@ -15,6 +15,7 @@ export function DataFiltersToggle({ isSelected, filterCount, onClick }: Props) {
       aria-selected={isSelected}
       className="group"
       onClick={onClick}
+      size="sm"
       variant="secondary"
     >
       <ListFilterIcon size={16} />

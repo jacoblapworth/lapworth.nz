@@ -112,7 +112,7 @@ export function ColumnsMenu<TData>({ columns, headers }: Props<TData>) {
       }}
       values={values}
     >
-      <MenuButton variant="secondary">
+      <MenuButton size="sm" variant="secondary">
         <Columns2Icon size={16} />
         Columns
       </MenuButton>

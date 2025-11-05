@@ -72,7 +72,7 @@ export function Filters({
       </HStack>
       <HStack>
         {appliedFilters.length > 0 && (
-          <Button onClick={onClear} variant="secondary">
+          <Button onClick={onClear} size="sm" variant="secondary">
             <TrashIcon size={16} />
             Clear filters
           </Button>

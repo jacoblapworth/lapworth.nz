@@ -35,7 +35,12 @@ export function BulkActions<TData extends RowData>({
       >
         <HStack gap={8}>
           {actions.map(({ id, label, onClick }) => (
-            <Button disabled={!isSomeRowsSelected} key={id} onClick={onClick}>
+            <Button
+              disabled={!isSomeRowsSelected}
+              key={id}
+              onClick={onClick}
+              size="sm"
+            >
               {label}
             </Button>
           ))}
@@ -69,7 +74,7 @@ export function BulkActions<TData extends RowData>({
             ? `Selected ${selectedCount} on this page.`
             : `Selected all ${selectedCount} that match your filters.`}
           {showSelectAll && (
-            <Button onClick={table.getToggleAllRowsSelectedHandler()}>
+            <Button onClick={table.getToggleAllRowsSelectedHandler()} size="sm">
               Select all that match your filters
             </Button>
           )}

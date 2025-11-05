@@ -27,8 +27,8 @@ But! Xero is complex, and many forms contain a large amount of optional fields (
 
 If we were to expose this setting on each individual form element, the API becomes quite complex when we consider localisation. Does the implementer have to provide localised labels for both optional and required, is the input required, and how do we know which one to display?
 
-```tsx 
-export const FormExampleIdentifyOptional: FC = () => {
+```tsx
+export function FormExampleIdentifyOptional() {
   return (
     <XUIForm identifyFieldsWith="optional" optionalLabel="(Optional)">
     // [!code highlight:1]
@@ -38,6 +38,7 @@ export const FormExampleIdentifyOptional: FC = () => {
   )
 }
 ```
+
 XUI has started to focus on making components easier to use, and reducing the amount of props that need to be passed. This is especially important for a design system, where we want to reduce the cognitive load of using our components, and make it as easy as possible for teams to implement them correctly.
 
 Leveraging React context locally in components helps provide a more simple API. The consumer can compose their forms without having to pass down props through every level of the component tree.
