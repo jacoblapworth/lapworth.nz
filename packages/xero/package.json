@@ -13,6 +13,7 @@
     "nuqs": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
+    "react-error-boundary": "6.0.0",
     "web": "0.0.2"
   },
   "devDependencies": {

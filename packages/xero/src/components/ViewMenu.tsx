@@ -11,7 +11,7 @@ import { Menu, MenuButton, MenuItem, MenuProvider, MenuSeparator } from './Menu'
 export function ViewMenu() {
   return (
     <MenuProvider>
-      <MenuButton>
+      <MenuButton size="sm">
         <SlidersVerticalIcon size={16} />
       </MenuButton>
       <Menu>
