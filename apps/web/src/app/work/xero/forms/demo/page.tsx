@@ -1,3 +1,5 @@
+'use client'
+
 import { FormExample } from '@lapworth/xero/FormExample'
 import { Suspense } from 'react'
 import { Code } from '@/components/mdx/code'
