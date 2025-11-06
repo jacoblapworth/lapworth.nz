@@ -145,7 +145,7 @@ function TabsMenu({ tabs, onChange, activeTab }: DropdownMenuProps) {
     return matchSorter(tabs, searchValue, {
       keys: ['label'],
     })
-  }, [searchValue])
+  }, [searchValue, tabs])
 
   return (
     <Ariakit.ComboboxProvider
@@ -451,7 +451,7 @@ interface Props {
 
 export function TabsExample({ tabs }: Props) {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
-  const [tabValue, setTabValue] = useState<string>(tabs[0].value)
+  const [tabValue, setTabValue] = useState<string>(tabs[0]?.value ?? '')
   const tabsRef = useRef<HTMLDivElement | null>(null)
 
   const onChange = (value: string | null | undefined) => {
