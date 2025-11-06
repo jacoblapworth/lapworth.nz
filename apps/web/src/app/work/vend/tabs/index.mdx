@@ -10,13 +10,23 @@ import { TabsExample } from './tabs'
 
 <Suspense>
   <ResponsivePreview width={400}>
-    <TabsExample />
+    <TabsExample tabs={[
+    { label: 'Camden', value: '1' },
+    { label: 'Bond St', value: '2' },
+    { label: 'Bethnal Green', value: '3' },
+    { label: 'Brixton', value: '4' },
+    { label: 'Finsbury Park', value: '5' },
+    { label: 'Greenwich', value: '6' },
+    { label: 'Tottenham', value: '7' },
+    { label: 'Tower Hill', value: '8' },
+    { label: 'Wembley', value: '9' },
+  ]} />
   </ResponsivePreview>
 </Suspense>
 
 Houston is the name of the design system at Vend — "Houston, we have a problem". The team has been working on Houston for a few years, and it's been a really interesting journey. We've had to deal with a lot of challenges, and I think we've come out the other side with a really solid foundation. I'm going to walk you through some of the challenges we've faced and how we've dealt with them.
 
-Here’s what our design documentation actually looks like. This is a snippet of part of our tabs docs.
+Here’s what our design documentation actually looks like. This is a snippet of part of our tabs docs.s
 
 ![Tabs documentation](tabs-docs.png)
 
@@ -108,6 +118,12 @@ Try it out yourself! Resize the panel to see how the overflow behaves.
 
 <Suspense>
   <ResponsivePreview width={600}>
-    <TabsExample />
+    <TabsExample tabs={[
+    { label: 'Inventory', value: 'inventory' },
+    { label: 'Tax', value: 'tax' },
+    { label: 'Price & Loyalty', value: 'price-loyalty' },
+    { label: 'Select Images', value: 'select-images' },
+    { label: 'RACS', value: 'racs' },
+  ]} />
   </ResponsivePreview>
 </Suspense>
