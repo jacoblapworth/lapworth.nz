@@ -54,8 +54,8 @@ importers:
         specifier: 10.1.0
         version: 10.1.0
       '@flags-sdk/posthog':
-        specifier: 0.2.0
-        version: 0.2.0(@opentelemetry/api@1.9.0)
+        specifier: 0.2.1
+        version: 0.2.1(@opentelemetry/api@1.9.0)(next@16.0.1(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@gsap/react':
         specifier: 2.1.2
         version: 2.1.2(gsap@3.13.0)(react@19.2.0)
@@ -1345,8 +1345,8 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  '@flags-sdk/posthog@0.2.0':
-    resolution: {integrity: sha512-C59YPeRv3A2hwZE/vCKT7rOY0B0zlP0FWw9O6ZUxnBMKEtI3e1h8v3e46g3i1sagJRmsSIdrXr0MG5I3X8mHIw==}
+  '@flags-sdk/posthog@0.2.1':
+    resolution: {integrity: sha512-6YlFgNc07XrWTB0DSgeeLB2RAlMQx6nfmE1rvrkg6NvI2r1HBRgHaqDvz4Z7JlidDq2xZSoEYkZstPnNsQt5SQ==}
 
   '@floating-ui/core@1.7.3':
     resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
@@ -3221,13 +3221,16 @@ packages:
   '@vercel/edge-config-fs@0.1.0':
     resolution: {integrity: sha512-NRIBwfcS0bUoUbRWlNGetqjvLSwgYH/BqKqDN7vK1g32p7dN96k0712COgaz6VFizAm9b0g6IG6hR6+hc0KCPg==}
 
-  '@vercel/edge-config@1.4.0':
-    resolution: {integrity: sha512-69Wg5gw9DzwnyUmnjToSeLRm1nm8mCPgN0kflX8EHRHyqvzH80wPem5A8rI2LXPb2Y9tJNoqN3vXPcQhS2Wh5g==}
+  '@vercel/edge-config@1.4.3':
+    resolution: {integrity: sha512-8vTDATodRrH49wMzKEjZ8/5H2qs1aPkD0uRK585f/Fx4YN2wfHfY/3td9OFrh+gdnCq07z8A5f0hoY6xhBcPkg==}
     engines: {node: '>=14.6'}
     peerDependencies:
       '@opentelemetry/api': ^1.7.0
+      next: '>=1'
     peerDependenciesMeta:
       '@opentelemetry/api':
+        optional: true
+      next:
         optional: true
 
   '@vercel/edge@1.2.2':
@@ -8218,13 +8221,14 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@flags-sdk/posthog@0.2.0(@opentelemetry/api@1.9.0)':
+  '@flags-sdk/posthog@0.2.1(@opentelemetry/api@1.9.0)(next@16.0.1(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
     dependencies:
-      '@vercel/edge-config': 1.4.0(@opentelemetry/api@1.9.0)
+      '@vercel/edge-config': 1.4.3(@opentelemetry/api@1.9.0)(next@16.0.1(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       posthog-node: 4.11.1
     transitivePeerDependencies:
       - '@opentelemetry/api'
       - debug
+      - next
 
   '@floating-ui/core@1.7.3':
     dependencies:
@@ -10387,11 +10391,12 @@ snapshots:
 
   '@vercel/edge-config-fs@0.1.0': {}
 
-  '@vercel/edge-config@1.4.0(@opentelemetry/api@1.9.0)':
+  '@vercel/edge-config@1.4.3(@opentelemetry/api@1.9.0)(next@16.0.1(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
     dependencies:
       '@vercel/edge-config-fs': 0.1.0
     optionalDependencies:
       '@opentelemetry/api': 1.9.0
+      next: 16.0.1(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
 
   '@vercel/edge@1.2.2': {}
 
