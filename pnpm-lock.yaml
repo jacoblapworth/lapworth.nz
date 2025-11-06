@@ -244,8 +244,8 @@ importers:
         specifier: 'catalog:'
         version: 2.2.5
       '@next/bundle-analyzer':
-        specifier: 16.0.0-beta.0
-        version: 16.0.0-beta.0
+        specifier: 16.0.1
+        version: 16.0.1
       '@pandacss/dev':
         specifier: 1.4.3
         version: 1.4.3(typescript@5.9.3)
@@ -1745,8 +1745,8 @@ packages:
   '@mux/playback-core@0.30.1':
     resolution: {integrity: sha512-rnO1NE9xHDyzbAkmE6ygJYcD7cyyMt7xXqWTykxlceaoSXLjUqgp42HDio7Lcidto4x/O4FIa7ztjV2aCBCXgQ==}
 
-  '@next/bundle-analyzer@16.0.0-beta.0':
-    resolution: {integrity: sha512-ciX0KKcx4Zcb557fYc/y56e9Wl3AiElC+LMRuhzOGkqk+7cIw/7Iqkpy/7grgG9+pJlwA5hWE98No69jKb1d7A==}
+  '@next/bundle-analyzer@16.0.1':
+    resolution: {integrity: sha512-ds2XBC7hred9g9T16DYXp4llImGf9gBSsfY5k3bklizOtHeo+53EXjKm3AliS/fMTjYfRrv8usdL2wVZa1GIkw==}
 
   '@next/env@15.1.6':
     resolution: {integrity: sha512-d9AFQVPEYNr+aqokIiPLNK/MTyt3DWa/dpKveiAaVccUadFbhFEvY6FXYX2LJO2Hv7PHnLBu2oWwB4uBuHjr/w==}
@@ -8667,7 +8667,7 @@ snapshots:
       hls.js: 1.6.13
       mux-embed: 5.13.0
 
-  '@next/bundle-analyzer@16.0.0-beta.0':
+  '@next/bundle-analyzer@16.0.1':
     dependencies:
       webpack-bundle-analyzer: 4.10.1
     transitivePeerDependencies:
