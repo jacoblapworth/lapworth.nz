@@ -17,11 +17,20 @@ const RequiredOptionalIndicatorStyles = cva({
 })
 
 export function RequiredOptionalIndicator({
+  ignoreError,
   required,
 }: {
+  ignoreError?: boolean
   required?: boolean
 }) {
-  const { identifyFieldsWith, requiredLabel, optionalLabel } = useFormContext()
+  const context = useFormContext({ ignoreError })
+
+  if (!context) {
+    console.warn('`RequiredOptionalIndicator` used without `Form` context')
+    return null
+  }
+
+  const { identifyFieldsWith, requiredLabel, optionalLabel } = context
 
   return (
     <span className={RequiredOptionalIndicatorStyles()}>
@@ -48,7 +57,7 @@ export function Label({
     <label className={LabelStyles()} {...props}>
       {children}
       {!hideOptionalRequiredIndicator && (
-        <RequiredOptionalIndicator required={required} />
+        <RequiredOptionalIndicator ignoreError required={required} />
       )}
     </label>
   )

@@ -2,9 +2,17 @@
 
 import * as Ariakit from '@ariakit/react'
 import { ChevronDownIcon } from 'lucide-react'
+import { matchSorter } from 'match-sorter'
 import { type MotionValue, motion, useScroll, useTransform } from 'motion/react'
 import { Lato } from 'next/font/google'
-import { type ComponentProps, type ReactNode, useRef, useState } from 'react'
+import {
+  type ComponentProps,
+  type ReactNode,
+  startTransition,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { styled } from '@/styled/jsx'
 
 const VEND_GREEN = '#41AF4B'
@@ -16,6 +24,15 @@ const lato = Lato({
 
 const MenuButton = styled(Ariakit.MenuButton, {
   base: {
+    _expanded: {
+      backgroundColor: 'surfaceHovered',
+    },
+    _focusVisible: {
+      outlineColor: '#008AE8',
+      outlineOffset: 1,
+      outlineStyle: 'solid',
+      outlineWidth: 2,
+    },
     _hover: {
       backgroundColor: 'surfaceHovered',
     },
@@ -43,19 +60,55 @@ const Menu = styled(Ariakit.Menu, {
     backgroundColor: 'surface',
     borderRadius: 5,
     boxShadow: '0 4px 5px rgba(0,0,0,.35)',
+    display: 'flex',
+    flexDirection: 'column',
     fontFamily: lato.style.fontFamily,
+    maxHeight: 'min(var(--popover-available-height, 300px), 300px)',
     minWidth: 200,
-    overflow: 'hidden',
-    paddingBlock: 'md',
+    overflow: 'visible',
+    overscrollBehavior: 'contain',
     zIndex: '4',
   },
 })
 
-const MenuItem = styled(Ariakit.MenuItem, {
+const Combobox = styled(Ariakit.Combobox, {
   base: {
-    _active: {
+    _focusVisible: {
+      boxShadow: '0 0 2px 1px #008AE8',
+      outlineColor: '#008AE8',
+      outlineOffset: -1,
+      outlineStyle: 'solid',
+      outlineWidth: 2,
+    },
+    borderColor: 'quaternary',
+    borderRadius: 3,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    marginBlock: 'sm',
+    marginInline: 'sm',
+    padding: 'sm',
+  },
+})
+
+const ComboboxList = styled(Ariakit.ComboboxList, {
+  base: {
+    borderTopColor: 'quaternary',
+    borderTopStyle: 'solid',
+    borderTopWidth: 1,
+    overflow: 'auto',
+    overscrollBehavior: 'contain',
+    paddingBlock: 'sm',
+  },
+})
+
+const ComboboxItem = styled(Ariakit.ComboboxItem, {
+  base: {
+    _activeItem: {
       backgroundColor: 'surfaceHovered',
       color: VEND_GREEN,
+    },
+    _focusVisible: {
+      outline: 'none',
     },
     _hover: {
       backgroundColor: 'surfaceHovered',
@@ -82,33 +135,53 @@ interface TabItem {
 
 interface DropdownMenuProps extends Ariakit.MenuStoreProps {
   tabs: TabItem[]
-  onChange: (value: string) => void
+  onChange: (activeId: string | null | undefined) => void
   activeTab?: string
 }
 
 function TabsMenu({ tabs, onChange, activeTab }: DropdownMenuProps) {
-  const menu = Ariakit.useMenuStore()
+  const [searchValue, setSearchValue] = useState('')
+  const matches = useMemo(() => {
+    return matchSorter(tabs, searchValue, {
+      keys: ['label'],
+    })
+  }, [searchValue, tabs])
+
   return (
-    <Ariakit.MenuProvider store={menu}>
-      <MenuButton>
-        All
-        <ChevronDownIcon size={16} />
-      </MenuButton>
-      <Menu gutter={0} portal>
-        <MenuArrow />
-        {tabs.map(({ value, label }) => (
-          <MenuItem
-            isActive={activeTab === value}
-            key={value}
-            onClick={() => onChange(value)}
-          >
-            {activeTab === value && <Highlight vertical />}
-            {label}
-          </MenuItem>
-        ))}
-        <MenuArrow height={8} width={16} />
-      </Menu>
-    </Ariakit.MenuProvider>
+    <Ariakit.ComboboxProvider
+      resetValueOnHide
+      setValue={(value) => {
+        startTransition(() => {
+          setSearchValue(value)
+        })
+      }}
+    >
+      <Ariakit.MenuProvider>
+        <MenuButton>
+          All
+          <ChevronDownIcon size={16} />
+        </MenuButton>
+        <Menu gutter={0} portal>
+          <Combobox autoSelect placeholder="Search..." />
+          <ComboboxList>
+            {matches.map(({ value, label }) => (
+              <ComboboxItem
+                focusOnHover
+                isActive={activeTab === value}
+                key={value}
+                onClick={() => onChange(value)}
+                setValueOnClick={false}
+                value={value}
+              >
+                {activeTab === value && <Highlight vertical />}
+                {label}
+              </ComboboxItem>
+            ))}
+          </ComboboxList>
+          <MenuArrow height={8} width={16} />
+        </Menu>
+      </Ariakit.MenuProvider>
+    </Ariakit.ComboboxProvider>
   )
 }
 
@@ -199,15 +272,35 @@ const Highlight = styled(motion.div, {
 
 const TabTrigger = styled(Ariakit.Tab, {
   base: {
-    _active: {
+    _activeItem: {
       color: VEND_GREEN,
     },
 
-    _hover: {
+    _before: {
+      backgroundColor: 'surfaceHovered',
+      borderRadius: 6,
+      bottom: 8,
+      content: '""',
+      left: -8,
+      opacity: 0,
+      position: 'absolute',
+      right: -8,
+      top: 8,
+      transition: 'opacity 0.3s',
+      zIndex: -1,
+    },
+
+    _focusVisible: {
       _before: {
-        backgroundColor: 'quaternary',
+        opacity: 1,
+      },
+    },
+
+    _hover: {
+      _after: {
+        backgroundColor: 'black/10',
         bottom: 0,
-        content: '',
+        content: '""',
         height: 4,
         left: 0,
         position: 'absolute',
@@ -215,11 +308,13 @@ const TabTrigger = styled(Ariakit.Tab, {
       },
       color: VEND_GREEN,
     },
+
     all: 'unset',
     cursor: 'pointer',
     flexShrink: 0,
     minHeight: 48,
     position: 'relative',
+    zIndex: 1,
   },
 })
 
@@ -297,7 +392,7 @@ function SkeletonContent() {
 
 const TabsContainer = styled('div', {
   base: {
-    boxShadow: 'inset 0 -1px #c9c7ca',
+    borderBottom: 'solid 1px #c9c7ca',
     display: 'flex',
     flexDirection: 'row',
     marginBlockEnd: 'md',
@@ -310,6 +405,14 @@ const ScrollContainer = styled('div', {
     marginBlockEnd: '-md',
     overflowX: 'scroll',
     scrollbarWidth: 'none',
+  },
+})
+
+const TabPanel = styled(Ariakit.TabPanel, {
+  base: {
+    _focusVisible: {
+      outline: 'none',
+    },
   },
 })
 
@@ -342,20 +445,17 @@ function Scroll({
   )
 }
 
-export function TabsExample() {
-  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
-  const tabs: TabItem[] = [
-    { label: 'Inventory', value: 'inventory' },
-    { label: 'Tax', value: 'tax' },
-    { label: 'Price & Loyalty', value: 'price-loyalty' },
-    { label: 'Select Images', value: 'select-images' },
-    { label: 'RACS', value: 'racs' },
-  ]
+interface Props {
+  tabs: TabItem[]
+}
 
-  const [tabValue, setTabValue] = useState<string>(tabs[0].value)
+export function TabsExample({ tabs }: Props) {
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const [tabValue, setTabValue] = useState<string>(tabs[0]?.value ?? '')
   const tabsRef = useRef<HTMLDivElement | null>(null)
 
-  const onChange = (value: string) => {
+  const onChange = (value: string | null | undefined) => {
+    if (!value) return
     setTabValue(value)
     const index = tabs.findIndex((tab) => tab.value === value)
     if (index < 0) return
@@ -370,7 +470,10 @@ export function TabsExample() {
   // Ariakit tab store controlled by tabValue
   const tabStore = Ariakit.useTabStore({
     selectedId: tabValue,
-    setSelectedId: (id) => setTabValue(id ?? tabs[0].value),
+    setSelectedId: (id) => {
+      if (!id) return
+      setTabValue(id)
+    },
   })
 
   return (
@@ -396,9 +499,9 @@ export function TabsExample() {
             ))}
           </TabList>
         </Scroll>
-        <Ariakit.TabPanel key={tabValue} tabId={tabValue}>
+        <TabPanel key={tabValue} tabId={tabValue}>
           <SkeletonContent />
-        </Ariakit.TabPanel>
+        </TabPanel>
       </Ariakit.TabProvider>
     </Container>
   )

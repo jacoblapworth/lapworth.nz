@@ -10,29 +10,42 @@ import { TabsExample } from './tabs'
 
 <Suspense>
   <ResponsivePreview width={400}>
-    <TabsExample />
+    <TabsExample tabs={[
+    { label: 'Camden', value: '1' },
+    { label: 'Bond St', value: '2' },
+    { label: 'Bethnal Green', value: '3' },
+    { label: 'Brixton', value: '4' },
+    { label: 'Finsbury Park', value: '5' },
+    { label: 'Greenwich', value: '6' },
+    { label: 'Tottenham', value: '7' },
+    { label: 'Tower Hill', value: '8' },
+    { label: 'Wembley', value: '9' },
+  ]} />
   </ResponsivePreview>
 </Suspense>
 
-Houston is the name of the design system at Vend — "Houston, we have a problem". The team has been working on Houston for a few years, and it's been a really interesting journey. We've had to deal with a lot of challenges, and I think we've come out the other side with a really solid foundation. I'm going to walk you through some of the challenges we've faced and how we've dealt with them.
-
-Here’s what our design documentation actually looks like. This is a snippet of part of our tabs docs.
+Houston is the name of the design system at Vend — "Houston, we have a problem". The team has pragmatically and organically worked on Houston for a few years, and it's organically grown and changed over time.
 
 ![Tabs documentation](tabs-docs.png)
 
+This is a snippet of Houston's design documentation for a tabs component.
+
 ![Inline Tabs documentation](tabs-inline-docs.png)
 
-We also curate in-context designs. These help future designers understand how to use a component, but also help during design to “road-test” the component.
+In-context designs are also curated with the docs. These help future designers understand how to use a component, but also aid during design to “road-test” the component.
 
-![Register example](register-example.png)
+![Register example](register-example.png "Select a register in-context example")
 
-![Development specifications for Tabs](specs.png)
+![Development specifications for Tabs](specs.png "Development specs")
 
 ## The problem
 
-When our tabs were initially designed and developed, we hadn't anticipated them being used with so much content. The component essentially breaks visually; the pattern no longer "makes sense". New uses push designs forward. The reason I chose to walk you through a case study of a component that already exists is that this feels like a much more common scenario, especially within a mature design system. A lot of the time we're not working from scratch—we're building on top of what's there, leveraging existing patterns, and questioning design decisions.
+When tabs were initially designed and developed, the team hadn't anticipated them being used with so much content. The component visually breaks when the tabs wrap and the pattern no longer makes sense. 
 
 ![Example of tabs overflowing](register-overflow-example.png)
+
+New uses push designs forward. The reason I chose to walk you through a case study of a component that already exists is that this feels like a much more common scenario, especially within a mature design system. A lot of the time we're not working from scratch—we're building on top of what's there, with existing constraints, leveraging existing patterns, and questioning design decisions.
+
 
 ## Establishing a case for a new/changed component
 
@@ -40,7 +53,9 @@ When our tabs were initially designed and developed, we hadn't anticipated them 
 - Are there other patterns for dealing with this kind of content?
 - Do we need to look at the problem in the context of the business and product?
 
-**Business focus** – Why is supporting something like this important? One of the reasons I can assume that we didn't anticipate this overflow problem is that when we looked at the original use cases, the core customer for Vend was smaller. Because of the small size of the team, we take quite a pragmatic approach to defining scope. We don't worry about things that don't bring value to our customers. Don't create deviations of components unless you actually have to. 
+### Business focus
+
+Why is supporting something like this important? One of the reasons I can assume that we didn't anticipate this overflow problem is that when we looked at the original use cases, the core customer for Vend was smaller. Because of the small size of the team, we take quite a pragmatic approach to defining scope. We don't worry about things that don't bring value to our customers. Don't create deviations of components unless you actually have to. 
 
 Very frequently we thought we might need variations of a component, but by continually denying ourselves the option, we realized that we either didn't need them at all or could find a different solution to the problem for which we were about to create a variation. Vend has started to look more closely at its unit economics and what sort of customer "fits" and is profitable for us. As we focus on larger customers, the product has to grow to cater more towards them. Larger customers mean more locations, more complex needs—in general, more of everything.
 
@@ -108,6 +123,12 @@ Try it out yourself! Resize the panel to see how the overflow behaves.
 
 <Suspense>
   <ResponsivePreview width={600}>
-    <TabsExample />
+    <TabsExample tabs={[
+    { label: 'Inventory', value: 'inventory' },
+    { label: 'Tax', value: 'tax' },
+    { label: 'Price & Loyalty', value: 'price-loyalty' },
+    { label: 'Select Images', value: 'select-images' },
+    { label: 'RACS', value: 'racs' },
+  ]} />
   </ResponsivePreview>
 </Suspense>

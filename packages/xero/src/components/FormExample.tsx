@@ -43,7 +43,7 @@ export function FormExample({ identifyFieldsWith = 'optional' }: Props) {
             required
           />
           <VStack alignItems="flex-start" gap="2">
-            <SelectProvider defaultValue="">
+            <SelectProvider defaultValue={undefined}>
               <SelectLabel>
                 Gender
                 <RequiredOptionalIndicator />

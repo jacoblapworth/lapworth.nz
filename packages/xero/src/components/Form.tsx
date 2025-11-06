@@ -29,11 +29,15 @@ type FormContextValue =
 
 const FormContext = createContext<FormContextValue | undefined>(undefined)
 
-export function useFormContext() {
+export function useFormContext({
+  ignoreError,
+}: {
+  ignoreError?: boolean
+} = {}) {
   const context = use(FormContext)
 
-  if (!context) {
-    throw new Error('`useFormContext` must be used within a FormProvider')
+  if (!context && !ignoreError) {
+    throw new Error('`useFormContext` must be used within `Form`')
   }
 
   return context
