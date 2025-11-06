@@ -2,7 +2,7 @@ import { useId } from 'react'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 import type { HTMLStyledProps, StyledVariantProps } from '@/styled/types'
-import { Label, RequiredOptionalIndicator } from './Label'
+import { Label } from './Label'
 
 const Wrapper = styled('div', {
   base: {

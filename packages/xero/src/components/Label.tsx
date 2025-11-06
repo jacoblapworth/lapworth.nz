@@ -21,7 +21,13 @@ export function RequiredOptionalIndicator({
 }: {
   required?: boolean
 }) {
-  const { identifyFieldsWith, requiredLabel, optionalLabel } = useFormContext()
+  const context = useFormContext()
+
+  if (!context) {
+    return null
+  }
+
+  const { identifyFieldsWith, requiredLabel, optionalLabel } = context
 
   return (
     <span className={RequiredOptionalIndicatorStyles()}>
