@@ -5,3 +5,4 @@
 .env*.local
 public/static
 public/_next-video
+storybook-static
