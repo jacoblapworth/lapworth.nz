@@ -1,5 +1,5 @@
 import { withThemeByClassName } from '@storybook/addon-themes'
-import type { Preview, ReactRenderer } from '@storybook/nextjs'
+import type { Preview, ReactRenderer } from '@storybook/nextjs-vite'
 
 import { token } from '../.styled/tokens'
 import '../src/app/index.css'
