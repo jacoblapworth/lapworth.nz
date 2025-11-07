@@ -20,5 +20,11 @@ updates:
         patterns:
           - 'react'
           - 'react-dom'
+      storybook:
+        patterns:
+          - '@storybook/*'
+          - 'storybook'
+          - 'eslint-plugin-storybook'
+          - 'storybook-next-intl'
     cooldown:
       default-days: 3

@@ -1,6 +1,8 @@
 import { useId } from 'react'
+import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
-import type { StyledVariantProps } from '@/styled/types'
+import type { HTMLStyledProps, StyledVariantProps } from '@/styled/types'
+import { Label } from './Label'
 
 const Wrapper = styled('div', {
   base: {
@@ -10,22 +12,7 @@ const Wrapper = styled('div', {
   },
 })
 
-const Label = styled('label', {
-  base: {
-    display: 'inline-flex',
-    gap: 'sm',
-    textStyle: 'body.medium.semibold',
-  },
-})
-
-const RequiredOptionalIndicator = styled('span', {
-  base: {
-    color: 'text.muted',
-    textStyle: 'body.medium.regular',
-  },
-})
-
-const Input = styled('input', {
+export const InputStyles = cva({
   base: {
     _disabled: {
       backgroundColor: 'background.muted',
@@ -39,18 +26,23 @@ const Input = styled('input', {
     },
     backgroundColor: 'background.primary',
     border: 'muted',
-    borderRadius: 'sm',
+    borderRadius: 'md',
+    minHeight: 40,
     padding: '3',
+    paddingInline: 12,
     textStyle: 'body.medium.regular',
     width: '100%',
   },
 })
 
-type Props = StyledVariantProps<typeof Input> & {
-  label: string
-  name: string
-  required?: boolean
-}
+const Input = styled('input', InputStyles)
+
+type Props = StyledVariantProps<typeof Input> &
+  HTMLStyledProps<'input'> & {
+    label: string
+    name: string
+    required?: boolean
+  }
 
 export function TextInput(props: Props) {
   const { label, name, required, ...rest } = props
@@ -58,11 +50,8 @@ export function TextInput(props: Props) {
 
   return (
     <Wrapper>
-      <Label htmlFor={id}>
+      <Label htmlFor={id} required={required}>
         {label}
-        <RequiredOptionalIndicator>
-          {required ? '(Required)' : '(Optional)'}
-        </RequiredOptionalIndicator>
       </Label>
       <Input id={id} name={name} required={required} {...rest} />
     </Wrapper>

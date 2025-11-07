@@ -6,6 +6,6 @@ export const Panel = styled('div', {
     border: 'muted',
     borderRadius: 'md',
     boxShadow: 'sm',
-    padding: 'lg',
+    padding: 'md',
   },
 })

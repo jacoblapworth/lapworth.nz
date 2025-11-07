@@ -20,7 +20,10 @@ export const Tag = styled('span', {
         backgroundColor: 'positive.surface',
         borderColor: 'positive',
       },
-      warning: { backgroundColor: 'warning.surface', borderColor: 'warning' },
+      warning: {
+        backgroundColor: 'warning.surface',
+        borderColor: 'warning',
+      },
     },
   },
 })

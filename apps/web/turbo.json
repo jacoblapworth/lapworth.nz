@@ -12,6 +12,9 @@
       "persistent": true,
       "with": ["video:watch"]
     },
+    "storybook": {
+      "dependsOn": ["tokens"]
+    },
     "tokens": {
       "outputs": [".styled/**"]
     },

@@ -1,12 +1,9 @@
-import withBundleAnalyzer from '@next/bundle-analyzer'
+import createBundleAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
 import createWithVercelToolbar from '@vercel/toolbar/plugins/next'
 import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 import { withNextVideo } from 'next-video/process'
-
-const withVercelToolbar = createWithVercelToolbar()
-const withNextIntl = createNextIntlPlugin()
 
 const config: NextConfig = {
   cacheComponents: true,
@@ -69,6 +66,8 @@ const config: NextConfig = {
   typedRoutes: true,
 }
 
+const withVercelToolbar = createWithVercelToolbar()
+const withNextIntl = createNextIntlPlugin()
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
@@ -95,7 +94,10 @@ const withMDX = createMDX({
     ],
   },
 })
+const withBundleAnalyzer = createBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
 
-export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
+export default withBundleAnalyzer(
   withVercelToolbar(withNextIntl(withNextVideo(withMDX(config)))),
 )

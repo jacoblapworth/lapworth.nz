@@ -11,7 +11,7 @@ interface Props {
 export function AddFilterMenu({ filters }: Props) {
   return (
     <Ariakit.MenuProvider>
-      <Ariakit.MenuButton render={<Button />}>
+      <Ariakit.MenuButton render={<Button size="sm" />}>
         <PlusIcon size={16} />
         Add filter
       </Ariakit.MenuButton>

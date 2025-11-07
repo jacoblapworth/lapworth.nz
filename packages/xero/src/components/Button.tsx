@@ -20,8 +20,6 @@ export const ButtonStyles = cva({
     borderRadius: 'md',
     cursor: 'pointer',
     display: 'inline-grid',
-    fontSize: 13,
-    fontWeight: 500,
     gap: 8,
     gridAutoFlow: 'column',
     lineHeight: '1.2',
@@ -38,13 +36,21 @@ export const ButtonStyles = cva({
   },
   variants: {
     size: {
-      md: {},
+      md: {
+        minHeight: 40,
+        paddingInline: 12,
+        textStyle: 'body.medium.semibold',
+      },
       sm: {
+        minHeight: 32,
         paddingBlock: 4,
         paddingInline: 8,
+        textStyle: 'body.small.semibold',
       },
       xs: {
+        minHeight: 24,
         paddingInline: 8,
+        textStyle: 'body.small.semibold',
       },
     },
     variant: {
