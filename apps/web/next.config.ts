@@ -44,6 +44,25 @@ const config: NextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactCompiler: false,
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        destination: '/work/xero/advanced-tables',
+        permanent: true,
+        source: '/work/xero/tables',
+      },
+      {
+        destination: '/work/xero/advanced-tables',
+        permanent: true,
+        source: '/work/xero-advanced-tables',
+      },
+      {
+        destination: '/work/lamarzocco',
+        permanent: true,
+        source: '/work/lamarzocco-widget',
+      },
+    ]
+  },
   typedRoutes: true,
 }
 
@@ -68,7 +87,11 @@ const withMDX = createMDX({
       ['rehype-pre-language', 'data-language'],
       ['rehype-mdx-code-props'],
     ],
-    remarkPlugins: ['remark-frontmatter', 'remark-mdx-frontmatter'],
+    remarkPlugins: [
+      'remark-frontmatter',
+      'remark-mdx-frontmatter',
+      'remark-gfm',
+    ],
   },
 })
 const withBundleAnalyzer = createBundleAnalyzer({
