@@ -35,7 +35,6 @@ export function Filters({
   onAdd,
   onRemove,
 }: Props) {
-  console.log({ appliedFilters })
   return (
     <motion.div
       className={hstack({
