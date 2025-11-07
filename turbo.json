@@ -28,6 +28,10 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
+    "build:storybook": {
+      "dependsOn": ["^build"],
+      "outputs": ["storybook-static/**"]
+    },
     "deploy": {
       "dependsOn": ["^deploy"]
     },
@@ -44,6 +48,10 @@
     },
     "start": {
       "dependsOn": ["build"],
+      "persistent": true
+    },
+    "storybook": {
+      "cache": false,
       "persistent": true
     },
     "test": {

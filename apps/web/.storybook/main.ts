@@ -1,5 +1,5 @@
-import type { StorybookConfig } from '@storybook/react-vite'
 import path from 'node:path'
+import type { StorybookConfig } from '@storybook/react-vite'
 
 const config: StorybookConfig = {
   addons: [
@@ -18,9 +18,9 @@ const config: StorybookConfig = {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        '@/styled': path.resolve(__dirname, '../.styled'),
-        '@/public': path.resolve(__dirname, '../public'),
         '@': path.resolve(__dirname, '../src'),
+        '@/public': path.resolve(__dirname, '../public'),
+        '@/styled': path.resolve(__dirname, '../.styled'),
       }
     }
     return config
