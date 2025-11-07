@@ -273,7 +273,22 @@ const Highlight = styled(motion.div, {
 const TabTrigger = styled(Ariakit.Tab, {
   base: {
     _activeItem: {
+      _after: {
+        backgroundColor: 'black/20',
+      },
       color: VEND_GREEN,
+    },
+
+    _after: {
+      backgroundColor: 'quaternary',
+      bottom: 0,
+      content: '""',
+      height: 4,
+      left: 0,
+      opacity: 0,
+      position: 'absolute',
+      right: 0,
+      transition: 'all 0.3s',
     },
 
     _before: {
@@ -286,7 +301,7 @@ const TabTrigger = styled(Ariakit.Tab, {
       position: 'absolute',
       right: -8,
       top: 8,
-      transition: 'opacity 0.3s',
+      transition: 'all 0.3s',
       zIndex: -1,
     },
 
@@ -298,13 +313,7 @@ const TabTrigger = styled(Ariakit.Tab, {
 
     _hover: {
       _after: {
-        backgroundColor: 'black/10',
-        bottom: 0,
-        content: '""',
-        height: 4,
-        left: 0,
-        position: 'absolute',
-        right: 0,
+        opacity: 1,
       },
       color: VEND_GREEN,
     },
@@ -404,6 +413,7 @@ const ScrollContainer = styled('div', {
     flexGrow: 1,
     marginBlockEnd: '-md',
     overflowX: 'scroll',
+    overscrollBehavior: 'contain',
     scrollbarWidth: 'none',
   },
 })
