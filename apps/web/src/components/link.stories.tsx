@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { Link } from './link'
+import { Link as Component } from './link'
 
 const meta = {
   argTypes: {
@@ -7,13 +7,9 @@ const meta = {
       control: 'boolean',
     },
   },
-  component: Link,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
+  component: Component,
   title: 'Components/Link',
-} satisfies Meta<typeof Link>
+} satisfies Meta<typeof Component>
 
 export default meta
 type Story = StoryObj<typeof meta>

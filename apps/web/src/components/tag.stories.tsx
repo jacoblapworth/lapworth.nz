@@ -1,14 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { Tag } from './tag'
+import { Tag as Component } from './tag'
 
 const meta = {
-  component: Tag,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
+  component: Component,
   title: 'Components/Tag',
-} satisfies Meta<typeof Tag>
+} satisfies Meta<typeof Component>
 
 export default meta
 type Story = StoryObj<typeof meta>

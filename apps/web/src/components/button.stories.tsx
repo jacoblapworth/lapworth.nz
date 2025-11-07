@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { Button, LinkButton } from './button'
+import { Button as Component } from './button'
 
 const meta = {
-  component: Button,
+  component: Component,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   title: 'Components/Button',
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof Component>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -52,21 +52,5 @@ export const PrimarySmall: Story = {
     children: 'Primary Small',
     size: 'sm',
     variant: 'primary',
-  },
-}
-
-const linkMeta = {
-  component: LinkButton,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
-  title: 'Components/LinkButton',
-} satisfies Meta<typeof LinkButton>
-
-export const LinkButtonStory: StoryObj<typeof linkMeta> = {
-  args: {
-    children: 'Link Button',
-    href: '/example',
   },
 }
