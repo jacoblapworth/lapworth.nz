@@ -12,7 +12,7 @@
     "build": "turbo run build",
     "content": "turbo run content",
     "deploy": "turbo run deploy",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev storybook",
     "format": "turbo run format",
     "lint": "turbo run lint",
     "lint:ci": "biome ci --reporter=github",
