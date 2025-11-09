@@ -6,7 +6,13 @@ import {
   SlidersVerticalIcon,
   TrashIcon,
 } from 'lucide-react'
-import { Menu, MenuButton, MenuItem, MenuProvider, MenuSeparator } from './Menu'
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuProvider,
+  MenuSeparator,
+} from '../Menu'
 
 export function ViewMenu() {
   return (

@@ -28,7 +28,7 @@ export const ButtonStyles = cva({
     placeItems: 'center',
     transitionDuration: '100',
     transitionProperty: 'colors',
-    transitionTimingFunction: 'in-out',
+    transitionTimingFunction: 'ease-in-out',
   },
   defaultVariants: {
     size: 'md',

@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-table'
 import { ArrowDownUpIcon, Columns2Icon } from 'lucide-react'
 import { useState } from 'react'
+import { SortIcon } from '../DataGrid/SortIcon'
 import {
   Menu,
   MenuButton,
@@ -14,8 +15,7 @@ import {
   MenuItemRadio,
   MenuProvider,
   MenuSeparator,
-} from './Menu'
-import { SortIcon } from './SortIcon'
+} from '../Menu'
 
 export interface SortOption {
   id: string
@@ -104,6 +104,8 @@ export function ColumnsMenu<TData>({ columns, headers }: Props<TData>) {
 
   const [values, setValues] = useState({ columns: initialValues })
   const context = headers[0]?.getContext()
+
+  if (!context) return null
 
   return (
     <MenuProvider

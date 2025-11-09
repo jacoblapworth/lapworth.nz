@@ -1,7 +1,7 @@
 import type { RowData, Table } from '@tanstack/react-table'
 import type { ReactNode } from 'react'
 import { HStack, VStack } from '@/styled/jsx'
-import { Button } from './Button'
+import { Button } from '../Button'
 
 export interface BulkAction {
   id: string
@@ -74,7 +74,7 @@ export function BulkActions<TData extends RowData>({
             ? `Selected ${selectedCount} on this page.`
             : `Selected all ${selectedCount} that match your filters.`}
           {showSelectAll && (
-            <Button onClick={table.getToggleAllRowsSelectedHandler()} size="sm">
+            <Button onClick={table.getToggleAllRowsSelectedHandler()} size="xs">
               Select all that match your filters
             </Button>
           )}

@@ -1,7 +1,6 @@
 import * as Ariakit from '@ariakit/react'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
-import { ButtonStyles } from './Button'
 import { LabelStyles } from './Label'
 import { MenuItemStyles, MenuStyles } from './Menu'
 

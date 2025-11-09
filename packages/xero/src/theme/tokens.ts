@@ -26,6 +26,11 @@ export const tokens = defineTokens({
   fonts: {
     inter: { value: 'inter' },
   },
+  radii: {
+    lg: { value: '12px' },
+    md: { value: '6px' },
+    sm: { value: '3px' },
+  },
 })
 
 export const semanticTokens = defineSemanticTokens({

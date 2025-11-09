@@ -8,11 +8,8 @@
     "gsap": "3.13.0",
     "lucide-react": "0.552.0",
     "motion": "12.23.24",
-    "next": "catalog:",
     "next-intl": "4.4.0",
     "nuqs": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
     "react-error-boundary": "6.0.0",
     "web": "0.0.2"
   },
@@ -25,21 +22,54 @@
     "@types/node": "24.9.2",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "tsdown": "0.16.1",
     "typescript": "catalog:"
   },
   "exports": {
-    "./*": "./src/components/*.tsx",
+    ".": "./dist/index.js",
+    "./components": "./dist/components/index.js",
+    "./components/Button": "./dist/components/Button.js",
+    "./components/Checkbox": "./dist/components/Checkbox.js",
+    "./components/FilterPill": "./dist/components/FilterPill.js",
+    "./components/Form": "./dist/components/Form.js",
+    "./components/Heading": "./dist/components/Heading.js",
+    "./components/Label": "./dist/components/Label.js",
+    "./components/Menu": "./dist/components/Menu.js",
+    "./components/Pagination": "./dist/components/Pagination.js",
+    "./components/Panel": "./dist/components/Panel.js",
+    "./components/Search": "./dist/components/Search.js",
+    "./components/Select": "./dist/components/Select.js",
+    "./components/Spinner": "./dist/components/Spinner.js",
+    "./components/SrOnly": "./dist/components/SrOnly.js",
+    "./components/Tag": "./dist/components/Tag.js",
+    "./components/TextInput": "./dist/components/TextInput.js",
+    "./components/Toggle": "./dist/components/Toggle.js",
+    "./components/Tooltip": "./dist/components/Tooltip.js",
+    "./examples/FormExample": "./dist/examples/FormExample.js",
+    "./package.json": "./package.json",
     "./styles.css": "./.styled/styles.css"
   },
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "name": "@lapworth/xero",
+  "peerDependencies": {
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
   "scripts": {
+    "build": "tsdown",
     "css": "mkdir -p dist && panda cssgen",
     "css:watch": "panda cssgen --watch",
+    "dev": "tsdown --watch ./src --no-clean",
     "format": "biome check --write",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tokens": "panda codegen",
     "tokens:watch": "panda codegen --watch",
     "types:check": "tsc --noEmit"
   },
-  "type": "module"
+  "type": "module",
+  "types": "./dist/index.d.ts"
 }
