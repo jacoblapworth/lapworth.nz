@@ -70,9 +70,6 @@ async function parseRecipeFile(filePath: string): Promise<Recipe | null> {
  * Get all recipes from the recipes directory
  */
 export async function getRecipes(): Promise<Recipe[]> {
-  'use cache'
-  cacheTag('recipes')
-  cacheLife('max')
   try {
     const mdxFiles = await listMdxFiles(RECIPES_DIR)
     const recipes = await Promise.all(mdxFiles.map(parseRecipeFile))
