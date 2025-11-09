@@ -8,6 +8,7 @@ import { styled } from '@/styled/jsx'
 
 gsap.registerPlugin(DrawSVGPlugin)
 
+import { useCheckboxStore, useStoreState } from '@ariakit/react'
 import { type ComponentPropsWithRef, useId, useRef, useState } from 'react'
 
 /**
@@ -69,33 +70,11 @@ export const AriaCheckbox = styled(Ariakit.Checkbox, CheckboxStyles)
 const Box = styled('div', CheckboxStyles)
 
 export function Checkbox({ ref, ...props }: ComponentPropsWithRef<'input'>) {
-  const [checked, setChecked] = useState(props.defaultChecked ?? false)
-  const [focusVisible, setFocusVisible] = useState(false)
-  const id = useId()
+  const checkbox = useCheckboxStore()
+  const checked = useStoreState(checkbox, (state) => state.value)
   return (
-    <label
-      className="checkbox"
-      data-checked={checked ? true : undefined}
-      data-focus-visible={focusVisible || undefined}
-      htmlFor={id}
-    >
-      <Ariakit.VisuallyHidden>
-        <Ariakit.Checkbox
-          {...props}
-          clickOnEnter
-          id={id}
-          onBlur={() => setFocusVisible(false)}
-          onChange={(event) => {
-            setChecked(event.target.checked)
-            props.onChange?.(event)
-          }}
-          onFocusVisible={() => setFocusVisible(true)}
-          ref={ref}
-        />
-      </Ariakit.VisuallyHidden>
-      <Box aria-checked={checked ? 'true' : undefined}>
-        {checked && <Check />}
-      </Box>
-    </label>
+    <Ariakit.Checkbox className="button" render={<Box />} store={checkbox}>
+      {checked && <Check />}
+    </Ariakit.Checkbox>
   )
 }

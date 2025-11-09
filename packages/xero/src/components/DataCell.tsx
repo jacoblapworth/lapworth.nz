@@ -1,4 +1,6 @@
+import type { ReactNode } from 'react'
 import { styled } from '@/styled/jsx'
+import type { StyledVariantProps } from '@/styled/types'
 
 const Container = styled('div', {
   base: {
@@ -43,10 +45,8 @@ const Container = styled('div', {
   },
 })
 
-interface Props {
-  children: React.ReactNode
-  alignment?: 'start' | 'center' | 'end'
-  variant?: 'accessor' | 'display'
+interface Props extends StyledVariantProps<typeof Container> {
+  children: ReactNode
 }
 
 export function DataCell({ children, ...props }: Props) {

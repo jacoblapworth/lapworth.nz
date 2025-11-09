@@ -2,6 +2,7 @@
 
 import * as Ariakit from '@ariakit/react'
 import { CurrencyCell, DateCell } from '@lapworth/xero/Cells'
+import { Checkbox } from '@lapworth/xero/Checkbox'
 import { footer } from '@lapworth/xero/ColumnHelper'
 import { DataEditableCell } from '@lapworth/xero/DataEditableCell'
 import { Table, useTable } from '@lapworth/xero/Table'
@@ -20,7 +21,7 @@ const columnHelper = createColumnHelper<InvoiceRow>()
 const columns = [
   columnHelper.display({
     cell: ({ row }) => (
-      <Ariakit.Checkbox
+      <Checkbox
         checked={row.getIsSelected()}
         onChange={row.getToggleSelectedHandler()}
       />
@@ -184,88 +185,88 @@ export default function Page() {
 
   return (
     <Suspense>
-    <Table
-      bulkActions={[
-        {
-          id: 'approve',
-          label: (
-            <>
-              <CheckCircleIcon size={16} />
-              Approve
-            </>
-          ),
-          onClick: () => alert('Approved'),
-        },
-        {
-          id: 'delete',
-          label: (
-            <>
-              <TrashIcon size={16} />
-              Delete
-            </>
-          ),
-          onClick: () => alert('Deleted'),
-        },
-      ]}
-      summaryTotalKey="due"
-      table={table}
-      views={[
-        { filters: [], id: 'all', label: 'All' },
-        {
-          filters: [
-            {
-              id: 'status',
-              label: 'Status',
-              operator: 'is',
-              value: 'draft',
-            },
-          ],
-          id: 'draft',
-          label: 'Draft',
-        },
-        {
-          filters: [
-            {
-              id: 'status',
-              label: 'Status',
-              operator: 'is',
-              value: 'sent',
-            },
-          ],
-          id: 'sent',
-          label: 'Sent',
-        },
-        {
-          filters: [
-            {
-              id: 'status',
-              label: 'Status',
-              operator: 'is',
-              value: 'sent',
-            },
-            {
-              id: 'due',
-              label: 'Due date',
-              operator: 'is before',
-              value: 'today',
-            },
-          ],
-          id: 'overdue',
-          label: 'Overdue',
-        },
-        {
-          filters: [
-            {
-              id: 'status',
-              label: 'Status',
-              operator: 'is',
-              value: 'paid',
-            },
-          ],
-          id: 'paid',
-          label: 'Paid',
-        },
-      ]}
+      <Table
+        bulkActions={[
+          {
+            id: 'approve',
+            label: (
+              <>
+                <CheckCircleIcon size={16} />
+                Approve
+              </>
+            ),
+            onClick: () => alert('Approved'),
+          },
+          {
+            id: 'delete',
+            label: (
+              <>
+                <TrashIcon size={16} />
+                Delete
+              </>
+            ),
+            onClick: () => alert('Deleted'),
+          },
+        ]}
+        summaryTotalKey="due"
+        table={table}
+        views={[
+          { filters: [], id: 'all', label: 'All' },
+          {
+            filters: [
+              {
+                id: 'status',
+                label: 'Status',
+                operator: 'is',
+                value: 'draft',
+              },
+            ],
+            id: 'draft',
+            label: 'Draft',
+          },
+          {
+            filters: [
+              {
+                id: 'status',
+                label: 'Status',
+                operator: 'is',
+                value: 'sent',
+              },
+            ],
+            id: 'sent',
+            label: 'Sent',
+          },
+          {
+            filters: [
+              {
+                id: 'status',
+                label: 'Status',
+                operator: 'is',
+                value: 'sent',
+              },
+              {
+                id: 'due',
+                label: 'Due date',
+                operator: 'is before',
+                value: 'today',
+              },
+            ],
+            id: 'overdue',
+            label: 'Overdue',
+          },
+          {
+            filters: [
+              {
+                id: 'status',
+                label: 'Status',
+                operator: 'is',
+                value: 'paid',
+              },
+            ],
+            id: 'paid',
+            label: 'Paid',
+          },
+        ]}
       />
     </Suspense>
   )

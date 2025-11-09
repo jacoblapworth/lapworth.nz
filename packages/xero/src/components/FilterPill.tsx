@@ -16,6 +16,7 @@ const PillStyles = cva({
     display: 'inline-flex',
     fontSize: 13,
     lineHeight: '1.2',
+    minHeight: 32,
     // overflow: 'hidden',
   },
 })
