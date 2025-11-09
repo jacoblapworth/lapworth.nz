@@ -1,10 +1,11 @@
+import * as stylex from '@stylexjs/stylex'
 import * as Ariakit from '@ariakit/react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
 import { CheckIcon } from 'lucide-react'
-import { cva } from '@/styled/css'
-import { styled } from '@/styled/jsx'
+import { cva, styled } from '@/stylex'
+import { borderRadius, semanticColors } from '@/stylex/theme.stylex'
 
 gsap.registerPlugin(DrawSVGPlugin)
 
@@ -31,37 +32,38 @@ export function Check() {
   )
 }
 
-export const CheckboxStyles = cva({
+const checkboxStyles = stylex.create({
   base: {
-    _checked: {
-      backgroundColor: 'action',
-      borderColor: 'action',
-      color: 'text.inverse',
-    },
-    _disabled: {
-      backgroundColor: 'background.quaternary',
-      borderColor: 'border.subtle',
-      color: 'text.inverse',
-    },
-    _groupHover: {
-      // backgroundColor: 'background.primary',
-    },
     alignItems: 'center',
     appearance: 'none',
-    backgroundColor: 'background.primary',
-    borderColor: 'border.subtle',
-    borderRadius: 6,
+    backgroundColor: semanticColors.background.primary.default,
+    borderColor: semanticColors.border.subtle,
+    borderRadius: borderRadius.md,
     borderStyle: 'solid',
-    borderWidth: 1,
+    borderWidth: '1px',
     cursor: 'pointer',
     display: 'flex',
-    gap: 'small',
-    height: 20,
+    gap: '4px',
+    height: '20px',
     justifyContent: 'center',
-    minHeight: 20,
-    minWidth: 20,
-    width: 20,
+    minHeight: '20px',
+    minWidth: '20px',
+    width: '20px',
   },
+  checked: {
+    backgroundColor: semanticColors.action.default,
+    borderColor: semanticColors.action.default,
+    color: semanticColors.text.inverse,
+  },
+  disabled: {
+    backgroundColor: semanticColors.background.quaternary,
+    borderColor: semanticColors.border.subtle,
+    color: semanticColors.text.inverse,
+  },
+})
+
+export const CheckboxStyles = cva({
+  base: checkboxStyles.base,
 })
 
 export const AriaCheckbox = styled(Ariakit.Checkbox, CheckboxStyles)
@@ -93,7 +95,10 @@ export function Checkbox({ ref, ...props }: ComponentPropsWithRef<'input'>) {
           ref={ref}
         />
       </Ariakit.VisuallyHidden>
-      <Box aria-checked={checked ? 'true' : undefined}>
+      <Box
+        aria-checked={checked ? 'true' : undefined}
+        {...stylex.props(checked && checkboxStyles.checked)}
+      >
         {checked && <Check />}
       </Box>
     </label>

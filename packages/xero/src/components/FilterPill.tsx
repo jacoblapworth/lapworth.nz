@@ -1,63 +1,81 @@
+import * as stylex from '@stylexjs/stylex'
 import * as Ariakit from '@ariakit/react'
 import { XIcon } from 'lucide-react'
 import { motion } from 'motion/react'
-import { cva } from '@/styled/css'
-import { styled } from '@/styled/jsx'
+import { cva, styled } from '@/stylex'
+import { borderRadius, semanticColors } from '@/stylex/theme.stylex'
 import { Menu, MenuItemRadio, MenuProvider } from './Menu'
 
-const PillStyles = cva({
+const pillStyles = stylex.create({
   base: {
     alignItems: 'stretch',
-    backgroundColor: 'background.primary',
-    borderColor: 'border.subtle',
-    borderRadius: 6,
+    backgroundColor: semanticColors.background.primary.default,
+    borderColor: semanticColors.border.subtle,
+    borderRadius: borderRadius.md,
     borderStyle: 'solid',
-    borderWidth: 1,
+    borderWidth: '1px',
     display: 'inline-flex',
-    fontSize: 13,
+    fontSize: '13px',
     lineHeight: '1.2',
-    // overflow: 'hidden',
+  },
+})
+
+const PillStyles = cva({
+  base: pillStyles.base,
+})
+
+const labelStyles = stylex.create({
+  default: {
+    fontWeight: '500',
+    paddingBlock: '6px',
+    paddingInline: '8px',
   },
 })
 
 const Label = styled('span', {
-  base: {
-    fontWeight: '500',
-    paddingBlock: 6,
-    paddingInline: 8,
+  base: labelStyles.default,
+})
+
+const valueStyles = stylex.create({
+  default: {
+    borderLeftColor: semanticColors.border.subtle,
+    borderLeftStyle: 'solid',
+    borderLeftWidth: '1px',
+    color: semanticColors.action.default,
+    cursor: 'pointer',
+    paddingBlock: '4px',
+    paddingInline: '8px',
+    backgroundColor: {
+      default: 'transparent',
+      ':hover': semanticColors.background.secondary,
+    },
   },
 })
 
 const Value = styled('button', {
-  base: {
-    _hover: {
-      backgroundColor: 'background.secondary',
-    },
-    borderLeftColor: 'border.subtle',
+  base: valueStyles.default,
+})
+
+const removeButtonStyles = stylex.create({
+  default: {
+    borderEndEndRadius: borderRadius.md,
+    borderEndStartRadius: borderRadius.md,
+    borderLeftColor: semanticColors.border.subtle,
     borderLeftStyle: 'solid',
-    borderLeftWidth: 1,
-    color: 'action',
+    borderLeftWidth: '1px',
     cursor: 'pointer',
-    paddingBlock: 4,
-    paddingInline: 8,
+    padding: '4px',
+    backgroundColor: {
+      default: 'transparent',
+      ':hover': semanticColors.background.secondary,
+    },
   },
 })
 
 const RemoveButton = styled(
   'button',
   {
-    base: {
-      _hover: {
-        backgroundColor: 'background.secondary',
-      },
-
-      borderEndRadius: 6,
-      borderLeftColor: 'border.subtle',
-      borderLeftStyle: 'solid',
-      borderLeftWidth: 1,
-      cursor: 'pointer',
-      padding: 4,
-    },
+    base: removeButtonStyles.default,
   },
   {
     defaultProps: {

@@ -3,57 +3,71 @@ import * as stylex from '@stylexjs/stylex'
 // Color tokens
 export const colors = stylex.defineVars({
   blue: '#1F68DD',
-  'grey-1': '#000A1E',
-  'grey-2': '#404756',
-  'grey-3': '#59606D',
-  'grey-4': '#80858F',
-  'grey-5': '#A6A9B0',
-  'grey-6': '#CCCED2',
-  'grey-7': '#E6E7E9',
-  'grey-8': '#F2F3F4',
-  'grey-alpha-1': '#000A1E',
-  'grey-alpha-2': 'rgba(0, 10, 30, 0.75)',
-  'grey-alpha-3': 'rgba(0, 10, 30, 0.65)',
-  'grey-alpha-4': 'rgba(0, 10, 30, 0.5)',
-  'grey-alpha-5': 'rgba(0, 10, 30, 0.35)',
-  'grey-alpha-6': 'rgba(0, 10, 30, 0.2)',
-  'grey-alpha-7': 'rgba(0, 10, 30, 0.1)',
-  'grey-alpha-8': 'rgba(0, 10, 30, 0.05)',
+  grey: {
+    1: '#000A1E',
+    2: '#404756',
+    3: '#59606D',
+    4: '#80858F',
+    5: '#A6A9B0',
+    6: '#CCCED2',
+    7: '#E6E7E9',
+    8: '#F2F3F4',
+    alpha: {
+      1: '#000A1E',
+      2: 'rgba(0, 10, 30, 0.75)',
+      3: 'rgba(0, 10, 30, 0.65)',
+      4: 'rgba(0, 10, 30, 0.5)',
+      5: 'rgba(0, 10, 30, 0.35)',
+      6: 'rgba(0, 10, 30, 0.2)',
+      7: 'rgba(0, 10, 30, 0.1)',
+      8: 'rgba(0, 10, 30, 0.05)',
+    },
+  },
 })
 
 // Semantic color tokens
 export const semanticColors = stylex.defineVars({
   // Action colors
-  'action-default': colors.blue,
-  'action-active': '#1C5DC5',
-  'action-disabled': '#828995',
-  'action-focus': '#1C5DC5',
-  'action-hover': '#184390',
+  action: {
+    default: colors.blue,
+    active: '#1C5DC5',
+    disabled: '#828995',
+    focus: '#1C5DC5',
+    hover: '#184390',
+  },
 
   // Background colors
-  'background-inform': '#F0F9FE',
-  'background-negative': '#FFF6F7',
-  'background-neutral': '#F6F6F8',
-  'background-positive': '#F0FBF3',
-  'background-primary': '#FFFFFF',
-  'background-primary-inverse': '#081F33',
-  'background-quaternary': '#E1E2E5',
-  'background-secondary': '#F6F6F8',
-  'background-tertiary': '#EFF0F3',
-  'background-warning': '#FEF8E4',
+  background: {
+    inform: '#F0F9FE',
+    negative: '#FFF6F7',
+    neutral: '#F6F6F8',
+    positive: '#F0FBF3',
+    primary: {
+      default: '#FFFFFF',
+      inverse: '#081F33',
+    },
+    quaternary: '#E1E2E5',
+    secondary: '#F6F6F8',
+    tertiary: '#EFF0F3',
+    warning: '#FEF8E4',
+  },
 
   // Border colors
-  'border-focus': colors.blue,
-  'border-regular': '#A6AAB1',
-  'border-soft': '#E1E2E5',
-  'border-strong': '#828995',
-  'border-subtle': '#CFD1D5',
+  border: {
+    focus: colors.blue,
+    regular: '#A6AAB1',
+    soft: '#E1E2E5',
+    strong: '#828995',
+    subtle: '#CFD1D5',
+  },
 
   // Icon colors
-  'icon-default': '#1E3145',
-  'icon-faint': '#616B7A',
-  'icon-inverse': '#FFF',
-  'icon-muted': '#424F60',
+  icon: {
+    default: '#1E3145',
+    faint: '#616B7A',
+    inverse: '#FFF',
+    muted: '#424F60',
+  },
 
   // Status colors
   inform: colors.blue,
@@ -62,15 +76,17 @@ export const semanticColors = stylex.defineVars({
   warning: '#BB421F',
 
   // Text colors
-  'text-default': '#1E3145',
-  'text-faint': '#616B7A',
-  'text-inform': colors.blue,
-  'text-inverse': '#FFF',
-  'text-muted': '#424F60',
-  'text-negative': '#C31230',
-  'text-positive': '#0F7B3D',
-  'text-primary': '#1E3145',
-  'text-warning': '#BB421F',
+  text: {
+    default: '#1E3145',
+    faint: '#616B7A',
+    inform: colors.blue,
+    inverse: '#FFF',
+    muted: '#424F60',
+    negative: '#C31230',
+    positive: '#0F7B3D',
+    primary: '#1E3145',
+    warning: '#BB421F',
+  },
 })
 
 // Font tokens
@@ -84,11 +100,13 @@ export const fontSizes = stylex.defineVars({
   small: '13px',
   medium: '15px',
   large: '17px',
-  '2xlarge': '20px',
-  '3xlarge': '24px',
-  '5xlarge': '40px',
-  '7xlarge': '64px',
-  '8xlarge': '80px',
+  xlarge: {
+    2: '20px',
+    3: '24px',
+    5: '40px',
+    7: '64px',
+    8: '80px',
+  },
 })
 
 export const fontWeights = stylex.defineVars({
@@ -100,11 +118,11 @@ export const fontWeights = stylex.defineVars({
 
 export const lineHeights = stylex.defineVars({
   default: '145%',
-  '95': '95%',
-  '100': '100%',
-  '105': '105%',
-  '115': '115%',
-  '145': '145%',
+  95: '95%',
+  100: '100%',
+  105: '105%',
+  115: '115%',
+  145: '145%',
 })
 
 // Spacing tokens
@@ -123,13 +141,15 @@ export const borderRadius = stylex.defineVars({
 
 // Shadows
 export const shadows = stylex.defineVars({
-  hover: `0 8px 16px 0 ${colors['grey-alpha-6']}`,
-  lift: `0 0 0 1px ${colors['grey-alpha-6']}, 0 3px 6px 0 ${colors['grey-alpha-6']}`,
-  'overflow-bottom': `0 -1px 0 0 ${colors['grey-alpha-6']}, 0 -3px 0 0 ${colors['grey-alpha-8']}`,
-  'overflow-left': `1px 0 0 0 ${semanticColors['border-soft']}, 3px 0 3px 0 ${colors['grey-alpha-8']}`,
-  'overflow-right': `-3px 0 3px 0 ${colors['grey-alpha-8']}`,
-  'overflow-top': `0 1px 0 0 ${colors['grey-alpha-6']}, 0 3px 0 0 ${colors['grey-alpha-8']}`,
-  pop: `0 8px 16px 0 ${colors['grey-alpha-6']}`,
+  hover: `0 8px 16px 0 ${colors.grey.alpha[6]}`,
+  lift: `0 0 0 1px ${colors.grey.alpha[6]}, 0 3px 6px 0 ${colors.grey.alpha[6]}`,
+  overflow: {
+    bottom: `0 -1px 0 0 ${colors.grey.alpha[6]}, 0 -3px 0 0 ${colors.grey.alpha[8]}`,
+    left: `1px 0 0 0 ${semanticColors.border.soft}, 3px 0 3px 0 ${colors.grey.alpha[8]}`,
+    right: `-3px 0 3px 0 ${colors.grey.alpha[8]}`,
+    top: `0 1px 0 0 ${colors.grey.alpha[6]}, 0 3px 0 0 ${colors.grey.alpha[8]}`,
+  },
+  pop: `0 8px 16px 0 ${colors.grey.alpha[6]}`,
 })
 
 // Z-index

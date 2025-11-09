@@ -24,7 +24,7 @@ export const LabelStyles = cva({
 
 const requiredOptionalBase = stylex.create({
   default: {
-    color: semanticColors['text-muted'],
+    color: semanticColors.text.muted,
   },
 })
 
