@@ -37,7 +37,7 @@ export function columnFiltersToAppliedFilters(
   return columnFilters.map((filter) => {
     const filterDef = availableFilters.find((f) => f.id === filter.id)
     const value = Array.isArray(filter.value) ? filter.value[0] : filter.value
-    
+
     return {
       id: filter.id,
       label: filterDef?.label || filter.id,

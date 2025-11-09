@@ -147,7 +147,7 @@ export function Table<TData extends RowData>({
     setSelectedViewId(viewId)
     const view = views.find((v) => v.id === viewId)
     const newFilters = view?.filters || []
-    
+
     // Convert AppliedFilter[] to ColumnFiltersState and apply to table
     const columnFilters = appliedFiltersToColumnFilters(newFilters)
     table.setColumnFilters(columnFilters)
