@@ -5,7 +5,7 @@
     "build": {
       "dependsOn": ["tokens", "video", "^build"],
       "env": ["NEXT_PUBLIC_POSTHOG_API_HOST"],
-      "outputs": [".next/**", ".vercel/**", "!.next/cache/**"]
+      "outputs": [".next/**", ".vercel/**", "!.next/cache/**", "!.next/dev/**"]
     },
     "dev": {
       "cache": false,
@@ -13,7 +13,9 @@
       "with": ["video:watch"]
     },
     "storybook": {
-      "dependsOn": ["tokens"]
+      "cache": false,
+      "dependsOn": ["tokens"],
+      "persistent": true
     },
     "tokens": {
       "outputs": [".styled/**"]
