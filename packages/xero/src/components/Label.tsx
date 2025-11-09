@@ -1,19 +1,42 @@
-import { cva } from '@/styled/css'
+import * as stylex from '@stylexjs/stylex'
+import { cva } from '@/stylex'
+import { semanticColors } from '@/stylex/theme.stylex'
+import { textStyles } from '@/stylex/textStyles'
 import { useFormContext } from './Form'
 
-export const LabelStyles = cva({
-  base: {
+const labelBase = stylex.create({
+  default: {
     display: 'inline-flex',
-    gap: 'sm',
-    textStyle: 'body.medium.semibold',
+    gap: '4px', // sm
   },
 })
 
-const RequiredOptionalIndicatorStyles = cva({
-  base: {
-    color: 'text.muted',
-    textStyle: 'body.medium.regular',
+const labelText = textStyles.body.medium.semibold
+
+export const LabelStyles = cva({
+  base: stylex.create({
+    default: {
+      ...labelBase.default,
+      ...labelText.default,
+    },
+  }).default,
+})
+
+const requiredOptionalBase = stylex.create({
+  default: {
+    color: semanticColors['text-muted'],
   },
+})
+
+const requiredOptionalText = textStyles.body.medium.regular
+
+export const RequiredOptionalIndicatorStyles = cva({
+  base: stylex.create({
+    default: {
+      ...requiredOptionalBase.default,
+      ...requiredOptionalText.default,
+    },
+  }).default,
 })
 
 export function RequiredOptionalIndicator({

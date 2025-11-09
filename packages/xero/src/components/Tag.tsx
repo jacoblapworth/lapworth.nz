@@ -1,56 +1,57 @@
-import { styled } from '@/styled/jsx'
+import * as stylex from '@stylexjs/stylex'
+import { semanticColors } from '@/stylex/theme.stylex'
+import { styled } from '@/stylex'
 
-export const Tag = styled('span', {
+const styles = stylex.create({
   base: {
     alignItems: 'center',
-    backgroundColor: 'background.neutral',
-    borderRadius: 6,
+    backgroundColor: semanticColors['background-neutral'],
+    borderRadius: '6px',
     borderStyle: 'solid',
-    borderWidth: 1,
-
-    color: 'text.primary',
+    borderWidth: '1px',
+    color: semanticColors['text-primary'],
     display: 'inline-flex',
     flexDirection: 'row',
-    gap: 4,
+    gap: '4px',
     paddingBlock: 0,
-    paddingInline: 6,
+    paddingInline: '6px',
   },
+  inform: {
+    backgroundColor: semanticColors['background-inform'],
+    borderColor: 'rgba(31, 104, 221, 0.2)', // text.inform/20
+    color: semanticColors['text-inform'],
+  },
+  negative: {
+    backgroundColor: semanticColors['background-negative'],
+    borderColor: 'rgba(195, 18, 48, 0.2)', // text.negative/20
+    color: semanticColors['text-negative'],
+  },
+  neutral: {
+    backgroundColor: semanticColors['background-secondary'],
+    borderColor: 'rgba(97, 107, 122, 0.2)', // text.faint/20
+    color: semanticColors['text-faint'],
+  },
+  positive: {
+    backgroundColor: semanticColors['background-positive'],
+    borderColor: 'rgba(15, 123, 61, 0.2)', // text.positive/20
+    color: semanticColors['text-positive'],
+  },
+  warning: {
+    backgroundColor: semanticColors['background-warning'],
+    borderColor: 'rgba(187, 66, 31, 0.2)', // text.warning/20
+    color: semanticColors['text-warning'],
+  },
+})
+
+export const Tag = styled('span', {
+  base: styles.base,
   variants: {
     variant: {
-      inform: {
-        backgroundColor: 'background.inform',
-        borderColor: 'text.inform/20',
-        color: 'text.inform',
-      },
-      negative: {
-        _selection: {
-          backgroundColor: 'negative',
-        },
-        backgroundColor: 'background.negative',
-        borderColor: 'text.negative/20',
-        color: 'text.negative',
-      },
-      neutral: {
-        backgroundColor: 'background.secondary',
-        borderColor: 'text.faint/20',
-        color: 'text.faint',
-      },
-      positive: {
-        _selection: {
-          backgroundColor: 'positive',
-        },
-        backgroundColor: 'background.positive',
-        borderColor: 'text.positive/20',
-        color: 'text.positive',
-      },
-      warning: {
-        _selection: {
-          backgroundColor: 'warning',
-        },
-        backgroundColor: 'background.warning',
-        borderColor: 'text.warning/20',
-        color: 'text.warning',
-      },
+      inform: styles.inform,
+      negative: styles.negative,
+      neutral: styles.neutral,
+      positive: styles.positive,
+      warning: styles.warning,
     },
   },
 })

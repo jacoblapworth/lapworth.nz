@@ -1,123 +1,174 @@
+import * as stylex from '@stylexjs/stylex'
 import * as Ariakit from '@ariakit/react'
-import { cva } from '@/styled/css'
-import { HStack, styled } from '@/styled/jsx'
-import type { HTMLStyledProps, StyledVariantProps } from '@/styled/types'
+import { cva, styled, type StyledVariantProps } from '@/stylex'
+import { HStack } from '@/stylex/jsx'
+import { borderRadius, semanticColors } from '@/stylex/theme.stylex'
+import { textStyles } from '@/stylex/textStyles'
 import { Spinner } from './Spinner'
 
-export const ButtonStyles = cva({
+const buttonStyles = stylex.create({
   base: {
-    _disabled: {
-      cursor: 'not-allowed',
-      // pointerEvents: 'none',
-    },
-
-    _expanded: {
-      backgroundColor: 'background.secondary',
-      borderColor: 'border.regular',
-    },
-
     alignItems: 'center',
-    borderRadius: 'md',
-    cursor: 'pointer',
+    borderRadius: borderRadius.md,
+    cursor: {
+      default: 'pointer',
+      ':disabled': 'not-allowed',
+    },
     display: 'inline-grid',
-    gap: 8,
+    gap: '8px',
     gridAutoFlow: 'column',
     lineHeight: '1.2',
-    paddingBlock: 6,
-    paddingInline: 8,
+    paddingBlock: '6px',
+    paddingInline: '8px',
     placeItems: 'center',
-    transitionDuration: '100',
-    transitionProperty: 'colors',
-    transitionTimingFunction: 'in-out',
+    transitionDuration: '100ms',
+    transitionProperty: 'background-color, border-color, color',
+    transitionTimingFunction: 'ease-in-out',
+    backgroundColor: {
+      '[aria-expanded="true"]': semanticColors['background-secondary'],
+    },
+    borderColor: {
+      '[aria-expanded="true"]': semanticColors['border-regular'],
+    },
   },
+  // Size variants
+  sizeXs: {
+    minHeight: '24px',
+    paddingInline: '8px',
+  },
+  sizeSm: {
+    minHeight: '32px',
+    paddingBlock: '4px',
+    paddingInline: '8px',
+  },
+  sizeMd: {
+    minHeight: '40px',
+    paddingInline: '12px',
+  },
+  // Variant styles
+  primary: {
+    backgroundColor: {
+      default: semanticColors['action-default'],
+      ':hover': semanticColors['action-hover'],
+      ':active': semanticColors['action-active'],
+      ':focus': semanticColors['action-focus'],
+      ':disabled': semanticColors['action-disabled'],
+    },
+    color: 'white',
+  },
+  secondary: {
+    backgroundColor: {
+      default: 'transparent',
+      ':hover': semanticColors['background-tertiary'],
+      ':active': semanticColors['background-quaternary'],
+    },
+    borderColor: {
+      default: semanticColors['border-subtle'],
+      ':hover': semanticColors['border-subtle'],
+      ':active': semanticColors['border-subtle'],
+      '[aria-selected="true"]': semanticColors['action-default'],
+    },
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    color: {
+      default: semanticColors['text-default'],
+      ':active': semanticColors['text-default'],
+      ':disabled': semanticColors['text-faint'],
+      '[aria-selected="true"]': semanticColors['action-default'],
+    },
+  },
+  secondarySelected: {
+    borderColor: {
+      ':hover': semanticColors['action-hover'],
+    },
+  },
+  tertiary: {
+    backgroundColor: {
+      ':hover': semanticColors['background-tertiary'],
+    },
+  },
+})
+
+const buttonTextStyles = {
+  xs: textStyles.body.small.semibold.default,
+  sm: textStyles.body.small.semibold.default,
+  md: textStyles.body.medium.semibold.default,
+}
+
+export const ButtonStyles = cva({
+  base: buttonStyles.base,
   defaultVariants: {
     size: 'md',
     variant: 'secondary',
   },
   variants: {
     size: {
-      md: {
-        minHeight: 40,
-        paddingInline: 12,
-        textStyle: 'body.medium.semibold',
-      },
-      sm: {
-        minHeight: 32,
-        paddingBlock: 4,
-        paddingInline: 8,
-        textStyle: 'body.small.semibold',
-      },
-      xs: {
-        minHeight: 24,
-        paddingInline: 8,
-        textStyle: 'body.small.semibold',
-      },
+      md: stylex.create({
+        default: {
+          ...buttonStyles.sizeMd,
+          ...buttonTextStyles.md,
+        },
+      }).default,
+      sm: stylex.create({
+        default: {
+          ...buttonStyles.sizeSm,
+          ...buttonTextStyles.sm,
+        },
+      }).default,
+      xs: stylex.create({
+        default: {
+          ...buttonStyles.sizeXs,
+          ...buttonTextStyles.xs,
+        },
+      }).default,
     },
     variant: {
-      primary: {
-        backgroundColor: {
-          _active: 'action.active',
-          _disabled: 'action.disabled',
-          _focus: 'action.focus',
-          _hover: 'action.hover',
-          base: 'action',
-        },
-        color: 'white',
-      },
-      secondary: {
-        _active: {
-          color: 'text',
-        },
-        _disabled: {
-          color: 'text.faint',
-        },
-        _selected: {
-          _hover: {
-            borderColor: 'action.hover',
-          },
-          color: 'action',
-        },
-        backgroundColor: {
-          _active: 'background.quaternary',
-          _hover: 'background.tertiary',
-        },
-        borderColor: {
-          _active: 'border.subtle',
-          _hover: 'border.subtle',
-          _selected: 'action',
-          base: 'border.subtle',
-        },
-        borderStyle: 'solid',
-        borderWidth: 1,
-        color: 'text',
-      },
-      tertiary: {
-        _hover: {
-          backgroundColor: 'background.tertiary',
-        },
-      },
+      primary: buttonStyles.primary,
+      secondary: buttonStyles.secondary,
+      tertiary: buttonStyles.tertiary,
     },
   },
 })
+
 const ButtonElement = styled(Ariakit.Button, ButtonStyles)
 
 type Props = Ariakit.ButtonProps &
-  StyledVariantProps<typeof ButtonElement> &
-  HTMLStyledProps<'button'> & {
+  StyledVariantProps<typeof ButtonStyles> & {
     isLoading?: boolean
   }
+
+const hstackStyles = stylex.create({
+  container: {
+    gap: '8px',
+    gridArea: '1 / -1',
+  },
+  hidden: {
+    visibility: 'hidden',
+  },
+  visible: {
+    visibility: 'visible',
+  },
+})
+
+const spinnerStyles = stylex.create({
+  container: {
+    gridArea: '1 / -1',
+    justifySelf: 'center',
+  },
+})
 
 export function Button({ children, isLoading, ...props }: Props) {
   return (
     <ButtonElement {...props}>
       <HStack
-        gap={8}
-        gridArea="1/-1"
-        visibility={isLoading ? 'hidden' : 'visible'}
+        {...stylex.props(
+          hstackStyles.container,
+          isLoading ? hstackStyles.hidden : hstackStyles.visible,
+        )}
       >
         {children}
       </HStack>
-      {isLoading && <Spinner gridArea="1/-1" justifySelf="center" />}
+      {isLoading && <Spinner {...stylex.props(spinnerStyles.container)} />}
     </ButtonElement>
   )
 }

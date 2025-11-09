@@ -1,5 +1,6 @@
 import * as Ariakit from '@ariakit/react'
-import { styled } from '@/styled/jsx'
+import { styled } from '@/stylex'
+import { textStyles } from '@/stylex/textStyles'
 
 export const Heading = styled(Ariakit.Heading, {
   base: {},
@@ -8,30 +9,14 @@ export const Heading = styled(Ariakit.Heading, {
   },
   variants: {
     size: {
-      '2xlarge': {
-        textStyle: 'heading.2xlarge',
-      },
-      '3xlarge': {
-        textStyle: 'heading.3xlarge',
-      },
-      '4xlarge': {
-        textStyle: 'heading.4xlarge',
-      },
-      large: {
-        textStyle: 'heading.large',
-      },
-      medium: {
-        textStyle: 'heading.medium',
-      },
-      small: {
-        textStyle: 'heading.small',
-      },
-      xlarge: {
-        textStyle: 'heading.xlarge',
-      },
-      xsmall: {
-        textStyle: 'heading.xsmall',
-      },
+      '2xlarge': textStyles.heading['2xlarge'].default,
+      '3xlarge': textStyles.heading['3xlarge'].default,
+      '4xlarge': textStyles.heading['4xlarge'].default,
+      large: textStyles.heading.large.default,
+      medium: textStyles.heading.medium.default,
+      small: textStyles.heading.small.default,
+      xlarge: textStyles.heading.xlarge.default,
+      xsmall: textStyles.heading.xsmall.default,
     },
   },
 })
