@@ -1,5 +1,4 @@
 import path from 'node:path'
-import { cacheLife, cacheTag } from 'next/cache'
 import type { StaticImageData } from 'next/image'
 import { z } from 'zod/v4'
 import { getSlugFromPath, listMdxFiles, parseMdxFrontmatter } from '@/lib/mdx'

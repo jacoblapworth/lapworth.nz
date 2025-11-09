@@ -41,7 +41,12 @@ interface Props {
 
 export function CarouselItem({ title, subtitle, thumbnail, href, alt }: Props) {
   return (
-    <Link className="group" href={href}>
+    <Link
+      className="group"
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
       <VStack alignItems="start" gap="xs" overflow="hidden">
         <NextImage
           alt={alt}

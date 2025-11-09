@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
+  'use cache'
   cacheLife('max')
   const { slug } = await params
 
