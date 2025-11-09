@@ -23,7 +23,7 @@ const styles = stylex.create({
     gap: 0,
   },
   header: {
-    borderBottomColor: semanticColors.border.soft,
+    borderBottomColor: semanticColors['border.soft'],
     borderBottomStyle: 'solid',
     borderBottomWidth: '1px',
     justifyContent: 'space-between',
@@ -34,7 +34,7 @@ const styles = stylex.create({
   },
   summary: {
     alignItems: 'end',
-    color: semanticColors.text.faint,
+    color: semanticColors['text.faint'],
     fontSize: '12px',
     gap: '2px',
     lineHeight: 1,
@@ -42,7 +42,7 @@ const styles = stylex.create({
   },
   selectAllBar: {
     alignItems: 'center',
-    borderBottomColor: semanticColors.border.soft,
+    borderBottomColor: semanticColors['border.soft'],
     borderBottomStyle: 'solid',
     borderBottomWidth: '1px',
     justifyContent: 'center',

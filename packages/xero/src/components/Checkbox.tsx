@@ -36,8 +36,8 @@ const checkboxStyles = stylex.create({
   base: {
     alignItems: 'center',
     appearance: 'none',
-    backgroundColor: semanticColors.background.primary.default,
-    borderColor: semanticColors.border.subtle,
+    backgroundColor: semanticColors['background.primary.default'],
+    borderColor: semanticColors['border.subtle'],
     borderRadius: borderRadius.md,
     borderStyle: 'solid',
     borderWidth: '1px',
@@ -51,14 +51,14 @@ const checkboxStyles = stylex.create({
     width: '20px',
   },
   checked: {
-    backgroundColor: semanticColors.action.default,
-    borderColor: semanticColors.action.default,
-    color: semanticColors.text.inverse,
+    backgroundColor: semanticColors['action.default'],
+    borderColor: semanticColors['action.default'],
+    color: semanticColors['text.inverse'],
   },
   disabled: {
-    backgroundColor: semanticColors.background.quaternary,
-    borderColor: semanticColors.border.subtle,
-    color: semanticColors.text.inverse,
+    backgroundColor: semanticColors['background.quaternary'],
+    borderColor: semanticColors['border.subtle'],
+    color: semanticColors['text.inverse'],
   },
 })
 

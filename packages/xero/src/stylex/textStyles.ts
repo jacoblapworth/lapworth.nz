@@ -83,7 +83,7 @@ export const textStyles = {
     xsmall: stylex.create({
       default: {
         fontFamily: fonts.national,
-        fontSize: fontSizes.xlarge[2],
+        fontSize: fontSizes['xlarge.2'],
         fontWeight: fontWeights.bold,
         lineHeight: lineHeights[145],
       },
@@ -91,7 +91,7 @@ export const textStyles = {
     small: stylex.create({
       default: {
         fontFamily: fonts.national,
-        fontSize: fontSizes.xlarge[3],
+        fontSize: fontSizes['xlarge.3'],
         fontWeight: fontWeights.bold,
         lineHeight: lineHeights[115],
       },
@@ -99,7 +99,7 @@ export const textStyles = {
     medium: stylex.create({
       default: {
         fontFamily: fonts.national,
-        fontSize: fontSizes.xlarge[3],
+        fontSize: fontSizes['xlarge.3'],
         fontWeight: fontWeights.bold,
         lineHeight: lineHeights[115],
       },
@@ -107,7 +107,7 @@ export const textStyles = {
     large: stylex.create({
       default: {
         fontFamily: fonts.national,
-        fontSize: fontSizes.xlarge[5],
+        fontSize: fontSizes['xlarge.5'],
         fontWeight: fontWeights.bold,
         lineHeight: lineHeights[105],
       },
@@ -115,7 +115,7 @@ export const textStyles = {
     xlarge: stylex.create({
       default: {
         fontFamily: fonts.national,
-        fontSize: fontSizes.xlarge[7],
+        fontSize: fontSizes['xlarge.7'],
         fontWeight: fontWeights.bold,
         lineHeight: lineHeights[105],
       },
@@ -123,7 +123,7 @@ export const textStyles = {
     '2xlarge': stylex.create({
       default: {
         fontFamily: fonts.national,
-        fontSize: fontSizes.xlarge[7],
+        fontSize: fontSizes['xlarge.7'],
         fontWeight: fontWeights.bold,
         lineHeight: lineHeights[105],
       },
@@ -131,7 +131,7 @@ export const textStyles = {
     '3xlarge': stylex.create({
       default: {
         fontFamily: fonts.national,
-        fontSize: fontSizes.xlarge[7],
+        fontSize: fontSizes['xlarge.7'],
         fontWeight: fontWeights.bold,
         lineHeight: lineHeights[105],
       },
@@ -139,7 +139,7 @@ export const textStyles = {
     '4xlarge': stylex.create({
       default: {
         fontFamily: fonts.national,
-        fontSize: fontSizes.xlarge[8],
+        fontSize: fontSizes['xlarge.8'],
         fontWeight: fontWeights.bold,
         lineHeight: lineHeights[95],
       },

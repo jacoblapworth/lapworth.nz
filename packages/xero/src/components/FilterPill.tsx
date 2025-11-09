@@ -9,8 +9,8 @@ import { Menu, MenuItemRadio, MenuProvider } from './Menu'
 const pillStyles = stylex.create({
   base: {
     alignItems: 'stretch',
-    backgroundColor: semanticColors.background.primary.default,
-    borderColor: semanticColors.border.subtle,
+    backgroundColor: semanticColors['background.primary.default'],
+    borderColor: semanticColors['border.subtle'],
     borderRadius: borderRadius.md,
     borderStyle: 'solid',
     borderWidth: '1px',
@@ -38,16 +38,16 @@ const Label = styled('span', {
 
 const valueStyles = stylex.create({
   default: {
-    borderLeftColor: semanticColors.border.subtle,
+    borderLeftColor: semanticColors['border.subtle'],
     borderLeftStyle: 'solid',
     borderLeftWidth: '1px',
-    color: semanticColors.action.default,
+    color: semanticColors['action.default'],
     cursor: 'pointer',
     paddingBlock: '4px',
     paddingInline: '8px',
     backgroundColor: {
       default: 'transparent',
-      ':hover': semanticColors.background.secondary,
+      ':hover': semanticColors['background.secondary'],
     },
   },
 })
@@ -60,14 +60,14 @@ const removeButtonStyles = stylex.create({
   default: {
     borderEndEndRadius: borderRadius.md,
     borderEndStartRadius: borderRadius.md,
-    borderLeftColor: semanticColors.border.subtle,
+    borderLeftColor: semanticColors['border.subtle'],
     borderLeftStyle: 'solid',
     borderLeftWidth: '1px',
     cursor: 'pointer',
     padding: '4px',
     backgroundColor: {
       default: 'transparent',
-      ':hover': semanticColors.background.secondary,
+      ':hover': semanticColors['background.secondary'],
     },
   },
 })

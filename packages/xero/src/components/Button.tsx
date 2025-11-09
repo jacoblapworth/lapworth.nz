@@ -25,10 +25,10 @@ const buttonStyles = stylex.create({
     transitionProperty: 'background-color, border-color, color',
     transitionTimingFunction: 'ease-in-out',
     backgroundColor: {
-      '[aria-expanded="true"]': semanticColors.background.secondary,
+      '[aria-expanded="true"]': semanticColors['background.secondary'],
     },
     borderColor: {
-      '[aria-expanded="true"]': semanticColors.border.regular,
+      '[aria-expanded="true"]': semanticColors['border.regular'],
     },
   },
   // Size variants
@@ -48,43 +48,43 @@ const buttonStyles = stylex.create({
   // Variant styles
   primary: {
     backgroundColor: {
-      default: semanticColors.action.default,
-      ':hover': semanticColors.action.hover,
-      ':active': semanticColors.action.active,
-      ':focus': semanticColors.action.focus,
-      ':disabled': semanticColors.action.disabled,
+      default: semanticColors['action.default'],
+      ':hover': semanticColors['action.hover'],
+      ':active': semanticColors['action.active'],
+      ':focus': semanticColors['action.focus'],
+      ':disabled': semanticColors['action.disabled'],
     },
     color: 'white',
   },
   secondary: {
     backgroundColor: {
       default: 'transparent',
-      ':hover': semanticColors.background.tertiary,
-      ':active': semanticColors.background.quaternary,
+      ':hover': semanticColors['background.tertiary'],
+      ':active': semanticColors['background.quaternary'],
     },
     borderColor: {
-      default: semanticColors.border.subtle,
-      ':hover': semanticColors.border.subtle,
-      ':active': semanticColors.border.subtle,
-      '[aria-selected="true"]': semanticColors.action.default,
+      default: semanticColors['border.subtle'],
+      ':hover': semanticColors['border.subtle'],
+      ':active': semanticColors['border.subtle'],
+      '[aria-selected="true"]': semanticColors['action.default'],
     },
     borderStyle: 'solid',
     borderWidth: '1px',
     color: {
-      default: semanticColors.text.default,
-      ':active': semanticColors.text.default,
-      ':disabled': semanticColors.text.faint,
-      '[aria-selected="true"]': semanticColors.action.default,
+      default: semanticColors['text.default'],
+      ':active': semanticColors['text.default'],
+      ':disabled': semanticColors['text.faint'],
+      '[aria-selected="true"]': semanticColors['action.default'],
     },
   },
   secondarySelected: {
     borderColor: {
-      ':hover': semanticColors.action.hover,
+      ':hover': semanticColors['action.hover'],
     },
   },
   tertiary: {
     backgroundColor: {
-      ':hover': semanticColors.background.tertiary,
+      ':hover': semanticColors['background.tertiary'],
     },
   },
 })
