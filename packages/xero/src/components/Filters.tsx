@@ -1,7 +1,6 @@
 import { TrashIcon } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
 import { HStack } from '@/styled/jsx'
-import { hstack } from '@/styled/patterns/hstack'
 import { Button } from './Button'
 import { FilterPill } from './FilterPill'
 import { AddFilterMenu } from './FiltersAddMenu'
@@ -36,22 +35,19 @@ export function Filters({
   onRemove,
 }: Props) {
   return (
-    <motion.div
-      className={hstack({
-        borderBottomColor: 'border.soft',
-        borderBottomStyle: 'solid',
-        borderBottomWidth: 1,
-        flexGrow: 1,
-        flexWrap: 'wrap',
-        gap: 8,
-        justifyContent: 'space-between',
-        padding: 8,
-      })}
-      layout
+    <HStack
+      borderBottomColor="border.soft"
+      borderBottomStyle="solid"
+      borderBottomWidth={1}
+      flexGrow={1}
+      flexWrap={'wrap'}
+      gap={8}
+      justifyContent={'space-between'}
+      padding={8}
     >
-      <motion.div className={hstack({ flexGrow: 1, flexWrap: 'wrap' })} layout>
+      <HStack flexGrow={1} flexWrap="wrap">
         <AddFilterMenu filters={filters} key="add" />
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {appliedFilters.map(({ id, label, operator, value }) => (
             <FilterPill
               key={id}
@@ -73,15 +69,13 @@ export function Filters({
             />
           ))}
         </AnimatePresence>
-      </motion.div>
-      <HStack>
-        {appliedFilters.length > 0 && (
-          <Button onClick={onClear} size="sm" variant="secondary">
-            <TrashIcon size={16} />
-            Clear filters
-          </Button>
-        )}
       </HStack>
-    </motion.div>
+      {appliedFilters.length > 0 && (
+        <Button onClick={onClear} size="sm" variant="secondary">
+          <TrashIcon size={16} />
+          Clear filters
+        </Button>
+      )}
+    </HStack>
   )
 }

@@ -13,6 +13,10 @@ import { Inter } from 'next/font/google'
 import { useState } from 'react'
 import { cx } from '@/styled/css'
 import { styled } from '@/styled/jsx'
+import {
+  appliedFiltersToColumnFilters,
+  columnFiltersToAppliedFilters,
+} from '../utils/filterUtils'
 import { type BulkAction, BulkActions } from './BulkActions'
 import { Controls } from './Controls'
 import { DataGrid } from './DataGrid'
@@ -138,28 +142,15 @@ export function Table<TData extends RowData>({
   const [selectedViewId, setSelectedViewId] = useState<
     string | null | undefined
   >(views[0]?.id)
-  // const [appliedFilters, setAppliedFilters] = useState([
-  //   {
-  //     id: 'status',
-  //     label: 'Status',
-  //     operator: 'is',
-  //     value: 'draft',
-  //   },
-  // ])
-
-  const [appliedFilters, setAppliedFilters] = useState<AppliedFilter[]>([
-    {
-      id: 'status',
-      label: 'Status',
-      operator: 'is',
-      value: 'draft',
-    },
-  ])
 
   const onViewChange = (viewId: string | null | undefined) => {
     setSelectedViewId(viewId)
     const view = views.find((v) => v.id === viewId)
-    setAppliedFilters(view?.filters || [])
+    const newFilters = view?.filters || []
+
+    // Convert AppliedFilter[] to ColumnFiltersState and apply to table
+    const columnFilters = appliedFiltersToColumnFilters(newFilters)
+    table.setColumnFilters(columnFilters)
   }
 
   const filters = table
@@ -175,6 +166,12 @@ export function Table<TData extends RowData>({
       }
     })
     .filter(Boolean)
+
+  // Convert table's columnFilters to AppliedFilter[] for UI components
+  const appliedFilters = columnFiltersToAppliedFilters(
+    table.getState().columnFilters,
+    filters as { id: string; label: string }[],
+  )
 
   const summaryRowModel = table.getFilteredSelectedRowModel()
 
@@ -203,9 +200,11 @@ export function Table<TData extends RowData>({
             <Filters
               appliedFilters={appliedFilters}
               filters={filters}
-              onClear={() => setAppliedFilters([])}
+              onClear={() => table.setColumnFilters([])}
               onRemove={(id) =>
-                setAppliedFilters((fs) => fs.filter((f) => f.id !== id))
+                table.setColumnFilters(
+                  table.getState().columnFilters.filter((f) => f.id !== id),
+                )
               }
             />
           </CollapsibleRow>

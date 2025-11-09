@@ -456,6 +456,7 @@ export function TableCell<TData extends RowData, TValue>({
     >
       <DataCell
         alignment={cell.column.columnDef.meta?.alignment}
+        isEditable={cell.column.columnDef.meta?.isEditable}
         variant={isDisplay ? 'display' : 'accessor'}
       >
         {cell.getIsAggregated()

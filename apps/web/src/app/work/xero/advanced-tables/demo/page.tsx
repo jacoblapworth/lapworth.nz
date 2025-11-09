@@ -2,6 +2,7 @@
 
 import * as Ariakit from '@ariakit/react'
 import { CurrencyCell, DateCell } from '@lapworth/xero/Cells'
+import { Checkbox } from '@lapworth/xero/Checkbox'
 import { footer } from '@lapworth/xero/ColumnHelper'
 import { DataEditableCell } from '@lapworth/xero/DataEditableCell'
 import { Table, useTable } from '@lapworth/xero/Table'
@@ -20,7 +21,7 @@ const columnHelper = createColumnHelper<InvoiceRow>()
 const columns = [
   columnHelper.display({
     cell: ({ row }) => (
-      <Ariakit.Checkbox
+      <Checkbox
         checked={row.getIsSelected()}
         onChange={row.getToggleSelectedHandler()}
       />
@@ -229,11 +230,11 @@ export default function Page() {
                 id: 'status',
                 label: 'Status',
                 operator: 'is',
-                value: 'awaiting-payment',
+                value: 'sent',
               },
             ],
-            id: 'awaiting-payment',
-            label: 'Awaiting Payment',
+            id: 'sent',
+            label: 'Sent',
           },
           {
             filters: [
@@ -241,7 +242,7 @@ export default function Page() {
                 id: 'status',
                 label: 'Status',
                 operator: 'is',
-                value: 'awaiting-payment',
+                value: 'sent',
               },
               {
                 id: 'due',
