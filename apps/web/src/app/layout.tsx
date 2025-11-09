@@ -8,9 +8,9 @@ import localFont from 'next/font/local'
 import { NextIntlClientProvider } from 'next-intl'
 import { ThemeProvider } from 'next-themes'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
-import { type ReactNode, useId } from 'react'
+import { type ReactNode, Suspense, useId } from 'react'
 import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
+import { Header } from '@/components/nav/header'
 import { Navigation } from '@/components/nav/nav'
 import { Skiplink } from '@/components/skiplink'
 import { themeConfig } from '@/components/theme'
@@ -110,7 +110,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 Skip to main content
               </Skiplink>
               <Header />
-              <Navigation />
+              <Suspense>
+                <Navigation />
+              </Suspense>
               <main
                 className={css({
                   gridArea: 'content',
@@ -122,7 +124,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               >
                 {children}
               </main>
-              <Footer />
+              <Suspense>
+                <Footer />
+              </Suspense>
               <Analytics />
               <SpeedInsights />
             </NextIntlClientProvider>

@@ -1,3 +1,5 @@
+'use client'
+
 import { useFormatter, useNow } from 'next-intl'
 import { styled } from '@/styled/jsx'
 import { Link } from './link'

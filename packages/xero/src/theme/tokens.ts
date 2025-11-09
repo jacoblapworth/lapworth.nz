@@ -90,6 +90,18 @@ export const semanticTokens = defineSemanticTokens({
       value: '#BB421F',
     },
   },
+  fontSizes: {
+    large: { value: '17px' },
+    medium: { value: '15px' },
+    small: { value: '13px' },
+  },
+  fontWeights: {
+    regular: { value: '400' },
+    semibold: { value: '500' },
+  },
+  lineHeights: {
+    default: { value: '145%' },
+  },
   shadows: {
     hover: {
       value: '0 8px 16px 0 {colors.grey.alpha.6}',

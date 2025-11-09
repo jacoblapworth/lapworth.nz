@@ -1,11 +1,10 @@
 import * as Ariakit from '@ariakit/react'
-import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
-import { CheckIcon, GripVerticalIcon } from 'lucide-react'
+import { GripVerticalIcon } from 'lucide-react'
 import { motion } from 'motion/react'
 import Link from 'next/link'
-import { type ReactNode, useId, useRef } from 'react'
+import { type ReactNode, useId } from 'react'
 import { cva, cx } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 import { Button, ButtonStyles } from './Button'
@@ -61,7 +60,7 @@ export const Menu = styled(Ariakit.Menu, MenuStyles, {
   },
 })
 
-const MenuButtonArrow = styled(Ariakit.MenuButtonArrow, {
+const _MenuButtonArrow = styled(Ariakit.MenuButtonArrow, {
   base: {},
 })
 

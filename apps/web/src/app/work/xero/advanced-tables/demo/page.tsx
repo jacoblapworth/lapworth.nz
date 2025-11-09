@@ -11,7 +11,7 @@ import {
   createColumnHelper,
 } from '@tanstack/react-table'
 import { CheckCircleIcon, TrashIcon } from 'lucide-react'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { initialData } from './data'
 import { getInvoiceStatus, type InvoiceRow } from './model'
 
@@ -183,6 +183,7 @@ export default function Page() {
   })
 
   return (
+    <Suspense>
     <Table
       bulkActions={[
         {
@@ -265,6 +266,7 @@ export default function Page() {
           label: 'Paid',
         },
       ]}
-    />
+      />
+    </Suspense>
   )
 }

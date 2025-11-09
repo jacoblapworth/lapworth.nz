@@ -20,7 +20,6 @@ const DialogDisclosure = styled(Ariakit.DialogDisclosure, {
 const Backdrop = styled('div', {
   base: {
     _enter: {
-      backdropBlur: 'sm',
       opacity: 1,
     },
 
@@ -28,9 +27,9 @@ const Backdrop = styled('div', {
       opacity: 1,
       transform: 'scale(1)',
     },
+    backdropBlur: 'sm',
     backdropFilter: 'auto',
     backgroundColor: 'background/70',
-    filter: 'auto',
     inset: '0',
     opacity: 0,
     position: 'fixed',
@@ -53,7 +52,7 @@ const Dialog = styled(
       alignItems: 'stretch',
       backgroundColor: 'background',
       boxShadow: `
-      inset 0 0 0 1px token(colors.divider),
+      inset 0 0 0 1px token(colors.quaternary),
       0 25px 30px -10px rgb(0 0 0 / 0.15);
     `,
       display: 'flex',
@@ -89,6 +88,9 @@ const Dismiss = styled(
   Ariakit.DialogDismiss,
   {
     base: {
+      _active: {
+        scale: '90%',
+      },
       _hover: {
         backgroundColor: 'primary',
         color: 'background',
@@ -150,21 +152,23 @@ const ImageStyles = cva({
 
 export function Image({
   blurDataURL,
-  placeholder,
   src,
   ...props
 }: ComponentProps<typeof NextImage>) {
+  const placeholder =
+    typeof src !== 'string' && 'blurDataURL' in src ? 'blur' : undefined
+
   return (
     <Ariakit.DialogProvider>
       <DialogDisclosure>
         <Figure>
           <NextImage
-            {...props}
             className={ImageStyles()}
-            placeholder="blur"
+            placeholder={placeholder}
             quality={75}
-            sizes="(max-width: 800px) 100vw, 600px"
+            sizes="(max-width: 800px) 100vw, 800px"
             src={src}
+            {...props}
           />
           {props.title && <Figcaption>{props.title}</Figcaption>}
         </Figure>
@@ -173,12 +177,12 @@ export function Image({
         <Dismiss />
         <Figure>
           <NextImage
-            {...props}
             className={ImageStyles()}
-            placeholder="blur"
+            placeholder={placeholder}
             quality={100}
-            sizes="(max-width: 800px) 100vw, 600px"
+            sizes="(max-width: 1000px) 100vw, 1000px"
             src={src}
+            {...props}
           />
           {props.title && <Figcaption dialog>{props.title}</Figcaption>}
         </Figure>

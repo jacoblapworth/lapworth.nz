@@ -178,10 +178,34 @@ export const semanticTokens = defineSemanticTokens({
         base: '{colors.black.80}',
       },
     },
+    negative: {
+      surface: {
+        value: {
+          _dark: '{colors.red.50}',
+          base: '{colors.red.50}',
+        },
+      },
+      value: {
+        _dark: '{colors.red.50}',
+        base: '{colors.red.50}',
+      },
+    },
     onSurface: {
       value: {
         _dark: '{colors.black.90}',
         base: '{colors.black.90}',
+      },
+    },
+    positive: {
+      surface: {
+        value: {
+          _dark: '{colors.green.50}',
+          base: '{colors.green.50}',
+        },
+      },
+      value: {
+        _dark: '{colors.green.50}',
+        base: '{colors.green.50}',
       },
     },
     primary: {

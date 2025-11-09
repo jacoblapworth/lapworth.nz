@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
+import { Suspense } from 'react'
 import ResponsivePreview from '../preview'
 import { Anchor } from './anchor'
 import { Blockquote } from './blockquote'
@@ -11,6 +12,7 @@ import { Image } from './image'
 import { ListItem, OrderedList, UnorderedList } from './list'
 import { Paragraph } from './paragraph'
 import { Pre } from './pre'
+import { Section } from './section'
 import { Table, Td, Th, Tr } from './table'
 import { Video } from './video'
 import { Wrapper } from './wrapper'
@@ -33,6 +35,8 @@ export const components: MDXComponents = {
   p: Paragraph,
   pre: Pre,
   ResponsivePreview,
+  Suspense,
+  section: Section,
   // summary: Summary,
   table: Table,
   td: Td,

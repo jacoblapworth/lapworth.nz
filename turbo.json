@@ -18,9 +18,6 @@
     "NEXT_PUBLIC_POSTHOG_HOST",
     "NEXT_PUBLIC_POSTHOG_KEY",
     "NEXT_PUBLIC_POSTHOG_PROJECT_ID",
-    "SENTRY_AUTH_TOKEN",
-    "SENTRY_ORG",
-    "SENTRY_PROJECT",
     "POSTHOG_PERSONAL_API_KEY",
     "RESEND_API_KEY"
   ],
@@ -30,6 +27,10 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
+    },
+    "build:storybook": {
+      "dependsOn": ["^build"],
+      "outputs": ["storybook-static/**"]
     },
     "deploy": {
       "dependsOn": ["^deploy"]
@@ -47,6 +48,10 @@
     },
     "start": {
       "dependsOn": ["build"],
+      "persistent": true
+    },
+    "storybook": {
+      "cache": false,
       "persistent": true
     },
     "test": {

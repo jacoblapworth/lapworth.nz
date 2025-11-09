@@ -6,5 +6,6 @@ export const Article = styled('article', {
     display: 'flex',
     flexDirection: 'column',
     gap: 'md',
+    marginBlockEnd: 'lg',
   },
 })

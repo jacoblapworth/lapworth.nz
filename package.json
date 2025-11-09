@@ -6,13 +6,13 @@
   "engines": {
     "node": "24"
   },
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.20.0",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "content": "turbo run content",
     "deploy": "turbo run deploy",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev storybook",
     "format": "turbo run format",
     "lint": "turbo run lint",
     "lint:ci": "biome ci --reporter=github",

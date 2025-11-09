@@ -1,6 +1,6 @@
 import { styled } from '@/styled/jsx'
 
-export const Container = styled('pre', {
+export const Pre = styled('pre', {
   base: {
     // backgroundColor: 'surface',
     // borderRadius: 'md',
@@ -10,7 +10,6 @@ export const Container = styled('pre', {
   },
 })
 
-export function Pre(props: React.ComponentProps<'pre'>) {
-  console.log({ props })
-  return <Container {...props} />
-}
+// export function Pre(props: React.ComponentProps<'pre'>) {
+//   return <Container {...props} />
+// }

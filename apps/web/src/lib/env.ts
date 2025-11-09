@@ -8,7 +8,6 @@ export const env = createEnv({
     NEXT_PUBLIC_POSTHOG_KEY: z.string(),
     NEXT_PUBLIC_POSTHOG_PROJECT_ID: z.string(),
     NEXT_PUBLIC_PRODUCTION_URL: z.string(),
-    NEXT_PUBLIC_SENTRY_DSN: z.string(),
   },
   experimental__runtimeEnv: {
     NEXT_PUBLIC_POSTHOG_API_HOST: process.env.NEXT_PUBLIC_POSTHOG_API_HOST,
@@ -16,7 +15,6 @@ export const env = createEnv({
     NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
     NEXT_PUBLIC_POSTHOG_PROJECT_ID: process.env.NEXT_PUBLIC_POSTHOG_PROJECT_ID,
     NEXT_PUBLIC_PRODUCTION_URL: process.env.NEXT_PUBLIC_PRODUCTION_URL,
-    NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
   },
   server: {
     APPLE_MUSIC_KEY_ID: z.string(),
@@ -27,9 +25,6 @@ export const env = createEnv({
     KLAVIYO_API_KEY: z.string(),
     POSTHOG_PERSONAL_API_KEY: z.string(),
     RESEND_API_KEY: z.string(),
-    SENTRY_AUTH_TOKEN: z.string(),
-    SENTRY_ORG: z.string(),
-    SENTRY_PROJECT: z.string(),
   },
 })
 

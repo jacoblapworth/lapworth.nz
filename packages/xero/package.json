@@ -6,13 +6,14 @@
     "@tanstack/react-table": "8.21.3",
     "date-fns": "4.1.0",
     "gsap": "3.13.0",
-    "lucide-react": "0.546.0",
+    "lucide-react": "0.552.0",
     "motion": "12.23.24",
     "next": "catalog:",
-    "next-intl": "4.3.11",
+    "next-intl": "4.4.0",
     "nuqs": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
+    "react-error-boundary": "6.0.0",
     "web": "0.0.2"
   },
   "devDependencies": {
@@ -21,7 +22,7 @@
     "@pandacss/types": "1.4.3",
     "@total-typescript/ts-reset": "0.6.1",
     "@total-typescript/tsconfig": "1.0.4",
-    "@types/node": "24.9.1",
+    "@types/node": "24.9.2",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.1",
     "typescript": "catalog:"
