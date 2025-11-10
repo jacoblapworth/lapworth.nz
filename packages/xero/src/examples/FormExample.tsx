@@ -1,6 +1,7 @@
 'use client'
 
-import { SelectArrow, SelectProvider, SelectValue } from '@ariakit/react'
+import { SelectProvider, SelectValue } from '@ariakit/react'
+import { useState } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { VStack } from '@/styled/jsx'
 import { Button } from '../components/Button'
@@ -9,6 +10,7 @@ import { RequiredOptionalIndicator } from '../components/Label'
 import { Panel } from '../components/Panel'
 import {
   Select,
+  SelectArrow,
   SelectItem,
   SelectLabel,
   SelectPopover,
@@ -47,18 +49,24 @@ export function FormExample({ identifyFieldsWith = 'optional' }: Props) {
             required
           />
           <VStack alignItems="flex-start" gap="2">
-            <SelectProvider defaultValue={undefined}>
+            <SelectProvider>
               <SelectLabel>
                 Gender
                 <RequiredOptionalIndicator />
               </SelectLabel>
               <Select>
-                <SelectValue fallback="Choose one">
-                  {(v) => genderOptions.find(({ value }) => value === v)?.label}
-                </SelectValue>
+                <span>
+                  <SelectValue fallback="Choose one">
+                    {(v) =>
+                      genderOptions.find(({ value }) => value === v)?.label ??
+                      'Choose one'
+                    }
+                  </SelectValue>
+                </span>
                 <SelectArrow />
               </Select>
               <SelectPopover>
+                <SelectItem value="null">Choose one</SelectItem>
                 {genderOptions.map((option) => (
                   <SelectItem key={option.value} value={option.value}>
                     {option.label}

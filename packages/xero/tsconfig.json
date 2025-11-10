@@ -19,6 +19,11 @@
     "strict": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules", "dist"],
-  "include": ["src", "panda.config.ts"]
+  "exclude": ["node_modules", "dist", ".styled", ".turbo"],
+  "include": [
+    "**/*.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js"
+  ]
 }
