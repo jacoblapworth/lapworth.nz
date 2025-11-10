@@ -18,6 +18,7 @@ export const ButtonStyles = cva({
 
     alignItems: 'center',
     borderRadius: 'md',
+    color: 'text',
     cursor: 'pointer',
     display: 'inline-grid',
     gap: 8,

@@ -56,7 +56,7 @@ export const semanticTokens = defineSemanticTokens({
       primary: {
         DEFAULT: {
           value: {
-            _dark: '#081F33',
+            // _dark: '#081F33',
             base: '#FFFFFF',
           },
         },
@@ -101,7 +101,7 @@ export const semanticTokens = defineSemanticTokens({
       positive: { value: '{colors.positive}' },
       primary: {
         value: {
-          _dark: '{colors.text.inverse}',
+          // _dark: '{colors.text.inverse}',
           base: '#1E3145',
         },
       },
