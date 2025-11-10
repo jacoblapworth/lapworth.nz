@@ -54,8 +54,8 @@ importers:
         specifier: 10.1.0
         version: 10.1.0
       '@flags-sdk/posthog':
-        specifier: 0.2.1
-        version: 0.2.1(@opentelemetry/api@1.9.0)(next@16.0.1(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
+        specifier: 0.2.2
+        version: 0.2.2(@opentelemetry/api@1.9.0)(next@16.0.1(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@gsap/react':
         specifier: 2.1.2
         version: 2.1.2(gsap@3.13.0)(react@19.2.0)
@@ -1915,8 +1915,8 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  '@flags-sdk/posthog@0.2.1':
-    resolution: {integrity: sha512-6YlFgNc07XrWTB0DSgeeLB2RAlMQx6nfmE1rvrkg6NvI2r1HBRgHaqDvz4Z7JlidDq2xZSoEYkZstPnNsQt5SQ==}
+  '@flags-sdk/posthog@0.2.2':
+    resolution: {integrity: sha512-zgE22X6Ej9M9bHG3doSK5PaueuANpxWc7o/bTRVWgvgM6R4T0UAZ20QbEXwYqOIVAGOMsV3WXRc9BmBX1E7xuQ==}
 
   '@floating-ui/core@1.7.3':
     resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
@@ -11251,7 +11251,7 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@flags-sdk/posthog@0.2.1(@opentelemetry/api@1.9.0)(next@16.0.1(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
+  '@flags-sdk/posthog@0.2.2(@opentelemetry/api@1.9.0)(next@16.0.1(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))':
     dependencies:
       '@vercel/edge-config': 1.4.3(@opentelemetry/api@1.9.0)(next@16.0.1(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       posthog-node: 4.11.1

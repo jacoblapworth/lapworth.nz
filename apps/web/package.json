@@ -2,7 +2,7 @@
   "dependencies": {
     "@ariakit/react": "0.4.19",
     "@faker-js/faker": "10.1.0",
-    "@flags-sdk/posthog": "0.2.1",
+    "@flags-sdk/posthog": "0.2.2",
     "@gsap/react": "2.1.2",
     "@lapworth/xero": "workspace:^",
     "@mdx-js/loader": "3.1.1",
