@@ -119,7 +119,7 @@ export const MenuItemStyles = cva({
     paddingBlock: 8,
     paddingInline: 16,
     position: 'relative',
-    textStyle: 'body.small.regular',
+    textStyle: 'body.medium.regular',
   },
 
   variants: {

@@ -15,7 +15,7 @@ const Wrapper = styled('div', {
 export const InputStyles = cva({
   base: {
     _disabled: {
-      backgroundColor: 'background.muted',
+      backgroundColor: 'background.tertiary',
       cursor: 'not-allowed',
       opacity: 0.6,
     },
@@ -24,8 +24,11 @@ export const InputStyles = cva({
       boxShadow: 'focus',
       outline: 'none',
     },
+    _hover: {
+      borderColor: 'border.regular',
+    },
     backgroundColor: 'background.primary',
-    border: 'muted',
+    border: 'subtle',
     borderRadius: 'md',
     minHeight: 40,
     padding: '3',

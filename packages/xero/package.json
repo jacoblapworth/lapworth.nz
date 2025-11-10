@@ -46,6 +46,7 @@
     "./components/TextInput": "./dist/components/TextInput.js",
     "./components/Toggle": "./dist/components/Toggle.js",
     "./components/Tooltip": "./dist/components/Tooltip.js",
+    "./examples": "./dist/examples/index.js",
     "./examples/FormExample": "./dist/examples/FormExample.js",
     "./package.json": "./package.json",
     "./styles.css": "./.styled/styles.css"
