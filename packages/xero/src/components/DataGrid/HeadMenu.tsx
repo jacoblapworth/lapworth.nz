@@ -1,3 +1,5 @@
+'use client'
+
 import * as Ariakit from '@ariakit/react'
 import { flexRender, type Header } from '@tanstack/react-table'
 import {

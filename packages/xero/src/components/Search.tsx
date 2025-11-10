@@ -1,3 +1,5 @@
+'use client'
+
 import { VisuallyHidden } from '@ariakit/react'
 import type { RowData, Table } from '@tanstack/react-table'
 import { CircleXIcon, SearchIcon } from 'lucide-react'

@@ -1,3 +1,5 @@
+'use client'
+
 import * as Ariakit from '@ariakit/react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'

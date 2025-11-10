@@ -1,3 +1,5 @@
+import preserveUseClientDirective from 'rollup-plugin-preserve-use-client'
+
 import { defineConfig } from 'tsdown'
 
 export default defineConfig({
@@ -10,8 +12,8 @@ export default defineConfig({
     },
   },
   outputOptions: {
-    banner: "'use client';",
     preserveModules: true,
   },
   platform: 'neutral',
+  plugins: [preserveUseClientDirective()],
 })

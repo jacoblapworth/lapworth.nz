@@ -23,6 +23,8 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.1",
     "@vitejs/plugin-react": "^5.0.4",
+    "rollup-plugin-preserve-directives": "0.4.0",
+    "rollup-plugin-preserve-use-client": "3.0.1",
     "tsdown": "0.16.1",
     "typescript": "catalog:"
   },
@@ -51,7 +53,9 @@
     "./package.json": "./package.json",
     "./styles.css": "./.styled/styles.css"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "name": "@lapworth/xero",

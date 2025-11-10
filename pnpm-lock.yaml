@@ -436,6 +436,12 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^5.0.4
         version: 5.1.0(vite@7.2.2(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(yaml@2.8.1))
+      rollup-plugin-preserve-directives:
+        specifier: 0.4.0
+        version: 0.4.0(rollup@4.52.5)
+      rollup-plugin-preserve-use-client:
+        specifier: 3.0.1
+        version: 3.0.1(rollup@4.52.5)
       tsdown:
         specifier: 0.16.1
         version: 0.16.1(typescript@5.9.3)
@@ -8175,6 +8181,16 @@ packages:
     resolution: {integrity: sha512-Mid74GckX1OeFAOYz9KuXeWYhq3xkXbMziYIC+ULVdUzPTG9y70OBSBQDQn9hQP8u/AfhuYw1R0BSg15nBI4Dg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
+
+  rollup-plugin-preserve-directives@0.4.0:
+    resolution: {integrity: sha512-gx4nBxYm5BysmEQS+e2tAMrtFxrGvk+Pe5ppafRibQi0zlW7VYAbEGk6IKDw9sJGPdFWgVTE0o4BU4cdG0Fylg==}
+    peerDependencies:
+      rollup: 2.x || 3.x || 4.x
+
+  rollup-plugin-preserve-use-client@3.0.1:
+    resolution: {integrity: sha512-4WKtGnQsgeCzT/PnA82V4knXVTKxNrxJFcPVa1Kero2XaLs1yazGSCUwxv6NzVmeNeURqE+A5wLbI+zlPKVgMg==}
+    peerDependencies:
+      rollup: ^4.0.0
 
   rollup@4.52.5:
     resolution: {integrity: sha512-3GuObel8h7Kqdjt0gxkEzaifHTqLVW56Y/bjN7PSQtkKr0w3V/QYSdt6QWYtd7A1xUtYQigtdUfgj1RvWVtorw==}
@@ -18297,6 +18313,16 @@ snapshots:
       '@rolldown/binding-win32-arm64-msvc': 1.0.0-beta.47
       '@rolldown/binding-win32-ia32-msvc': 1.0.0-beta.47
       '@rolldown/binding-win32-x64-msvc': 1.0.0-beta.47
+
+  rollup-plugin-preserve-directives@0.4.0(rollup@4.52.5):
+    dependencies:
+      '@rollup/pluginutils': 5.3.0(rollup@4.52.5)
+      magic-string: 0.30.21
+      rollup: 4.52.5
+
+  rollup-plugin-preserve-use-client@3.0.1(rollup@4.52.5):
+    dependencies:
+      rollup: 4.52.5
 
   rollup@4.52.5:
     dependencies:

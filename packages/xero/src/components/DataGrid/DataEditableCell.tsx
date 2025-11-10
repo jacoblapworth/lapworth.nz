@@ -1,3 +1,5 @@
+'use client'
+
 import * as Ariakit from '@ariakit/react'
 import { CircleAlertIcon, TextCursorIcon } from 'lucide-react'
 import { startTransition, useRef, useState } from 'react'

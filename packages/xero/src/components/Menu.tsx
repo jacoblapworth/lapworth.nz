@@ -1,3 +1,5 @@
+'use client'
+
 import * as Ariakit from '@ariakit/react'
 import { gsap } from 'gsap'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
