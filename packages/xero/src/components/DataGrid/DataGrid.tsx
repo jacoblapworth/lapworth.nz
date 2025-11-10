@@ -26,12 +26,12 @@ import { motion, useTransform } from 'motion/react'
 import { memo, useId } from 'react'
 import { cva } from '@/styled/css'
 import { HStack, styled } from '@/styled/jsx'
-import { Button } from './Button'
+import { Button } from '../Button'
+import { SrOnly } from '../SrOnly'
 import { HeaderResizeHandle, useColumnSizes } from './ColumnSizing'
 import { DataCell } from './DataCell'
 import { type TableHeadDropdownProps, TableHeadMenu } from './HeadMenu'
 import { TableScrollContainer, useTableScroll } from './ScrollContainer'
-import { SrOnly } from './SrOnly'
 
 interface TableProps<TData extends RowData> {
   table: ReactTable<TData>

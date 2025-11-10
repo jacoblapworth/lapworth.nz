@@ -8,8 +8,8 @@ import { styled } from '@/styled/jsx'
 
 gsap.registerPlugin(DrawSVGPlugin)
 
-import { useCheckboxStore, useStoreState } from '@ariakit/react'
-import { type ComponentPropsWithRef, useId, useRef, useState } from 'react'
+import type { CheckboxProps } from '@ariakit/react'
+import { useRef } from 'react'
 
 /**
  * Check icon for the menuitem checkbox.
@@ -35,6 +35,9 @@ export function Check() {
 export const CheckboxStyles = cva({
   base: {
     _checked: {
+      _hover: {
+        borderColor: 'action.hover',
+      },
       backgroundColor: 'action',
       borderColor: 'action',
       color: 'text.inverse',
@@ -44,8 +47,24 @@ export const CheckboxStyles = cva({
       borderColor: 'border.subtle',
       color: 'text.inverse',
     },
+    _groupChecked: {
+      backgroundColor: 'action',
+      borderColor: 'action',
+      color: 'text.inverse',
+    },
     _groupHover: {
       // backgroundColor: 'background.primary',
+    },
+    _hover: {
+      borderColor: 'border.regular',
+    },
+    _indeterminate: {
+      _hover: {
+        borderColor: 'action.hover',
+      },
+      backgroundColor: 'action',
+      borderColor: 'action',
+      color: 'text.inverse',
     },
     alignItems: 'center',
     appearance: 'none',
@@ -69,12 +88,28 @@ export const AriaCheckbox = styled(Ariakit.Checkbox, CheckboxStyles)
 
 const Box = styled('div', CheckboxStyles)
 
-export function Checkbox({ ref, ...props }: ComponentPropsWithRef<'input'>) {
-  const checkbox = useCheckboxStore()
-  const checked = useStoreState(checkbox, (state) => state.value)
+export function Checkbox({ ref, ...props }: CheckboxProps) {
   return (
-    <Ariakit.Checkbox className="button" render={<Box />} store={checkbox}>
-      {checked && <Check />}
+    <Ariakit.Checkbox render={<Box />} {...props}>
+      {props.checked === true && <Check />}
+      {props.checked === 'mixed' && (
+        <svg
+          fill="none"
+          height="12"
+          role="presentation"
+          viewBox="0 0 12 12"
+          width="12"
+        >
+          <rect
+            fill="currentColor"
+            height="1"
+            rx="0.5"
+            width="10"
+            x="1"
+            y="5.5"
+          />
+        </svg>
+      )}
     </Ariakit.Checkbox>
   )
 }

@@ -1,7 +1,7 @@
 import NumberFlow from '@number-flow/react'
 import { ListFilterIcon } from 'lucide-react'
 import { Box } from '@/styled/jsx'
-import { Button } from './Button'
+import { Button } from '../Button'
 
 interface Props {
   isSelected?: boolean

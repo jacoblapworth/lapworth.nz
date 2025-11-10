@@ -1,10 +1,10 @@
 import type { Column, Header, RowData, Table } from '@tanstack/react-table'
 import { HStack } from '@/styled/jsx'
+import { Search } from '../Search'
 import { ColumnsMenu } from './ColumnsMenu'
 import { DataFiltersToggle } from './DataFiltersToggle'
 import { type View, Views } from './DataViews'
 import type { AppliedFilter } from './Filters'
-import { Search } from './Search'
 import { ViewMenu } from './ViewMenu'
 
 interface Props<TData extends RowData> {

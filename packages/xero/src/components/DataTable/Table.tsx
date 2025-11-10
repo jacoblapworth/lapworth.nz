@@ -9,22 +9,21 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import { AnimatePresence, motion } from 'motion/react'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import { useState } from 'react'
-import { cx } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 import {
   appliedFiltersToColumnFilters,
   columnFiltersToAppliedFilters,
-} from '../utils/filterUtils'
+} from '../../utils/filterUtils'
+import { DataGrid } from '../DataGrid'
+import { Pagination } from '../Pagination'
 import { type BulkAction, BulkActions } from './BulkActions'
 import { Controls } from './Controls'
-import { DataGrid } from './DataGrid'
 import type { View } from './DataViews'
-import { type AppliedFilter, Filters } from './Filters'
-import { Pagination } from './Pagination'
+import { Filters } from './Filters'
 
-const inter = Inter({ subsets: ['latin'], variable: '--fonts-inter' })
+// const inter = Inter({ subsets: ['latin'], variable: '--fonts-inter' })
 
 const Container = styled('div', {
   base: {
@@ -180,7 +179,9 @@ export function Table<TData extends RowData>({
     .reduce((a, b) => a + b, 0)
 
   return (
-    <Container className={cx(inter.className, inter.variable)}>
+    <Container
+    // className={cx(inter.className, inter.variable)}
+    >
       <Controls
         appliedFilters={appliedFilters}
         columns={table.getAllFlatColumns()}

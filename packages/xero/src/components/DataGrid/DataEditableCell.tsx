@@ -3,12 +3,13 @@ import { CircleAlertIcon, TextCursorIcon } from 'lucide-react'
 import { startTransition, useRef, useState } from 'react'
 import { css } from '@/styled/css'
 import { HStack, styled } from '@/styled/jsx'
-import { Button } from './Button'
-import { MenuStyles } from './Menu'
+import { Button } from '../Button'
+import { MenuStyles } from '../Menu'
 
 const ComboboxContainer = styled('div', {
   base: {
     _focusWithin: {
+      backgroundColor: 'background.primary',
       borderRadius: 3,
       outlineColor: 'border.focus',
       outlineOffset: -1,
@@ -16,7 +17,6 @@ const ComboboxContainer = styled('div', {
       outlineWidth: 2,
     },
     alignItems: 'center',
-    backgroundColor: 'background.primary',
     display: 'flex',
     // borderColor: 'border.soft',
     // borderStyle: 'solid',

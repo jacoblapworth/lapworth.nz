@@ -20,17 +20,11 @@
       "cache": false,
       "inputs": ["$TURBO_DEFAULT$", "src/**/*"],
       "persistent": true,
-      "with": ["css:watch", "tokens:watch"]
+      "with": ["css:watch"]
     },
     "tokens": {
       "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
       "outputs": [".styled/**"]
-    },
-    "tokens:watch": {
-      "cache": false,
-      "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
-      "outputs": [".styled/**"],
-      "persistent": true
     }
   }
 }

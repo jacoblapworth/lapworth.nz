@@ -1,12 +1,14 @@
 'use client'
 
-import * as Ariakit from '@ariakit/react'
-import { CurrencyCell, DateCell } from '@lapworth/xero/Cells'
-import { Checkbox } from '@lapworth/xero/Checkbox'
-import { footer } from '@lapworth/xero/ColumnHelper'
-import { DataEditableCell } from '@lapworth/xero/DataEditableCell'
-import { Table, useTable } from '@lapworth/xero/Table'
-import { Tag } from '@lapworth/xero/Tag'
+import {
+  Checkbox,
+  CurrencyCell,
+  DataEditableCell,
+  DateCell,
+  Table,
+  Tag,
+  useTable,
+} from '@lapworth/xero'
 import {
   type ColumnFiltersState,
   createColumnHelper,
@@ -32,7 +34,7 @@ const columns = [
     enableResizing: false,
     enableSorting: false,
     header: ({ table }) => (
-      <Ariakit.Checkbox
+      <Checkbox
         checked={
           table.getIsAllRowsSelected() ||
           (table.getIsSomeRowsSelected() ? 'mixed' : false)
@@ -110,7 +112,7 @@ const columns = [
   columnHelper.accessor('amountPaid', {
     aggregationFn: 'sum',
     cell: (ctx) => <CurrencyCell ctx={ctx} />,
-    footer,
+    // footer,
     // cell: (ctx) => (
     //   <Cell textAlign={'end'}>{ctx.cell.getValue<number>().toFixed(2)}</Cell>
     // ),
@@ -132,7 +134,7 @@ const columns = [
   }),
   columnHelper.accessor('amountDue', {
     cell: (ctx) => <CurrencyCell ctx={ctx} />,
-    footer,
+    // footer,
     header: 'Due',
     id: 'due',
     meta: {

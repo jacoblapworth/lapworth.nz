@@ -16,9 +16,9 @@ import {
   MenuItem,
   MenuItemRadio,
   MenuSeparator,
-} from './Menu'
+} from '../Menu'
+import { Tooltip } from '../Tooltip'
 import { SortIcon } from './SortIcon'
-import { Tooltip } from './Tooltip'
 
 export interface TableHeadDropdownProps<TData, TValue> {
   header: Header<TData, TValue>
@@ -45,7 +45,7 @@ export function TableHeadMenu<TData, TValue>({
       >
         <Ariakit.TooltipProvider>
           <Ariakit.TooltipAnchor
-            render={<MenuButton size="sm" variant="tertiary" />}
+            render={<MenuButton size="xs" variant="tertiary" />}
           >
             <EllipsisVerticalIcon size={16} />
           </Ariakit.TooltipAnchor>

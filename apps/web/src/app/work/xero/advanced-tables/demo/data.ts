@@ -7,9 +7,18 @@ function createInvoiceRow(seed?: number, index?: number): InvoiceRow {
     faker.seed(seed)
   }
 
+  const amountDue = faker.number.int({ max: 5000, min: 1000 })
+  const status = faker.helpers.arrayElement(['draft', 'sent', 'paid'])
+  const amountPaid =
+    status === 'paid'
+      ? amountDue
+      : status === 'draft'
+        ? 0
+        : faker.number.int({ max: amountDue, min: 0 })
+
   return {
-    amountDue: faker.number.int({ max: 5000, min: 1000 }),
-    amountPaid: faker.number.int({ max: 5000, min: 0 }),
+    amountDue,
+    amountPaid,
     contact: {
       name: faker.company.name(),
     },
@@ -19,7 +28,7 @@ function createInvoiceRow(seed?: number, index?: number): InvoiceRow {
     invoiceNumber: `INV-${String(index).padStart(3, '0')}`,
     notes: [faker.lorem.sentence(), faker.lorem.sentence()],
     number: String(seed ?? faker.number.int()),
-    status: faker.helpers.arrayElement(['draft', 'sent', 'paid']),
+    status,
   }
 }
 

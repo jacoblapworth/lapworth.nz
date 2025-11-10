@@ -7,8 +7,6 @@ export default defineConfig({
     extend: {
       active: '&:not(:disabled):is(:active, [data-active])',
       activeItem: '&[data-active-item]',
-      checked: ':is(:checked, [data-checked], [aria-checked=true]) &',
-      disabled: '&[aria-disabled]',
       enter: '&[data-enter]',
       exit: '&[data-exit]',
       focus: '&:not(:disabled):is(:focus, [data-focus])',
@@ -23,6 +21,7 @@ export default defineConfig({
   jsxFramework: 'react',
   outdir: '.styled',
   outExtension: 'js',
+  prefix: 'x',
   shorthands: false,
   theme,
 })

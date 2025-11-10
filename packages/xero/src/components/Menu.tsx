@@ -298,7 +298,7 @@ export function MenuItemCheckbox({
 }: Ariakit.MenuItemCheckboxProps) {
   return (
     <Ariakit.MenuItemCheckbox
-      className={cx(MenuItemStyles({ variant: 'check' }), className)}
+      className={cx(MenuItemStyles({ variant: 'check' }), 'group', className)}
       ref={ref}
       {...props}
     >
