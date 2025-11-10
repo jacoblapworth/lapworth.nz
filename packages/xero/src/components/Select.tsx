@@ -10,7 +10,7 @@ export const SelectStyles = cva({
       borderColor: 'border.regular',
     },
     _disabled: {
-      backgroundColor: 'background.muted',
+      backgroundColor: 'background.tertiary',
       cursor: 'not-allowed',
       opacity: 0.6,
     },
@@ -20,11 +20,11 @@ export const SelectStyles = cva({
       outline: 'none',
     },
     _hover: {
-      borderColor: 'border.subtle',
+      borderColor: 'border.regular',
     },
     alignItems: 'center',
     backgroundColor: 'background.primary',
-    border: 'muted',
+    border: 'subtle',
     borderRadius: 'md',
     cursor: 'pointer',
     display: 'flex',

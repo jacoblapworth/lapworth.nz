@@ -3,6 +3,7 @@ import { useFormContext } from './Form'
 
 export const LabelStyles = cva({
   base: {
+    color: 'text.regular',
     display: 'inline-flex',
     gap: 'sm',
     textStyle: 'body.medium.semibold',

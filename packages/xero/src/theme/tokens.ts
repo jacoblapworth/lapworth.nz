@@ -34,6 +34,12 @@ export const tokens = defineTokens({
 })
 
 export const semanticTokens = defineSemanticTokens({
+  borders: {
+    regular: { value: '1px solid {colors.border.regular}' },
+    soft: { value: '1px solid {colors.border.soft}' },
+    strong: { value: '2px solid {colors.border.strong}' },
+    subtle: { value: '1px solid {colors.border.subtle}' },
+  },
   colors: {
     action: {
       active: { value: '#1C5DC5' },
@@ -56,7 +62,6 @@ export const semanticTokens = defineSemanticTokens({
       tertiary: { value: '#EFF0F3' },
       warning: { value: '#FEF8E4' },
     },
-
     border: {
       focus: { value: '{colors.action}' },
       regular: { value: '#A6AAB1' },
@@ -135,6 +140,13 @@ export const semanticTokens = defineSemanticTokens({
     pop: {
       value: '0 8px 16px 0 {colors.grey.alpha.6}',
     },
+  },
+  spacing: {
+    lg: { value: '16px' },
+    md: { value: '12px' },
+    sm: { value: '8px' },
+    xl: { value: '24px' },
+    xs: { value: '4px' },
   },
   zIndex: {
     responsiveoverlay: { value: 200 },

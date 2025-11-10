@@ -3,9 +3,8 @@ import { styled } from '@/styled/jsx'
 export const Panel = styled('div', {
   base: {
     backgroundColor: 'background.primary',
-    border: 'muted',
+    border: 'subtle',
     borderRadius: 'md',
-    boxShadow: 'sm',
     padding: 'md',
   },
 })
