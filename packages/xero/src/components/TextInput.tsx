@@ -27,6 +27,9 @@ export const InputStyles = cva({
     _hover: {
       borderColor: 'border.regular',
     },
+    _placeholder: {
+      color: 'text.faint',
+    },
     backgroundColor: 'background.primary',
     border: 'subtle',
     borderRadius: 'md',

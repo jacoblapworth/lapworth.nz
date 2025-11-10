@@ -104,6 +104,7 @@ export const tokens = defineTokens({
   fonts: {
     display: { value: 'canela' },
     mono: { value: 'mono' },
+    sans: { value: 'inter' },
     serif: { value: 'sectra' },
     system: { value: 'system-ui' },
   },
