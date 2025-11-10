@@ -3,7 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { VercelToolbar } from '@vercel/toolbar/next'
 import type { Metadata, Viewport } from 'next'
-import { Google_Sans_Code } from 'next/font/google'
+import { Google_Sans_Code, Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import { NextIntlClientProvider } from 'next-intl'
 import { ThemeProvider } from 'next-themes'
@@ -16,6 +16,13 @@ import { Skiplink } from '@/components/skiplink'
 import { themeConfig } from '@/components/theme'
 import { css, cx } from '@/styled/css'
 import { token } from '@/styled/tokens'
+
+const inter = Inter({
+  display: 'swap',
+  fallback: ['system-ui', 'sans-serif'],
+  subsets: ['latin-ext'],
+  variable: '--fonts-sans',
+})
 
 const sectraFont = localFont({
   display: 'swap',
@@ -83,7 +90,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <html
-      className={cx(sectraFont.variable, monoFont.variable)}
+      className={cx(inter.variable, sectraFont.variable, monoFont.variable)}
       lang="en"
       suppressHydrationWarning
     >

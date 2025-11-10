@@ -26,6 +26,7 @@ export const SelectStyles = cva({
     backgroundColor: 'background.primary',
     border: 'subtle',
     borderRadius: 'md',
+    color: 'text.primary',
     cursor: 'pointer',
     display: 'flex',
     justifyContent: 'space-between',

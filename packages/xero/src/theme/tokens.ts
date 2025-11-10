@@ -24,7 +24,7 @@ export const tokens = defineTokens({
     },
   },
   fonts: {
-    inter: { value: 'inter' },
+    inter: { value: 'var(--fonts-inter)' },
   },
   radii: {
     lg: { value: '12px' },
@@ -54,7 +54,12 @@ export const semanticTokens = defineSemanticTokens({
       neutral: { value: '#F6F6F8' },
       positive: { value: '#F0FBF3' },
       primary: {
-        DEFAULT: { value: '#FFFFFF' },
+        DEFAULT: {
+          value: {
+            _dark: '#081F33',
+            base: '#FFFFFF',
+          },
+        },
         inverse: { value: '#081F33' },
       },
       quaternary: { value: '#E1E2E5' },
@@ -69,7 +74,6 @@ export const semanticTokens = defineSemanticTokens({
       strong: { value: '#828995' },
       subtle: { value: '#CFD1D5' },
     },
-
     icon: {
       DEFAULT: { value: '#1E3145' },
       faint: { value: '#616B7A' },
@@ -86,14 +90,21 @@ export const semanticTokens = defineSemanticTokens({
       value: '#0F7B3D',
     },
     text: {
-      DEFAULT: { value: '{colors.text.primary}' },
+      DEFAULT: {
+        value: '{colors.text.primary}',
+      },
       faint: { value: '#616B7A' },
       inform: { value: '{colors.inform}' },
       inverse: { value: '#FFF' },
       muted: { value: '#424F60' },
       negative: { value: '{colors.negative}' },
       positive: { value: '{colors.positive}' },
-      primary: { value: '#1E3145' },
+      primary: {
+        value: {
+          _dark: '{colors.text.inverse}',
+          base: '#1E3145',
+        },
+      },
       warning: { value: '{colors.warning}' },
     },
     warning: {

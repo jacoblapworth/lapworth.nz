@@ -207,8 +207,9 @@ export function getColumnOptions<TData, TType extends ColumnDataType, TVal>(
   let models = uniq(filtered)
 
   if (column.orderFn) {
+    const sort = column.orderFn
     models = models.sort((m1, m2) =>
-      column.orderFn?.(
+      sort(
         m1 as ElementType<NonNullable<TVal>>,
         m2 as ElementType<NonNullable<TVal>>,
       ),
