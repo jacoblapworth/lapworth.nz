@@ -9,6 +9,7 @@ import { Text } from '@/components/text'
 import ProfileImage from '@/public/j-photo-mono.png'
 import { css } from '@/styled/css'
 import { Bookshelf } from './bookshelf'
+import { Capabilities } from './capabilities'
 import { Experience } from './experience'
 import { HeavyRotation } from './heavy-rotation'
 
@@ -64,6 +65,7 @@ export default async function Page() {
           I&apos;m not working.
         </Text>
       </div>
+      <Capabilities />
       <Experience />
       <Suspense>
         <HeavyRotation />

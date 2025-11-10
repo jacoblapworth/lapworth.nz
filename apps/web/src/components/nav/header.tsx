@@ -24,12 +24,11 @@ const Text = styled(NextLink, {
   },
 })
 
-export const Header = () => {
+export function Header() {
   return (
     <StyledHeader aria-label="Header">
       <Text aria-label="Home" href="/">
-        Lapworth,
-        <em> Jacob</em>
+        Lapworth, <em>Jacob</em>
       </Text>
       <ThemeToggle />
     </StyledHeader>
