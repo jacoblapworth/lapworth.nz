@@ -1,3 +1,5 @@
+'use client'
+
 import { motion, useScroll, useTransform } from 'motion/react'
 import { createContext, type ReactNode, useContext, useRef } from 'react'
 

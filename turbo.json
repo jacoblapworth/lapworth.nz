@@ -29,7 +29,6 @@
       "outputs": ["dist/**"]
     },
     "build:storybook": {
-      "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"]
     },
     "deploy": {
