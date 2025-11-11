@@ -1,6 +1,7 @@
 import type { MDXComponents } from 'mdx/types'
 import { Suspense } from 'react'
 import ResponsivePreview from '../preview'
+import { Text } from '../text'
 import { Anchor } from './anchor'
 import { Blockquote } from './blockquote'
 import { Code } from './code'
@@ -37,6 +38,7 @@ export const components: MDXComponents = {
   ResponsivePreview,
   Suspense,
   section: Section,
+  Text,
   // summary: Summary,
   table: Table,
   td: Td,

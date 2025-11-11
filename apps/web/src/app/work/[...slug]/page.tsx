@@ -4,6 +4,7 @@ import { SquareArrowOutUpRightIcon } from 'lucide-react'
 import { cacheLife } from 'next/cache'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { Article } from '@/components/article'
 import { LinkButton } from '@/components/button'
 import { Text } from '@/components/text'
@@ -56,7 +57,9 @@ export default async function Page({ params }: Props) {
           )}
         </VStack>
         <Suspense>
-          <Mdx />
+          <ErrorBoundary fallback={<div>Failed to load content.</div>}>
+            <Mdx />
+          </ErrorBoundary>
         </Suspense>
       </Article>
       <Related posts={relatedPosts} />
