@@ -2,6 +2,7 @@ import { type ReactNode, useId } from 'react'
 
 import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
+import { Section } from './section'
 
 interface WithId {
   id: string
@@ -15,11 +16,11 @@ const Grid = styled('div', {
     gridAutoColumns: 128,
     gridAutoFlow: 'column',
     gridAutoRows: 'auto',
-    marginInline: -16,
+    gridColumn: '1/-1 !important',
     overflowX: 'scroll',
     overflowY: 'visible',
     paddingBlock: 'md',
-    paddingInline: 'md',
+    paddingInline: 'viewport',
   },
 })
 
@@ -43,11 +44,11 @@ export function Carousel<T extends WithId>({
   const renderedItems = items.map(renderItem)
 
   return (
-    <section aria-labelledby={id}>
+    <Section aria-labelledby={id}>
       <Text as="h2" display id={id} size="lg">
         {title}
       </Text>
       <Grid>{renderedItems}</Grid>
-    </section>
+    </Section>
   )
 }
