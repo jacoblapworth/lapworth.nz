@@ -12,6 +12,7 @@
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "format": "biome check --write",
+    "lint": "biome check",
     "start": "wrangler dev",
     "test": "vitest",
     "types:check": "tsc --noEmit",

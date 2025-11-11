@@ -3,6 +3,7 @@
   "extends": "//",
   "linter": {
     "domains": {
+      "next": "recommended",
       "react": "recommended"
     }
   }

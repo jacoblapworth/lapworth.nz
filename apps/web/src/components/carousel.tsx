@@ -35,10 +35,11 @@ export function Carousel<T extends WithId>({
   items,
   renderItem,
 }: CarouselProps<T>) {
+  const id = useId()
+
   if (items.length === 0) {
     return null
   }
-  const id = useId()
 
   const renderedItems = items.map(renderItem)
 

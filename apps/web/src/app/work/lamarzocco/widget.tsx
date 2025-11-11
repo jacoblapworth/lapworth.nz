@@ -102,7 +102,7 @@ export function LaMarzoccoWidget() {
       time: addSeconds(now, SLEEP_DURATION_SECONDS),
     })
     timeout.current = setTimeout(setOff, SLEEP_DURATION_SECONDS * 1000)
-  }, [timeout, now, setOff])
+  }, [now, setOff])
 
   const startHeating = useCallback(() => {
     setState({
@@ -110,7 +110,7 @@ export function LaMarzoccoWidget() {
       time: addSeconds(now, WARMUP_DURATION_SECONDS),
     })
     timeout.current = setTimeout(setOn, WARMUP_DURATION_SECONDS * 1000)
-  }, [timeout, now, setOn])
+  }, [now, setOn])
 
   const onPowerToggle = useCallback(() => {
     setShowTooltip(false)

@@ -1,6 +1,6 @@
+import { memo } from 'react'
 import { isAnyOf, uniq } from '../lib/array'
 import { isColumnOptionArray } from '../lib/helpers'
-import { memo } from '../lib/memo'
 import type {
   Column,
   ColumnConfig,
@@ -216,72 +216,19 @@ export function getColumnOptions<TData, TType extends ColumnDataType, TVal>(
     )
   }
 
-  if (column.transformOptionFn) {
-    // Memoize transformOptionFn calls
-    const memoizedTransform = memo(
-      () => [models],
-      (deps) =>
-        (deps[0] ?? [])
-          .map((m) =>
-            column.transformOptionFn?.(m as ElementType<NonNullable<TVal>>),
-          )
-          .filter(Boolean),
-      { key: `transform-${column.id}` },
-    )
-    return memoizedTransform()
-  }
+  // if (column.transformOptionFn) {
+  //   // Memoize transformOptionFn calls
+  //   const memoizedTransform = (model) =>
+  //       (deps[0] ?? [])
+  //         .map((m) =>
+  //           column.transformOptionFn?.(m as ElementType<NonNullable<TVal>>),
+  //         )
+  //         .filter(Boolean),
+
+  //   return memoizedTransform() ?? []
+  // }
 
   if (isColumnOptionArray(models)) return models
-
-  throw new Error(
-    `[data-table-filter] [${column.id}] Either provide static options, a transformOptionFn, or ensure the column data conforms to ColumnOption type`,
-  )
-}
-
-export function getColumnValues<TData, TType extends ColumnDataType, TVal>(
-  column: ColumnConfig<TData, TType, TVal>,
-  data: TData[],
-) {
-  // Memoize accessor calls
-  const memoizedAccessor = memo(
-    () => [data],
-    (deps) =>
-      (deps[0] ?? [])
-        .flatMap(column.accessor)
-        .filter(
-          (v): v is NonNullable<TVal> => v !== undefined && v !== null,
-        ) as ElementType<NonNullable<TVal>>[],
-    { key: `accessor-${column.id}` },
-  )
-
-  const raw = memoizedAccessor()
-
-  if (!isAnyOf(column.type, ['option', 'multiOption'])) {
-    return raw
-  }
-
-  if (column.options) {
-    return raw
-      .map((v) => column.options?.find((o) => o.value === v)?.value)
-      .filter((v) => v !== undefined && v !== null)
-  }
-
-  if (column.transformOptionFn) {
-    const memoizedTransform = memo(
-      () => [raw],
-      (deps) =>
-        (deps[0] ?? []).map(
-          (v) =>
-            column.transformOptionFn?.(v) as ElementType<NonNullable<TVal>>,
-        ),
-      { key: `transform-values-${column.id}` },
-    )
-    return memoizedTransform()
-  }
-
-  if (isColumnOptionArray(raw)) {
-    return raw
-  }
 
   throw new Error(
     `[data-table-filter] [${column.id}] Either provide static options, a transformOptionFn, or ensure the column data conforms to ColumnOption type`,
@@ -356,117 +303,4 @@ export function getFacetedMinMaxValues<
   const max = Math.max(...values)
 
   return [min, max]
-}
-
-export function createColumns<TData>(
-  data: TData[],
-  columnConfigs: ReadonlyArray<ColumnConfig<TData, any, any, any>>,
-  strategy: FilterStrategy,
-): Column<TData>[] {
-  return columnConfigs.map((columnConfig) => {
-    const getOptions: () => ColumnOption[] = memo(
-      () => [data, strategy, columnConfig.options],
-      ([data, strategy]) =>
-        getColumnOptions(columnConfig, data as any, strategy as any),
-      { key: `options-${columnConfig.id}` },
-    )
-
-    const getValues: () => ElementType<NonNullable<any>>[] = memo(
-      () => [data, strategy],
-      () => (strategy === 'client' ? getColumnValues(columnConfig, data) : []),
-      { key: `values-${columnConfig.id}` },
-    )
-
-    const getUniqueValues: () => Map<string, number> | undefined = memo(
-      () => [getValues(), strategy],
-      ([values, strategy]) =>
-        getFacetedUniqueValues(columnConfig, values as any, strategy as any),
-      { key: `faceted-${columnConfig.id}` },
-    )
-
-    const getMinMaxValues: () => [number, number] | undefined = memo(
-      () => [data, strategy],
-      () => getFacetedMinMaxValues(columnConfig, data, strategy),
-      { key: `minmax-${columnConfig.id}` },
-    )
-
-    // Create the Column instance
-    const column: Column<TData> = {
-      ...columnConfig,
-      _prefetchedFacetedMinMaxValuesCache: null,
-      _prefetchedFacetedUniqueValuesCache: null,
-      _prefetchedOptionsCache: null, // Initialize private cache
-      _prefetchedValuesCache: null,
-      getFacetedMinMaxValues: getMinMaxValues,
-      getFacetedUniqueValues: getUniqueValues,
-      getOptions,
-      getValues,
-      prefetchFacetedMinMaxValues: async () => {},
-      prefetchFacetedUniqueValues: async () => {},
-      // Prefetch methods will be added below
-      prefetchOptions: async () => {}, // Placeholder, defined below
-      prefetchValues: async () => {},
-    }
-
-    if (strategy === 'client') {
-      // Define prefetch methods with access to the column instance
-      column.prefetchOptions = async (): Promise<void> => {
-        if (!column._prefetchedOptionsCache) {
-          await new Promise((resolve) =>
-            setTimeout(() => {
-              const options = getOptions()
-              column._prefetchedOptionsCache = options
-              // console.log(`Prefetched options for ${columnConfig.id}`)
-              resolve(undefined)
-            }, 0),
-          )
-        }
-      }
-
-      column.prefetchValues = async (): Promise<void> => {
-        if (!column._prefetchedValuesCache) {
-          await new Promise((resolve) =>
-            setTimeout(() => {
-              const values = getValues()
-              column._prefetchedValuesCache = values
-              // console.log(`Prefetched values for ${columnConfig.id}`)
-              resolve(undefined)
-            }, 0),
-          )
-        }
-      }
-
-      column.prefetchFacetedUniqueValues = async (): Promise<void> => {
-        if (!column._prefetchedFacetedUniqueValuesCache) {
-          await new Promise((resolve) =>
-            setTimeout(() => {
-              const facetedMap = getUniqueValues()
-              column._prefetchedFacetedUniqueValuesCache = facetedMap ?? null
-              // console.log(
-              //   `Prefetched faceted unique values for ${columnConfig.id}`,
-              // )
-              resolve(undefined)
-            }, 0),
-          )
-        }
-      }
-
-      column.prefetchFacetedMinMaxValues = async (): Promise<void> => {
-        if (!column._prefetchedFacetedMinMaxValuesCache) {
-          await new Promise((resolve) =>
-            setTimeout(() => {
-              const value = getMinMaxValues()
-              column._prefetchedFacetedMinMaxValuesCache = value ?? null
-              // console.log(
-              //   `Prefetched faceted min/max values for ${columnConfig.id}`,
-              // )
-              resolve(undefined)
-            }, 0),
-          )
-        }
-      }
-    }
-
-    return column
-  })
 }
