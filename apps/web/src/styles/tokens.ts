@@ -282,6 +282,9 @@ export const semanticTokens = defineSemanticTokens({
       },
     },
   },
+  spacing: {
+    viewport: { value: '{spacing.md}' },
+  },
 })
 
 export const tradeMeColors = defineTokens.colors({
