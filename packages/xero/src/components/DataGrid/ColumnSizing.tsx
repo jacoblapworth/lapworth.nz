@@ -24,13 +24,9 @@ const ColumnSizeContext = createContext<ColumnSizeContextValue>({
   headers: new Map(),
 })
 
-interface ColumnSizeProviderProps<TData extends RowData> {
-  children: ReactNode
-  table: Table<TData>
-}
-
 export function useColumnSizes<TData extends RowData>(table: Table<TData>) {
   const { columnSizingInfo, columnSizing } = table.getState()
+  // biome-ignore lint/correctness/useExhaustiveDependencies: requires deep comparison
   const sizes = useMemo(() => {
     const columns = new Map<string, number>()
     const headers = new Map<string, number>()
