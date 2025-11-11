@@ -28,7 +28,7 @@ import { cva } from '@/styled/css'
 import { HStack, styled } from '@/styled/jsx'
 import { Button } from '../Button'
 import { SrOnly } from '../SrOnly'
-import { HeaderResizeHandle, useColumnSizes } from './ColumnSizing'
+import { DataGridColumnResizeHandle, useColumnSizes } from './ColumnSizing'
 import { DataCell } from './DataCell'
 import { type TableHeadDropdownProps, TableHeadMenu } from './HeadMenu'
 import { TableScrollContainer, useTableScroll } from './ScrollContainer'
@@ -59,7 +59,7 @@ export function DataGrid<TData extends RowData>({ table }: TableProps<TData>) {
         }}
         // {...listeners}
       >
-        <TableHead headerGroups={table.getHeaderGroups()} />
+        <TableHead headerGroups={table.getHeaderGroups()} table={table} />
         {table.getState().columnSizingInfo.isResizingColumn ? (
           <MemoizedTableBody table={table} />
         ) : (
@@ -207,14 +207,16 @@ export const TR = styled(
 )
 
 export function TableHead<TData extends RowData>({
+  table,
   headerGroups,
 }: {
+  table: ReactTable<TData>
   headerGroups: HeaderGroup<TData>[]
 }) {
   return (
     <THead>
       {headerGroups.map(({ id, headers }) => (
-        <TableHeadRow headers={headers} key={id} />
+        <TableHeadRow headers={headers} key={id} table={table} />
       ))}
     </THead>
   )
@@ -222,21 +224,25 @@ export function TableHead<TData extends RowData>({
 
 export function TableHeadRow<TData extends RowData>({
   headers,
+  table,
 }: {
   headers: Header<TData, unknown>[]
+  table: ReactTable<TData>
 }) {
   return (
     <THeadRow>
       {headers.map((header) => (
-        <TableHeadCell header={header} key={header.id} />
+        <TableHeadCell header={header} key={header.id} table={table} />
       ))}
     </THeadRow>
   )
 }
 
 export function TableHeadCell<TData extends RowData, TValue>({
+  table,
   header,
 }: {
+  table: ReactTable<TData>
   header: Header<TData, TValue>
 }) {
   const { column, getContext } = header
@@ -274,7 +280,9 @@ export function TableHeadCell<TData extends RowData, TValue>({
           <TableHeadMenu header={header}>{children}</TableHeadMenu>
         )}
       </DataCell>
-      {canResize && <HeaderResizeHandle header={header} />}
+      {canResize && (
+        <DataGridColumnResizeHandle header={header} label={''} table={table} />
+      )}
       {showOverflow && <ColumnOverflowIndicator position={isPinned} />}
     </TH>
   )
