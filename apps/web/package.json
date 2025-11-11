@@ -68,7 +68,7 @@
   "description": "Kopaki – personal website for J Lapworth",
   "devDependencies": {
     "@biomejs/biome": "catalog:",
-    "@chromatic-com/storybook": "4.1.1",
+    "@chromatic-com/storybook": "4.1.2",
     "@next/bundle-analyzer": "16.0.1",
     "@pandacss/dev": "1.4.3",
     "@react-email/preview-server": "5.0.1",
