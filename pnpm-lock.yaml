@@ -87,8 +87,8 @@ importers:
         specifier: 3.15.0
         version: 3.15.0
       '@shikijs/transformers':
-        specifier: 3.14.0
-        version: 3.14.0
+        specifier: 3.15.0
+        version: 3.15.0
       '@t3-oss/env-nextjs':
         specifier: 0.13.8
         version: 0.13.8(typescript@5.9.3)(zod@4.1.12)
@@ -3539,8 +3539,8 @@ packages:
   '@shikijs/themes@3.15.0':
     resolution: {integrity: sha512-8ow2zWb1IDvCKjYb0KiLNrK4offFdkfNVPXb1OZykpLCzRU6j+efkY+Y7VQjNlNFXonSw+4AOdGYtmqykDbRiQ==}
 
-  '@shikijs/transformers@3.14.0':
-    resolution: {integrity: sha512-i67zQnY9wLMMnKasonVW1L9fKneSLZDj1ePsA4o0AZWU4uUobmJY9baRDa36z+a9/g0aG76/2tybQvm4hrwxIQ==}
+  '@shikijs/transformers@3.15.0':
+    resolution: {integrity: sha512-Hmwip5ovvSkg+Kc41JTvSHHVfCYF+C8Cp1omb5AJj4Xvd+y9IXz2rKJwmFRGsuN0vpHxywcXJ1+Y4B9S7EG1/A==}
 
   '@shikijs/types@3.14.0':
     resolution: {integrity: sha512-bQGgC6vrY8U/9ObG1Z/vTro+uclbjjD/uG58RvfxKZVD5p9Yc1ka3tVyEFy7BNJLzxuWyHH5NWynP9zZZS59eQ==}
@@ -12908,10 +12908,10 @@ snapshots:
     dependencies:
       '@shikijs/types': 3.15.0
 
-  '@shikijs/transformers@3.14.0':
+  '@shikijs/transformers@3.15.0':
     dependencies:
-      '@shikijs/core': 3.14.0
-      '@shikijs/types': 3.14.0
+      '@shikijs/core': 3.15.0
+      '@shikijs/types': 3.15.0
 
   '@shikijs/types@3.14.0':
     dependencies:
