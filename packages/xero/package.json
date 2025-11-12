@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@ariakit/react": "0.4.19",
+    "@ariakit/react": "catalog:",
     "@faker-js/faker": "10.1.0",
     "@gsap/react": "2.1.2",
     "@number-flow/react": "0.5.10",
@@ -19,16 +19,22 @@
     "@biomejs/biome": "catalog:",
     "@pandacss/dev": "1.4.3",
     "@pandacss/types": "1.4.3",
+    "@storybook/addon-docs": "^10.0.7",
+    "@storybook/react-vite": "^10.0.7",
     "@total-typescript/ts-reset": "0.6.1",
     "@total-typescript/tsconfig": "1.0.4",
     "@types/node": "24.10.0",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.2",
-    "@vitejs/plugin-react": "^5.0.4",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "^5.1.0",
     "rollup-plugin-preserve-directives": "0.4.0",
     "rollup-plugin-preserve-use-client": "3.0.1",
+    "storybook": "^10.0.7",
     "tsdown": "0.16.1",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "catalog:"
   },
   "exports": {
     ".": "./dist/index.js",
@@ -55,9 +61,7 @@
     "./package.json": "./package.json",
     "./styles.css": "./.styled/styles.css"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "name": "@lapworth/xero",
@@ -68,10 +72,12 @@
   },
   "scripts": {
     "build": "tsdown",
+    "build:storybook": "storybook build",
     "css": "mkdir -p dist && panda cssgen",
     "css:watch": "panda cssgen --watch",
     "dev": "tsdown --watch ./src --no-clean",
     "format": "biome check --write",
+    "storybook": "storybook dev -p 6007 --no-open",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tokens": "panda codegen",
     "tokens:watch": "panda codegen --watch",
