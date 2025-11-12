@@ -1,7 +1,7 @@
 import { Link } from '@/components/link'
 import { styled } from '@/styled/jsx'
 
-import { Text } from '../../components/text'
+import { Text } from '../@/components/text'
 
 interface ExperienceRowProps {
   title?: string

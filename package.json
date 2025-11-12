@@ -17,6 +17,7 @@
     "lint": "turbo run lint",
     "lint:ci": "biome ci --reporter=github",
     "start": "turbo run start",
+    "storybook": "turbo run storybook",
     "test": "turbo run test",
     "types:check": "turbo run types:check"
   }

@@ -1,5 +1,6 @@
-import type { Preview } from '@storybook/react-vite'
+import type { Preview } from '@storybook/nextjs-vite'
 import '../src/index.css'
+import nextIntl from './next-intl'
 
 const preview: Preview = {
   parameters: {
@@ -9,6 +10,8 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+
+    nextIntl,
   },
   tags: ['autodocs'],
 }

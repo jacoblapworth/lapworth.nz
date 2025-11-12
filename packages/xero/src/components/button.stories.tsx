@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { fn } from 'storybook/test'
 
@@ -7,6 +7,7 @@ import { Button as Component } from './Button'
 const meta = {
   args: {
     children: 'Button',
+    isLoading: false,
     onClick: fn(),
   },
   component: Component,
@@ -49,5 +50,18 @@ export const Small: Story = {
 export const XSmall: Story = {
   args: {
     size: 'xs',
+  },
+}
+
+export const Loading: Story = {
+  args: {
+    isLoading: true,
+    variant: 'primary',
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
   },
 }
