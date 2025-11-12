@@ -54,7 +54,7 @@ importers:
   apps/web:
     dependencies:
       '@ariakit/react':
-        specifier: 0.4.19
+        specifier: 'catalog:'
         version: 0.4.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@faker-js/faker':
         specifier: 10.1.0
