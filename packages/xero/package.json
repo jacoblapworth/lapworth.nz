@@ -57,7 +57,7 @@
     "./components/Toggle": "./dist/components/Toggle.js",
     "./components/Tooltip": "./dist/components/Tooltip.js",
     "./examples": "./dist/examples/index.js",
-    "./examples/FormExample": "./dist/examples/FormExample.js",
+    "./examples/form": "./dist/examples/form.js",
     "./package.json": "./package.json",
     "./styles.css": "./.styled/styles.css"
   },

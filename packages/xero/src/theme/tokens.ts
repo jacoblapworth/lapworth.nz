@@ -24,7 +24,7 @@ export const tokens = defineTokens({
     },
   },
   fonts: {
-    inter: { value: 'var(--fonts-inter)' },
+    inter: { value: 'Inter' },
   },
   radii: {
     lg: { value: '12px' },

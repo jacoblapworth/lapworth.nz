@@ -158,7 +158,7 @@ const columns = [
   // defaultColumns.showColumn(columnHelper),
 ]
 
-export default function Page() {
+export function DataTableExample() {
   const [data] = useState<InvoiceRow[]>(initialData)
   const [columnFilters, onColumnFiltersChange] = useState<ColumnFiltersState>(
     [],
