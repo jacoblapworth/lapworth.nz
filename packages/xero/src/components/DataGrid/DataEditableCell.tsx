@@ -76,17 +76,21 @@ export function DataEditableCell({ defaultValue = '', validate }: Props) {
     focusLoop: false,
     focusShift: true,
     focusWrap: 'horizontal',
-
     setValue: (value) => {
       startTransition(() => {
         setValue(value)
       })
     },
     // value,
+    value,
   })
 
   const onCancel = () => {
-    setValue(defaultValue)
+    startTransition(() => {
+      setValue(defaultValue)
+    })
+
+    combobox.hide()
   }
 
   const onSave = () => {

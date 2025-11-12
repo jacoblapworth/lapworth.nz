@@ -80,8 +80,6 @@ export const TableStyles = cva({
     fontSize: 13,
     lineHeight: '20px',
     marginBottom: 1,
-    minWidth: '100%',
-    // height: 1,
     paddingBlockEnd: 16,
     tableLayout: 'fixed',
   },
@@ -267,11 +265,12 @@ export function TableHeadCell<TData extends RowData, TValue>({
       style={{
         left: isPinned === 'left' ? column.getStart('left') : undefined,
         right: isPinned === 'right' ? column.getStart('right') : undefined,
-        width: `var(--column-${column.id}-size)`,
+        width: `calc(var(--column-${column.id}-size) * 1px)`,
       }}
     >
       <DataCell
         alignment={column.columnDef.meta?.alignment}
+        isEditable={column.columnDef.meta?.isEditable}
         variant={isDisplay ? 'display' : 'accessor'}
       >
         {isDisplay ? (
@@ -458,7 +457,7 @@ export function TableCell<TData extends RowData, TValue>({
       style={{
         left: isPinned === 'left' ? cell.column.getStart('left') : undefined,
         right: isPinned === 'right' ? cell.column.getStart('right') : undefined,
-        width: `var(--column-${cell.column.id}-size)`,
+        width: `calc(var(--column-${cell.column.id}-size) * 1px)`,
         // width: cell.column.getSize(),
       }}
     >
