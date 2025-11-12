@@ -268,17 +268,13 @@ export function TableHeadCell<TData extends RowData, TValue>({
         width: `calc(var(--column-${column.id}-size) * 1px)`,
       }}
     >
-      <DataCell
-        alignment={column.columnDef.meta?.alignment}
-        isEditable={column.columnDef.meta?.isEditable}
-        variant={isDisplay ? 'display' : 'accessor'}
-      >
+      <HStack paddingInlineEnd={2} paddingInlineStart={6}>
         {isDisplay ? (
           children
         ) : (
           <TableHeadMenu header={header}>{children}</TableHeadMenu>
         )}
-      </DataCell>
+      </HStack>
       {canResize && (
         <DataGridColumnResizeHandle header={header} label={''} table={table} />
       )}

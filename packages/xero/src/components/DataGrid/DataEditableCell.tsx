@@ -81,7 +81,6 @@ export function DataEditableCell({ defaultValue = '', validate }: Props) {
         setValue(value)
       })
     },
-    // value,
     value,
   })
 
@@ -155,6 +154,7 @@ export function DataEditableCell({ defaultValue = '', validate }: Props) {
           gutter={8}
           hideOnEscape={!isDirty}
           hideOnInteractOutside={!isDirty}
+          margin={0}
           unmountOnHide
         >
           <Ariakit.ComboboxRow
@@ -165,7 +165,7 @@ export function DataEditableCell({ defaultValue = '', validate }: Props) {
             <Ariakit.ComboboxItem
               hideOnClick
               onClick={onCancel}
-              render={<Button size="sm" variant="secondary" />}
+              render={<Button size="xs" variant="secondary" />}
             >
               Cancel
             </Ariakit.ComboboxItem>
@@ -174,7 +174,7 @@ export function DataEditableCell({ defaultValue = '', validate }: Props) {
               disabled={!isDirty}
               onClick={onSave}
               render={
-                <Button isLoading={isLoading} size="sm" variant="primary" />
+                <Button isLoading={isLoading} size="xs" variant="primary" />
               }
             >
               Save
