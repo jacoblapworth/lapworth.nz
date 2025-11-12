@@ -1,8 +1,6 @@
-import { memo } from 'react'
 import { isAnyOf, uniq } from '../lib/array'
 import { isColumnOptionArray } from '../lib/helpers'
 import type {
-  Column,
   ColumnConfig,
   ColumnDataType,
   ColumnOption,

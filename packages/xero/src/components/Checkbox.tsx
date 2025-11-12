@@ -11,7 +11,7 @@ import { styled } from '@/styled/jsx'
 gsap.registerPlugin(DrawSVGPlugin)
 
 import type { CheckboxProps } from '@ariakit/react'
-import { memo, useRef } from 'react'
+import { useRef } from 'react'
 
 /**
  * Check icon for the menuitem checkbox.
