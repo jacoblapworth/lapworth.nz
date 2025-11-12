@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-
+import type { ComponentProps } from 'react'
+import { useArgs } from 'storybook/internal/preview-api'
 import { fn } from 'storybook/test'
-
 import { Checkbox as Component } from './Checkbox'
 
 const meta = {
@@ -11,6 +11,16 @@ const meta = {
     onChange: fn(),
   },
   component: Component,
+  render: () => {
+    const [args, updateArgs] = useArgs<ComponentProps<typeof Component>>()
+
+    return (
+      <Component
+        {...args}
+        onChange={(e) => updateArgs({ checked: e.target.checked })}
+      />
+    )
+  },
   title: 'Components/Checkbox',
 } satisfies Meta<typeof Component>
 

@@ -3,14 +3,16 @@
 import { VisuallyHidden } from '@ariakit/react'
 import type { RowData, Table } from '@tanstack/react-table'
 import { CircleXIcon, SearchIcon } from 'lucide-react'
-import { type ReactNode, useId, useRef, useState } from 'react'
+import { type ReactNode, useId, useRef } from 'react'
 import { styled } from '@/styled/jsx'
 
 const Container = styled('div', {
   base: {
     _focusWithin: {
-      outline: '2px solid',
+      outlineColor: 'border.focus',
       outlineOffset: 2,
+      outlineStyle: 'solid',
+      outlineWidth: 2,
     },
     alignItems: 'center',
     borderColor: 'border.subtle',

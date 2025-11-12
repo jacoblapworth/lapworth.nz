@@ -71,6 +71,7 @@ export function CollapsibleRow({ children }: { children: React.ReactNode }) {
 }
 
 export function useTable<TData extends RowData>({
+  meta,
   initialState: { pagination, ...initialState } = {},
   ...props
 }: Omit<
@@ -100,6 +101,9 @@ export function useTable<TData extends RowData>({
         ...pagination,
       },
       ...initialState,
+    },
+    meta: {
+      ...meta,
     },
 
     // onColumnFiltersChange: (e) => {

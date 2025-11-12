@@ -14,11 +14,6 @@ export const SelectStyles = cva({
       cursor: 'not-allowed',
       opacity: 0.6,
     },
-    _focus: {
-      borderColor: 'primary',
-      boxShadow: 'focus',
-      outline: 'none',
-    },
     _hover: {
       borderColor: 'border.regular',
     },
