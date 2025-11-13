@@ -12,10 +12,10 @@ const styles = cva({
   compoundVariants: [
     {
       css: {
-        marginBlock: '4rem',
+        marginBlock: '4',
         maxWidth: '25ch',
         sm: {
-          marginBlock: '5rem',
+          marginBlock: '5',
         },
         textStyle: 'display.xl',
       },
@@ -24,9 +24,9 @@ const styles = cva({
     },
     {
       css: {
-        marginBlock: '2rem',
+        marginBlock: '2',
         sm: {
-          marginBlock: '3rem',
+          marginBlock: '3',
         },
         textStyle: 'display.lg',
       },

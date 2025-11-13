@@ -8,7 +8,7 @@ export const Tooltip = styled(Ariakit.Tooltip, {
     borderStyle: 'solid',
     borderWidth: 1,
     color: 'text',
-    padding: '8px 12px',
+    padding: 'sm 12',
   },
   variants: {},
 })
