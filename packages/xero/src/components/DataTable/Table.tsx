@@ -29,7 +29,7 @@ import {
 
 const Container = styled('div', {
   base: {
-    backgroundColor: 'white',
+    backgroundColor: 'background',
     borderColor: 'border.subtle',
     borderRadius: 6,
     borderStyle: 'solid',
