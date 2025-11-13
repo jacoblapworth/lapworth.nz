@@ -4,7 +4,6 @@ import { globalCss } from '@/theme/global'
 
 export default defineConfig({
   conditions: {
-    dark: '[data-theme="dark"] &, &.dark, .dark &',
     extend: {
       active: '&:not(:disabled):is(:active, [data-active])',
       activeItem: '&[data-active-item]',
@@ -15,7 +14,6 @@ export default defineConfig({
       hover: '&:not(:disabled):is(:hover, [data-hover])',
       marker: '&::marker, &::-webkit-details-marker',
     },
-    light: '[data-theme="light"] &, &.light, .light &',
   },
   exclude: [],
   globalCss,
