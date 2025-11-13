@@ -181,18 +181,20 @@ export const semanticTokens = defineSemanticTokens({
       },
     },
     border: {
+      subtle: {
+        value: {
+          _dark: 'rgba(255, 255, 255, 0.1)',
+          base: 'rgba(0, 0, 0, 0.1)',
+        },
+      },
       value: '{colors.divider}',
     },
-    borderSubtle: {
-      value: {
-        _dark: 'rgba(255, 255, 255, 0.1)',
-        base: 'rgba(0, 0, 0, 0.1)',
-      },
-    },
-    codeHighlight: {
-      value: {
-        _dark: 'rgba(255, 255, 255, 0.1)',
-        base: 'rgba(0, 0, 0, 0.03)',
+    code: {
+      highlight: {
+        value: {
+          _dark: 'rgba(255, 255, 255, 0.1)',
+          base: 'rgba(0, 0, 0, 0.03)',
+        },
       },
     },
     critical: {
