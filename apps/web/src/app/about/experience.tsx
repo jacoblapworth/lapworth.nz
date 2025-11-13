@@ -1,7 +1,6 @@
 import { Link } from '@/components/link'
+import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
-
-import { Text } from '../@/components/text'
 
 interface ExperienceRowProps {
   title?: string
@@ -29,7 +28,7 @@ const Row = styled('div', {
   },
 })
 
-const ExperienceRow = ({ workplace, from, to, href }: ExperienceRowProps) => {
+function ExperienceRow({ workplace, from, to, href }: ExperienceRowProps) {
   return (
     <Row>
       <Link href={href}>{workplace}</Link>
@@ -52,7 +51,7 @@ const Stack = styled('div', {
   },
 })
 
-export const Experience = () => {
+export function Experience() {
   return (
     <div>
       <Text as="h2" display size="lg">

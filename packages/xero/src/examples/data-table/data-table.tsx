@@ -1,4 +1,10 @@
 import {
+  type ColumnFiltersState,
+  createColumnHelper,
+} from '@tanstack/react-table'
+import { CheckCircleIcon, TrashIcon } from 'lucide-react'
+import { useState } from 'react'
+import {
   Checkbox,
   CurrencyCell,
   DataEditableCell,
@@ -6,13 +12,7 @@ import {
   Table,
   Tag,
   useTable,
-} from '@lapworth/xero'
-import {
-  type ColumnFiltersState,
-  createColumnHelper,
-} from '@tanstack/react-table'
-import { CheckCircleIcon, TrashIcon } from 'lucide-react'
-import { useState } from 'react'
+} from '@/components'
 import { initialData } from './data'
 import { getInvoiceStatus, type InvoiceRow } from './model'
 

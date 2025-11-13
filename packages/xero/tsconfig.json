@@ -13,10 +13,5 @@
   },
   "exclude": ["node_modules", "dist"],
   "extends": "@total-typescript/tsconfig/bundler/dom/library-monorepo",
-  "include": [
-    "**/*.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-  ]
+  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"]
 }

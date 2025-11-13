@@ -36,7 +36,7 @@ export function Spinner({
   srText = 'Loading',
   ...props
 }: Props) {
-  const size = sizeMap[sizeKey]
+  const _size = sizeMap[sizeKey]
   const hasHiddenLabel = !!srText
   const labelId = useId()
 

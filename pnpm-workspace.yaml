@@ -18,6 +18,7 @@ catalog:
 linkWorkspacePackages: true
 
 onlyBuiltDependencies:
+  - '@swc/core'
   - '@vercel/speed-insights'
   - core-js
   - core-js-pure
