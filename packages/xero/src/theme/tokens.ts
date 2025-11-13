@@ -42,73 +42,210 @@ export const semanticTokens = defineSemanticTokens({
   },
   colors: {
     action: {
-      active: { value: '#1C5DC5' },
-      DEFAULT: { value: '{colors.blue}' },
-      disabled: { value: '#828995' },
-      focus: { value: '#1C5DC5' },
-      hover: { value: '#184390' },
+      active: {
+        value: {
+          _dark: '#4A90E2',
+          base: '#1C5DC5',
+        },
+      },
+      DEFAULT: {
+        value: {
+          _dark: '#5BA3FF',
+          base: '{colors.blue}',
+        },
+      },
+      disabled: {
+        value: {
+          _dark: '#5A6270',
+          base: '#828995',
+        },
+      },
+      focus: {
+        value: {
+          _dark: '#4A90E2',
+          base: '#1C5DC5',
+        },
+      },
+      hover: {
+        value: {
+          _dark: '#6BB0FF',
+          base: '#184390',
+        },
+      },
     },
     background: {
-      inform: { value: '#F0F9FE' },
-      negative: { value: '#FFF6F7' },
-      neutral: { value: '#F6F6F8' },
-      positive: { value: '#F0FBF3' },
+      inform: {
+        value: {
+          _dark: '#0D2940',
+          base: '#F0F9FE',
+        },
+      },
+      negative: {
+        value: {
+          _dark: '#3D1A1F',
+          base: '#FFF6F7',
+        },
+      },
+      neutral: {
+        value: {
+          _dark: '#1A1F2E',
+          base: '#F6F6F8',
+        },
+      },
+      positive: {
+        value: {
+          _dark: '#0F2E1C',
+          base: '#F0FBF3',
+        },
+      },
       primary: {
         DEFAULT: {
           value: {
-            // _dark: '#081F33',
+            _dark: '#081F33',
             base: '#FFFFFF',
           },
         },
-        inverse: { value: '#081F33' },
+        inverse: {
+          value: {
+            _dark: '#FFFFFF',
+            base: '#081F33',
+          },
+        },
       },
-      quaternary: { value: '#E1E2E5' },
-      secondary: { value: '#F6F6F8' },
-      tertiary: { value: '#EFF0F3' },
-      warning: { value: '#FEF8E4' },
+      quaternary: {
+        value: {
+          _dark: '#2A3142',
+          base: '#E1E2E5',
+        },
+      },
+      secondary: {
+        value: {
+          _dark: '#0F1621',
+          base: '#F6F6F8',
+        },
+      },
+      tertiary: {
+        value: {
+          _dark: '#1A2231',
+          base: '#EFF0F3',
+        },
+      },
+      warning: {
+        value: {
+          _dark: '#3D2E0F',
+          base: '#FEF8E4',
+        },
+      },
     },
     border: {
       focus: { value: '{colors.action}' },
-      regular: { value: '#A6AAB1' },
-      soft: { value: '#E1E2E5' },
-      strong: { value: '#828995' },
-      subtle: { value: '#CFD1D5' },
+      regular: {
+        value: {
+          _dark: '#3D4452',
+          base: '#A6AAB1',
+        },
+      },
+      soft: {
+        value: {
+          _dark: '#2A3142',
+          base: '#E1E2E5',
+        },
+      },
+      strong: {
+        value: {
+          _dark: '#4D5563',
+          base: '#828995',
+        },
+      },
+      subtle: {
+        value: {
+          _dark: '#343B4A',
+          base: '#CFD1D5',
+        },
+      },
     },
     icon: {
-      DEFAULT: { value: '#1E3145' },
-      faint: { value: '#616B7A' },
-      inverse: { value: '#FFF' },
-      muted: { value: '#424F60' },
+      DEFAULT: {
+        value: {
+          _dark: '#E1E4E8',
+          base: '#1E3145',
+        },
+      },
+      faint: {
+        value: {
+          _dark: '#9198A1',
+          base: '#616B7A',
+        },
+      },
+      inverse: {
+        value: {
+          _dark: '#1E3145',
+          base: '#FFF',
+        },
+      },
+      muted: {
+        value: {
+          _dark: '#A6ACB5',
+          base: '#424F60',
+        },
+      },
     },
     inform: {
-      value: '{colors.blue}',
+      value: {
+        _dark: '#5BA3FF',
+        base: '{colors.blue}',
+      },
     },
     negative: {
-      value: '#C31230',
+      value: {
+        _dark: '#FF5B7A',
+        base: '#C31230',
+      },
     },
     positive: {
-      value: '#0F7B3D',
+      value: {
+        _dark: '#5EC689',
+        base: '#0F7B3D',
+      },
     },
     text: {
       DEFAULT: {
         value: '{colors.text.primary}',
       },
-      faint: { value: '#616B7A' },
+      faint: {
+        value: {
+          _dark: '#9198A1',
+          base: '#616B7A',
+        },
+      },
       inform: { value: '{colors.inform}' },
-      inverse: { value: '#FFF' },
-      muted: { value: '#424F60' },
+      inverse: {
+        value: {
+          _dark: '#1E3145',
+          base: '#FFF',
+        },
+      },
+      muted: {
+        value: {
+          _dark: '#A6ACB5',
+          base: '#424F60',
+        },
+      },
       negative: { value: '{colors.negative}' },
       positive: { value: '{colors.positive}' },
       primary: {
         value: {
-          // _dark: '{colors.text.inverse}',
+          _dark: '#E1E4E8',
           base: '#1E3145',
         },
       },
       warning: { value: '{colors.warning}' },
     },
     warning: {
-      value: '#BB421F',
+      value: {
+        _dark: '#FF9B6B',
+        base: '#BB421F',
+      },
     },
   },
   fontSizes: {
