@@ -1,6 +1,11 @@
 import { defineSemanticTokens, defineTokens } from '@pandacss/dev'
 
 export const tokens = defineTokens({
+  borderWidths: {
+    '1': { value: '1px' },
+    '2': { value: '2px' },
+    '6': { value: '6px' },
+  },
   colors: {
     black: {
       50: {
@@ -123,24 +128,21 @@ export const tokens = defineTokens({
     md: { value: '0 4px 8px {colors.shadow}' },
   },
   sizes: {
+    '1': { value: '1rem' },
+    '2': { value: '2rem' },
     '2xl': { value: '800px' },
+    '3': { value: '3rem' },
     '3xl': { value: '1000px' },
+    '4': { value: '4rem' },
+    '5': { value: '5rem' },
     lg: { value: '32px' },
     md: { value: '16px' },
     sm: { value: '8px' },
     xl: { value: '48px' },
   },
-  borderWidths: {
-    '1': { value: '1px' },
-    '2': { value: '2px' },
-    '6': { value: '6px' },
-  },
   spacing: {
-    '1': { value: '1rem' },
-    '2': { value: '2rem' },
-    '3': { value: '3rem' },
-    '4': { value: '4rem' },
-    '5': { value: '5rem' },
+    '2xl': { value: '64px' },
+    '2xs': { value: '2px' },
     '6': { value: '6px' },
     '12': { value: '12px' },
     '20': { value: '20px' },
@@ -148,6 +150,7 @@ export const tokens = defineTokens({
     lg: { value: '32px' },
     md: { value: '16px' },
     sm: { value: '8px' },
+    xl: { value: '48px' },
     xs: { value: '4px' },
   },
   zIndex: {

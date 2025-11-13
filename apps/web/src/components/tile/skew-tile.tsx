@@ -48,7 +48,7 @@ const cardStyles = css({
   borderColor: 'border.subtle',
   borderRadius: 'lg',
   borderStyle: 'solid',
-  borderWidth: 'borderWidths.1',
+  borderWidth: '1',
   boxSizing: 'border-box',
   display: 'block',
   overflow: 'hidden',

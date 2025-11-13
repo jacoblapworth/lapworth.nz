@@ -7,7 +7,7 @@ export const globalCss = defineGlobalStyles({
       outlineColor: 'interactive',
       outlineOffset: 5,
       outlineStyle: 'auto',
-      outlineWidth: 5,
+      outlineWidth: '2xs',
     },
 
     _selection: {

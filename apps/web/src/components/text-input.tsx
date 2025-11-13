@@ -8,7 +8,7 @@ const Input = styled('input', {
   base: {
     borderColor: 'interactive',
     borderStyle: 'solid',
-    borderWidth: 'borderWidths.1',
+    borderWidth: '1',
     marginInlineEnd: '-1',
     padding: 'sm',
   },

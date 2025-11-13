@@ -7,7 +7,12 @@ import { styled } from '@/styled/jsx'
 
 const Container = styled('div', {
   base: {
+    alignItems: 'start',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2xl',
     maxWidth: '100vw',
+    paddingBlock: '2xl',
     sm: {
       maxWidth: '75vw',
     },
