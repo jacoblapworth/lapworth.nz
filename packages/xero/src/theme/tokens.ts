@@ -50,7 +50,7 @@ export const semanticTokens = defineSemanticTokens({
       },
       DEFAULT: {
         value: {
-          _dark: '#5BA3FF',
+          _dark: '#156ffe',
           base: '{colors.blue}',
         },
       },
@@ -101,7 +101,7 @@ export const semanticTokens = defineSemanticTokens({
       primary: {
         DEFAULT: {
           value: {
-            _dark: '#081F33',
+            _dark: '#12171c',
             base: '#FFFFFF',
           },
         },
@@ -208,6 +208,14 @@ export const semanticTokens = defineSemanticTokens({
         base: '#0F7B3D',
       },
     },
+    shadow: {
+      primary: {
+        value: {
+          _dark: '{colors.grey.2/20}',
+          base: '{colors.grey.alpha.6}',
+        },
+      },
+    },
     text: {
       DEFAULT: {
         value: '{colors.text.primary}',
@@ -262,16 +270,16 @@ export const semanticTokens = defineSemanticTokens({
   },
   shadows: {
     hover: {
-      value: '0 8px 16px 0 {colors.grey.alpha.6}',
+      value: '0 8px 16px 0 {colors.shadow.primary}',
     },
     lift: {
       value:
-        '0 0 0 1px {colors.grey.alpha.6}, 0 3px 6px 0 {colors.grey.alpha.6}',
+        '0 0 0 1px {colors.shadow.primary}, 0 3px 6px 0 {colors.shadow.primary}',
     },
     overflow: {
       bottom: {
         value:
-          '0 -1px 0 0 {colors.grey.alpha.6}, 0 -3px 0 0 {colors.grey.alpha.8}',
+          '0 -1px 0 0 {colors.shadow.primary}, 0 -3px 0 0 {colors.grey.alpha.8}',
       },
       left: {
         value:
