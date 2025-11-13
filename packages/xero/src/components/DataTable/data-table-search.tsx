@@ -1,3 +1,5 @@
+'use client'
+
 import type { RowData, Table } from '@tanstack/react-table'
 import { useState } from 'react'
 import { Search } from '../Search'

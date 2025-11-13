@@ -68,7 +68,7 @@
     "./package.json": "./package.json",
     "./styles.css": "./.styled/styles.css"
   },
-  "files": ["dist"],
+  "files": ["dist", ".styled"],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "name": "@lapworth/xero",
