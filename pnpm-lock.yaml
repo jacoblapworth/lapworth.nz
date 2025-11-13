@@ -428,8 +428,8 @@ importers:
         specifier: 1.5.0
         version: 1.5.0(@types/node@24.10.0)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(@upstash/redis@1.35.6)(@vercel/blob@2.0.0)(jiti@2.6.1)(lightningcss@1.25.1)(rollup@4.53.2)(terser@5.44.1)(typescript@5.9.3)(yaml@2.8.1)
       '@pandacss/types':
-        specifier: 1.4.3
-        version: 1.4.3
+        specifier: 1.5.0
+        version: 1.5.0
       '@total-typescript/ts-reset':
         specifier: 0.6.1
         version: 0.6.1
@@ -2844,9 +2844,6 @@ packages:
 
   '@pandacss/token-dictionary@1.5.0':
     resolution: {integrity: sha512-SAHQ2k+MEGiVSDX3ly72oTZvZfgAE8FvXNWO/wpTfN/235swXNkIPKN/7XjlqURcvmNtVti51Kq6Rv7P2Bl25g==}
-
-  '@pandacss/types@1.4.3':
-    resolution: {integrity: sha512-8bz5jqQLhHTYlzVUBxpWMf+lzexQqlZJY8Cot2B7wJjg9T+VK3guTxNJV1ioiGexwcDQrn/MJiNszd6C28djqw==}
 
   '@pandacss/types@1.5.0':
     resolution: {integrity: sha512-ShPyMEmqIgDS2WvflN0t/nmZqOGq6pR9l15iKVVGiyiD34qjszyw/+xHNtaASpwlBCAXSkwvsok3RK+2e2lOGg==}
@@ -12944,8 +12941,6 @@ snapshots:
       '@pandacss/types': 1.5.0
       picomatch: 4.0.3
       ts-pattern: 5.8.0
-
-  '@pandacss/types@1.4.3': {}
 
   '@pandacss/types@1.5.0': {}
 
