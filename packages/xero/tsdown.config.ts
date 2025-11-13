@@ -11,7 +11,7 @@ export default defineConfig({
     './src/components/**/!(*.stories).*',
     './src/examples/**/!(*.stories).*',
   ],
-  external: [/.styled/, 'lucide-react', '@gsap/react'],
+  external: ['lucide-react', '@gsap/react'],
   outputOptions: {
     preserveModules: true,
   },
