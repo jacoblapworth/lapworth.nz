@@ -12978,8 +12978,8 @@ snapshots:
 
   '@pandacss/parser@1.4.3(typescript@5.9.3)':
     dependencies:
-      '@pandacss/config': 1.4.3
-      '@pandacss/core': 1.4.3
+      '@pandacss/config': 1.5.0
+      '@pandacss/core': 1.5.0
       '@pandacss/extractor': 1.4.3(typescript@5.9.3)
       '@pandacss/logger': 1.4.3
       '@pandacss/shared': 1.4.3
@@ -13109,7 +13109,7 @@ snapshots:
 
   '@pandacss/token-dictionary@1.4.3':
     dependencies:
-      '@pandacss/logger': 1.4.3
+      '@pandacss/logger': 1.5.0
       '@pandacss/shared': 1.4.3
       '@pandacss/types': 1.4.3
       ts-pattern: 5.8.0
@@ -15265,7 +15265,7 @@ snapshots:
       '@vue/compiler-ssr': 3.5.22
       '@vue/shared': 3.5.22
       estree-walker: 2.0.2
-      magic-string: 0.30.19
+      magic-string: 0.30.21
       postcss: 8.5.6
       source-map-js: 1.2.1
 
