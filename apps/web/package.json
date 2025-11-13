@@ -31,7 +31,7 @@
     "hast-util-to-jsx-runtime": "2.3.6",
     "jose": "6.1.1",
     "klaviyo-api": "20.0.0",
-    "lucide-react": "0.552.0",
+    "lucide-react": "0.553.0",
     "match-sorter": "8.1.0",
     "mdast-util-mdx-jsx": "3.2.0",
     "motion": "12.23.24",
