@@ -123,15 +123,17 @@ export const tokens = defineTokens({
     md: { value: '0 4px 8px {colors.shadow}' },
   },
   sizes: {
-    '1': { value: '1px' },
-    '2': { value: '2px' },
     '2xl': { value: '800px' },
     '3xl': { value: '1000px' },
-    '6': { value: '6px' },
     lg: { value: '32px' },
     md: { value: '16px' },
     sm: { value: '8px' },
     xl: { value: '48px' },
+  },
+  borderWidths: {
+    '1': { value: '1px' },
+    '2': { value: '2px' },
+    '6': { value: '6px' },
   },
   spacing: {
     '1': { value: '1rem' },

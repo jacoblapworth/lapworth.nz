@@ -6,7 +6,7 @@ import { styled } from '@/styled/jsx'
 export const Skiplink = styled(Link, {
   base: {
     _focus: {
-      transform: 'translateY(md)',
+      transform: 'translateY(token(spacing.md))',
     },
     backgroundColor: 'interactive',
     borderRadius: 'md',
@@ -17,7 +17,7 @@ export const Skiplink = styled(Link, {
     padding: 'md',
     position: 'absolute',
     top: 0,
-    transform: 'translateY(calc(-100% - lg))',
+    transform: 'translateY(calc(-100% - token(spacing.lg)))',
     transition: 'md',
     zIndex: '4',
   },

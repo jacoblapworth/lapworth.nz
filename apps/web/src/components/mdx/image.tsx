@@ -48,7 +48,7 @@ const Dialog = styled(
         opacity: 1,
         transform: 'scale(1)',
       },
-      '--inset': 'md',
+      '--inset': 'token(spacing.md)',
       alignItems: 'stretch',
       backgroundColor: 'background',
       boxShadow: `
@@ -65,7 +65,7 @@ const Dialog = styled(
       maxHeight: 'calc(100dvh - var(--inset) * 2 - 36px)',
       maxWidth: '3xl',
       md: {
-        '--inset': '2',
+        '--inset': 'token(spacing.2)',
       },
       opacity: 0,
       position: 'fixed',

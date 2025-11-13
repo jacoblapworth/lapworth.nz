@@ -12,7 +12,7 @@ export const ButtonStyles = cva({
     },
     borderColor: 'interactive',
     borderStyle: 'solid',
-    borderWidth: '1',
+    borderWidth: 'borderWidths.1',
     cursor: 'pointer',
     display: 'inline-grid',
     gap: 4,

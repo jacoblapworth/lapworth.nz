@@ -3,7 +3,7 @@ import { css } from '@/styled/css'
 
 const styles = css({
   background: 'divider',
-  height: '1',
+  height: 'borderWidths.1',
   marginBlock: 'md',
 })
 
