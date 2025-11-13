@@ -23,7 +23,7 @@ const shineStyles = css({
   _groupHover: {
     opacity: 0.85,
   },
-  backgroundColor: 'shine',
+  backgroundColor: 'colors.shine',
   borderRadius: '2xl',
   filter: 'xl',
   height: SHINE_SIZE,
@@ -42,10 +42,10 @@ const shineStyles = css({
 
 const cardStyles = css({
   _dark: {
-    borderColor: 'borderSubtle',
+    borderColor: 'colors.borderSubtle',
   },
   backgroundColor: 'surface',
-  borderColor: 'borderSubtle',
+  borderColor: 'colors.borderSubtle',
   borderRadius: 'lg',
   borderStyle: 'solid',
   borderWidth: 'borderWidths.1',

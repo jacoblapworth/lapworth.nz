@@ -26,9 +26,9 @@ const styles = cva({
   base: {
     '& > [data-line].highlighted': {
       _light: {
-        backgroundColor: 'codeHighlight',
+        backgroundColor: 'colors.codeHighlight',
       },
-      backgroundColor: 'codeHighlight',
+      backgroundColor: 'colors.codeHighlight',
     },
     display: 'grid',
     fontFamily: 'mono',
