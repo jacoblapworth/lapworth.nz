@@ -58,6 +58,7 @@ const styles = cva({
     },
     size: {
       lg: {
+        maxWidth: '40ch',
         textStyle: 'body.lg',
       },
       md: {
@@ -67,6 +68,7 @@ const styles = cva({
         textStyle: 'body.sm',
       },
       xl: {
+        maxWidth: '40ch',
         textStyle: 'body.xl',
       },
     },

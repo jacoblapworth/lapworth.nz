@@ -19,7 +19,9 @@ const Grid = styled('div', {
     gridColumn: '1/-1 !important',
     overflowX: 'scroll',
     overflowY: 'visible',
+    paddingBlockEnd: 'md',
     paddingInline: 'viewport',
+    scrollbarWidth: 'thin',
   },
 })
 

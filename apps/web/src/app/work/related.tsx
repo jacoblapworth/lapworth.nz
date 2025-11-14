@@ -10,7 +10,6 @@ const Section = styled('section', {
     display: 'flex',
     flexDirection: 'column',
     gap: 'md',
-    marginBlockStart: '2xl',
     padding: 'md',
     width: '100%',
   },
