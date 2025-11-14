@@ -16,7 +16,7 @@ export default function Page() {
   const [state, action] = useActionState(requestCv, initialState)
 
   return (
-    <VStack alignItems="start">
+    <VStack alignItems="start" gap="lg" marginBlock="2xl">
       <Text as="h1" display size="lg">
         Request CV
       </Text>

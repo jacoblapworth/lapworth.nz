@@ -41,7 +41,7 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <Article>
-        <VStack alignItems="start" gap="md" marginBlock="lg">
+        <VStack alignItems="start" gap="md">
           <Text as="h1" size="xl">
             {post.title}
           </Text>

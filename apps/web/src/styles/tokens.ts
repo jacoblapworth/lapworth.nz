@@ -100,9 +100,13 @@ export const tokens = defineTokens({
     },
   },
   durations: {
-    lg: { value: '500ms' },
-    md: { value: '300ms' },
+    lg: { value: '300ms' },
+    md: { value: '150ms' },
     sm: { value: '100ms' },
+    xl: { value: '500ms' },
+  },
+  easings: {
+    easeInOutCubic: { value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
   },
   fontSizes: {
     lg: { value: '1.5rem' },
@@ -125,6 +129,12 @@ export const tokens = defineTokens({
     xl: { value: '16px' },
   },
   shadows: {
+    dialog: {
+      value: `
+      inset 0 0 0 1px token(colors.quaternary),
+      0 25px 30px -10px rgb(0 0 0 / 0.15)
+      `,
+    },
     md: { value: '0 4px 8px {colors.shadow}' },
   },
   sizes: {

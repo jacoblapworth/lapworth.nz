@@ -10,7 +10,7 @@ const Ul = styled('ul', {
     flexDirection: 'column',
     gap: 'xl',
     listStyle: 'none',
-    marginBlock: 'lg',
+    marginBlock: 'xl',
     marginBlockEnd: 'md',
     maxWidth: 600,
     padding: 0,
