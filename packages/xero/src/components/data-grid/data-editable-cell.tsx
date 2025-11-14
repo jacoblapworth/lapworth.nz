@@ -5,8 +5,8 @@ import { CircleAlertIcon, TextCursorIcon } from 'lucide-react'
 import { startTransition, useRef, useState } from 'react'
 import { css } from '@/styled/css'
 import { HStack, styled } from '@/styled/jsx'
-import { Button } from '../Button'
-import { MenuStyles } from '../Menu'
+import { Button } from '../button'
+import { MenuStyles } from '../menu'
 
 const ComboboxContainer = styled('div', {
   base: {

@@ -1,5 +1,5 @@
 import type { ColumnFiltersState } from '@tanstack/react-table'
-import type { AppliedFilter } from '../Filters'
+import type { AppliedFilter } from '../filters'
 
 /**
  * Converts an array of AppliedFilter objects to ColumnFiltersState format

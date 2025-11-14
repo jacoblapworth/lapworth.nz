@@ -3,7 +3,7 @@ import { XIcon } from 'lucide-react'
 import { motion } from 'motion/react'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
-import { Menu, MenuItemRadio, MenuProvider } from './Menu'
+import { Menu, MenuItemRadio, MenuProvider } from './menu'
 
 const PillStyles = cva({
   base: {

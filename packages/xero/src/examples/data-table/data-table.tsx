@@ -6,14 +6,14 @@ import {
 } from '@tanstack/react-table'
 import { CheckCircleIcon, TrashIcon } from 'lucide-react'
 import { useState } from 'react'
-import { Checkbox } from '../../components/Checkbox'
+import { Checkbox } from '../../components/checkbox'
 import {
   CurrencyCell,
   DataEditableCell,
   DateCell,
-} from '../../components/DataGrid'
-import { Table, useTable } from '../../components/DataTable'
-import { Tag } from '../../components/Tag'
+} from '../../components/data-grid'
+import { Table, useTable } from '../../components/data-table'
+import { Tag } from '../../components/tag'
 import { initialData } from './data'
 import { getInvoiceStatus, type InvoiceRow } from './model'
 

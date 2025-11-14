@@ -14,16 +14,16 @@ import { AnimatePresence, motion } from 'motion/react'
 // import { Inter } from 'next/font/google'
 import { useState } from 'react'
 import { styled } from '@/styled/jsx'
-import { DataGrid } from '../DataGrid'
-import { Pagination } from '../Pagination'
-import { type BulkAction, BulkActions } from './BulkActions'
-import { Controls } from './Controls'
-import type { View } from './DataViews'
-import { Filters } from './Filters'
+import { DataGrid } from '../data-grid'
+import { Pagination } from '../pagination'
+import { type BulkAction, BulkActions } from './bulk-actions'
+import { Controls } from './controls'
+import type { View } from './data-views'
+import { Filters } from './filters'
 import {
   appliedFiltersToColumnFilters,
   columnFiltersToAppliedFilters,
-} from './utils/filterUtils'
+} from './utils/filter-utils'
 
 // const inter = Inter({ subsets: ['latin'], variable: '--fonts-inter' })
 

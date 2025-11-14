@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { Spinner as Component } from './Spinner'
+import { Spinner as Component } from './spinner'
 
 const meta = {
   args: {},

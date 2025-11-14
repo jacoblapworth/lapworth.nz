@@ -12,6 +12,7 @@ const WorkFrontmatter = z.object({
   draft: z.boolean().default(false),
   featured: z.boolean().default(false),
   hideFromRelated: z.boolean().default(false),
+  hideToc: z.boolean().default(false),
   links: z
     .array(
       z.object({

@@ -9,7 +9,7 @@ import {
 } from '@tanstack/react-table'
 import { ArrowDownUpIcon, Columns2Icon } from 'lucide-react'
 import { useState } from 'react'
-import { SortIcon } from '../DataGrid/SortIcon'
+import { SortIcon } from '../data-grid/sort-icon'
 import {
   Menu,
   MenuButton,
@@ -17,7 +17,7 @@ import {
   MenuItemRadio,
   MenuProvider,
   MenuSeparator,
-} from '../Menu'
+} from '../menu'
 
 export interface SortOption {
   id: string

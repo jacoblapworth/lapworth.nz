@@ -2,17 +2,17 @@
 
 import { SelectArrow, SelectProvider, SelectValue } from '@ariakit/react'
 import type { ComponentProps } from 'react'
-import { Button } from '@/components/Button'
-import { Form } from '@/components/Form'
-import { RequiredOptionalIndicator } from '@/components/Label'
-import { Panel } from '@/components/Panel'
+import { Button } from '@/components/button'
+import { Form } from '@/components/form'
+import { RequiredOptionalIndicator } from '@/components/label'
+import { Panel } from '@/components/panel'
 import {
   Select,
   SelectItem,
   SelectLabel,
   SelectPopover,
-} from '@/components/Select'
-import { TextInput } from '@/components/TextInput'
+} from '@/components/select'
+import { TextInput } from '@/components/text-input'
 import { VStack } from '@/styled/jsx'
 
 const genderOptions = [
