@@ -16,11 +16,12 @@ const Grid = styled('div', {
     gridAutoColumns: 128,
     gridAutoFlow: 'column',
     gridAutoRows: 'auto',
-    marginInline: -16,
+    gridColumn: '1/-1 !important',
     overflowX: 'scroll',
     overflowY: 'visible',
-    paddingBlock: 'md',
-    paddingInline: 'md',
+    paddingBlockEnd: 'md',
+    paddingInline: 'viewport',
+    scrollbarWidth: 'thin',
   },
 })
 
@@ -35,15 +36,16 @@ export function Carousel<T extends WithId>({
   items,
   renderItem,
 }: CarouselProps<T>) {
+  const id = useId()
+
   if (items.length === 0) {
     return null
   }
-  const id = useId()
 
   const renderedItems = items.map(renderItem)
 
   return (
-    <Section aria-labelledby={id}>
+    <Section aria-labelledby={id} rowGap="xl">
       <Text as="h2" display id={id} size="lg">
         {title}
       </Text>

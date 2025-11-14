@@ -1,6 +1,7 @@
 'use cache'
 
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
+import type { Metadata } from 'next'
 import { cacheLife } from 'next/cache'
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
@@ -19,7 +20,7 @@ export async function generateStaticParams() {
   return work.map((post) => ({ slug: post.params }))
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const post = await getPostBySlugParams(slug)
   if (!post) return notFound()

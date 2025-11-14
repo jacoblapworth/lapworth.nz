@@ -22,6 +22,7 @@ export default defineConfig({
   outdir: '.styled',
   outExtension: 'js',
   prefix: 'x',
+  preflight: true,
   shorthands: false,
   theme,
 })

@@ -1,16 +1,17 @@
 'use client'
 
 import { VisuallyHidden } from '@ariakit/react'
-import type { RowData, Table } from '@tanstack/react-table'
 import { CircleXIcon, SearchIcon } from 'lucide-react'
-import { useId, useState } from 'react'
+import { type ReactNode, useId, useRef } from 'react'
 import { styled } from '@/styled/jsx'
 
 const Container = styled('div', {
   base: {
     _focusWithin: {
-      outline: '2px solid',
+      outlineColor: 'border.focus',
       outlineOffset: 2,
+      outlineStyle: 'solid',
+      outlineWidth: 2,
     },
     alignItems: 'center',
     borderColor: 'border.subtle',
@@ -60,40 +61,42 @@ const ClearButton = styled(
     },
   },
 )
-
-interface Props<TData extends RowData> {
-  table: Table<TData>
-  // query: string
-  // onSearch: (query: string) => void
+interface Props {
+  label: ReactNode
+  defaultValue?: string
+  value?: string
+  placeholder?: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onClear: () => void
 }
-
-export function Search<TData extends RowData>({ table }: Props<TData>) {
-  const [query, setQuery] = useState('')
+export function Search({
+  label,
+  defaultValue,
+  value,
+  placeholder = 'Search...',
+  onChange,
+  onClear,
+}: Props) {
   const id = useId()
+  const ref = useRef<HTMLInputElement>(null)
+  const isClearable = ((ref.current?.value.length || value?.length) ?? 0) > 0 //TODO: fix for uncontrolled
 
   return (
     <Container>
       <SearchIcon size={16} />
       <Label htmlFor={id}>
-        <VisuallyHidden>Search table</VisuallyHidden>
+        <VisuallyHidden>{label}</VisuallyHidden>
         <Input
+          defaultValue={defaultValue}
           id={id}
-          onChange={(e) => {
-            setQuery(e.target.value)
-            table.setGlobalFilter(e.target.value)
-          }}
-          placeholder="Search..."
-          value={query}
+          onChange={onChange}
+          placeholder={placeholder}
+          ref={ref}
+          type="search"
+          value={value}
         />
       </Label>
-      {query.length > 0 && (
-        <ClearButton
-          onClick={() => {
-            setQuery('')
-            table.setGlobalFilter('')
-          }}
-        />
-      )}
+      {isClearable && <ClearButton onClick={onClear} />}
     </Container>
   )
 }

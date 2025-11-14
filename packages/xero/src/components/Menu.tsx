@@ -1,8 +1,6 @@
 'use client'
 
 import * as Ariakit from '@ariakit/react'
-import { gsap } from 'gsap'
-import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
 import { GripVerticalIcon } from 'lucide-react'
 import { motion } from 'motion/react'
 import Link from 'next/link'
@@ -12,7 +10,7 @@ import { styled } from '@/styled/jsx'
 import { Button, ButtonStyles } from './Button'
 import { Check, CheckboxStyles } from './Checkbox'
 
-gsap.registerPlugin(DrawSVGPlugin)
+// gsap.registerPlugin(DrawSVGPlugin)
 
 export const MenuProvider = Ariakit.MenuProvider
 

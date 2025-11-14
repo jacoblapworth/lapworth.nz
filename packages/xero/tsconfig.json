@@ -1,15 +1,7 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "incremental": false,
-    "isolatedModules": true,
+    "baseUrl": ".",
     "jsx": "react-jsx",
-    "lib": ["es2022", "DOM", "DOM.Iterable"],
-    "module": "preserve",
-    "moduleResolution": "bundler",
-    "noUncheckedIndexedAccess": true,
     "paths": {
       "@/*": ["./src/*"],
       "@/styled/*": ["./.styled/*"]
@@ -19,7 +11,8 @@
     "strict": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules", "dist", ".styled", ".turbo"],
+  "exclude": ["node_modules", "dist"],
+  "extends": "@total-typescript/tsconfig/bundler/dom/library-monorepo",
   "include": [
     "**/*.d.ts",
     "**/*.ts",

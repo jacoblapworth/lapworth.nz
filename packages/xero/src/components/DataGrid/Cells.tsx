@@ -1,6 +1,15 @@
 import type { CellContext, RowData } from '@tanstack/react-table'
 import { useFormatter } from 'next-intl'
 
+export function TextCell<TData extends RowData, TValue>({
+  ctx,
+}: {
+  ctx: CellContext<TData, TValue>
+}) {
+  const value = ctx.getValue()
+  return value
+}
+
 export function DateCell<TData extends RowData, TValue>({
   ctx,
 }: {

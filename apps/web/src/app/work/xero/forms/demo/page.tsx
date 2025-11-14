@@ -9,7 +9,11 @@ export default function Page() {
     <div>
       <h1>Demo Page</h1>
       <Suspense>
-        <FormExample />
+        <FormExample
+          identifyFieldsWith="optional"
+          optionalLabel="(optional)"
+          requiredLabel="(required)"
+        />
         <Code>
           {`export function FormExampleIdentifyOptional() {
   return (

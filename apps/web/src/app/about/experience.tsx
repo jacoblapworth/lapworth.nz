@@ -2,7 +2,7 @@ import { useId } from 'react'
 import { Link } from '@/components/link'
 import { Section } from '@/components/section'
 import { Text } from '@/components/text'
-import { styled } from '@/styled/jsx'
+import { Grid, VStack } from '@/styled/jsx'
 
 interface ExperienceRowProps {
   title?: string
@@ -14,7 +14,7 @@ interface ExperienceRowProps {
   isCurrent?: boolean
 }
 
-const experience = [
+const experience: ExperienceRowProps[] = [
   {
     from: '2020',
     href: 'https://www.xero.com/nz/',
@@ -50,64 +50,37 @@ const experience = [
   },
 ]
 
-const Column = styled('div', {
-  base: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-})
-
-const Row = styled('div', {
-  base: {
-    display: 'grid',
-    gap: '1rem',
-    gridTemplateColumns: '1fr 1fr',
-    placeItems: 'start',
-  },
-})
-
-const ExperienceRow = ({ workplace, from, to, href }: ExperienceRowProps) => {
+function ExperienceRow({ workplace, from, to, href }: ExperienceRowProps) {
   return (
-    <Row>
+    <Grid gap="md" gridColumn="1/-1" gridTemplateColumns="subgrid">
       <Link href={href}>{workplace}</Link>
-      <Column>
+      <VStack alignItems="start" gap={0}>
         <div>{from}</div>
         <div>— {to}</div>
-      </Column>
-    </Row>
+      </VStack>
+    </Grid>
   )
 }
-
-const Stack = styled('div', {
-  base: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 'md',
-    gridColumn: '1 / -1',
-    justifyContent: 'space-between',
-    maxWidth: '12rem',
-  },
-})
 
 export function Experience() {
   const id = useId()
 
   return (
-    <Section aria-labelledby={id}>
+    <Section aria-labelledby={id} rowGap="xl">
       <Text as="h2" display id={id} size="lg">
         Experience
       </Text>
-      <Stack>
-        {experience.map((item) => (
-          <ExperienceRow
-            from={item.from}
-            href={item.href}
-            key={item.workplace}
-            to={item.to}
-            workplace={item.workplace}
-          />
+      <Grid
+        alignItems="start"
+        gap="md"
+        gridTemplateColumns="1fr 1fr"
+        justifyContent="space-between"
+        maxWidth="12rem"
+      >
+        {experience.map((exp) => (
+          <ExperienceRow key={exp.workplace} {...exp} />
         ))}
-      </Stack>
+      </Grid>
     </Section>
   )
 }

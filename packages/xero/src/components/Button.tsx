@@ -50,6 +50,7 @@ export const ButtonStyles = cva({
       },
       xs: {
         minHeight: 24,
+        paddingBlock: 2,
         paddingInline: 8,
         textStyle: 'body.small.semibold',
       },
@@ -118,7 +119,7 @@ export function Button({ children, isLoading, ...props }: Props) {
       >
         {children}
       </HStack>
-      {isLoading && <Spinner gridArea="1/-1" justifySelf="center" />}
+      {isLoading && <Spinner gridArea="1/-1" justifySelf="center" size="md" />}
     </ButtonElement>
   )
 }

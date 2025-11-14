@@ -5,7 +5,7 @@ export const Section = styled('section', {
     display: 'flex',
     flexDirection: 'column',
     gap: 'md',
-    maxWidth: '800px',
+    maxWidth: '2xl',
     width: '100%',
   },
 })

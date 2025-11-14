@@ -28,7 +28,7 @@ import { cva } from '@/styled/css'
 import { HStack, styled } from '@/styled/jsx'
 import { Button } from '../Button'
 import { SrOnly } from '../SrOnly'
-import { HeaderResizeHandle, useColumnSizes } from './ColumnSizing'
+import { DataGridColumnResizeHandle, useColumnSizes } from './ColumnSizing'
 import { DataCell } from './DataCell'
 import { type TableHeadDropdownProps, TableHeadMenu } from './HeadMenu'
 import { TableScrollContainer, useTableScroll } from './ScrollContainer'
@@ -59,7 +59,7 @@ export function DataGrid<TData extends RowData>({ table }: TableProps<TData>) {
         }}
         // {...listeners}
       >
-        <TableHead headerGroups={table.getHeaderGroups()} />
+        <TableHead headerGroups={table.getHeaderGroups()} table={table} />
         {table.getState().columnSizingInfo.isResizingColumn ? (
           <MemoizedTableBody table={table} />
         ) : (
@@ -80,8 +80,6 @@ export const TableStyles = cva({
     fontSize: 13,
     lineHeight: '20px',
     marginBottom: 1,
-    minWidth: '100%',
-    // height: 1,
     paddingBlockEnd: 16,
     tableLayout: 'fixed',
   },
@@ -207,14 +205,16 @@ export const TR = styled(
 )
 
 export function TableHead<TData extends RowData>({
+  table,
   headerGroups,
 }: {
+  table: ReactTable<TData>
   headerGroups: HeaderGroup<TData>[]
 }) {
   return (
     <THead>
       {headerGroups.map(({ id, headers }) => (
-        <TableHeadRow headers={headers} key={id} />
+        <TableHeadRow headers={headers} key={id} table={table} />
       ))}
     </THead>
   )
@@ -222,21 +222,25 @@ export function TableHead<TData extends RowData>({
 
 export function TableHeadRow<TData extends RowData>({
   headers,
+  table,
 }: {
   headers: Header<TData, unknown>[]
+  table: ReactTable<TData>
 }) {
   return (
     <THeadRow>
       {headers.map((header) => (
-        <TableHeadCell header={header} key={header.id} />
+        <TableHeadCell header={header} key={header.id} table={table} />
       ))}
     </THeadRow>
   )
 }
 
 export function TableHeadCell<TData extends RowData, TValue>({
+  table,
   header,
 }: {
+  table: ReactTable<TData>
   header: Header<TData, TValue>
 }) {
   const { column, getContext } = header
@@ -261,20 +265,19 @@ export function TableHeadCell<TData extends RowData, TValue>({
       style={{
         left: isPinned === 'left' ? column.getStart('left') : undefined,
         right: isPinned === 'right' ? column.getStart('right') : undefined,
-        width: `var(--column-${column.id}-size)`,
+        width: `calc(var(--column-${column.id}-size) * 1px)`,
       }}
     >
-      <DataCell
-        alignment={column.columnDef.meta?.alignment}
-        variant={isDisplay ? 'display' : 'accessor'}
-      >
+      <HStack paddingInlineEnd={2} paddingInlineStart={6}>
         {isDisplay ? (
           children
         ) : (
           <TableHeadMenu header={header}>{children}</TableHeadMenu>
         )}
-      </DataCell>
-      {canResize && <HeaderResizeHandle header={header} />}
+      </HStack>
+      {canResize && (
+        <DataGridColumnResizeHandle header={header} label={''} table={table} />
+      )}
       {showOverflow && <ColumnOverflowIndicator position={isPinned} />}
     </TH>
   )
@@ -450,7 +453,7 @@ export function TableCell<TData extends RowData, TValue>({
       style={{
         left: isPinned === 'left' ? cell.column.getStart('left') : undefined,
         right: isPinned === 'right' ? cell.column.getStart('right') : undefined,
-        width: `var(--column-${cell.column.id}-size)`,
+        width: `calc(var(--column-${cell.column.id}-size) * 1px)`,
         // width: cell.column.getSize(),
       }}
     >

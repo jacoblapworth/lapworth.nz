@@ -1,3 +1,6 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: needs refactoring */
+/** biome-ignore-all lint/correctness/noUnusedVariables: needs refactoring */
+
 import type { LucideIcon } from 'lucide-react'
 
 /*

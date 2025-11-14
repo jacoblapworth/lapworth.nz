@@ -8,10 +8,9 @@ const Container = styled('div', {
     display: 'grid',
     minWidth: 0,
     width: '100%',
-    // truncate: true,
   },
   defaultVariants: {
-    // alignment: 'flex-start',
+    isEditable: false,
     variant: 'accessor',
   },
   variants: {
@@ -27,16 +26,17 @@ const Container = styled('div', {
       },
     },
     isEditable: {
+      false: {
+        paddingInline: 6,
+        truncate: true,
+      },
       true: {
         paddingBlock: 0,
         paddingInline: 0,
       },
     },
     variant: {
-      accessor: {
-        paddingInline: 6,
-        // truncate: true,
-      },
+      accessor: {},
       display: {
         justifyContent: 'stretch',
         placeItems: 'stretch',

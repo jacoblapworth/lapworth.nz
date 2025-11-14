@@ -101,7 +101,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           gridTemplateAreas: '"header" "nav" "content" "footer"',
           gridTemplateColumns: 'auto',
           gridTemplateRows: 'auto auto 1fr auto',
-          // minHeight: '-webkit-fill-available',
           marginLeft: 'env(safe-area-inset-left)',
           marginRight: 'env(safe-area-inset-right)',
           maxWidth: '100%',
@@ -122,9 +121,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </Suspense>
               <main
                 className={css({
+                  '& > *': {
+                    gridColumn: 'content-start/content-end',
+                    minWidth: 0,
+                  },
+                  display: 'grid',
                   gridArea: 'content',
-                  margin: 'md',
-                  maxWidth: 'calc(100vw - token(spacing.md) * 2)',
+                  gridTemplateColumns:
+                    '{spacing.viewport} [content-start] 1fr [content-end] {spacing.viewport}',
+                  marginBlockEnd: 'lg',
                 })}
                 id={id}
                 tabIndex={-1}

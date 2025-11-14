@@ -5,7 +5,8 @@ import type { Header, RowData, Table } from '@tanstack/react-table'
 import {
   type CSSProperties,
   createContext,
-  type ReactNode,
+  memo,
+  useCallback,
   useContext,
   useMemo,
 } from 'react'
@@ -24,13 +25,8 @@ const ColumnSizeContext = createContext<ColumnSizeContextValue>({
   headers: new Map(),
 })
 
-interface ColumnSizeProviderProps<TData extends RowData> {
-  children: ReactNode
-  table: Table<TData>
-}
-
 export function useColumnSizes<TData extends RowData>(table: Table<TData>) {
-  const { columnSizingInfo, columnSizing } = table.getState()
+  // biome-ignore lint/correctness/useExhaustiveDependencies: requires deep comparison
   const sizes = useMemo(() => {
     const columns = new Map<string, number>()
     const headers = new Map<string, number>()
@@ -40,16 +36,13 @@ export function useColumnSizes<TData extends RowData>(table: Table<TData>) {
       headers.set(header.id, header.getSize())
       columns.set(header.column.id, header.column.getSize())
 
-      return [
-        `--column-${header.column.id}-size`,
-        `${header.column.getSize()}px`,
-      ]
+      return [`--column-${header.column.id}-size`, header.column.getSize()]
     })
 
     const style: CSSProperties = Object.fromEntries(vars)
 
     return { columns, headers, style, vars }
-  }, [table, columnSizingInfo, columnSizing])
+  }, [table.getState().columnSizingInfo, table.getState().columnSizing])
 
   return sizes
 }
@@ -120,26 +113,56 @@ const Handle = styled('button', {
 })
 
 interface HeaderResizeHandleProps<TData extends RowData> {
+  table: Table<TData>
   header: Header<TData, unknown>
+  label: string
 }
 
-export function HeaderResizeHandle<TData extends RowData>({
+export function DataGridColumnResizeHandleImpl<TData extends RowData>({
+  table,
   header,
+  label,
 }: HeaderResizeHandleProps<TData>) {
+  const defaultColumnDef = table._getDefaultColumnDef()
+  const onDoubleClick = useCallback(() => {
+    header.column.resetSize()
+  }, [header.column])
+
   if (!header.column.getCanResize()) return
 
   return (
     <Handle
-      // position={header.column.getIsPinned() || undefined}
       aria-orientation="vertical"
-      onDoubleClick={() => header.column.resetSize()}
+      aria-valuemax={defaultColumnDef.maxSize}
+      aria-valuemin={defaultColumnDef.minSize}
+      aria-valuenow={header.column.getSize()}
+      onDoubleClick={onDoubleClick}
       onMouseDown={header.getResizeHandler()}
       onTouchStart={header.getResizeHandler()}
       role="separator"
       touchAction="none"
       userSelect="none"
     >
-      <VisuallyHidden>Resize column</VisuallyHidden>
+      <VisuallyHidden>Resize {label} column</VisuallyHidden>
     </Handle>
   )
 }
+
+export const DataGridColumnResizeHandle = memo(
+  DataGridColumnResizeHandleImpl,
+  (prev, next) => {
+    const prevColumn = prev.header.column
+    const nextColumn = next.header.column
+
+    if (
+      prevColumn.getIsResizing() !== nextColumn.getIsResizing() ||
+      prevColumn.getSize() !== nextColumn.getSize()
+    ) {
+      return false
+    }
+
+    if (prev.label !== next.label) return false
+
+    return true
+  },
+) as typeof DataGridColumnResizeHandleImpl
