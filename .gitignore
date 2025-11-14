@@ -9,8 +9,8 @@ node_modules
 /coverage
 
 # production
-build/
-dist/
+build
+dist
 
 # misc
 .DS_Store
@@ -59,3 +59,6 @@ styled-system
 # Sentry Config File
 .sentryclirc
 .env*.local
+
+*storybook.log
+storybook-static

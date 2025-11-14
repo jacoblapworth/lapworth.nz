@@ -1,3 +1,6 @@
+/** biome-ignore-all lint/suspicious/noExplicitAny: needs refactoring */
+/** biome-ignore-all lint/correctness/noUnusedVariables: needs refactoring */
+
 import type { LucideIcon } from 'lucide-react'
 
 /*
@@ -171,7 +174,7 @@ export type DataTableFilterConfig<TData> = {
   columns: ColumnConfig<TData>[]
 }
 
-export type ColumnProperties<TData, TVal> = {
+export type ColumnProperties<_TData, TVal> = {
   getOptions: () => ColumnOption[]
   getValues: () => ElementType<NonNullable<TVal>>[]
   getFacetedUniqueValues: () => Map<string, number> | undefined
@@ -182,7 +185,7 @@ export type ColumnProperties<TData, TVal> = {
   prefetchFacetedMinMaxValues: () => Promise<void> // Prefetch faceted min/max values
 }
 
-export type ColumnPrivateProperties<TData, TVal> = {
+export type ColumnPrivateProperties<_TData, TVal> = {
   _prefetchedOptionsCache: ColumnOption[] | null
   _prefetchedValuesCache: ElementType<NonNullable<TVal>>[] | null
   _prefetchedFacetedUniqueValuesCache: Map<string, number> | null

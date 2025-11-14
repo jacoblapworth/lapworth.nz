@@ -3,19 +3,27 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { VercelToolbar } from '@vercel/toolbar/next'
 import type { Metadata, Viewport } from 'next'
-import { Google_Sans_Code } from 'next/font/google'
+import { Google_Sans_Code, Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import { NextIntlClientProvider } from 'next-intl'
 import { ThemeProvider } from 'next-themes'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
-import { type ReactNode, useId } from 'react'
+import { type ReactNode, Suspense, useId } from 'react'
 import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
+import { Header } from '@/components/nav/header'
 import { Navigation } from '@/components/nav/nav'
 import { Skiplink } from '@/components/skiplink'
 import { themeConfig } from '@/components/theme'
 import { css, cx } from '@/styled/css'
 import { token } from '@/styled/tokens'
+
+const inter = Inter({
+  display: 'swap',
+  fallback: ['system-ui', 'sans-serif'],
+  preload: true,
+  subsets: ['latin-ext'],
+  variable: '--fonts-sans',
+})
 
 const sectraFont = localFont({
   display: 'swap',
@@ -83,7 +91,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
   return (
     <html
-      className={cx(sectraFont.variable, monoFont.variable)}
+      className={cx(inter.variable, sectraFont.variable, monoFont.variable)}
       lang="en"
       suppressHydrationWarning
     >
@@ -94,7 +102,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           gridTemplateAreas: '"header" "nav" "content" "footer"',
           gridTemplateColumns: 'auto',
           gridTemplateRows: 'auto auto 1fr auto',
-          // minHeight: '-webkit-fill-available',
           marginLeft: 'env(safe-area-inset-left)',
           marginRight: 'env(safe-area-inset-right)',
           maxWidth: '100%',
@@ -110,19 +117,30 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 Skip to main content
               </Skiplink>
               <Header />
-              <Navigation />
+              <Suspense>
+                <Navigation />
+              </Suspense>
               <main
                 className={css({
+                  '& > *': {
+                    gridColumn: 'content-start/content-end',
+                    minWidth: 0,
+                  },
+                  display: 'grid',
                   gridArea: 'content',
-                  margin: 'md',
-                  maxWidth: 'calc(100vw - token(spacing.md) * 2)',
+                  gridTemplateColumns:
+                    '{spacing.viewport} [content-start] 1fr [content-end] {spacing.viewport}',
+                  marginBlockEnd: 'lg',
+                  minWidth: 0,
                 })}
                 id={id}
                 tabIndex={-1}
               >
                 {children}
               </main>
-              <Footer />
+              <Suspense>
+                <Footer />
+              </Suspense>
               <Analytics />
               <SpeedInsights />
             </NextIntlClientProvider>

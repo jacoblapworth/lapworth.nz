@@ -1,29 +1,29 @@
+'use cache'
+
 import { SquareArrowOutUpRightIcon } from 'lucide-react'
+import type { Metadata } from 'next'
+import { cacheLife } from 'next/cache'
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { Article } from '@/components/article'
 import { LinkButton } from '@/components/button'
 import { TableOfContents } from '@/components/table-of-contents'
 import { Text } from '@/components/text'
 import { HStack, VStack } from '@/styled/jsx'
-import { getPostBySlugParams, work } from '../work'
+import { Related } from '../related'
+import { getPostBySlugParams, getRelatedPosts, getWork } from '../work'
 
-export const dynamicParams = false
-export const dynamic = 'force-static'
+type Props = PageProps<'/work/[...slug]'>
 
-interface Props {
-  params: Promise<{
-    slug: string[]
-  }>
-}
-
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const work = await getWork()
   return work.map((post) => ({ slug: post.params }))
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = getPostBySlugParams(slug)
-
+  const post = await getPostBySlugParams(slug)
   if (!post) return notFound()
 
   return {
@@ -33,17 +33,16 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
+  cacheLife('max')
   const { slug } = await params
-
-  const post = getPostBySlugParams(slug)
-
+  const post = await getPostBySlugParams(slug)
   if (!post) notFound()
-
   const { default: Mdx, tableOfContents } = await import(`../${post.filePath}`)
+  const relatedPosts = post.showRelated ? await getRelatedPosts(post) : []
 
   return (
-    <HStack alignItems="start" gap="xl">
-      <Article style={{ flex: 1, minWidth: 0 }}>
+    <>
+      <Article>
         <VStack alignItems="start" gap="md" marginBlock="lg">
           <Text as="h1" size="xl">
             {post.title}
@@ -59,9 +58,14 @@ export default async function Page({ params }: Props) {
             </HStack>
           )}
         </VStack>
-        <Mdx />
+        <Suspense>
+          <ErrorBoundary fallback={<div>Failed to load content.</div>}>
+            <Mdx />
+          </ErrorBoundary>
+        </Suspense>
+        <TableOfContents items={tableOfContents} />
       </Article>
-      <TableOfContents items={tableOfContents} />
-    </HStack>
+      <Related posts={relatedPosts} />
+    </>
   )
 }

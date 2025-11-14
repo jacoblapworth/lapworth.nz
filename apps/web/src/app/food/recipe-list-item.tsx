@@ -15,7 +15,11 @@ const Article = styled('article', {
 
 const Link = styled(NextLink, {
   base: {
-    _hover: { textDecoration: 'underline' },
+    _hover: {
+      textDecoration: 'underline',
+      textDecorationColor: 'quaternary',
+      textDecorationThickness: 1,
+    },
     alignItems: 'start',
     color: 'inherit',
     display: 'flex',

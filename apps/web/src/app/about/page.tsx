@@ -1,18 +1,18 @@
-import type { Metadata } from 'next'
-import NextImage from 'next/image'
+'use cache'
 
-import { getMusicWithThumbnails } from '@/app/about/music'
+import type { Metadata } from 'next'
+import { cacheLife } from 'next/cache'
+import NextImage from 'next/image'
+import { Suspense } from 'react'
 import { Link } from '@/components/link'
 import { Text } from '@/components/text'
 import ProfileImage from '@/public/j-photo-mono.png'
 import { css } from '@/styled/css'
-
-import { getReadingWithThumbnails } from './books/oku'
+import { Grid, VStack } from '@/styled/jsx'
+import { Bookshelf } from './bookshelf'
+import { Capabilities } from './capabilities'
 import { Experience } from './experience'
 import { HeavyRotation } from './heavy-rotation'
-import { Reading } from './reading'
-
-export const fetchCache = 'default-cache'
 
 export const metadata: Metadata = {
   description: `Hey there! I'm J. I'm a lead product designer and design engineer focused on community driven design systems.`,
@@ -20,12 +20,10 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
-  const music = await getMusicWithThumbnails()
-  const books = await getReadingWithThumbnails()
-
+  cacheLife('max')
   return (
     <>
-      <div className={css({ maxWidth: '1000px' })}>
+      <VStack alignItems="start" gap="xl" maxWidth="1000px" paddingBlock="2xl">
         <Text display size="xl">
           Hey there!{' '}
           <span
@@ -67,10 +65,21 @@ export default async function Page() {
           <Link href="https://instagram.com/platesbyjacob">kitchen</Link> when
           I&apos;m not working.
         </Text>
-      </div>
-      <Experience />
-      {music && <HeavyRotation music={music} />}
-      {books && <Reading books={books} />}
+      </VStack>
+      <Grid
+        gridColumn="1/-1 !important"
+        gridTemplateColumns="subgrid"
+        rowGap="2xl"
+      >
+        <Capabilities />
+        <Experience />
+        <Suspense>
+          <HeavyRotation />
+        </Suspense>
+        <Suspense>
+          <Bookshelf />
+        </Suspense>
+      </Grid>
     </>
   )
 }

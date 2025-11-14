@@ -1,22 +1,23 @@
-import withBundleAnalyzer from '@next/bundle-analyzer'
+import createBundleAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
-import { withSentryConfig } from '@sentry/nextjs'
 import createWithVercelToolbar from '@vercel/toolbar/plugins/next'
 import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 import { withNextVideo } from 'next-video/process'
-import { env } from '@/lib/env'
-
-const withVercelToolbar = createWithVercelToolbar()
-const withNextIntl = createNextIntlPlugin()
 
 const config: NextConfig = {
+  cacheComponents: true,
   images: {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     dangerouslyAllowSVG: true,
     qualities: [75, 100],
     remotePatterns: [
+      {
+        hostname: 'books.google.com',
+        pathname: '/books/content/**',
+        protocol: 'https',
+      },
       {
         hostname: '*.mzstatic.com',
         pathname: '/image/**',
@@ -34,12 +35,39 @@ const config: NextConfig = {
       },
     ],
   },
+  logging: {
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true,
+    },
+  },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactCompiler: false,
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        destination: '/work/xero/advanced-tables',
+        permanent: true,
+        source: '/work/xero/tables',
+      },
+      {
+        destination: '/work/xero/advanced-tables',
+        permanent: true,
+        source: '/work/xero-advanced-tables',
+      },
+      {
+        destination: '/work/lamarzocco',
+        permanent: true,
+        source: '/work/lamarzocco-widget',
+      },
+    ]
+  },
   typedRoutes: true,
 }
 
+const withVercelToolbar = createWithVercelToolbar()
+const withNextIntl = createNextIntlPlugin()
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
@@ -61,25 +89,17 @@ const withMDX = createMDX({
       ['@stefanprobst/rehype-extract-toc'],
       ['@stefanprobst/rehype-extract-toc/mdx', { name: 'tableOfContents' }],
     ],
-    remarkPlugins: ['remark-frontmatter', 'remark-mdx-frontmatter'],
+    remarkPlugins: [
+      'remark-frontmatter',
+      'remark-mdx-frontmatter',
+      'remark-gfm',
+    ],
   },
 })
+const withBundleAnalyzer = createBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
 
-export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
-  withSentryConfig(
-    withVercelToolbar(withNextIntl(withNextVideo(withMDX(config)))),
-    {
-      automaticVercelMonitors: true,
-      disableLogger: true,
-      org: env.SENTRY_ORG,
-      project: env.SENTRY_PROJECT,
-      silent: !(process.env.CI && process.env.ACTIONS_RUNNER_DEBUG),
-      sourcemaps: {
-        deleteSourcemapsAfterUpload: true,
-        disable: process.env.NODE_ENV !== 'production',
-      },
-      tunnelRoute: true,
-      widenClientFileUpload: true,
-    },
-  ),
+export default withBundleAnalyzer(
+  withVercelToolbar(withNextIntl(withNextVideo(withMDX(config)))),
 )

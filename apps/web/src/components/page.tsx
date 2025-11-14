@@ -3,7 +3,7 @@
 import { ThemeProvider } from 'next-themes'
 import { useId } from 'react'
 import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
+import { Header } from '@/components/nav/header'
 import { Navigation } from '@/components/nav/nav'
 import { styled } from '@/styled/jsx'
 import { Skiplink } from './skiplink'

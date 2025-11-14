@@ -1,13 +1,14 @@
-import type { ReactNode } from 'react'
+import { type ReactNode, useId } from 'react'
 
 import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
+import { Section } from './section'
 
 interface WithId {
   id: string
 }
 
-const Grid = styled('div', {
+const ScrollGrid = styled('div', {
   base: {
     alignItems: 'start',
     display: 'grid',
@@ -15,11 +16,16 @@ const Grid = styled('div', {
     gridAutoColumns: 128,
     gridAutoFlow: 'column',
     gridAutoRows: 'auto',
-    marginInline: -16,
+    gridColumn: '1/-1 !important',
     overflowX: 'scroll',
-    overflowY: 'visible',
-    paddingBlock: 'md',
-    paddingInline: 'md',
+    overflowY: 'auto',
+    overscrollBehaviorX: 'contain',
+    paddingBlockEnd: 'md',
+    paddingInline: 'viewport',
+    scrollbarWidth: 'thin',
+    scrollPaddingInline: 'viewport',
+    scrollSnapAlign: 'start',
+    scrollSnapType: 'x mandatory',
   },
 })
 
@@ -34,6 +40,8 @@ export function Carousel<T extends WithId>({
   items,
   renderItem,
 }: CarouselProps<T>) {
+  const id = useId()
+
   if (items.length === 0) {
     return null
   }
@@ -41,11 +49,11 @@ export function Carousel<T extends WithId>({
   const renderedItems = items.map(renderItem)
 
   return (
-    <div>
-      <Text as="h2" display size="lg">
+    <Section aria-labelledby={id}>
+      <Text as="h2" display id={id} size="lg">
         {title}
       </Text>
-      <Grid>{renderedItems}</Grid>
-    </div>
+      <ScrollGrid>{renderedItems}</ScrollGrid>
+    </Section>
   )
 }

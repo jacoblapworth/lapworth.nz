@@ -1,6 +1,11 @@
 import { defineSemanticTokens, defineTokens } from '@pandacss/dev'
 
 export const tokens = defineTokens({
+  borderWidths: {
+    '1': { value: '1px' },
+    '2': { value: '2px' },
+    '6': { value: '6px' },
+  },
   colors: {
     black: {
       50: {
@@ -22,6 +27,9 @@ export const tokens = defineTokens({
     green: {
       50: {
         value: '#008060',
+      },
+      100: {
+        value: '#7ee787',
       },
     },
     grey: {
@@ -92,9 +100,13 @@ export const tokens = defineTokens({
     },
   },
   durations: {
-    lg: { value: '500ms' },
-    md: { value: '300ms' },
+    lg: { value: '300ms' },
+    md: { value: '150ms' },
     sm: { value: '100ms' },
+    xl: { value: '500ms' },
+  },
+  easings: {
+    easeInOutCubic: { value: 'cubic-bezier(0.4, 0, 0.2, 1)' },
   },
   fontSizes: {
     lg: { value: '1.5rem' },
@@ -104,10 +116,12 @@ export const tokens = defineTokens({
   fonts: {
     display: { value: 'canela' },
     mono: { value: 'mono' },
+    sans: { value: 'inter' },
     serif: { value: 'sectra' },
     system: { value: 'system-ui' },
   },
   radii: {
+    '2xl': { value: '300px' },
     lg: { value: '12px' },
     max: { value: '99999px' },
     md: { value: '6px' },
@@ -115,18 +129,38 @@ export const tokens = defineTokens({
     xl: { value: '16px' },
   },
   shadows: {
+    dialog: {
+      value: `
+      inset 0 0 0 1px token(colors.quaternary),
+      0 25px 30px -10px rgb(0 0 0 / 0.15)
+      `,
+    },
     md: { value: '0 4px 8px {colors.shadow}' },
   },
   sizes: {
+    '1': { value: '1rem' },
+    '2': { value: '2rem' },
+    '2xl': { value: '800px' },
+    '3': { value: '3rem' },
+    '3xl': { value: '1000px' },
+    '4': { value: '4rem' },
+    '5': { value: '5rem' },
     lg: { value: '32px' },
     md: { value: '16px' },
     sm: { value: '8px' },
     xl: { value: '48px' },
   },
   spacing: {
+    '2xl': { value: '64px' },
+    '2xs': { value: '2px' },
+    '6': { value: '6px' },
+    '12': { value: '12px' },
+    '20': { value: '20px' },
+    '24': { value: '24px' },
     lg: { value: '32px' },
     md: { value: '16px' },
     sm: { value: '8px' },
+    xl: { value: '48px' },
     xs: { value: '4px' },
   },
   zIndex: {
@@ -142,6 +176,7 @@ export const semanticTokens = defineSemanticTokens({
     lg: { value: 'blur(12px)' },
     md: { value: 'blur(8px)' },
     sm: { value: 'blur(4px)' },
+    xl: { value: 'blur(180px)' },
   },
   borders: {
     divider: { value: '1px solid {colors.divider}' },
@@ -149,6 +184,7 @@ export const semanticTokens = defineSemanticTokens({
     primary: { value: '1px solid {colors.primary}' },
     secondary: { value: '1px solid {colors.secondary}' },
     tertiary: { value: '1px solid {colors.tertiary}' },
+    transparent: { value: '1px solid transparent' },
   },
   colors: {
     background: {
@@ -158,7 +194,21 @@ export const semanticTokens = defineSemanticTokens({
       },
     },
     border: {
+      subtle: {
+        value: {
+          _dark: 'rgba(255, 255, 255, 0.1)',
+          base: 'rgba(0, 0, 0, 0.1)',
+        },
+      },
       value: '{colors.divider}',
+    },
+    code: {
+      highlight: {
+        value: {
+          _dark: 'rgba(255, 255, 255, 0.1)',
+          base: 'rgba(0, 0, 0, 0.03)',
+        },
+      },
     },
     critical: {
       value: {
@@ -178,10 +228,34 @@ export const semanticTokens = defineSemanticTokens({
         base: '{colors.black.80}',
       },
     },
+    negative: {
+      surface: {
+        value: {
+          _dark: '{colors.red.50}',
+          base: '{colors.red.50}',
+        },
+      },
+      value: {
+        _dark: '{colors.red.50}',
+        base: '{colors.red.50}',
+      },
+    },
     onSurface: {
       value: {
         _dark: '{colors.black.90}',
         base: '{colors.black.90}',
+      },
+    },
+    positive: {
+      surface: {
+        value: {
+          _dark: '{colors.green.50}',
+          base: '{colors.green.50}',
+        },
+      },
+      value: {
+        _dark: '{colors.green.50}',
+        base: '{colors.green.50}',
       },
     },
     primary: {
@@ -212,6 +286,12 @@ export const semanticTokens = defineSemanticTokens({
       value: {
         _dark: '{colors.white.80}',
         base: '{colors.grey.10}',
+      },
+    },
+    shine: {
+      value: {
+        _dark: '{colors.green.100}',
+        base: '{colors.green.100}',
       },
     },
     success: {
@@ -256,6 +336,9 @@ export const semanticTokens = defineSemanticTokens({
         base: '{colors.yellow.50}',
       },
     },
+  },
+  spacing: {
+    viewport: { value: '{spacing.md}' },
   },
 })
 

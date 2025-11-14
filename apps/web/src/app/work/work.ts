@@ -1,4 +1,5 @@
 import path from 'node:path'
+import { cacheLife, cacheTag } from 'next/cache'
 import type { StaticImageData } from 'next/image'
 import { z } from 'zod/v4'
 import { getSlugFromPath, listMdxFiles, parseMdxFrontmatter } from '@/lib/mdx'
@@ -10,14 +11,16 @@ const WorkFrontmatter = z.object({
   description: z.string().max(999).optional(),
   draft: z.boolean().default(false),
   featured: z.boolean().default(false),
+  hideFromRelated: z.boolean().default(false),
   links: z
     .array(
       z.object({
-        href: z.string().url(),
+        href: z.url(),
         label: z.string().max(49),
       }),
     )
     .optional(),
+  showRelated: z.boolean().default(true),
   tags: z.array(z.string()).default([]),
   title: z.string().max(99),
 })
@@ -36,7 +39,10 @@ export type Work = z.infer<typeof Work>
 
 const WORK_DIR = path.join(process.cwd(), 'src/app/work')
 
-async function getWork(): Promise<Work[]> {
+export async function getWork(): Promise<Work[]> {
+  'use cache'
+  cacheTag('work')
+  cacheLife('max')
   const files = await listMdxFiles(WORK_DIR)
   const items = await Promise.all(
     files.map(async (filePath) => {
@@ -78,8 +84,51 @@ async function getWork(): Promise<Work[]> {
   return validItems
 }
 
-export const work = await getWork()
-
-export function getPostBySlugParams(slug: string[]) {
+export async function getPostBySlugParams(slug: string[]) {
+  const work = await getWork()
   return work.find((post) => post.slug === slug.join('/'))
+}
+
+/**
+ * Get related posts for a given post
+ *
+ * A simple algorithm that scores posts based on shared category and tags.
+ */
+export async function getRelatedPosts(
+  currentPost: Work,
+  limit = 3,
+): Promise<Work[]> {
+  const work = await getWork()
+  // Calculate relevance score for each post
+  const scoredPosts = work
+    .filter(
+      ({ slug, draft, hideFromRelated }) =>
+        slug !== currentPost.slug && !draft && !hideFromRelated,
+    )
+    .map((post) => {
+      let score = 0
+
+      // Same category gets highest score
+      if (currentPost.category && post.category === currentPost.category) {
+        score += 10
+      }
+
+      // Shared tags get points
+      const currentTags = currentPost.tags ?? []
+      const postTags = post.tags ?? []
+      const sharedTags = postTags.filter((tag) => currentTags.includes(tag))
+      score += sharedTags.length * 2
+
+      return { post, score }
+    })
+    .filter(({ score }) => score > 0) // Only include posts with some relevance
+    .sort((a, b) => {
+      // Sort by score first, then by date
+      if (b.score !== a.score) {
+        return b.score - a.score
+      }
+      return b.post.date.getTime() - a.post.date.getTime()
+    })
+
+  return scoredPosts.slice(0, limit).map(({ post }) => post)
 }

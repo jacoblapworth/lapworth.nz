@@ -1,7 +1,6 @@
 import * as Ariakit from '@ariakit/react'
-import type { ReactNode } from 'react'
 import { cva } from '@/styled/css'
-import { Box, HStack, styled } from '@/styled/jsx'
+import { HStack, styled } from '@/styled/jsx'
 import type { HTMLStyledProps, StyledVariantProps } from '@/styled/types'
 import { Spinner } from './Spinner'
 
@@ -19,10 +18,9 @@ export const ButtonStyles = cva({
 
     alignItems: 'center',
     borderRadius: 'md',
+    color: 'text',
     cursor: 'pointer',
     display: 'inline-grid',
-    fontSize: 13,
-    fontWeight: 500,
     gap: 8,
     gridAutoFlow: 'column',
     lineHeight: '1.2',
@@ -31,7 +29,7 @@ export const ButtonStyles = cva({
     placeItems: 'center',
     transitionDuration: '100',
     transitionProperty: 'colors',
-    transitionTimingFunction: 'in-out',
+    transitionTimingFunction: 'ease-in-out',
   },
   defaultVariants: {
     size: 'md',
@@ -39,13 +37,22 @@ export const ButtonStyles = cva({
   },
   variants: {
     size: {
-      md: {},
+      md: {
+        minHeight: 40,
+        paddingInline: 12,
+        textStyle: 'body.medium.semibold',
+      },
       sm: {
+        minHeight: 32,
         paddingBlock: 4,
         paddingInline: 8,
+        textStyle: 'body.small.semibold',
       },
       xs: {
+        minHeight: 24,
+        paddingBlock: 2,
         paddingInline: 8,
+        textStyle: 'body.small.semibold',
       },
     },
     variant: {
@@ -112,7 +119,7 @@ export function Button({ children, isLoading, ...props }: Props) {
       >
         {children}
       </HStack>
-      {isLoading && <Spinner gridArea="1/-1" justifySelf="center" />}
+      {isLoading && <Spinner gridArea="1/-1" justifySelf="center" size="md" />}
     </ButtonElement>
   )
 }

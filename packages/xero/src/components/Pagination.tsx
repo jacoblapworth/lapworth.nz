@@ -1,5 +1,3 @@
-// import { Select } from '@ariakit/react'
-
 import { SelectArrow, SelectProvider } from '@ariakit/react'
 import type { RowData, Table } from '@tanstack/react-table'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'

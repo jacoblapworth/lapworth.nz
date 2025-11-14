@@ -12,11 +12,7 @@ const styles = cva({
   compoundVariants: [
     {
       css: {
-        marginBlock: '4rem',
         maxWidth: '25ch',
-        sm: {
-          marginBlock: '5rem',
-        },
         textStyle: 'display.xl',
       },
       display: true,
@@ -24,10 +20,6 @@ const styles = cva({
     },
     {
       css: {
-        marginBlock: '2rem',
-        sm: {
-          marginBlock: '3rem',
-        },
         textStyle: 'display.lg',
       },
       display: true,
@@ -61,11 +53,14 @@ const styles = cva({
     serif: {
       true: {
         fontFamily: 'serif',
-        fontWeight: '400',
+        fontWeight: 400,
+        lineHeight: '1.2',
+        maxWidth: '45ch',
       },
     },
     size: {
       lg: {
+        maxWidth: '40ch',
         textStyle: 'body.lg',
       },
       md: {
@@ -75,6 +70,7 @@ const styles = cva({
         textStyle: 'body.sm',
       },
       xl: {
+        maxWidth: '40ch',
         textStyle: 'body.xl',
       },
     },

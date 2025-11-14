@@ -23,12 +23,12 @@
       "with": ["css:watch", "tokens:watch"]
     },
     "tokens": {
-      "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
+      "inputs": ["$TURBO_DEFAULT$", "src/theme/**/*", "panda.config.ts"],
       "outputs": [".styled/**"]
     },
     "tokens:watch": {
       "cache": false,
-      "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],
+      "inputs": ["$TURBO_DEFAULT$", "src/theme/**/*", "panda.config.ts"],
       "outputs": [".styled/**"],
       "persistent": true
     }

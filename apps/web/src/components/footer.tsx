@@ -1,3 +1,5 @@
+'use client'
+
 import { useFormatter, useNow } from 'next-intl'
 import { styled } from '@/styled/jsx'
 import { Link } from './link'
@@ -9,9 +11,9 @@ const Tagline = styled('footer', {
     fontSize: 'sm',
     gridArea: 'footer',
     marginBottom: 'env(safe-area-inset-bottom)',
-    marginInline: '16px',
-    paddingBlockEnd: '12px',
-    paddingBlockStart: '8px',
+    marginInline: 'md',
+    paddingBlockEnd: '12',
+    paddingBlockStart: 'sm',
   },
 })
 

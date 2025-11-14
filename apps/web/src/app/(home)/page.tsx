@@ -1,12 +1,18 @@
-'use client'
+'use cache'
 
+import { cacheLife } from 'next/cache'
 import { Link } from '@/components/link'
 import { Text } from '@/components/text'
 import { styled } from '@/styled/jsx'
 
 const Container = styled('div', {
   base: {
+    alignItems: 'start',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2xl',
     maxWidth: '100vw',
+    paddingBlock: '2xl',
     sm: {
       maxWidth: '75vw',
     },
@@ -19,7 +25,8 @@ const HiddenLink = styled(Link, {
   },
 })
 
-export default function Page() {
+export default async function Page() {
+  cacheLife('max')
   return (
     <Container>
       <Text display size="xl">
@@ -42,7 +49,7 @@ export default function Page() {
         </Link>
       </Text>
       <Text display size="xl">
-        Looking for work in London
+        Available for work in London
       </Text>
       <Text aria-label="GPS coordinates">-36.862600º, 174.741270º</Text>
       <Text display serif size="xl">

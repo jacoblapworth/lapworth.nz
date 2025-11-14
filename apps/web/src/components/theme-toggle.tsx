@@ -34,7 +34,7 @@ const Button = styled(motion.button, {
       border: 'divider',
     },
     backgroundColor: 'surface',
-    border: '1px solid transparent',
+    border: 'transparent',
     borderRadius: 9999,
     cursor: 'pointer',
     fontSize: 'lg',
@@ -70,6 +70,9 @@ export const ThemeToggle = () => {
         transition: {
           duration: 0.1,
         },
+      }}
+      whileTap={{
+        scale: 0.95,
       }}
     >
       <Icon />

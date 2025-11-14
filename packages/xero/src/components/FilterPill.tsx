@@ -1,10 +1,9 @@
 import * as Ariakit from '@ariakit/react'
 import { XIcon } from 'lucide-react'
-import { isValidMotionProp, motion } from 'motion/react'
+import { motion } from 'motion/react'
 import { cva } from '@/styled/css'
-import { css } from '@/styled/css/css'
-import { HStack, isCssProperty, styled } from '@/styled/jsx'
-import { Menu, MenuButton, MenuItemRadio, MenuProvider } from './Menu'
+import { styled } from '@/styled/jsx'
+import { Menu, MenuItemRadio, MenuProvider } from './Menu'
 
 const PillStyles = cva({
   base: {
@@ -17,6 +16,7 @@ const PillStyles = cva({
     display: 'inline-flex',
     fontSize: 13,
     lineHeight: '1.2',
+    minHeight: 32,
     // overflow: 'hidden',
   },
 })
@@ -94,9 +94,9 @@ export function FilterPill({
       className={PillStyles()}
       exit={{ opacity: 0, y: -8 }}
       initial={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.05, ease: 'easeInOut' }}
+      transition={{ duration: 0.2, ease: 'easeInOut' }}
     >
-      <Label>{label}</Label>
+      <Label key="label">{label}</Label>
       {selectedOperatorId && onOperatorChange && operators && (
         <MenuProvider
           defaultValues={{ operator: selectedOperatorId }}
@@ -119,7 +119,7 @@ export function FilterPill({
         defaultValues={{ value: selectedValueId }}
         setValues={(e) => onValueChange(e.value)}
       >
-        <Ariakit.MenuButton render={<Value />}>
+        <Ariakit.MenuButton render={<Value key="value" />}>
           {selectedValueId}
         </Ariakit.MenuButton>
         <Menu>

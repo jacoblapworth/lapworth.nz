@@ -15,6 +15,19 @@ export interface FormState {
 
 const resend = new Resend(env.RESEND_API_KEY)
 
+export async function getCv() {
+  const { blobs } = await list({ prefix: 'cv' })
+
+  const cv = blobs
+    .toSorted(
+      (a, b) =>
+        new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime(),
+    )
+    .pop()
+
+  return cv
+}
+
 export async function requestCv(
   _: FormState,
   formData: FormData,
@@ -45,14 +58,7 @@ export async function requestCv(
 
     await track('request-cv', { email })
 
-    const { blobs } = await list({ prefix: 'cv' })
-
-    const cv = blobs
-      .toSorted(
-        (a, b) =>
-          new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime(),
-      )
-      .pop()
+    const cv = await getCv()
 
     if (!cv) {
       throw new Error('CV not found')

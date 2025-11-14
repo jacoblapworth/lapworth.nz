@@ -26,7 +26,7 @@ This is a pnpm workspace monorepo with the following structure:
   - MDX support for content
   - Panda CSS for styling
   - Cypress for E2E testing
-  - Sentry for error tracking
+  - PostHog for error tracking
   - PostHog for analytics
   - React Email for email templates
   
@@ -159,7 +159,6 @@ The web app requires several environment variables for full functionality:
 Key environment variables include:
 - Apple Music API credentials
 - Vercel Blob/KV tokens
-- Sentry configuration
 - PostHog analytics
 - Resend email API
 - Klaviyo API

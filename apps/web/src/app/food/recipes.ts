@@ -79,9 +79,8 @@ export async function getRecipes(): Promise<Recipe[]> {
   }
 }
 
-export const recipes = await getRecipes()
-
-export function getRecipe(params: string[]): Recipe | undefined {
+export async function getRecipe(params: string[]): Promise<Recipe | undefined> {
+  const recipes = await getRecipes()
   return recipes.find(
     (r) =>
       r.params.length === params.length &&

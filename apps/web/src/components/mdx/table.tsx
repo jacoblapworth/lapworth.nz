@@ -6,9 +6,12 @@ import { css, cx } from '@/styled/css'
 
 const tableStyles = css({
   display: 'block',
-  mt: { _first: '0', base: '6' },
+  marginBlockStart: {
+    _first: '0',
+    base: '6',
+  },
   overflowX: 'scroll',
-  p: '0',
+  padding: 0,
 })
 
 export const Table = ({
@@ -27,11 +30,11 @@ export const Table = ({
 
 const thStyles = css({
   borderColor: { _dark: 'gray.600', base: 'gray.300' },
-  borderWidth: '1px',
+  borderWidth: '1',
   fontWeight: 'semibold',
-  m: '0',
-  px: '4',
-  py: '2',
+  margin: 0,
+  paddingBlock: '2',
+  paddingInline: '4',
 })
 
 export const Th = ({
@@ -47,12 +50,12 @@ export const Th = ({
 
 const trStyles = css({
   _even: {
-    bg: { _dark: 'gray.700', base: 'gray.100' },
+    backgroundColor: { _dark: 'gray.700', base: 'gray.100' },
   },
   borderColor: { _dark: 'gray.600', base: 'gray.300' },
-  borderWidth: '1px',
-  m: '0',
-  p: '0',
+  borderWidth: '1',
+  margin: 0,
+  padding: 0,
 })
 
 export const Tr = ({
@@ -68,10 +71,10 @@ export const Tr = ({
 
 const tdStyles = css({
   borderColor: { _dark: 'gray.600', base: 'gray.300' },
-  borderWidth: '1px',
-  m: '0',
-  px: '4',
-  py: '2',
+  borderWidth: '1',
+  margin: 0,
+  paddingBlock: '2',
+  paddingInline: '4',
 })
 
 export const Td = ({
