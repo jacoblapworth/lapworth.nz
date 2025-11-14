@@ -1,9 +1,9 @@
 import type { Column, Header, RowData, Table } from '@tanstack/react-table'
 import { HStack } from '@/styled/jsx'
-import { Search } from '../Search'
 import { ColumnsMenu } from './ColumnsMenu'
 import { DataFiltersToggle } from './DataFiltersToggle'
 import { type View, Views } from './DataViews'
+import { DataTableSearch } from './data-table-search'
 import type { AppliedFilter } from './Filters'
 import { ViewMenu } from './ViewMenu'
 
@@ -57,7 +57,7 @@ export function Controls<TData extends RowData>({
         justifyContent="flex-end"
         // maxWidth={700}
       >
-        <Search table={table} />
+        <DataTableSearch table={table} />
         <HStack alignItems="stretch" flexWrap="wrap" gap={8}>
           <DataFiltersToggle
             filterCount={appliedFilters?.length}

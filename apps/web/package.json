@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@ariakit/react": "0.4.19",
+    "@ariakit/react": "catalog:",
     "@faker-js/faker": "10.1.0",
     "@flags-sdk/posthog": "0.2.2",
     "@gsap/react": "2.1.2",
