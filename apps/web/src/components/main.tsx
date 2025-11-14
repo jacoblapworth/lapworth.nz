@@ -7,6 +7,7 @@ export const Main = styled(
       gridArea: 'content',
       margin: 'md',
       maxWidth: 'calc(100vw - token(spacing.md) * 2)',
+      minWidth: 0,
     },
   },
   {

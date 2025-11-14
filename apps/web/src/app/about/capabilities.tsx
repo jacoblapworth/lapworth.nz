@@ -15,7 +15,7 @@ const capabilities = [
   'Documentation',
 ]
 
-const Grid = styled('ul', {
+const List = styled('ul', {
   base: {
     columnGap: 'md',
     display: 'grid',
@@ -25,6 +25,7 @@ const Grid = styled('ul', {
     },
     listStyle: 'none',
     maxWidth: '2xl',
+    minWidth: 0,
     rowGap: 'xs',
   },
 })
@@ -46,14 +47,14 @@ export function Capabilities() {
       <Text as="h2" display id={id} size="lg">
         Capabilities
       </Text>
-      <Grid>
+      <List>
         {capabilities.map((capability) => (
           <ListItem key={capability}>
             <ArrowRightIcon size={20} />
             {capability}
           </ListItem>
         ))}
-      </Grid>
+      </List>
     </Section>
   )
 }

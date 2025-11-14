@@ -24,6 +24,7 @@ export default defineConfig({
   outdir: '.styled',
   outExtension: 'js',
   preflight: true,
+  shorthands: false,
   strictTokens: false,
   theme: {
     semanticTokens,

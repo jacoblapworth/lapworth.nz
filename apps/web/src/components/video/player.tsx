@@ -1,33 +1,15 @@
 'use client'
 
-import { PauseIcon, PlayIcon } from 'lucide-react'
-import createMediaStore from 'media-chrome/dist/media-store/media-store.js'
 import {
   MediaControlBar,
   MediaController,
-  MediaFullscreenButton,
   MediaMuteButton,
-  MediaPlayButton,
-  MediaPlaybackRateButton,
-  MediaSeekBackwardButton,
-  MediaSeekForwardButton,
-  MediaTimeDisplay,
-  MediaTimeRange,
   MediaVolumeRange,
 } from 'media-chrome/react'
-import {
-  MediaActionTypes,
-  MediaProvider,
-  useMediaDispatch,
-  useMediaFullscreenRef,
-  useMediaRef,
-  useMediaSelector,
-} from 'media-chrome/react/media-store'
 import type { PlayerProps } from 'next-video'
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import ReactPlayer from 'react-player'
 import { css } from '@/styled/css'
-import { styled } from '@/styled/jsx'
 import { PlayButton } from './play-button'
 
 // const StyledVideo = styled(NextVideo, {
@@ -48,7 +30,7 @@ export function Player(props: PlayerProps) {
   //   media: mediaRef,
   // })
 
-  const setPlayerRef = useCallback((player: HTMLVideoElement) => {
+  const _setPlayerRef = useCallback((player: HTMLVideoElement) => {
     if (!player) return
     ref.current = player
     console.log({ player })

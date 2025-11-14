@@ -3,7 +3,6 @@ import { type MotionValue, motion, useTransform } from 'motion/react'
 import {
   Children,
   type ComponentPropsWithoutRef,
-  type HTMLProps,
   isValidElement,
   type ReactNode,
   type ReactSVGElement,

@@ -1,12 +1,3 @@
-import { PauseIcon, PlayIcon } from 'lucide-react'
-import {
-  MediaActionTypes,
-  MediaProvider,
-  useMediaDispatch,
-  useMediaFullscreenRef,
-  useMediaRef,
-  useMediaSelector,
-} from 'media-chrome/react/media-store'
 import { styled } from '@/styled/jsx'
 import { PlayPauseIcon } from './play-pause-icon'
 
