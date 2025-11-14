@@ -78,7 +78,7 @@ const TocLink = styled('a', {
     paddingInlineStart: 'md',
     position: 'relative',
     textDecoration: 'none',
-    transitionDuration: 'sm',
+    transitionDuration: 'md',
     transitionProperty: 'color, background-color',
     transitionTimingFunction: 'ease-in-out',
   },
@@ -92,20 +92,23 @@ const TocLink = styled('a', {
   },
 })
 
-function useActiveId(itemIds: string[]) {
-  const [activeId, setActiveId] = useState<string>('')
+function useActiveIds(itemIds: string[]) {
+  const [activeIds, setActiveIds] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // Find the first intersecting entry (closest to top of viewport)
-        const intersectingEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
-
-        if (intersectingEntries.length > 0) {
-          setActiveId(intersectingEntries[0].target.id)
-        }
+        setActiveIds((prev) => {
+          const next = new Set(prev)
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              next.add(entry.target.id)
+            } else {
+              next.delete(entry.target.id)
+            }
+          }
+          return next
+        })
       },
       {
         threshold: [0, 0.25, 0.5, 0.75, 1],
@@ -124,7 +127,7 @@ function useActiveId(itemIds: string[]) {
     }
   }, [itemIds])
 
-  return activeId
+  return activeIds
 }
 
 function getItemIds(items: Toc): string[] {
@@ -142,17 +145,17 @@ function getItemIds(items: Toc): string[] {
 
 interface TocItemsProps {
   items: Toc
-  activeId: string
+  activeIds: Set<string>
   depth?: number
 }
 
-function TocItems({ items, activeId, depth = 0 }: TocItemsProps) {
+function TocItems({ items, activeIds, depth = 0 }: TocItemsProps) {
   return (
     <>
       {items.map(({ id, value, children }) => (
         <TocListItem key={id || value}>
           <TocLink
-            data-active-item={activeId === id ? 'true' : undefined}
+            data-active-item={activeIds.has(id) ? 'true' : undefined}
             depth={depth}
             href={`#${id}`}
           >
@@ -161,7 +164,7 @@ function TocItems({ items, activeId, depth = 0 }: TocItemsProps) {
           {children && children.length > 0 && (
             <TocList>
               <TocItems
-                activeId={activeId}
+                activeIds={activeIds}
                 depth={depth + 1}
                 items={children}
               />
@@ -175,7 +178,7 @@ function TocItems({ items, activeId, depth = 0 }: TocItemsProps) {
 
 export function TableOfContents({ items }: TableOfContentsProps) {
   const itemIds = getItemIds(items)
-  const activeId = useActiveId(itemIds)
+  const activeIds = useActiveIds(itemIds)
 
   if (!items || items.length === 0) {
     return null
@@ -184,7 +187,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
   return (
     <TocNav aria-label="Table of contents">
       <TocList>
-        <TocItems activeId={activeId} items={items} />
+        <TocItems activeIds={activeIds} items={items} />
       </TocList>
     </TocNav>
   )
