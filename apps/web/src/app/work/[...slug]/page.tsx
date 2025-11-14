@@ -62,7 +62,7 @@ export default async function Page({ params }: Props) {
           <ErrorBoundary fallback={<div>Failed to load content.</div>}>
             <HStack alignItems="start">
               <Mdx />
-              <TableOfContents items={toc} />
+              {!post.hideToc && <TableOfContents items={toc} />}
             </HStack>
           </ErrorBoundary>
         </Suspense>

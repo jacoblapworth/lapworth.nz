@@ -10,7 +10,7 @@ export function Highlights() {
     <Grid columns={3}>
       <Image alt="Highlight: Search" src={search} />
       <Image alt="Highlight: Filtering" src={filtering} />
-      <Image alt={'Highlight: Views'} src={views} />
+      <Image alt="Highlight: Views" src={views} />
       <Image alt="Highlight: Custom Columns" src={columns} />
     </Grid>
   )

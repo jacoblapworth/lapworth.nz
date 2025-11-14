@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { ComponentProps } from 'react'
 import { useArgs } from 'storybook/internal/preview-api'
 import { fn } from 'storybook/test'
-import { Checkbox as Component } from './Checkbox'
+import { Checkbox as Component } from './checkbox'
 
 const meta = {
   args: {

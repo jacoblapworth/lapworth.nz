@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { ComponentProps } from 'react'
 import { useArgs } from 'storybook/internal/preview-api'
 import { fn } from 'storybook/test'
-import { Views as Component } from './DataViews'
+import { Views as Component } from './data-views'
 
 const meta = {
   args: {

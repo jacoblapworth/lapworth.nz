@@ -12,7 +12,7 @@ import {
   MenuItem,
   MenuProvider,
   MenuSeparator,
-} from '../Menu'
+} from '../menu'
 
 export function ViewMenu() {
   return (

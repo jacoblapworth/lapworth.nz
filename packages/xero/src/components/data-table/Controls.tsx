@@ -1,11 +1,11 @@
 import type { Column, Header, RowData, Table } from '@tanstack/react-table'
 import { HStack } from '@/styled/jsx'
-import { ColumnsMenu } from './ColumnsMenu'
-import { DataFiltersToggle } from './DataFiltersToggle'
-import { type View, Views } from './DataViews'
+import { ColumnsMenu } from './columns-menu'
+import { DataFiltersToggle } from './data-filters-toggle'
 import { DataTableSearch } from './data-table-search'
-import type { AppliedFilter } from './Filters'
-import { ViewMenu } from './ViewMenu'
+import { type View, Views } from './data-views'
+import type { AppliedFilter } from './filters'
+import { ViewMenu } from './view-menu'
 
 interface Props<TData extends RowData> {
   views: View[]

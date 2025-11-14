@@ -18,9 +18,9 @@ import {
   MenuItem,
   MenuItemRadio,
   MenuSeparator,
-} from '../Menu'
-import { Tooltip } from '../Tooltip'
-import { SortIcon } from './SortIcon'
+} from '../menu'
+import { Tooltip } from '../tooltip'
+import { SortIcon } from './sort-icon'
 
 export interface TableHeadDropdownProps<TData, TValue> {
   header: Header<TData, TValue>

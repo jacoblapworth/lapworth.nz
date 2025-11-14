@@ -4,9 +4,9 @@ import {
   SelectValue,
 } from '@ariakit/react'
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { RequiredOptionalIndicator } from './Label'
+import { RequiredOptionalIndicator } from './label'
 
-import { Select, SelectItem, SelectLabel, SelectPopover } from './Select'
+import { Select, SelectItem, SelectLabel, SelectPopover } from './select'
 
 const genderOptions = [
   { label: 'Male', value: 'male' },

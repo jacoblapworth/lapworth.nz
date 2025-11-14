@@ -1,8 +1,8 @@
 import * as Ariakit from '@ariakit/react'
 import { PlusIcon } from 'lucide-react'
-import { Button } from '../Button'
-import { Menu, MenuItem } from '../Menu'
-import type { Filter } from './Filters'
+import { Button } from '../button'
+import { Menu, MenuItem } from '../menu'
+import type { Filter } from './filters'
 
 interface Props {
   filters: Filter[]

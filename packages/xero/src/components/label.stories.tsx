@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { JSX } from 'react/jsx-runtime'
-import { Form } from './Form'
-import { Label as Component } from './Label'
+import { Form } from './form'
+import { Label as Component } from './label'
 
 function withFormWrapper(Story: () => JSX.Element) {
   return (

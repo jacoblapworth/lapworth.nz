@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
 import { fn } from 'storybook/test'
 
-import { Button as Component } from './Button'
+import { Button as Component } from './button'
 
 const meta = {
   args: {

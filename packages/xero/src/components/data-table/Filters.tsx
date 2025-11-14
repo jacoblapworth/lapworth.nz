@@ -1,9 +1,9 @@
 import { TrashIcon } from 'lucide-react'
 import { AnimatePresence } from 'motion/react'
 import { HStack } from '@/styled/jsx'
-import { Button } from '../Button'
-import { FilterPill } from '../FilterPill'
-import { AddFilterMenu } from './FiltersAddMenu'
+import { Button } from '../button'
+import { FilterPill } from '../filter-pill'
+import { AddFilterMenu } from './filters-add-menu'
 
 export interface Filter {
   id: string

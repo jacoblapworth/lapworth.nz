@@ -1,7 +1,7 @@
 import type { RowData, Table } from '@tanstack/react-table'
 import type { ReactNode } from 'react'
 import { HStack, VStack } from '@/styled/jsx'
-import { Button } from '../Button'
+import { Button } from '../button'
 
 export interface BulkAction {
   id: string
