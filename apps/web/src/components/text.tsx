@@ -53,7 +53,9 @@ const styles = cva({
     serif: {
       true: {
         fontFamily: 'serif',
-        fontWeight: '400',
+        fontWeight: 400,
+        lineHeight: '1.2',
+        maxWidth: '45ch',
       },
     },
     size: {

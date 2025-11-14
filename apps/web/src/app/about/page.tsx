@@ -10,6 +10,7 @@ import ProfileImage from '@/public/j-photo-mono.png'
 import { css } from '@/styled/css'
 import { Grid, VStack } from '@/styled/jsx'
 import { Bookshelf } from './bookshelf'
+import { Capabilities } from './capabilities'
 import { Experience } from './experience'
 import { HeavyRotation } from './heavy-rotation'
 
@@ -70,6 +71,7 @@ export default async function Page() {
         gridTemplateColumns="subgrid"
         rowGap="2xl"
       >
+        <Capabilities />
         <Experience />
         <Suspense>
           <HeavyRotation />

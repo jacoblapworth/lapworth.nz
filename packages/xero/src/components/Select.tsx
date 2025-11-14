@@ -1,4 +1,5 @@
 import * as Ariakit from '@ariakit/react'
+import { ChevronDownIcon } from 'lucide-react'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 import { LabelStyles } from './Label'
@@ -44,3 +45,17 @@ export const SelectPopover = styled(Ariakit.SelectPopover, MenuStyles, {
 export const SelectItem = styled(Ariakit.SelectItem, MenuItemStyles)
 
 export const SelectLabel = styled(Ariakit.SelectLabel, LabelStyles)
+
+export const SelectArrow = styled(
+  Ariakit.SelectArrow,
+  {
+    base: {
+      justifySelf: 'flex-end',
+    },
+  },
+  {
+    defaultProps: {
+      children: <ChevronDownIcon size={16} />,
+    },
+  },
+)

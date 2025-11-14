@@ -20,6 +20,7 @@ import { token } from '@/styled/tokens'
 const inter = Inter({
   display: 'swap',
   fallback: ['system-ui', 'sans-serif'],
+  preload: true,
   subsets: ['latin-ext'],
   variable: '--fonts-sans',
 })
@@ -130,6 +131,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   gridTemplateColumns:
                     '{spacing.viewport} [content-start] 1fr [content-end] {spacing.viewport}',
                   marginBlockEnd: 'lg',
+                  minWidth: 0,
                 })}
                 id={id}
                 tabIndex={-1}

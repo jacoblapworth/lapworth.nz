@@ -49,7 +49,7 @@ export default async function Page() {
         </Link>
       </Text>
       <Text display size="xl">
-        Looking for work in London
+        Available for work in London
       </Text>
       <Text aria-label="GPS coordinates">-36.862600º, 174.741270º</Text>
       <Text display serif size="xl">

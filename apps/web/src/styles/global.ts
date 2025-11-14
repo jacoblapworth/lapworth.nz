@@ -24,7 +24,7 @@ export const globalCss = defineGlobalStyles({
   html: {
     color: 'text',
     cursor: 'auto',
-    fontFamily: 'system',
+    fontFamily: 'sans',
     fontSize: '100%',
     lineHeight: '1.2rem',
   },

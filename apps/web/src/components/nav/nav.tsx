@@ -1,94 +1,6 @@
-import type { Route } from 'next'
-import { Link } from '@/components/link'
 import { styled } from '@/styled/jsx'
 import { NavLinks } from './nav-links'
-
-const EXTERNAL_HREF_REGEX = /(https?|mailto):\/\//
-
-const Row = styled('div', {
-  base: {
-    '& a': {
-      margin: '-xsm',
-      padding: 'xsm',
-    },
-
-    '& li': {
-      display: 'inline-block',
-      whiteSpace: 'pre',
-    },
-
-    '& ul': {
-      lineHeight: '1.4rem',
-      margin: 0,
-    },
-    alignSelf: 'start',
-    borderBottom: 'divider',
-    fontSize: 13,
-    gridColumn: '1 / span 2',
-    justifySelf: 'stretch',
-    md: {
-      borderTop: 'divider',
-    },
-    paddingBlock: 'sm',
-    sm: {
-      gridColumn: 'span 1',
-    },
-  },
-})
-
-const socialLinks = [
-  {
-    href: 'https://twitter.com/jacoblapworth',
-    name: 'Twitter',
-  },
-  {
-    href: 'https://instagram.com/jacoblapworth',
-    name: 'Instagram',
-  },
-  {
-    href: 'https://linkedin.com/in/jacoblapworth',
-    name: 'LinkedIn',
-  },
-  {
-    href: 'https://github.com/jacoblapworth',
-    name: 'Github',
-  },
-  {
-    href: 'https://music.apple.com/profile/jacoblapworth',
-    name: 'Apple Music',
-  },
-  {
-    href: 'mailto:jacob@lapworth.nz',
-    name: 'Email',
-  },
-  {
-    href: '/cv/request' satisfies Route,
-    name: 'CV',
-  },
-]
-
-const Description = () => {
-  return (
-    <Row>
-      <ul aria-label="Social media links">
-        {socialLinks.map(({ name, href }, i) => (
-          <li key={href}>
-            <Link
-              href={href}
-              prefetch
-              sameTab={!EXTERNAL_HREF_REGEX.test(href)}
-            >
-              {name}
-            </Link>
-            {i !== socialLinks.length - 1 && (
-              <span aria-hidden="true">{` \u2022 `}</span>
-            )}
-          </li>
-        ))}
-      </ul>
-    </Row>
-  )
-}
+import { SecondaryLinks } from './nav-secondary-links'
 
 const Nav = styled('nav', {
   base: {
@@ -108,7 +20,7 @@ export async function Navigation() {
   return (
     <Nav>
       <NavLinks />
-      <Description />
+      <SecondaryLinks />
     </Nav>
   )
 }
