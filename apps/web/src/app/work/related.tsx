@@ -10,7 +10,6 @@ const Section = styled('section', {
     display: 'flex',
     flexDirection: 'column',
     gap: 'md',
-    marginBlockStart: '2xl',
     padding: 'md',
     width: '100%',
   },
@@ -22,20 +21,32 @@ const Grid = styled('ul', {
     gap: 'md',
     gridAutoRows: 'auto',
     gridTemplateColumns: {
-      base: 'repeat(auto-fill, 200px)',
+      base: '1fr',
+      md: 'repeat(auto-fill, 200px)',
     },
-    gridTemplateRows: '1fr auto',
+    gridTemplateRows: {
+      base: 'auto',
+      md: '1fr auto',
+    },
     listStyle: 'none',
     padding: 0,
-    rowGap: 'sm',
+    rowGap: {
+      base: 'lg',
+      md: 'sm',
+    },
   },
 })
 
 const Li = styled('li', {
   base: {
     display: 'inherit',
-    gridRow: '1/-1',
-    gridTemplateRows: 'subgrid',
+    gridRow: {
+      md: '1/-1',
+    },
+    gridTemplateRows: {
+      base: '1fr auto',
+      md: 'subgrid',
+    },
     listStyle: 'none',
   },
 })

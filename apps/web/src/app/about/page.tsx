@@ -8,6 +8,7 @@ import { Link } from '@/components/link'
 import { Text } from '@/components/text'
 import ProfileImage from '@/public/j-photo-mono.png'
 import { css } from '@/styled/css'
+import { Grid, VStack } from '@/styled/jsx'
 import { Bookshelf } from './bookshelf'
 import { Experience } from './experience'
 import { HeavyRotation } from './heavy-rotation'
@@ -21,7 +22,7 @@ export default async function Page() {
   cacheLife('max')
   return (
     <>
-      <div className={css({ maxWidth: '1000px' })}>
+      <VStack alignItems="start" gap="xl" maxWidth="1000px" paddingBlock="2xl">
         <Text display size="xl">
           Hey there!{' '}
           <span
@@ -63,14 +64,20 @@ export default async function Page() {
           <Link href="https://instagram.com/platesbyjacob">kitchen</Link> when
           I&apos;m not working.
         </Text>
-      </div>
-      <Experience />
-      <Suspense>
-        <HeavyRotation />
-      </Suspense>
-      <Suspense>
-        <Bookshelf />
-      </Suspense>
+      </VStack>
+      <Grid
+        gridColumn="1/-1 !important"
+        gridTemplateColumns="subgrid"
+        rowGap="2xl"
+      >
+        <Experience />
+        <Suspense>
+          <HeavyRotation />
+        </Suspense>
+        <Suspense>
+          <Bookshelf />
+        </Suspense>
+      </Grid>
     </>
   )
 }

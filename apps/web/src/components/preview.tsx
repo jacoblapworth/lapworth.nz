@@ -44,7 +44,7 @@ const Handle = styled(PanelResizer, {
       content: '""',
       display: 'flex',
       height: 40,
-      marginLeft: '6px',
+      marginLeft: '6',
       width: 4,
     },
 
@@ -58,7 +58,7 @@ const Handle = styled(PanelResizer, {
     // position: 'absolute',
     height: '100%',
     justifyItems: 'center',
-    width: '16px',
+    width: 'md',
   },
 
   variants: {

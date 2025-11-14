@@ -27,7 +27,7 @@ export const Table = ({
 
 const thStyles = css({
   borderColor: { _dark: 'gray.600', base: 'gray.300' },
-  borderWidth: '1px',
+  borderWidth: '1',
   fontWeight: 'semibold',
   m: '0',
   px: '4',
@@ -50,7 +50,7 @@ const trStyles = css({
     bg: { _dark: 'gray.700', base: 'gray.100' },
   },
   borderColor: { _dark: 'gray.600', base: 'gray.300' },
-  borderWidth: '1px',
+  borderWidth: '1',
   m: '0',
   p: '0',
 })
@@ -68,7 +68,7 @@ export const Tr = ({
 
 const tdStyles = css({
   borderColor: { _dark: 'gray.600', base: 'gray.300' },
-  borderWidth: '1px',
+  borderWidth: '1',
   m: '0',
   px: '4',
   py: '2',

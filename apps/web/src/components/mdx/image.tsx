@@ -7,12 +7,17 @@ import { styled } from '@/styled/jsx'
 
 const DialogDisclosure = styled(Ariakit.DialogDisclosure, {
   base: {
-    '&:hover': {
-      filter: 'brightness(0.9)',
+    _hover: {
+      brightness: 0.95,
     },
     cursor: 'zoom-in',
     display: 'inline-block',
-    maxWidth: '800px',
+    filter: 'auto',
+    maxWidth: '2xl',
+    minWidth: 0,
+    transitionDuration: 'sm',
+    transitionProperty: 'filter',
+    transitionTimingFunction: 'easeInOutCubic',
     width: '100%',
   },
 })
@@ -22,20 +27,20 @@ const Backdrop = styled('div', {
     _enter: {
       opacity: 1,
     },
-
     _exit: {
       opacity: 1,
-      transform: 'scale(1)',
+      scale: 1,
     },
     backdropBlur: 'sm',
     backdropFilter: 'auto',
     backgroundColor: 'background/70',
-    inset: '0',
+    inset: 0,
     opacity: 0,
     position: 'fixed',
-    transitionDuration: '150ms',
+    transform: 'auto',
+    transitionDuration: 'md',
     transitionProperty: 'opacity, backdrop-filter',
-    transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    transitionTimingFunction: 'easeInOutCubic',
     zIndex: 100,
   },
 })
@@ -46,34 +51,31 @@ const Dialog = styled(
     base: {
       _enter: {
         opacity: 1,
-        transform: 'scale(1)',
+        scale: 1,
       },
-      '--inset': '16px',
+      '--inset': {
+        base: 'token(spacing.md)',
+        md: 'token(spacing.lg)',
+      },
       alignItems: 'stretch',
       backgroundColor: 'background',
-      boxShadow: `
-      inset 0 0 0 1px token(colors.quaternary),
-      0 25px 30px -10px rgb(0 0 0 / 0.15);
-    `,
+      boxShadow: 'dialog',
       display: 'flex',
       flexDirection: 'column',
-      gap: '1rem',
+      gap: '1',
       height: 'fit-content',
       inset: 'var(--inset)',
       justifyContent: 'stretch',
       margin: 'auto',
       maxHeight: 'calc(100dvh - var(--inset) * 2 - 36px)',
-      maxWidth: '1000px',
-      md: {
-        '--inset': '2rem',
-      },
+      maxWidth: '3xl',
       opacity: 0,
       position: 'fixed',
-      transform: 'scale(0.95)',
+      scale: 0.9,
       transformOrigin: 'center',
-      transitionDuration: '100ms',
+      transitionDuration: 'sm',
       transitionProperty: 'all',
-      transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+      transitionTimingFunction: 'easeInOutCubic',
       zIndex: 800,
     },
   },
@@ -89,7 +91,7 @@ const Dismiss = styled(
   {
     base: {
       _active: {
-        scale: '90%',
+        scale: 0.9,
       },
       _hover: {
         backgroundColor: 'primary',
@@ -99,7 +101,7 @@ const Dismiss = styled(
       color: 'primary',
       cursor: 'pointer',
       position: 'absolute',
-      top: '-2rem',
+      top: '-lg',
     },
   },
   {
