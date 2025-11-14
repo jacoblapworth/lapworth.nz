@@ -14,6 +14,7 @@ const DialogDisclosure = styled(Ariakit.DialogDisclosure, {
     display: 'inline-block',
     filter: 'auto',
     maxWidth: '2xl',
+    minWidth: 0,
     transitionDuration: 'sm',
     transitionProperty: 'filter',
     transitionTimingFunction: 'easeInOutCubic',
