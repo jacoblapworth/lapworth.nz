@@ -24,14 +24,22 @@ import {
   useMediaSelector,
 } from 'media-chrome/react/media-store'
 import type { PlayerProps } from 'next-video'
-import { useCallback, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import ReactPlayer from 'react-player'
 import { css } from '@/styled/css'
 import { styled } from '@/styled/jsx'
-import { PlayButton } from '../video/play-button'
+import { PlayButton } from './play-button'
+
+// const StyledVideo = styled(NextVideo, {
+//   base: {
+//     border: 'muted',
+//     maxWidth: '2xl',
+//     minWidth: 0,
+//     width: '100%',
+//   },
+// })
 
 export function Player(props: PlayerProps) {
-  console.log({ props })
   const { asset, src, poster, blurDataURL, thumbnailTime, ...rest } = props
   const ref = useRef<HTMLVideoElement>(null)
 
@@ -68,7 +76,7 @@ export function Player(props: PlayerProps) {
         }}
         playsInline
         preload="auto"
-        ref={setPlayerRef}
+        ref={ref}
         slot="media"
         src={src}
         style={{
@@ -78,7 +86,18 @@ export function Player(props: PlayerProps) {
         {...rest}
         controls={false}
       ></ReactPlayer>
-      {/* <PlayButton /> */}
+      <PlayButton
+        isPlaying={!ref.current?.paused}
+        onClick={() => {
+          if (ref.current) {
+            if (ref.current.paused) {
+              ref.current.play()
+            } else {
+              ref.current.pause()
+            }
+          }
+        }}
+      />
       {/* <MediaPlayButton /> */}
       <MediaControlBar>
         {/* <MediaSeekBackwardButton seekOffset={10} /> */}
