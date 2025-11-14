@@ -22,7 +22,7 @@ export async function Bookshelf() {
           title={item.title}
         />
       )}
-      title="Reading"
+      title="Bookshelf"
     />
   )
 }

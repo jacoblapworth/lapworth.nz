@@ -1,8 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { MediaProvider } from 'media-chrome/react/media-store'
+import { fn } from 'storybook/test'
 import { PlayButton as Component } from './play-button'
 
 const meta = {
+  args: {
+    onClick: fn(),
+  },
   component: Component,
   decorators: [
     (Story) => (
@@ -18,6 +22,14 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const PlayButton: Story = {
-  args: {},
+export const Paused: Story = {
+  args: {
+    isPlaying: false,
+  },
+}
+
+export const Playing: Story = {
+  args: {
+    isPlaying: true,
+  },
 }
