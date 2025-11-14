@@ -68,7 +68,6 @@ const TocLink = styled('a', {
       _before: {
         backgroundColor: 'quaternary',
       },
-      // backgroundColor: 'surface',
       color: 'primary',
     },
     color: 'secondary',
