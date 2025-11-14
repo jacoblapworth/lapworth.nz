@@ -5,6 +5,7 @@ const StyledVideo = styled(NextVideo, {
   base: {
     border: 'muted',
     maxWidth: '2xl',
+    minWidth: 0,
     width: '100%',
   },
 })
