@@ -34,7 +34,7 @@ export function Background() {
     <Container ref={ref}>
       <Shine
         className={css({
-          bg: '#BBF3FD',
+          backgroundColor: '#BBF3FD',
           opacity: 0.8,
         })}
         x={x}
