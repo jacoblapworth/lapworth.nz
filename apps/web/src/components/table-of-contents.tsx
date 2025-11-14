@@ -85,8 +85,14 @@ const TocLink = styled('a', {
 
   variants: {
     depth: {
+      0: {
+        paddingInlineStart: 'md',
+      },
       1: {
         paddingInlineStart: 'lg',
+      },
+      2: {
+        paddingInlineStart: 'xl',
       },
     },
   },
@@ -146,7 +152,7 @@ function getItemIds(items: Toc): string[] {
 interface TocItemsProps {
   items: Toc
   activeIds: Set<string>
-  depth?: number
+  depth?: 0 | 1
 }
 
 function TocItems({ items, activeIds, depth = 0 }: TocItemsProps) {
@@ -155,7 +161,7 @@ function TocItems({ items, activeIds, depth = 0 }: TocItemsProps) {
       {items.map(({ id, value, children }) => (
         <TocListItem key={id || value}>
           <TocLink
-            data-active-item={activeIds.has(id) ? 'true' : undefined}
+            data-active-item={id && activeIds.has(id) ? 'true' : undefined}
             depth={depth}
             href={`#${id}`}
           >
@@ -165,7 +171,7 @@ function TocItems({ items, activeIds, depth = 0 }: TocItemsProps) {
             <TocList>
               <TocItems
                 activeIds={activeIds}
-                depth={depth + 1}
+                depth={(depth + 1) as 0 | 1}
                 items={children}
               />
             </TocList>
