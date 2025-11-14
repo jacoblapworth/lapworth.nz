@@ -8,7 +8,7 @@ import { Link } from '@/components/link'
 import { Text } from '@/components/text'
 import ProfileImage from '@/public/j-photo-mono.png'
 import { css } from '@/styled/css'
-import { VStack } from '@/styled/jsx'
+import { Grid, VStack } from '@/styled/jsx'
 import { Bookshelf } from './bookshelf'
 import { Experience } from './experience'
 import { HeavyRotation } from './heavy-rotation'
@@ -65,13 +65,19 @@ export default async function Page() {
           I&apos;m not working.
         </Text>
       </VStack>
-      <Experience />
-      <Suspense>
-        <HeavyRotation />
-      </Suspense>
-      <Suspense>
-        <Bookshelf />
-      </Suspense>
+      <Grid
+        gridColumn="1/-1 !important"
+        gridTemplateColumns="subgrid"
+        rowGap="2xl"
+      >
+        <Experience />
+        <Suspense>
+          <HeavyRotation />
+        </Suspense>
+        <Suspense>
+          <Bookshelf />
+        </Suspense>
+      </Grid>
     </>
   )
 }

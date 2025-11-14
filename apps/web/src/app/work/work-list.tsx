@@ -8,8 +8,8 @@ const Ul = styled('ul', {
   base: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 'lg',
-    listStyle: 'inside',
+    gap: 'xl',
+    listStyle: 'none',
     marginBlock: 'lg',
     marginBlockEnd: 'md',
     maxWidth: 600,
