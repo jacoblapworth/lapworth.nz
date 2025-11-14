@@ -8,5 +8,6 @@ export const Section = styled('section', {
     display: 'inherit',
     gridColumn: '1/-1 !important',
     gridTemplateColumns: 'subgrid',
+    rowGap: 'xl',
   },
 })

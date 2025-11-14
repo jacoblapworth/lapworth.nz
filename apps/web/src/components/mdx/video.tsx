@@ -1,4 +1,5 @@
 import NextVideo, { type PlayerProps } from 'next-video'
+import { styled } from '@/styled/jsx'
 import { Player } from './player'
 
 const StyledVideo = styled(NextVideo, {

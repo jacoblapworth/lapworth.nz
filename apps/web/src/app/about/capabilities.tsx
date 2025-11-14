@@ -24,6 +24,7 @@ const Grid = styled('ul', {
       md: 'repeat(auto-fit, minmax(15rem, 1fr))',
     },
     listStyle: 'none',
+    maxWidth: '2xl',
     rowGap: 'xs',
   },
 })

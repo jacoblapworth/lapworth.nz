@@ -8,7 +8,7 @@ interface WithId {
   id: string
 }
 
-const Grid = styled('div', {
+const ScrollGrid = styled('div', {
   base: {
     alignItems: 'start',
     display: 'grid',
@@ -18,10 +18,14 @@ const Grid = styled('div', {
     gridAutoRows: 'auto',
     gridColumn: '1/-1 !important',
     overflowX: 'scroll',
-    overflowY: 'visible',
+    overflowY: 'auto',
+    overscrollBehaviorX: 'contain',
     paddingBlockEnd: 'md',
     paddingInline: 'viewport',
     scrollbarWidth: 'thin',
+    scrollPaddingInline: 'viewport',
+    scrollSnapAlign: 'start',
+    scrollSnapType: 'x mandatory',
   },
 })
 
@@ -45,11 +49,11 @@ export function Carousel<T extends WithId>({
   const renderedItems = items.map(renderItem)
 
   return (
-    <Section aria-labelledby={id} rowGap="xl">
+    <Section aria-labelledby={id}>
       <Text as="h2" display id={id} size="lg">
         {title}
       </Text>
-      <Grid>{renderedItems}</Grid>
+      <ScrollGrid>{renderedItems}</ScrollGrid>
     </Section>
   )
 }

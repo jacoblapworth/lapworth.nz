@@ -66,7 +66,7 @@ export function Experience() {
   const id = useId()
 
   return (
-    <Section aria-labelledby={id} rowGap="xl">
+    <Section aria-labelledby={id}>
       <Text as="h2" display id={id} size="lg">
         Experience
       </Text>

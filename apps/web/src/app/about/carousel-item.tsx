@@ -1,8 +1,19 @@
 import type { StaticImageData } from 'next/image'
 import NextImage from 'next/image'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { css } from '@/styled/css'
-import { styled, VStack } from '@/styled/jsx'
+import { styled } from '@/styled/jsx'
+
+const Link = styled(NextLink, {
+  base: {
+    alignItems: 'flex-start',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 'xs',
+    overflow: 'hidden',
+    scrollSnapAlign: 'start',
+  },
+})
 
 export const Label = styled('div', {
   base: {
@@ -47,30 +58,28 @@ export function CarouselItem({ title, subtitle, thumbnail, href, alt }: Props) {
       rel="noopener noreferrer"
       target="_blank"
     >
-      <VStack alignItems="start" gap="xs" overflow="hidden">
-        <NextImage
-          alt={alt}
-          className={css({
-            _groupHover: {
-              opacity: 0.8,
-            },
-            _hover: {
-              opacity: 0.8,
-            },
-            backgroundColor: 'surface',
-            borderRadius: 'md',
-            height: 'auto',
-            marginBlockEnd: 'xsm',
-            overflow: 'hidden',
-            willChange: 'transform',
-          })}
-          placeholder="blur"
-          quality={75}
-          src={thumbnail}
-        />
-        <Label variant="primary">{title}</Label>
-        <Label variant="secondary">{subtitle}</Label>
-      </VStack>
+      <NextImage
+        alt={alt}
+        className={css({
+          _groupHover: {
+            opacity: 0.8,
+          },
+          _hover: {
+            opacity: 0.8,
+          },
+          backgroundColor: 'surface',
+          borderRadius: 'md',
+          height: 'auto',
+          marginBlockEnd: 'xsm',
+          overflow: 'hidden',
+          willChange: 'transform',
+        })}
+        placeholder="blur"
+        quality={75}
+        src={thumbnail}
+      />
+      <Label variant="primary">{title}</Label>
+      <Label variant="secondary">{subtitle}</Label>
     </Link>
   )
 }
