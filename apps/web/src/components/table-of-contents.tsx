@@ -26,8 +26,18 @@ const TocList = styled('ul', {
   base: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 'xs',
+    gap: 0,
     listStyle: 'none',
+    margin: 0,
+    padding: 0,
+  },
+})
+
+const TocListItem = styled('li', {
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 0,
     margin: 0,
     padding: 0,
   },
@@ -35,28 +45,30 @@ const TocList = styled('ul', {
 
 const TocLink = styled('a', {
   base: {
-    _active: {
+    _activeItem: {
       _before: {
         backgroundColor: 'primary',
       },
-      //   color: 'primary',
-      //   fontWeight: 'medium',
+      color: 'primary',
+      fontWeight: 'md',
     },
     _before: {
-      // _active: {
-      //   backgroundColor: 'primary',
-      // },
       backgroundColor: 'transparent',
       bottom: 0,
       content: '""',
       left: 0,
       position: 'absolute',
       top: 0,
-      transition: 'background-color 0.2s',
+      transitionDuration: 'md',
+      transitionProperty: 'background-color',
+      transitionTimingFunction: 'ease-in-out',
       width: '2px',
     },
     _hover: {
-      backgroundColor: 'surface',
+      _before: {
+        backgroundColor: 'quaternary',
+      },
+      // backgroundColor: 'surface',
       color: 'primary',
     },
     color: 'secondary',
@@ -67,14 +79,17 @@ const TocLink = styled('a', {
     paddingInlineStart: 'md',
     position: 'relative',
     textDecoration: 'none',
-    transition: 'color 0.2s',
+    transitionDuration: 'sm',
+    transitionProperty: 'color, background-color',
+    transitionTimingFunction: 'ease-in-out',
   },
-})
 
-const NestedList = styled(TocList, {
-  base: {
-    marginTop: 'xs',
-    paddingLeft: 'md',
+  variants: {
+    depth: {
+      1: {
+        paddingInlineStart: 'lg',
+      },
+    },
   },
 })
 
@@ -94,7 +109,6 @@ function useActiveId(itemIds: string[]) {
         }
       },
       {
-        rootMargin: '-100px 0px -66% 0px',
         threshold: [0, 0.25, 0.5, 0.75, 1],
       },
     )
@@ -127,23 +141,34 @@ function getItemIds(items: Toc): string[] {
   return ids
 }
 
-function TocItems({ items, activeId }: { items: Toc; activeId: string }) {
+interface TocItemsProps {
+  items: Toc
+  activeId: string
+  depth?: number
+}
+
+function TocItems({ items, activeId, depth = 0 }: TocItemsProps) {
   return (
     <>
       {items.map(({ id, value, children }) => (
-        <li key={id || value}>
+        <TocListItem key={id || value}>
           <TocLink
-            data-active={activeId === id ? 'true' : undefined}
+            data-active-item={activeId === id ? 'true' : undefined}
+            depth={depth}
             href={`#${id}`}
           >
             {value}
           </TocLink>
           {children && children.length > 0 && (
-            <NestedList>
-              <TocItems activeId={activeId} items={children} />
-            </NestedList>
+            <TocList>
+              <TocItems
+                activeId={activeId}
+                depth={depth + 1}
+                items={children}
+              />
+            </TocList>
           )}
-        </li>
+        </TocListItem>
       ))}
     </>
   )
