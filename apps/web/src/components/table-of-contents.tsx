@@ -130,17 +130,17 @@ function getItemIds(items: Toc): string[] {
 function TocItems({ items, activeId }: { items: Toc; activeId: string }) {
   return (
     <>
-      {items.map((item) => (
-        <li key={item.id || item.value}>
+      {items.map(({ id, value, children }) => (
+        <li key={id || value}>
           <TocLink
-            data-active={activeId === item.id ? 'true' : 'false'}
-            href={`#${item.id}`}
+            data-active={activeId === id ? 'true' : undefined}
+            href={`#${id}`}
           >
-            {item.value}
+            {value}
           </TocLink>
-          {item.children && item.children.length > 0 && (
+          {children && children.length > 0 && (
             <NestedList>
-              <TocItems activeId={activeId} items={item.children} />
+              <TocItems activeId={activeId} items={children} />
             </NestedList>
           )}
         </li>

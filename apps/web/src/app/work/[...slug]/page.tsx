@@ -37,7 +37,7 @@ export default async function Page({ params }: Props) {
   const { slug } = await params
   const post = await getPostBySlugParams(slug)
   if (!post) notFound()
-  const { default: Mdx, tableOfContents } = await import(`../${post.filePath}`)
+  const { default: Mdx, toc } = await import(`../${post.filePath}`)
   const relatedPosts = post.showRelated ? await getRelatedPosts(post) : []
 
   return (
@@ -60,10 +60,12 @@ export default async function Page({ params }: Props) {
         </VStack>
         <Suspense>
           <ErrorBoundary fallback={<div>Failed to load content.</div>}>
-            <Mdx />
+            <HStack alignItems="start">
+              <Mdx />
+              <TableOfContents items={toc} />
+            </HStack>
           </ErrorBoundary>
         </Suspense>
-        <TableOfContents items={tableOfContents} />
       </Article>
       <Related posts={relatedPosts} />
     </>
