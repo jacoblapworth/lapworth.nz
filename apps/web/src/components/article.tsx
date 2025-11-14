@@ -7,7 +7,6 @@ export const Article = styled('article', {
     flexDirection: 'column',
     gap: 'xl',
     marginBlock: 'xl',
-    maxWidth: 800,
     minWidth: 0,
   },
 })

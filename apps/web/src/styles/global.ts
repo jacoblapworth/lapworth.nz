@@ -27,6 +27,7 @@ export const globalCss = defineGlobalStyles({
     fontFamily: 'sans',
     fontSize: '100%',
     lineHeight: '1.2rem',
+    scrollBehavior: 'smooth',
   },
 
   main: {
