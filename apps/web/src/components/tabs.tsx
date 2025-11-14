@@ -55,7 +55,7 @@ function Tab({ children, isActive, ...props }: WrappedTriggerProps) {
 
 export const TabList = styled(Ariakit.TabList, {
   base: {
-    borderBlockEnd: '1px solid token(colors.quaternary)',
+    borderBlockEnd: 'muted',
     display: 'flex',
     gap: 'md',
     marginBlockEnd: 'md',

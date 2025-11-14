@@ -1,6 +1,7 @@
 import { Link } from '@/components/link'
+import { Section } from '@/components/section'
 import { Text } from '@/components/text'
-import { styled } from '@/styled/jsx'
+import { Grid, VStack } from '@/styled/jsx'
 
 interface ExperienceRowProps {
   title?: string
@@ -12,77 +13,62 @@ interface ExperienceRowProps {
   isCurrent?: boolean
 }
 
-const Column = styled('div', {
-  base: {
-    display: 'flex',
-    flexDirection: 'column',
+const experience: ExperienceRowProps[] = [
+  {
+    from: '2020',
+    href: 'https://www.xero.com/nz/',
+    to: '2025',
+    workplace: 'Xero',
   },
-})
-
-const Row = styled('div', {
-  base: {
-    display: 'grid',
-    gap: '1rem',
-    gridTemplateColumns: '1fr 1fr',
-    placeItems: 'start',
+  {
+    from: '2019',
+    href: 'https://www.vendhq.com/nz/',
+    to: '2020',
+    workplace: 'Vend',
   },
-})
+  {
+    from: '2018',
+    href: 'https://www.gettimely.com/',
+    to: '2019',
+    workplace: 'Timely',
+  },
+  {
+    from: '2016',
+    href: 'https://www.trademe.co.nz/a/',
+    to: '2018',
+    workplace: 'Trade Me',
+  },
+]
 
 function ExperienceRow({ workplace, from, to, href }: ExperienceRowProps) {
   return (
-    <Row>
+    <Grid gap="md" gridColumn="1/-1" gridTemplateColumns="subgrid">
       <Link href={href}>{workplace}</Link>
-      <Column>
+      <VStack alignItems="start" gap={0}>
         <div>{from}</div>
         <div>— {to}</div>
-      </Column>
-    </Row>
+      </VStack>
+    </Grid>
   )
 }
 
-const Stack = styled('div', {
-  base: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 'md',
-    gridColumn: '1 / -1',
-    justifyContent: 'space-between',
-    maxWidth: '12rem',
-  },
-})
-
 export function Experience() {
   return (
-    <div>
+    <Section rowGap="xl">
       <Text as="h2" display size="lg">
         Experience
       </Text>
-      <Stack>
-        <ExperienceRow
-          from="2020"
-          href="https://www.xero.com/nz/"
-          to="2025"
-          workplace="Xero"
-        />
-        <ExperienceRow
-          from="2019"
-          href="https://www.vendhq.com/nz/"
-          to="2020"
-          workplace="Vend"
-        />
-        <ExperienceRow
-          from="2018"
-          href="https://www.gettimely.com/"
-          to="2019"
-          workplace="Timely"
-        />
-        <ExperienceRow
-          from="2016"
-          href="https://www.trademe.co.nz/a/"
-          to="2018"
-          workplace="Trade Me"
-        />
-      </Stack>
-    </div>
+      <Grid
+        alignItems="start"
+        gap="md"
+        gridTemplateColumns="1fr 1fr"
+        justifyContent="space-between"
+        maxWidth="12rem"
+      >
+        {experience.map((exp) => (
+          <ExperienceRow key={exp.workplace} {...exp} />
+        ))}
+      </Grid>
+    </Section>
   )
 }

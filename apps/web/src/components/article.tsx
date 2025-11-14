@@ -5,7 +5,9 @@ export const Article = styled('article', {
     alignItems: 'start',
     display: 'flex',
     flexDirection: 'column',
-    gap: 'md',
-    marginBlockEnd: 'lg',
+    gap: 'xl',
+    marginBlock: 'xl',
+    maxWidth: 800,
+    minWidth: 0,
   },
 })

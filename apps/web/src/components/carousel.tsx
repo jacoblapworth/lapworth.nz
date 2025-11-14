@@ -19,8 +19,9 @@ const Grid = styled('div', {
     gridColumn: '1/-1 !important',
     overflowX: 'scroll',
     overflowY: 'visible',
-    paddingBlock: 'md',
+    paddingBlockEnd: 'md',
     paddingInline: 'viewport',
+    scrollbarWidth: 'thin',
   },
 })
 
@@ -44,7 +45,7 @@ export function Carousel<T extends WithId>({
   const renderedItems = items.map(renderItem)
 
   return (
-    <Section aria-labelledby={id}>
+    <Section aria-labelledby={id} rowGap="xl">
       <Text as="h2" display id={id} size="lg">
         {title}
       </Text>

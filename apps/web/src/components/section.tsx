@@ -8,16 +8,5 @@ export const Section = styled('section', {
     display: 'inherit',
     gridColumn: '1/-1 !important',
     gridTemplateColumns: 'subgrid',
-    // maxWidth: '70ch',
-  },
-  variants: {
-    fullBleed: {
-      true: {},
-    },
-    fullWidth: {
-      true: {
-        maxWidth: 'unset',
-      },
-    },
   },
 })

@@ -22,14 +22,14 @@ const Row = styled('div', {
       margin: 0,
     },
     alignSelf: 'start',
-    borderBottom: '1px solid token(colors.divider)',
+    borderBottom: 'divider',
     fontSize: 13,
     gridColumn: '1 / span 2',
     justifySelf: 'stretch',
     md: {
-      borderTop: '1px solid token(colors.divider)',
+      borderTop: 'divider',
     },
-    paddingBlock: 8,
+    paddingBlock: 'sm',
     sm: {
       gridColumn: 'span 1',
     },

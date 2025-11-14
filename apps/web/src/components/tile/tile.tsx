@@ -9,6 +9,6 @@ export const Tile = styled('div', {
     // 'md': {
     //   gridTemplateColumns: 'repeat(12, 1fr)',
     // },
-    padding: '1rem',
+    padding: '1',
   },
 })

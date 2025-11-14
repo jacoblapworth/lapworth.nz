@@ -34,7 +34,7 @@ const Button = styled(motion.button, {
       border: 'divider',
     },
     backgroundColor: 'surface',
-    border: '1px solid transparent',
+    border: 'transparent',
     borderRadius: 9999,
     cursor: 'pointer',
     fontSize: 'lg',

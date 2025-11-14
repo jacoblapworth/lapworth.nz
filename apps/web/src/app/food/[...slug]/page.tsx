@@ -1,6 +1,7 @@
 'use cache'
 
 import { cacheLife } from 'next/cache'
+import type { Metadata } from 'next/dist/lib/metadata/types/metadata-interface'
 import { notFound } from 'next/navigation'
 import { Article } from '@/components/article'
 import { Text } from '@/components/text'
@@ -13,7 +14,7 @@ export async function generateStaticParams() {
   return recipes.map((r) => ({ slug: r.params }))
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const recipe = await getRecipe(slug)
   if (!recipe) return notFound()
