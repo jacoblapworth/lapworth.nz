@@ -18,6 +18,9 @@ export default mergeConfig(
             storybookTest({
               configDir: path.join(dirname, '.storybook'),
               storybookScript: 'pnpm storybook --no-open',
+              tags: {
+                skip: ['skip'],
+              },
             }),
           ],
           test: {

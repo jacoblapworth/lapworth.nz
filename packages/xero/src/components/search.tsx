@@ -81,7 +81,6 @@ export function Search({
   const id = useId()
   const ref = useRef<HTMLInputElement>(null)
   const isClearable = (value?.length ?? 0) > 0 //TODO: fix for uncontrolled
-
   return (
     <Container>
       <SearchIcon size={16} />

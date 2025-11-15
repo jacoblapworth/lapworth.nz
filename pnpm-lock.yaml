@@ -448,6 +448,9 @@ importers:
       '@biomejs/biome':
         specifier: 'catalog:'
         version: 2.3.4
+      '@chromatic-com/storybook':
+        specifier: ^4.1.2
+        version: 4.1.2(storybook@10.0.7(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(vite@7.2.2(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.25.1)(terser@5.44.1)(yaml@2.8.1)))
       '@pandacss/dev':
         specifier: 1.5.0
         version: 1.5.0(typescript@5.9.3)
@@ -496,6 +499,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: 4.0.8
         version: 4.0.8(@vitest/browser@4.0.8(vite@7.2.2(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.25.1)(terser@5.44.1)(yaml@2.8.1))(vitest@4.0.8))(vitest@4.0.8)
+      chromatic:
+        specifier: 13.3.3
+        version: 13.3.3
       playwright:
         specifier: ^1.56.1
         version: 1.56.1
@@ -5530,6 +5536,18 @@ packages:
 
   chromatic@12.2.0:
     resolution: {integrity: sha512-GswmBW9ZptAoTns1BMyjbm55Z7EsIJnUvYKdQqXIBZIKbGErmpA+p4c0BYA+nzw5B0M+rb3Iqp1IaH8TFwIQew==}
+    hasBin: true
+    peerDependencies:
+      '@chromatic-com/cypress': ^0.*.* || ^1.0.0
+      '@chromatic-com/playwright': ^0.*.* || ^1.0.0
+    peerDependenciesMeta:
+      '@chromatic-com/cypress':
+        optional: true
+      '@chromatic-com/playwright':
+        optional: true
+
+  chromatic@13.3.3:
+    resolution: {integrity: sha512-89w0hiFzIRqLbwGSkqSQzhbpuqaWpXYZuevSIF+570Wb+T/apeAkp3px8nMJcFw+zEdqw/i6soofkJtfirET1Q==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -16311,6 +16329,8 @@ snapshots:
   chownr@3.0.0: {}
 
   chromatic@12.2.0: {}
+
+  chromatic@13.3.3: {}
 
   chrome-trace-event@1.0.4: {}
 

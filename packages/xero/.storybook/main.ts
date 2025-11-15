@@ -16,6 +16,7 @@ export default defineMain({
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-themes'),
     getAbsolutePath('@storybook/addon-vitest'),
+    getAbsolutePath('@chromatic-com/storybook'),
     'storybook-next-intl',
   ],
   framework: {
