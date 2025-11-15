@@ -11,26 +11,20 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
-      // Use `workspace` field in Vitest < 3.2
       projects: [
         {
           extends: true,
           plugins: [
             storybookTest({
-              // The location of your Storybook config, main.js|ts
               configDir: path.join(dirname, '.storybook'),
-              // This should match your package.json script to run Storybook
-              // The --no-open flag will skip the automatic opening of a browser
-              storybookScript: 'yarn storybook --no-open',
+              storybookScript: 'pnpm storybook --no-open',
             }),
           ],
           test: {
-            // Enable browser mode
             browser: {
               enabled: true,
               headless: true,
               instances: [{ browser: 'chromium' }],
-              // Make sure to install Playwright
               provider: playwright({}),
             },
             name: 'storybook',

@@ -3,8 +3,8 @@ import addonLinks from '@storybook/addon-links'
 import addonThemes from '@storybook/addon-themes'
 import { definePreview } from '@storybook/nextjs-vite'
 import storybookNextIntl from 'storybook-next-intl/preview'
-import '../src/index.css'
 import nextIntl from './next-intl'
+import '../src/index.css'
 
 export default definePreview({
   addons: [addonDocs(), addonLinks(), addonThemes(), storybookNextIntl],
@@ -15,7 +15,6 @@ export default definePreview({
         date: /Date$/i,
       },
     },
-
     nextIntl,
   },
   tags: ['autodocs'],
