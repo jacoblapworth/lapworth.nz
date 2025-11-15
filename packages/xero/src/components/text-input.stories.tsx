@@ -6,6 +6,7 @@ const meta = preview.meta({
   args: {
     label: 'Text input',
     name: 'name',
+    placeholder: 'Placeholder',
   },
   component: TextInput,
   title: 'Components/TextInput',

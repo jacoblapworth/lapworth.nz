@@ -17,7 +17,7 @@ const FormElement = styled('form', {
   },
 })
 
-type FormContextValue =
+export type FormContextValue =
   | {
       identifyFieldsWith: 'optional'
       optionalLabel: ReactNode
@@ -45,7 +45,7 @@ export function useFormContext({
   return context
 }
 
-type Props = FormContextValue & FormHTMLAttributes<HTMLFormElement>
+export type Props = FormContextValue & FormHTMLAttributes<HTMLFormElement>
 
 export function Form({
   children,

@@ -18,5 +18,9 @@ const meta = preview.meta({
 })
 
 export const Primary = meta.story({
-  args: {},
+  args: {
+    identifyFieldsWith: 'optional',
+    optionalLabel: '(optional)',
+    requiredLabel: '(required)',
+  },
 })
