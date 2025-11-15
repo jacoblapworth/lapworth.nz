@@ -36,7 +36,7 @@ export const ViewTab = styled(Ariakit.Tab, {
         borderColor: 'action',
       },
       backgroundColor: 'background',
-      borderColor: 'action',
+      borderColor: 'border.regular',
       color: 'action',
       zIndex: 1,
     },

@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { JSX } from 'react/jsx-runtime'
+import preview from '@/storybook/preview'
 import { Form } from './form'
-import { Label as Component } from './label'
+import { Label } from './label'
 
 function withFormWrapper(Story: () => JSX.Element) {
   return (
@@ -11,27 +11,24 @@ function withFormWrapper(Story: () => JSX.Element) {
   )
 }
 
-const meta = {
+const meta = preview.meta({
   args: {
     children: 'Label',
   },
-  component: Component,
+  component: Label,
   decorators: [withFormWrapper],
   title: 'Components/Label',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Primary: Story = {
+export const Primary = meta.story({
   args: {
     children: 'Label',
   },
-}
+})
 
-export const Required: Story = {
+export const Required = meta.story({
   args: {
     children: 'Label',
     required: true,
   },
-}
+})

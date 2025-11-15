@@ -1,9 +1,5 @@
-import {
-  SelectProvider as Component,
-  SelectArrow,
-  SelectValue,
-} from '@ariakit/react'
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { SelectArrow, SelectProvider, SelectValue } from '@ariakit/react'
+import preview from '@/storybook/preview'
 import { RequiredOptionalIndicator } from './label'
 
 import { Select, SelectItem, SelectLabel, SelectPopover } from './select'
@@ -16,7 +12,7 @@ const genderOptions = [
   { label: 'Other', value: 'other' },
 ]
 
-const meta = {
+const meta = preview.meta({
   args: {
     children: (
       <>
@@ -40,13 +36,10 @@ const meta = {
       </>
     ),
   },
-  component: Component,
+  component: SelectProvider,
   title: 'Components/Select',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Primary: Story = {
+export const Primary = meta.story({
   args: {},
-}
+})

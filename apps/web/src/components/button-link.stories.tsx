@@ -1,17 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import preview from '@/storybook/preview'
 import { LinkButton as Component } from './button'
 
-const meta = {
+const meta = preview.meta({
   component: Component,
   title: 'Components/LinkButton',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const LinkButton: Story = {
+export const LinkButton = meta.story({
   args: {
     children: 'Link Button',
     href: '/example',
   },
-}
+})

@@ -1,10 +1,39 @@
-import react from '@vitejs/plugin-react'
-import tsconfigPaths from 'vite-tsconfig-paths'
-import { defineProject } from 'vitest/config'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
+import { playwright } from '@vitest/browser-playwright'
+import { defineConfig, mergeConfig } from 'vitest/config'
+import viteConfig from './vite.config'
 
-export default defineProject({
-  plugins: [react(), tsconfigPaths()],
-  test: {
-    environment: 'jsdom',
-  },
-})
+const dirname = path.dirname(fileURLToPath(import.meta.url))
+
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    test: {
+      projects: [
+        {
+          extends: true,
+          plugins: [
+            storybookTest({
+              configDir: path.join(dirname, '.storybook'),
+              storybookScript: 'pnpm storybook --no-open',
+              tags: {
+                skip: ['skip'],
+              },
+            }),
+          ],
+          test: {
+            browser: {
+              enabled: true,
+              headless: true,
+              instances: [{ browser: 'chromium' }],
+              provider: playwright({}),
+            },
+            name: 'storybook',
+          },
+        },
+      ],
+    },
+  }),
+)

@@ -1,37 +1,34 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import preview from '@/storybook/preview'
 import { Tag as Component } from './tag'
 
-const meta = {
+const meta = preview.meta({
   component: Component,
   title: 'Components/Tag',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: 'Default Tag',
   },
-}
+})
 
-export const Positive: Story = {
+export const Positive = meta.story({
   args: {
     children: 'Positive Tag',
     sentiment: 'positive',
   },
-}
+})
 
-export const Negative: Story = {
+export const Negative = meta.story({
   args: {
     children: 'Negative Tag',
     sentiment: 'negative',
   },
-}
+})
 
-export const Warning: Story = {
+export const Warning = meta.story({
   args: {
     children: 'Warning Tag',
     sentiment: 'warning',
   },
-}
+})

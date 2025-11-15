@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { ComponentProps } from 'react'
 import { useArgs } from 'storybook/internal/preview-api'
 import { fn } from 'storybook/test'
-import { Views as Component } from './data-views'
+import preview from '@/storybook/preview'
+import { Views } from './data-views'
 
-const meta = {
+const meta = preview.meta({
   args: {
     onChange: fn(),
     selectedId: '1',
@@ -14,20 +14,15 @@ const meta = {
       { id: '3', label: 'Completed items' },
     ],
   },
-  component: Component,
+  component: Views,
   render: () => {
-    const [args, updateArgs] = useArgs<ComponentProps<typeof Component>>()
+    const [args, updateArgs] = useArgs<ComponentProps<typeof Views>>()
 
-    return (
-      <Component {...args} onChange={(id) => updateArgs({ selectedId: id })} />
-    )
+    return <Views {...args} onChange={(id) => updateArgs({ selectedId: id })} />
   },
   title: 'Components/DataTable/Views',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Primary: Story = {
+export const Primary = meta.story({
   args: {},
-}
+})

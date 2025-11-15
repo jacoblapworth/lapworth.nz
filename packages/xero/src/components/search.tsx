@@ -22,7 +22,7 @@ const Container = styled('div', {
     flexGrow: 1,
     gap: 8,
     paddingBlock: 4,
-    paddingInline: 8,
+    paddingInline: 10,
   },
 })
 
@@ -61,6 +61,7 @@ const ClearButton = styled(
     },
   },
 )
+
 interface Props {
   label: ReactNode
   defaultValue?: string
@@ -79,8 +80,7 @@ export function Search({
 }: Props) {
   const id = useId()
   const ref = useRef<HTMLInputElement>(null)
-  const isClearable = ((ref.current?.value.length || value?.length) ?? 0) > 0 //TODO: fix for uncontrolled
-
+  const isClearable = (value?.length ?? 0) > 0 //TODO: fix for uncontrolled
   return (
     <Container>
       <SearchIcon size={16} />
@@ -92,11 +92,18 @@ export function Search({
           onChange={onChange}
           placeholder={placeholder}
           ref={ref}
+          role="searchbox"
           type="search"
           value={value}
         />
       </Label>
-      {isClearable && <ClearButton onClick={onClear} />}
+      {isClearable && (
+        <ClearButton
+          aria-label="Clear search"
+          onClick={onClear}
+          role="button"
+        />
+      )}
     </Container>
   )
 }

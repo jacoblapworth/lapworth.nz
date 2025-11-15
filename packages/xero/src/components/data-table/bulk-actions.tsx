@@ -25,18 +25,28 @@ export function BulkActions<TData extends RowData>({
   const showSelectAll = isPageSelected && !isAllSelected
 
   return (
-    <VStack alignItems="stretch" gap={0}>
-      <HStack
-        borderBottomColor="border.soft"
-        borderBottomStyle="solid"
-        borderBottomWidth={1}
-        justifyContent="space-between"
-        padding={8}
-      >
+    <VStack
+      alignItems="stretch"
+      backgroundColor="background"
+      borderRadius="lg"
+      bottom="lg"
+      boxShadow="lift"
+      gap={0}
+      left="50%"
+      position="sticky"
+      translate="auto"
+      translateX="-50%"
+      width={{
+        base: '100%',
+        md: '80%',
+      }}
+      zIndex={1000}
+    >
+      <HStack justifyContent="space-between" padding={8}>
         <HStack gap={8}>
           {actions.map(({ id, label, onClick }) => (
             <Button
-              disabled={!isSomeRowsSelected}
+              disabled={!(isSomeRowsSelected || isAllSelected)}
               key={id}
               onClick={onClick}
               size="sm"
@@ -63,9 +73,7 @@ export function BulkActions<TData extends RowData>({
       {isPageSelected && (
         <HStack
           alignItems="center"
-          borderBottomColor="border.soft"
-          borderBottomStyle="solid"
-          borderBottomWidth={1}
+          borderBlockStart="soft"
           justifyContent="center"
           paddingBlock={8}
           textStyle="body.small.regular"

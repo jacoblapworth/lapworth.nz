@@ -127,5 +127,14 @@
     "types:gen": "next typegen",
     "video": "next-video sync --dir=src/videos",
     "video:watch": "next-video sync --dir=src/videos -w"
+  },
+  "imports": {
+    "#*": [
+      "./*",
+      "./*.ts",
+      "./*.tsx",
+      "./*.js",
+      "./*.jsx"
+    ]
   }
 }
