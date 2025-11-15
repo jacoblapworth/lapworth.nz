@@ -5,6 +5,9 @@
     "build": {
       "dependsOn": ["css", "tokens"]
     },
+    "build:storybook": {
+      "dependsOn": ["tokens"]
+    },
     "css": {
       "dependsOn": ["^css"],
       "inputs": ["$TURBO_DEFAULT$", "src/**/*", "panda.config.ts"],

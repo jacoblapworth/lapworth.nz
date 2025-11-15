@@ -9,6 +9,9 @@ import '../src/index.css'
 export default definePreview({
   addons: [addonDocs(), addonLinks(), addonThemes(), storybookNextIntl],
   parameters: {
+    actions: {
+      argTypesRegex: '^on.*',
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
