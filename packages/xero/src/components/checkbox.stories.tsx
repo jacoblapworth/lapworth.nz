@@ -1,51 +1,48 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import type { ComponentProps } from 'react'
 import { useArgs } from 'storybook/internal/preview-api'
 import { fn } from 'storybook/test'
-import { Checkbox as Component } from './checkbox'
+import preview from '@/storybook/preview'
+import { Checkbox } from './checkbox'
 
-const meta = {
+const meta = preview.meta({
   args: {
     checked: false,
     disabled: false,
     onChange: fn(),
   },
-  component: Component,
+  component: Checkbox,
   render: () => {
-    const [args, updateArgs] = useArgs<ComponentProps<typeof Component>>()
+    const [args, updateArgs] = useArgs<ComponentProps<typeof Checkbox>>()
 
     return (
-      <Component
+      <Checkbox
         {...args}
         onChange={(e) => updateArgs({ checked: e.target.checked })}
       />
     )
   },
   title: 'Components/Checkbox',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Unchecked: Story = {
+export const Unchecked = meta.story({
   args: {},
-}
+})
 
-export const Checked: Story = {
+export const Checked = meta.story({
   args: {
     checked: true,
   },
-}
+})
 
-export const Indeterminate: Story = {
+export const Indeterminate = meta.story({
   args: {
     checked: 'mixed',
   },
-}
+})
 
-export const Disabled: Story = {
+export const Disabled = meta.story({
   args: {
     checked: true,
     disabled: true,
   },
-}
+})

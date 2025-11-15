@@ -1,22 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import preview from '@/storybook/preview'
 
-import { TextInput as Component } from './text-input'
+import { TextInput } from './text-input'
 
-const meta = {
+const meta = preview.meta({
   args: {
     label: 'Text input',
     name: 'name',
   },
-  component: Component,
+  component: TextInput,
   title: 'Components/TextInput',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Primary: Story = {
+export const Primary = meta.story({
   args: {
     label: 'Text input',
     name: 'name',
   },
-}
+})

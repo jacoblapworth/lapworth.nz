@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import preview from '@/storybook/preview'
 import { FormExample as Component } from './form'
 
-const meta = {
+const meta = preview.meta({
   args: {
     identifyFieldsWith: 'optional',
     optionalLabel: '(optional)',
@@ -15,12 +15,8 @@ const meta = {
   },
   component: Component,
   title: 'Examples/Form',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Primary: Story = {
+export const Primary = meta.story({
   args: {},
-}
+})

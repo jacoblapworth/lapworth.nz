@@ -1,17 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { Spinner as Component } from './spinner'
+import preview from '@/storybook/preview'
+import { Spinner } from './spinner'
 
-const meta = {
+const meta = preview.meta({
   args: {},
-  component: Component,
+  component: Spinner,
   title: 'Components/Spinner',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Primary: Story = {
+export const Primary = meta.story({
   args: {
     color: 'black',
   },
-}
+})

@@ -1,20 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { fn } from 'storybook/test'
-import { Search as Component } from './search'
+import preview from '@/storybook/preview'
+import { Search } from './search'
 
-const meta = {
+const meta = preview.meta({
   args: {},
-  component: Component,
+  component: Search,
   title: 'Components/Search',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Primary: Story = {
+export const Primary = meta.story({
   args: {
     label: 'Search',
     onChange: fn(),
     onClear: fn(),
   },
-}
+})

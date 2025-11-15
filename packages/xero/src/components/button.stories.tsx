@@ -9,6 +9,7 @@ const meta = preview.meta({
     onClick: fn(),
   },
   component: Button,
+  title: 'Components/Button',
 })
 
 export const Primary = meta.story({
