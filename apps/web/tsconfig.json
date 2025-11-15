@@ -14,7 +14,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
-      "@/styled/*": ["./.styled/*"]
+      "@/styled/*": ["./.styled/*"],
+      "@/storybook/*": [".storybook/*"]
     },
     "plugins": [{ "name": "next" }],
     "resolveJsonModule": true,

@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import preview from '@/storybook/preview'
 import { Link as Component } from './link'
 
-const meta = {
+const meta = preview.meta({
   argTypes: {
     sameTab: {
       control: 'boolean',
@@ -9,30 +9,27 @@ const meta = {
   },
   component: Component,
   title: 'Components/Link',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: 'Example Link',
     href: 'https://example.com',
   },
-}
+})
 
-export const SameTab: Story = {
+export const SameTab = meta.story({
   args: {
     children: 'Same Tab Link',
     href: '/about',
     sameTab: true,
   },
-}
+})
 
-export const NewTab: Story = {
+export const NewTab = meta.story({
   args: {
     children: 'New Tab Link',
     href: 'https://example.com',
     sameTab: false,
   },
-}
+})

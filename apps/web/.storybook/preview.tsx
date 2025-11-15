@@ -1,10 +1,14 @@
-import { withThemeByClassName } from '@storybook/addon-themes'
-import type { Preview, ReactRenderer } from '@storybook/nextjs-vite'
+import addonDocs from '@storybook/addon-docs'
+import addonLinks from '@storybook/addon-links'
+import addonThemes, { withThemeByClassName } from '@storybook/addon-themes'
+import type { ReactRenderer } from '@storybook/nextjs-vite'
+import { definePreview } from '@storybook/nextjs-vite'
 
 import { token } from '../.styled/tokens'
 import '../src/app/index.css'
 
-const preview: Preview = {
+export default definePreview({
+  addons: [addonDocs(), addonLinks(), addonThemes()],
   decorators: [
     withThemeByClassName<ReactRenderer>({
       defaultTheme: 'light',
@@ -14,6 +18,7 @@ const preview: Preview = {
       },
     }),
   ],
+
   initialGlobals: {
     backgrounds: {
       value: 'light',
@@ -23,6 +28,7 @@ const preview: Preview = {
       en: 'English',
     },
   },
+
   parameters: {
     backgrounds: {
       default: 'light',
@@ -44,7 +50,6 @@ const preview: Preview = {
       },
     },
   },
-  tags: ['autodocs'],
-}
 
-export default preview
+  tags: ['autodocs'],
+})
