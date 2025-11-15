@@ -1,8 +1,9 @@
-import type { Preview } from '@storybook/nextjs-vite'
+import { definePreview } from '@storybook/nextjs-vite'
 import '../src/index.css'
 import nextIntl from './next-intl'
 
-const preview: Preview = {
+export default definePreview({
+  addons: [],
   parameters: {
     controls: {
       matchers: {
@@ -14,6 +15,4 @@ const preview: Preview = {
     nextIntl,
   },
   tags: ['autodocs'],
-}
-
-export default preview
+})

@@ -1,67 +1,61 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-
 import { fn } from 'storybook/test'
+import preview from '@/storybook/preview'
+import { Button } from './button'
 
-import { Button as Component } from './button'
-
-const meta = {
+const meta = preview.meta({
   args: {
     children: 'Button',
     isLoading: false,
     onClick: fn(),
   },
-  component: Component,
-  title: 'Components/Button',
-} satisfies Meta<typeof Component>
+  component: Button,
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Primary: Story = {
+export const Primary = meta.story({
   args: {
     variant: 'primary',
   },
-}
+})
 
-export const Secondary: Story = {
+export const Secondary = meta.story({
   args: {
     variant: 'secondary',
   },
-}
+})
 
-export const Tertiary: Story = {
+export const Tertiary = meta.story({
   args: {
     variant: 'tertiary',
   },
-}
+})
 
-export const Medium: Story = {
+export const Medium = meta.story({
   args: {
     size: 'md',
   },
-}
+})
 
-export const Small: Story = {
+export const Small = meta.story({
   args: {
     size: 'sm',
   },
-}
+})
 
-export const XSmall: Story = {
+export const XSmall = meta.story({
   args: {
     size: 'xs',
   },
-}
+})
 
-export const Loading: Story = {
+export const Loading = meta.story({
   args: {
     isLoading: true,
     variant: 'primary',
   },
-}
+})
 
-export const Disabled: Story = {
+export const Disabled = meta.story({
   args: {
     disabled: true,
   },
-}
+})
