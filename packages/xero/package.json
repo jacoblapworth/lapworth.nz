@@ -42,7 +42,10 @@
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "playwright": "^1.56.1",
+    "@vitest/browser-playwright": "4.0.8",
+    "@vitest/coverage-v8": "4.0.8"
   },
   "exports": {
     ".": "./dist/index.js",
@@ -85,7 +88,7 @@
     "dev": "tsdown --watch ./src --no-clean",
     "format": "biome check --write",
     "storybook": "storybook dev -p 6007 --no-open",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "tokens": "panda codegen",
     "tokens:watch": "panda codegen --watch",
     "types:check": "tsc --noEmit"
