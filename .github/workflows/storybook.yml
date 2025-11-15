@@ -32,5 +32,5 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_XERO }}
-          workingDir: packages/xero
-          buildScriptName: build:storybook
+          buildCommand: pnpm build:storybook --filter=@lapworth/xero
+					outputDir: packages/xero/storybook-static
