@@ -31,4 +31,4 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_XERO }}
           workingDir: packages/xero
-          buildCommand: pnpm build:storybook
+          buildScriptName: build:storybook
