@@ -22,7 +22,7 @@ const Container = styled('div', {
     flexGrow: 1,
     gap: 8,
     paddingBlock: 4,
-    paddingInline: 8,
+    paddingInline: 10,
   },
 })
 

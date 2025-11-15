@@ -33,3 +33,5 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_XERO }}
           buildCommand: pnpm build:storybook --filter=@lapworth/xero
           outputDir: packages/xero/storybook-static
+          onlyChanged: true
+          autoAcceptChanges: 'main'

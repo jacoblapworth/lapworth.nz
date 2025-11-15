@@ -1,6 +1,6 @@
-import type { ChangeEvent, ComponentProps } from 'react'
-import { useArgs } from 'storybook/internal/preview-api'
-import { expect, fn } from 'storybook/test'
+import type { ChangeEvent } from 'react'
+import { useArgs } from 'storybook/preview-api'
+import { expect, fn, waitFor } from 'storybook/test'
 import preview from '@/storybook/preview'
 import { Search } from './search'
 
@@ -11,6 +11,12 @@ const meta = preview.meta({
     onClear: fn(),
   },
   component: Search,
+  decorators: [
+    (story, context) => {
+      const [_, updateArgs] = useArgs()
+      return story({ ...context, updateArgs })
+    },
+  ],
   title: 'Components/Search',
 })
 
@@ -23,14 +29,12 @@ export const Type = meta.story({
   play: async ({ canvas, userEvent }) => {
     const input = await canvas.findByRole('searchbox')
     await userEvent.type(input, 'Hello, world!')
-    expect(input).toHaveValue('Hello, world!')
+    await waitFor(() => expect(input).toHaveValue('Hello, world!'))
   },
-  render: () => {
-    const [args, updateArgs] = useArgs<ComponentProps<typeof Search>>()
-
+  render: function Render(args, { updateArgs }) {
     function onClear() {
       args.onClear?.()
-      updateArgs({ value: ' ' })
+      updateArgs({ value: '' })
       console.log('CLEAR', args)
     }
 
@@ -53,8 +57,8 @@ export const Clear = Type.extend({
     expect(input).toHaveValue('Hello, world!')
     const button = await canvas.findByRole('button', { name: /clear/i })
     await userEvent.click(button)
-    expect(args.onClear).toHaveBeenCalled()
-    expect(input).toHaveValue('')
+    await waitFor(() => expect(args.onClear).toHaveBeenCalled())
+    await expect(input).toHaveValue('')
   },
 })
 
