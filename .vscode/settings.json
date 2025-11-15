@@ -1,9 +1,0 @@
-{
-  "debug.terminal.clearBeforeReusing": true,
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.preferences.importModuleSpecifier": "shortest",
-  "typescript.preferences.autoImportFileExcludePatterns": [
-    "lucide-react",
-  ]
-}
