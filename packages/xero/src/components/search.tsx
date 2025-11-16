@@ -5,7 +5,7 @@ import { CircleXIcon, SearchIcon } from 'lucide-react'
 import { type ReactNode, useId, useRef } from 'react'
 import { styled } from '@/styled/jsx'
 import { Label } from './label'
-import { Input, InputElement, InputField, TextInput } from './text-input'
+import { Input, InputElement, InputField } from './text-input'
 
 const ClearButton = styled(
   'button',

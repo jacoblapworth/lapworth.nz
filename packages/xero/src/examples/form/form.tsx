@@ -1,9 +1,8 @@
 'use client'
 
 import { SelectArrow, SelectProvider, SelectValue } from '@ariakit/react'
-import type { ComponentProps } from 'react'
 import { Button } from '@/components/button'
-import { Form, type FormContextValue, type Props } from '@/components/form'
+import { Form, type FormContextValue } from '@/components/form'
 import { RequiredOptionalIndicator } from '@/components/label'
 import { Panel } from '@/components/panel'
 import {
