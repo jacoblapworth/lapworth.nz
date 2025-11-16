@@ -15,3 +15,9 @@ const meta = preview.meta({
 export const Primary = meta.story({
   args: {},
 })
+
+export const Small = meta.story({
+  args: {
+    size: 'sm',
+  },
+})

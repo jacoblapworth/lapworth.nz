@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react'
 
 import { useArgs } from 'storybook/preview-api'
-import { expect, fn, waitFor } from 'storybook/test'
+import { expect, fn } from 'storybook/test'
 import preview from '@/storybook/preview'
 import { Search } from './search'
 
@@ -10,6 +10,8 @@ const meta = preview.meta({
     label: 'Search',
     onChange: fn(),
     onClear: fn(),
+    placeholder: 'Search...',
+    size: 'md',
     value: '',
   },
   component: Search,
@@ -22,12 +24,13 @@ const meta = preview.meta({
   title: 'Components/Search',
 })
 
-export const Primary = meta.story({
-  args: {},
-})
+export const Primary = meta.story()
 
 export const Type = meta.story({
   args: {
+    label: 'Search',
+    onChange: fn(),
+    onClear: fn(),
     value: '',
   },
   play: async ({ canvas, userEvent }) => {

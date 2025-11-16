@@ -6,6 +6,7 @@ import { Checkbox } from './checkbox'
 
 const meta = preview.meta({
   args: {
+    'aria-label': 'Checkbox',
     checked: false,
     disabled: false,
     onChange: fn(),

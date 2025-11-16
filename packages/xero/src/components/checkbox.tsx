@@ -55,6 +55,12 @@ export const CheckboxStyles = cva({
       borderColor: 'action',
       color: 'text.inverse',
     },
+    _groupDisabled: {
+      backgroundColor: 'background.quaternary',
+      borderColor: 'border.subtle',
+      color: 'text.inverse',
+      cursor: 'not-allowed',
+    },
     _groupHover: {
       // backgroundColor: 'background.primary',
     },

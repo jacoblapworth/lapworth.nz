@@ -4,10 +4,10 @@ import { styled } from '@/styled/jsx'
 import type { HTMLStyledProps, StyledVariantProps } from '@/styled/types'
 import { Label } from './label'
 
-export const SearchField = styled('div', {
+export const InputField = styled('div', {
   base: {
     display: 'grid',
-    // gap: '2',
+    flexGrow: 1,
     gridTemplateAreas: `
     "label label label"
     "leading input trailing"
@@ -34,15 +34,46 @@ export const InputStyles = cva({
     border: 'subtle',
     borderRadius: 'md',
     color: 'text.primary',
-    minHeight: 40,
+    gridColumn: '1/-1',
+    gridRow: 'input',
     padding: '3',
     paddingInline: 12,
     textStyle: 'body.medium.regular',
     width: '100%',
   },
+  variants: {
+    size: {
+      md: {
+        minHeight: 40,
+      },
+      sm: {
+        minHeight: 32,
+        padding: '2',
+      },
+    },
+  },
 })
 
-const Input = styled('input', InputStyles)
+export const InputElement = styled('div', {
+  base: {
+    color: 'icon',
+    display: 'grid',
+    placeItems: 'center',
+    width: 32,
+  },
+  variants: {
+    placement: {
+      leading: {
+        gridArea: 'leading',
+      },
+      trailing: {
+        gridArea: 'trailing',
+      },
+    },
+  },
+})
+
+export const Input = styled('input', InputStyles)
 
 type Props = StyledVariantProps<typeof Input> &
   HTMLStyledProps<'input'> & {
@@ -56,11 +87,11 @@ export function TextInput(props: Props) {
   const id = useId()
 
   return (
-    <SearchField>
+    <InputField>
       <Label htmlFor={id} required={required}>
         {label}
       </Label>
       <Input id={id} name={name} required={required} {...rest} />
-    </SearchField>
+    </InputField>
   )
 }
