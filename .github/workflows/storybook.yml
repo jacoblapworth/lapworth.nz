@@ -58,6 +58,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - shell: bash
+        run: mkdir -p apps/web/public/_next-video
+        
       - name: Chromatic
         uses: chromaui/action@latest
         with:
