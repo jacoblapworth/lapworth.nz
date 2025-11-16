@@ -4,11 +4,16 @@ import { styled } from '@/styled/jsx'
 import type { HTMLStyledProps, StyledVariantProps } from '@/styled/types'
 import { Label } from './label'
 
-const Wrapper = styled('div', {
+export const SearchField = styled('div', {
   base: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '2',
+    display: 'grid',
+    // gap: '2',
+    gridTemplateAreas: `
+    "label label label"
+    "leading input trailing"
+    "help help help"
+    `,
+    gridTemplateColumns: 'auto 1fr auto',
   },
 })
 
@@ -28,6 +33,7 @@ export const InputStyles = cva({
     backgroundColor: 'background.primary',
     border: 'subtle',
     borderRadius: 'md',
+    color: 'text.primary',
     minHeight: 40,
     padding: '3',
     paddingInline: 12,
@@ -50,11 +56,11 @@ export function TextInput(props: Props) {
   const id = useId()
 
   return (
-    <Wrapper>
+    <SearchField>
       <Label htmlFor={id} required={required}>
         {label}
       </Label>
       <Input id={id} name={name} required={required} {...rest} />
-    </Wrapper>
+    </SearchField>
   )
 }

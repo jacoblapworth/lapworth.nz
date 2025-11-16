@@ -1,6 +1,7 @@
 'use client'
 
 import { cva } from '@/styled/css'
+import { styled } from '@/styled/jsx'
 import { useFormContext } from './form'
 
 export const LabelStyles = cva({
@@ -8,6 +9,7 @@ export const LabelStyles = cva({
     color: 'text.primary',
     display: 'inline-flex',
     gap: 'sm',
+    gridArea: 'label',
     textStyle: 'body.medium.semibold',
   },
 })
@@ -44,6 +46,8 @@ export function RequiredOptionalIndicator({
   )
 }
 
+const LabelElement = styled('label', LabelStyles)
+
 type Props = React.LabelHTMLAttributes<HTMLLabelElement> & {
   required?: boolean
   hideOptionalRequiredIndicator?: boolean
@@ -56,12 +60,11 @@ export function Label({
   ...props
 }: Props) {
   return (
-    // biome-ignore lint/a11y/noLabelWithoutControl: Component is used within a label context
-    <label className={LabelStyles()} {...props}>
+    <LabelElement {...props}>
       {children}
       {!hideOptionalRequiredIndicator && (
         <RequiredOptionalIndicator ignoreError required={required} />
       )}
-    </label>
+    </LabelElement>
   )
 }

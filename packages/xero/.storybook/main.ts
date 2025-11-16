@@ -12,6 +12,7 @@ function getAbsolutePath(value: string): string {
 
 export default defineMain({
   addons: [
+    getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-docs'),
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-themes'),
@@ -24,4 +25,7 @@ export default defineMain({
     options: {},
   },
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
 })

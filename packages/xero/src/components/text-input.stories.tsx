@@ -4,7 +4,7 @@ import { TextInput } from './text-input'
 
 const meta = preview.meta({
   args: {
-    label: 'Text input',
+    label: 'Label',
     name: 'name',
     placeholder: 'Placeholder',
   },
@@ -13,8 +13,5 @@ const meta = preview.meta({
 })
 
 export const Primary = meta.story({
-  args: {
-    label: 'Text input',
-    name: 'name',
-  },
+  args: {},
 })

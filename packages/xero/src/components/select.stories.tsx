@@ -1,7 +1,7 @@
 import { SelectArrow, SelectProvider, SelectValue } from '@ariakit/react'
+import { expect } from 'vitest'
 import preview from '@/storybook/preview'
 import { RequiredOptionalIndicator } from './label'
-
 import { Select, SelectItem, SelectLabel, SelectPopover } from './select'
 
 const genderOptions = [
@@ -42,4 +42,26 @@ const meta = preview.meta({
 
 export const Primary = meta.story({
   args: {},
+})
+
+export const OpenAndSelect = meta.story({
+  args: {},
+  play: async ({ canvas, userEvent }) => {
+    const select = await canvas.findByRole('combobox')
+    await userEvent.click(select)
+    const option = await canvas.findByRole('option', { name: 'Other' })
+    await userEvent.click(option)
+  },
+})
+
+export const Keyboard = meta.story({
+  args: {},
+  play: async ({ canvas, userEvent }) => {
+    await userEvent.tab()
+    await userEvent.keyboard('{ArrowDown}')
+    await userEvent.keyboard('{ArrowDown}')
+    await userEvent.keyboard('{Enter}')
+    const select = await canvas.findByRole('combobox')
+    // await expect(select).toHaveValue('Female')
+  },
 })

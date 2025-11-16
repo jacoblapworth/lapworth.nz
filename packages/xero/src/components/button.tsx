@@ -36,6 +36,12 @@ export const ButtonStyles = cva({
     variant: 'secondary',
   },
   variants: {
+    isLoading: {
+      true: {
+        cursor: 'progress',
+      },
+    },
+
     size: {
       md: {
         minHeight: 40,
@@ -105,9 +111,7 @@ const ButtonElement = styled(Ariakit.Button, ButtonStyles)
 
 type Props = Ariakit.ButtonProps &
   StyledVariantProps<typeof ButtonElement> &
-  HTMLStyledProps<'button'> & {
-    isLoading?: boolean
-  }
+  HTMLStyledProps<'button'>
 
 export function Button({ children, isLoading, ...props }: Props) {
   return (

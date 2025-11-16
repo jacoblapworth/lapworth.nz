@@ -3,7 +3,7 @@ import { create } from 'storybook/theming/create'
 
 const theme = create({
   base: 'dark',
-  brandTitle: 'Lapworth.nz Storybook',
+  brandTitle: 'lapworth.nz',
   fontBase: '"Inter", sans-serif',
   fontCode: 'monospace',
 })
