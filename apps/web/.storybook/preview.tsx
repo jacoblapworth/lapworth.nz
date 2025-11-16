@@ -3,7 +3,7 @@ import addonDocs from '@storybook/addon-docs'
 import addonLinks from '@storybook/addon-links'
 import addonThemes, { withThemeByClassName } from '@storybook/addon-themes'
 import { definePreview } from '@storybook/nextjs-vite'
-import { token } from '../.styled/tokens'
+import { token } from '@/styled/tokens'
 import '../src/app/index.css'
 
 export default definePreview({
