@@ -29,7 +29,7 @@
       "outputs": ["dist/**"]
     },
     "build:storybook": {
-      "dependsOn": ["tokens"],
+      "dependsOn": ["^tokens"],
       "outputs": ["storybook-static/**"]
     },
     "deploy": {
