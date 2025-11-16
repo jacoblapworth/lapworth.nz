@@ -7,8 +7,7 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
-  xero:
-    name: '@lapworth/xero'
+  Chromatic:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,46 +26,25 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+      
+      - shell: bash
+        run: mkdir -p apps/web/public/_next-video
 
-      - name: Chromatic
+      - name: Build Storybook
+        run: pnpm turbo run build:storybook
+
+      - name: Chromatic @lapworth/xero
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_XERO }}
-          buildCommand: pnpm build:storybook --filter=@lapworth/xero
-          outputDir: packages/xero/storybook-static
+          storybookBuildDir: packages/xero/storybook-static
           onlyChanged: true
           autoAcceptChanges: 'main'
 
-  lapworth:
-    name: 'lapworth.nz'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Use Node
-        uses: actions/setup-node@v6.0.0
-        with:
-          node-version-file: package.json
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - shell: bash
-        run: mkdir -p apps/web/public/_next-video
-        
-      - name: Chromatic
+      - name: Chromatic lapworth.nz
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_LAPWORTH }}
-          buildCommand: pnpm build:storybook --filter=web
-          outputDir: apps/web/storybook-static
+          storybookBuildDir: apps/web/storybook-static
           onlyChanged: true
           autoAcceptChanges: 'main'
-
