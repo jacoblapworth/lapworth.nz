@@ -5,7 +5,7 @@ import { GripVerticalIcon } from 'lucide-react'
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import { type ReactNode, useId } from 'react'
-import { cva, cx } from '@/styled/css'
+import { css, cva, cx } from '@/styled/css'
 import { styled } from '@/styled/jsx'
 import { Button, ButtonStyles } from './button'
 import { Check, CheckboxStyles } from './checkbox'
@@ -306,7 +306,11 @@ export function MenuItemCheckbox({
         <Check />
       </MenuItemCheck>
       {children}
-      <Button justifySelf={'end'} size="sm" variant="tertiary">
+      <Button
+        className={css({ justifySelf: 'end' })}
+        size="sm"
+        variant="tertiary"
+      >
         <GripVerticalIcon size={16} />
       </Button>
     </Ariakit.MenuItemCheckbox>

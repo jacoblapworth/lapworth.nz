@@ -23,7 +23,7 @@
     "strict": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules", "cypress", ".next", "out", "dist"],
+  "exclude": ["node_modules", "cypress", ".next", "dist", "storybook-static"],
   "include": [
     "video.d.ts",
     "next-env.d.ts",

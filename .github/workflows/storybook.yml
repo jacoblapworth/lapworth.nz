@@ -40,6 +40,7 @@ jobs:
           storybookBuildDir: packages/xero/storybook-static
           onlyChanged: true
           autoAcceptChanges: 'main'
+          exitOnceUploaded: true
 
       - name: Chromatic lapworth.nz
         uses: chromaui/action@latest
@@ -48,3 +49,4 @@ jobs:
           storybookBuildDir: apps/web/storybook-static
           onlyChanged: true
           autoAcceptChanges: 'main'
+          exitOnceUploaded: true

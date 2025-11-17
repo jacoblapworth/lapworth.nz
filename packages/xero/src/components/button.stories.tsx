@@ -7,6 +7,8 @@ const meta = preview.meta({
     children: 'Button',
     isLoading: false,
     onClick: fn(),
+    size: 'md',
+    variant: 'secondary',
   },
   component: Button,
   title: 'Components/Button',

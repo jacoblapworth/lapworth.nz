@@ -98,10 +98,12 @@ export const AriaCheckbox = styled(Ariakit.Checkbox, CheckboxStyles)
 const Box = styled('div', CheckboxStyles)
 
 export function Checkbox({ ref, ...props }: CheckboxProps) {
+  const store = Ariakit.useCheckboxStore({ value: props.checked, ...props })
+  const value = Ariakit.useStoreState(store, (state) => state.value)
   return (
-    <Ariakit.Checkbox render={<Box />} {...props}>
-      {props.checked === true && <Check />}
-      {props.checked === 'mixed' && (
+    <Ariakit.Checkbox render={<Box />} store={store} {...props}>
+      {value === true && <Check />}
+      {value === 'mixed' && (
         <svg
           fill="none"
           height="12"

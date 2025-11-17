@@ -1,7 +1,7 @@
-import { useId } from 'react'
+import { type ComponentProps, useId } from 'react'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
-import type { HTMLStyledProps, StyledVariantProps } from '@/styled/types'
+import type { RecipeVariantProps, StyledVariantProps } from '@/styled/types'
 import { Label } from './label'
 
 export const InputField = styled('div', {
@@ -41,6 +41,9 @@ export const InputStyles = cva({
     textStyle: 'body.medium.regular',
     width: '100%',
   },
+  defaultVariants: {
+    size: 'md',
+  },
   variants: {
     size: {
       md: {
@@ -75,15 +78,16 @@ export const InputElement = styled('div', {
 
 export const Input = styled('input', InputStyles)
 
-type Props = StyledVariantProps<typeof Input> &
-  HTMLStyledProps<'input'> & {
-    label: string
-    name: string
-    required?: boolean
-  }
+interface BaseProps {
+  label: string
+  required?: boolean
+}
 
-export function TextInput(props: Props) {
-  const { label, name, required, ...rest } = props
+type Props = BaseProps &
+  Omit<ComponentProps<'input'>, 'size'> &
+  StyledVariantProps<typeof Input>
+
+export function TextInput({ size, label, name, required, ...props }: Props) {
   const id = useId()
 
   return (
@@ -91,7 +95,7 @@ export function TextInput(props: Props) {
       <Label htmlFor={id} required={required}>
         {label}
       </Label>
-      <Input id={id} name={name} required={required} {...rest} />
+      <Input id={id} name={name} required={required} {...props} />
     </InputField>
   )
 }

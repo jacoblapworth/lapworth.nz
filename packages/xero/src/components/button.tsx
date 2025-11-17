@@ -1,7 +1,8 @@
 import * as Ariakit from '@ariakit/react'
+import type { ComponentProps } from 'react'
 import { cva } from '@/styled/css'
 import { HStack, styled } from '@/styled/jsx'
-import type { HTMLStyledProps, StyledVariantProps } from '@/styled/types'
+import type { StyledVariantProps } from '@/styled/types'
 import { Spinner } from './spinner'
 
 export const ButtonStyles = cva({
@@ -111,7 +112,7 @@ const ButtonElement = styled(Ariakit.Button, ButtonStyles)
 
 type Props = Ariakit.ButtonProps &
   StyledVariantProps<typeof ButtonElement> &
-  HTMLStyledProps<'button'>
+  ComponentProps<'button'>
 
 export function Button({ children, isLoading, ...props }: Props) {
   return (
