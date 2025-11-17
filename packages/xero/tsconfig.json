@@ -14,5 +14,5 @@
   },
   "include": ["src", ".storybook", ".styled"],
   "exclude": ["**/node_modules", "dist", ".turbo", ".next", "storybook-static"],
-  "extends": "@total-typescript/tsconfig/bundler/dom/library-monorepo",
+  "extends": "@total-typescript/tsconfig/bundler/dom/library-monorepo"
 }
