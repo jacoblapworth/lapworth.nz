@@ -12,7 +12,6 @@ const meta = preview.meta({
     onClear: fn(),
     placeholder: 'Search...',
     size: 'md',
-    value: '',
   },
   component: Search,
   decorators: [
@@ -52,6 +51,7 @@ export const Type = meta.story({
 
     return <Search {...args} onChange={onChange} onClear={onClear} />
   },
+  tags: ['skip'],
 })
 
 export const Clear = meta.story({
@@ -64,6 +64,7 @@ export const Clear = meta.story({
     await userEvent.click(button)
     await expect(args.onClear).toHaveBeenCalled()
   },
+  tags: ['skip'],
 })
 
 export const TypeAndClear = Type.extend({

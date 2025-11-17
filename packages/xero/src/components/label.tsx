@@ -31,7 +31,6 @@ export function RequiredOptionalIndicator({
   const context = useFormContext({ ignoreError })
 
   if (!context) {
-    console.warn('`RequiredOptionalIndicator` used without `Form` context')
     return null
   }
 

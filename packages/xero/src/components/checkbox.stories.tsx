@@ -1,28 +1,13 @@
-import type { ComponentProps } from 'react'
-import { useArgs } from 'storybook/internal/preview-api'
-import { expect, fn, waitFor } from 'storybook/test'
+import { expect, fn } from 'storybook/test'
 import preview from '@/storybook/preview'
 import { Checkbox } from './checkbox'
 
 const meta = preview.meta({
   args: {
     'aria-label': 'Checkbox',
-    checked: false,
-    disabled: false,
     onChange: fn(),
   },
   component: Checkbox,
-  render: (args) => {
-    const [{ checked }, updateArgs] = useArgs<ComponentProps<typeof Checkbox>>()
-
-    return (
-      <Checkbox
-        {...args}
-        checked={checked}
-        onChange={(e) => updateArgs({ checked: e.target.checked })}
-      />
-    )
-  },
   title: 'Components/Checkbox',
 })
 
@@ -51,10 +36,11 @@ export const Disabled = meta.story({
 
 export const Interaction = meta.story({
   args: {},
-  play: async ({ canvas, userEvent }) => {
+  play: async ({ args, canvas, userEvent }) => {
     const checkbox = await canvas.findByRole('checkbox')
     await expect(checkbox).not.toBeChecked()
     await userEvent.click(checkbox)
-    await waitFor(() => expect(checkbox).toBeChecked())
+    await expect(checkbox).toBeChecked()
+    expect(args.onChange).toHaveBeenCalledTimes(1)
   },
 })
