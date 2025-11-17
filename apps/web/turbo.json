@@ -8,7 +8,7 @@
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**", "!.next/dev/**"]
     },
     "build:storybook": {
-      "dependsOn": ["^tokens"],
+      "dependsOn": ["tokens"],
       "outputs": ["storybook-static/**"]
     },
     "dev": {
