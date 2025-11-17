@@ -2,7 +2,7 @@ import { Panel, PanelGroup, PanelResizer } from '@window-splitter/react'
 import type { ReactNode } from 'react'
 import type { ResizableBoxProps } from 'react-resizable'
 
-import { styled } from '@/styled/jsx'
+import { Box, styled } from '@/styled/jsx'
 
 const Group = styled(PanelGroup, {
   base: {
@@ -44,8 +44,8 @@ const Handle = styled(PanelResizer, {
       content: '""',
       display: 'flex',
       height: 40,
-      marginLeft: '6',
-      width: 4,
+      marginLeft: '6px',
+      width: '4px',
     },
 
     _hover: {
@@ -94,7 +94,7 @@ export function ResponsivePreview({
   maxWidth = 1200,
 }: PreviewProps) {
   return (
-    <div>
+    <Box minWidth={0}>
       <Group style={{ height: 'auto' }}>
         <Container
           default={`${width}px`}
@@ -106,7 +106,7 @@ export function ResponsivePreview({
         <Handle handleAxis="e" size="24px" />
         <Panel />
       </Group>
-    </div>
+    </Box>
   )
 }
 
