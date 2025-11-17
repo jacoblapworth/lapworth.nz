@@ -1,9 +1,8 @@
 'use client'
 
 import { SelectArrow, SelectProvider, SelectValue } from '@ariakit/react'
-import type { ComponentProps } from 'react'
 import { Button } from '@/components/button'
-import { Form } from '@/components/form'
+import { Form, type FormContextValue } from '@/components/form'
 import { RequiredOptionalIndicator } from '@/components/label'
 import { Panel } from '@/components/panel'
 import {
@@ -23,14 +22,11 @@ const genderOptions = [
   { label: 'Other', value: 'other' },
 ]
 
-type Props = ComponentProps<typeof Form>
-
 export function FormExample({
   identifyFieldsWith = 'optional',
   optionalLabel = '(optional)',
   requiredLabel = '(required)',
-  ...props
-}: Props) {
+}: FormContextValue) {
   return (
     <Panel>
       <Form
@@ -38,7 +34,6 @@ export function FormExample({
         onSubmit={(e) => e.preventDefault()}
         optionalLabel={optionalLabel}
         requiredLabel={requiredLabel}
-        {...props}
       >
         <TextInput
           autoComplete="name"

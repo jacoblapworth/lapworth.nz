@@ -14,7 +14,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
-      "@/styled/*": ["./.styled/*"]
+      "@/styled/*": ["./.styled/*"],
+      "@/storybook/*": [".storybook/*"]
     },
     "plugins": [{ "name": "next" }],
     "resolveJsonModule": true,
@@ -22,7 +23,7 @@
     "strict": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules", "cypress", ".next", "out", "dist"],
+  "exclude": ["node_modules", "cypress", ".next", "dist", "storybook-static"],
   "include": [
     "video.d.ts",
     "next-env.d.ts",

@@ -4,45 +4,8 @@ import { VisuallyHidden } from '@ariakit/react'
 import { CircleXIcon, SearchIcon } from 'lucide-react'
 import { type ReactNode, useId, useRef } from 'react'
 import { styled } from '@/styled/jsx'
-
-const Container = styled('div', {
-  base: {
-    _focusWithin: {
-      outlineColor: 'border.focus',
-      outlineOffset: 2,
-      outlineStyle: 'solid',
-      outlineWidth: 2,
-    },
-    alignItems: 'center',
-    borderColor: 'border.subtle',
-    borderRadius: 6,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    display: 'flex',
-    flexGrow: 1,
-    gap: 8,
-    paddingBlock: 4,
-    paddingInline: 8,
-  },
-})
-
-const Label = styled('label', {
-  base: {
-    display: 'flex',
-    flexGrow: 1,
-    width: '100%',
-  },
-})
-
-const Input = styled('input', {
-  base: {
-    _focus: {
-      outline: 'none',
-    },
-    flexGrow: 1,
-    fontSize: 13,
-  },
-})
+import { Label } from './label'
+import { Input, InputElement, InputField } from './text-input'
 
 const ClearButton = styled(
   'button',
@@ -61,6 +24,7 @@ const ClearButton = styled(
     },
   },
 )
+
 interface Props {
   label: ReactNode
   defaultValue?: string
@@ -68,6 +32,7 @@ interface Props {
   placeholder?: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   onClear: () => void
+  size?: 'sm' | 'md'
 }
 export function Search({
   label,
@@ -76,27 +41,41 @@ export function Search({
   placeholder = 'Search...',
   onChange,
   onClear,
+  size,
 }: Props) {
   const id = useId()
   const ref = useRef<HTMLInputElement>(null)
-  const isClearable = ((ref.current?.value.length || value?.length) ?? 0) > 0 //TODO: fix for uncontrolled
-
+  const isClearable = (value?.length ?? 0) > 0 //TODO: fix for uncontrolled
   return (
-    <Container>
-      <SearchIcon size={16} />
-      <Label htmlFor={id}>
-        <VisuallyHidden>{label}</VisuallyHidden>
-        <Input
-          defaultValue={defaultValue}
-          id={id}
-          onChange={onChange}
-          placeholder={placeholder}
-          ref={ref}
-          type="search"
-          value={value}
-        />
-      </Label>
-      {isClearable && <ClearButton onClick={onClear} />}
-    </Container>
+    <InputField>
+      <VisuallyHidden>
+        <Label htmlFor={id}>{label}</Label>
+      </VisuallyHidden>
+      <Input
+        defaultValue={defaultValue}
+        id={id}
+        onChange={onChange}
+        paddingInlineEnd={isClearable ? 36 : 12}
+        paddingInlineStart={36}
+        placeholder={placeholder}
+        ref={ref}
+        role="searchbox"
+        size={size}
+        type="search"
+        value={value}
+      />
+      <InputElement placement="leading">
+        <SearchIcon size={16} />
+      </InputElement>
+      {isClearable && (
+        <InputElement placement="trailing">
+          <ClearButton
+            aria-label="Clear search"
+            onClick={onClear}
+            role="button"
+          />
+        </InputElement>
+      )}
+    </InputField>
   )
 }

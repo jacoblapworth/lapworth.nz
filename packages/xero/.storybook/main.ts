@@ -1,6 +1,6 @@
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import type { StorybookConfig } from '@storybook/nextjs-vite'
+import { defineMain } from '@storybook/nextjs-vite/node'
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -10,11 +10,14 @@ function getAbsolutePath(value: string): string {
   return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))
 }
 
-const config: StorybookConfig = {
+export default defineMain({
   addons: [
+    getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-docs'),
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-themes'),
+    getAbsolutePath('@storybook/addon-vitest'),
+    getAbsolutePath('@chromatic-com/storybook'),
     'storybook-next-intl',
   ],
   framework: {
@@ -22,5 +25,7 @@ const config: StorybookConfig = {
     options: {},
   },
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-}
-export default config
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
+})

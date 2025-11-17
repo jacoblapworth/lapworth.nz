@@ -4,14 +4,15 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["./src/*"],
-      "@/styled/*": ["./.styled/*"]
+      "@/styled/*": ["./.styled/*"],
+      "@/storybook/*": ["./.storybook/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules", "dist"],
-  "extends": "@total-typescript/tsconfig/bundler/dom/library-monorepo",
-  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"]
+  "include": ["src", ".storybook", ".styled"],
+  "exclude": ["**/node_modules", "dist", ".turbo", ".next", "storybook-static"],
+  "extends": "@total-typescript/tsconfig/bundler/dom/library-monorepo"
 }

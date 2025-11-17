@@ -1,16 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import preview from '@/storybook/preview'
 import { Player as Component } from './player'
 
-const meta = {
+const meta = preview.meta({
   component: Component,
   title: 'Components/Video/Player',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Player: Story = {
+export const Player = meta.story({
   args: {
     asset: {
       blurDataURL:
@@ -44,4 +40,4 @@ export const Player: Story = {
       'https://image.mux.com/BcL3xGpM7VbR2BkxmYQW02UVPF55uHarQVUz01SFypk5A/thumbnail.webp',
     src: 'https://stream.mux.com/BcL3xGpM7VbR2BkxmYQW02UVPF55uHarQVUz01SFypk5A.m3u8',
   },
-}
+})

@@ -1,51 +1,46 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import type { ComponentProps } from 'react'
-import { useArgs } from 'storybook/internal/preview-api'
-import { fn } from 'storybook/test'
-import { Checkbox as Component } from './checkbox'
+import { expect, fn } from 'storybook/test'
+import preview from '@/storybook/preview'
+import { Checkbox } from './checkbox'
 
-const meta = {
+const meta = preview.meta({
   args: {
-    checked: false,
-    disabled: false,
+    'aria-label': 'Checkbox',
     onChange: fn(),
   },
-  component: Component,
-  render: () => {
-    const [args, updateArgs] = useArgs<ComponentProps<typeof Component>>()
-
-    return (
-      <Component
-        {...args}
-        onChange={(e) => updateArgs({ checked: e.target.checked })}
-      />
-    )
-  },
+  component: Checkbox,
   title: 'Components/Checkbox',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Unchecked: Story = {
+export const Unchecked = meta.story({
   args: {},
-}
+})
 
-export const Checked: Story = {
+export const Checked = meta.story({
   args: {
     checked: true,
   },
-}
+})
 
-export const Indeterminate: Story = {
+export const Indeterminate = meta.story({
   args: {
     checked: 'mixed',
   },
-}
+})
 
-export const Disabled: Story = {
+export const Disabled = meta.story({
   args: {
     checked: true,
     disabled: true,
   },
-}
+})
+
+export const Interaction = meta.story({
+  args: {},
+  play: async ({ args, canvas, userEvent }) => {
+    const checkbox = await canvas.findByRole('checkbox')
+    await expect(checkbox).not.toBeChecked()
+    await userEvent.click(checkbox)
+    await expect(checkbox).toBeChecked()
+    expect(args.onChange).toHaveBeenCalledTimes(1)
+  },
+})

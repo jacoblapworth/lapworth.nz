@@ -11,6 +11,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
+    "build:storybook": "turbo run build:storybook",
     "deploy": "turbo run deploy",
     "dev": "turbo run dev storybook",
     "format": "turbo run format",

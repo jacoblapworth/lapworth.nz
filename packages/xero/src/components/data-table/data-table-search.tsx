@@ -23,6 +23,7 @@ export function DataTableSearch<TData extends RowData>({
         setQuery('')
         table.setGlobalFilter('')
       }}
+      size="sm"
       value={query}
     />
   )

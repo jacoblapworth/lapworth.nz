@@ -1,20 +1,40 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { fn } from 'storybook/test'
-import { Search as Component } from './search'
+import { expect, fn } from 'storybook/test'
+import preview from '@/storybook/preview'
+import { Search } from './search'
 
-const meta = {
-  args: {},
-  component: Component,
-  title: 'Components/Search',
-} satisfies Meta<typeof Component>
-
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Primary: Story = {
+const meta = preview.meta({
   args: {
     label: 'Search',
     onChange: fn(),
     onClear: fn(),
+    placeholder: 'Search...',
+    size: 'md',
+    value: '',
   },
-}
+  component: Search,
+
+  title: 'Components/Search',
+})
+
+export const Primary = meta.story({
+  args: {
+    label: 'Search',
+    onChange: fn(),
+    onClear: fn(),
+    value: '',
+  },
+})
+
+export const Clear = meta.story({
+  args: {
+    label: 'Search',
+    onChange: fn(),
+    onClear: fn(),
+    value: 'Hello, world!',
+  },
+  play: async ({ args, canvas, userEvent }) => {
+    const button = await canvas.findByRole('button', { name: /clear/i })
+    await userEvent.click(button)
+    await expect(args.onClear).toHaveBeenCalled()
+  },
+})

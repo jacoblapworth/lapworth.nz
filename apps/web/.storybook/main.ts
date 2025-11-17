@@ -1,17 +1,18 @@
 import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
-import type { StorybookConfig } from '@storybook/nextjs-vite'
+import { defineMain } from '@storybook/nextjs-vite/node'
 
 function getAbsolutePath(value: string): string {
   const require = createRequire(import.meta.url)
   return dirname(require.resolve(join(value, 'package.json')))
 }
 
-const config: StorybookConfig = {
+export default defineMain({
   addons: [
     getAbsolutePath('@storybook/addon-docs'),
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-themes'),
+    getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@chromatic-com/storybook'),
   ],
   docs: {},
@@ -20,5 +21,4 @@ const config: StorybookConfig = {
     options: {},
   },
   stories: ['../src/**/*.stories.@(ts|tsx)'],
-}
-export default config
+})

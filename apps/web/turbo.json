@@ -8,17 +8,13 @@
       "outputs": [".next/**", ".vercel/**", "!.next/cache/**", "!.next/dev/**"]
     },
     "build:storybook": {
-      "dependsOn": ["tokens"]
+      "dependsOn": ["tokens"],
+      "outputs": ["storybook-static/**"]
     },
     "dev": {
       "cache": false,
       "persistent": true,
       "with": ["video:watch"]
-    },
-    "storybook": {
-      "cache": false,
-      "dependsOn": ["tokens"],
-      "persistent": true
     },
     "tokens": {
       "outputs": [".styled/**"]

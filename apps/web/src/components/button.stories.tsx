@@ -1,56 +1,53 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import preview from '@/storybook/preview'
 import { Button as Component } from './button'
 
-const meta = {
+const meta = preview.meta({
   component: Component,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
   title: 'Components/Button',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: 'Button',
   },
-}
+})
 
-export const Small: Story = {
+export const Small = meta.story({
   args: {
     children: 'Small Button',
     size: 'sm',
   },
-}
+})
 
-export const Medium: Story = {
+export const Medium = meta.story({
   args: {
     children: 'Medium Button',
     size: 'md',
   },
-}
+})
 
-export const Primary: Story = {
+export const Primary = meta.story({
   args: {
     children: 'Primary Button',
     variant: 'primary',
   },
-}
+})
 
-export const Secondary: Story = {
+export const Secondary = meta.story({
   args: {
     children: 'Secondary Button',
     variant: 'secondary',
   },
-}
+})
 
-export const PrimarySmall: Story = {
+export const PrimarySmall = meta.story({
   args: {
     children: 'Primary Small',
     size: 'sm',
     variant: 'primary',
   },
-}
+})

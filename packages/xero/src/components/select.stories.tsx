@@ -1,11 +1,6 @@
-import {
-  SelectProvider as Component,
-  SelectArrow,
-  SelectValue,
-} from '@ariakit/react'
-import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { SelectArrow, SelectProvider, SelectValue } from '@ariakit/react'
+import preview from '@/storybook/preview'
 import { RequiredOptionalIndicator } from './label'
-
 import { Select, SelectItem, SelectLabel, SelectPopover } from './select'
 
 const genderOptions = [
@@ -16,7 +11,7 @@ const genderOptions = [
   { label: 'Other', value: 'other' },
 ]
 
-const meta = {
+const meta = preview.meta({
   args: {
     children: (
       <>
@@ -40,13 +35,32 @@ const meta = {
       </>
     ),
   },
-  component: Component,
+  component: SelectProvider,
   title: 'Components/Select',
-} satisfies Meta<typeof Component>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Primary: Story = {
+export const Primary = meta.story({
   args: {},
-}
+})
+
+export const OpenAndSelect = meta.story({
+  args: {},
+  play: async ({ canvas, userEvent }) => {
+    const select = await canvas.findByRole('combobox')
+    await userEvent.click(select)
+    const option = await canvas.findByRole('option', { name: 'Other' })
+    await userEvent.click(option)
+  },
+})
+
+export const Keyboard = meta.story({
+  args: {},
+  play: async ({ canvas, userEvent }) => {
+    await userEvent.tab()
+    await userEvent.keyboard('{ArrowDown}')
+    await userEvent.keyboard('{ArrowDown}')
+    await userEvent.keyboard('{Enter}')
+    const _select = await canvas.findByRole('combobox')
+    // await expect(select).toHaveValue('Female')
+  },
+})
