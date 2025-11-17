@@ -58,13 +58,13 @@ const MenuArrow = styled(Ariakit.MenuArrow, {
 const Menu = styled(Ariakit.Menu, {
   base: {
     backgroundColor: 'surface',
-    borderRadius: 5,
+    borderRadius: '5px',
     boxShadow: '0 4px 5px rgba(0,0,0,.35)',
     display: 'flex',
     flexDirection: 'column',
     fontFamily: lato.style.fontFamily,
     maxHeight: 'min(var(--popover-available-height, 300px), 300px)',
-    minWidth: 200,
+    minWidth: '200px',
     overflow: 'visible',
     overscrollBehavior: 'contain',
     zIndex: '4',
@@ -255,7 +255,7 @@ const Highlight = styled(motion.div, {
     vertical: {
       false: {
         bottom: 0,
-        height: 4,
+        height: '4px',
         position: 'absolute',
         width: '100%',
       },
@@ -264,7 +264,7 @@ const Highlight = styled(motion.div, {
         left: 0,
         position: 'absolute',
         top: 0,
-        width: 4,
+        width: '4px',
       },
     },
   },
@@ -283,7 +283,7 @@ const TabTrigger = styled(Ariakit.Tab, {
       backgroundColor: 'quaternary',
       bottom: 0,
       content: '""',
-      height: 4,
+      height: '4px',
       left: 0,
       opacity: 0,
       position: 'absolute',

@@ -23,7 +23,7 @@ const HighlightElement = styled('div', {
   base: {
     backgroundColor: 'interactive',
     bottom: -1,
-    height: 1,
+    height: '2px',
     position: 'absolute',
     width: '100%',
   },
