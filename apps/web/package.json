@@ -94,7 +94,7 @@
     "@types/react-dom": "catalog:",
     "@types/react-resizable": "3.0.8",
     "@types/unist": "3.0.3",
-    "@vitejs/plugin-react": "5.1.0",
+    "@vitejs/plugin-react": "5.1.1",
     "babel-plugin-react-compiler": "1.0.0",
     "cypress": "15.6.0",
     "cypress-real-events": "1.15.0",
