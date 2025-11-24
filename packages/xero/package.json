@@ -44,7 +44,7 @@
     "rollup-plugin-preserve-use-client": "3.0.1",
     "storybook": "^10.0.8",
     "storybook-next-intl": "10.0.1",
-    "tsdown": "0.16.5",
+    "tsdown": "0.16.6",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-tsconfig-paths": "5.1.4",
