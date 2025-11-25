@@ -50,7 +50,7 @@
     "posthog-node": "5.11.2",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-email": "5.0.4",
+    "react-email": "5.0.5",
     "react-error-boundary": "6.0.0",
     "react-player": "3.4.0",
     "react-resizable": "3.0.5",
