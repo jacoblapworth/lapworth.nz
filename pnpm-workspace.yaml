@@ -7,7 +7,7 @@ catalog:
   '@biomejs/biome': 2.3.4
   '@types/react': 19.2.6
   '@types/react-dom': 19.2.3
-  next: 16.0.3
+  next: 16.0.7
   nuqs: 2.7.3
   react: 19.2.0
   react-dom: 19.2.0
