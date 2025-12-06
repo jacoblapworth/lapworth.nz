@@ -68,7 +68,7 @@
     "sharp": "0.34.5",
     "shiki": "3.15.0",
     "unist-util-visit": "5.0.0",
-    "zod": "4.1.12"
+    "zod": "4.1.13"
   },
   "description": "Kopaki – personal website for J Lapworth",
   "devDependencies": {
