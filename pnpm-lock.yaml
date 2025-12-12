@@ -168,8 +168,8 @@ importers:
         specifier: 3.2.0
         version: 3.2.0
       media-chrome:
-        specifier: 4.16.0
-        version: 4.16.0(react@19.2.1)
+        specifier: 4.17.0
+        version: 4.17.0(react@19.2.1)
       motion:
         specifier: 12.23.24
         version: 12.23.24(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -7138,8 +7138,8 @@ packages:
   media-chrome@4.15.1:
     resolution: {integrity: sha512-Hxqr0qQ67ewmRaLJBqe5ayu53txFX+DODb9xBSHgTbw7j+gITGZ4llbPPEmqMlDnatw7IsF+AUh9rJYbpnn4ZQ==}
 
-  media-chrome@4.16.0:
-    resolution: {integrity: sha512-c5xpTYcYo9nYsC/G/C1PyOcPXEL6iIaSR9MH3GncVuj4S90aHqvGbsyUWFDPPBKx5sCwWLxDnbszE/24eMT54g==}
+  media-chrome@4.17.0:
+    resolution: {integrity: sha512-bocRKocGOdMQQuVq6pINEaAucSxwTr66YlIeeegIPFwSnhNpQkpq12KjaxTD7uOzqJbn9IFcEpJQiivFG4zf9Q==}
 
   media-engine@1.0.3:
     resolution: {integrity: sha512-aa5tG6sDoK+k70B9iEX1NeyfT8ObCKhNDs6lJVpwF6r8vhUfuKMslIcirq6HIUYuuUYLefcEQOn9bSBOvawtwg==}
@@ -17711,7 +17711,7 @@ snapshots:
     transitivePeerDependencies:
       - react
 
-  media-chrome@4.16.0(react@19.2.1):
+  media-chrome@4.17.0(react@19.2.1):
     dependencies:
       ce-la-react: 0.3.2(react@19.2.1)
     transitivePeerDependencies:
@@ -18212,7 +18212,7 @@ snapshots:
       dash-video-element: 0.2.0
       hls-video-element: 1.5.9
       magicast: 0.3.5
-      media-chrome: 4.16.0(react@19.2.1)
+      media-chrome: 4.17.0(react@19.2.1)
       minimatch: 10.1.1
       next: 16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       player.style: 0.3.0(react@19.2.1)
