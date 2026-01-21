@@ -7,8 +7,8 @@ settings:
 catalogs:
   default:
     '@ariakit/react':
-      specifier: 0.4.19
-      version: 0.4.19
+      specifier: 0.4.21
+      version: 0.4.21
     '@biomejs/biome':
       specifier: 2.3.4
       version: 2.3.4
@@ -58,7 +58,7 @@ importers:
     dependencies:
       '@ariakit/react':
         specifier: 'catalog:'
-        version: 0.4.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 0.4.21(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@faker-js/faker':
         specifier: 10.1.0
         version: 10.1.0
@@ -398,7 +398,7 @@ importers:
     dependencies:
       '@ariakit/react':
         specifier: 'catalog:'
-        version: 0.4.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 0.4.21(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@faker-js/faker':
         specifier: 10.1.0
         version: 10.1.0
@@ -544,17 +544,17 @@ packages:
   '@adobe/css-tools@4.4.4':
     resolution: {integrity: sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg==}
 
-  '@ariakit/core@0.4.16':
-    resolution: {integrity: sha512-nPJ0Be8d5ZvRApYGqdLMuYUjP7ktkPmTPOXyZFw+0Illk8LKgF3Q74ctVGuoQurJNDsANXcewzlyXK4vyIAGTA==}
+  '@ariakit/core@0.4.18':
+    resolution: {integrity: sha512-9urEa+GbZTSyredq3B/3thQjTcSZSUC68XctwCkJNH/xNfKN5O+VThiem2rcJxpsGw8sRUQenhagZi0yB4foyg==}
 
-  '@ariakit/react-core@0.4.19':
-    resolution: {integrity: sha512-Aj+fu4pMyPXtlBghI+E7KSWItqJkbAqEhut3DlsFAjK9fQdHE+e1tQJG1PtnoEdD9BExkJWQ6R4M5a9HkEhqPA==}
+  '@ariakit/react-core@0.4.21':
+    resolution: {integrity: sha512-rUI9uB/gT3mROFja/ka7/JukkdljIZR3eq3BGiQqX4Ni/KBMDvPK8FvVLnC0TGzWcqNY2bbfve8QllvHzuw4fQ==}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@ariakit/react@0.4.19':
-    resolution: {integrity: sha512-n6q8leSQWXMk4vhcZlpnj8cIlAY0n+1bvVTwHvaVfmec4LjW49MFKkJRZd1AiV+SE73nkxPwSL3IbaS4p1aRxQ==}
+  '@ariakit/react@0.4.21':
+    resolution: {integrity: sha512-UjP99Y7cWxA5seRECEE0RPZFImkLGFIWPflp65t0BVZwlMw4wp9OJZRHMrnkEkKl5KBE2NR/gbbzwHc6VNGzsA==}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -9781,19 +9781,19 @@ snapshots:
 
   '@adobe/css-tools@4.4.4': {}
 
-  '@ariakit/core@0.4.16': {}
+  '@ariakit/core@0.4.18': {}
 
-  '@ariakit/react-core@0.4.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@ariakit/react-core@0.4.21(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
-      '@ariakit/core': 0.4.16
+      '@ariakit/core': 0.4.18
       '@floating-ui/dom': 1.7.4
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
       use-sync-external-store: 1.6.0(react@19.2.3)
 
-  '@ariakit/react@0.4.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@ariakit/react@0.4.21(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
-      '@ariakit/react-core': 0.4.19(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@ariakit/react-core': 0.4.21(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
