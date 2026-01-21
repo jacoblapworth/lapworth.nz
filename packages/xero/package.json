@@ -47,7 +47,7 @@
     "tsdown": "0.16.6",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "vite-tsconfig-paths": "5.1.4",
+    "vite-tsconfig-paths": "6.0.4",
     "vitest": "catalog:"
   },
   "exports": {
