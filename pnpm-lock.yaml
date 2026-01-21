@@ -277,8 +277,8 @@ importers:
         specifier: 1.8.0
         version: 1.8.0(hono@4.11.4)(typescript@5.9.3)
       '@react-email/preview-server':
-        specifier: 5.2.1
-        version: 5.2.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: 5.2.5
+        version: 5.2.5(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@storybook/addon-a11y':
         specifier: ^10.0.8
         version: 10.0.8(storybook@10.1.10(@testing-library/dom@10.4.1)(prettier@3.6.2)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
@@ -2754,8 +2754,8 @@ packages:
     peerDependencies:
       react: ^18.0 || ^19.0 || ^19.0.0-rc
 
-  '@react-email/preview-server@5.2.1':
-    resolution: {integrity: sha512-1FO7dUizZDcp8vf8Rzbalt6B/vN7Zdz2LVLwY3J+y0JPJcpVMrItXgJHkQR+juLsvTg0PmcACh8dolOvBFnc3Q==}
+  '@react-email/preview-server@5.2.5':
+    resolution: {integrity: sha512-YERhEKl0Dz2qNbHTzdSwnsK15gipEqonKMPEbsoE8C+ACiHIm/f/d1UzQVmhrsN6PW7L+JhAuzcdIX1H3pLmFg==}
 
   '@react-email/preview@0.0.13':
     resolution: {integrity: sha512-F7j9FJ0JN/A4d7yr+aw28p4uX7VLWs7hTHtLo7WRyw4G+Lit6Zucq4UWKRxJC8lpsUdzVmG7aBJnKOT+urqs/w==}
@@ -12830,7 +12830,7 @@ snapshots:
       marked: 15.0.12
       react: 19.2.3
 
-  '@react-email/preview-server@5.2.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+  '@react-email/preview-server@5.2.5(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
     dependencies:
       next: 16.0.10(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
     transitivePeerDependencies:
