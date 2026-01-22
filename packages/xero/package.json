@@ -35,7 +35,7 @@
     "@types/node": "24.10.1",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@vitejs/plugin-react": "^5.1.1",
+    "@vitejs/plugin-react": "^5.1.2",
     "@vitest/browser-playwright": "4.0.13",
     "@vitest/coverage-v8": "4.0.15",
     "chromatic": "13.3.4",
