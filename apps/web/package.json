@@ -28,7 +28,7 @@
     "date-fns": "4.1.0",
     "flags": "4.0.2",
     "flubber": "0.4.2",
-    "got": "14.6.4",
+    "got": "14.6.6",
     "gray-matter": "4.0.3",
     "gsap": "3.13.0",
     "hast-util-to-jsx-runtime": "2.3.6",
