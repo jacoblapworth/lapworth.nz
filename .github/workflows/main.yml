@@ -110,7 +110,7 @@ jobs:
         run: pnpm run build
 
       - name: Cypress
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           start: pnpm run start
           wait-on: 'http://localhost:3000'
