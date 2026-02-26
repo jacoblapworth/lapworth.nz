@@ -103,7 +103,7 @@
     "node-addon-api": "8.5.0",
     "node-gyp": "12.1.0",
     "prettier": "3.6.2",
-    "storybook": "^10.1.10",
+    "storybook": "^10.2.10",
     "typescript": "catalog:",
     "unified": "11.0.5",
     "unist": "0.0.1",
