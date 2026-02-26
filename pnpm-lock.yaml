@@ -228,8 +228,8 @@ importers:
         specifier: 1.2.0
         version: 1.2.0
       rehype-pre-language:
-        specifier: 1.1.6
-        version: 1.1.6(unified@11.0.5)
+        specifier: 1.1.7
+        version: 1.1.7(unified@11.0.5)
       rehype-pretty-code:
         specifier: 0.14.1
         version: 0.14.1(shiki@3.15.0)
@@ -8214,8 +8214,8 @@ packages:
   rehype-parse@9.0.1:
     resolution: {integrity: sha512-ksCzCD0Fgfh7trPDxr2rSylbwq9iYDkSn8TCDmEJ49ljEUBxDVCzCHv7QNzZOfODanX4+bWQ4WZqLCRWYLfhag==}
 
-  rehype-pre-language@1.1.6:
-    resolution: {integrity: sha512-oxp4PDPO10QO5ElKi03h5aI4a8Q5Do9qIydzTPGmAJ6FKzyqy67SDGq8TXcQ/Lab3iYOCPI3SZtPcbwu00tmnA==}
+  rehype-pre-language@1.1.7:
+    resolution: {integrity: sha512-5UwPP+yqv0TGcCKLn7s46aL0ECXURiIMWR4yCBrxHMbqb/EF92los1P+YWvOP8nLF9Gkx+utSq2zgNDeydcjFw==}
     peerDependencies:
       unified: ^11
 
@@ -9259,6 +9259,9 @@ packages:
 
   unist-util-visit@5.0.0:
     resolution: {integrity: sha512-MR04uvD+07cwl/yhVuVWAtw+3GOR/knlL55Nd/wAdblk27GCVt3lqpTivy/tkJcZoNPzTwS1Y+KMojlLDhoTzg==}
+
+  unist-util-visit@5.1.0:
+    resolution: {integrity: sha512-m+vIdyeCOpdr/QeQCu2EzxX/ohgS8KbnPDgFni4dQsfSCtpz8UqDyY5GjRru8PDKuYn7Fq19j1CQ+nJSsGKOzg==}
 
   unist@0.0.1:
     resolution: {integrity: sha512-bnzuF8b6d47WubA4a5yLqFbuZz/v/NS6eRwUIdOaDmsqzwTlyv8yS1g3M7ISdtBQrigPD3qKK87Cu7zhEfCF3A==}
@@ -19188,11 +19191,11 @@ snapshots:
       hast-util-from-html: 2.0.3
       unified: 11.0.5
 
-  rehype-pre-language@1.1.6(unified@11.0.5):
+  rehype-pre-language@1.1.7(unified@11.0.5):
     dependencies:
       '@types/hast': 3.0.4
       unified: 11.0.5
-      unist-util-visit: 5.0.0
+      unist-util-visit: 5.1.0
 
   rehype-pretty-code@0.14.1(shiki@3.15.0):
     dependencies:
@@ -20409,6 +20412,12 @@ snapshots:
       unist-util-is: 6.0.1
 
   unist-util-visit@5.0.0:
+    dependencies:
+      '@types/unist': 3.0.3
+      unist-util-is: 6.0.1
+      unist-util-visit-parents: 6.0.2
+
+  unist-util-visit@5.1.0:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.1
