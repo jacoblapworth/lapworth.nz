@@ -42,7 +42,7 @@
     "playwright": "^1.57.0",
     "rollup-plugin-preserve-directives": "0.4.0",
     "rollup-plugin-preserve-use-client": "3.0.1",
-    "storybook": "^10.1.10",
+    "storybook": "^10.2.10",
     "storybook-next-intl": "10.0.1",
     "tsdown": "0.16.6",
     "typescript": "catalog:",
