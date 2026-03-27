@@ -85,7 +85,7 @@
   },
   "scripts": {
     "build": "tsdown",
-    "build:storybook": "storybook build",
+    "build:storybook": "storybook build --webpack-stats-json",
     "chromatic": "chromatic --build-script-name=build:storybook",
     "css": "mkdir -p dist && panda cssgen",
     "css:watch": "panda cssgen --watch",
