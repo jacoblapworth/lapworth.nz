@@ -114,7 +114,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "build:storybook": "storybook build",
+    "build:storybook": "storybook build --webpack-stats-json",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "dev": "next dev --turbo",
