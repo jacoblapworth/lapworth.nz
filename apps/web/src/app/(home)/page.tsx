@@ -52,10 +52,13 @@ export default async function Page() {
         Available for work in London
       </Text>
       <Text aria-label="GPS coordinates">
-        <Link href="https://www.google.com/maps?q=51.548161,-0.075587">51.548161º, -0.075587º</Link>
+        <Link href="https://www.google.com/maps?q=51.548161,-0.075587">
+          51.548161º, -0.075587º
+        </Link>
       </Text>
       <Text display serif size="xl">
-        Crafting private banking experiences at <Link href="https://www.coutts.com">Coutts</Link>
+        Crafting private banking experiences at{' '}
+        <Link href="https://www.coutts.com">Coutts</Link>
       </Text>
       <HiddenLink href="https://mastodon.social/@jacoblapworth" rel="me">
         Mastodon
