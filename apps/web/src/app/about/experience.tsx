@@ -27,7 +27,6 @@ const experience: ExperienceRowProps[] = [
   {
     from: '2020',
     href: 'https://www.xero.com/nz/',
-    isCurrent: true,
     location: 'Auckland, New Zealand',
     title: 'Senior Product Designer',
     to: '2025',
