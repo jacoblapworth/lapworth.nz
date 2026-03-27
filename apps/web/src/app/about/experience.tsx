@@ -16,10 +16,19 @@ interface ExperienceRowProps {
 
 const experience: ExperienceRowProps[] = [
   {
+    from: '2026',
+    href: 'https://www.coutts.com/',
+    isCurrent: true,
+    location: 'London, United Kingdom',
+    title: 'Senior Product Designer',
+    to: 'Present',
+    workplace: 'Coutts',
+  },
+  {
     from: '2020',
     href: 'https://www.xero.com/nz/',
     isCurrent: true,
-    location: 'Remote',
+    location: 'Auckland, New Zealand',
     title: 'Senior Product Designer',
     to: '2025',
     workplace: 'Xero',
@@ -27,7 +36,7 @@ const experience: ExperienceRowProps[] = [
   {
     from: '2019',
     href: 'https://www.vendhq.com/nz/',
-    location: 'Remote',
+    location: 'Auckland, New Zealand',
     title: 'Product Designer',
     to: '2020',
     workplace: 'Vend',
@@ -35,7 +44,7 @@ const experience: ExperienceRowProps[] = [
   {
     from: '2018',
     href: 'https://www.gettimely.com/',
-    location: 'Remote',
+    location: 'Wellington, New Zealand',
     title: 'UX Designer',
     to: '2019',
     workplace: 'Timely',
@@ -43,7 +52,7 @@ const experience: ExperienceRowProps[] = [
   {
     from: '2016',
     href: 'https://www.trademe.co.nz/a/',
-    location: 'Remote',
+    location: 'Wellington, New Zealand',
     title: 'Junior Designer',
     to: '2018',
     workplace: 'Trade Me',
