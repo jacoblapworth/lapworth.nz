@@ -3,15 +3,11 @@ import preserveUseClientDirective from 'rollup-plugin-preserve-use-client'
 import { defineConfig } from 'tsdown'
 
 export default defineConfig({
+  deps: {
+    neverBundle: ['react', 'react-dom'],
+  },
   dts: true,
-  entry: [
-    './src/index.ts',
-    './src/examples/index.ts',
-    './src/components/index.ts',
-    './src/components/**/!(*.stories).*',
-    './src/examples/**/!(*.stories).*',
-  ],
-  external: ['lucide-react', '@gsap/react'],
+  entry: ['./src/index.ts', './src/examples/index.ts'],
   outputOptions: {
     preserveModules: true,
   },
@@ -21,7 +17,6 @@ export default defineConfig({
   //   customExports(pkg) {
   //     pkg['./styles.css'] = './.styled/styles.css'
   //     return pkg
-  //   },
+  //   },x
   // },
-  skipNodeModulesBundle: true,
 })
