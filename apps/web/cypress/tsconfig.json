@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "ignoreDeprecations": "6.0",
     "isolatedModules": false,
     "types": ["cypress", "@testing-library/cypress", "cypress-real-events"]
   },

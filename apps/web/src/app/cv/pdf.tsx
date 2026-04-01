@@ -166,7 +166,12 @@ function ExperienceEntry({ item }: { item: ExperienceItem }) {
         )}
         <View>
           {item.details.map((d, idx) => (
-            <BulletItem key={`${item.company.title}-${item.start}-${idx}`}>
+            <BulletItem
+              key={`${item.company.title}-${item.start}-${
+                // biome-ignore lint/suspicious/noArrayIndexKey: stable index for static content
+                idx
+              }`}
+            >
               {d}
             </BulletItem>
           ))}

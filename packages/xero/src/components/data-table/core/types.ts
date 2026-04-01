@@ -125,14 +125,15 @@ export type ColumnConfig<
   orderFn?: TType extends OptionBasedColumnDataType ? TOrderFn<TVal> : never
 }
 
-export type OptionColumnId<T> = T extends ColumnConfig<
-  infer TData,
-  'option' | 'multiOption',
-  infer TVal,
-  infer TId
->
-  ? TId
-  : never
+export type OptionColumnId<T> =
+  T extends ColumnConfig<
+    infer TData,
+    'option' | 'multiOption',
+    infer TVal,
+    infer TId
+  >
+    ? TId
+    : never
 
 export type OptionColumnIds<
   T extends ReadonlyArray<ColumnConfig<any, any, any, any>>,
@@ -140,14 +141,10 @@ export type OptionColumnIds<
   [K in keyof T]: OptionColumnId<T[K]>
 }[number]
 
-export type NumberColumnId<T> = T extends ColumnConfig<
-  infer TData,
-  'number',
-  infer TVal,
-  infer TId
->
-  ? TId
-  : never
+export type NumberColumnId<T> =
+  T extends ColumnConfig<infer TData, 'number', infer TVal, infer TId>
+    ? TId
+    : never
 
 export type NumberColumnIds<
   T extends ReadonlyArray<ColumnConfig<any, any, any, any>>,

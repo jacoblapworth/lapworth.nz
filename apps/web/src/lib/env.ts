@@ -27,12 +27,3 @@ export const env = createEnv({
     RESEND_API_KEY: z.string(),
   },
 })
-
-declare global {
-  namespace MusicKit {
-    interface AppConfiguration {
-      suppressErrorDialog?: boolean
-      debug?: boolean
-    }
-  }
-}

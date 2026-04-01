@@ -1,7 +1,7 @@
 import { type ComponentProps, useId } from 'react'
 import { cva } from '@/styled/css'
 import { styled } from '@/styled/jsx'
-import type { RecipeVariantProps, StyledVariantProps } from '@/styled/types'
+import type { StyledVariantProps } from '@/styled/types'
 import { Label } from './label'
 
 export const InputField = styled('div', {

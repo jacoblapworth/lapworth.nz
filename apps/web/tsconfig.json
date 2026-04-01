@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": "./",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
@@ -15,13 +14,14 @@
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
       "@/styled/*": ["./.styled/*"],
-      "@/storybook/*": [".storybook/*"]
+      "@/storybook/*": ["./.storybook/*"]
     },
     "plugins": [{ "name": "next" }],
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "types": ["node", "musickit-js"]
   },
   "exclude": ["node_modules", "cypress", ".next", "dist", "storybook-static"],
   "include": [
