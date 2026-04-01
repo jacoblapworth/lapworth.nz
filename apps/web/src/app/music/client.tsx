@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const debug = process.env.NODE_ENV !== 'production'
+const _debug = process.env.NODE_ENV !== 'production'
 
 const BASE_URL = (() => {
   switch (process.env.NEXT_PUBLIC_VERCEL_ENV) {

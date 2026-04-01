@@ -30,7 +30,7 @@ export const components = {
   h3,
   hr: Divider,
   Image,
-  img: (props) => <Image {...props as ComponentProps<typeof Image>} />,
+  img: (props) => <Image {...(props as ComponentProps<typeof Image>)} />,
   li: ListItem,
   ol: OrderedList,
   p: (props) => <Paragraph {...props} />,
