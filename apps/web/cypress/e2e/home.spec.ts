@@ -5,7 +5,7 @@ describe('Home', () => {
 
   it('should contain introduction', () => {
     cy.contains('Jacob tōku ingoa')
-    cy.contains('-36.862600º, 174.741270º')
+    cy.contains('51.548161º, -0.075587º')
   })
 })
 
