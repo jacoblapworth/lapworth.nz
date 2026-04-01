@@ -153,7 +153,7 @@ export function numberFilterFn(
   inputData: number,
   filterValue: FilterModel<'number'>,
 ) {
-  if (!filterValue || !filterValue.values || filterValue.values.length === 0) {
+  if (!filterValue?.values || filterValue.values.length === 0) {
     return true
   }
 
