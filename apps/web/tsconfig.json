@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": "./",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
@@ -15,7 +14,7 @@
       "@/*": ["./src/*"],
       "@/public/*": ["./public/*"],
       "@/styled/*": ["./.styled/*"],
-      "@/storybook/*": [".storybook/*"]
+      "@/storybook/*": ["./.storybook/*"]
     },
     "plugins": [{ "name": "next" }],
     "resolveJsonModule": true,

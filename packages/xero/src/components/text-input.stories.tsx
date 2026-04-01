@@ -14,11 +14,16 @@ const meta = preview.meta({
 })
 
 export const Primary = meta.story({
-  args: {},
+  args: {
+    label: 'Label',
+    name: 'name',
+  },
 })
 
 export const Small = meta.story({
   args: {
+    label: 'Label',
+    name: 'name',
     size: 'sm',
   },
 })
