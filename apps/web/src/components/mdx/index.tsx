@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
-import { Suspense } from 'react'
+import { type ComponentProps, Suspense } from 'react'
 import ResponsivePreview from '../preview'
 import { Text } from '../text'
 import { Anchor } from './anchor'
@@ -18,26 +18,26 @@ import { Table, Td, Th, Tr } from './table'
 import { Video } from './video'
 import { Wrapper } from './wrapper'
 
-export const components: MDXComponents = {
+export const components = {
   a: Anchor,
-  blockquote: Blockquote,
-  code: Code,
+  blockquote: (props) => <Blockquote {...props} />,
+  code: (props) => <Code {...props} />,
   // details: Details,
-  figure: Figure,
+  figure: (props) => <Figure {...props} />,
   Grid,
   h1,
   h2,
   h3,
   hr: Divider,
   Image,
-  img: Image,
+  img: (props) => <Image {...props as ComponentProps<typeof Image>} />,
   li: ListItem,
   ol: OrderedList,
-  p: Paragraph,
-  pre: Pre,
+  p: (props) => <Paragraph {...props} />,
+  pre: (props) => <Pre {...props} />,
   ResponsivePreview,
-  Suspense,
-  section: Section,
+  Suspense: (props) => <Suspense {...props} />,
+  section: (props) => <Section {...props} />,
   Text,
   // summary: Summary,
   table: Table,
@@ -45,6 +45,6 @@ export const components: MDXComponents = {
   th: Th,
   tr: Tr,
   ul: UnorderedList,
-  Video,
+  Video: (props) => <Video {...props} />,
   wrapper: Wrapper,
-}
+} satisfies MDXComponents
