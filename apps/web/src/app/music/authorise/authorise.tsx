@@ -2,6 +2,7 @@
 
 import NextScript from 'next/script'
 import { useEffect, useState } from 'react'
+import 'musickit-js'
 
 import { TextInput } from '@/components/text-input'
 import { captureException } from '@/lib/error'
