@@ -39,11 +39,11 @@ yarn-error.log*
 out
 next-env.d.ts
 
-# cypress
-cypress/results/*
-cypress/reports/*
-cypress/screenshots/*
-cypress/videos/*
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
 .vscode
 
 # Contentlayer

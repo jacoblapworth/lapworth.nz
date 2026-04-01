@@ -46,7 +46,6 @@ jobs:
         uses: actions/cache@v5
         with:
           path: |
-            /home/runner/.cache/Cypress/*
             ${{ github.workspace }}/*
           key: ${{ github.sha }}
 
@@ -89,14 +88,12 @@ jobs:
           node-version-file: package.json
           cache: 'pnpm'
 
-      - name: Set up Cypress binary cache
-        uses: actions/cache@v5
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-${{ runner.os }}-cypress-${{ hashFiles('pnpm-lock.yaml') }}
-
       - name: Install dependencies
         run: pnpm install
+
+      - name: Install Playwright browsers
+        run: pnpm playwright install --with-deps chromium
+        working-directory: apps/web
 
       - name: Pull Vercel Environment Variables
         run: |
@@ -109,19 +106,27 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Cypress
-        uses: cypress-io/github-action@v7
-        with:
-          start: pnpm run start
-          wait-on: 'http://localhost:3000'
-          record: true
-          install: false
-          group: web
-          working-directory: apps/web
-          browser: chrome
+      - name: Start server
+        run: pnpm run start &
+        working-directory: apps/web
+
+      - name: Wait for server
+        run: pnpm wait-on http://localhost:3000
+        working-directory: apps/web
+
+      - name: Playwright
+        run: pnpm playwright test
+        working-directory: apps/web
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: apps/web/playwright-report/
+          retention-days: 30
 
   Success:
     runs-on: ubuntu-latest
