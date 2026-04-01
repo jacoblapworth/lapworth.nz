@@ -20,7 +20,8 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "types": ["node", "musickit-js"]
   },
   "exclude": ["node_modules", "cypress", ".next", "dist", "storybook-static"],
   "include": [
