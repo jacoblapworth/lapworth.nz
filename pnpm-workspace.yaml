@@ -54,7 +54,7 @@ catalog:
   cypress: 15.13.0
   date-fns: 4.1.0
   esbuild: 0.28.0
-  flags: 4.0.5
+  flags: 4.0.6
   flubber: 0.4.2
   globals: 17.4.0
   got: 14.6.6
