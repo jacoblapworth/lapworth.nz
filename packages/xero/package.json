@@ -14,11 +14,11 @@
   },
   "scripts": {
     "build": "NODE_OPTIONS=\"--max-old-space-size=8024\" tsdown",
-    "build:storybook": "storybook build --webpack-stats-json",
+    "build:storybook": "storybook build",
     "chromatic": "chromatic --build-script-name=build:storybook",
     "css": "panda cssgen",
     "css:watch": "panda cssgen --watch",
-    "dev": "tsdown --watch ./src --no-clean",
+    "dev": "NODE_OPTIONS=\"--max-old-space-size=8024\" tsdown --watch ./src --no-clean",
     "format": "biome check --write",
     "storybook": "storybook dev -p 6007 --no-open",
     "test": "vitest",
@@ -74,7 +74,6 @@
     "tsdown": "0.21.7",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "vite-tsconfig-paths": "6.1.1",
     "vitest": "catalog:"
   },
   "peerDependencies": {
