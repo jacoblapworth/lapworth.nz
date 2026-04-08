@@ -22,13 +22,13 @@ catalog:
   '@shikijs/rehype': 4.0.2
   '@shikijs/transformers': 4.0.2
   '@stefanprobst/rehype-extract-toc': 3.0.0
-  '@storybook/addon-a11y': ^10.3.3
-  '@storybook/addon-docs': ^10.3.3
-  '@storybook/addon-links': ^10.3.3
-  '@storybook/addon-themes': ^10.3.3
-  '@storybook/addon-vitest': ^10.3.3
-  '@storybook/nextjs-vite': ^10.3.3
-  '@storybook/nextjs': ^10.3.3
+  '@storybook/addon-a11y': ^10.3.4
+  '@storybook/addon-docs': ^10.3.4
+  '@storybook/addon-links': ^10.3.4
+  '@storybook/addon-themes': ^10.3.4
+  '@storybook/addon-vitest': ^10.3.4
+  '@storybook/nextjs-vite': ^10.3.4
+  '@storybook/nextjs': ^10.3.4
   '@t3-oss/env-nextjs': 0.13.11
   '@tanstack/react-table': 8.21.3
   '@testing-library/cypress': 10.1.0
@@ -99,7 +99,7 @@ catalog:
   resend: 6.10.0
   sharp: 0.34.5
   shiki: 4.0.2
-  storybook: ^10.3.3
+  storybook: ^10.3.4
   typescript: 6.0.2
   unified: 11.0.5
   unist-util-visit: 5.1.0
