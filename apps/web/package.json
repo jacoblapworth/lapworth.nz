@@ -106,14 +106,13 @@
     "typescript": "catalog:",
     "unified": "catalog:",
     "unist": "catalog:",
-    "vite-tsconfig-paths": "catalog:",
     "vitest": "catalog:"
   },
   "name": "web",
   "private": true,
   "scripts": {
     "build": "next build",
-    "build:storybook": "storybook build --webpack-stats-json",
+    "build:storybook": "storybook build",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "dev": "next dev --turbo",
