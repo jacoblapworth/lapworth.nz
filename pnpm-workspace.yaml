@@ -6,6 +6,7 @@ catalog:
   '@ariakit/react': 0.4.24
   '@biomejs/biome': 2.4.10
   '@chromatic-com/storybook': 5.1.1
+  '@cloudflare/vitest-pool-workers': 0.14.2
   '@faker-js/faker': 10.4.0
   '@flags-sdk/posthog': 0.2.2
   '@gsap/react': 2.1.2
@@ -15,6 +16,8 @@ catalog:
   '@next/mdx': 16.2.2
   '@number-flow/react': 0.6.0
   '@pandacss/dev': 1.9.1
+  '@pandacss/studio': 1.9.1
+  '@pandacss/types': 1.9.1
   '@react-email/components': 1.0.11
   '@react-email/preview-server': 5.2.10
   '@react-hook/mouse-position': 4.1.3
@@ -22,17 +25,18 @@ catalog:
   '@shikijs/rehype': 4.0.2
   '@shikijs/transformers': 4.0.2
   '@stefanprobst/rehype-extract-toc': 3.0.0
-  '@storybook/addon-a11y': ^10.3.3
-  '@storybook/addon-docs': ^10.3.3
-  '@storybook/addon-links': ^10.3.3
-  '@storybook/addon-themes': ^10.3.3
-  '@storybook/addon-vitest': ^10.3.3
-  '@storybook/nextjs-vite': ^10.3.3
-  '@storybook/nextjs': ^10.3.3
+  '@storybook/addon-a11y': 10.3.3
+  '@storybook/addon-docs': 10.3.3
+  '@storybook/addon-links': 10.3.3
+  '@storybook/addon-themes': 10.3.3
+  '@storybook/addon-vitest': 10.3.3
+  '@storybook/nextjs-vite': 10.3.3
+  '@storybook/nextjs': 10.3.3
   '@t3-oss/env-nextjs': 0.13.11
   '@tanstack/react-table': 8.21.3
   '@testing-library/cypress': 10.1.0
   '@total-typescript/ts-reset': 0.6.1
+  '@total-typescript/tsconfig': 1.0.4
   '@types/flubber': 0.4.0
   '@types/mdast': 4.0.4
   '@types/mdx': 2.0.13
@@ -47,9 +51,12 @@ catalog:
   '@vercel/speed-insights': 2.0.0
   '@vercel/toolbar': 0.2.2
   '@vitejs/plugin-react': 6.0.1
+  '@vitest/browser-playwright': 4.1.2
+  '@vitest/coverage-v8': 4.1.2
   '@window-splitter/react': 1.1.3
   axios: 1.14.0
   babel-plugin-react-compiler: 1.0.0
+  chromatic: 16.1.0
   cypress-real-events: 1.15.0
   cypress: 15.13.0
   date-fns: 4.1.0
@@ -77,6 +84,7 @@ catalog:
   node-gyp: 12.2.0
   nuqs: 2.8.9
   plaiceholder: 3.0.0
+  playwright: ^1.59.0
   posthog-js: 1.364.7
   posthog-node: 5.28.9
   prettier: 3.8.1
@@ -97,15 +105,20 @@ catalog:
   remark-gfm: 4.0.1
   remark-mdx-frontmatter: 5.2.0
   resend: 6.10.0
+  rollup-plugin-preserve-directives: 0.4.0
+  rollup-plugin-preserve-use-client: 3.0.1
   sharp: 0.34.5
   shiki: 4.0.2
-  storybook: ^10.3.3
+  storybook-next-intl: 10.1.1
+  storybook: 10.3.3
+  tsdown: 0.21.7
   typescript: 6.0.2
   unified: 11.0.5
   unist-util-visit: 5.1.0
   unist: 0.0.1
   vite: 8.0.5
   vitest: 4.1.2
+  wrangler: 4.80.0
   zod: 4.3.6
 
 linkWorkspacePackages: true
