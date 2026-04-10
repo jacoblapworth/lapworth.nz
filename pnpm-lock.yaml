@@ -127,8 +127,8 @@ catalogs:
       specifier: 2.0.1
       version: 2.0.1
     '@vercel/blob':
-      specifier: 2.3.2
-      version: 2.3.2
+      specifier: 2.3.3
+      version: 2.3.3
     '@vercel/speed-insights':
       specifier: 2.0.0
       version: 2.0.0
@@ -397,7 +397,7 @@ importers:
         version: 2.0.1(next@16.2.2(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
       '@vercel/blob':
         specifier: 'catalog:'
-        version: 2.3.2
+        version: 2.3.3
       '@vercel/speed-insights':
         specifier: 'catalog:'
         version: 2.0.0(next@16.2.2(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
@@ -738,7 +738,7 @@ importers:
         version: 1.9.1(typescript@6.0.2)
       '@pandacss/studio':
         specifier: 1.9.1
-        version: 1.9.1(@types/node@25.5.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@upstash/redis@1.35.6)(@vercel/blob@2.3.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1)
+        version: 1.9.1(@types/node@25.5.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@upstash/redis@1.35.6)(@vercel/blob@2.3.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1)
       '@pandacss/types':
         specifier: 1.9.1
         version: 1.9.1
@@ -4772,8 +4772,8 @@ packages:
       vue-router:
         optional: true
 
-  '@vercel/blob@2.3.2':
-    resolution: {integrity: sha512-FjlTJ5ffGj0RssrU0dJ90Zgr83AdhpIs2y9f3x386w+q9sM0P8m8Ouxsm3fqsjr4IyqTTo7Ioc2PJqxxOKNhjA==}
+  '@vercel/blob@2.3.3':
+    resolution: {integrity: sha512-MtD7VLo6hU07eHR7bmk5SIMD290q574UaNYTe46qeyRT+hWrCy26CoAqfd7PnIefVXvRehRZBzukxuTO9iGTVg==}
     engines: {node: '>=20.0.0'}
 
   '@vercel/edge-config-fs@0.1.0':
@@ -13017,11 +13017,11 @@ snapshots:
 
   '@oxc-project/types@0.122.0': {}
 
-  '@pandacss/astro-plugin-studio@1.9.1(astro@5.16.3(@types/node@25.5.0)(@upstash/redis@1.35.6)(@vercel/blob@2.3.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1))(typescript@6.0.2)':
+  '@pandacss/astro-plugin-studio@1.9.1(astro@5.16.3(@types/node@25.5.0)(@upstash/redis@1.35.6)(@vercel/blob@2.3.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1))(typescript@6.0.2)':
     dependencies:
       '@pandacss/core': 1.9.1
       '@pandacss/node': 1.9.1(typescript@6.0.2)
-      astro: 5.16.3(@types/node@25.5.0)(@upstash/redis@1.35.6)(@vercel/blob@2.3.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1)
+      astro: 5.16.3(@types/node@25.5.0)(@upstash/redis@1.35.6)(@vercel/blob@2.3.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1)
       javascript-stringify: 2.1.0
     transitivePeerDependencies:
       - jsdom
@@ -13205,17 +13205,17 @@ snapshots:
 
   '@pandacss/shared@1.9.1': {}
 
-  '@pandacss/studio@1.9.1(@types/node@25.5.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@upstash/redis@1.35.6)(@vercel/blob@2.3.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1)':
+  '@pandacss/studio@1.9.1(@types/node@25.5.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(@upstash/redis@1.35.6)(@vercel/blob@2.3.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1)':
     dependencies:
       '@astrojs/react': 4.4.2(@types/node@25.5.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(jiti@2.6.1)(lightningcss@1.32.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(terser@5.46.1)(yaml@2.8.1)
       '@nanostores/react': 1.1.0(nanostores@1.2.0)(react@19.2.0)
-      '@pandacss/astro-plugin-studio': 1.9.1(astro@5.16.3(@types/node@25.5.0)(@upstash/redis@1.35.6)(@vercel/blob@2.3.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1))(typescript@6.0.2)
+      '@pandacss/astro-plugin-studio': 1.9.1(astro@5.16.3(@types/node@25.5.0)(@upstash/redis@1.35.6)(@vercel/blob@2.3.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1))(typescript@6.0.2)
       '@pandacss/config': 1.9.1
       '@pandacss/logger': 1.9.1
       '@pandacss/shared': 1.9.1
       '@pandacss/token-dictionary': 1.9.1
       '@pandacss/types': 1.9.1
-      astro: 5.16.3(@types/node@25.5.0)(@upstash/redis@1.35.6)(@vercel/blob@2.3.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1)
+      astro: 5.16.3(@types/node@25.5.0)(@upstash/redis@1.35.6)(@vercel/blob@2.3.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1)
       nanostores: 1.2.0
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -14989,7 +14989,7 @@ snapshots:
       next: 16.2.2(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react: 19.2.4
 
-  '@vercel/blob@2.3.2':
+  '@vercel/blob@2.3.3':
     dependencies:
       async-retry: 1.3.3
       is-buffer: 2.0.5
@@ -15532,7 +15532,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro@5.16.3(@types/node@25.5.0)(@upstash/redis@1.35.6)(@vercel/blob@2.3.2)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1):
+  astro@5.16.3(@types/node@25.5.0)(@upstash/redis@1.35.6)(@vercel/blob@2.3.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.1)(typescript@6.0.2)(yaml@2.8.1):
     dependencies:
       '@astrojs/compiler': 2.13.1
       '@astrojs/internal-helpers': 0.7.5
@@ -15587,7 +15587,7 @@ snapshots:
       ultrahtml: 1.6.0
       unifont: 0.6.0
       unist-util-visit: 5.1.0
-      unstorage: 1.17.5(@upstash/redis@1.35.6)(@vercel/blob@2.3.2)
+      unstorage: 1.17.5(@upstash/redis@1.35.6)(@vercel/blob@2.3.3)
       vfile: 6.0.3
       vite: 6.4.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.1)
       vitefu: 1.1.2(vite@6.4.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.1))
@@ -18993,7 +18993,7 @@ snapshots:
       '@mux/playback-core': 0.33.3
       '@next/env': 15.5.9
       '@paralleldrive/cuid2': 2.3.1
-      '@vercel/blob': 2.3.2
+      '@vercel/blob': 2.3.3
       chalk: 4.1.2
       chokidar: 4.0.3
       dash-video-element: 0.3.2(@svta/cml-cta@1.0.1(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1))(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1)
@@ -21187,7 +21187,7 @@ snapshots:
       - '@emnapi/core'
       - '@emnapi/runtime'
 
-  unstorage@1.17.5(@upstash/redis@1.35.6)(@vercel/blob@2.3.2):
+  unstorage@1.17.5(@upstash/redis@1.35.6)(@vercel/blob@2.3.3):
     dependencies:
       anymatch: 3.1.3
       chokidar: 5.0.0
@@ -21199,7 +21199,7 @@ snapshots:
       ufo: 1.6.3
     optionalDependencies:
       '@upstash/redis': 1.35.6
-      '@vercel/blob': 2.3.2
+      '@vercel/blob': 2.3.3
 
   untildify@4.0.0: {}
 
