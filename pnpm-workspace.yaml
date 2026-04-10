@@ -43,7 +43,7 @@ catalog:
   '@types/react': 19.2.14
   '@types/unist': 3.0.3
   '@vercel/analytics': 2.0.1
-  '@vercel/blob': 2.3.2
+  '@vercel/blob': 2.3.3
   '@vercel/speed-insights': 2.0.0
   '@vercel/toolbar': 0.2.2
   '@vitejs/plugin-react': 6.0.1
