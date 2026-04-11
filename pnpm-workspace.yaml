@@ -37,7 +37,7 @@ catalog:
   '@types/mdast': 4.0.4
   '@types/mdx': 2.0.13
   '@types/musickit-js': 1.0.11
-  '@types/node': 25.5.0
+  '@types/node': 25.5.2
   '@types/react-dom': 19.2.3
   '@types/react-resizable': 3.0.8
   '@types/react': 19.2.14
