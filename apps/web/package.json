@@ -113,7 +113,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "build:storybook": "storybook build --debug --loglevel=debug --disable-telemetry",
+    "build:storybook": "storybook build --stats-json",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "dev": "next dev --turbo",

@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "NODE_OPTIONS=\"--max-old-space-size=8024\" tsdown",
-    "build:storybook": "storybook build",
+    "build:storybook": "storybook build --stats-json",
     "chromatic": "chromatic --build-script-name=build:storybook",
     "css": "panda cssgen",
     "css:watch": "panda cssgen --watch",
