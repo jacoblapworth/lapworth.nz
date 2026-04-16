@@ -93,6 +93,7 @@
     "@types/react-dom": "catalog:",
     "@types/react-resizable": "catalog:",
     "@types/unist": "catalog:",
+    "@vercel/config": "0.1.1",
     "@vitejs/plugin-react": "catalog:",
     "babel-plugin-react-compiler": "catalog:",
     "cypress": "catalog:",
@@ -112,7 +113,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "build:storybook": "storybook build",
+    "build:storybook": "storybook build --debug --loglevel=debug --disable-telemetry",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "dev": "next dev --turbo",
@@ -126,8 +127,5 @@
     "types:gen": "next typegen",
     "video": "next-video sync --dir=src/videos",
     "video:watch": "next-video sync --dir=src/videos -w"
-  },
-  "imports": {
-    "#*": ["./*", "./*.ts", "./*.tsx", "./*.js", "./*.jsx"]
   }
 }

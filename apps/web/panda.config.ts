@@ -1,4 +1,8 @@
-import { defineConfig } from '@pandacss/dev'
+import { defineConfig, defineThemeContract } from '@pandacss/dev'
+
+const theme = defineThemeContract({
+  semanticTokens: {},
+})
 
 import { globalCss, semanticTokens, textStyles, tokens } from './src/styles'
 
