@@ -30,8 +30,8 @@ catalog:
   '@storybook/addon-links': ^10.3.4
   '@storybook/addon-themes': ^10.3.4
   '@storybook/addon-vitest': ^10.3.4
-  '@storybook/nextjs': ^10.3.4
   '@storybook/nextjs-vite': ^10.3.4
+  '@storybook/nextjs': ^10.3.4
   '@t3-oss/env-nextjs': 0.13.11
   '@tanstack/react-table': 8.21.3
   '@testing-library/cypress': 10.1.0
