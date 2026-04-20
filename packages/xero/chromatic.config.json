@@ -2,7 +2,7 @@
   "$schema": "https://www.chromatic.com/config-file.schema.json",
   "onlyChanged": true,
   "projectId": "Project:6918a3e9efe91ef3b4da8a4e",
-  "storybookBaseDir": ".",
+  "storybookBaseDir": "./apps/xero",
   "storybookBuildDir": "./storybook-static",
   "storybookConfigDir": "./.storybook",
   "zip": true
