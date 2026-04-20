@@ -1,6 +1,6 @@
 import { defineConfig, defineThemeContract } from '@pandacss/dev'
 
-const theme = defineThemeContract({
+const _theme = defineThemeContract({
   semanticTokens: {},
 })
 
