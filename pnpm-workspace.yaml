@@ -79,7 +79,7 @@ catalog:
   plaiceholder: 3.0.0
   posthog-js: 1.365.0
   posthog-node: 5.28.11
-  prettier: 3.8.1
+  prettier: 3.8.3
   react-dom: 19.2.5
   react-email: 5.2.10
   react-error-boundary: 6.1.1
