@@ -34,8 +34,8 @@ catalogs:
       specifier: 16.2.2
       version: 16.2.2
     '@next/mdx':
-      specifier: 16.2.2
-      version: 16.2.2
+      specifier: 16.2.6
+      version: 16.2.6
     '@number-flow/react':
       specifier: 0.6.0
       version: 0.6.0
@@ -361,7 +361,7 @@ importers:
         version: 3.1.1(@types/react@19.2.14)(react@19.2.6)
       '@next/mdx':
         specifier: 'catalog:'
-        version: 16.2.2(@mdx-js/loader@3.1.1(webpack@5.106.2(esbuild@0.28.0)(postcss@8.5.8)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.6))
+        version: 16.2.6(@mdx-js/loader@3.1.1(webpack@5.106.2(esbuild@0.28.0)(postcss@8.5.8)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.6))
       '@number-flow/react':
         specifier: 'catalog:'
         version: 0.6.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -2920,8 +2920,8 @@ packages:
   '@next/env@16.2.3':
     resolution: {integrity: sha512-ZWXyj4uNu4GCWQw9cjRxWlbD+33mcDszIo9iQxFnBX3Wmgq9ulaSJcl6VhuWx5pCWqqD+9W6Wfz7N0lM5lYPMA==}
 
-  '@next/mdx@16.2.2':
-    resolution: {integrity: sha512-2CbRTXE6sJ7zDAaKXknb5FrrPs46iJeMPzuoBXsAOV/XVnxABGD4mSDusn0VuCoII/KjUZ+zsuo2VFbchYQXng==}
+  '@next/mdx@16.2.6':
+    resolution: {integrity: sha512-0hdoSkzRbyud1dNRRDiyqD9FrxR2wwdiW+ffhYx+n+fXrFOJ7Nwpi8o7nUz2LiiM44BB9M0eIO1Evy3BBrS50A==}
     peerDependencies:
       '@mdx-js/loader': '>=0.15.0'
       '@mdx-js/react': '>=0.15.0'
@@ -13061,7 +13061,7 @@ snapshots:
 
   '@next/env@16.2.3': {}
 
-  '@next/mdx@16.2.2(@mdx-js/loader@3.1.1(webpack@5.106.2(esbuild@0.28.0)(postcss@8.5.8)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.6))':
+  '@next/mdx@16.2.6(@mdx-js/loader@3.1.1(webpack@5.106.2(esbuild@0.28.0)(postcss@8.5.8)))(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.6))':
     dependencies:
       source-map: 0.7.6
     optionalDependencies:
