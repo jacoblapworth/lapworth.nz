@@ -78,7 +78,7 @@ catalog:
   nuqs: 2.8.9
   plaiceholder: 3.0.0
   posthog-js: 1.365.0
-  posthog-node: 5.28.11
+  posthog-node: 5.34.2
   prettier: 3.8.3
   react-dom: 19.2.6
   react-email: 5.2.10
