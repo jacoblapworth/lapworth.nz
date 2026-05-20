@@ -1,10 +1,10 @@
 {
   "devDependencies": {
     "@biomejs/biome": "catalog:",
-    "@cloudflare/vitest-pool-workers": "^0.16.0",
+    "@cloudflare/vitest-pool-workers": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:",
-    "wrangler": "^4.90.0"
+    "wrangler": "catalog:"
   },
   "name": "worker",
   "private": true,

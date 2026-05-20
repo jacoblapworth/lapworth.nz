@@ -1,10 +1,13 @@
-import { createRequire } from 'node:module'
-import { dirname, join } from 'node:path'
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineMain } from '@storybook/nextjs-vite/node'
 
+/**
+ * This function is used to resolve the absolute path of a package.
+ * It is needed in projects that use Yarn PnP or are set up within a monorepo.
+ */
 function getAbsolutePath(value: string): string {
-  const require = createRequire(import.meta.url)
-  return dirname(require.resolve(join(value, 'package.json')))
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))
 }
 
 export default defineMain({

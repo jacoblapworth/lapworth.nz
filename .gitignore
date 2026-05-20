@@ -62,3 +62,10 @@ styled-system
 
 *storybook.log
 storybook-static
+
+# next-video
+videos/*
+!videos/*.json
+!videos/*.js
+!videos/*.ts
+public/_next-video
