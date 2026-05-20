@@ -20,7 +20,7 @@ export default defineMain({
   ],
   docs: {},
   framework: {
-    name: getAbsolutePath('@storybook/nextjs-vite'),
+    name: '@storybook/nextjs-vite',
     options: {},
   },
   stories: ['../src/**/*.stories.@(ts|tsx)'],
