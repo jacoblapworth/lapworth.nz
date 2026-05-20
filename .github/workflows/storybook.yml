@@ -37,6 +37,8 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_XERO }}
+          storybookBaseDir: packages/xero
+          storybookConfigDir: packages/xero/.storybook
           storybookBuildDir: packages/xero/storybook-static
           onlyChanged: true
           autoAcceptChanges: 'main'
@@ -46,6 +48,8 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_LAPWORTH }}
+          storybookBaseDir: apps/web
+          storybookConfigDir: apps/web/.storybook
           storybookBuildDir: apps/web/storybook-static
           onlyChanged: true
           autoAcceptChanges: 'main'
