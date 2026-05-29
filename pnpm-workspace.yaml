@@ -84,7 +84,7 @@ catalog:
   node-gyp: 12.2.0
   nuqs: 2.8.9
   plaiceholder: 3.0.0
-  playwright: ^1.59.0
+  playwright: ^1.60.0
   posthog-js: 1.365.5
   posthog-node: 5.34.2
   prettier: 3.8.3
