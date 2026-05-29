@@ -202,8 +202,8 @@ catalogs:
       specifier: 2.3.6
       version: 2.3.6
     jose:
-      specifier: 6.2.2
-      version: 6.2.2
+      specifier: 6.2.3
+      version: 6.2.3
     klaviyo-api:
       specifier: 21.0.1
       version: 21.0.1
@@ -469,7 +469,7 @@ importers:
         version: 2.3.6
       jose:
         specifier: 'catalog:'
-        version: 6.2.2
+        version: 6.2.3
       klaviyo-api:
         specifier: 'catalog:'
         version: 21.0.1
@@ -7920,8 +7920,8 @@ packages:
   jose@5.10.0:
     resolution: {integrity: sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg==}
 
-  jose@6.2.2:
-    resolution: {integrity: sha512-d7kPDd34KO/YnzaDOlikGpOurfF0ByC2sEV4cANCtdqLlTfBlw2p14O/5d/zv40gJPbIQxfES3nSx1/oYNyuZQ==}
+  jose@6.2.3:
+    resolution: {integrity: sha512-YYVDInQKFJfR/xa3ojUTl8c2KoTwiL1R5Wg9YCydwH0x0B9grbzlg5HC7mMjCtUJjbQ/YnGEZIhI5tCgfTb4Hw==}
 
   js-md5@0.8.3:
     resolution: {integrity: sha512-qR0HB5uP6wCuRMrWPTrkMaev7MJZwJuuw4fnwAzRgP4J4/F8RwtodOKpGp4XpqsLBFzzgqIO42efFAyz2Et6KQ==}
@@ -13528,7 +13528,7 @@ snapshots:
       express: 5.2.1
       express-rate-limit: 8.3.1(express@5.2.1)
       hono: 4.12.9
-      jose: 6.2.2
+      jose: 6.2.3
       json-schema-typed: 8.0.2
       pkce-challenge: 5.0.1
       raw-body: 3.0.2
@@ -19062,7 +19062,7 @@ snapshots:
 
   jose@5.10.0: {}
 
-  jose@6.2.2: {}
+  jose@6.2.3: {}
 
   js-md5@0.8.3: {}
 
