@@ -81,7 +81,7 @@ catalog:
   next-themes: 0.4.6
   next-video: 2.7.1
   node-addon-api: 8.7.0
-  node-gyp: 12.2.0
+  node-gyp: 12.3.0
   nuqs: 2.8.9
   plaiceholder: 3.0.0
   playwright: ^1.60.0
