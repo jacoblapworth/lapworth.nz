@@ -68,7 +68,7 @@ catalog:
   gray-matter: 4.0.3
   gsap: 3.14.2
   hast-util-to-jsx-runtime: 2.3.6
-  jose: 6.2.2
+  jose: 6.2.3
   klaviyo-api: 21.0.1
   lucide-react: 1.8.0
   match-sorter: 8.2.0
