@@ -6,7 +6,7 @@ catalog:
   '@ariakit/react': 0.4.25
   '@biomejs/biome': 2.4.10
   '@chromatic-com/storybook': 5.1.1
-  '@cloudflare/vitest-pool-workers': 0.14.2
+  '@cloudflare/vitest-pool-workers': 0.16.10
   '@faker-js/faker': 10.4.0
   '@flags-sdk/posthog': 0.2.2
   '@gsap/react': 2.1.2
