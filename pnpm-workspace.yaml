@@ -51,7 +51,7 @@ catalog:
   '@vercel/speed-insights': 2.0.0
   '@vercel/toolbar': 0.2.2
   '@vitejs/plugin-react': 6.0.1
-  '@vitest/browser-playwright': 4.1.4
+  '@vitest/browser-playwright': 4.1.7
   '@vitest/coverage-v8': 4.1.4
   '@window-splitter/react': 1.1.3
   axios: 1.16.0
