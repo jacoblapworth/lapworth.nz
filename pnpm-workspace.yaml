@@ -60,7 +60,7 @@ catalog:
   cypress: 15.13.1
   cypress-real-events: 1.15.0
   date-fns: 4.1.0
-  esbuild: 0.28.0
+  esbuild: 0.28.1
   flags: 4.0.6
   flubber: 0.4.2
   globals: 17.4.0
