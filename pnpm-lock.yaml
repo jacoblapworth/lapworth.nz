@@ -166,8 +166,8 @@ catalogs:
       specifier: 1.0.0
       version: 1.0.0
     chromatic:
-      specifier: 17.0.1
-      version: 17.0.1
+      specifier: 17.4.1
+      version: 17.4.1
     cypress:
       specifier: 15.13.1
       version: 15.13.1
@@ -819,7 +819,7 @@ importers:
         version: 4.1.4(@vitest/browser@4.1.4)(vitest@4.1.5)
       chromatic:
         specifier: 'catalog:'
-        version: 17.0.1
+        version: 17.4.1
       playwright:
         specifier: 'catalog:'
         version: 1.60.0
@@ -6290,8 +6290,8 @@ packages:
       '@chromatic-com/playwright':
         optional: true
 
-  chromatic@17.0.1:
-    resolution: {integrity: sha512-6qcoYWLT917ov8kpeN7YCVIUTdnI8ecEduT2dbyh39clUsIvR7YLDKyPPTKYE2vZgZsMGgeErv0aedJuaxhrqA==}
+  chromatic@17.4.1:
+    resolution: {integrity: sha512-qL1f0IhOBi0Z6kpQZGR62fJzzCOdjFJLHrJw3QL9YNktj2Kl3+adlU+6psqNGfZUycKF7+pizCSbhsUQNIS/uQ==}
     engines: {node: '>=22.0.0'}
     hasBin: true
     peerDependencies:
@@ -17228,7 +17228,7 @@ snapshots:
 
   chromatic@13.3.5: {}
 
-  chromatic@17.0.1:
+  chromatic@17.4.1:
     dependencies:
       semver: 7.8.0
 
