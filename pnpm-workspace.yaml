@@ -42,7 +42,7 @@ catalog:
   '@types/mdx': 2.0.13
   '@types/musickit-js': 1.0.11
   '@types/node': 25.9.1
-  '@types/react': 19.2.14
+  '@types/react': 19.2.17
   '@types/react-dom': 19.2.3
   '@types/react-resizable': 3.0.8
   '@types/unist': 3.0.3
@@ -88,8 +88,8 @@ catalog:
   posthog-js: 1.365.5
   posthog-node: 5.34.2
   prettier: 3.8.3
-  react: 19.2.6
-  react-dom: 19.2.6
+  react: 19.2.7
+  react-dom: 19.2.7
   react-email: 5.2.10
   react-error-boundary: 6.1.1
   react-player: 3.4.0
