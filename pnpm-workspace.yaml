@@ -57,7 +57,7 @@ catalog:
   axios: 1.16.0
   babel-plugin-react-compiler: 1.0.0
   chromatic: 17.4.1
-  cypress: 15.13.1
+  cypress: 15.17.0
   cypress-real-events: 1.15.0
   date-fns: 4.1.0
   esbuild: 0.28.1
