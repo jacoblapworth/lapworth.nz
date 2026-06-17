@@ -217,8 +217,8 @@ catalogs:
       specifier: 3.2.0
       version: 3.2.0
     media-chrome:
-      specifier: 4.18.3
-      version: 4.18.3
+      specifier: 4.19.2
+      version: 4.19.2
     motion:
       specifier: 12.38.0
       version: 12.38.0
@@ -484,7 +484,7 @@ importers:
         version: 3.2.0
       media-chrome:
         specifier: 'catalog:'
-        version: 4.18.3(react@19.2.7)
+        version: 4.19.2(react@19.2.7)
       motion:
         specifier: 'catalog:'
         version: 12.38.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -8110,8 +8110,8 @@ packages:
   media-chrome@4.16.1:
     resolution: {integrity: sha512-qtFlsy0lNDVCyVo//ZCAfRPKwgehfOYp6rThZzDUuZ5ypv41yqUfAxK+P9TOs+XSVWXATPTT2WRV0fbW0BH4vQ==}
 
-  media-chrome@4.18.3:
-    resolution: {integrity: sha512-YuS2wY0Fn+2nXGijJYn4+IE0n9wFe3v6SvOZHGNkoxh32T/cCcrXHUWskA+9tyYTONa6JKwKAOJJeO6QOlJLKw==}
+  media-chrome@4.19.2:
+    resolution: {integrity: sha512-4ai1ITN8wBhwugQcRgqe3tN0z6OSKGOXqHLNrS04MgKFfsLqu6Dm8MPq02pI9Y9ZKoXtFjIl85jOryIW9es3BA==}
 
   media-engine@1.0.3:
     resolution: {integrity: sha512-aa5tG6sDoK+k70B9iEX1NeyfT8ObCKhNDs6lJVpwF6r8vhUfuKMslIcirq6HIUYuuUYLefcEQOn9bSBOvawtwg==}
@@ -19087,7 +19087,7 @@ snapshots:
     transitivePeerDependencies:
       - react
 
-  media-chrome@4.18.3(react@19.2.7):
+  media-chrome@4.19.2(react@19.2.7):
     dependencies:
       ce-la-react: 0.3.2(react@19.2.7)
     transitivePeerDependencies:
@@ -19544,7 +19544,7 @@ snapshots:
       dash-video-element: 0.3.2(@svta/cml-cta@1.0.1(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1))(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1)
       hls-video-element: 1.5.11
       magicast: 0.3.5
-      media-chrome: 4.18.3(react@19.2.7)
+      media-chrome: 4.19.2(react@19.2.7)
       minimatch: 10.2.4
       next: 16.2.6(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       player.style: 0.3.1(react@19.2.7)
