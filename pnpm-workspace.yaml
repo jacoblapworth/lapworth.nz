@@ -71,7 +71,7 @@ catalog:
   jose: 6.2.3
   klaviyo-api: 21.0.1
   lucide-react: 1.18.0
-  match-sorter: 8.2.0
+  match-sorter: 8.3.0
   mdast-util-mdx-jsx: 3.2.0
   media-chrome: 4.19.2
   motion: 12.38.0
