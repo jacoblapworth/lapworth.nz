@@ -74,7 +74,7 @@ catalog:
   match-sorter: 8.3.0
   mdast-util-mdx-jsx: 3.2.0
   media-chrome: 4.19.2
-  motion: 12.38.0
+  motion: 12.40.0
   next: 16.2.6
   next-intl: 4.13.0
   next-seo: 7.2.0
