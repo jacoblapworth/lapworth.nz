@@ -59,7 +59,7 @@ catalog:
   chromatic: 17.4.1
   cypress: 15.17.0
   cypress-real-events: 1.15.0
-  date-fns: 4.1.0
+  date-fns: 4.4.0
   esbuild: 0.28.1
   flags: 4.0.6
   flubber: 0.4.2
