@@ -271,8 +271,8 @@ catalogs:
       specifier: 5.2.10
       version: 5.2.10
     react-error-boundary:
-      specifier: 6.1.1
-      version: 6.1.1
+      specifier: 6.1.2
+      version: 6.1.2
     react-player:
       specifier: 3.4.0
       version: 3.4.0
@@ -526,7 +526,7 @@ importers:
         version: 5.2.10
       react-error-boundary:
         specifier: 'catalog:'
-        version: 6.1.1(react@19.2.7)
+        version: 6.1.2(react@19.2.7)
       react-player:
         specifier: 'catalog:'
         version: 3.4.0(@svta/cml-cta@1.0.1(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1))(@svta/cml-structured-field-values@1.0.1(@svta/cml-utils@1.0.1))(@svta/cml-utils@1.0.1)(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -755,7 +755,7 @@ importers:
         version: 19.2.7(react@19.2.7)
       react-error-boundary:
         specifier: 'catalog:'
-        version: 6.1.1(react@19.2.7)
+        version: 6.1.2(react@19.2.7)
       zod:
         specifier: 'catalog:'
         version: 4.4.3
@@ -9306,8 +9306,8 @@ packages:
     engines: {node: '>=20.0.0'}
     hasBin: true
 
-  react-error-boundary@6.1.1:
-    resolution: {integrity: sha512-BrYwPOdXi5mqkk5lw+Uvt0ThHx32rCt3BkukS4X23A2AIWDPSGX6iaWTc0y9TU/mHDA/6qOSGel+B2ERkOvD1w==}
+  react-error-boundary@6.1.2:
+    resolution: {integrity: sha512-3DpCr5HVdZ0caUjYE/kIHBEJN0mNP3ZCgf16c48uJ5TbWjorKVp+YG8W3XqlJ7vJAVNw6wNIImyPXmFydwmyng==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
 
@@ -20794,7 +20794,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  react-error-boundary@6.1.1(react@19.2.7):
+  react-error-boundary@6.1.2(react@19.2.7):
     dependencies:
       react: 19.2.7
 
