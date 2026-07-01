@@ -196,8 +196,8 @@ catalogs:
       specifier: 4.0.3
       version: 4.0.3
     gsap:
-      specifier: 3.14.2
-      version: 3.14.2
+      specifier: 3.15.0
+      version: 3.15.0
     hast-util-to-jsx-runtime:
       specifier: 2.3.6
       version: 2.3.6
@@ -385,7 +385,7 @@ importers:
         version: 0.2.2(@opentelemetry/api@1.9.1)(next@16.2.6(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@gsap/react':
         specifier: 'catalog:'
-        version: 2.1.2(gsap@3.14.2)(react@19.2.7)
+        version: 2.1.2(gsap@3.15.0)(react@19.2.7)
       '@lapworth/xero':
         specifier: workspace:^
         version: link:../../packages/xero
@@ -463,7 +463,7 @@ importers:
         version: 4.0.3
       gsap:
         specifier: 'catalog:'
-        version: 3.14.2
+        version: 3.15.0
       hast-util-to-jsx-runtime:
         specifier: 'catalog:'
         version: 2.3.6
@@ -719,7 +719,7 @@ importers:
         version: 10.5.0
       '@gsap/react':
         specifier: 'catalog:'
-        version: 2.1.2(gsap@3.14.2)(react@19.2.7)
+        version: 2.1.2(gsap@3.15.0)(react@19.2.7)
       '@number-flow/react':
         specifier: 'catalog:'
         version: 0.6.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -731,7 +731,7 @@ importers:
         version: 4.4.0
       gsap:
         specifier: 'catalog:'
-        version: 3.14.2
+        version: 3.15.0
       lucide-react:
         specifier: 'catalog:'
         version: 1.18.0(react@19.2.7)
@@ -7265,8 +7265,8 @@ packages:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
 
-  gsap@3.14.2:
-    resolution: {integrity: sha512-P8/mMxVLU7o4+55+1TCnQrPmgjPKnwkzkXOK1asnR9Jg2lna4tEY5qBJjMmAaOBDDZWtlRjBXjLa0w53G/uBLA==}
+  gsap@3.15.0:
+    resolution: {integrity: sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==}
 
   gzip-size@6.0.0:
     resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
@@ -12955,9 +12955,9 @@ snapshots:
     dependencies:
       '@formatjs/fast-memoize': 3.1.1
 
-  '@gsap/react@2.1.2(gsap@3.14.2)(react@19.2.7)':
+  '@gsap/react@2.1.2(gsap@3.15.0)(react@19.2.7)':
     dependencies:
-      gsap: 3.14.2
+      gsap: 3.15.0
       react: 19.2.7
 
   '@hono/node-server@1.19.12(hono@4.12.9)':
@@ -18377,7 +18377,7 @@ snapshots:
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
 
-  gsap@3.14.2: {}
+  gsap@3.15.0: {}
 
   gzip-size@6.0.0:
     dependencies:
