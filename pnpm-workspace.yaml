@@ -116,7 +116,7 @@ catalog:
   unified: 11.0.5
   unist: 0.0.1
   unist-util-visit: 5.1.0
-  vite: 8.1.0
+  vite: 8.1.1
   vitest: 4.1.9
   wrangler: 4.105.0
   zod: 4.4.3
