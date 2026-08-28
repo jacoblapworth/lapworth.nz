@@ -8,7 +8,7 @@ catalog:
   '@chromatic-com/storybook': 5.1.1
   '@cloudflare/vitest-pool-workers': 0.16.10
   '@faker-js/faker': 10.5.0
-  '@flags-sdk/posthog': 0.2.2
+  '@flags-sdk/posthog': 1.0.1
   '@gsap/react': 2.1.2
   '@mdx-js/loader': 3.1.1
   '@mdx-js/react': 3.1.1
