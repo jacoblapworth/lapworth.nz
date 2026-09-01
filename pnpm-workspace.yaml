@@ -43,7 +43,7 @@ catalog:
   '@types/musickit-js': 1.0.11
   '@types/node': 25.9.3
   '@types/react': 19.2.18
-  '@types/react-dom': 19.2.4
+  '@types/react-dom': 19.2.5
   '@types/react-resizable': 3.0.8
   '@types/unist': 3.0.3
   '@vercel/analytics': 2.0.1
