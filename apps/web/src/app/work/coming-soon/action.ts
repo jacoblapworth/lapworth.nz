@@ -21,8 +21,8 @@ export async function subscribeEmail(
     }
 
     const { error } = await resend.contacts.create({
-      audienceId: env.RESEND_AUDIENCE_ID,
       email,
+      segments: [{ id: env.RESEND_SEGMENT_ID }],
     })
 
     if (error) {

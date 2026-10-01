@@ -93,7 +93,7 @@ Make sure the following environment variables are configured in your Vercel proj
 - `APPLE_MUSIC_PRIVATE_KEY`
 - `APPLE_MUSIC_USER_TOKEN`
 - `RESEND_API_KEY`
-- `RESEND_AUDIENCE_ID`
+- `RESEND_SEGMENT_ID`
 
 ### Public Environment Variables (exposed to client)
 
