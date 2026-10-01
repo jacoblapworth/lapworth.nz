@@ -161,7 +161,7 @@ Key environment variables include:
 - Vercel Blob/KV tokens
 - PostHog analytics
 - Resend email API
-- Klaviyo API
+- Resend audience and email APIs
 
 ## Monorepo Workflow
 
