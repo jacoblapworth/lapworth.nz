@@ -22,8 +22,8 @@ export const env = createEnv({
     APPLE_MUSIC_USER_TOKEN: z.string(),
     APPLE_TEAM_ID: z.string(),
     BLOB_READ_WRITE_TOKEN: z.string(),
-    KLAVIYO_API_KEY: z.string(),
     POSTHOG_PERSONAL_API_KEY: z.string(),
     RESEND_API_KEY: z.string(),
+    RESEND_SEGMENT_ID: z.string(),
   },
 })
