@@ -106,7 +106,7 @@ catalog:
   resend: 6.12.4
   rollup-plugin-preserve-directives: 0.4.0
   rollup-plugin-preserve-use-client: 3.0.1
-  sharp: 0.35.4
+  sharp: 0.35.5
   shiki: 4.0.2
   storybook: ^10.6.0
   storybook-next-intl: 10.1.3
