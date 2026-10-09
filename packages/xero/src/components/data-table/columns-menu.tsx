@@ -41,18 +41,10 @@ export function ColumnsSortMenu<TData extends RowData>({
   headers,
   table,
 }: ColumnsSortMenuProps<TData>) {
-  const { id, desc } = table.state.sorting[0]!
-  const [values, setValues] = useState({ dir: desc ? 'desc' : 'asc', id })
-
-  const _onDirChange = (_dir: boolean) => {}
+  const sorting = table.state.sorting[0]!
 
   return (
-    <MenuProvider
-      setValues={(e: typeof values) => {
-        setValues(e)
-      }}
-      values={values}
-    >
+    <MenuProvider values={{ ...sorting }}>
       <MenuButton size="sm" variant="secondary">
         <ArrowDownUpIcon size={16} />
         Sort
@@ -65,7 +57,7 @@ export function ColumnsSortMenu<TData extends RowData>({
             <MenuItemRadio
               key={column.id}
               name="id"
-              onClick={() => column.toggleSorting(values.dir === 'desc')}
+              onClick={() => column.toggleSorting(sorting?.desc === true)}
               value={column.id}
             >
               {flexRender(column.columnDef.header, getContext())}
@@ -75,7 +67,9 @@ export function ColumnsSortMenu<TData extends RowData>({
         <MenuSeparator />
         <MenuItemRadio
           name="dir"
-          onClick={() => table.setSorting(() => [{ desc: false, id }])}
+          onClick={() =>
+            table.setSorting(() => [{ desc: false, id: sorting.id }])
+          }
           value="asc"
         >
           <SortIcon sort="asc" />
@@ -83,7 +77,9 @@ export function ColumnsSortMenu<TData extends RowData>({
         </MenuItemRadio>
         <MenuItemRadio
           name="dir"
-          onClick={() => table.setSorting(() => [{ desc: true, id }])}
+          onClick={() =>
+            table.setSorting(() => [{ desc: true, id: sorting.id }])
+          }
           value="desc"
         >
           <SortIcon sort="desc" />
