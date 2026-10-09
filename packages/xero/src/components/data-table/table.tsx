@@ -1,17 +1,37 @@
 'use client'
 
+import { useCreateAtom, useSelector } from '@tanstack/react-store'
+
 import {
-  getCoreRowModel,
-  getFilteredRowModel,
-  getGroupedRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
+  aggregationFn_count,
+  aggregationFn_extent,
+  aggregationFn_mean,
+  aggregationFn_sum,
+  columnFilteringFeature,
+  columnGroupingFeature,
+  columnOrderingFeature,
+  columnPinningFeature,
+  columnResizingFeature,
+  columnSizingFeature,
+  columnVisibilityFeature,
+  createFilteredRowModel,
+  createGroupedRowModel,
+  createPaginatedRowModel,
+  createSortedRowModel,
+  createTableHook,
+  filterFns,
+  globalFilteringFeature,
+  metaHelper,
+  type PaginationState,
   type RowData,
-  type TableOptions,
-  useReactTable,
+  rowAggregationFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  sortFns,
+  tableFeatures,
 } from '@tanstack/react-table'
 import { AnimatePresence, motion } from 'motion/react'
-// import { Inter } from 'next/font/google'
 import { useState } from 'react'
 import { Pagination } from '@/components/pagination'
 import { styled } from '@/styled/jsx'
@@ -24,8 +44,6 @@ import {
   appliedFiltersToColumnFilters,
   columnFiltersToAppliedFilters,
 } from './utils/filter-utils'
-
-// const inter = Inter({ subsets: ['latin'], variable: '--fonts-inter' })
 
 const Container = styled('div', {
   base: {
@@ -70,58 +88,80 @@ export function CollapsibleRow({ children }: { children: React.ReactNode }) {
   )
 }
 
-export function useTable<TData extends RowData>({
-  meta,
-  initialState: { pagination, ...initialState } = {},
-  ...props
-}: Omit<
-  TableOptions<TData>,
-  'getCoreRowModel' | 'getSortedRowModel' | 'getFilteredRowModel'
->) {
-  return useReactTable<TData>({
-    columnResizeDirection: 'ltr',
-    columnResizeMode: 'onChange',
-    // debugRows: true,
-    // debugTable: true,
-    // debugColumns: true,
-    // debugHeaders: true,
-    defaultColumn: {
-      maxSize: 800,
-      minSize: 32,
-    },
-    enableColumnResizing: true,
-    getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getGroupedRowModel: getGroupedRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    initialState: {
-      pagination: {
-        pageSize: 20,
-        ...pagination,
-      },
-      ...initialState,
-    },
-    meta: {
-      ...meta,
-    },
-
-    // onColumnFiltersChange: (e) => {
-    //   if (typeof props.onColumnFiltersChange === 'function') {
-    //     props.onColumnFiltersChange(e)
-    //   } else {
-    //     setAppliedFilters(e)
-    //   }
-    // },
-    state: {
-      // columnFilters: appliedFilters,
-    },
-    ...props,
-  })
+interface ColumnMeta {
+  alignment?: 'start' | 'center' | 'end'
+  isNumeric?: boolean
+  isEditable?: boolean
 }
 
+const features = tableFeatures({
+  aggregationFns: {
+    count: aggregationFn_count,
+    extent: aggregationFn_extent,
+    mean: aggregationFn_mean,
+    sum: aggregationFn_sum,
+  },
+  columnFilteringFeature,
+  columnGroupingFeature,
+  columnMeta: metaHelper<ColumnMeta>(),
+  columnOrderingFeature,
+  columnPinningFeature,
+  columnResizingFeature,
+  columnSizingFeature,
+  columnVisibilityFeature,
+  filteredRowModel: createFilteredRowModel(),
+  filterFns,
+  globalFilteringFeature,
+  groupedRowModel: createGroupedRowModel(),
+  paginatedRowModel: createPaginatedRowModel(),
+  rowAggregationFeature,
+  rowPaginationFeature,
+  rowSelectionFeature,
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns,
+})
+
+export type TableFeatures = typeof features
+
+// biome-ignore lint/correctness/useHookAtTopLevel: The paginationAtom hook is used at the top level to create a persistent atom for pagination state.
+const paginationAtom = useCreateAtom<PaginationState>({
+  pageIndex: 0,
+  pageSize: 20,
+})
+
+// biome-ignore lint/correctness/useHookAtTopLevel: The pagination selector hook is used at the top level to create a persistent selector for pagination state.
+export const pagination = useSelector(paginationAtom)
+
+export const {
+  useAppTable,
+  createAppColumnHelper,
+  useTableContext,
+  useCellContext,
+  useHeaderContext,
+} = createTableHook({
+  atoms: {
+    pagination: paginationAtom,
+  },
+  autoResetPageIndex: true,
+  columnResizeDirection: 'ltr',
+  columnResizeMode: 'onChange',
+  debugTable: process.env.NODE_ENV === 'development',
+  defaultColumn: {
+    maxSize: 800,
+    minSize: 32,
+  },
+  enableColumnResizing: true,
+  features,
+
+  // Register reusable components
+  // tableComponents: { PaginationControls },
+  // cellComponents: { TextCell },
+  // headerComponents: { SortIndicator },
+})
+
 interface Props<TData extends RowData> {
-  table: ReturnType<typeof useTable<TData>>
+  table: ReturnType<typeof useAppTable<TData>>
   bulkActions: BulkAction[]
   /**
    * The key of the column to sum for the summary row
@@ -174,7 +214,7 @@ export function Table<TData extends RowData>({
 
   // Convert table's columnFilters to AppliedFilter[] for UI components
   const appliedFilters = columnFiltersToAppliedFilters(
-    table.getState().columnFilters,
+    table.state.columnFilters,
     filters as { id: string; label: string }[],
   )
 
@@ -210,7 +250,7 @@ export function Table<TData extends RowData>({
               onClear={() => table.setColumnFilters([])}
               onRemove={(id) =>
                 table.setColumnFilters(
-                  table.getState().columnFilters.filter((f) => f.id !== id),
+                  table.state.columnFilters.filter((f) => f.id !== id),
                 )
               }
             />

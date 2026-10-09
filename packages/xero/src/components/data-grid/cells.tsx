@@ -1,10 +1,11 @@
 import type { CellContext, RowData } from '@tanstack/react-table'
 import { useFormatter } from 'next-intl'
+import type { TableFeatures } from '../data-table/table'
 
 export function TextCell<TData extends RowData, TValue>({
   ctx,
 }: {
-  ctx: CellContext<TData, TValue>
+  ctx: CellContext<TableFeatures, TData, TValue>
 }) {
   const value = ctx.getValue()
   return value
@@ -13,7 +14,7 @@ export function TextCell<TData extends RowData, TValue>({
 export function DateCell<TData extends RowData, TValue>({
   ctx,
 }: {
-  ctx: CellContext<TData, TValue>
+  ctx: CellContext<TableFeatures, TData, TValue>
 }) {
   const format = useFormatter()
   const value = ctx.getValue()
@@ -32,7 +33,7 @@ export function DateCell<TData extends RowData, TValue>({
 export function CurrencyCell<TData extends RowData, TValue>({
   ctx,
 }: {
-  ctx: CellContext<TData, TValue>
+  ctx: CellContext<TableFeatures, TData, TValue>
 }) {
   const format = useFormatter()
   const value = ctx.getValue()

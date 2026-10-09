@@ -1,11 +1,7 @@
-import { defineConfig, defineThemeContract } from '@pandacss/dev'
-
-const theme = defineThemeContract({
-  semanticTokens: {},
-})
-
+import { defineConfig } from '@pandacss/dev'
+import basePreset from '@pandacss/preset-base'
+import pandaPreset from '@pandacss/preset-panda'
 import { globalCss, semanticTokens, textStyles, tokens } from './src/styles'
-
 export default defineConfig({
   conditions: {
     extend: {
@@ -18,9 +14,11 @@ export default defineConfig({
   globalCss,
   include: ['./src/**/*.{js,jsx,ts,tsx}'],
   jsxFramework: 'react',
+  jsxStyleProps: 'all',
   outdir: '.styled',
   outExtension: 'js',
   preflight: true,
+  presets: [basePreset, pandaPreset],
   shorthands: false,
   strictTokens: false,
   theme: {

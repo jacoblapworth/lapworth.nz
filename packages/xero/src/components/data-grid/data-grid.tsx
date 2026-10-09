@@ -1,23 +1,12 @@
 'use client'
 
-import '@tanstack/react-table'
-
-declare module '@tanstack/react-table' {
-  // biome-ignore lint/correctness/noUnusedVariables: Type parameters must be identical
-  interface ColumnMeta<TData extends RowData, TValue> {
-    alignment?: 'start' | 'center' | 'end'
-    isNumeric?: boolean
-    isEditable?: boolean
-  }
-}
-
 // import { useTableNav } from '@table-nav/react'
 import {
   type Cell,
   flexRender,
   type Header,
   type HeaderGroup,
-  type Table as ReactTable,
+  type ReactTable,
   type Row,
   type RowData,
 } from '@tanstack/react-table'
@@ -27,6 +16,7 @@ import { memo, useId } from 'react'
 import { cva } from '@/styled/css'
 import { HStack, styled } from '@/styled/jsx'
 import { Button } from '../button'
+import type { TableFeatures } from '../data-table'
 import { SrOnly } from '../sr-only'
 import { DataGridColumnResizeHandle, useColumnSizes } from './column-sizing'
 import { DataCell } from './data-cell'
@@ -34,7 +24,7 @@ import { type TableHeadDropdownProps, TableHeadMenu } from './head-menu'
 import { TableScrollContainer, useTableScroll } from './scroll-container'
 
 interface TableProps<TData extends RowData> {
-  table: ReactTable<TData>
+  table: ReactTable<TableFeatures, TData>
 }
 
 export function DataGrid<TData extends RowData>({ table }: TableProps<TData>) {
@@ -60,7 +50,7 @@ export function DataGrid<TData extends RowData>({ table }: TableProps<TData>) {
         // {...listeners}
       >
         <TableHead headerGroups={table.getHeaderGroups()} table={table} />
-        {table.getState().columnSizingInfo.isResizingColumn ? (
+        {table.state.columnSizing.isResizingColumn ? (
           <MemoizedTableBody table={table} />
         ) : (
           <TableBody table={table} />
@@ -142,7 +132,7 @@ export const TH = styled(
           position: 'sticky',
           zIndex: 100,
         },
-        isPinned: ['left', 'right'],
+        isPinned: ['start', 'end'],
       },
     ],
     variants: {
@@ -153,11 +143,11 @@ export const TH = styled(
         },
       },
       isPinned: {
-        left: {
-          left: 0,
-        },
-        right: {
+        end: {
           right: 0,
+        },
+        start: {
+          left: 0,
         },
       },
       isStart: {
@@ -208,8 +198,8 @@ export function TableHead<TData extends RowData>({
   table,
   headerGroups,
 }: {
-  table: ReactTable<TData>
-  headerGroups: HeaderGroup<TData>[]
+  table: ReactTable<TableFeatures, TData>
+  headerGroups: HeaderGroup<TableFeatures, TData>[]
 }) {
   return (
     <THead>
@@ -224,8 +214,8 @@ export function TableHeadRow<TData extends RowData>({
   headers,
   table,
 }: {
-  headers: Header<TData, unknown>[]
-  table: ReactTable<TData>
+  headers: Header<TableFeatures, TData, unknown>[]
+  table: ReactTable<TableFeatures, TData>
 }) {
   return (
     <THeadRow>
@@ -240,16 +230,16 @@ export function TableHeadCell<TData extends RowData, TValue>({
   table,
   header,
 }: {
-  table: ReactTable<TData>
-  header: Header<TData, TValue>
+  table: ReactTable<TableFeatures, TData>
+  header: Header<TableFeatures, TData, TValue>
 }) {
   const { column, getContext } = header
   // const width = useColumnSize(column.id)
   const isPinned = column.getIsPinned() || undefined
   const isLastLeftPinnedColumn =
-    isPinned === 'left' && column.getIsLastColumn('left')
+    isPinned === 'start' && column.getIsLastColumn('start')
   const isLastRightPinnedColumn =
-    isPinned === 'right' && column.getIsLastColumn('right')
+    isPinned === 'end' && column.getIsLastColumn('end')
   const showOverflow = isLastLeftPinnedColumn || isLastRightPinnedColumn
   const id = useId()
   const isDisplay = !column.accessorFn
@@ -263,8 +253,8 @@ export function TableHeadCell<TData extends RowData, TValue>({
       id={header.id}
       isPinned={isPinned}
       style={{
-        left: isPinned === 'left' ? column.getStart('left') : undefined,
-        right: isPinned === 'right' ? column.getStart('right') : undefined,
+        left: isPinned === 'start' ? column.getStart('start') : undefined,
+        right: isPinned === 'end' ? column.getStart('end') : undefined,
         width: `calc(var(--column-${column.id}-size) * 1px)`,
       }}
     >
@@ -283,7 +273,7 @@ export function TableHeadCell<TData extends RowData, TValue>({
   )
 }
 
-export function HeaderColumnActions<TData, TValue>({
+export function HeaderColumnActions<TData extends RowData, TValue>({
   children,
   header,
 }: TableHeadDropdownProps<TData, TValue>) {
@@ -320,7 +310,7 @@ export const TBody = styled('tbody', {
 export function TableBody<TData extends RowData>({
   table,
 }: {
-  table: ReactTable<TData>
+  table: ReactTable<TableFeatures, TData>
 }) {
   return (
     <TBody>
@@ -331,7 +321,11 @@ export function TableBody<TData extends RowData>({
   )
 }
 
-export function TableRow<TData extends RowData>({ row }: { row: Row<TData> }) {
+export function TableRow<TData extends RowData>({
+  row,
+}: {
+  row: Row<TableFeatures, TData>
+}) {
   const isSelected = row.getIsSelected()
 
   return (
@@ -386,13 +380,13 @@ export const TdStyles = cva({
         position: 'sticky',
         zIndex: 100,
       },
-      isPinned: ['left', 'right'],
+      isPinned: ['start', 'end'],
     },
     {
       css: {
         backgroundColor: 'rgba(240, 249, 254, 1)',
       },
-      isPinned: ['left', 'right'],
+      isPinned: ['start', 'end'],
       isSelected: true,
     },
   ],
@@ -403,11 +397,11 @@ export const TdStyles = cva({
       },
     },
     isPinned: {
-      left: {
-        left: 0,
-      },
-      right: {
+      end: {
         right: 0,
+      },
+      start: {
+        left: 0,
       },
     },
     isSelected: {
@@ -435,13 +429,13 @@ export const Td = styled('td', TdStyles, {
 export function TableCell<TData extends RowData, TValue>({
   cell,
 }: {
-  cell: Cell<TData, TValue>
+  cell: Cell<TableFeatures, TData, TValue>
 }) {
   const isPinned = cell.column.getIsPinned() || undefined
   const isLastLeftPinnedColumn =
-    isPinned === 'left' && cell.column.getIsLastColumn('left')
+    isPinned === 'start' && cell.column.getIsLastColumn('start')
   const isLastRightPinnedColumn =
-    isPinned === 'right' && cell.column.getIsLastColumn('right')
+    isPinned === 'end' && cell.column.getIsLastColumn('end')
   const showOverflow = isLastLeftPinnedColumn || isLastRightPinnedColumn
   const isDisplay = !cell.column.accessorFn
   const isSelected = cell.row.getIsSelected()
@@ -451,8 +445,8 @@ export function TableCell<TData extends RowData, TValue>({
       isPinned={isPinned}
       isSelected={isSelected}
       style={{
-        left: isPinned === 'left' ? cell.column.getStart('left') : undefined,
-        right: isPinned === 'right' ? cell.column.getStart('right') : undefined,
+        left: isPinned === 'start' ? cell.column.getStart('start') : undefined,
+        right: isPinned === 'end' ? cell.column.getStart('end') : undefined,
         width: `calc(var(--column-${cell.column.id}-size) * 1px)`,
         // width: cell.column.getSize(),
       }}
@@ -488,14 +482,14 @@ function useScrollOpacity() {
 }
 
 interface ColumnOverflowIndicatorProps {
-  position: 'left' | 'right'
+  position: 'start' | 'end'
 }
 
 export function ColumnOverflowIndicator({
   position,
 }: ColumnOverflowIndicatorProps) {
   const { startOpacity, endOpacity } = useScrollOpacity()
-  const opacity = position === 'left' ? startOpacity : endOpacity
+  const opacity = position === 'start' ? startOpacity : endOpacity
 
   return (
     <motion.span
@@ -519,13 +513,13 @@ export const TableCellOverflowStyles = cva({
 
   variants: {
     position: {
-      left: {
-        boxShadow: 'overflow.left',
-        right: 0,
-      },
-      right: {
+      end: {
         boxShadow: 'overflow.right',
         left: 0,
+      },
+      start: {
+        boxShadow: 'overflow.left',
+        right: 0,
       },
     },
   },
@@ -539,10 +533,10 @@ export const TableFoot = styled('tfoot', {
   base: {},
 })
 
-export function TableFooter<TData>({
+export function TableFooter<TData extends RowData>({
   footerGroups,
 }: {
-  footerGroups: HeaderGroup<TData>[]
+  footerGroups: HeaderGroup<TableFeatures, TData>[]
 }) {
   return (
     <TableFoot>
@@ -556,7 +550,7 @@ export function TableFooter<TData>({
 export function TableFootRow<TData extends RowData>({
   headers,
 }: {
-  headers: Header<TData, unknown>[]
+  headers: Header<TableFeatures, TData, unknown>[]
 }) {
   return (
     <THeadRow>
@@ -569,13 +563,13 @@ export function TableFootRow<TData extends RowData>({
 export function TableFootCell<TData extends RowData, TValue>({
   header,
 }: {
-  header: Header<TData, TValue>
+  header: Header<TableFeatures, TData, TValue>
 }) {
   const isPinned = header.column.getIsPinned() || undefined
   const isLastLeftPinnedColumn =
-    isPinned === 'left' && header.column.getIsLastColumn('left')
+    isPinned === 'start' && header.column.getIsLastColumn('start')
   const isLastRightPinnedColumn =
-    isPinned === 'right' && header.column.getIsLastColumn('right')
+    isPinned === 'end' && header.column.getIsLastColumn('end')
   const showOverflow = isLastLeftPinnedColumn || isLastRightPinnedColumn
 
   return (
@@ -583,9 +577,9 @@ export function TableFootCell<TData extends RowData, TValue>({
       borderTopColor="border.regular"
       isPinned={isPinned}
       style={{
-        left: isPinned === 'left' ? header.column.getStart('left') : undefined,
-        right:
-          isPinned === 'right' ? header.column.getStart('right') : undefined,
+        left:
+          isPinned === 'start' ? header.column.getStart('start') : undefined,
+        right: isPinned === 'end' ? header.column.getStart('end') : undefined,
         width: `var(--column-${header.column.id}-size)`,
       }}
     >

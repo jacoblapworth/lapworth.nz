@@ -1,4 +1,6 @@
 import { defineConfig } from '@pandacss/dev'
+import basePreset from '@pandacss/preset-base'
+import pandaPreset from '@pandacss/preset-panda'
 import { theme } from '@/theme'
 import { globalCss } from '@/theme/global'
 
@@ -19,10 +21,12 @@ export default defineConfig({
   globalCss,
   include: ['./src/**/*.{js,jsx,ts,tsx}'],
   jsxFramework: 'react',
+  jsxStyleProps: 'minimal',
   outdir: '.styled',
   outExtension: 'js',
   prefix: 'x',
   preflight: true,
+  presets: [basePreset, pandaPreset],
   shorthands: false,
   theme,
 })

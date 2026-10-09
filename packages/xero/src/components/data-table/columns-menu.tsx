@@ -4,8 +4,8 @@ import {
   type Column,
   flexRender,
   type Header,
+  type ReactTable,
   type RowData,
-  type Table,
 } from '@tanstack/react-table'
 import { ArrowDownUpIcon, Columns2Icon } from 'lucide-react'
 import { useState } from 'react'
@@ -18,6 +18,7 @@ import {
   MenuProvider,
   MenuSeparator,
 } from '../menu'
+import type { TableFeatures } from './table'
 
 export interface SortOption {
   id: string
@@ -31,28 +32,19 @@ export interface SortOption {
 
 export type SortOptions = SortOption[]
 
-interface ColumnsSortMenuProps<TData> {
-  headers: Header<TData, unknown>[]
-  table: Table<TData>
+interface ColumnsSortMenuProps<TData extends RowData> {
+  headers: Header<TableFeatures, TData, unknown>[]
+  table: ReactTable<TableFeatures, TData>
 }
 
 export function ColumnsSortMenu<TData extends RowData>({
   headers,
   table,
 }: ColumnsSortMenuProps<TData>) {
-  const { id, desc } = table.getState().sorting[0]!
-
-  const [values, setValues] = useState({ dir: desc ? 'desc' : 'asc', id })
-
-  const _onDirChange = (_dir: boolean) => {}
+  const sorting = table.state.sorting[0]!
 
   return (
-    <MenuProvider
-      setValues={(e: typeof values) => {
-        setValues(e)
-      }}
-      values={values}
-    >
+    <MenuProvider values={{ ...sorting }}>
       <MenuButton size="sm" variant="secondary">
         <ArrowDownUpIcon size={16} />
         Sort
@@ -65,7 +57,7 @@ export function ColumnsSortMenu<TData extends RowData>({
             <MenuItemRadio
               key={column.id}
               name="id"
-              onClick={() => column.toggleSorting(values.dir === 'desc')}
+              onClick={() => column.toggleSorting(sorting?.desc === true)}
               value={column.id}
             >
               {flexRender(column.columnDef.header, getContext())}
@@ -75,7 +67,9 @@ export function ColumnsSortMenu<TData extends RowData>({
         <MenuSeparator />
         <MenuItemRadio
           name="dir"
-          onClick={() => table.setSorting(() => [{ desc: false, id }])}
+          onClick={() =>
+            table.setSorting(() => [{ desc: false, id: sorting.id }])
+          }
           value="asc"
         >
           <SortIcon sort="asc" />
@@ -83,7 +77,9 @@ export function ColumnsSortMenu<TData extends RowData>({
         </MenuItemRadio>
         <MenuItemRadio
           name="dir"
-          onClick={() => table.setSorting(() => [{ desc: true, id }])}
+          onClick={() =>
+            table.setSorting(() => [{ desc: true, id: sorting.id }])
+          }
           value="desc"
         >
           <SortIcon sort="desc" />
@@ -94,12 +90,15 @@ export function ColumnsSortMenu<TData extends RowData>({
   )
 }
 
-interface Props<TData> {
-  columns: Column<TData, unknown>[]
-  headers: Header<TData, unknown>[]
+interface Props<TData extends RowData> {
+  columns: Column<TableFeatures, TData, unknown>[]
+  headers: Header<TableFeatures, TData, unknown>[]
 }
 
-export function ColumnsMenu<TData>({ columns, headers }: Props<TData>) {
+export function ColumnsMenu<TData extends RowData>({
+  columns,
+  headers,
+}: Props<TData>) {
   const initialValues = columns
     .filter((column) => column.getIsVisible())
     .map((column) => column.id)

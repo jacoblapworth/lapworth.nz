@@ -1,7 +1,12 @@
 'use client'
 
 import { VisuallyHidden } from '@ariakit/react'
-import type { Header, RowData, Table } from '@tanstack/react-table'
+import type {
+  CellData,
+  Header,
+  ReactTable,
+  RowData,
+} from '@tanstack/react-table'
 import {
   type CSSProperties,
   createContext,
@@ -12,6 +17,7 @@ import {
 } from 'react'
 
 import { styled } from '@/styled/jsx'
+import type { TableFeatures } from '../data-table/table'
 
 type SizeMap = Map<string, number>
 
@@ -25,7 +31,9 @@ const ColumnSizeContext = createContext<ColumnSizeContextValue>({
   headers: new Map(),
 })
 
-export function useColumnSizes<TData extends RowData>(table: Table<TData>) {
+export function useColumnSizes<TData extends RowData>(
+  table: ReactTable<TableFeatures, TData>,
+) {
   // biome-ignore lint/correctness/useExhaustiveDependencies: requires deep comparison
   const sizes = useMemo(() => {
     const columns = new Map<string, number>()
@@ -42,7 +50,7 @@ export function useColumnSizes<TData extends RowData>(table: Table<TData>) {
     const style: CSSProperties = Object.fromEntries(vars)
 
     return { columns, headers, style, vars }
-  }, [table.getState().columnSizingInfo, table.getState().columnSizing])
+  }, [table.state.columnSizing])
 
   return sizes
 }
@@ -112,18 +120,20 @@ const Handle = styled('button', {
   },
 })
 
-interface HeaderResizeHandleProps<TData extends RowData> {
-  table: Table<TData>
-  header: Header<TData, unknown>
+interface HeaderResizeHandleProps<
+  TData extends RowData,
+  TValue extends CellData = CellData,
+> {
+  table: ReactTable<TableFeatures, TData>
+  header: Header<TableFeatures, TData, TValue>
   label: string
 }
 
-export function DataGridColumnResizeHandleImpl<TData extends RowData>({
-  table,
-  header,
-  label,
-}: HeaderResizeHandleProps<TData>) {
-  const defaultColumnDef = table._getDefaultColumnDef()
+export function DataGridColumnResizeHandleImpl<
+  TData extends RowData,
+  TValue extends CellData = CellData,
+>({ table, header, label }: HeaderResizeHandleProps<TData, TValue>) {
+  const defaultColumnDef = table.getDefaultColumnDef()
   const onDoubleClick = useCallback(() => {
     header.column.resetSize()
   }, [header.column])

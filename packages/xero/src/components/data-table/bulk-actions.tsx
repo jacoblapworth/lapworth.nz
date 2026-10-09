@@ -2,6 +2,7 @@ import type { RowData, Table } from '@tanstack/react-table'
 import type { ReactNode } from 'react'
 import { HStack, VStack } from '@/styled/jsx'
 import { Button } from '../button'
+import type { TableFeatures } from './table'
 
 export interface BulkAction {
   id: string
@@ -10,7 +11,7 @@ export interface BulkAction {
 }
 
 interface Props<TData extends RowData> {
-  table: Table<TData>
+  table: Table<TableFeatures, TData>
   actions: BulkAction[]
 }
 

@@ -5,6 +5,7 @@ import { DataFiltersToggle } from './data-filters-toggle'
 import { DataTableSearch } from './data-table-search'
 import { type View, Views } from './data-views'
 import type { AppliedFilter } from './filters'
+import type { TableFeatures } from './table'
 import { ViewMenu } from './view-menu'
 
 interface Props<TData extends RowData> {
@@ -16,9 +17,9 @@ interface Props<TData extends RowData> {
   onSearch: (query: string) => void
   onViewChange: (viewId: string | null | undefined) => void
   selectedViewId: string | null | undefined
-  headers: Header<TData, unknown>[]
-  table: Table<TData>
-  columns: Column<TData, unknown>[]
+  headers: Header<TableFeatures, TData, unknown>[]
+  table: Table<TableFeatures, TData>
+  columns: Column<TableFeatures, TData, unknown>[]
 }
 
 export function Controls<TData extends RowData>({
