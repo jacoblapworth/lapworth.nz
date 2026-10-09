@@ -31,6 +31,7 @@
     "@faker-js/faker": "catalog:",
     "@gsap/react": "catalog:",
     "@number-flow/react": "catalog:",
+    "@tanstack/react-store": "catalog:",
     "@tanstack/react-table": "catalog:",
     "date-fns": "catalog:",
     "gsap": "catalog:",

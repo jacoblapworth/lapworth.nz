@@ -1,11 +1,12 @@
 'use client'
 
+import { useCreateAtom, useSelector } from '@tanstack/react-store'
+
 import {
   aggregationFn_count,
   aggregationFn_extent,
   aggregationFn_mean,
   aggregationFn_sum,
-  aggregationFns,
   columnFilteringFeature,
   columnGroupingFeature,
   columnOrderingFeature,
@@ -21,15 +22,14 @@ import {
   filterFns,
   globalFilteringFeature,
   metaHelper,
+  type PaginationState,
   type RowData,
   rowAggregationFeature,
   rowPaginationFeature,
   rowSelectionFeature,
   rowSortingFeature,
   sortFns,
-  type TableOptions,
   tableFeatures,
-  useTable,
 } from '@tanstack/react-table'
 import { AnimatePresence, motion } from 'motion/react'
 import { useState } from 'react'
@@ -124,6 +124,15 @@ const features = tableFeatures({
 
 export type TableFeatures = typeof features
 
+// biome-ignore lint/correctness/useHookAtTopLevel: The paginationAtom hook is used at the top level to create a persistent atom for pagination state.
+const paginationAtom = useCreateAtom<PaginationState>({
+  pageIndex: 0,
+  pageSize: 20,
+})
+
+// biome-ignore lint/correctness/useHookAtTopLevel: The pagination selector hook is used at the top level to create a persistent selector for pagination state.
+export const pagination = useSelector(paginationAtom)
+
 export const {
   useAppTable,
   createAppColumnHelper,
@@ -131,6 +140,10 @@ export const {
   useCellContext,
   useHeaderContext,
 } = createTableHook({
+  atoms: {
+    pagination: paginationAtom,
+  },
+  autoResetPageIndex: true,
   columnResizeDirection: 'ltr',
   columnResizeMode: 'onChange',
   debugTable: process.env.NODE_ENV === 'development',
@@ -140,40 +153,12 @@ export const {
   },
   enableColumnResizing: true,
   features,
+
   // Register reusable components
   // tableComponents: { PaginationControls },
   // cellComponents: { TextCell },
   // headerComponents: { SortIndicator },
 })
-
-// export function useAppTable<TData extends RowData>({
-//   meta,
-//   initialState: { pagination, ...initialState } = {
-//     pagination: {
-//       pageIndex: 0,
-//       pageSize: 20,
-//     },
-//   },
-//   ...props
-// }: Omit<TableOptions<TableFeatures, TData>, 'features'>) {
-//   return useTable<TableFeatures, TData>({
-//     columnResizeDirection: 'ltr',
-//     columnResizeMode: 'onChange',
-//     // debugRows: true,
-//     // debugTable: true,
-//     // debugColumns: true,
-//     // debugHeaders: true,
-//     defaultColumn: {
-//       maxSize: 800,
-//       minSize: 32,
-//     },
-//     enableColumnResizing: true,
-//     features,
-//     initialState,
-//     meta,
-//     ...props,
-//   })
-// }
 
 interface Props<TData extends RowData> {
   table: ReturnType<typeof useAppTable<TData>>
