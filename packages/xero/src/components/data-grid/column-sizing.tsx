@@ -1,7 +1,12 @@
 'use client'
 
 import { VisuallyHidden } from '@ariakit/react'
-import type { CellData, Header, RowData, Table } from '@tanstack/react-table'
+import type {
+  CellData,
+  Header,
+  ReactTable,
+  RowData,
+} from '@tanstack/react-table'
 import {
   type CSSProperties,
   createContext,
@@ -27,7 +32,7 @@ const ColumnSizeContext = createContext<ColumnSizeContextValue>({
 })
 
 export function useColumnSizes<TData extends RowData>(
-  table: Table<TableFeatures, TData>,
+  table: ReactTable<TableFeatures, TData>,
 ) {
   // biome-ignore lint/correctness/useExhaustiveDependencies: requires deep comparison
   const sizes = useMemo(() => {
@@ -45,7 +50,7 @@ export function useColumnSizes<TData extends RowData>(
     const style: CSSProperties = Object.fromEntries(vars)
 
     return { columns, headers, style, vars }
-  }, [table.store.state.columnSizing])
+  }, [table.state.columnSizing])
 
   return sizes
 }
@@ -119,7 +124,7 @@ interface HeaderResizeHandleProps<
   TData extends RowData,
   TValue extends CellData = CellData,
 > {
-  table: Table<TableFeatures, TData>
+  table: ReactTable<TableFeatures, TData>
   header: Header<TableFeatures, TData, TValue>
   label: string
 }

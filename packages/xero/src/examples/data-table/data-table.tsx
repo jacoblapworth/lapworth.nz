@@ -1,9 +1,6 @@
 'use client'
 
-import {
-  type ColumnFiltersState,
-  createColumnHelper,
-} from '@tanstack/react-table'
+import type { ColumnFiltersState } from '@tanstack/react-table'
 import { CheckCircleIcon, TrashIcon } from 'lucide-react'
 import { useState } from 'react'
 import { Checkbox } from '../../components/checkbox'

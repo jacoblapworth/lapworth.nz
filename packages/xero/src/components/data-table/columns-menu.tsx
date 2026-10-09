@@ -4,8 +4,8 @@ import {
   type Column,
   flexRender,
   type Header,
+  type ReactTable,
   type RowData,
-  type Table,
 } from '@tanstack/react-table'
 import { ArrowDownUpIcon, Columns2Icon } from 'lucide-react'
 import { useState } from 'react'
@@ -34,15 +34,14 @@ export type SortOptions = SortOption[]
 
 interface ColumnsSortMenuProps<TData extends RowData> {
   headers: Header<TableFeatures, TData, unknown>[]
-  table: Table<TableFeatures, TData>
+  table: ReactTable<TableFeatures, TData>
 }
 
 export function ColumnsSortMenu<TData extends RowData>({
   headers,
   table,
 }: ColumnsSortMenuProps<TData>) {
-  const { id, desc } = table.store.state.sorting[0]!
-
+  const { id, desc } = table.state.sorting[0]!
   const [values, setValues] = useState({ dir: desc ? 'desc' : 'asc', id })
 
   const _onDirChange = (_dir: boolean) => {}

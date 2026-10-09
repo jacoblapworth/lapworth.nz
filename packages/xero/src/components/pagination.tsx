@@ -1,5 +1,5 @@
 import { SelectArrow, SelectProvider } from '@ariakit/react'
-import type { RowData, Table } from '@tanstack/react-table'
+import type { ReactTable, RowData } from '@tanstack/react-table'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
 import { Box, HStack } from '@/styled/jsx'
 import { Button } from './button'
@@ -8,15 +8,15 @@ import { Select, SelectItem, SelectLabel, SelectPopover } from './select'
 import { SrOnly } from './sr-only'
 
 interface Props<TData extends RowData> {
-  table: Table<TableFeatures, TData>
+  table: ReactTable<TableFeatures, TData>
 }
 
 export function Pagination<TData extends RowData>({ table }: Props<TData>) {
   const canNextPage = table.getCanNextPage()
   const canPreviousPage = table.getCanPreviousPage()
-  const currentPage = table.store.state.pagination.pageIndex
+  const currentPage = table.state.pagination.pageIndex
   const pageCount = table.getPageCount()
-  const pageSize = table.store.state.pagination.pageSize
+  const pageSize = table.state.pagination.pageSize
   const total = table.getRowCount()
 
   return (

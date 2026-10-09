@@ -6,7 +6,7 @@ import {
   flexRender,
   type Header,
   type HeaderGroup,
-  type Table as ReactTable,
+  type ReactTable,
   type Row,
   type RowData,
 } from '@tanstack/react-table'
@@ -50,7 +50,7 @@ export function DataGrid<TData extends RowData>({ table }: TableProps<TData>) {
         // {...listeners}
       >
         <TableHead headerGroups={table.getHeaderGroups()} table={table} />
-        {table.store.state.columnSizing.isResizingColumn ? (
+        {table.state.columnSizing.isResizingColumn ? (
           <MemoizedTableBody table={table} />
         ) : (
           <TableBody table={table} />
