@@ -18,6 +18,7 @@ import {
   MenuProvider,
   MenuSeparator,
 } from '../menu'
+import type { TableFeatures } from './table'
 
 export interface SortOption {
   id: string
@@ -31,16 +32,16 @@ export interface SortOption {
 
 export type SortOptions = SortOption[]
 
-interface ColumnsSortMenuProps<TData> {
-  headers: Header<TData, unknown>[]
-  table: Table<TData>
+interface ColumnsSortMenuProps<TData extends RowData> {
+  headers: Header<TableFeatures, TData, unknown>[]
+  table: Table<TableFeatures, TData>
 }
 
 export function ColumnsSortMenu<TData extends RowData>({
   headers,
   table,
 }: ColumnsSortMenuProps<TData>) {
-  const { id, desc } = table.getState().sorting[0]!
+  const { id, desc } = table.store.state.sorting[0]!
 
   const [values, setValues] = useState({ dir: desc ? 'desc' : 'asc', id })
 
@@ -94,12 +95,15 @@ export function ColumnsSortMenu<TData extends RowData>({
   )
 }
 
-interface Props<TData> {
-  columns: Column<TData, unknown>[]
-  headers: Header<TData, unknown>[]
+interface Props<TData extends RowData> {
+  columns: Column<TableFeatures, TData, unknown>[]
+  headers: Header<TableFeatures, TData, unknown>[]
 }
 
-export function ColumnsMenu<TData>({ columns, headers }: Props<TData>) {
+export function ColumnsMenu<TData extends RowData>({
+  columns,
+  headers,
+}: Props<TData>) {
   const initialValues = columns
     .filter((column) => column.getIsVisible())
     .map((column) => column.id)

@@ -3,19 +3,20 @@ import type { RowData, Table } from '@tanstack/react-table'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
 import { Box, HStack } from '@/styled/jsx'
 import { Button } from './button'
+import type { TableFeatures } from './data-table/table'
 import { Select, SelectItem, SelectLabel, SelectPopover } from './select'
 import { SrOnly } from './sr-only'
 
 interface Props<TData extends RowData> {
-  table: Table<TData>
+  table: Table<TableFeatures, TData>
 }
 
 export function Pagination<TData extends RowData>({ table }: Props<TData>) {
   const canNextPage = table.getCanNextPage()
   const canPreviousPage = table.getCanPreviousPage()
-  const currentPage = table.getState().pagination.pageIndex
+  const currentPage = table.store.state.pagination.pageIndex
   const pageCount = table.getPageCount()
-  const pageSize = table.getState().pagination.pageSize
+  const pageSize = table.store.state.pagination.pageSize
   const total = table.getRowCount()
 
   return (

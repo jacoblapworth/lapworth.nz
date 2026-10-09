@@ -3,9 +3,10 @@
 import type { RowData, Table } from '@tanstack/react-table'
 import { useState } from 'react'
 import { Search } from '../search'
+import type { TableFeatures } from './table'
 
 interface Props<TData extends RowData> {
-  table: Table<TData>
+  table: Table<TableFeatures, TData>
 }
 
 export function DataTableSearch<TData extends RowData>({

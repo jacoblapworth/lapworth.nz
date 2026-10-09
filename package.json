@@ -21,5 +21,11 @@
     "storybook": "turbo run storybook",
     "test": "turbo run test",
     "types:check": "turbo run types:check"
+  },
+  "intent": {
+    "skills": [
+      "@tanstack/*",
+      "dotenv"
+    ]
   }
 }
