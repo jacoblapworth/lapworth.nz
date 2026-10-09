@@ -21,6 +21,7 @@ export default defineConfig({
   globalCss,
   include: ['./src/**/*.{js,jsx,ts,tsx}'],
   jsxFramework: 'react',
+  jsxStyleProps: 'minimal',
   outdir: '.styled',
   outExtension: 'js',
   prefix: 'x',
