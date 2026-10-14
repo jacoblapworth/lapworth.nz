@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@biomejs/biome": "catalog:",
-    "turbo": "latest",
+    "turbo": "catalog:",
     "typescript": "catalog:"
   },
   "engines": {
