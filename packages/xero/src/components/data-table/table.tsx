@@ -1,6 +1,6 @@
 'use client'
 
-import { useCreateAtom, useSelector } from '@tanstack/react-store'
+import { createAtom, useCreateAtom, useSelector } from '@tanstack/react-store'
 
 import {
   aggregationFn_count,
@@ -124,14 +124,10 @@ const features = tableFeatures({
 
 export type TableFeatures = typeof features
 
-// biome-ignore lint/correctness/useHookAtTopLevel: The paginationAtom hook is used at the top level to create a persistent atom for pagination state.
-const paginationAtom = useCreateAtom<PaginationState>({
+const paginationAtom = createAtom<PaginationState>({
   pageIndex: 0,
   pageSize: 20,
 })
-
-// biome-ignore lint/correctness/useHookAtTopLevel: The pagination selector hook is used at the top level to create a persistent selector for pagination state.
-export const pagination = useSelector(paginationAtom)
 
 export const {
   useAppTable,

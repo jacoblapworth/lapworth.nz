@@ -233,7 +233,7 @@ export function TableHeadCell<TData extends RowData, TValue>({
   table: ReactTable<TableFeatures, TData>
   header: Header<TableFeatures, TData, TValue>
 }) {
-  const { column, getContext } = header
+  const { column } = header
   // const width = useColumnSize(column.id)
   const isPinned = column.getIsPinned() || undefined
   const isLastLeftPinnedColumn =
@@ -243,7 +243,7 @@ export function TableHeadCell<TData extends RowData, TValue>({
   const showOverflow = isLastLeftPinnedColumn || isLastRightPinnedColumn
   const id = useId()
   const isDisplay = !column.accessorFn
-  const children = flexRender(column.columnDef.header, getContext())
+  const children = flexRender(column.columnDef.header, header.getContext())
   const canResize = column.getCanResize()
 
   return (
