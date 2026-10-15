@@ -23,9 +23,6 @@
     "types:check": "turbo run types:check"
   },
   "intent": {
-    "skills": [
-      "@tanstack/*",
-      "dotenv"
-    ]
+    "skills": ["@tanstack/*", "dotenv"]
   }
 }
