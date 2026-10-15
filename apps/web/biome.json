@@ -6,5 +6,6 @@
       "next": "recommended",
       "react": "recommended"
     }
-  }
+  },
+  "root": false
 }

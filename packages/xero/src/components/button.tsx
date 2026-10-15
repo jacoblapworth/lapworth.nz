@@ -22,11 +22,11 @@ export const ButtonStyles = cva({
     color: 'text',
     cursor: 'pointer',
     display: 'inline-grid',
-    gap: 8,
+    gap: '2',
     gridAutoFlow: 'column',
     lineHeight: '1.2',
-    paddingBlock: 6,
-    paddingInline: 8,
+    paddingBlock: '1.5',
+    paddingInline: '2',
     placeItems: 'center',
     transitionDuration: '100',
     transitionProperty: 'colors',
@@ -45,20 +45,20 @@ export const ButtonStyles = cva({
 
     size: {
       md: {
-        minHeight: 40,
-        paddingInline: 12,
+        minHeight: '10',
+        paddingInline: '3',
         textStyle: 'body.medium.semibold',
       },
       sm: {
-        minHeight: 32,
-        paddingBlock: 4,
-        paddingInline: 8,
+        minHeight: '8',
+        paddingBlock: '1',
+        paddingInline: '2',
         textStyle: 'body.small.semibold',
       },
       xs: {
-        minHeight: 24,
-        paddingBlock: 2,
-        paddingInline: 8,
+        minHeight: '6',
+        paddingBlock: '0.5',
+        paddingInline: '2',
         textStyle: 'body.small.semibold',
       },
     },
@@ -118,7 +118,7 @@ export function Button({ children, isLoading, ...props }: Props) {
   return (
     <ButtonElement {...props}>
       <HStack
-        gap={8}
+        gap="2"
         gridArea="1/-1"
         visibility={isLoading ? 'hidden' : 'visible'}
       >

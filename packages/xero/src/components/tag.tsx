@@ -11,9 +11,9 @@ export const Tag = styled('span', {
     color: 'text.primary',
     display: 'inline-flex',
     flexDirection: 'row',
-    gap: 4,
+    gap: '1',
     paddingBlock: 0,
-    paddingInline: 6,
+    paddingInline: '1.5',
   },
   variants: {
     variant: {

@@ -26,6 +26,6 @@ export default defineMain({
   },
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   typescript: {
-    reactDocgen: 'react-docgen-typescript',
+    reactDocgen: 'react-docgen', //TODO: replace with 'react-docgen-typescript' when typescript 7.1 released. Current native ts api does not fully support react-docgen-typescript.
   },
 })

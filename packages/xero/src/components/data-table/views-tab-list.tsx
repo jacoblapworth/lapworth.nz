@@ -8,6 +8,6 @@ export const ViewsTabList = styled(Ariakit.TabList, {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: '4px',
+    gap: '1',
   },
 })

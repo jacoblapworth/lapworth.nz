@@ -1,7 +1,7 @@
 'use client'
 
 import * as Ariakit from '@ariakit/react'
-import { flexRender, type Header } from '@tanstack/react-table'
+import { flexRender, type Header, type RowData } from '@tanstack/react-table'
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 import { type ReactNode, useState } from 'react'
 import { HStack } from '@/styled/jsx'
+import type { TableFeatures } from '../data-table/table'
 import {
   Menu,
   MenuButton,
@@ -22,12 +23,12 @@ import {
 import { Tooltip } from '../tooltip'
 import { SortIcon } from './sort-icon'
 
-export interface TableHeadDropdownProps<TData, TValue> {
-  header: Header<TData, TValue>
+export interface TableHeadDropdownProps<TData extends RowData, TValue> {
+  header: Header<TableFeatures, TData, TValue>
   children?: ReactNode
 }
 
-export function TableHeadMenu<TData, TValue>({
+export function TableHeadMenu<TData extends RowData, TValue>({
   header,
   children,
 }: TableHeadDropdownProps<TData, TValue>) {
@@ -97,11 +98,11 @@ export function TableHeadMenu<TData, TValue>({
                 </MenuItem>
               ) : (
                 <>
-                  <MenuItem onClick={() => header.column.pin('left')}>
+                  <MenuItem onClick={() => header.column.pin('start')}>
                     <ArrowLeftIcon size={16} />
                     Pin left
                   </MenuItem>
-                  <MenuItem onClick={() => header.column.pin('right')}>
+                  <MenuItem onClick={() => header.column.pin('end')}>
                     <ArrowRightIcon size={16} />
                     Pin right
                   </MenuItem>

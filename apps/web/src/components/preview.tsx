@@ -1,6 +1,6 @@
 import { Panel, PanelGroup, PanelResizer } from '@window-splitter/react'
 import type { ReactNode } from 'react'
-import type { ResizableBoxProps } from 'react-resizable'
+import type { Props } from 'react-resizable'
 
 import { Box, styled } from '@/styled/jsx'
 
@@ -79,7 +79,7 @@ const Handle = styled(PanelResizer, {
   },
 })
 
-type ResizeProps = Pick<ResizableBoxProps, 'width'>
+type ResizeProps = Pick<Props, 'width'>
 
 interface PreviewProps extends ResizeProps {
   minWidth?: number

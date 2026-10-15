@@ -5,6 +5,7 @@ import { DataFiltersToggle } from './data-filters-toggle'
 import { DataTableSearch } from './data-table-search'
 import { type View, Views } from './data-views'
 import type { AppliedFilter } from './filters'
+import type { TableFeatures } from './table'
 import { ViewMenu } from './view-menu'
 
 interface Props<TData extends RowData> {
@@ -16,9 +17,9 @@ interface Props<TData extends RowData> {
   onSearch: (query: string) => void
   onViewChange: (viewId: string | null | undefined) => void
   selectedViewId: string | null | undefined
-  headers: Header<TData, unknown>[]
-  table: Table<TData>
-  columns: Column<TData, unknown>[]
+  headers: Header<TableFeatures, TData, unknown>[]
+  table: Table<TableFeatures, TData>
+  columns: Column<TableFeatures, TData, unknown>[]
 }
 
 export function Controls<TData extends RowData>({
@@ -40,9 +41,9 @@ export function Controls<TData extends RowData>({
       borderBottomStyle="solid"
       borderBottomWidth={1}
       flexWrap="wrap"
-      gap={8}
+      gap="2"
       justifyContent="space-between"
-      padding={8}
+      padding="2"
     >
       <Views
         onChange={onViewChange}
@@ -53,12 +54,12 @@ export function Controls<TData extends RowData>({
         alignItems="stretch"
         flexGrow={1}
         flexWrap="wrap"
-        gap={8}
+        gap="2"
         justifyContent="flex-end"
         // maxWidth={700}
       >
         <DataTableSearch table={table} />
-        <HStack alignItems="stretch" flexWrap="wrap" gap={8}>
+        <HStack alignItems="stretch" flexWrap="wrap" gap="2">
           <DataFiltersToggle
             filterCount={appliedFilters?.length}
             isSelected={showFilters}

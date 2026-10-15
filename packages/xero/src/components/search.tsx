@@ -55,8 +55,8 @@ export function Search({
         defaultValue={defaultValue}
         id={id}
         onChange={onChange}
-        paddingInlineEnd={isClearable ? 36 : 12}
-        paddingInlineStart={36}
+        paddingInlineEnd={isClearable ? '9' : '3'}
+        paddingInlineStart="9"
         placeholder={placeholder}
         ref={ref}
         role="searchbox"

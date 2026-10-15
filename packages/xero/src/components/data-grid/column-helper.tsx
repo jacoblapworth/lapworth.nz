@@ -1,10 +1,12 @@
-import type { HeaderContext } from '@tanstack/react-table'
+import type { CellData, HeaderContext, RowData } from '@tanstack/react-table'
+import type { TableFeatures } from '../data-table/table'
 
-export function footer<TData, TValue>(ctx: HeaderContext<TData, TValue>) {
-  const fn = ctx.column.getAutoAggregationFn()
-
-  if (!fn) return null
-
-  const { rows, flatRows } = ctx.table.getPrePaginationRowModel()
-  return fn(ctx.column.id, rows, flatRows)
+export function footer<
+  TData extends RowData,
+  TValue extends CellData = CellData,
+>(ctx: HeaderContext<TableFeatures, TData, TValue>) {
+  const { rows } = ctx.table.getPrePaginatedRowModel()
+  return ctx.column.getAggregationValue({
+    rows,
+  })
 }

@@ -10,5 +10,6 @@
       "*.json",
       "test/**"
     ]
-  }
+  },
+  "root": false
 }

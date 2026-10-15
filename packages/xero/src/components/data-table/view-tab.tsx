@@ -20,10 +20,10 @@ export const ViewTab = styled(Ariakit.Tab, {
       backgroundColor: 'border.subtle',
       // content: '""',
       display: 'block',
-      insetBlock: 4,
+      insetBlock: '1',
       position: 'absolute',
-      right: -3,
-      width: 1,
+      right: '-3px',
+      width: '1px',
     },
     _last: {
       _after: {
@@ -54,8 +54,8 @@ export const ViewTab = styled(Ariakit.Tab, {
     cursor: 'pointer',
     fontSize: 13,
     fontWeight: 500,
-    paddingBlock: 4,
-    paddingInline: 8,
+    paddingBlock: '1',
+    paddingInline: '2',
     position: 'relative',
   },
 })

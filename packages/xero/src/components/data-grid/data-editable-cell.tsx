@@ -24,10 +24,10 @@ const ComboboxContainer = styled('div', {
     // borderStyle: 'solid',
     // borderWidth: 1,
     flexGrow: 1,
-    gap: 8,
+    gap: '2',
     justifyContent: 'stretch',
     justifySelf: 'stretch',
-    paddingInline: 8,
+    paddingInline: '2',
     width: '100%',
   },
   variants: {
@@ -50,7 +50,7 @@ const Combobox = styled(Ariakit.Combobox, {
     },
     flexGrow: 1,
     flexShrink: 1,
-    height: 36,
+    height: '9',
     minWidth: 0,
     width: '100%',
     // paddingInlineEnd: 32,
@@ -159,7 +159,7 @@ export function DataEditableCell({ defaultValue = '', validate }: Props) {
         >
           <Ariakit.ComboboxRow
             render={
-              <HStack gap={8} justifyContent="flex-end" paddingInline={8} />
+              <HStack gap="2" justifyContent="flex-end" paddingInline="2" />
             }
           >
             <Ariakit.ComboboxItem

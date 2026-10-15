@@ -41,9 +41,9 @@ export function Filters({
       borderBottomWidth={1}
       flexGrow={1}
       flexWrap={'wrap'}
-      gap={8}
+      gap="2"
       justifyContent={'space-between'}
-      padding={8}
+      padding="2"
     >
       <HStack flexGrow={1} flexWrap="wrap">
         <AddFilterMenu filters={filters} key="add" />

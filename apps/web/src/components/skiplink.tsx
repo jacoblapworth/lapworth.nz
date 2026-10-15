@@ -1,9 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import { styled } from '@/styled/jsx'
 
-export const Skiplink = styled(Link, {
+export const Skiplink = styled('a', {
   base: {
     _focus: {
       translateY: 'md',

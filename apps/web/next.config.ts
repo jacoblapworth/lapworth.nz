@@ -42,6 +42,7 @@ const config: NextConfig = {
     },
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  partialPrefetching: true,
   reactCompiler: false,
   reactStrictMode: true,
   async redirects() {

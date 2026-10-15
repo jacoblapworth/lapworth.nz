@@ -1,9 +1,6 @@
 'use client'
 
-import {
-  type ColumnFiltersState,
-  createColumnHelper,
-} from '@tanstack/react-table'
+import type { ColumnFiltersState } from '@tanstack/react-table'
 import { CheckCircleIcon, TrashIcon } from 'lucide-react'
 import { useState } from 'react'
 import { Checkbox } from '../../components/checkbox'
@@ -12,14 +9,18 @@ import {
   DataEditableCell,
   DateCell,
 } from '../../components/data-grid'
-import { Table, useTable } from '../../components/data-table'
+import {
+  createAppColumnHelper,
+  Table,
+  useAppTable,
+} from '../../components/data-table'
 import { Tag } from '../../components/tag'
 import { initialData } from './data'
 import { getInvoiceStatus, type InvoiceRow } from './model'
 
-const columnHelper = createColumnHelper<InvoiceRow>()
+const columnHelper = createAppColumnHelper<InvoiceRow>()
 
-const columns = [
+const columns = columnHelper.columns([
   columnHelper.display({
     cell: ({ row }) => (
       <Checkbox
@@ -94,7 +95,7 @@ const columns = [
     meta: {
       alignment: 'end',
     },
-    sortingFn: 'datetime',
+    sortFn: 'datetime',
   }),
   columnHelper.accessor('dueDate', {
     // cell: (ctx) => (
@@ -106,7 +107,7 @@ const columns = [
     meta: {
       alignment: 'end',
     },
-    sortingFn: 'datetime',
+    sortFn: 'datetime',
   }),
   columnHelper.accessor('amountPaid', {
     aggregationFn: 'sum',
@@ -155,7 +156,7 @@ const columns = [
     id: 'notes',
   }),
   // defaultColumns.showColumn(columnHelper),
-]
+])
 
 export function DataTableExample() {
   const [data] = useState<InvoiceRow[]>(initialData)
@@ -163,12 +164,13 @@ export function DataTableExample() {
     [],
   )
 
-  const table = useTable<InvoiceRow>({
+  const table = useAppTable<InvoiceRow>({
     columns,
     data,
     initialState: {
       columnPinning: {
-        left: ['select', 'contact'],
+        end: [],
+        start: ['select', 'contact'],
       },
       // grouping: ['group'],
       sorting: [

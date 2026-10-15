@@ -16,7 +16,7 @@ const PillStyles = cva({
     display: 'inline-flex',
     fontSize: 13,
     lineHeight: '1.2',
-    minHeight: 32,
+    minHeight: '8',
     // overflow: 'hidden',
   },
 })
@@ -24,8 +24,8 @@ const PillStyles = cva({
 const Label = styled('span', {
   base: {
     fontWeight: '500',
-    paddingBlock: 6,
-    paddingInline: 8,
+    paddingBlock: '1.5',
+    paddingInline: '2',
   },
 })
 
@@ -39,8 +39,8 @@ const Value = styled('button', {
     borderLeftWidth: 1,
     color: 'action',
     cursor: 'pointer',
-    paddingBlock: 4,
-    paddingInline: 8,
+    paddingBlock: '1',
+    paddingInline: '2',
   },
 })
 
@@ -57,7 +57,7 @@ const RemoveButton = styled(
       borderLeftStyle: 'solid',
       borderLeftWidth: 1,
       cursor: 'pointer',
-      padding: 4,
+      padding: '1',
     },
   },
   {

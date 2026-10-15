@@ -2,6 +2,7 @@ import type { RowData, Table } from '@tanstack/react-table'
 import type { ReactNode } from 'react'
 import { HStack, VStack } from '@/styled/jsx'
 import { Button } from '../button'
+import type { TableFeatures } from './table'
 
 export interface BulkAction {
   id: string
@@ -10,7 +11,7 @@ export interface BulkAction {
 }
 
 interface Props<TData extends RowData> {
-  table: Table<TData>
+  table: Table<TableFeatures, TData>
   actions: BulkAction[]
 }
 
@@ -42,8 +43,8 @@ export function BulkActions<TData extends RowData>({
       }}
       zIndex={1000}
     >
-      <HStack justifyContent="space-between" padding={8}>
-        <HStack gap={8}>
+      <HStack justifyContent="space-between" padding="2">
+        <HStack gap="2">
           {actions.map(({ id, label, onClick }) => (
             <Button
               disabled={!(isSomeRowsSelected || isAllSelected)}
@@ -59,9 +60,9 @@ export function BulkActions<TData extends RowData>({
           alignItems="end"
           color="text.faint"
           fontSize={12}
-          gap={2}
+          gap="0.5"
           lineHeight={1}
-          marginBlock={-8}
+          marginBlock="-2"
           textStyle="body.small.regular"
         >
           <span>
@@ -75,7 +76,7 @@ export function BulkActions<TData extends RowData>({
           alignItems="center"
           borderBlockStart="soft"
           justifyContent="center"
-          paddingBlock={8}
+          paddingBlock="2"
           textStyle="body.small.regular"
         >
           {showSelectAll
