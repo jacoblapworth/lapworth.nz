@@ -88,7 +88,7 @@ export function CollapsibleRow({ children }: { children: React.ReactNode }) {
   )
 }
 
-interface ColumnMeta {
+export interface ColumnMeta {
   alignment?: 'start' | 'center' | 'end'
   isNumeric?: boolean
   isEditable?: boolean

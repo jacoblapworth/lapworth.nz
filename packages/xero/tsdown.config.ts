@@ -13,6 +13,7 @@ export default defineConfig({
   },
   platform: 'neutral',
   plugins: [preserveUseClientDirective()],
+  tsconfig: './tsconfig.build.json',
   // exports: {
   //   customExports(pkg) {
   //     pkg['./styles.css'] = './.styled/styles.css'
