@@ -37,7 +37,7 @@ export const InputStyles = cva({
     gridColumn: '1/-1',
     gridRow: 'input',
     padding: '3',
-    paddingInline: 12,
+    paddingInline: '3',
     textStyle: 'body.medium.regular',
     width: '100%',
   },
@@ -47,10 +47,10 @@ export const InputStyles = cva({
   variants: {
     size: {
       md: {
-        minHeight: 40,
+        minHeight: '10',
       },
       sm: {
-        minHeight: 32,
+        minHeight: '8',
         padding: '2',
       },
     },
@@ -62,7 +62,7 @@ export const InputElement = styled('div', {
     color: 'icon',
     display: 'grid',
     placeItems: 'center',
-    width: 32,
+    width: '8',
   },
   variants: {
     placement: {

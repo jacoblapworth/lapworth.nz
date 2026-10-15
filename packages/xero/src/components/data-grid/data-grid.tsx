@@ -69,8 +69,8 @@ export const TableStyles = cva({
     color: 'text',
     fontSize: 13,
     lineHeight: '20px',
-    marginBottom: 1,
-    paddingBlockEnd: 16,
+    marginBottom: '1px',
+    paddingBlockEnd: '4',
     tableLayout: 'fixed',
   },
 })
@@ -120,7 +120,7 @@ export const TH = styled(
       color: 'text',
       fontSize: 12,
       fontWeight: 600,
-      height: 32,
+      height: '8',
       lineHeight: '16px',
       position: 'relative',
       textAlign: 'left',
@@ -258,7 +258,7 @@ export function TableHeadCell<TData extends RowData, TValue>({
         width: `calc(var(--column-${column.id}-size) * 1px)`,
       }}
     >
-      <HStack paddingInlineEnd={2} paddingInlineStart={6}>
+      <HStack paddingInlineEnd="0.5" paddingInlineStart="1.5">
         {isDisplay ? (
           children
         ) : (
@@ -368,10 +368,10 @@ export const TdStyles = cva({
     borderInlineStartWidth: 1,
     borderStyle: 'solid',
     boxSizing: 'content-box',
-    height: 32,
+    height: '8',
     textOverflow: 'ellipsis',
     textWrap: 'nowrap',
-    width: 32,
+    width: '8',
   },
   compoundVariants: [
     {
@@ -508,7 +508,7 @@ export const TableCellOverflowStyles = cva({
     pointerEvents: 'none',
     position: 'absolute',
     top: 0,
-    width: 8,
+    width: '2',
   },
 
   variants: {

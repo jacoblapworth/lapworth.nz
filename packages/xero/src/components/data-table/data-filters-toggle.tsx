@@ -29,8 +29,8 @@ export function DataFiltersToggle({ isSelected, filterCount, onClick }: Props) {
           borderRadius={6}
           fontVariantNumeric="tabular-nums"
           lineHeight="1"
-          marginBlock={-4}
-          paddingInline={6}
+          marginBlock="-1"
+          paddingInline="1.5"
         >
           <NumberFlow value={filterCount} />
         </Box>

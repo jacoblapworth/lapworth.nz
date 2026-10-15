@@ -25,7 +25,7 @@ export function Pagination<TData extends RowData>({ table }: Props<TData>) {
       borderBlockStartStyle="solid"
       borderBlockStartWidth={1}
       justifyContent="space-between"
-      padding={8}
+      padding="2"
     >
       <HStack color="text" textStyle="body.small.regular">
         <SelectProvider
@@ -54,7 +54,7 @@ export function Pagination<TData extends RowData>({ table }: Props<TData>) {
         <Box
           color="text.subtle"
           fontVariantNumeric="tabular-nums"
-          marginInlineEnd={8}
+          marginInlineEnd="2"
           textStyle="body.small.regular"
         >
           Page {currentPage + 1} of {pageCount}

@@ -41,7 +41,7 @@ export function Spinner({
   const labelId = useId()
 
   return (
-    <Box display="inline-flex" height="100%" padding={2} {...props}>
+    <Box display="inline-flex" height="100%" padding="0.5" {...props}>
       <SVG
         aria-hidden
         aria-labelledby={hasHiddenLabel ? labelId : undefined}

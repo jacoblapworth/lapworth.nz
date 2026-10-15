@@ -7,7 +7,7 @@ export const globalCss: GlobalStyleObject = {
     },
     _focusVisible: {
       outlineColor: 'border.focus',
-      outlineOffset: 2,
+      outlineOffset: 0.5,
       outlineStyle: 'solid',
       outlineWidth: 2,
     },

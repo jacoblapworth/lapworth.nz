@@ -33,7 +33,7 @@ export const MenuStyles = cva({
     flexDirection: 'column',
     minWidth: 'var(--popover-anchor-width)',
     overflow: 'hidden',
-    paddingBlock: 8,
+    paddingBlock: '2',
     zIndex: 1000,
   },
   variants: {
@@ -45,7 +45,7 @@ export const MenuStyles = cva({
         maxWidth: '300px',
       },
       sm: {
-        maxWidth: '240px',
+        maxWidth: '60',
       },
       xl: {
         maxWidth: '500px',
@@ -70,7 +70,7 @@ export const MenuSeparator = styled(Ariakit.MenuSeparator, {
   base: {
     color: 'border.soft',
     height: 0,
-    marginBlock: 8,
+    marginBlock: '2',
   },
 })
 
@@ -113,11 +113,11 @@ export const MenuItemStyles = cva({
     cursor: 'pointer',
     display: 'flex',
     flexDirection: 'row',
-    gap: 8,
+    gap: '2',
     justifyContent: 'stretch',
     lineHeight: '1.45',
-    paddingBlock: 8,
-    paddingInline: 16,
+    paddingBlock: '2',
+    paddingInline: '4',
     position: 'relative',
     textStyle: 'body.medium.regular',
   },
@@ -129,9 +129,9 @@ export const MenuItemStyles = cva({
           backgroundColor: 'background.primary',
           borderRadius: '50%',
           content: '""',
-          height: 6,
+          height: '1.5',
           position: 'absolute',
-          width: 6,
+          width: '1.5',
         },
       },
     },
@@ -161,7 +161,7 @@ const MenuHighlightStyles = cva({
     left: 0,
     position: 'absolute',
     top: 0,
-    width: 4,
+    width: '1',
   },
 })
 
@@ -172,7 +172,7 @@ const MenuItemLabel = styled('div', {
     alignItems: 'center',
     display: 'flex',
     flexGrow: 1,
-    gap: 8,
+    gap: '2',
   },
 })
 

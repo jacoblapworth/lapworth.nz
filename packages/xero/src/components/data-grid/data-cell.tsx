@@ -27,7 +27,7 @@ const Container = styled('div', {
     },
     isEditable: {
       false: {
-        paddingInline: 6,
+        paddingInline: '1.5',
         truncate: true,
       },
       true: {

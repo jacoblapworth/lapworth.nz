@@ -43,8 +43,8 @@ export function BulkActions<TData extends RowData>({
       }}
       zIndex={1000}
     >
-      <HStack justifyContent="space-between" padding={8}>
-        <HStack gap={8}>
+      <HStack justifyContent="space-between" padding="2">
+        <HStack gap="2">
           {actions.map(({ id, label, onClick }) => (
             <Button
               disabled={!(isSomeRowsSelected || isAllSelected)}
@@ -60,9 +60,9 @@ export function BulkActions<TData extends RowData>({
           alignItems="end"
           color="text.faint"
           fontSize={12}
-          gap={2}
+          gap="0.5"
           lineHeight={1}
-          marginBlock={-8}
+          marginBlock="-2"
           textStyle="body.small.regular"
         >
           <span>
@@ -76,7 +76,7 @@ export function BulkActions<TData extends RowData>({
           alignItems="center"
           borderBlockStart="soft"
           justifyContent="center"
-          paddingBlock={8}
+          paddingBlock="2"
           textStyle="body.small.regular"
         >
           {showSelectAll

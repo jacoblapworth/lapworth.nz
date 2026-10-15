@@ -41,9 +41,9 @@ export function Controls<TData extends RowData>({
       borderBottomStyle="solid"
       borderBottomWidth={1}
       flexWrap="wrap"
-      gap={8}
+      gap="2"
       justifyContent="space-between"
-      padding={8}
+      padding="2"
     >
       <Views
         onChange={onViewChange}
@@ -54,12 +54,12 @@ export function Controls<TData extends RowData>({
         alignItems="stretch"
         flexGrow={1}
         flexWrap="wrap"
-        gap={8}
+        gap="2"
         justifyContent="flex-end"
         // maxWidth={700}
       >
         <DataTableSearch table={table} />
-        <HStack alignItems="stretch" flexWrap="wrap" gap={8}>
+        <HStack alignItems="stretch" flexWrap="wrap" gap="2">
           <DataFiltersToggle
             filterCount={appliedFilters?.length}
             isSelected={showFilters}

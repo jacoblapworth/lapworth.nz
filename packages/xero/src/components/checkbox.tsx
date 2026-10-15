@@ -85,11 +85,11 @@ export const CheckboxStyles = cva({
     cursor: 'pointer',
     display: 'flex',
     gap: 'small',
-    height: 20,
+    height: '5',
     justifyContent: 'center',
-    minHeight: 20,
-    minWidth: 20,
-    width: 20,
+    minHeight: '5',
+    minWidth: '5',
+    width: '5',
   },
 })
 

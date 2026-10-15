@@ -38,9 +38,9 @@ export function TableScrollContainer({ children }: TableContainerProps) {
           bottom: 0,
           boxShadow: 'overflow.right',
           position: 'absolute',
-          right: -16,
+          right: '-4',
           top: 0,
-          width: 16,
+          width: '4',
         })}
         style={{ opacity }}
       />
