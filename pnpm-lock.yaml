@@ -6500,6 +6500,11 @@ packages:
 
   ajv-formats@2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
+    peerDependencies:
+      ajv: ^8.0.0
+    peerDependenciesMeta:
+      ajv:
+        optional: true
 
   ajv-formats@3.0.1:
     resolution: {integrity: sha512-8iUql50EUR+uUcdRQ3HDqa6EVyo3docL8g5WJ3FNcWmu62IbkGUue/pEyLBW8VGKKucTPgqeks4fIU1DA4yowQ==}
@@ -10854,9 +10859,9 @@ packages:
     engines: {node: '>=18.12'}
     hasBin: true
 
-  systeminformation@5.31.5:
-    resolution: {integrity: sha512-5SyLdip4/3alxD4Kh+63bUQTJmu7YMfYQTC+koZy7X73HgNqZSD2P4wOZQWtUncvPvcEmnfIjCoygN4MRoEejQ==}
-    engines: {node: '>=8.0.0'}
+  systeminformation@5.33.19:
+    resolution: {integrity: sha512-Zm7wGeCG7PqfvzegMJIzrxICopWqYCeLATVmvxOOci1isLcNVKgY4Fr0hhYQzvc7cgtK3377jQVChTFAnznOiA==}
+    engines: {node: '>=10.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
 
@@ -14334,7 +14339,7 @@ snapshots:
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/sourcemap-codec': 1.6.0
       '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/remapping@2.3.5':
@@ -14356,7 +14361,7 @@ snapshots:
   '@jridgewell/trace-mapping@0.3.31':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/sourcemap-codec': 1.6.0
 
   '@jridgewell/trace-mapping@0.3.9':
     dependencies:
@@ -17552,8 +17557,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ajv-formats@2.1.1:
-    dependencies:
+  ajv-formats@2.1.1(ajv@8.20.0):
+    optionalDependencies:
       ajv: 8.20.0
 
   ajv-formats@3.0.1:
@@ -18458,7 +18463,7 @@ snapshots:
       proxy-from-env: 1.0.0
       request-progress: 3.0.0
       supports-color: 8.1.1
-      systeminformation: 5.31.5
+      systeminformation: 5.33.19
       tmp: 0.2.5
       tree-kill: 1.2.2
       untildify: 4.0.0
@@ -20263,7 +20268,7 @@ snapshots:
 
   magic-string@0.30.21:
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/sourcemap-codec': 1.6.0
 
   magic-string@1.2.3:
     dependencies:
@@ -22610,7 +22615,7 @@ snapshots:
     dependencies:
       '@types/json-schema': 7.0.15
       ajv: 8.20.0
-      ajv-formats: 2.1.1
+      ajv-formats: 2.1.1(ajv@8.20.0)
       ajv-keywords: 5.1.0(ajv@8.20.0)
 
   section-matter@1.0.0:
@@ -23101,7 +23106,7 @@ snapshots:
       better-path-resolve: 1.0.0
       rename-overwrite: 6.0.6
 
-  systeminformation@5.31.5: {}
+  systeminformation@5.33.19: {}
 
   table@6.9.0:
     dependencies:
